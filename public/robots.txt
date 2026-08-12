@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Sitemap: https://vooolabs.com/sitemap.xml
+
+# Block AI training crawlers (keep search indexing)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
