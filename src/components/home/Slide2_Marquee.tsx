@@ -37,15 +37,15 @@ export default function Slide2_Marquee() {
     { name: 'Material Design 3', icon: Layout },
     { name: 'React 19', icon: Atom },
     { name: 'TypeScript', icon: FileCode2 },
-    { name: 'Firebase', icon: Flame },
+    { name: 'Supabase', icon: Flame },
     { name: 'Hilt DI', icon: Cog },
     { name: 'Room DB', icon: Database },
     { name: 'ExoPlayer', icon: Tv },
     { name: 'Tailwind CSS', icon: Wind },
     { name: 'Vite', icon: Zap },
     { name: 'Framer Motion', icon: Film },
-    { name: 'Node.js', icon: Server },
-    { name: 'Gemini AI', icon: Sparkles },
+    { name: 'Cloudflare R2', icon: Server },
+    { name: 'Gemini Flash', icon: Sparkles },
     { name: 'Biometric API', icon: ShieldCheck },
     { name: 'REST API', icon: Code2 },
     { name: 'Play Store', icon: Smartphone },
@@ -68,7 +68,7 @@ export default function Slide2_Marquee() {
     { name: 'Lead Pipeline Tracker', icon: Briefcase },
     { name: 'Smart Call Logger', icon: PhoneCall },
     { name: 'Affordable Tiering', icon: Zap },
-    { name: 'Public Beta Access', icon: Rocket },
+    { name: 'Beta Access', icon: Rocket },
   ];
 
   // Triple items for continuous smooth looping

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion';
 
 interface AnimatedTextProps {
   text: string;
@@ -30,7 +30,7 @@ export default function AnimatedText({ text, className = '' }: AnimatedTextProps
 
 interface WordProps {
   word: string;
-  progress: any;
+  progress: MotionValue<number>;
   start: number;
   end: number;
 }

@@ -1,79 +1,107 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { useInView } from 'framer-motion';
 import FadeIn from '../shared/FadeIn';
+import { COMPANY } from '../../content/company';
+import { PRODUCTS, AVAILABLE_PRODUCTS } from '../../content/products';
 
 interface CounterProps {
   value: string;
   duration?: number;
 }
 
+interface Countable {
+  prefix: string;
+  suffix: string;
+  start: number;
+  end: number;
+}
+
+/**
+ * Splits "₹699/mo" into the bits needed to count it up, or returns null when
+ * there is no number to animate. Returning null rather than setting state for
+ * the non-numeric case keeps the effect below free of synchronous setState.
+ *
+ * A year counts up from 25 years back so it reads as a year rather than
+ * spinning through two millennia; anything else counts from zero.
+ */
+function parseCountable(value: string): Countable | null {
+  const digits = value.replace(/[^0-9]/g, '');
+  if (!digits) return null;
+
+  const end = parseInt(digits, 10);
+  return {
+    prefix: value.match(/^[^-0-9]+/)?.[0] ?? '',
+    suffix: value.match(/[^-0-9]+$/)?.[0] ?? '',
+    start: end > 1900 ? end - 25 : 0,
+    end,
+  };
+}
+
 function Counter({ value, duration = 1.5 }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
-  const [displayValue, setDisplayValue] = useState(value.includes('∞') ? '∞' : '0');
+  const countable = useMemo(() => parseCountable(value), [value]);
+  const [counted, setCounted] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!isInView || value.includes('∞')) return;
-    
-    const numericPart = value.replace(/[^0-9]/g, '');
-    const prefix = value.match(/^[^-0-9]+/)?.[0] || '';
-    const suffix = value.match(/[^-0-9]+$/)?.[0] || '';
-    
-    if (!numericPart) {
-      setDisplayValue(value);
-      return;
-    }
+    if (!isInView || !countable) return;
 
-    const endVal = parseInt(numericPart, 10);
+    const { prefix, suffix, start, end } = countable;
     let startTimestamp: number | null = null;
-    
-    const step = (timestamp: number) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
-      const current = Math.floor(progress * endVal);
-      
-      if (value === '2025') {
-        const startYear = 2000;
-        const currentYear = startYear + Math.floor(progress * (2025 - startYear));
-        setDisplayValue(`${currentYear}`);
-      } else {
-        setDisplayValue(`${prefix}${current}${suffix}`);
-      }
-      
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      } else {
-        setDisplayValue(value);
-      }
-    };
-    
-    window.requestAnimationFrame(step);
-  }, [value, isInView, duration]);
+    let frame = 0;
 
-  return <span ref={ref}>{displayValue}</span>;
+    const step = (timestamp: number) => {
+      if (startTimestamp === null) startTimestamp = timestamp;
+      const progress = Math.min(
+        (timestamp - startTimestamp) / (duration * 1000),
+        1,
+      );
+      const current = Math.floor(start + progress * (end - start));
+      setCounted(`${prefix}${current}${suffix}`);
+
+      if (progress < 1) frame = window.requestAnimationFrame(step);
+    };
+
+    frame = window.requestAnimationFrame(step);
+    // Without this the loop kept running and setting state after unmount.
+    return () => window.cancelAnimationFrame(frame);
+  }, [countable, isInView, duration]);
+
+  // Before the animation starts, and for values with no number in them, the
+  // literal value is what belongs on screen.
+  const shown = countable
+    ? counted ?? `${countable.prefix}${countable.start}${countable.suffix}`
+    : value;
+
+  return <span ref={ref}>{shown}</span>;
 }
 
 export default function Slide4_Innovation() {
+  /**
+   * Only figures that can be checked against something.
+   *
+   * The product count comes from content/products.ts and the founding year
+   * from content/company.ts, so neither can drift from what the rest of the
+   * site says. "100% Privacy Commitment" and "∞ Passion" are gone: a
+   * percentage nobody can verify and a symbol standing in for enthusiasm are
+   * not numbers, and putting them under a heading that says "By The Numbers"
+   * made the two real figures look like decoration too.
+   */
   const stats = [
     {
-      value: '4',
-      label: 'Products Built & In Development',
+      value: String(PRODUCTS.length),
+      label: 'Products built and in development',
       gradClass: 'g-files',
     },
     {
-      value: '2025',
-      label: 'Year VOOO LABS Was Founded',
+      value: String(COMPANY.foundedYear),
+      label: `Year ${COMPANY.brandName} was founded`,
       gradClass: 'g-smaran',
     },
     {
-      value: '100%',
-      label: 'Privacy Commitment — Zero Data Sold',
+      value: String(AVAILABLE_PRODUCTS.length),
+      label: 'You can try today',
       gradClass: 'g-callmind',
-    },
-    {
-      value: '∞',
-      label: 'Passion for Building Great Software',
-      gradClass: 'g-text',
     },
   ];
 
@@ -91,7 +119,7 @@ export default function Slide4_Innovation() {
         {/* HEADING */}
         <FadeIn delay={0.1} y={30}>
           <h2 className="font-clash text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0A0F1E] text-center leading-none mb-16 sm:mb-20">
-            The <span className="shimmer-text">VOOO LABS</span> Impact.
+            Where <span className="shimmer-text">{COMPANY.brandName}</span> stands.
           </h2>
         </FadeIn>
 
@@ -120,7 +148,7 @@ export default function Slide4_Innovation() {
         {/* BOTTOM QUOTE */}
         <FadeIn delay={0.5} y={20}>
           <p className="font-kanit font-light italic text-lg sm:text-xl md:text-2xl text-slate-500 text-center mt-16 sm:mt-20 max-w-[550px] leading-relaxed">
-            "Engineering meets art — and the result is always something five years ahead."
+            Small numbers, honestly counted. They will be bigger next year.
           </p>
         </FadeIn>
 

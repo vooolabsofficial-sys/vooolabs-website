@@ -1,67 +1,80 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, ShieldCheck, HeartHandshake, MapPin, Check, PhoneCall } from 'lucide-react';
+import { Mail, ShieldCheck, MapPin, Check, PhoneCall, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FadeIn from '../shared/FadeIn';
+import {
+  GithubIcon,
+  LinkedinIcon,
+  TwitterIcon,
+  InstagramIcon,
+} from '../shared/BrandIcons';
+import {
+  COMPANY,
+  LOCATION,
+  SOCIALS,
+  FOUNDER,
+  RESPONSE_COPY,
+  whatsappLink,
+} from '../../content/company';
+import {
+  submitEnquiry,
+  resultCopy,
+  type EnquiryKind,
+  type SubmitResult,
+} from '../../lib/contact';
 
-const GithubIcon = ({ size = 18 }: { size?: number }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-);
-
-const LinkedinIcon = ({ size = 18 }: { size?: number }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-);
-
-const TwitterIcon = ({ size = 18 }: { size?: number }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-);
-
-const InstagramIcon = ({ size = 18 }: { size?: number }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-);
+const TABS: EnquiryKind[] = ['General', 'Partnership', 'Beta', 'Press', 'Other'];
 
 export default function Slide2_Form() {
-  const [activeTab, setActiveTab] = useState('General');
+  const [activeTab, setActiveTab] = useState<EnquiryKind>('General');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [showToast, setShowToast] = useState(false);
+  const [result, setResult] = useState<SubmitResult | null>(null);
+  const [isSending, setIsSending] = useState(false);
 
-  // Monitor URL hash to switch tab on mount or hash change
+  /**
+   * `/contact#waitlist` preselects the Beta tab.
+   *
+   * This listens for `hashchange` as well as running on mount: a link to
+   * `#waitlist` from elsewhere on the contact page changes the hash without
+   * remounting anything, so a mount-only effect ignored it. The old code
+   * claimed in a comment to handle both and only ever handled mount.
+   */
   useEffect(() => {
-    if (window.location.hash === '#waitlist') {
+    const applyHash = () => {
+      if (window.location.hash !== '#waitlist') return;
       setActiveTab('Beta');
-      // Scroll to form section
-      const formSec = document.getElementById('contact-form-section');
-      if (formSec) {
-        formSec.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+      document
+        .getElementById('contact-form-section')
+        ?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
+    return () => window.removeEventListener('hashchange', applyHash);
   }, []);
 
-  const handleLeftCardClick = (tabName: string) => {
+  const handleLeftCardClick = (tabName: EnquiryKind) => {
     setActiveTab(tabName);
-    const formField = document.getElementById('name-input');
-    if (formField) {
-      formField.focus();
-    }
+    document.getElementById('name-input')?.focus();
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
-    
-    // Open default mail client with pre-filled message
-    const subject = encodeURIComponent(`[${activeTab}] Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nInquiry Type: ${activeTab}\n\nMessage:\n${formData.message}`);
-    window.open(`mailto:vooolabsofficial@gmail.com?subject=${subject}&body=${body}`, '_blank');
+    if (isSending) return;
 
-    setShowToast(true);
-    setFormData({ name: '', email: '', message: '' });
+    setIsSending(true);
+    const outcome = await submitEnquiry({
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+      kind: activeTab,
+      source: 'Contact form',
+    });
+    setIsSending(false);
+    setResult(outcome);
 
-    setTimeout(() => {
-      setShowToast(false);
-    }, 4000);
+    if (outcome.ok) setFormData({ name: '', email: '', message: '' });
   };
-
-  const tabs = ['General', 'Partnership', 'Beta', 'Press', 'Other'];
 
   return (
     <section 
@@ -81,7 +94,7 @@ export default function Slide2_Form() {
               </div>
               <div className="flex-1 min-w-0">
                 <h4 className="font-clash font-semibold text-sm sm:text-base text-[#0A0F1E] mb-1">General Inquiries</h4>
-                <p className="font-kanit font-light text-xs sm:text-sm text-slate-500 mb-3 truncate">vooolabsofficial@gmail.com</p>
+                <p className="font-kanit font-light text-xs sm:text-sm text-slate-500 mb-3 truncate">{COMPANY.email}</p>
                 <button 
                   onClick={() => handleLeftCardClick('General')}
                   className="font-kanit font-semibold text-xs text-blue-600 hover:text-blue-700 transition-colors py-0.5 border-b border-blue-500/20"
@@ -100,9 +113,9 @@ export default function Slide2_Form() {
               </div>
               <div className="flex-1">
                 <h4 className="font-clash font-semibold text-sm sm:text-base text-[#0A0F1E] mb-1">WhatsApp Quick Chat</h4>
-                <p className="font-kanit font-light text-xs sm:text-sm text-slate-500 mb-3">Direct line for fast responses: 7620236178</p>
-                <a 
-                  href="https://wa.me/917620236178"
+                <p className="font-kanit font-light text-xs sm:text-sm text-slate-500 mb-3">{RESPONSE_COPY}</p>
+                <a
+                  href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-kanit font-semibold text-xs text-emerald-600 hover:text-emerald-700 transition-colors py-0.5 border-b border-emerald-500/20 inline-block"
@@ -140,9 +153,9 @@ export default function Slide2_Form() {
               </div>
               <div className="flex-1">
                 <h4 className="font-clash font-semibold text-sm sm:text-base text-[#0A0F1E] mb-1">Hub Locations</h4>
-                <p className="font-kanit text-slate-600 text-xs sm:text-sm">Pune · Nashik · Satara</p>
+                <p className="font-kanit text-slate-600 text-xs sm:text-sm">{LOCATION.hubs.join(' · ')}</p>
                 <p className="font-kanit font-light text-xs text-slate-500 leading-normal">
-                  Maharashtra, India · Serving worldwide
+                  {LOCATION.region}, {LOCATION.country}
                 </p>
               </div>
             </div>
@@ -152,18 +165,19 @@ export default function Slide2_Form() {
           <FadeIn delay={0.32} y={15} className="mt-2">
             <div className="flex items-center gap-3">
               {[
-                { icon: <GithubIcon size={18} />, link: 'https://github.com/vooolabs', label: 'GitHub' },
-                { icon: <LinkedinIcon size={18} />, link: 'https://linkedin.com/company/vooolabs', label: 'LinkedIn' },
-                { icon: <TwitterIcon size={18} />, link: 'https://twitter.com/vooolabs', label: 'Twitter' },
-                { icon: <InstagramIcon size={18} />, link: 'https://instagram.com/vrushyxx', label: 'Instagram' },
-                { icon: <PhoneCall size={18} />, link: 'https://wa.me/917620236178', label: 'WhatsApp' },
-                { icon: <Mail size={18} />, link: 'mailto:vooolabsofficial@gmail.com', label: 'Email' },
-              ].map((soc, idx) => (
+                { icon: <GithubIcon size={18} />, link: SOCIALS.github, label: 'GitHub', external: true },
+                { icon: <LinkedinIcon size={18} />, link: SOCIALS.linkedin, label: 'LinkedIn', external: true },
+                { icon: <TwitterIcon size={18} />, link: SOCIALS.twitter, label: 'Twitter', external: true },
+                { icon: <InstagramIcon size={18} />, link: FOUNDER.instagram, label: "Founder's Instagram", external: true },
+                { icon: <PhoneCall size={18} />, link: whatsappLink, label: 'WhatsApp', external: true },
+                { icon: <Mail size={18} />, link: `mailto:${COMPANY.email}`, label: 'Email', external: false },
+              ].map((soc) => (
                 <a
-                  key={idx}
+                  key={soc.label}
                   href={soc.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...(soc.external
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : {})}
                   aria-label={soc.label}
                   className="w-11 h-11 rounded-2xl border border-black/5 bg-white flex items-center justify-center text-slate-500 hover:text-blue-500 hover:border-blue-500/20 hover:shadow-[0_8px_20px_rgba(66,133,244,0.15)] transition-all duration-200"
                 >
@@ -190,7 +204,7 @@ export default function Slide2_Form() {
                 Send a Message
               </h3>
               <p className="font-kanit font-light text-xs sm:text-sm text-slate-400 mb-8">
-                We reply within 24 hours.
+                {RESPONSE_COPY}
               </p>
 
               {/* FORM FIELDS */}
@@ -228,7 +242,7 @@ export default function Slide2_Form() {
                 <div className="flex flex-col gap-2">
                   <span className="font-kanit font-medium text-xs sm:text-sm text-slate-700">Inquiry Type</span>
                   <div className="flex flex-wrap gap-1.5 bg-slate-50 border border-black/[0.03] p-1.5 rounded-2xl w-full">
-                    {tabs.map((tab) => (
+                    {TABS.map((tab) => (
                       <button
                         type="button"
                         key={tab}
@@ -262,9 +276,10 @@ export default function Slide2_Form() {
                 {/* SUBMIT BUTTON */}
                 <button
                   type="submit"
-                  className="rounded-xl bg-gradient-to-r from-blue-500 via-purple-600 to-orange-500 py-4 font-kanit font-semibold text-sm sm:text-base text-white transition-all duration-300 hover:scale-[1.01] hover:-translate-y-0.5 active:scale-[0.99] shadow-[0_4px_14px_rgba(66,133,244,0.3)] mt-2 min-h-[44px]"
+                  disabled={isSending}
+                  className="rounded-xl bg-gradient-to-r from-blue-500 via-purple-600 to-orange-500 py-4 font-kanit font-semibold text-sm sm:text-base text-white transition-all duration-300 hover:scale-[1.01] hover:-translate-y-0.5 active:scale-[0.99] shadow-[0_4px_14px_rgba(66,133,244,0.3)] mt-2 min-h-[44px] disabled:opacity-70"
                 >
-                  Send Message →
+                  {isSending ? 'Sending…' : 'Send Message →'}
                 </button>
 
               </div>
@@ -275,23 +290,39 @@ export default function Slide2_Form() {
 
       </div>
 
-      {/* SUCCESS TOAST NOTIFICATION */}
+      {/*
+        Result toast. Reports what actually happened rather than always saying
+        "Message Sent!" -- when the transport is the visitor's own mail client,
+        nothing has been sent until they press send in it.
+      */}
       <AnimatePresence>
-        {showToast && (
+        {result && (
           <motion.div
+            key="enquiry-result"
+            role="status"
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.95 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="fixed bottom-24 right-6 z-[8000] flex items-center gap-3 rounded-2xl border border-emerald-500/20 bg-white p-4 pr-6 shadow-[0_8px_30px_rgba(16,185,129,0.15)] select-none cursor-default max-w-sm"
+            className={`fixed bottom-24 right-6 z-[8000] flex items-center gap-3 rounded-2xl border bg-white p-4 pr-6 shadow-[0_8px_30px_rgba(0,0,0,0.12)] cursor-default max-w-sm ${
+              result.ok ? 'border-emerald-500/20' : 'border-amber-500/30'
+            }`}
           >
-            <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 flex-shrink-0">
-              <Check size={16} />
+            <div
+              className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+                result.ok
+                  ? 'bg-emerald-500/10 text-emerald-600'
+                  : 'bg-amber-500/10 text-amber-600'
+              }`}
+            >
+              {result.ok ? <Check size={16} /> : <AlertCircle size={16} />}
             </div>
             <div className="flex flex-col text-left min-w-0">
-              <span className="font-clash font-semibold text-xs sm:text-sm text-slate-800">Message Sent!</span>
-              <span className="font-kanit font-light text-[10px] sm:text-xs text-slate-400 mt-0.5 leading-normal">
-                Thank you. We'll reply within 24 hours.
+              <span className="font-clash font-semibold text-xs sm:text-sm text-slate-800">
+                {result.ok ? 'Almost there' : 'That did not go through'}
+              </span>
+              <span className="font-kanit font-light text-[10px] sm:text-xs text-slate-500 mt-0.5 leading-normal">
+                {resultCopy(result)}
               </span>
             </div>
           </motion.div>

@@ -55,6 +55,36 @@ h1, h2, h3, h4, h5 {
 }
 
 /* ═══════════════════════════════════════════════
+   UTILITIES TAILWIND v3 DOES NOT SHIP
+   ───────────────────────────────────────────────
+   The markup was written against Tailwind v4 class names while the project
+   is pinned to tailwindcss ^3.4. v3 emits no rule for any of these, so they
+   were silently doing nothing: `bg-radial` appeared on 14 elements and every
+   one of the ambient background blobs on Home, Products and Contact rendered
+   as an empty transparent div. Defining them here keeps the markup unchanged
+   and makes it work; a later upgrade to v4 can drop this block.
+   ═══════════════════════════════════════════════ */
+@layer utilities {
+  /* Pairs with Tailwind colour stops, which set --tw-gradient-stops. */
+  .bg-radial {
+    background-image: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+
+  /* v4 renamed v3's `shadow-sm` to `shadow-xs`. */
+  .shadow-xs {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════
    GRADIENT TEXT UTILITIES
    ═══════════════════════════════════════════════ */
 .g-text {

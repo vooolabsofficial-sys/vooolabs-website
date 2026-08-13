@@ -2,15 +2,20 @@ import React from 'react';
 import { Brain, ArrowUp, Bell, Clock, Lock, Users, MapPin, Sparkles, GraduationCap, Briefcase, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../shared/FadeIn';
+import { getProduct, STATUS_META } from '../../content/products';
 
 export default function Slide3_SmaranAI() {
-  const features = [
-    { name: 'Exact Alarms', icon: Clock, color: 'text-[#7C3AED]' },
-    { name: 'Auto-Purge Vault', icon: Lock, color: 'text-emerald-500' },
-    { name: 'Family Circle Sync', icon: Users, color: 'text-blue-500' },
-    { name: 'Location Reminders', icon: MapPin, color: 'text-[#F97316]' },
-    { name: '3 Gen Modes', icon: Sparkles, color: 'text-amber-500' },
-    { name: 'AI Memory Companion', icon: Brain, color: 'text-purple-600' },
+  const product = getProduct('smaran-ai')!;
+  const status = STATUS_META[product.status];
+
+  const featureIcons = [Clock, Lock, Users, MapPin, Sparkles, Brain];
+  const featureColors = [
+    'text-[#7C3AED]',
+    'text-emerald-500',
+    'text-blue-500',
+    'text-[#F97316]',
+    'text-amber-500',
+    'text-purple-600',
   ];
 
   return (
@@ -99,7 +104,7 @@ export default function Slide3_SmaranAI() {
           {/* BACK TO TOP ANCHOR */}
           <FadeIn delay={0} y={15}>
             <a 
-              href="#" 
+              href="#products-top" 
               className="inline-flex items-center gap-1 font-kanit font-medium text-xs text-[#7C3AED] uppercase tracking-wider mb-5 hover:text-[#7C3AED]/90"
             >
               <ArrowUp size={10} /> Back to Products
@@ -117,10 +122,10 @@ export default function Slide3_SmaranAI() {
           <FadeIn delay={0.1} y={15}>
             <div className="flex items-center gap-2 mb-4">
               <span className="rounded-full bg-purple-500/10 border border-purple-500/20 px-3 py-1 font-kanit font-medium text-xs text-purple-600">
-                Android + Web
+                {product.platforms}
               </span>
-              <span className="rounded-full bg-[#F97316]/10 border border-[#F97316]/20 px-3 py-1 font-kanit font-medium text-xs text-[#F97316]">
-                Architecture Blueprint Ready
+              <span className={`rounded-full border px-3 py-1 font-kanit font-medium text-xs ${status.badge}`}>
+                {status.label}
               </span>
             </div>
           </FadeIn>
@@ -131,29 +136,35 @@ export default function Slide3_SmaranAI() {
               SMARAN AI
             </h3>
             <h4 className="font-clash text-lg sm:text-xl md:text-2xl font-semibold g-smaran mb-6">
-              Your AI memory companion.
+              {product.tagline}
             </h4>
           </FadeIn>
 
           {/* DESCRIPTION */}
           <FadeIn delay={0.25} y={20}>
+            {/*
+              "100% guaranteed alarms" is gone: Android's own doze and OEM
+              battery managers mean no app can guarantee that, and promising it
+              for software that is not built yet is a claim with nothing behind
+              it at all.
+            */}
             <p className="font-kanit font-light text-sm sm:text-base text-slate-600 leading-relaxed max-w-[500px] mb-8">
-              100% guaranteed alarms even on silent mode. Auto-purge privacy — sensitive data deletes in 5 minutes. Family Circle sync via 6-digit secret code. Three generation modes: Student, Professional, Elder 60+. Smart location-based reminders.
+              {product.description}
             </p>
           </FadeIn>
 
           {/* FEATURE CHIPS GRID */}
           <FadeIn delay={0.35} y={15} className="w-full">
             <div className="grid grid-cols-2 gap-3 max-w-[480px] mb-10">
-              {features.map((feature, idx) => {
-                const IconComponent = feature.icon;
+              {product.features.map((feature, idx) => {
+                const IconComponent = featureIcons[idx % featureIcons.length];
                 return (
-                  <div 
-                    key={idx}
+                  <div
+                    key={feature}
                     className="rounded-xl bg-[#7C3AED]/[0.06] border border-[#7C3AED]/15 px-4 py-3 font-kanit text-xs sm:text-sm text-slate-800 flex items-center gap-2.5 hover:bg-[#7C3AED]/10 transition-colors"
                   >
-                    <IconComponent className={`w-4 h-4 ${feature.color}`} />
-                    <span className="font-medium">{feature.name}</span>
+                    <IconComponent className={`w-4 h-4 ${featureColors[idx % featureColors.length]}`} />
+                    <span className="font-medium">{feature}</span>
                   </div>
                 );
               })}
@@ -163,17 +174,17 @@ export default function Slide3_SmaranAI() {
           {/* CTA ROW */}
           <FadeIn delay={0.45} y={15}>
             <div className="flex flex-wrap gap-4 items-center">
-              <a
-                href="#waitlist"
+              <Link
+                to="/contact#waitlist"
                 className="rounded-full bg-gradient-to-r from-[#7C3AED] to-[#F97316] px-7 py-3 font-kanit font-medium text-sm text-white transition-all duration-300 hover:scale-[1.03] shadow-[0_4px_14px_rgba(124,58,237,0.25)]"
               >
                 Join Waitlist
-              </a>
+              </Link>
               <Link
                 to="/roadmap"
                 className="rounded-full border-2 border-[#7C3AED] px-7 py-2.5 font-kanit font-medium text-sm g-smaran hover:bg-[#7C3AED]/5 transition-all duration-300"
               >
-                Learn More ↓
+                See the roadmap
               </Link>
             </div>
           </FadeIn>

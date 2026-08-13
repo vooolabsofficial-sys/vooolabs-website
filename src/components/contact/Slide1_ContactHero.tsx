@@ -1,5 +1,6 @@
 import React from 'react';
 import FadeIn from '../shared/FadeIn';
+import { COMPANY, LOCATION, RESPONSE_COPY } from '../../content/company';
 
 export default function Slide1_ContactHero() {
   return (
@@ -21,24 +22,21 @@ export default function Slide1_ContactHero() {
         {/* SUBTITLE */}
         <FadeIn delay={0.15} y={20}>
           <p className="font-kanit font-light text-base sm:text-lg md:text-xl text-slate-600 max-w-lg mx-auto leading-relaxed mb-10">
-            We respond within 24 hours.
+            {RESPONSE_COPY}
           </p>
         </FadeIn>
 
         {/* 3 QUICK INFO PILLS */}
         <FadeIn delay={0.3} y={15}>
           <div className="flex flex-wrap gap-3 justify-center">
-            <a 
-              href="mailto:vooolabsofficial@gmail.com"
+            <a
+              href={`mailto:${COMPANY.email}`}
               className="rounded-full bg-blue-500/5 border border-blue-500/10 px-5 py-2 font-kanit font-medium text-xs sm:text-sm text-blue-600 flex items-center gap-2 hover:bg-blue-500/10 transition-colors"
             >
-              📧 vooolabsofficial@gmail.com
+              📧 {COMPANY.email}
             </a>
             <div className="rounded-full bg-orange-500/5 border border-orange-500/10 px-5 py-2 font-kanit font-medium text-xs sm:text-sm text-orange-600 flex items-center gap-2">
-              📍 Maharashtra, India
-            </div>
-            <div className="rounded-full bg-emerald-500/5 border border-emerald-500/10 px-5 py-2 font-kanit font-medium text-xs sm:text-sm text-emerald-600 flex items-center gap-2">
-              ⚡ 24hr Response
+              📍 {LOCATION.region}, {LOCATION.country}
             </div>
           </div>
         </FadeIn>

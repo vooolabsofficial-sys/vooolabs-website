@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { ChevronDown, ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FadeIn from '../shared/FadeIn';
+import { COMPANY, LOCATION, FOUNDER } from '../../content/company';
+import { getProduct, STATUS_META, formatPrice } from '../../content/products';
 
 export default function Slide3_FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -10,46 +12,57 @@ export default function Slide3_FAQ() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  /**
+   * Answers here point at the roadmap and the product list rather than naming
+   * dates of their own. The version this replaces promised a Play Store beta
+   * "in late 2025" and an Android launch "in 2025", and was still saying so
+   * most of a year after both dates passed.
+   */
+  const files = getProduct('vooo-files')!;
+  const smaran = getProduct('smaran-ai')!;
+  const callmind = getProduct('callmind')!;
+  const callmindPrice = formatPrice(callmind);
+
   const faqs = [
     {
-      q: 'When will VOOO Files launch?',
-      a: 'VOOO Files is currently 70% complete. We are actively refining the Secure Vault and Media Player interfaces. We expect to launch the open beta on the Google Play Store in late 2025.',
+      q: `When will ${files.name} launch?`,
+      a: `${files.name} is in ${STATUS_META[files.status].label.toLowerCase()}. The vault and the media player are the parts still being finished. The roadmap page has the current stage — we would rather point you there than name a date here and let it go stale.`,
     },
     {
-      q: 'Is SMARAN AI available?',
-      a: 'SMARAN AI is currently in the architectural planning stage. We are prototyping the alarm override engines and family sync algorithms. You can join the beta waitlist via the contact form to get early access.',
+      q: `Is ${smaran.name} available?`,
+      a: `Not yet. ${smaran.name} is ${STATUS_META[smaran.status].label.toLowerCase()} — the architecture is being worked out and nothing is installable. Join the waitlist on the contact form and you will hear when that changes.`,
     },
     {
-      q: 'How can I try CallMind?',
-      a: 'CallMind CRM is in private beta testing. If you are a sales representative, small business owner, or freelancer in India, you can request beta access using the contact form, selecting "Beta" as your inquiry type.',
+      q: `How can I try ${callmind.name}?`,
+      a: `${callmind.name} is in ${STATUS_META[callmind.status].label.toLowerCase()}. If you run a small business, sell, or freelance in India, request access through the contact form with "Beta" selected and we will get back to you.`,
     },
     {
       q: 'Are the apps free?',
-      a: 'VOOO Files will be 100% free to use. SMARAN AI and CallMind will operate on a freemium model. CallMind plans will start at an affordable ₹499/month built specifically for Indian professionals.',
+      a: `${files.name} is free. ${callmind.name} has a free trial, and paid plans start at ${callmindPrice ?? 'a price listed on the product page'}, plus GST. ${smaran.name} is not priced yet.`,
     },
     {
-      q: 'Where is VOOO LABS based?',
-      a: 'VOOO LABS is founded and operated in Maharashtra, India. Although based in a rural setting, our software is designed, engineered, and shipped to serve users globally.',
+      q: `Where is ${COMPANY.brandName} based?`,
+      a: `${COMPANY.brandName} is run from ${LOCATION.region}, ${LOCATION.country}. The software is built here and used anywhere.`,
     },
     {
       q: 'Will there be iOS apps?',
-      a: 'Yes. Our immediate priority is Android launch in 2025. However, cross-platform extensions for iOS and Web are officially scheduled on the roadmap for early-to-mid 2026.',
+      a: 'Android comes first, because that is where the people these apps are built for actually are. iOS and web are on the roadmap, not scheduled.',
     },
     {
       q: 'Who builds these apps?',
-      a: 'VOOO LABS is currently a solo-builder studio founded by Vrushabh Santosh Shinde. Every single line of code, UI screen, and feature release is managed directly by him.',
+      a: `${COMPANY.brandName} is a solo studio. ${FOUNDER.name} writes the code, designs the screens, and answers this inbox.`,
     },
     {
       q: 'How can I partner with you?',
-      a: 'We are open to strategic collaborations, API integrations, and developer relations. Please select the "Partnership" tab on our contact form or write directly to vooolabsofficial@gmail.com.',
+      a: `Select "Partnership" on the contact form, or write to ${COMPANY.email} directly.`,
     },
     {
       q: 'Is my data safe?',
-      a: 'Absolutely. We commit to a 100% privacy-first model: zero trackers, local biometric security vaults, locally encrypted file directories, and automated purges for sensitive temporary inputs.',
+      a: 'This site runs no trackers and sets no cookies. Our apps keep what they can on your device, encrypt vaults locally, and never sell data. The Privacy Policy sets out exactly what each app touches and why.',
     },
     {
       q: 'How do I stay updated?',
-      a: 'You can join the email beta waitlist on our Home page or Contact page. You can also follow our official developer updates on GitHub and LinkedIn.',
+      a: 'Join the waitlist on the home page or the contact page. Progress also goes up on GitHub and LinkedIn.',
     },
   ];
 

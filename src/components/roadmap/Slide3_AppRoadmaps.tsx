@@ -11,8 +11,8 @@ export default function Slide3_AppRoadmaps() {
       items: [
         { status: 'done', label: 'Core file browsing' },
         { status: 'done', label: 'Media player integrations' },
-        { status: 'progress', label: 'Biometric vault (70%)' },
-        { status: 'planning', label: 'Archive encryption (40%)' },
+        { status: 'progress', label: 'Biometric vault' },
+        { status: 'planning', label: 'Archive encryption' },
         { status: 'future', label: 'AI file suggestions' },
         { status: 'future', label: 'Cloud backup sync' },
       ],
@@ -37,7 +37,7 @@ export default function Slide3_AppRoadmaps() {
       items: [
         { status: 'done', label: 'Dashboard visual UI' },
         { status: 'done', label: 'Lead status pipeline manager' },
-        { status: 'progress', label: 'AI caller insights (in progress)' },
+        { status: 'progress', label: 'AI caller insights' },
         { status: 'planning', label: 'Official WhatsApp API connector' },
         { status: 'future', label: 'Cross-platform mobile apps' },
         { status: 'future', label: 'Enterprise multi-agent support' },

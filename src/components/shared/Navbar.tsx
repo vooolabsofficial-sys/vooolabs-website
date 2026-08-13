@@ -5,8 +5,20 @@ import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+
+  /**
+   * The menu is open only while we are still on the route it was opened from,
+   * so a route change closes it by derivation rather than by an effect firing
+   * a setState after the fact. This also handles the browser back button,
+   * which the old effect did only incidentally.
+   */
+  const [openedAtPath, setOpenedAtPath] = useState<string | null>(null);
+  const isMobileMenuOpen = openedAtPath === location.pathname;
+
+  const closeMenu = () => setOpenedAtPath(null);
+  const toggleMenu = () =>
+    setOpenedAtPath(isMobileMenuOpen ? null : location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,10 +28,24 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
+  // Escape closes the menu, and the page behind it must not scroll while it is
+  // open -- neither worked before, so the overlay trapped you on mobile.
   useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
+    if (!isMobileMenuOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') closeMenu();
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [isMobileMenuOpen]);
 
   const navLinks = [
     { path: '/', label: 'Home' },
@@ -100,7 +126,7 @@ export default function Navbar() {
           
           {/* MOBILE MENU TOGGLE */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={toggleMenu}
             className="md:hidden p-2.5 rounded-full hover:bg-black/5 text-slate-700 transition-colors"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
@@ -118,8 +144,11 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="fixed inset-0 z-[990] flex flex-col justify-center bg-white/98 backdrop-blur-2xl px-8"
+            /* Above the fixed bottom bar (z-9000), which used to float on top
+               of this full-screen overlay. */
+            className="fixed inset-0 z-[9500] flex flex-col justify-center bg-white/98 backdrop-blur-2xl px-8"
             role="dialog"
+            aria-modal="true"
             aria-label="Mobile navigation menu"
           >
             <div className="flex flex-col gap-6 text-center">
@@ -132,7 +161,7 @@ export default function Navbar() {
                 >
                   <NavLink
                     to={link.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={closeMenu}
                     className={({ isActive }) =>
                       `font-clash text-3xl font-semibold transition-colors duration-200 block py-2 ${
                         isActive ? 'g-text' : 'text-slate-800 hover:text-blue-500'
@@ -151,7 +180,7 @@ export default function Navbar() {
               >
                 <Link
                   to="/contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={closeMenu}
                   className="inline-block rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-orange-500 px-8 py-3.5 font-kanit font-semibold text-base text-white shadow-lg"
                 >
                   Say Hello →

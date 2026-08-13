@@ -9,10 +9,14 @@ import ProductsPage from './pages/ProductsPage';
 import AboutPage from './pages/AboutPage';
 import RoadmapPage from './pages/RoadmapPage';
 import ContactPage from './pages/ContactPage';
+import LegalPage from './pages/LegalPage';
+import NotFoundPage from './pages/NotFoundPage';
 
-const pageVariants = {
+import type { Variants } from 'framer-motion';
+
+const pageVariants: Variants = {
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] as any } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] } },
   exit: { opacity: 0, y: -16, transition: { duration: 0.3 } }
 };
 
@@ -40,6 +44,9 @@ function AppRoutes() {
         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
         <Route path="/roadmap" element={<PageWrapper><RoadmapPage /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
+        <Route path="/legal" element={<PageWrapper><LegalPage /></PageWrapper>} />
+        <Route path="/legal/:doc" element={<PageWrapper><LegalPage /></PageWrapper>} />
+        <Route path="*" element={<PageWrapper><NotFoundPage /></PageWrapper>} />
       </Routes>
     </AnimatePresence>
   );

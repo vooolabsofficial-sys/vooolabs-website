@@ -1,0 +1,7 @@
+# Single-page app fallback (Netlify, Cloudflare Pages).
+#
+# Every route below "/" is rendered by react-router in the browser, so the host
+# must serve index.html for paths that have no file behind them. Without this,
+# https://vooolabs.com/products returns a 404 -- and sitemap.xml hands that
+# exact URL to Google to crawl.
+/*    /index.html   200

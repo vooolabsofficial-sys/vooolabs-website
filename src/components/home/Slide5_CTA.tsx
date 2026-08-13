@@ -1,31 +1,31 @@
 import React, { useState } from 'react';
 import FadeIn from '../shared/FadeIn';
 import { Lock, CheckCircle2 } from 'lucide-react';
+import { COMPANY } from '../../content/company';
+import { submitEnquiry, resultCopy, type SubmitResult } from '../../lib/contact';
 
 export default function Slide5_CTA() {
   const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [result, setResult] = useState<SubmitResult | null>(null);
+  const [isSending, setIsSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !email.includes('@')) {
-      setError('Please enter a valid email address');
-      return;
-    }
-    setError('');
-    setIsSubmitted(true);
-    
-    // Mailto trigger
-    const subject = encodeURIComponent('VOOO LABS — Waitlist Registration');
-    const body = encodeURIComponent(`Hi VOOO LABS,\n\nPlease add my email (${email}) to the early access waitlist.\n\nThank you!`);
-    window.open(`mailto:vooolabsofficial@gmail.com?subject=${subject}&body=${body}`, '_blank');
+    if (isSending) return;
 
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setEmail('');
-    }, 4000);
+    setIsSending(true);
+    const outcome = await submitEnquiry({
+      email,
+      kind: 'Beta',
+      source: 'Beta waitlist',
+    });
+    setIsSending(false);
+    setResult(outcome);
+
+    if (outcome.ok) setEmail('');
   };
+
+  const succeeded = result?.ok === true;
 
   return (
     <section className="snap-section animated-gradient-bg noise flex flex-col justify-center items-center px-6 py-24 text-center rounded-t-[40px] sm:rounded-t-[60px] relative overflow-hidden select-none">
@@ -71,39 +71,32 @@ export default function Slide5_CTA() {
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  if (error) setError('');
+                  if (result) setResult(null);
                 }}
-                placeholder={isSubmitted ? 'Added successfully!' : 'Enter your email...'}
-                disabled={isSubmitted}
+                placeholder="Enter your email..."
                 required
                 className="flex-1 font-kanit font-light text-sm sm:text-base text-white placeholder-white/60 bg-transparent outline-none border-none disabled:opacity-50 min-h-[44px]"
               />
               <button
                 type="submit"
-                disabled={isSubmitted}
+                disabled={isSending}
                 className="rounded-full bg-white hover:bg-slate-100 text-blue-700 px-5 sm:px-7 py-3 font-kanit font-semibold text-sm transition-all duration-200 active:scale-[0.98] disabled:opacity-85 hover:scale-[1.02] shadow-md flex-shrink-0 flex items-center gap-1.5"
               >
-                {isSubmitted ? (
-                  <>
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    <span>Welcome! 🎉</span>
-                  </>
-                ) : (
-                  'Join Waitlist'
-                )}
+                {isSending ? 'Sending…' : 'Join Waitlist'}
               </button>
             </div>
 
-            {error && (
-              <p className="font-kanit text-xs text-amber-200 font-medium mt-2.5 animate-bounce">
-                {error}
-              </p>
-            )}
-
-            {isSubmitted && (
-              <p className="font-kanit text-xs text-white font-medium mt-3 animate-pulse flex items-center gap-1">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                Awesome! Mail client opened to confirm registration.
+            {result && (
+              <p
+                role="status"
+                className={`font-kanit text-xs font-medium mt-3 flex items-center gap-1.5 ${
+                  succeeded ? 'text-white' : 'text-amber-200'
+                }`}
+              >
+                {succeeded && (
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                )}
+                {resultCopy(result)}
               </p>
             )}
           </form>
@@ -113,14 +106,14 @@ export default function Slide5_CTA() {
         <FadeIn delay={0.4} y={15}>
           <div className="flex items-center justify-center gap-2 text-white/60 text-xs font-kanit font-light mt-6">
             <Lock className="w-3.5 h-3.5 text-emerald-400" />
-            <span>No spam. Unsubscribe anytime. Zero data shared.</span>
+            <span>Used only to tell you when the beta opens. Nothing else.</span>
           </div>
 
-          <a 
-            href="mailto:vooolabsofficial@gmail.com" 
+          <a
+            href={`mailto:${COMPANY.email}`}
             className="font-kanit font-light text-xs sm:text-sm text-white/50 hover:text-white transition-colors mt-4 block tracking-wide"
           >
-            vooolabsofficial@gmail.com
+            {COMPANY.email}
           </a>
         </FadeIn>
 

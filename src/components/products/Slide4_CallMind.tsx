@@ -1,16 +1,21 @@
-import React from 'react';
-import { Phone, ArrowUp, BarChart2, MessageSquare, AlertCircle, PhoneCall, Sparkles, CreditCard, Clock, Users } from 'lucide-react';
+﻿import React from 'react';
+import { Phone, ArrowUp, BarChart2, MessageSquare, PhoneCall, Sparkles, CreditCard, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../shared/FadeIn';
+import { getProduct, STATUS_META, formatPrice } from '../../content/products';
 
 export default function Slide4_CallMind() {
-  const features = [
-    { name: 'Call Tracking', icon: PhoneCall, color: 'text-emerald-600' },
-    { name: 'Lead Pipeline', icon: BarChart2, color: 'text-blue-500' },
-    { name: 'Followups', icon: Clock, color: 'text-purple-500' },
-    { name: 'WhatsApp API', icon: MessageSquare, color: 'text-emerald-500' },
-    { name: 'AI Insights', icon: Sparkles, color: 'text-amber-500' },
-    { name: '₹499 pricing', icon: CreditCard, color: 'text-blue-600' },
+  const product = getProduct('callmind')!;
+  const status = STATUS_META[product.status];
+  const price = formatPrice(product);
+
+  const featureIcons = [PhoneCall, BarChart2, Clock, MessageSquare, Sparkles];
+  const featureColors = [
+    'text-emerald-600',
+    'text-blue-500',
+    'text-purple-500',
+    'text-emerald-500',
+    'text-amber-500',
   ];
 
   return (
@@ -26,7 +31,7 @@ export default function Slide4_CallMind() {
           {/* BACK TO TOP ANCHOR */}
           <FadeIn delay={0} y={15}>
             <a 
-              href="#" 
+              href="#products-top" 
               className="inline-flex items-center gap-1 font-kanit font-medium text-xs text-[#10B981] uppercase tracking-wider mb-5 hover:text-[#10B981]/90"
             >
               <ArrowUp size={10} /> Back to Products
@@ -44,10 +49,10 @@ export default function Slide4_CallMind() {
           <FadeIn delay={0.1} y={15}>
             <div className="flex items-center gap-2 mb-4">
               <span className="rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 font-kanit font-medium text-xs text-emerald-600">
-                Native Android
+                {product.platforms}
               </span>
-              <span className="rounded-full bg-[#10B981]/10 border border-[#10B981]/20 px-3 py-1 font-kanit font-medium text-xs text-[#059669]">
-                Public Beta
+              <span className={`rounded-full border px-3 py-1 font-kanit font-medium text-xs ${status.badge}`}>
+                {status.label}
               </span>
             </div>
           </FadeIn>
@@ -58,29 +63,35 @@ export default function Slide4_CallMind() {
               CallMind
             </h3>
             <h4 className="font-clash text-lg sm:text-xl md:text-2xl font-semibold g-callmind mb-6">
-              Simplifying CRM for sales.
+              {product.tagline}
             </h4>
           </FadeIn>
 
           {/* DESCRIPTION */}
           <FadeIn delay={0.25} y={20}>
-            <p className="font-kanit font-light text-sm sm:text-base text-slate-600 leading-relaxed max-w-[500px] mb-8">
-              A lightweight mobile CRM built specifically for Indian solo business owners, sales agents, and freelancers. Features automatic call tracking, lead pipeline management, smart WhatsApp integrations, follow-up alarms, and AI caller insights.
+            <p className="font-kanit font-light text-sm sm:text-base text-slate-600 leading-relaxed max-w-[500px] mb-4">
+              {product.description}
             </p>
+            {price && (
+              <p className="font-kanit font-medium text-sm text-slate-700 mb-8 inline-flex items-center gap-2">
+                <CreditCard size={14} className="text-[#059669]" />
+                From {price}
+              </p>
+            )}
           </FadeIn>
 
           {/* FEATURE CHIPS GRID */}
           <FadeIn delay={0.35} y={15} className="w-full">
             <div className="grid grid-cols-2 gap-3 max-w-[480px] mb-10">
-              {features.map((feature, idx) => {
-                const IconComponent = feature.icon;
+              {product.features.map((feature, idx) => {
+                const IconComponent = featureIcons[idx % featureIcons.length];
                 return (
-                  <div 
-                    key={idx}
+                  <div
+                    key={feature}
                     className="rounded-xl bg-[#10B981]/[0.06] border border-[#10B981]/15 px-4 py-3 font-kanit text-xs sm:text-sm text-slate-800 flex items-center gap-2.5 hover:bg-[#10B981]/10 transition-colors"
                   >
-                    <IconComponent className={`w-4 h-4 ${feature.color}`} />
-                    <span className="font-medium">{feature.name}</span>
+                    <IconComponent className={`w-4 h-4 ${featureColors[idx % featureColors.length]}`} />
+                    <span className="font-medium">{feature}</span>
                   </div>
                 );
               })}
@@ -90,17 +101,17 @@ export default function Slide4_CallMind() {
           {/* CTA ROW */}
           <FadeIn delay={0.45} y={15}>
             <div className="flex flex-wrap gap-4 items-center">
-              <a
-                href="#waitlist"
+              <Link
+                to="/contact#waitlist"
                 className="rounded-full bg-gradient-to-r from-[#10B981] to-[#059669] px-7 py-3 font-kanit font-medium text-sm text-white transition-all duration-300 hover:scale-[1.03] shadow-[0_4px_14px_rgba(16,185,129,0.25)]"
               >
-                Request Access
-              </a>
+                Request beta access
+              </Link>
               <Link
                 to="/roadmap"
                 className="rounded-full border-2 border-[#10B981] px-7 py-2.5 font-kanit font-medium text-sm g-callmind hover:bg-[#10B981]/5 transition-all duration-300"
               >
-                Learn More ↓
+                See the roadmap
               </Link>
             </div>
           </FadeIn>
@@ -119,7 +130,8 @@ export default function Slide4_CallMind() {
                   <Phone size={16} className="text-white" />
                   <span className="font-kanit font-medium text-sm text-white">CallMind CRM</span>
                 </div>
-                <span className="font-kanit text-[9px] bg-white/20 text-white px-2 py-0.5 rounded-full font-medium">Pro Live</span>
+                {/* Says what it is. The numbers below are drawn, not measured. */}
+                <span className="font-kanit text-[9px] bg-white/20 text-white px-2 py-0.5 rounded-full font-medium">Illustration</span>
               </div>
 
               {/* STATS ROW (3 mini cards) */}

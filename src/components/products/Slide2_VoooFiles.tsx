@@ -1,18 +1,24 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
-import { Folder, ArrowUp, HardDrive, Smartphone, Sparkles, FileText, Music, Image, ShieldCheck, Lock, Zap } from 'lucide-react';
+import { Folder, ArrowUp, HardDrive, Sparkles, FileText, Music, Image, ShieldCheck, Lock, Zap } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
+import { getProduct, STATUS_META } from '../../content/products';
 
 export default function Slide2_VoooFiles() {
-  const features = [
-    { name: 'Smart Storage', icon: HardDrive, color: 'text-blue-500' },
-    { name: 'Biometric Vault', icon: Lock, color: 'text-purple-500' },
-    { name: 'Media Player', icon: Music, color: 'text-pink-500' },
-    { name: 'Archive Encryption', icon: ShieldCheck, color: 'text-emerald-500' },
-    { name: 'Material 3 Express', icon: Sparkles, color: 'text-amber-500' },
-    { name: 'Power Engine', icon: Zap, color: 'text-blue-600' },
+  const product = getProduct('vooo-files')!;
+  const status = STATUS_META[product.status];
+
+  const featureIcons = [HardDrive, Lock, Music, ShieldCheck, Sparkles, Zap];
+  const featureColors = [
+    'text-blue-500',
+    'text-purple-500',
+    'text-pink-500',
+    'text-emerald-500',
+    'text-amber-500',
+    'text-blue-600',
   ];
 
+  // Illustrative only -- this is a drawing of the app, not data from it.
   const mockupFiles = [
     { type: 'image', name: 'DSC_0982.jpg', size: '4.2 MB', dotColor: 'bg-blue-500' },
     { type: 'music', name: 'Dil Se - AR Rahman.mp3', size: '8.4 MB', dotColor: 'bg-purple-500' },
@@ -35,7 +41,7 @@ export default function Slide2_VoooFiles() {
           {/* BACK TO TOP ANCHOR */}
           <FadeIn delay={0} y={15}>
             <a 
-              href="#" 
+              href="#products-top" 
               className="inline-flex items-center gap-1 font-kanit font-medium text-xs text-blue-600 uppercase tracking-wider mb-5 hover:text-blue-700"
             >
               <ArrowUp size={10} /> Back to Products
@@ -53,10 +59,10 @@ export default function Slide2_VoooFiles() {
           <FadeIn delay={0.1} y={15}>
             <div className="flex items-center gap-2 mb-4">
               <span className="rounded-full bg-blue-500/10 border border-blue-500/20 px-3 py-1 font-kanit font-medium text-xs text-blue-600">
-                Native Android
+                {product.platforms}
               </span>
-              <span className="rounded-full bg-amber-500/10 border border-amber-500/20 px-3 py-1 font-kanit font-medium text-xs text-amber-600">
-                Active Alpha Testing
+              <span className={`rounded-full border px-3 py-1 font-kanit font-medium text-xs ${status.badge}`}>
+                {status.label}
               </span>
             </div>
           </FadeIn>
@@ -67,29 +73,29 @@ export default function Slide2_VoooFiles() {
               VOOO Files
             </h3>
             <h4 className="font-clash text-lg sm:text-xl md:text-2xl font-semibold g-files mb-6">
-              A complete storage ecosystem.
+              {product.tagline}
             </h4>
           </FadeIn>
 
           {/* DESCRIPTION */}
           <FadeIn delay={0.25} y={20}>
             <p className="font-kanit font-light text-sm sm:text-base text-slate-600 leading-relaxed max-w-[500px] mb-8">
-              Smart file management with built-in Gallery, Music Player, Document viewer, Biometric Secure Vault, Archive Encryption, and Storage Intelligence. Designed for power users on modern Android devices.
+              {product.description}
             </p>
           </FadeIn>
 
           {/* FEATURE CHIPS GRID */}
           <FadeIn delay={0.35} y={15} className="w-full">
             <div className="grid grid-cols-2 gap-3 max-w-[480px] mb-10">
-              {features.map((feature, idx) => {
-                const IconComponent = feature.icon;
+              {product.features.map((feature, idx) => {
+                const IconComponent = featureIcons[idx % featureIcons.length];
                 return (
-                  <div 
-                    key={idx}
+                  <div
+                    key={feature}
                     className="rounded-xl bg-[#4285F4]/[0.06] border border-[#4285F4]/15 px-4 py-3 font-kanit text-xs sm:text-sm text-slate-800 flex items-center gap-2.5 hover:bg-[#4285F4]/10 transition-colors"
                   >
-                    <IconComponent className={`w-4 h-4 ${feature.color}`} />
-                    <span className="font-medium">{feature.name}</span>
+                    <IconComponent className={`w-4 h-4 ${featureColors[idx % featureColors.length]}`} />
+                    <span className="font-medium">{feature}</span>
                   </div>
                 );
               })}
@@ -99,17 +105,17 @@ export default function Slide2_VoooFiles() {
           {/* CTA ROW */}
           <FadeIn delay={0.45} y={15}>
             <div className="flex flex-wrap gap-4 items-center">
-              <a
-                href="#waitlist"
+              <Link
+                to="/contact#waitlist"
                 className="rounded-full bg-gradient-to-r from-blue-500 to-[#1a73e8] px-7 py-3 font-kanit font-medium text-sm text-white transition-all duration-300 hover:scale-[1.03] shadow-[0_4px_14px_rgba(66,133,244,0.25)]"
               >
                 Notify on Launch
-              </a>
+              </Link>
               <Link
                 to="/roadmap"
                 className="rounded-full border-2 border-[#4285F4] px-7 py-2.5 font-kanit font-medium text-sm g-files hover:bg-blue-500/5 transition-all duration-300"
               >
-                Learn More ↓
+                See the roadmap
               </Link>
             </div>
           </FadeIn>

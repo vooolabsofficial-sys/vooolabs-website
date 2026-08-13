@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Folder, Brain, Phone, ShieldCheck, Sparkles, Lock, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Folder, Brain, Phone } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
+import { LOCATION } from '../../content/company';
 
 const roles = ['File Manager', 'AI Memory', 'Smart CRM', 'AI Workspace'];
 
@@ -62,7 +63,7 @@ export default function Slide1_Hero() {
           <div className="inline-flex items-center gap-2 rounded-full bg-slate-900/[0.03] border border-black/10 px-4 py-1.5 mb-6 shadow-xs">
             <div className="w-2 h-2 rounded-full bg-[#4285F4] pulse-dot" aria-hidden="true" />
             <span className="font-kanit font-medium text-xs sm:text-sm text-slate-700 tracking-wide">
-              Indie Software Studio · Made in India 🇮🇳
+              Indie Software Studio · Made in {LOCATION.country} 🇮🇳
             </span>
           </div>
         </FadeIn>
@@ -152,13 +153,13 @@ export default function Slide1_Hero() {
       <div className="relative z-20 px-6 sm:px-12 pb-6 sm:pb-8 flex justify-between items-end gap-6 w-full max-w-7xl mx-auto border-t border-slate-100 pt-6">
         <FadeIn delay={0.6} y={15}>
           <div className="font-kanit font-light text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest max-w-[220px] leading-relaxed">
-            Pune · Nashik · Satara · Maharashtra
+            {LOCATION.hubs.join(' · ')} · {LOCATION.region}
           </div>
         </FadeIn>
-        
+
         <FadeIn delay={0.7} y={15}>
           <Link
-            to="/contact"
+            to="/contact#waitlist"
             className="font-kanit font-medium text-xs sm:text-sm text-blue-600 hover:text-blue-700 transition-colors py-1 border-b border-blue-500/20"
           >
             Join waitlist →
