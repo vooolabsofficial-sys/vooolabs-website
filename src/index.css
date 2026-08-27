@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Zentaro';
+  src: url('/fonts/zentaro/Zentaro-Personaluse.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #FFFFFF;
   --bg-2: #F8F9FC;

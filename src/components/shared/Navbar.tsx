@@ -100,8 +100,8 @@ export default function Navbar() {
             </svg>
           </div>
           <div className="flex items-baseline">
-            <span className="shimmer-text font-clash font-bold text-xl sm:text-2xl leading-none">VOOO</span>
-            <span className="font-kanit font-light text-xl sm:text-2xl text-slate-600 ml-1 leading-none">LABS</span>
+            <span className="shimmer-text font-zentaro text-2xl sm:text-[1.7rem] tracking-wide leading-none">VOOO</span>
+            <span className="font-zentaro text-xl sm:text-2xl text-slate-700 ml-1.5 tracking-wider leading-none">LABS</span>
           </div>
         </Link>
 
@@ -288,8 +288,8 @@ export default function Navbar() {
                   </svg>
                 </div>
                 <div className="flex items-baseline">
-                  <span className="shimmer-text font-clash font-bold text-xl leading-none">VOOO</span>
-                  <span className="font-kanit font-light text-xl text-slate-600 ml-1 leading-none">LABS</span>
+                  <span className="shimmer-text font-zentaro text-2xl tracking-wide leading-none">VOOO</span>
+                  <span className="font-zentaro text-xl text-slate-700 ml-1.5 tracking-wider leading-none">LABS</span>
                 </div>
               </Link>
               <button

@@ -23,6 +23,7 @@ export default {
         clash: ['Clash Display', 'sans-serif'],
         kanit: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
         display: ['Clash Display', 'sans-serif'],
+        zentaro: ['Zentaro', 'sans-serif'],
       },
       opacity,
     },

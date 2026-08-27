@@ -39,8 +39,8 @@ export default function Footer() {
         {/* COL 1: BRANDING (col-span-2) */}
         <div className="md:col-span-2 flex flex-col items-start gap-5">
           <Link to="/" className="flex items-baseline group" aria-label="VOOO LABS Home">
-            <span className="shimmer-text font-clash font-bold text-3xl">VOOO</span>
-            <span className="font-kanit font-light text-3xl text-white ml-1">LABS</span>
+            <span className="shimmer-text font-zentaro text-3xl sm:text-4xl tracking-wide">VOOO</span>
+            <span className="font-zentaro text-2xl sm:text-3xl text-white ml-2 tracking-wider">LABS</span>
           </Link>
           <p className="font-kanit font-light text-sm text-slate-300 max-w-[280px] leading-relaxed">
             {COMPANY.tagline}
