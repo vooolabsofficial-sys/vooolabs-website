@@ -133,7 +133,7 @@ export default function Slide3_FAQ() {
                         exit={{ height: 0 }}
                         transition={{ duration: 0.25, ease: 'easeInOut' }}
                       >
-                        <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 font-kanit font-light text-xs sm:text-sm text-slate-500 leading-relaxed text-left">
+                        <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 font-kanit font-light text-xs sm:text-sm text-slate-600 leading-relaxed text-left">
                           {faq.a}
                         </div>
                       </motion.div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Folder, Brain, Phone, Layers, type LucideIcon } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 import { PRODUCTS, STATUS_META } from '../../content/products';
 
@@ -12,35 +13,47 @@ const COUNT_WORDS: Record<number, string> = {
   6: 'Six',
 };
 
-const PILL_STYLES: Record<string, { emoji: string; border: string; shadow: string }> = {
+const PILL_STYLES: Record<string, { icon: LucideIcon; iconColor: string; iconBg: string; border: string; shadow: string }> = {
   'vooo-files': {
-    emoji: '📁',
+    icon: Folder,
+    iconColor: 'text-blue-600',
+    iconBg: 'bg-blue-500/10',
     border: 'border-[#4285F4]/30 hover:border-[#4285F4]',
-    shadow: 'hover:shadow-[0_12px_30px_rgba(66,133,244,0.2)]',
+    shadow: 'hover:shadow-[0_12px_30px_rgba(66,133,244,0.18)]',
   },
   'smaran-ai': {
-    emoji: '🧠',
+    icon: Brain,
+    iconColor: 'text-purple-600',
+    iconBg: 'bg-purple-500/10',
     border: 'border-[#7C3AED]/30 hover:border-[#7C3AED]',
-    shadow: 'hover:shadow-[0_12px_30px_rgba(124,58,237,0.2)]',
+    shadow: 'hover:shadow-[0_12px_30px_rgba(124,58,237,0.18)]',
   },
   callmind: {
-    emoji: '📞',
+    icon: Phone,
+    iconColor: 'text-emerald-600',
+    iconBg: 'bg-emerald-500/10',
     border: 'border-[#10B981]/30 hover:border-[#10B981]',
-    shadow: 'hover:shadow-[0_12px_30px_rgba(16,185,129,0.2)]',
+    shadow: 'hover:shadow-[0_12px_30px_rgba(16,185,129,0.18)]',
   },
   workspace: {
-    emoji: '🗂️',
+    icon: Layers,
+    iconColor: 'text-slate-700',
+    iconBg: 'bg-slate-100',
     border: 'border-slate-300 hover:border-slate-400',
     shadow: 'hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)]',
   },
 };
 
 export default function Slide1_ProductsHero() {
-  // The heading used to read "Three Apps. One Vision." while this page listed
-  // four, so the count comes from the product list now.
   const pills = PRODUCTS.map((product) => ({
     product,
-    style: PILL_STYLES[product.id],
+    style: PILL_STYLES[product.id] || {
+      icon: Layers,
+      iconColor: 'text-blue-600',
+      iconBg: 'bg-blue-50',
+      border: 'border-slate-300',
+      shadow: 'hover:shadow-md'
+    },
   }));
 
   return (
@@ -70,27 +83,32 @@ export default function Slide1_ProductsHero() {
 
         {/* SUBTEXT */}
         <FadeIn delay={0.2} y={20}>
-          <p className="font-kanit font-light text-base sm:text-lg md:text-xl text-slate-500 max-w-xl mx-auto leading-relaxed mb-12 sm:mb-16">
+          <p className="font-kanit font-light text-base sm:text-lg md:text-xl text-slate-600 max-w-xl mx-auto leading-relaxed mb-12 sm:mb-16">
             Each app solves a distinct real-world problem — beautifully, privately, powerfully.
           </p>
         </FadeIn>
 
         {/* QUICK VIEW PILLS */}
         <FadeIn delay={0.3} y={15}>
-          <div className="flex flex-wrap gap-4 sm:gap-6 justify-center">
-            {pills.map(({ product, style }) => (
-              <a
-                key={product.id}
-                href={`#${product.slug}`}
-                className={`rounded-full border-2 bg-white px-6 py-3 font-clash font-semibold text-sm sm:text-base md:text-lg transition-all duration-300 hover:scale-[1.04] flex items-center gap-2.5 ${style.border} ${style.shadow}`}
-              >
-                <span aria-hidden="true">{style.emoji}</span>
-                <span className={product.gradientClass}>{product.name}</span>
-                <span className="font-kanit font-medium text-[10px] text-slate-400 uppercase tracking-wide">
-                  {STATUS_META[product.status].label}
-                </span>
-              </a>
-            ))}
+          <div className="flex flex-wrap gap-3 sm:gap-5 justify-center">
+            {pills.map(({ product, style }) => {
+              const IconComp = style.icon;
+              return (
+                <a
+                  key={product.id}
+                  href={`#${product.slug}`}
+                  className={`rounded-full border bg-white px-5 sm:px-6 py-3 font-clash font-semibold text-sm sm:text-base md:text-lg transition-all duration-300 hover:scale-[1.04] active:scale-[0.98] flex items-center gap-3 shadow-xs ${style.border} ${style.shadow}`}
+                >
+                  <div className={`w-7 h-7 rounded-full ${style.iconBg} ${style.iconColor} flex items-center justify-center flex-shrink-0`}>
+                    <IconComp size={15} />
+                  </div>
+                  <span className={product.gradientClass}>{product.name}</span>
+                  <span className="font-kanit font-medium text-[10px] text-slate-500 uppercase tracking-wider bg-slate-50 px-2 py-0.5 rounded-full border border-black/5">
+                    {STATUS_META[product.status].label}
+                  </span>
+                </a>
+              );
+            })}
           </div>
         </FadeIn>
       </div>

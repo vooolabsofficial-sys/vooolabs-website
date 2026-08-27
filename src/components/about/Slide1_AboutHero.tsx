@@ -29,9 +29,10 @@ export default function Slide1_AboutHero() {
         {/* LARGE MADE IN INDIA BADGE */}
         <FadeIn delay={0.3} y={15}>
           <div 
-            className="rounded-2xl border border-black/10 bg-slate-50 px-8 py-3.5 font-kanit font-medium text-sm sm:text-base text-slate-800 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:scale-[1.02] transition-transform"
+            className="rounded-2xl border border-black/10 bg-slate-50 px-7 py-3 font-kanit font-medium text-sm sm:text-base text-slate-800 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:scale-[1.02] transition-transform inline-flex items-center gap-2.5"
           >
-            🇮🇳 Made in India
+            <span className="w-2.5 h-2.5 rounded-full bg-orange-500 shadow-sm" />
+            <span>Crafted with pride in India</span>
           </div>
         </FadeIn>
 

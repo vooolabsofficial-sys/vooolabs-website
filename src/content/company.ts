@@ -13,11 +13,10 @@
 
 export const COMPANY = {
   brandName: 'VOOO LABS',
-  /** TODO(founder): confirm this matches the registered entity name exactly. */
   legalName: 'VOOO LABS',
-  tagline: 'Build Bold. Ship Smart. Live Different.',
+  tagline: 'Engineering High-Performance Web Apps, Software & Mobile Apps',
   description:
-    'An independent software studio from Maharashtra, India, building privacy-first Android and web applications.',
+    'Digital product studio from Maharashtra, India. We engineer custom Web Apps, high-converting Websites, B2B Software Suites, and native Android applications alongside flagship in-house tools.',
   foundedYear: 2025,
   domain: 'https://vooolabs.com',
   email: 'vooolabsofficial@gmail.com',
@@ -32,9 +31,7 @@ export const LOCATION = {
 } as const;
 
 /**
- * Company accounts. These are distinct from the founder's personal accounts
- * below -- the site used to mix the two, linking a personal Instagram from a
- * row of otherwise-corporate icons.
+ * Company accounts.
  */
 export const SOCIALS = {
   github: 'https://github.com/vooolabs',
@@ -46,10 +43,11 @@ export const FOUNDER = {
   name: 'Vrushabh Santosh Shinde',
   role: 'Founder & Software Architect',
   initials: 'VS',
-  bio: 'B.Tech graduate, Android developer, and indie builder from rural Maharashtra.',
+  bio: 'SaaS developer, Android software architect, and creative technologist from rural Maharashtra building digital experiences that feel five years ahead.',
   quote:
-    "I build products that don't just work — they feel alive. VOOO LABS is built on clean architecture and relentless execution.",
-  portfolio: 'https://vrushabhshinde-portfolio.netlify.app/',
+    "I build products that don't just work — they feel alive. VOOO LABS is built on clean architecture, relentless execution, and genuine business impact.",
+  portfolio: 'https://share.google/CA0DOimc3VLYNbEwl',
+  portfolioFallback: 'https://vrushabhshinde-portfolio.netlify.app/',
   github: 'https://github.com/vrushabh-shinde',
   linkedin: 'https://www.linkedin.com/in/vrushabh-shinde-43338125b/',
   instagram: 'https://www.instagram.com/vrushyxx',

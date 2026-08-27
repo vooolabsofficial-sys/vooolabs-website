@@ -28,6 +28,10 @@ import { COMPANY } from '../content/company';
 const ENQUIRY_ENDPOINT = '';
 
 export type EnquiryKind =
+  | 'Web App'
+  | 'Website'
+  | 'Software CRM'
+  | 'Mobile App'
   | 'General'
   | 'Partnership'
   | 'Beta'

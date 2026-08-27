@@ -66,6 +66,8 @@ export interface Product {
   /** Where someone can actually get it. `null` means there is nothing to link. */
   downloadUrl: string | null;
   playStoreUrl: string | null;
+  liveAppUrl?: string | null;
+  vertical?: 'web-apps' | 'websites' | 'software' | 'mobile-apps';
   pricing: {
     /** Rupees per seat per month. `0` means free, `null` means not priced yet. */
     monthlyFrom: number | null;
@@ -83,6 +85,7 @@ export const PRODUCTS: Product[] = [
       'Smart file management with a built-in gallery, music player, document viewer, biometric vault, and archive encryption.',
     status: 'alpha',
     platforms: 'Native Android',
+    vertical: 'mobile-apps',
     features: [
       'Smart storage overview',
       'Biometric vault',
@@ -93,6 +96,7 @@ export const PRODUCTS: Product[] = [
     gradientClass: 'g-files',
     downloadUrl: null,
     playStoreUrl: null,
+    liveAppUrl: null,
     pricing: { monthlyFrom: 0, note: 'Free to use.' },
   },
   {
@@ -104,6 +108,7 @@ export const PRODUCTS: Product[] = [
       'Reminders that still reach you on silent mode, sensitive notes that purge themselves, and a shared Family Circle.',
     status: 'planned',
     platforms: 'Android & Web',
+    vertical: 'mobile-apps',
     features: [
       'Exact alarms',
       'Auto-purge notes',
@@ -114,33 +119,30 @@ export const PRODUCTS: Product[] = [
     gradientClass: 'g-smaran',
     downloadUrl: null,
     playStoreUrl: null,
+    liveAppUrl: null,
     pricing: { monthlyFrom: null, note: 'Pricing not decided yet.' },
   },
   {
     id: 'callmind',
     slug: 'callmind',
-    name: 'CallMind',
-    tagline: 'A CRM that fits in one hand.',
+    name: 'CallMind CRM',
+    tagline: 'India\'s Premier SIM Telecalling & Lead CRM.',
     description:
-      'A lightweight mobile CRM for Indian solo business owners, sales agents and freelancers. Call tracking, a lead pipeline, WhatsApp follow-ups and AI caller insights.',
-    status: 'private-beta',
-    platforms: 'Native Android',
+      'Auto-capture leads in 2s from ads & webhooks, 1-click native mobile SIM dialing, multi-lingual interface (Marathi, Hindi, English), offline sync, and automated GST/ITC invoices with zero audio cloud storage.',
+    status: 'live',
+    platforms: 'Android & Web Cloud',
+    vertical: 'software',
     features: [
-      'Call tracking',
-      'Lead pipeline',
-      'Follow-up reminders',
-      'WhatsApp follow-ups',
-      'AI caller insights',
+      '2s Ad & Webhook Lead Capture',
+      '1-Click Mobile SIM Dialing',
+      'Offline Sync & Multilingual UI',
+      'Instant WhatsApp Follow-ups',
+      'Automated GST & ITC Invoices',
     ],
     gradientClass: 'g-callmind',
     downloadUrl: null,
     playStoreUrl: null,
-    /**
-     * Mirrors PRICING_PLANS.starter in the CallMind repo
-     * (src/config/pricing.ts) -- Rs 699/month per seat, Rs 599 billed annually.
-     * That file is the source of truth; this is a copy for display only, so
-     * re-check it whenever plans change.
-     */
+    liveAppUrl: 'https://callmind-crm-app.onrender.com/',
     pricing: { monthlyFrom: 699, note: 'per seat / month, billed monthly' },
   },
   {

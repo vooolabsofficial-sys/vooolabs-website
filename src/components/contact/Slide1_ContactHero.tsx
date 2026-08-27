@@ -1,4 +1,5 @@
 import React from 'react';
+import { Mail, MapPin } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 import { COMPANY, LOCATION, RESPONSE_COPY } from '../../content/company';
 
@@ -31,12 +32,14 @@ export default function Slide1_ContactHero() {
           <div className="flex flex-wrap gap-3 justify-center">
             <a
               href={`mailto:${COMPANY.email}`}
-              className="rounded-full bg-blue-500/5 border border-blue-500/10 px-5 py-2 font-kanit font-medium text-xs sm:text-sm text-blue-600 flex items-center gap-2 hover:bg-blue-500/10 transition-colors"
+              className="rounded-full bg-blue-500/5 border border-blue-500/15 px-5 py-2.5 font-kanit font-medium text-xs sm:text-sm text-blue-600 flex items-center gap-2 hover:bg-blue-500/10 transition-colors shadow-xs"
             >
-              📧 {COMPANY.email}
+              <Mail size={14} className="text-blue-600" />
+              <span>{COMPANY.email}</span>
             </a>
-            <div className="rounded-full bg-orange-500/5 border border-orange-500/10 px-5 py-2 font-kanit font-medium text-xs sm:text-sm text-orange-600 flex items-center gap-2">
-              📍 {LOCATION.region}, {LOCATION.country}
+            <div className="rounded-full bg-orange-500/5 border border-orange-500/15 px-5 py-2.5 font-kanit font-medium text-xs sm:text-sm text-orange-600 flex items-center gap-2 shadow-xs">
+              <MapPin size={14} className="text-orange-600" />
+              <span>{LOCATION.region}, {LOCATION.country}</span>
             </div>
           </div>
         </FadeIn>

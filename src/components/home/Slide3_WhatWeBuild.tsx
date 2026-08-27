@@ -46,7 +46,7 @@ export default function Slide3_WhatWeBuild() {
         </FadeIn>
 
         {/* SCROLL-REVEAL SUBTEXT */}
-        <div className="w-full max-w-2xl text-center mb-16 sm:mb-20 font-kanit font-medium text-base sm:text-lg md:text-xl text-slate-800 leading-relaxed">
+        <div className="w-full max-w-2xl text-center mb-16 sm:mb-20 font-sans font-medium text-base sm:text-lg md:text-xl text-slate-800 leading-relaxed">
           <AnimatedText 
             text="We don't build apps to fill a portfolio. We build because real people — students who miss deadlines, sales teams who lose leads, and families who forget medicine — need tools that genuinely work."
           />
@@ -67,7 +67,7 @@ export default function Slide3_WhatWeBuild() {
                   <h3 className="font-clash font-semibold text-xl text-[#0A0F1E] mb-3">
                     {pillar.title}
                   </h3>
-                  <p className="font-kanit font-light text-sm sm:text-base text-slate-600 leading-relaxed mt-auto">
+                  <p className="font-sans font-normal text-sm sm:text-base text-slate-600 leading-relaxed mt-auto">
                     {pillar.description}
                   </p>
                 </div>

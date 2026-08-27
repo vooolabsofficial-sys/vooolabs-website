@@ -111,7 +111,7 @@ export default function Slide4_Innovation() {
         
         {/* EYEBROW */}
         <FadeIn delay={0} y={15}>
-          <div className="font-kanit font-semibold text-xs tracking-[0.3em] g-text uppercase mb-4 text-center">
+          <div className="font-sans font-bold text-xs tracking-[0.25em] g-text uppercase mb-4 text-center">
             By The Numbers
           </div>
         </FadeIn>
@@ -132,7 +132,7 @@ export default function Slide4_Innovation() {
                 <div className={`font-clash font-extrabold text-[5rem] sm:text-[6rem] md:text-[5rem] lg:text-[6.5rem] leading-none ${stat.gradClass}`}>
                   <Counter value={stat.value} />
                 </div>
-                <div className="font-kanit text-sm text-slate-500 font-medium tracking-wide mt-3 max-w-[200px] mx-auto leading-relaxed">
+                <div className="font-sans text-sm text-slate-600 font-medium tracking-wide mt-3 max-w-[200px] mx-auto leading-relaxed">
                   {stat.label}
                 </div>
               </FadeIn>
@@ -147,7 +147,7 @@ export default function Slide4_Innovation() {
 
         {/* BOTTOM QUOTE */}
         <FadeIn delay={0.5} y={20}>
-          <p className="font-kanit font-light italic text-lg sm:text-xl md:text-2xl text-slate-500 text-center mt-16 sm:mt-20 max-w-[550px] leading-relaxed">
+          <p className="font-sans font-normal italic text-lg sm:text-xl md:text-2xl text-slate-600 text-center mt-16 sm:mt-20 max-w-[550px] leading-relaxed">
             Small numbers, honestly counted. They will be bigger next year.
           </p>
         </FadeIn>

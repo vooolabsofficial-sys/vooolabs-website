@@ -1,4 +1,5 @@
 import React from 'react';
+import { RefreshCw, Sparkles } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 
 export default function Slide1_RoadmapHero() {
@@ -27,12 +28,14 @@ export default function Slide1_RoadmapHero() {
 
         {/* BADGES */}
         <FadeIn delay={0.3} y={15}>
-          <div className="flex gap-3 justify-center">
-            <div className="rounded-full bg-blue-500/10 border border-blue-500/20 px-5 py-2 font-kanit font-medium text-xs sm:text-sm text-blue-600">
-              🔄 Live Roadmap
+          <div className="flex flex-wrap gap-3 justify-center">
+            <div className="rounded-full bg-blue-500/10 border border-blue-500/20 px-5 py-2 font-kanit font-medium text-xs sm:text-sm text-blue-600 inline-flex items-center gap-2 shadow-xs">
+              <RefreshCw size={14} className="animate-spin-slow text-blue-600" />
+              <span>Live Roadmap</span>
             </div>
-            <div className="rounded-full bg-purple-500/10 border border-purple-500/20 px-5 py-2 font-kanit font-medium text-xs sm:text-sm text-purple-600">
-              🔮 2025–2030 Vision
+            <div className="rounded-full bg-purple-500/10 border border-purple-500/20 px-5 py-2 font-kanit font-medium text-xs sm:text-sm text-purple-600 inline-flex items-center gap-2 shadow-xs">
+              <Sparkles size={14} className="text-purple-600" />
+              <span>2025–2030 Vision</span>
             </div>
           </div>
         </FadeIn>

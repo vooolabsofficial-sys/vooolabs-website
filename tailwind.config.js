@@ -19,8 +19,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        sans: ['Plus Jakarta Sans', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         clash: ['Clash Display', 'sans-serif'],
-        kanit: ['Kanit', 'sans-serif'],
+        kanit: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+        display: ['Clash Display', 'sans-serif'],
       },
       opacity,
     },

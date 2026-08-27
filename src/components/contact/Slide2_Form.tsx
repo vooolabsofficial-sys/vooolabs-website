@@ -23,35 +23,38 @@ import {
   type SubmitResult,
 } from '../../lib/contact';
 
-const TABS: EnquiryKind[] = ['General', 'Partnership', 'Beta', 'Press', 'Other'];
+import { useLocation } from 'react-router-dom';
+
+const TABS: EnquiryKind[] = [
+  'Web App',
+  'Website',
+  'Software CRM',
+  'Mobile App',
+  'General',
+  'Beta',
+  'Partnership',
+];
 
 export default function Slide2_Form() {
-  const [activeTab, setActiveTab] = useState<EnquiryKind>('General');
+  const [activeTab, setActiveTab] = useState<EnquiryKind>('Web App');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [result, setResult] = useState<SubmitResult | null>(null);
   const [isSending, setIsSending] = useState(false);
+  const location = useLocation();
 
-  /**
-   * `/contact#waitlist` preselects the Beta tab.
-   *
-   * This listens for `hashchange` as well as running on mount: a link to
-   * `#waitlist` from elsewhere on the contact page changes the hash without
-   * remounting anything, so a mount-only effect ignored it. The old code
-   * claimed in a comment to handle both and only ever handled mount.
-   */
   useEffect(() => {
-    const applyHash = () => {
-      if (window.location.hash !== '#waitlist') return;
-      setActiveTab('Beta');
-      document
-        .getElementById('contact-form-section')
-        ?.scrollIntoView({ behavior: 'smooth' });
-    };
+    const params = new URLSearchParams(location.search);
+    const serviceParam = params.get('service');
+    if (serviceParam === 'web-apps') setActiveTab('Web App');
+    else if (serviceParam === 'websites') setActiveTab('Website');
+    else if (serviceParam === 'software') setActiveTab('Software CRM');
+    else if (serviceParam === 'mobile-apps') setActiveTab('Mobile App');
+    else if (location.hash === '#waitlist') setActiveTab('Beta');
 
-    applyHash();
-    window.addEventListener('hashchange', applyHash);
-    return () => window.removeEventListener('hashchange', applyHash);
-  }, []);
+    if (serviceParam || location.hash) {
+      document.getElementById('contact-form-section')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location.search, location.hash]);
 
   const handleLeftCardClick = (tabName: EnquiryKind) => {
     setActiveTab(tabName);

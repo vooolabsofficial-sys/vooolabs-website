@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Brain, ArrowUp, Bell, Clock, Lock, Users, MapPin, Sparkles, GraduationCap, Briefcase, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../shared/FadeIn';
@@ -7,6 +7,7 @@ import { getProduct, STATUS_META } from '../../content/products';
 export default function Slide3_SmaranAI() {
   const product = getProduct('smaran-ai')!;
   const status = STATUS_META[product.status];
+  const [selectedMode, setSelectedMode] = useState<'student' | 'pro' | 'elder'>('elder');
 
   const featureIcons = [Clock, Lock, Users, MapPin, Sparkles, Brain];
   const featureColors = [
@@ -28,14 +29,20 @@ export default function Slide3_SmaranAI() {
         {/* LEFT COLUMN: CSS MOCKUPS (order-2 on mobile, order-1 on desktop) */}
         <div className="order-2 lg:order-1 flex justify-center w-full">
           <FadeIn delay={0.3} x={-40} className="w-full max-w-[340px]">
-            <div className="flex flex-col gap-4 w-full">
+            <div className="flex flex-col gap-3.5 w-full">
               
               {/* CARD 1: STUDENT */}
-              <div 
-                className="rounded-2xl bg-[#7C3AED]/[0.08] border border-[#7C3AED]/15 p-4 sm:p-5 flex gap-4 items-center justify-between shadow-xs transition-transform duration-300 hover:scale-[1.02]"
+              <button
+                type="button"
+                onClick={() => setSelectedMode('student')}
+                className={`w-full text-left rounded-2xl p-4 sm:p-5 flex gap-4 items-center justify-between transition-all duration-300 cursor-pointer ${
+                  selectedMode === 'student'
+                    ? 'bg-purple-50 border-2 border-purple-500 shadow-[0_8px_24px_rgba(124,58,237,0.15)] scale-[1.02]'
+                    : 'bg-[#7C3AED]/[0.05] border border-[#7C3AED]/15 hover:bg-[#7C3AED]/[0.08] hover:scale-[1.01]'
+                }`}
               >
                 <div className="flex gap-3 items-center min-w-0">
-                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-purple-500/15 flex items-center justify-center flex-shrink-0">
                     <GraduationCap className="w-5 h-5 text-purple-600" />
                   </div>
                   <div className="flex flex-col min-w-0">
@@ -43,17 +50,25 @@ export default function Slide3_SmaranAI() {
                     <span className="font-kanit font-light text-[10px] sm:text-xs text-slate-500 truncate">Engineering Math II • 9:00 AM</span>
                   </div>
                 </div>
-                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-600 flex-shrink-0">
-                  <Bell size={12} className="sm:w-4 sm:h-4" />
+                <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 ${
+                  selectedMode === 'student' ? 'bg-purple-600 text-white shadow-sm' : 'bg-purple-500/10 text-purple-600'
+                }`}>
+                  <Bell size={13} />
                 </div>
-              </div>
+              </button>
 
               {/* CARD 2: PROFESSIONAL */}
-              <div 
-                className="rounded-2xl bg-[#F97316]/[0.08] border border-[#F97316]/15 p-4 sm:p-5 flex gap-4 items-center justify-between shadow-xs transition-transform duration-300 hover:scale-[1.02]"
+              <button
+                type="button"
+                onClick={() => setSelectedMode('pro')}
+                className={`w-full text-left rounded-2xl p-4 sm:p-5 flex gap-4 items-center justify-between transition-all duration-300 cursor-pointer ${
+                  selectedMode === 'pro'
+                    ? 'bg-orange-50 border-2 border-orange-500 shadow-[0_8px_24px_rgba(249,115,22,0.15)] scale-[1.02]'
+                    : 'bg-[#F97316]/[0.05] border border-[#F97316]/15 hover:bg-[#F97316]/[0.08] hover:scale-[1.01]'
+                }`}
               >
                 <div className="flex gap-3 items-center min-w-0">
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/15 flex items-center justify-center flex-shrink-0">
                     <Briefcase className="w-5 h-5 text-orange-600" />
                   </div>
                   <div className="flex flex-col min-w-0">
@@ -61,17 +76,25 @@ export default function Slide3_SmaranAI() {
                     <span className="font-kanit font-light text-[10px] sm:text-xs text-slate-500 truncate">Client Followup Call • 2:00 PM</span>
                   </div>
                 </div>
-                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-600 flex-shrink-0">
-                  <Bell size={12} className="sm:w-4 sm:h-4" />
+                <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 ${
+                  selectedMode === 'pro' ? 'bg-orange-600 text-white shadow-sm' : 'bg-orange-500/10 text-orange-600'
+                }`}>
+                  <Bell size={13} />
                 </div>
-              </div>
+              </button>
 
               {/* CARD 3: ELDER (ACCESSIBLE) */}
-              <div 
-                className="rounded-2xl bg-[#10B981]/[0.08] border border-[#10B981]/15 p-5 sm:p-6 flex gap-4 items-center justify-between shadow-xs transition-transform duration-300 hover:scale-[1.02]"
+              <button
+                type="button"
+                onClick={() => setSelectedMode('elder')}
+                className={`w-full text-left rounded-2xl p-5 sm:p-6 flex gap-4 items-center justify-between transition-all duration-300 cursor-pointer ${
+                  selectedMode === 'elder'
+                    ? 'bg-emerald-50 border-2 border-emerald-500 shadow-[0_8px_24px_rgba(16,185,129,0.15)] scale-[1.02]'
+                    : 'bg-[#10B981]/[0.05] border border-[#10B981]/15 hover:bg-[#10B981]/[0.08] hover:scale-[1.01]'
+                }`}
               >
                 <div className="flex gap-4 items-center min-w-0">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center flex-shrink-0">
                     <Heart className="w-6 h-6 text-emerald-600" />
                   </div>
                   <div className="flex flex-col min-w-0">
@@ -79,10 +102,12 @@ export default function Slide3_SmaranAI() {
                     <span className="font-kanit font-normal text-xs sm:text-sm text-slate-600 mt-0.5 truncate">Blood Pressure Pill • 6:00 PM</span>
                   </div>
                 </div>
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 flex-shrink-0">
-                  <Bell size={16} className="sm:w-5 sm:h-5 animate-bounce" />
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+                  selectedMode === 'elder' ? 'bg-emerald-600 text-white shadow-sm' : 'bg-emerald-500/10 text-emerald-600'
+                }`}>
+                  <Bell size={15} className="animate-bounce" />
                 </div>
-              </div>
+              </button>
 
               {/* CENTER ALARM PULSING BUTTON */}
               <div className="flex justify-center mt-2 relative">
