@@ -10,6 +10,70 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Zian';
+  src: url('/fonts/zian/Zian free promo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Agile';
+  src: url('/fonts/agile/Agile.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avixariav';
+  src: url('/fonts/avixariav/Avixariav.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CrazyBlocks';
+  src: url('/fonts/crazy-blocks/Crazy Blocks.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Midstar';
+  src: url('/fonts/midstar/Midstar.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roma';
+  src: url('/fonts/roma/Roma.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Taggos';
+  src: url('/fonts/taggos/Taggos - Personal Use.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TFSilence';
+  src: url('/fonts/tf-silence/TF Silence DEMO.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #FFFFFF;
   --bg-2: #F8F9FC;
