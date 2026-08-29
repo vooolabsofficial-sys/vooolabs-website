@@ -14,13 +14,13 @@ export default function FixedBottomBar() {
         transition={{ delay: 0.4, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="pointer-events-auto flex items-center gap-3 sm:gap-4 rounded-full border border-black/[0.08] bg-white/90 px-4 py-2 sm:py-2.5 shadow-[0_12px_36px_rgba(0,0,0,0.08)] backdrop-blur-xl select-none whitespace-nowrap max-w-[95vw] overflow-x-auto no-scrollbar"
       >
-      {/* BRAND PULSE */}
+      {/* BRAND PULSE & LOGO — LOCKED PERMANENTLY TO CRAZY BLOCKS FONT (#5) */}
       <div className="flex items-center gap-2">
         <div className="relative flex items-center justify-center">
           <span className="animate-ping absolute inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400 opacity-75" />
           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
         </div>
-        <span className="font-clash font-extrabold text-xs sm:text-sm g-text tracking-wide">VOOO LABS</span>
+        <span className="font-crazyblocks font-bold text-xs sm:text-sm g-text tracking-wider">VOOO LABS</span>
       </div>
 
       {/* DIVIDER */}

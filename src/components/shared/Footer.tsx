@@ -38,9 +38,10 @@ export default function Footer() {
         
         {/* COL 1: BRANDING (col-span-2) */}
         <div className="md:col-span-2 flex flex-col items-start gap-5">
+          {/* BRAND LOGO — LOCKED PERMANENTLY TO CRAZY BLOCKS FONT (#5) */}
           <Link to="/" className="flex items-baseline group" aria-label="VOOO LABS Home">
-            <span className="shimmer-text font-clash font-extrabold text-3xl sm:text-4xl tracking-tight">VOOO</span>
-            <span className="font-clash font-bold text-2xl sm:text-3xl text-white ml-2 tracking-tight">LABS</span>
+            <span className="shimmer-text font-crazyblocks text-3xl sm:text-4xl tracking-wider">VOOO</span>
+            <span className="font-crazyblocks text-2xl sm:text-3xl text-white ml-2 tracking-wider">LABS</span>
           </Link>
           <p className="font-kanit font-light text-sm text-slate-300 max-w-[280px] leading-relaxed">
             {COMPANY.tagline}
