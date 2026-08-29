@@ -10,7 +10,6 @@ import AboutPage from './pages/AboutPage';
 import RoadmapPage from './pages/RoadmapPage';
 import ContactPage from './pages/ContactPage';
 import LegalPage from './pages/LegalPage';
-import LogoShowcasePage from './pages/LogoShowcasePage';
 import NotFoundPage from './pages/NotFoundPage';
 
 import type { Variants } from 'framer-motion';
@@ -45,8 +44,6 @@ function AppRoutes() {
         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
         <Route path="/roadmap" element={<PageWrapper><RoadmapPage /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
-        <Route path="/fonts" element={<PageWrapper><LogoShowcasePage /></PageWrapper>} />
-        <Route path="/logos" element={<PageWrapper><LogoShowcasePage /></PageWrapper>} />
         <Route path="/legal" element={<PageWrapper><LegalPage /></PageWrapper>} />
         <Route path="/legal/:doc" element={<PageWrapper><LegalPage /></PageWrapper>} />
         <Route path="*" element={<PageWrapper><NotFoundPage /></PageWrapper>} />
