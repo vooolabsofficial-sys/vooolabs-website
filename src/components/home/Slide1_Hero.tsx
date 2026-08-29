@@ -66,9 +66,9 @@ export default function Slide1_Hero() {
         
         {/* HEADING */}
         <FadeIn delay={0.05} y={30}>
-          <h1 className="font-clash text-[8.5vw] sm:text-[5.4vw] md:text-[4.65rem] font-bold text-[#0A0F1E] leading-[1.06] tracking-tight mb-5">
-            Architecting High-Performance Software & <br />
-            <span className="shimmer-text">Digital Products Built for Scale.</span>
+          <h1 className="font-clash text-[9vw] sm:text-[5.8vw] md:text-[5rem] font-bold text-[#0A0F1E] leading-[1.05] tracking-tight mb-5">
+            Built with Code, Design, <br />
+            <span className="shimmer-text">and Pure Obsession.</span>
           </h1>
         </FadeIn>
 
