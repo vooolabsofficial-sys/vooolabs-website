@@ -94,8 +94,8 @@ export default function Navbar() {
           aria-label="Main navigation"
         >
         <Link to="/" className="flex items-baseline group select-none py-1" aria-label="VOOO LABS Home">
-          <span className="shimmer-text font-crazyblocks text-2xl sm:text-[1.8rem] tracking-wider leading-none">VOOO</span>
-          <span className="font-crazyblocks text-xl sm:text-[1.45rem] text-slate-800 ml-2 tracking-wider leading-none">LABS</span>
+          <span className="shimmer-text font-clash font-extrabold text-2xl sm:text-[1.75rem] tracking-tight leading-none">VOOO</span>
+          <span className="font-clash font-bold text-xl sm:text-[1.45rem] text-[#0A0F1E] ml-1.5 tracking-tight leading-none">LABS</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-1 relative">
@@ -275,8 +275,8 @@ export default function Navbar() {
           >
             <div className="flex items-center justify-between w-full max-w-lg mx-auto flex-shrink-0">
               <Link to="/" onClick={closeMenu} className="flex items-baseline select-none" aria-label="VOOO LABS Home">
-                <span className="shimmer-text font-crazyblocks text-2xl sm:text-3xl tracking-wider leading-none">VOOO</span>
-                <span className="font-crazyblocks text-xl sm:text-2xl text-slate-800 ml-2 tracking-wider leading-none">LABS</span>
+                <span className="shimmer-text font-clash font-extrabold text-2xl sm:text-3xl tracking-tight leading-none">VOOO</span>
+                <span className="font-clash font-bold text-xl sm:text-2xl text-[#0A0F1E] ml-1.5 tracking-tight leading-none">LABS</span>
               </Link>
               <button
                 onClick={closeMenu}
