@@ -58,10 +58,10 @@ export default function Slide1_Hero() {
       <div className="absolute bottom-[-200px] left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-radial from-orange-500/5 to-transparent blur-[90px] animate-blob-3 pointer-events-none z-0" aria-hidden="true" />
 
       {/* NAVBAR SPACER */}
-      <div className="h-[105px] sm:h-[125px] md:h-[140px]" />
+      <div className="h-[90px] sm:h-[105px] md:h-[115px]" />
 
       {/* CENTER CONTENT */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 max-w-5xl mx-auto pt-2 sm:pt-5">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 max-w-5xl mx-auto pt-0 sm:pt-1">
         
         {/* HEADING (4 - 2 - 3 PATTERN) */}
         <FadeIn delay={0.05} y={30}>
