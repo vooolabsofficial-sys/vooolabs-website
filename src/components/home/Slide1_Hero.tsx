@@ -6,10 +6,9 @@ import { COMPANY } from '../../content/company';
 
 const CAPABILITIES = [
   'Web Applications',
-  'Custom Websites',
-  'Software Systems',
-  'Mobile Apps',
-  'SEO & AI Ranking',
+  'Mobile Applications',
+  'Custom Software Systems',
+  'AI & Digital Products',
 ];
 
 function CleanTypewriter() {
