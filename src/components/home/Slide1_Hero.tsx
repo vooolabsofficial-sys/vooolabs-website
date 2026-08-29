@@ -99,63 +99,113 @@ export default function Slide1_Hero() {
         </FadeIn>
       </div>
 
-      {/* 5 PILLARS PREVIEW STRIP */}
-      <div className="relative z-10 w-full flex flex-col items-center justify-end select-none mt-10">
-        <div className="w-full max-w-6xl px-6">
-          <div className="rounded-t-[32px] bg-white border-t border-x border-slate-200/90 shadow-[0_-10px_40px_rgba(0,0,0,0.03)] p-4 sm:p-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 items-center">
+      {/* 5 PILLARS PREVIEW STRIP — SLEEK HUMAN-CRAFTED STUDIO DOCK */}
+      <div className="relative z-10 w-full flex flex-col items-center justify-end select-none mt-8 mb-2">
+        <div className="w-full max-w-6xl px-4 sm:px-6">
+          <div className="rounded-3xl bg-white/90 backdrop-blur-xl border border-slate-200/90 shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-3 sm:p-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 items-stretch">
             
-            {/* VERTICAL 1: WEB APPS */}
-            <Link to="/products#web-apps" className="flex items-center gap-2.5 p-2 rounded-2xl hover:bg-blue-50/60 transition-all group border border-transparent hover:border-blue-100">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/80 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                <Globe size={18} />
+            {/* 01: WEB APPS */}
+            <Link 
+              to="/products#web-apps" 
+              className="group flex flex-col justify-between p-3.5 rounded-2xl bg-slate-50/70 hover:bg-white border border-slate-100 hover:border-slate-300 hover:shadow-md transition-all duration-200 text-left"
+            >
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="font-mono text-[10px] font-semibold text-slate-400 group-hover:text-blue-600 transition-colors tracking-widest uppercase">
+                  01 / WEB
+                </span>
+                <Globe size={15} className="text-slate-400 group-hover:text-blue-600 transition-colors" />
               </div>
-              <div className="text-left min-w-0">
-                <span className="font-clash font-bold text-xs sm:text-sm text-[#0A0F1E] block group-hover:text-blue-600 transition-colors">Web Apps</span>
-                <span className="font-sans font-normal text-[11px] text-slate-500 block">Custom Portals</span>
-              </div>
-            </Link>
-
-            {/* VERTICAL 2: WEBSITES */}
-            <Link to="/products#websites" className="flex items-center gap-2.5 p-2 rounded-2xl hover:bg-purple-50/60 transition-all group border border-transparent hover:border-purple-100">
-              <div className="w-10 h-10 rounded-xl bg-purple-50 border border-purple-200/80 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                <Laptop size={18} />
-              </div>
-              <div className="text-left min-w-0">
-                <span className="font-clash font-bold text-xs sm:text-sm text-[#0A0F1E] block group-hover:text-purple-600 transition-colors">Websites</span>
-                <span className="font-sans font-normal text-[11px] text-slate-500 block">High Converting</span>
-              </div>
-            </Link>
-
-            {/* VERTICAL 3: SOFTWARE SYSTEMS */}
-            <Link to="/products#software" className="flex items-center gap-2.5 p-2 rounded-2xl hover:bg-emerald-50/60 transition-all group border border-transparent hover:border-emerald-100">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                <Cpu size={18} />
-              </div>
-              <div className="text-left min-w-0">
-                <span className="font-clash font-bold text-xs sm:text-sm text-[#0A0F1E] block group-hover:text-emerald-600 transition-colors">Software Systems</span>
-                <span className="font-sans font-normal text-[11px] text-slate-500 block">Business Automation</span>
+              <div>
+                <span className="font-clash font-bold text-sm text-[#0A0F1E] block leading-tight group-hover:text-blue-600 transition-colors">
+                  Web Applications
+                </span>
+                <span className="font-sans text-[11px] text-slate-500 font-medium mt-0.5 block">
+                  Custom SaaS & Portals
+                </span>
               </div>
             </Link>
 
-            {/* VERTICAL 4: MOBILE APPS */}
-            <Link to="/products#mobile-apps" className="flex items-center gap-2.5 p-2 rounded-2xl hover:bg-orange-50/60 transition-all group border border-transparent hover:border-orange-100">
-              <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-200/80 text-orange-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                <Smartphone size={18} />
+            {/* 02: WEBSITES */}
+            <Link 
+              to="/products#websites" 
+              className="group flex flex-col justify-between p-3.5 rounded-2xl bg-slate-50/70 hover:bg-white border border-slate-100 hover:border-slate-300 hover:shadow-md transition-all duration-200 text-left"
+            >
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="font-mono text-[10px] font-semibold text-slate-400 group-hover:text-purple-600 transition-colors tracking-widest uppercase">
+                  02 / SITE
+                </span>
+                <Laptop size={15} className="text-slate-400 group-hover:text-purple-600 transition-colors" />
               </div>
-              <div className="text-left min-w-0">
-                <span className="font-clash font-bold text-xs sm:text-sm text-[#0A0F1E] block group-hover:text-orange-600 transition-colors">Mobile Apps</span>
-                <span className="font-sans font-normal text-[11px] text-slate-500 block">Android & iOS</span>
+              <div>
+                <span className="font-clash font-bold text-sm text-[#0A0F1E] block leading-tight group-hover:text-purple-600 transition-colors">
+                  Custom Websites
+                </span>
+                <span className="font-sans text-[11px] text-slate-500 font-medium mt-0.5 block">
+                  High-Converting Design
+                </span>
               </div>
             </Link>
 
-            {/* VERTICAL 5: SEO · AEO · GEO */}
-            <Link to="/products#websites" className="col-span-2 sm:col-span-1 flex items-center gap-2.5 p-2 rounded-2xl hover:bg-indigo-50/60 transition-all group border border-transparent hover:border-indigo-100">
-              <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200/80 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                <Search size={18} />
+            {/* 03: SOFTWARE SYSTEMS */}
+            <Link 
+              to="/products#software" 
+              className="group flex flex-col justify-between p-3.5 rounded-2xl bg-slate-50/70 hover:bg-white border border-slate-100 hover:border-slate-300 hover:shadow-md transition-all duration-200 text-left"
+            >
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="font-mono text-[10px] font-semibold text-slate-400 group-hover:text-emerald-600 transition-colors tracking-widest uppercase">
+                  03 / SYS
+                </span>
+                <Cpu size={15} className="text-slate-400 group-hover:text-emerald-600 transition-colors" />
               </div>
-              <div className="text-left min-w-0">
-                <span className="font-clash font-bold text-xs sm:text-sm text-[#0A0F1E] block group-hover:text-indigo-600 transition-colors">SEO · AEO · GEO</span>
-                <span className="font-sans font-normal text-[11px] text-slate-500 block">Google & AI Ranking</span>
+              <div>
+                <span className="font-clash font-bold text-sm text-[#0A0F1E] block leading-tight group-hover:text-emerald-600 transition-colors">
+                  Software Systems
+                </span>
+                <span className="font-sans text-[11px] text-slate-500 font-medium mt-0.5 block">
+                  Automations & APIs
+                </span>
+              </div>
+            </Link>
+
+            {/* 04: MOBILE APPS */}
+            <Link 
+              to="/products#mobile-apps" 
+              className="group flex flex-col justify-between p-3.5 rounded-2xl bg-slate-50/70 hover:bg-white border border-slate-100 hover:border-slate-300 hover:shadow-md transition-all duration-200 text-left"
+            >
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="font-mono text-[10px] font-semibold text-slate-400 group-hover:text-orange-600 transition-colors tracking-widest uppercase">
+                  04 / APP
+                </span>
+                <Smartphone size={15} className="text-slate-400 group-hover:text-orange-600 transition-colors" />
+              </div>
+              <div>
+                <span className="font-clash font-bold text-sm text-[#0A0F1E] block leading-tight group-hover:text-orange-600 transition-colors">
+                  Mobile Apps
+                </span>
+                <span className="font-sans text-[11px] text-slate-500 font-medium mt-0.5 block">
+                  Native Android & iOS
+                </span>
+              </div>
+            </Link>
+
+            {/* 05: SEO · AEO · GEO */}
+            <Link 
+              to="/products#websites" 
+              className="col-span-2 sm:col-span-1 group flex flex-col justify-between p-3.5 rounded-2xl bg-slate-50/70 hover:bg-white border border-slate-100 hover:border-slate-300 hover:shadow-md transition-all duration-200 text-left"
+            >
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="font-mono text-[10px] font-semibold text-slate-400 group-hover:text-blue-600 transition-colors tracking-widest uppercase">
+                  05 / AI-SEO
+                </span>
+                <Search size={15} className="text-slate-400 group-hover:text-blue-600 transition-colors" />
+              </div>
+              <div>
+                <span className="font-clash font-bold text-sm text-[#0A0F1E] block leading-tight group-hover:text-blue-600 transition-colors">
+                  SEO & AI Ranking
+                </span>
+                <span className="font-sans text-[11px] text-slate-500 font-medium mt-0.5 block">
+                  Google · AEO · GEO
+                </span>
               </div>
             </Link>
 
