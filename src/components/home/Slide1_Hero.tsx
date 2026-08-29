@@ -63,11 +63,13 @@ export default function Slide1_Hero() {
       {/* CENTER CONTENT */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 max-w-5xl mx-auto -mt-4">
         
-        {/* HEADING */}
+        {/* HEADING (4-LINE RHYTHM) */}
         <FadeIn delay={0.05} y={30}>
-          <h1 className="font-clash text-[9vw] sm:text-[5.8vw] md:text-[5rem] font-bold text-[#0A0F1E] leading-[1.05] tracking-tight mb-5">
-            Built with Code, Design, <br />
-            <span className="shimmer-text">and Pure Obsession.</span>
+          <h1 className="font-clash text-[7.5vw] sm:text-[4.5vw] md:text-[3.6rem] lg:text-[4.1rem] font-bold text-[#0A0F1E] leading-[1.08] tracking-tight mb-6">
+            <span>Built with Code.</span> <br />
+            <span>Crafted with Design.</span> <br />
+            <span>Engineered for Scale.</span> <br />
+            <span className="shimmer-text">Driven by Pure Obsession.</span>
           </h1>
         </FadeIn>
 
