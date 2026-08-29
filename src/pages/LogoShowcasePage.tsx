@@ -1,428 +1,348 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Check, Copy, Sparkles, Sliders, Eye, ArrowRight, ShieldCheck, Zap, Laptop } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Check, Copy, Sparkles, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface FontOption {
   id: number;
   name: string;
-  fontClass: string;
+  fontFamily: string; // direct CSS font-family value
   category: string;
-  source: 'User List' | 'Modern Tech Recommendation';
+  source: 'custom' | 'google' | 'fontshare';
   description: string;
-  rating: string;
 }
 
 const FONTS_LIST: FontOption[] = [
-  // User's Requested Fonts
+  // ─── User's Custom Downloaded Fonts ───
   {
     id: 1,
-    name: 'Zian',
-    fontClass: 'font-zian',
-    category: 'Minimalist Luxury Tech',
-    source: 'User List',
-    description: 'Clean, futuristic, balanced proportions. Premium Apple & SaaS studio feel.',
-    rating: '9.2 / 10'
+    name: 'Zentaro',
+    fontFamily: 'Zentaro, sans-serif',
+    category: 'Cyberpunk Angular',
+    source: 'custom',
+    description: 'Sharp angular sci-fi cuts with cyberpunk energy.',
   },
   {
     id: 2,
-    name: 'Agile',
-    fontClass: 'font-agile',
-    category: 'Clean Geometric Tech',
-    source: 'User List',
-    description: 'Crisp software engineering aesthetic. Very readable and modern.',
-    rating: '8.7 / 10'
+    name: 'Zian',
+    fontFamily: 'Zian, sans-serif',
+    category: 'Minimalist Luxury',
+    source: 'custom',
+    description: 'Wide minimalist futuristic letterforms.',
   },
   {
     id: 3,
-    name: 'Avixariav',
-    fontClass: 'font-avixariav',
-    category: 'Sci-Fi Display',
-    source: 'User List',
-    description: 'Unique experimental curves, high-tech display font.',
-    rating: '7.8 / 10'
+    name: 'Agile',
+    fontFamily: 'Agile, sans-serif',
+    category: 'Clean Geometric',
+    source: 'custom',
+    description: 'Crisp geometric sans with software studio feel.',
   },
   {
     id: 4,
-    name: 'TF Silence',
-    fontClass: 'font-tfsilence',
-    category: 'Tech Stencil / Cutout',
-    source: 'User List',
-    description: 'Geometric cuts with distinct industrial software styling.',
-    rating: '7.6 / 10'
+    name: 'Avixariav',
+    fontFamily: 'Avixariav, sans-serif',
+    category: 'Sci-Fi Experimental',
+    source: 'custom',
+    description: 'Unique experimental curves, high-tech display font.',
   },
   {
     id: 5,
-    name: 'Midstar',
-    fontClass: 'font-midstar',
-    category: 'Modern Y2K Display',
-    source: 'User List',
-    description: 'Creative digital product vibe, punchy shapes.',
-    rating: '8.2 / 10'
+    name: 'Crazy Blocks',
+    fontFamily: 'CrazyBlocks, sans-serif',
+    category: 'Blocky / Pixel Art',
+    source: 'custom',
+    description: 'Heavy pixelated block letters with playful energy.',
   },
   {
     id: 6,
-    name: 'Taggos',
-    fontClass: 'font-taggos',
-    category: 'Urban Display',
-    source: 'User List',
-    description: 'Bold street techno characters with strong geometry.',
-    rating: '7.2 / 10'
+    name: 'Midstar',
+    fontFamily: 'Midstar, sans-serif',
+    category: 'Modern Y2K Display',
+    source: 'custom',
+    description: 'Creative digital product vibe with punchy shapes.',
   },
   {
     id: 7,
     name: 'Roma',
-    fontClass: 'font-roma',
-    category: 'Bold Display',
-    source: 'User List',
-    description: 'Heavy bold retro stance.',
-    rating: '6.5 / 10'
+    fontFamily: 'Roma, sans-serif',
+    category: 'Bold Retro Display',
+    source: 'custom',
+    description: 'Heavy bold retro stance with strong character.',
   },
   {
     id: 8,
-    name: 'Crazy Blocks',
-    fontClass: 'font-crazyblocks',
-    category: 'Blocky / Pixel Art',
-    source: 'User List',
-    description: 'Playful heavy blocks.',
-    rating: '5.5 / 10'
+    name: 'Taggos',
+    fontFamily: 'Taggos, sans-serif',
+    category: 'Urban Bold Display',
+    source: 'custom',
+    description: 'Bold street tech characters with strong geometry.',
   },
   {
     id: 9,
-    name: 'Zentaro',
-    fontClass: 'font-zentaro',
-    category: 'Cyberpunk Display',
-    source: 'User List',
-    description: 'Angular sci-fi cuts.',
-    rating: '9.0 / 10'
+    name: 'TF Silence',
+    fontFamily: 'TFSilence, sans-serif',
+    category: 'Tech Stencil / Cutout',
+    source: 'custom',
+    description: 'Geometric cuts with industrial software styling.',
   },
 
-  // Premium Tech Studio Recommendations
+  // ─── Google Fonts ───
   {
     id: 10,
-    name: 'Clash Display',
-    fontClass: 'font-clash',
-    category: 'Modern Studio Neo-Grotesk',
-    source: 'Modern Tech Recommendation',
-    description: 'The industry-standard bold font used by world-class software studios & fintech.',
-    rating: '9.8 / 10'
+    name: 'Orbitron',
+    fontFamily: 'Orbitron, sans-serif',
+    category: 'Sci-Fi Geometric',
+    source: 'google',
+    description: 'Clean aerospace & digital architecture geometry.',
   },
   {
     id: 11,
-    name: 'Cabinet Grotesk',
-    fontClass: 'font-cabinet',
-    category: 'Heavy Tech Geometric',
-    source: 'Modern Tech Recommendation',
-    description: 'Extremely tight kerning, ultra-modern bold tech stance like Vercel and Linear.',
-    rating: '9.6 / 10'
+    name: 'Syne',
+    fontFamily: 'Syne, sans-serif',
+    category: 'Artistic High-Tech',
+    source: 'google',
+    description: 'Distinctive wide curves, creative tech studio elegance.',
   },
   {
     id: 12,
-    name: 'Unbounded',
-    fontClass: 'font-unbounded',
-    category: 'Extended Futuristic Sans',
-    source: 'Modern Tech Recommendation',
-    description: 'Wide, bold, modern stance giving massive presence and tech authority.',
-    rating: '9.5 / 10'
+    name: 'Space Grotesk',
+    fontFamily: '"Space Grotesk", sans-serif',
+    category: 'Engineering Mono-Influenced',
+    source: 'google',
+    description: 'Technical, sharp, confident software engineering personality.',
   },
   {
     id: 13,
-    name: 'Orbitron',
-    fontClass: 'font-orbitron',
-    category: 'Sci-Fi Geometric',
-    source: 'Modern Tech Recommendation',
-    description: 'Clean aerospace & digital architecture geometry.',
-    rating: '9.1 / 10'
+    name: 'Unbounded',
+    fontFamily: 'Unbounded, sans-serif',
+    category: 'Extended Futuristic Sans',
+    source: 'google',
+    description: 'Wide, bold, massive presence and tech authority.',
   },
   {
     id: 14,
-    name: 'Space Grotesk',
-    fontClass: 'font-space',
-    category: 'Engineering Mono-Influenced',
-    source: 'Modern Tech Recommendation',
-    description: 'Technical, sharp, and confident software engineering personality.',
-    rating: '9.0 / 10'
+    name: 'Michroma',
+    fontFamily: 'Michroma, sans-serif',
+    category: 'Wide Cybernetic Display',
+    source: 'google',
+    description: 'Square geometry with smooth rounded corners.',
   },
   {
     id: 15,
-    name: 'Syne',
-    fontClass: 'font-syne',
-    category: 'Artistic High-Tech',
-    source: 'Modern Tech Recommendation',
-    description: 'Distinctive wide curves, creative tech studio elegance.',
-    rating: '8.9 / 10'
+    name: 'Oxanium',
+    fontFamily: 'Oxanium, sans-serif',
+    category: 'Hexagonal Futuristic',
+    source: 'google',
+    description: 'Subtle chamfered corners, perfect for AI & dev tools.',
   },
   {
     id: 16,
-    name: 'Michroma',
-    fontClass: 'font-michroma',
-    category: 'Wide Cybernetic Display',
-    source: 'Modern Tech Recommendation',
-    description: 'Square geometry with smooth rounded corners.',
-    rating: '8.8 / 10'
+    name: 'Outfit',
+    fontFamily: 'Outfit, sans-serif',
+    category: 'Clean Product Sans',
+    source: 'google',
+    description: 'Balanced, hyper-clean consumer tech appearance.',
   },
+
+  // ─── Fontshare Fonts ───
   {
     id: 17,
-    name: 'Oxanium',
-    fontClass: 'font-oxanium',
-    category: 'Hexagonal Futuristic',
-    source: 'Modern Tech Recommendation',
-    description: 'Subtle technical chamfered corners, perfect for AI & developer tools.',
-    rating: '8.7 / 10'
+    name: 'Clash Display',
+    fontFamily: '"Clash Display", sans-serif',
+    category: 'Modern Studio Neo-Grotesk',
+    source: 'fontshare',
+    description: 'Industry-standard bold font used by world-class software studios.',
   },
   {
     id: 18,
-    name: 'Outfit',
-    fontClass: 'font-outfit',
-    category: 'Clean Product Sans',
-    source: 'Modern Tech Recommendation',
-    description: 'Balanced, modern, hyper-clean consumer tech appearance.',
-    rating: '8.9 / 10'
+    name: 'Cabinet Grotesk',
+    fontFamily: '"Cabinet Grotesk", sans-serif',
+    category: 'Heavy Tech Geometric',
+    source: 'fontshare',
+    description: 'Ultra-modern tight kerning, Vercel & Linear style.',
   },
 ];
 
+// Source badge colors
+function sourceBadge(source: FontOption['source']) {
+  switch (source) {
+    case 'custom':
+      return { bg: 'bg-purple-100', text: 'text-purple-700', border: 'border-purple-200', label: '📁 Downloaded Font' };
+    case 'google':
+      return { bg: 'bg-blue-100', text: 'text-blue-700', border: 'border-blue-200', label: '🔤 Google Fonts' };
+    case 'fontshare':
+      return { bg: 'bg-emerald-100', text: 'text-emerald-700', border: 'border-emerald-200', label: '✨ Fontshare' };
+  }
+}
+
 export default function LogoShowcasePage() {
   const [customText, setCustomText] = useState('VOOO LABS');
-  const [textSize, setTextSize] = useState<number>(36);
-  const [activeTab, setActiveTab] = useState<'all' | 'user' | 'recommended'>('all');
+  const [textSize, setTextSize] = useState<number>(42);
   const [copiedId, setCopiedId] = useState<number | null>(null);
+  const [filter, setFilter] = useState<'all' | 'custom' | 'google' | 'fontshare'>('all');
 
-  const filteredFonts = FONTS_LIST.filter((font) => {
-    if (activeTab === 'user') return font.source === 'User List';
-    if (activeTab === 'recommended') return font.source === 'Modern Tech Recommendation';
-    return true;
+  const filteredFonts = FONTS_LIST.filter((f) => {
+    if (filter === 'all') return true;
+    return f.source === filter;
   });
 
-  const handleCopy = (id: number, text: string) => {
-    navigator.clipboard.writeText(text);
+  const handleCopy = (id: number, name: string) => {
+    navigator.clipboard.writeText(`#${id} - ${name}`);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F9FC] text-[#0A0F1E] pt-28 pb-36 px-4 sm:px-8 select-none">
-      
-      {/* HEADER HERO */}
-      <div className="max-w-5xl mx-auto text-center mb-10">
-        <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 mb-4 text-blue-600 font-sans font-semibold text-xs tracking-wider uppercase">
+    <div className="min-h-screen bg-[#F8F9FC] text-[#0A0F1E] pt-28 pb-36 px-4 sm:px-6 lg:px-8 select-none">
+
+      {/* ── HEADER ── */}
+      <div className="max-w-5xl mx-auto text-center mb-8">
+        <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 mb-4 text-blue-600 font-semibold text-xs tracking-wider uppercase">
           <Sparkles size={14} />
-          <span>Brand Logo Font Showcase & Comparison</span>
+          <span>Font Showcase — Pick Your Favorite</span>
         </div>
-        
-        <h1 className="font-clash text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0A0F1E] mb-4">
-          Choose Your Favorite <span className="g-text">VOOO LABS</span> Font
+        <h1 className="font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight text-[#0A0F1E] mb-3" style={{ fontFamily: '"Clash Display", sans-serif' }}>
+          Choose Your <span className="g-text">VOOO LABS</span> Font
         </h1>
-        
-        <p className="font-sans text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-          खालील प्रत्येक नंबरवर "VOOO LABS" वेगवेळ्या फॉन्टमध्ये लाईव्ह दिसत आहे. तुम्हाला जो नंबर आवडेल तो सांगा, आपण तोच फायनल करू!
+        <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          खाली प्रत्येक नंबरवर <strong>"VOOO LABS"</strong> वेगवेगळ्या फॉन्टमध्ये दिसत आहे.<br/>
+          तुम्हाला जो नंबर आवडेल तो सांगा!
         </p>
       </div>
 
-      {/* INTERACTIVE CONTROLS BAR */}
-      <div className="max-w-5xl mx-auto mb-12 bg-white rounded-3xl border border-slate-200/90 shadow-sm p-4 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-6 sticky top-20 z-40 backdrop-blur-xl bg-white/95">
-        
-        {/* CUSTOM TEXT INPUT */}
-        <div className="w-full md:w-1/2 flex items-center gap-3">
-          <span className="font-sans font-semibold text-xs text-slate-500 uppercase tracking-wider whitespace-nowrap">
-            Preview Text:
-          </span>
+      {/* ── CONTROLS ── */}
+      <div className="max-w-5xl mx-auto mb-10 bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-5 sticky top-20 z-40 backdrop-blur-xl bg-white/95">
+        {/* Text Input */}
+        <div className="flex-1 flex items-center gap-3 w-full md:w-auto">
+          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider whitespace-nowrap">Text:</span>
           <input
             type="text"
             value={customText}
             onChange={(e) => setCustomText(e.target.value)}
-            placeholder="Type logo text..."
-            className="w-full rounded-2xl bg-slate-50 border border-slate-200 px-4 py-2.5 font-sans font-medium text-sm text-[#0A0F1E] focus:outline-none focus:border-blue-500 focus:bg-white transition-all shadow-inner"
+            className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-2.5 text-sm font-medium text-[#0A0F1E] focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
           />
         </div>
-
-        {/* FONT SIZE SLIDER */}
-        <div className="w-full md:w-1/4 flex items-center gap-3">
-          <span className="font-sans font-semibold text-xs text-slate-500 uppercase tracking-wider whitespace-nowrap">
-            Size: {textSize}px
-          </span>
+        {/* Size Slider */}
+        <div className="flex items-center gap-3 w-full md:w-auto">
+          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider whitespace-nowrap">Size: {textSize}px</span>
           <input
             type="range"
-            min="22"
-            max="56"
+            min="24"
+            max="64"
             value={textSize}
             onChange={(e) => setTextSize(Number(e.target.value))}
-            className="w-full accent-blue-600 cursor-pointer"
+            className="w-32 accent-blue-600 cursor-pointer"
           />
         </div>
-
-        {/* FILTER TABS */}
-        <div className="flex items-center gap-1.5 bg-slate-100 p-1 rounded-2xl">
-          <button
-            onClick={() => setActiveTab('all')}
-            className={`px-3 py-1.5 rounded-xl font-sans font-semibold text-xs transition-all ${
-              activeTab === 'all' ? 'bg-white text-blue-600 shadow-xs' : 'text-slate-600 hover:text-slate-900'
-            }`}
-          >
-            All ({FONTS_LIST.length})
-          </button>
-          <button
-            onClick={() => setActiveTab('user')}
-            className={`px-3 py-1.5 rounded-xl font-sans font-semibold text-xs transition-all ${
-              activeTab === 'user' ? 'bg-white text-blue-600 shadow-xs' : 'text-slate-600 hover:text-slate-900'
-            }`}
-          >
-            Your List (9)
-          </button>
-          <button
-            onClick={() => setActiveTab('recommended')}
-            className={`px-3 py-1.5 rounded-xl font-sans font-semibold text-xs transition-all ${
-              activeTab === 'recommended' ? 'bg-white text-blue-600 shadow-xs' : 'text-slate-600 hover:text-slate-900'
-            }`}
-          >
-            Studio Picks (9)
-          </button>
+        {/* Filter */}
+        <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
+          {[
+            { key: 'all', label: `All (${FONTS_LIST.length})` },
+            { key: 'custom', label: 'Downloaded (9)' },
+            { key: 'google', label: 'Google (7)' },
+            { key: 'fontshare', label: 'Fontshare (2)' },
+          ].map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setFilter(tab.key as typeof filter)}
+              className={`px-3 py-1.5 rounded-lg font-semibold text-xs transition-all ${
+                filter === tab.key ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
-
       </div>
 
-      {/* FONT SHOWCASE GRID */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-        {filteredFonts.map((font) => (
-          <div
-            key={font.id}
-            id={`font-${font.id}`}
-            className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-7 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] hover:border-slate-300 transition-all duration-300 flex flex-col justify-between group"
-          >
-            {/* CARD TOP BAR */}
-            <div>
-              <div className="flex items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-100">
+      {/* ── FONT GRID ── */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        {filteredFonts.map((font, idx) => {
+          const badge = sourceBadge(font.source);
+          return (
+            <motion.div
+              key={font.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.04, duration: 0.35 }}
+              className="rounded-2xl bg-white border border-slate-200 shadow-[0_2px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-slate-300 transition-all duration-300 flex flex-col"
+            >
+              {/* Card Header */}
+              <div className="flex items-center justify-between gap-2 px-5 pt-5 pb-3">
                 <div className="flex items-center gap-2.5">
-                  <span className="w-8 h-8 rounded-xl bg-[#0A0F1E] text-white flex items-center justify-center font-clash font-bold text-sm shadow-sm">
-                    #{font.id}
+                  <span className="w-9 h-9 rounded-xl bg-[#0A0F1E] text-white flex items-center justify-center font-bold text-sm shadow-sm" style={{ fontFamily: '"Clash Display", sans-serif' }}>
+                    {font.id}
                   </span>
                   <div>
-                    <h3 className="font-clash font-bold text-lg text-[#0A0F1E]">
-                      {font.name}
-                    </h3>
-                    <span className="font-sans text-[11px] text-slate-500 font-medium">
-                      {font.category}
-                    </span>
+                    <h3 className="font-bold text-base text-[#0A0F1E]" style={{ fontFamily: '"Clash Display", sans-serif' }}>{font.name}</h3>
+                    <span className="text-[10px] text-slate-400 font-medium">{font.category}</span>
                   </div>
                 </div>
-
-                <div className="flex items-center gap-2">
-                  <span className="font-sans font-semibold text-xs px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/60">
-                    ⭐ {font.rating}
-                  </span>
-                </div>
-              </div>
-
-              {/* LIVE LIGHT LOGO PREVIEW (GRADIENT SHIMMER) */}
-              <div className="bg-slate-50/80 rounded-2xl p-5 border border-slate-100 flex flex-col items-center justify-center text-center my-3 min-h-[110px]">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 via-purple-600 to-orange-500 flex items-center justify-center flex-shrink-0 shadow-xs">
-                    <svg width="12" height="12" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path d="M4 4L10 16L16 4" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <div className="flex items-baseline">
-                    <span 
-                      className={`shimmer-text ${font.fontClass} font-bold leading-none tracking-wide`}
-                      style={{ fontSize: `${textSize}px` }}
-                    >
-                      {customText.split(' ')[0] || 'VOOO'}
-                    </span>
-                    {customText.split(' ').slice(1).length > 0 && (
-                      <span 
-                        className={`${font.fontClass} font-semibold text-slate-700 ml-2 leading-none tracking-wider`}
-                        style={{ fontSize: `${Math.max(20, textSize * 0.85)}px` }}
-                      >
-                        {customText.split(' ').slice(1).join(' ')}
-                      </span>
-                    )}
-                  </div>
-                </div>
-                <span className="font-sans text-[10px] text-slate-600 uppercase tracking-widest">
-                  Light Theme + Brand Gradient
+                <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${badge.bg} ${badge.text} ${badge.border}`}>
+                  {badge.label}
                 </span>
               </div>
 
-              {/* LIVE DARK LOGO PREVIEW (OLED BLACK) */}
-              <div className="bg-[#0A0F1E] rounded-2xl p-5 border border-black/40 flex flex-col items-center justify-center text-center my-3 min-h-[110px] shadow-inner">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 via-purple-600 to-orange-500 flex items-center justify-center flex-shrink-0 shadow-xs">
-                    <svg width="12" height="12" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path d="M4 4L10 16L16 4" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <div className="flex items-baseline">
-                    <span 
-                      className={`shimmer-text ${font.fontClass} font-bold leading-none tracking-wide`}
-                      style={{ fontSize: `${textSize}px` }}
-                    >
-                      {customText.split(' ')[0] || 'VOOO'}
-                    </span>
-                    {customText.split(' ').slice(1).length > 0 && (
-                      <span 
-                        className={`${font.fontClass} font-semibold text-white ml-2 leading-none tracking-wider`}
-                        style={{ fontSize: `${Math.max(20, textSize * 0.85)}px` }}
-                      >
-                        {customText.split(' ').slice(1).join(' ')}
-                      </span>
-                    )}
-                  </div>
-                </div>
-                <span className="font-sans text-[10px] text-slate-300 uppercase tracking-widest">
-                  Dark Theme
+              {/* ─── LIGHT PREVIEW ─── */}
+              <div className="mx-4 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-100 p-5 flex items-center justify-center min-h-[90px]">
+                <span
+                  className="leading-none tracking-wide text-[#0A0F1E] font-bold text-center break-all"
+                  style={{ fontFamily: font.fontFamily, fontSize: `${textSize}px` }}
+                >
+                  {customText || 'VOOO LABS'}
                 </span>
               </div>
 
-              {/* DESCRIPTION */}
-              <p className="font-sans text-xs text-slate-500 mt-3 leading-relaxed">
-                {font.description}
-              </p>
-            </div>
+              {/* ─── DARK PREVIEW ─── */}
+              <div className="mx-4 mt-3 rounded-xl bg-[#0A0F1E] border border-black/30 p-5 flex items-center justify-center min-h-[90px]">
+                <span
+                  className="leading-none tracking-wide text-white font-bold text-center break-all"
+                  style={{ fontFamily: font.fontFamily, fontSize: `${textSize}px` }}
+                >
+                  {customText || 'VOOO LABS'}
+                </span>
+              </div>
 
-            {/* CARD BOTTOM ACTION */}
-            <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between gap-3">
-              <span className="font-sans font-semibold text-xs text-slate-600">
-                Number: <strong className="text-blue-600 font-clash text-base">#{font.id}</strong>
-              </span>
+              {/* Description */}
+              <p className="px-5 pt-3 text-xs text-slate-500 leading-relaxed flex-1">{font.description}</p>
 
-              <button
-                onClick={() => handleCopy(font.id, `Option #${font.id} - ${font.name}`)}
-                className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 px-4 py-2 font-sans font-semibold text-xs transition-colors inline-flex items-center gap-1.5"
-              >
-                {copiedId === font.id ? (
-                  <>
-                    <Check size={14} className="text-emerald-600" />
-                    <span>Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy size={13} />
-                    <span>Copy #{font.id} ({font.name})</span>
-                  </>
-                )}
-              </button>
-            </div>
-
-          </div>
-        ))}
+              {/* Footer */}
+              <div className="px-5 py-4 mt-auto flex items-center justify-between border-t border-slate-100 mt-3">
+                <span className="text-xs text-slate-600">
+                  नंबर: <strong className="text-blue-600 text-base" style={{ fontFamily: '"Clash Display", sans-serif' }}>#{font.id}</strong>
+                </span>
+                <button
+                  onClick={() => handleCopy(font.id, font.name)}
+                  className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 px-3.5 py-1.5 text-xs font-semibold transition-colors inline-flex items-center gap-1.5"
+                >
+                  {copiedId === font.id ? (
+                    <><Check size={13} className="text-emerald-600" /> Copied!</>
+                  ) : (
+                    <><Copy size={12} /> #{font.id} Copy</>
+                  )}
+                </button>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
 
-      {/* BOTTOM ACTION BANNER */}
-      <div className="max-w-4xl mx-auto mt-16 text-center bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 rounded-3xl p-8 text-white shadow-xl">
-        <h2 className="font-clash text-2xl sm:text-3xl font-bold mb-2">
+      {/* ── BOTTOM CTA ── */}
+      <div className="max-w-3xl mx-auto mt-16 text-center bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 rounded-2xl p-8 text-white shadow-lg">
+        <h2 className="font-bold text-2xl sm:text-3xl mb-2" style={{ fontFamily: '"Clash Display", sans-serif' }}>
           कोणता Number आवडला?
         </h2>
-        <p className="font-sans text-sm sm:text-base text-white/90 max-w-xl mx-auto mb-6">
-          तुम्हाला जो नंबर (उदा. <strong>#1 Zian</strong>, <strong>#10 Clash Display</strong>, किंवा <strong>#11 Cabinet Grotesk</strong>) सर्वात भारी वाटत असेल, त्याचा नंबर चॅटमध्ये सांगा. आपण लगेच संपूर्ण वेबसाईटवर तोच लागू करू!
+        <p className="text-sm sm:text-base text-white/90 max-w-xl mx-auto mb-5">
+          तुम्हाला जो नंबर सर्वात भारी वाटत असेल, तो चॅटमध्ये सांगा — आपण लगेच संपूर्ण वेबसाईटवर लावू!
         </p>
         <Link
           to="/"
-          className="rounded-full bg-white text-slate-900 px-8 py-3.5 font-sans font-bold text-sm hover:scale-105 transition-all shadow-md inline-flex items-center gap-2"
+          className="rounded-full bg-white text-slate-900 px-7 py-3 font-bold text-sm hover:scale-105 transition-all shadow-md inline-flex items-center gap-2"
         >
-          <span>Back to Home</span>
-          <ArrowRight size={16} />
+          Back to Home <ArrowRight size={16} />
         </Link>
       </div>
-
     </div>
   );
 }

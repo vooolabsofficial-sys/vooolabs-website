@@ -20,7 +20,7 @@ export default function FixedBottomBar() {
           <span className="animate-ping absolute inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400 opacity-75" />
           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
         </div>
-        <span className="font-zentaro font-bold text-xs sm:text-sm g-text tracking-wider">VOOO LABS</span>
+        <span className="font-crazyblocks font-bold text-xs sm:text-sm g-text tracking-wider">VOOO LABS</span>
       </div>
 
       {/* DIVIDER */}
