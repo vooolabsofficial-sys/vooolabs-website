@@ -93,16 +93,9 @@ export default function Navbar() {
           role="navigation"
           aria-label="Main navigation"
         >
-        <Link to="/" className="flex items-center gap-2.5 group select-none" aria-label="VOOO LABS Home">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 via-purple-600 to-orange-500 flex items-center justify-center flex-shrink-0 shadow-sm group-hover:scale-105 transition-transform">
-            <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M4 4L10 16L16 4" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-          <div className="flex items-baseline">
-            <span className="shimmer-text font-crazyblocks text-2xl sm:text-[1.7rem] tracking-wider leading-none">VOOO</span>
-            <span className="font-crazyblocks text-xl sm:text-2xl text-slate-700 ml-1.5 tracking-wider leading-none">LABS</span>
-          </div>
+        <Link to="/" className="flex items-baseline group select-none py-1" aria-label="VOOO LABS Home">
+          <span className="shimmer-text font-crazyblocks text-2xl sm:text-[1.8rem] tracking-wider leading-none">VOOO</span>
+          <span className="font-crazyblocks text-xl sm:text-[1.45rem] text-slate-800 ml-2 tracking-wider leading-none">LABS</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-1 relative">
@@ -281,16 +274,9 @@ export default function Navbar() {
             aria-label="Mobile navigation menu"
           >
             <div className="flex items-center justify-between w-full max-w-lg mx-auto flex-shrink-0">
-              <Link to="/" onClick={closeMenu} className="flex items-center gap-2.5" aria-label="VOOO LABS Home">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 via-purple-600 to-orange-500 flex items-center justify-center flex-shrink-0">
-                  <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M4 4L10 16L16 4" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <div className="flex items-baseline">
-                  <span className="shimmer-text font-crazyblocks text-2xl tracking-wider leading-none">VOOO</span>
-                  <span className="font-crazyblocks text-xl text-slate-700 ml-1.5 tracking-wider leading-none">LABS</span>
-                </div>
+              <Link to="/" onClick={closeMenu} className="flex items-baseline select-none" aria-label="VOOO LABS Home">
+                <span className="shimmer-text font-crazyblocks text-2xl sm:text-3xl tracking-wider leading-none">VOOO</span>
+                <span className="font-crazyblocks text-xl sm:text-2xl text-slate-800 ml-2 tracking-wider leading-none">LABS</span>
               </Link>
               <button
                 onClick={closeMenu}
