@@ -1,61 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Menu, 
-  X, 
-  ChevronDown, 
-  Globe, 
-  Smartphone, 
-  Cpu, 
-  Search, 
-  ArrowRight, 
-  Sparkles,
-  ExternalLink,
-  MessageSquare
-} from 'lucide-react';
-import { COMPANY, FOUNDER } from '../../content/company';
-
-const NAV_SERVICES = [
-  {
-    id: 'websites',
-    title: 'Websites & Portals',
-    desc: 'High-speed, conversion-focused web design',
-    icon: Globe,
-    accent: '#3B82F6',
-    link: '/services#websites',
-  },
-  {
-    id: 'software',
-    title: 'Custom Software',
-    desc: 'Internal automation & operations tools',
-    icon: Cpu,
-    accent: '#8B5CF6',
-    link: '/services#software',
-  },
-  {
-    id: 'mobile-apps',
-    title: 'Mobile Applications',
-    desc: 'Lightweight Android & iOS apps',
-    icon: Smartphone,
-    accent: '#F97316',
-    link: '/services#mobile-apps',
-  },
-  {
-    id: 'seo-ai',
-    title: 'SEO & AI Search Discovery',
-    desc: 'Rank on Google, Maps, & ChatGPT',
-    icon: Search,
-    accent: '#10B981',
-    link: '/seo-ai',
-  },
-];
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
-  const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [openedAtPath, setOpenedAtPath] = useState<string | null>(null);
   const isMobileMenuOpen = openedAtPath === location.pathname;
@@ -77,7 +27,6 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setIsDropdownOpen(false);
     closeMenu();
   }, [location.pathname, location.hash]);
 
@@ -85,7 +34,6 @@ export default function Navbar() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         closeMenu();
-        setIsDropdownOpen(false);
       }
     };
 
@@ -103,20 +51,9 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [isMobileMenuOpen]);
 
-  const handleMouseEnter = () => {
-    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
-    setIsDropdownOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    dropdownTimeoutRef.current = setTimeout(() => {
-      setIsDropdownOpen(false);
-    }, 200);
-  };
-
   const navLinks = [
     { path: '/', label: 'Home' },
-    { path: '/services', label: 'Services', isDropdown: true },
+    { path: '/services', label: 'Services' },
     { path: '/seo-ai', label: 'SEO & AI Growth' },
     { path: '/about', label: 'About Studio' },
     { path: '/contact', label: 'Contact' },
@@ -143,129 +80,34 @@ export default function Navbar() {
           <span className="font-crazyblocks text-xl sm:text-[1.45rem] text-slate-800 ml-2 tracking-wider leading-none">LABS</span>
         </Link>
 
-        {/* DESKTOP NAV LINKS */}
+        {/* DESKTOP NAV LINKS (CLEAN, DIRECT — NO SUB-DROPDOWNS) */}
         <div className="hidden md:flex items-center gap-1 relative">
-          {navLinks.map((link) => {
-            if (link.isDropdown) {
-              const isServicesActive = location.pathname.startsWith('/services') || location.pathname.startsWith('/products');
-              return (
-                <div
-                  key={link.path}
-                  className="relative"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <NavLink
-                    to={link.path}
-                    className={`relative px-3.5 py-2 rounded-full font-kanit font-medium text-sm transition-all duration-200 select-none z-10 inline-flex items-center gap-1.5 ${
-                      isServicesActive || isDropdownOpen
-                        ? 'text-blue-600'
-                        : 'text-slate-600 hover:text-slate-900'
-                    }`}
-                  >
-                    {({ isActive }) => (
-                      <>
-                        {isActive && (
-                          <motion.div
-                            layoutId="nav-pill"
-                            className="absolute inset-0 bg-blue-500/10 rounded-full z-[-1]"
-                            transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                          />
-                        )}
-                        <span>{link.label}</span>
-                        <ChevronDown
-                          size={14}
-                          className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-blue-600' : 'text-slate-400'}`}
-                        />
-                      </>
-                    )}
-                  </NavLink>
-
-                  <AnimatePresence>
-                    {isDropdownOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 12, scale: 0.96 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute top-[calc(100%+14px)] left-1/2 -translate-x-1/2 w-[520px] rounded-3xl bg-white/95 backdrop-blur-2xl border border-black/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-4 z-50 overflow-hidden"
-                      >
-                        <div className="flex items-center justify-between px-2 pb-2.5 mb-2.5 border-b border-slate-100">
-                          <span className="font-kanit font-semibold text-xs text-slate-400 uppercase tracking-wider">
-                            Our Digital Services
-                          </span>
-                          <Link
-                            to="/services"
-                            onClick={() => setIsDropdownOpen(false)}
-                            className="font-kanit font-medium text-xs text-blue-600 hover:text-blue-700 inline-flex items-center gap-1"
-                          >
-                            <span>View All Services</span>
-                            <ArrowRight size={12} />
-                          </Link>
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-2">
-                          {NAV_SERVICES.map((s) => {
-                            const IconComp = s.icon;
-                            return (
-                              <Link
-                                key={s.id}
-                                to={s.link}
-                                onClick={() => setIsDropdownOpen(false)}
-                                className="group/card rounded-2xl p-3 border border-black/[0.04] bg-slate-50/60 hover:bg-white hover:border-black/15 hover:shadow-sm transition-all duration-200 flex items-start gap-3 text-left"
-                              >
-                                <div
-                                  className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 shadow-2xs group-hover/card:scale-105 transition-transform"
-                                  style={{ backgroundColor: `${s.accent}15`, color: s.accent }}
-                                >
-                                  <IconComp size={18} />
-                                </div>
-                                <div className="min-w-0">
-                                  <span className="font-clash font-semibold text-xs text-[#0A0F1E] group-hover/card:text-blue-600 transition-colors block">
-                                    {s.title}
-                                  </span>
-                                  <p className="font-kanit font-light text-[10px] text-slate-500 line-clamp-1 mt-0.5">
-                                    {s.desc}
-                                  </p>
-                                </div>
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            }
-
-            return (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                className={({ isActive }) =>
-                  `relative px-3.5 py-2 rounded-full font-kanit font-medium text-sm transition-all duration-200 select-none z-10 ${
-                    isActive
-                      ? 'text-blue-600'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <>
-                    {isActive && (
-                      <motion.div
-                        layoutId="nav-pill"
-                        className="absolute inset-0 bg-blue-500/10 rounded-full z-[-1]"
-                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                      />
-                    )}
-                    <span>{link.label}</span>
-                  </>
-                )}
-              </NavLink>
-            );
-          })}
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) =>
+                `relative px-4 py-2 rounded-full font-kanit font-medium text-sm transition-all duration-200 select-none z-10 ${
+                  isActive
+                    ? 'text-blue-600'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-pill"
+                      className="absolute inset-0 bg-blue-500/10 rounded-full z-[-1]"
+                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                  <span>{link.label}</span>
+                </>
+              )}
+            </NavLink>
+          ))}
         </div>
 
         {/* CTA BUTTON */}
@@ -321,65 +163,20 @@ export default function Navbar() {
             </div>
 
             <div className="flex flex-col gap-4 text-center my-auto py-6 w-full max-w-sm mx-auto">
-              <NavLink
-                to="/"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `font-clash font-semibold text-2xl py-2 transition-colors ${
-                    isActive ? 'g-text' : 'text-[#0A0F1E] hover:text-blue-600'
-                  }`
-                }
-              >
-                Home
-              </NavLink>
-
-              <NavLink
-                to="/services"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `font-clash font-semibold text-2xl py-2 transition-colors ${
-                    isActive ? 'g-text' : 'text-[#0A0F1E] hover:text-blue-600'
-                  }`
-                }
-              >
-                Services & Solutions
-              </NavLink>
-
-              <NavLink
-                to="/seo-ai"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `font-clash font-semibold text-2xl py-2 transition-colors ${
-                    isActive ? 'g-text' : 'text-[#0A0F1E] hover:text-blue-600'
-                  }`
-                }
-              >
-                SEO & AI Growth
-              </NavLink>
-
-              <NavLink
-                to="/about"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `font-clash font-semibold text-2xl py-2 transition-colors ${
-                    isActive ? 'g-text' : 'text-[#0A0F1E] hover:text-blue-600'
-                  }`
-                }
-              >
-                About Studio
-              </NavLink>
-
-              <NavLink
-                to="/contact"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `font-clash font-semibold text-2xl py-2 transition-colors ${
-                    isActive ? 'g-text' : 'text-[#0A0F1E] hover:text-blue-600'
-                  }`
-                }
-              >
-                Contact
-              </NavLink>
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  onClick={closeMenu}
+                  className={({ isActive }) =>
+                    `font-clash font-semibold text-2xl py-2 transition-colors ${
+                      isActive ? 'g-text' : 'text-[#0A0F1E] hover:text-blue-600'
+                    }`
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              ))}
             </div>
 
             <div className="w-full max-w-sm mx-auto flex-shrink-0 pt-4 border-t border-black/5">
