@@ -5,7 +5,8 @@ import Navbar from './components/shared/Navbar';
 import Footer from './components/shared/Footer';
 import FixedBottomBar from './components/shared/FixedBottomBar';
 import HomePage from './pages/HomePage';
-import ProductsPage from './pages/ProductsPage';
+import ServicesPage from './pages/ServicesPage';
+import SeoAiPage from './pages/SeoAiPage';
 import AboutPage from './pages/AboutPage';
 import RoadmapPage from './pages/RoadmapPage';
 import ContactPage from './pages/ContactPage';
@@ -40,7 +41,9 @@ function AppRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
-        <Route path="/products" element={<PageWrapper><ProductsPage /></PageWrapper>} />
+        <Route path="/services" element={<PageWrapper><ServicesPage /></PageWrapper>} />
+        <Route path="/products" element={<PageWrapper><ServicesPage /></PageWrapper>} />
+        <Route path="/seo-ai" element={<PageWrapper><SeoAiPage /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
         <Route path="/roadmap" element={<PageWrapper><RoadmapPage /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />

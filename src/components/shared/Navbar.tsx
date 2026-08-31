@@ -1,23 +1,67 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, ExternalLink, ArrowRight } from 'lucide-react';
-import { SERVICES } from '../../content/services';
-import { FOUNDER } from '../../content/company';
+import { 
+  Menu, 
+  X, 
+  ChevronDown, 
+  Globe, 
+  Smartphone, 
+  Cpu, 
+  Search, 
+  ArrowRight, 
+  Sparkles,
+  ExternalLink,
+  MessageSquare
+} from 'lucide-react';
+import { COMPANY, FOUNDER } from '../../content/company';
+
+const NAV_SERVICES = [
+  {
+    id: 'websites',
+    title: 'Websites & Portals',
+    desc: 'High-speed, conversion-focused web design',
+    icon: Globe,
+    accent: '#3B82F6',
+    link: '/services#websites',
+  },
+  {
+    id: 'software',
+    title: 'Custom Software',
+    desc: 'Internal automation & operations tools',
+    icon: Cpu,
+    accent: '#8B5CF6',
+    link: '/services#software',
+  },
+  {
+    id: 'mobile-apps',
+    title: 'Mobile Applications',
+    desc: 'Lightweight Android & iOS apps',
+    icon: Smartphone,
+    accent: '#F97316',
+    link: '/services#mobile-apps',
+  },
+  {
+    id: 'seo-ai',
+    title: 'SEO & AI Search Discovery',
+    desc: 'Rank on Google, Maps, & ChatGPT',
+    icon: Search,
+    accent: '#10B981',
+    link: '/seo-ai',
+  },
+];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
-  const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
+  const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [openedAtPath, setOpenedAtPath] = useState<string | null>(null);
   const isMobileMenuOpen = openedAtPath === location.pathname;
 
   const closeMenu = () => {
     setOpenedAtPath(null);
-    setIsMobileSolutionsOpen(false);
   };
   
   const toggleMenu = () =>
@@ -72,9 +116,9 @@ export default function Navbar() {
 
   const navLinks = [
     { path: '/', label: 'Home' },
-    { path: '/products', label: 'Solutions & Products', isDropdown: true },
-    { path: '/about', label: 'Studio & Founder' },
-    { path: '/roadmap', label: 'Roadmap' },
+    { path: '/services', label: 'Services', isDropdown: true },
+    { path: '/seo-ai', label: 'SEO & AI Growth' },
+    { path: '/about', label: 'About Studio' },
     { path: '/contact', label: 'Contact' },
   ];
 
@@ -99,10 +143,11 @@ export default function Navbar() {
           <span className="font-crazyblocks text-xl sm:text-[1.45rem] text-slate-800 ml-2 tracking-wider leading-none">LABS</span>
         </Link>
 
+        {/* DESKTOP NAV LINKS */}
         <div className="hidden md:flex items-center gap-1 relative">
           {navLinks.map((link) => {
             if (link.isDropdown) {
-              const isProductsActive = location.pathname.startsWith('/products');
+              const isServicesActive = location.pathname.startsWith('/services') || location.pathname.startsWith('/products');
               return (
                 <div
                   key={link.path}
@@ -113,7 +158,7 @@ export default function Navbar() {
                   <NavLink
                     to={link.path}
                     className={`relative px-3.5 py-2 rounded-full font-kanit font-medium text-sm transition-all duration-200 select-none z-10 inline-flex items-center gap-1.5 ${
-                      isProductsActive || isDropdownOpen
+                      isServicesActive || isDropdownOpen
                         ? 'text-blue-600'
                         : 'text-slate-600 hover:text-slate-900'
                     }`}
@@ -143,67 +188,49 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.96 }}
                         transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute top-[calc(100%+14px)] left-1/2 -translate-x-1/2 w-[580px] rounded-3xl bg-white/95 backdrop-blur-2xl border border-black/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-5 z-50 overflow-hidden"
+                        className="absolute top-[calc(100%+14px)] left-1/2 -translate-x-1/2 w-[520px] rounded-3xl bg-white/95 backdrop-blur-2xl border border-black/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-4 z-50 overflow-hidden"
                       >
-                        <div className="flex items-center justify-between px-2 pb-3 mb-3 border-b border-slate-100">
+                        <div className="flex items-center justify-between px-2 pb-2.5 mb-2.5 border-b border-slate-100">
                           <span className="font-kanit font-semibold text-xs text-slate-400 uppercase tracking-wider">
-                            Services & Flagship Products
+                            Our Digital Services
                           </span>
                           <Link
-                            to="/products"
+                            to="/services"
                             onClick={() => setIsDropdownOpen(false)}
                             className="font-kanit font-medium text-xs text-blue-600 hover:text-blue-700 inline-flex items-center gap-1"
                           >
-                            <span>View All Solutions</span>
+                            <span>View All Services</span>
                             <ArrowRight size={12} />
                           </Link>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-2.5">
-                          {SERVICES.map((service) => {
-                            const IconComp = service.icon;
+                        <div className="grid grid-cols-2 gap-2">
+                          {NAV_SERVICES.map((s) => {
+                            const IconComp = s.icon;
                             return (
                               <Link
-                                key={service.id}
-                                to={`/products#${service.slug}`}
+                                key={s.id}
+                                to={s.link}
                                 onClick={() => setIsDropdownOpen(false)}
-                                className="group/card rounded-2xl p-3.5 border border-black/[0.04] bg-slate-50/60 hover:bg-white hover:border-black/15 hover:shadow-md transition-all duration-200 flex items-start gap-3 text-left"
+                                className="group/card rounded-2xl p-3 border border-black/[0.04] bg-slate-50/60 hover:bg-white hover:border-black/15 hover:shadow-sm transition-all duration-200 flex items-start gap-3 text-left"
                               >
                                 <div
-                                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-2xs group-hover/card:scale-105 transition-transform"
-                                  style={{ backgroundColor: `${service.accentColor}15`, color: service.accentColor }}
+                                  className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 shadow-2xs group-hover/card:scale-105 transition-transform"
+                                  style={{ backgroundColor: `${s.accent}15`, color: s.accent }}
                                 >
-                                  <IconComp size={20} />
+                                  <IconComp size={18} />
                                 </div>
                                 <div className="min-w-0">
-                                  <span className="font-clash font-semibold text-sm text-[#0A0F1E] group-hover/card:text-blue-600 transition-colors">
-                                    {service.shortTitle}
+                                  <span className="font-clash font-semibold text-xs text-[#0A0F1E] group-hover/card:text-blue-600 transition-colors block">
+                                    {s.title}
                                   </span>
-                                  <p className="font-kanit font-light text-[11px] text-slate-500 line-clamp-2 mt-0.5 leading-snug">
-                                    {service.tagline}
+                                  <p className="font-kanit font-light text-[10px] text-slate-500 line-clamp-1 mt-0.5">
+                                    {s.desc}
                                   </p>
                                 </div>
                               </Link>
                             );
                           })}
-                        </div>
-
-                        <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between px-2 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-orange-500/5 rounded-2xl p-2.5">
-                          <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                            <span className="font-kanit font-medium text-xs text-slate-700">
-                              Creative Technologist & SaaS Portfolio
-                            </span>
-                          </div>
-                          <a
-                            href={FOUNDER.portfolio}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-kanit font-semibold text-xs text-blue-600 hover:text-blue-700 inline-flex items-center gap-1.5"
-                          >
-                            <span>Explore {FOUNDER.name}</span>
-                            <ExternalLink size={12} />
-                          </a>
                         </div>
                       </motion.div>
                     )}
@@ -233,7 +260,7 @@ export default function Navbar() {
                         transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                       />
                     )}
-                    {link.label}
+                    <span>{link.label}</span>
                   </>
                 )}
               </NavLink>
@@ -241,27 +268,31 @@ export default function Navbar() {
           })}
         </div>
 
+        {/* CTA BUTTON */}
         <div className="flex items-center gap-2">
           <Link
             to="/contact"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-orange-500 px-5 sm:px-6 py-2.5 font-kanit font-semibold text-xs sm:text-sm text-white transition-all duration-300 hover:scale-[1.04] active:scale-[0.98] shadow-[0_4px_14px_rgba(66,133,244,0.3)] hover:shadow-[0_6px_20px_rgba(66,133,244,0.4)]"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-[#0A0F1E] hover:bg-blue-600 text-white font-sans font-semibold text-xs px-4 py-2 transition-colors shadow-2xs"
           >
-            <span>Start Project</span>
-            <ArrowRight size={14} />
+            <span>Start a Project</span>
+            <ArrowRight size={13} />
           </Link>
-          
+
+          {/* MOBILE HAMBURGER BUTTON */}
           <button
             onClick={toggleMenu}
-            className="md:hidden p-2.5 rounded-full hover:bg-black/5 text-slate-700 transition-colors"
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            className="md:hidden w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-slate-700 hover:bg-black/5 active:scale-95 transition-all"
+            aria-label="Toggle navigation menu"
             aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            <Menu size={18} />
           </button>
         </div>
-      </motion.nav>
-    </header>
 
+        </motion.nav>
+      </header>
+
+      {/* MOBILE FULLSCREEN MENU */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -289,7 +320,7 @@ export default function Navbar() {
               </button>
             </div>
 
-            <div className="flex flex-col gap-3 text-center my-auto py-6 w-full max-w-sm mx-auto">
+            <div className="flex flex-col gap-4 text-center my-auto py-6 w-full max-w-sm mx-auto">
               <NavLink
                 to="/"
                 onClick={closeMenu}
@@ -302,43 +333,29 @@ export default function Navbar() {
                 Home
               </NavLink>
 
-              <div className="flex flex-col items-center">
-                <button
-                  type="button"
-                  onClick={() => setIsMobileSolutionsOpen(!isMobileSolutionsOpen)}
-                  className="font-clash font-semibold text-2xl py-2 text-[#0A0F1E] inline-flex items-center gap-2"
-                >
-                  <span>Solutions & Verticals</span>
-                  <ChevronDown
-                    size={20}
-                    className={`transition-transform duration-200 ${isMobileSolutionsOpen ? 'rotate-180 text-blue-600' : 'text-slate-400'}`}
-                  />
-                </button>
+              <NavLink
+                to="/services"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `font-clash font-semibold text-2xl py-2 transition-colors ${
+                    isActive ? 'g-text' : 'text-[#0A0F1E] hover:text-blue-600'
+                  }`
+                }
+              >
+                Services & Solutions
+              </NavLink>
 
-                <AnimatePresence>
-                  {isMobileSolutionsOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25 }}
-                      className="flex flex-col gap-2 w-full pt-2 pb-3 overflow-hidden"
-                    >
-                      {SERVICES.map((s) => (
-                        <Link
-                          key={s.id}
-                          to={`/products#${s.slug}`}
-                          onClick={closeMenu}
-                          className="rounded-xl bg-slate-50 border border-black/5 p-2.5 text-left flex items-center justify-between font-kanit text-sm font-medium text-slate-700 hover:text-blue-600"
-                        >
-                          <span>{s.title}</span>
-                          <ArrowRight size={14} className="text-slate-400" />
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+              <NavLink
+                to="/seo-ai"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `font-clash font-semibold text-2xl py-2 transition-colors ${
+                    isActive ? 'g-text' : 'text-[#0A0F1E] hover:text-blue-600'
+                  }`
+                }
+              >
+                SEO & AI Growth
+              </NavLink>
 
               <NavLink
                 to="/about"
@@ -349,19 +366,7 @@ export default function Navbar() {
                   }`
                 }
               >
-                Studio & Founder
-              </NavLink>
-
-              <NavLink
-                to="/roadmap"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `font-clash font-semibold text-2xl py-2 transition-colors ${
-                    isActive ? 'g-text' : 'text-[#0A0F1E] hover:text-blue-600'
-                  }`
-                }
-              >
-                Roadmap
+                About Studio
               </NavLink>
 
               <NavLink
@@ -375,23 +380,13 @@ export default function Navbar() {
               >
                 Contact
               </NavLink>
-
-              <a
-                href={FOUNDER.portfolio}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-orange-500/10 border border-purple-500/20 p-3 font-kanit font-medium text-xs text-purple-700 flex items-center justify-center gap-2"
-              >
-                <span>Founder's Portfolio ({FOUNDER.name})</span>
-                <ExternalLink size={14} />
-              </a>
             </div>
 
-            <div className="w-full max-w-lg mx-auto flex-shrink-0 pt-4 border-t border-slate-100">
+            <div className="w-full max-w-sm mx-auto flex-shrink-0 pt-4 border-t border-black/5">
               <Link
                 to="/contact"
                 onClick={closeMenu}
-                className="w-full rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-orange-500 py-3.5 font-kanit font-semibold text-sm text-white flex items-center justify-center gap-2 shadow-md active:scale-98"
+                className="w-full rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 text-white font-sans font-semibold text-sm py-3.5 flex items-center justify-center gap-2 shadow-md"
               >
                 <span>Start a Project</span>
                 <ArrowRight size={16} />

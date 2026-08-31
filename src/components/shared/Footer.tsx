@@ -96,19 +96,34 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* COL 2: PRODUCTS */}
+        {/* COL 2: SERVICES */}
         <div className="flex flex-col gap-4">
-          <h4 className="font-clash font-semibold text-sm tracking-wider uppercase text-white">Products</h4>
+          <h4 className="font-clash font-semibold text-sm tracking-wider uppercase text-white">Services</h4>
           <div className="flex flex-col gap-2.5">
-            {PRODUCTS.map((product) => (
-              <Link
-                key={product.id}
-                to={`/products#${product.slug}`}
-                className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
-              >
-                {product.name}
-              </Link>
-            ))}
+            <Link
+              to="/services#websites"
+              className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
+            >
+              Custom Websites
+            </Link>
+            <Link
+              to="/services#software"
+              className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
+            >
+              Custom Software & Tools
+            </Link>
+            <Link
+              to="/services#mobile-apps"
+              className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
+            >
+              Mobile Applications
+            </Link>
+            <Link
+              to="/seo-ai"
+              className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
+            >
+              SEO & AI Discovery (AEO)
+            </Link>
           </div>
         </div>
 
