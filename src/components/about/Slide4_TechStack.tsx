@@ -1,17 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../shared/FadeIn';
-import { COMPANY } from '../../content/company';
-import {
-  MessageSquare,
-  Palette,
-  Code2,
-  Rocket,
-  CheckCircle2,
-  ShieldCheck,
-  Zap,
+import { 
+  MessageSquare, 
+  Palette, 
+  Code2, 
+  Rocket, 
+  ShieldCheck, 
   ArrowRight,
-  PhoneCall,
+  CheckCircle2,
+  Lock,
   Clock,
   Sparkles
 } from 'lucide-react';
@@ -20,9 +18,8 @@ export default function Slide4_TechStack() {
   const steps = [
     {
       num: '01',
-      title: 'Discovery & Requirement Consultation',
-      marathiTitle: 'गरज व कामाचे स्वरूप समजून घेणे',
-      desc: 'We discuss your business model, current manual bottlenecks, and required features to design the exact software architecture you need.',
+      title: 'Discovery & Architecture Consultation',
+      desc: 'We discuss your business model, manual bottlenecks, and required features to design the exact software architecture you need.',
       icon: MessageSquare,
       accent: 'text-blue-600',
       bg: 'bg-blue-50 border-blue-200/80',
@@ -31,7 +28,6 @@ export default function Slide4_TechStack() {
     {
       num: '02',
       title: 'UI/UX Design & Interactive Prototype',
-      marathiTitle: 'डिझाइन व लाइव्ह प्रिव्ह्यू',
       desc: 'You see exactly how the mobile app or website looks and feels before a single line of production code is written.',
       icon: Palette,
       accent: 'text-purple-600',
@@ -41,7 +37,6 @@ export default function Slide4_TechStack() {
     {
       num: '03',
       title: 'Clean Engineering & Quality Testing',
-      marathiTitle: 'कोडिंग व प्रत्यक्ष टेस्टिंग',
       desc: 'We build your system with sub-second page speeds, secure databases, offline reliability, and automated alerts.',
       icon: Code2,
       accent: 'text-emerald-600',
@@ -51,7 +46,6 @@ export default function Slide4_TechStack() {
     {
       num: '04',
       title: 'Deployment, Training & Full Handover',
-      marathiTitle: 'लाँच व पूर्ण कोड हँडओव्हर',
       desc: 'Live rollout on your domain, staff walkthrough session, and 100% intellectual property & source code transfer.',
       icon: Rocket,
       accent: 'text-orange-600',
@@ -105,12 +99,9 @@ export default function Slide4_TechStack() {
                       </div>
                     </div>
 
-                    <h3 className="font-clash font-bold text-xl text-[#0A0F1E] mb-1">
+                    <h3 className="font-clash font-bold text-xl text-[#0A0F1E] mb-2">
                       {step.title}
                     </h3>
-                    <span className="font-sans font-medium text-xs text-blue-600 block mb-3">
-                      {step.marathiTitle}
-                    </span>
                     <p className="font-sans font-normal text-sm text-slate-600 leading-relaxed">
                       {step.desc}
                     </p>
@@ -133,15 +124,14 @@ export default function Slide4_TechStack() {
                 100% Source Code Ownership & No Hidden Fees
               </h4>
               <p className="font-sans font-normal text-xs sm:text-sm text-slate-600 mt-1 max-w-xl">
-                You own your complete software and database. No locked platforms, no surprise recurring vendor charges.
+                Every project is fully transferred to your accounts upon completion with complete documentation and zero vendor lock-in.
               </p>
             </div>
-
             <Link
               to="/contact"
-              className="rounded-full bg-[#0A0F1E] hover:bg-blue-600 text-white px-7 py-3 font-sans font-semibold text-xs sm:text-sm flex-shrink-0 transition-colors shadow-2xs active:scale-98"
+              className="rounded-full bg-[#0A0F1E] hover:bg-blue-600 text-white font-sans font-semibold text-xs sm:text-sm px-6 py-3 transition-colors flex-shrink-0 shadow-sm"
             >
-              Discuss Your Project →
+              Start Consultation
             </Link>
           </div>
         </FadeIn>

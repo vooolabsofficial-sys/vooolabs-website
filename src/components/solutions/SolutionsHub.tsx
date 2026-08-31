@@ -437,11 +437,11 @@ export default function SolutionsHub() {
                           Turn Casual Visitors into WhatsApp Inquiries
                         </h4>
                         <p className="font-sans font-normal text-sm text-slate-600 leading-relaxed mb-6">
-                          We combine fast-loading mobile pages, clear bilingual messaging (मराठी & English), and prominent WhatsApp buttons so potential clients can reach you instantly.
+                          We combine fast-loading mobile pages, clear professional messaging, and prominent WhatsApp buttons so potential clients can reach you instantly.
                         </p>
 
                         <div className="flex flex-wrap gap-2 mb-6">
-                          {['Sub-1s Mobile Load Time', '1-Tap WhatsApp Button', 'Bilingual Marathi & English', 'Google Local Map Integration'].map((tag) => (
+                          {['Sub-1s Mobile Load Time', '1-Tap WhatsApp Button', 'Conversion-Focused Copy', 'Google Local Map Integration'].map((tag) => (
                             <span key={tag} className="font-sans text-xs bg-white border border-slate-200 px-3 py-1 rounded-lg text-slate-700 font-medium shadow-2xs">
                               ✓ {tag}
                             </span>
@@ -474,7 +474,7 @@ export default function SolutionsHub() {
                             </li>
                             <li className="flex items-start gap-2.5">
                               <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                              <span><strong>Bilingual Copywriting (मराठी & English):</strong> Connects with both local and corporate clients.</span>
+                              <span><strong>Persuasive Brand Copywriting:</strong> Connects with both local and corporate clients.</span>
                             </li>
                             <li className="flex items-start gap-2.5">
                               <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
@@ -495,7 +495,7 @@ export default function SolutionsHub() {
                       <div className="flex items-center gap-2 text-indigo-700 mb-2">
                         <Sparkles size={18} />
                         <span className="font-sans font-bold text-xs uppercase tracking-wider">
-                          Search & AI Discovery Power-Up (गुगल व AI रँकिंग)
+                          Search & AI Discovery Power-Up
                         </span>
                       </div>
                       <h4 className="font-clash font-bold text-xl sm:text-2xl text-[#0A0F1E] mb-2">
@@ -516,7 +516,7 @@ export default function SolutionsHub() {
                             Google Search (SEO)
                           </h5>
                           <span className="font-sans font-medium text-xs text-blue-600 block mb-2">
-                            गुगल पहिल्या पानावर रँकिंग
+                            Page 1 Organic Ranking
                           </span>
                           <p className="font-sans font-normal text-xs text-slate-600 leading-relaxed">
                             On-page keywords, structured JSON-LD schema, and blazing speed to rank your business on Google's 1st page when clients search for your services.
@@ -532,7 +532,7 @@ export default function SolutionsHub() {
                             AI Engine Optimization (AEO)
                           </h5>
                           <span className="font-sans font-medium text-xs text-purple-600 block mb-2">
-                            ChatGPT व AI इंजिन शिफारस
+                            ChatGPT & AI Engine Citations
                           </span>
                           <p className="font-sans font-normal text-xs text-slate-600 leading-relaxed">
                             When potential clients ask <strong>ChatGPT, Perplexity, Gemini, or Claude</strong> for top businesses in your industry, AI engines cite and recommend your brand.
@@ -548,7 +548,7 @@ export default function SolutionsHub() {
                             Generative & Map GEO
                           </h5>
                           <span className="font-sans font-medium text-xs text-emerald-600 block mb-2">
-                            गुगल मॅप्स व स्थानिक ग्राहक शोध
+                            Google Maps & Local Customer Discovery
                           </span>
                           <p className="font-sans font-normal text-xs text-slate-600 leading-relaxed">
                             Google Maps pin optimization, 5-star review integration, and geo-targeted keywords so nearby local clients discover your office or shop instantly.
@@ -890,8 +890,8 @@ export default function SolutionsHub() {
                             {smaranMode === 'elder' && (
                               <div className="space-y-2 text-xs font-sans">
                                 <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200">
-                                  <span className="font-bold text-emerald-900 text-sm block">दुपारचे औषध (Blood Pressure)</span>
-                                  <span className="text-[11px] text-emerald-700 font-semibold">2:00 PM · मोठा आवाज व फ्लॅश</span>
+                                  <span className="font-bold text-emerald-900 text-sm block">Afternoon Medicine (Blood Pressure)</span>
+                                  <span className="text-[11px] text-emerald-700 font-semibold">2:00 PM · High Volume & Flash Alarm</span>
                                 </div>
                                 <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 text-slate-700">
                                   <span className="font-semibold block">Evening Walk with Family</span>

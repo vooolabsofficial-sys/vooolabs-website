@@ -25,7 +25,7 @@ export interface ServiceVertical {
   bgGradient: string;
   summary: string;
   
-  // 1. The Business Problem (व्यवसायाची अडचण)
+  // 1. The Business Problem
   whyYouNeedThis: {
     heading: string;
     subheading: string;
@@ -36,7 +36,7 @@ export interface ServiceVertical {
     }[];
   };
 
-  // 2. How We Help (आम्ही काय बनवून देतो)
+  // 2. How We Help
   howWeHelp: {
     heading: string;
     subheading: string;
@@ -47,7 +47,7 @@ export interface ServiceVertical {
     }[];
   };
 
-  // 3. Direct Business Value (व्यवसायाचा प्रत्यक्ष फायदा)
+  // 3. Direct Business Value
   roiBenefits: {
     heading: string;
     metrics: {
@@ -58,7 +58,7 @@ export interface ServiceVertical {
     highlights: string[];
   };
 
-  // 4. Featured Projects (प्रोजेक्ट्स व काम)
+  // 4. Featured Projects
   featuredProjects: ServiceProject[];
 
   // 5. Core Deliverables
@@ -190,7 +190,7 @@ export const SERVICES: ServiceVertical[] = [
 
     howWeHelp: {
       heading: 'How We Build Your High-Ranking Online Presence',
-      subheading: 'Crafted with premium visual appeal, bilingual content (मराठी & English), and advanced SEO, AEO & GEO discovery ranking.',
+      subheading: 'Crafted with premium visual appeal, persuasive conversion copy, and advanced SEO, AEO & GEO discovery ranking.',
       features: [
         {
           title: 'Google SEO (Search Engine Optimization)',
