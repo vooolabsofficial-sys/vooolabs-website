@@ -1,51 +1,57 @@
 import React from 'react';
+import { Sparkles, MapPin, ShieldCheck, Zap, Code2, ArrowDown } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 
 export default function Slide1_AboutHero() {
-  return (
-    <section className="snap-section bg-white flex flex-col justify-center items-center px-6 py-20 pt-28 text-center relative overflow-hidden select-none">
-      
-      {/* BLOBS */}
-      <div className="absolute top-[-200px] left-[-200px] w-[700px] h-[700px] rounded-full bg-radial from-blue-500/10 to-transparent blur-[80px] animate-blob-1 pointer-events-none z-0" />
-      <div className="absolute bottom-[-200px] right-[-200px] w-[600px] h-[600px] rounded-full bg-radial from-purple-500/8 to-transparent blur-[80px] pointer-events-none z-0" />
+  const pills = [
+    { text: 'Maharashtra, India', icon: MapPin, color: 'text-orange-600', bg: 'bg-orange-50/80 border-orange-200/60' },
+    { text: 'React 19 & Native Apps', icon: Zap, color: 'text-blue-600', bg: 'bg-blue-50/80 border-blue-200/60' },
+    { text: '100% Code Ownership', icon: ShieldCheck, color: 'text-purple-600', bg: 'bg-purple-50/80 border-purple-200/60' },
+    { text: '0 Agency Bloat', icon: Code2, color: 'text-emerald-600', bg: 'bg-emerald-50/80 border-emerald-200/60' },
+  ];
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
+  return (
+    <section className="bg-[#F6F7FB] flex flex-col justify-center items-center px-4 sm:px-6 pt-32 sm:pt-36 pb-20 text-center relative overflow-hidden select-none antialiased">
+      <div className="w-full max-w-4xl mx-auto flex flex-col items-center">
         
-        {/* BIG HEADING */}
-        <FadeIn delay={0} y={40}>
-          <h1 className="font-clash text-[12vw] sm:text-[9vw] md:text-[7.5rem] font-bold text-[#0A0F1E] leading-[0.9] tracking-tighter mb-8">
-            About <br className="sm:hidden" />
-            <span className="shimmer-text">VOOO LABS</span>
-          </h1>
+        {/* EYEBROW BADGE */}
+        <FadeIn delay={0} y={15}>
+          <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200/60 px-4 py-1.5 mb-5 text-blue-700 font-sans font-medium text-xs tracking-wider uppercase">
+            <Sparkles size={13} className="text-blue-600" />
+            <span>Studio Manifesto & Philosophy</span>
+          </div>
         </FadeIn>
 
-        {/* SUBTITLE */}
-        <FadeIn delay={0.15} y={20}>
-          <p className="font-kanit font-light text-lg sm:text-xl md:text-2xl text-slate-600 max-w-lg mx-auto leading-relaxed mb-8">
-            One founder. Three apps. <br className="xs:hidden" /> Unlimited ambition.
+        {/* HEADING */}
+        <FadeIn delay={0.08} y={20}>
+          <h1 className="font-clash text-3xl sm:text-5xl md:text-6xl font-semibold text-slate-800 leading-[1.12] tracking-tight mb-5">
+            High-Performance Software, <br />
+            <span className="shimmer-text font-bold">Built Without Agency Fluff.</span>
+          </h1>
+          <p className="font-sans text-sm sm:text-base text-slate-500 leading-relaxed max-w-2xl mx-auto font-normal mb-8">
+            VOOO LABS is a software engineering and digital product studio founded in Maharashtra. We build fast websites, custom business tools, and mobile apps with pure code, zero monthly lock-ins, and 100% client code ownership.
           </p>
         </FadeIn>
 
-        {/* LARGE MADE IN INDIA BADGE */}
-        <FadeIn delay={0.3} y={15}>
-          <div 
-            className="rounded-2xl border border-black/10 bg-slate-50 px-7 py-3 font-kanit font-medium text-sm sm:text-base text-slate-800 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:scale-[1.02] transition-transform inline-flex items-center gap-2.5"
-          >
-            <span className="w-2.5 h-2.5 rounded-full bg-orange-500 shadow-sm" />
-            <span>Crafted with pride in India</span>
+        {/* LIVE STUDIO ATTRIBUTES */}
+        <FadeIn delay={0.15} y={15}>
+          <div className="flex flex-wrap justify-center items-center gap-2.5 max-w-2xl mx-auto mb-10">
+            {pills.map((pill, idx) => {
+              const IconComp = pill.icon;
+              return (
+                <div 
+                  key={idx}
+                  className={`px-3.5 py-1.5 rounded-full border ${pill.bg} flex items-center gap-2 text-xs font-medium text-slate-700 shadow-2xs`}
+                >
+                  <IconComp size={13} className={pill.color} />
+                  <span>{pill.text}</span>
+                </div>
+              );
+            })}
           </div>
         </FadeIn>
 
       </div>
-
-      {/* BOUNCING SCROLL DOT */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5">
-        <span className="font-kanit text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest">
-          Read our story
-        </span>
-        <div className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" />
-      </div>
-
     </section>
   );
 }

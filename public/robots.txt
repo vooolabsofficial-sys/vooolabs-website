@@ -2,12 +2,19 @@ User-agent: *
 Allow: /
 Sitemap: https://vooolabs.com/sitemap.xml
 
-# Block AI training crawlers (keep search indexing)
+# Allow AI Search & Discovery bots
 User-agent: GPTBot
-Disallow: /
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
 
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
+# Block scrapers
 User-agent: Bytespider
 Disallow: /

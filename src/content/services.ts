@@ -164,7 +164,7 @@ export const SERVICES: ServiceVertical[] = [
     gradientClass: 'bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent',
     glowShadow: 'hover:shadow-[0_16px_40px_rgba(139,92,246,0.18)]',
     bgGradient: 'from-purple-500/10 via-pink-500/5 to-transparent',
-    summary: 'We build beautiful, ultra-fast websites designed to turn visitors into paying clients with compelling storytelling in Marathi and English.',
+    summary: 'We build beautiful, ultra-fast websites designed to turn visitors into paying clients with compelling storytelling and high-converting layouts.',
     
     whyYouNeedThis: {
       heading: 'Why an Outdated Website Loses You Clients',
@@ -204,7 +204,7 @@ export const SERVICES: ServiceVertical[] = [
         },
         {
           title: 'GEO (Generative & Local Map Optimization)',
-          description: 'Google Business Profile, map pin optimization, and local Marathi & English geo-targeted keywords so nearby local clients discover your shop or company first.',
+          description: 'Google Business Profile, map pin optimization, and localized geo-targeted keywords so nearby local clients discover your shop or company first.',
           tech: 'Local Map Ranking (GEO)',
         },
         {
@@ -225,7 +225,7 @@ export const SERVICES: ServiceVertical[] = [
       highlights: [
         'Turn social media visitors and ad traffic into direct WhatsApp inquiries',
         'Be discovered when customers search on Google, ChatGPT, Perplexity, or Google Maps',
-        'Professional business presence with bilingual Marathi & English storytelling that commands trust',
+        'Professional business presence with authoritative brand storytelling that commands trust',
       ],
     },
 
@@ -298,8 +298,8 @@ export const SERVICES: ServiceVertical[] = [
           tech: 'Instant Lead Push',
         },
         {
-          title: 'Marathi, Hindi & English Telecaller Interface',
-          description: 'Your callers can use the app in Marathi or Hindi, so you can hire good sales talent without English constraints.',
+          title: 'Intuitive Multilingual Caller Interface',
+          description: 'Your callers can operate the app in their preferred language (Hindi, English, or Regional), hiring sales talent without barriers.',
           tech: 'Multilingual UI',
         },
         {

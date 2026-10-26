@@ -75,22 +75,22 @@ export default function Navbar() {
           aria-label="Main navigation"
         >
         {/* BRAND LOGO — LOCKED PERMANENTLY TO CRAZY BLOCKS FONT (#5) */}
-        <Link to="/" className="flex items-baseline group select-none py-1" aria-label="VOOO LABS Home">
-          <span className="shimmer-text font-crazyblocks text-2xl sm:text-[1.8rem] tracking-wider leading-none">VOOO</span>
-          <span className="font-crazyblocks text-xl sm:text-[1.45rem] text-slate-800 ml-2 tracking-wider leading-none">LABS</span>
+        <Link to="/" className="flex items-baseline group select-none py-1 transition-transform duration-200 hover:scale-[1.02]" aria-label="VOOO LABS Home">
+          <span className="shimmer-text font-crazyblocks text-2xl sm:text-[1.85rem] tracking-wider leading-none">VOOO</span>
+          <span className="font-crazyblocks text-xl sm:text-[1.5rem] text-slate-900 ml-2 tracking-wider leading-none">LABS</span>
         </Link>
 
-        {/* DESKTOP NAV LINKS (CLEAN, DIRECT — NO SUB-DROPDOWNS) */}
-        <div className="hidden md:flex items-center gap-1 relative">
+        {/* DESKTOP NAV LINKS (CRISP, BOLD, HIGH-CONTRAST & ATTRACTIVE) */}
+        <div className="hidden md:flex items-center gap-1.5 p-1 rounded-full bg-slate-100/60 border border-slate-200/60 relative backdrop-blur-sm">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               className={({ isActive }) =>
-                `relative px-4 py-2 rounded-full font-kanit font-medium text-sm transition-all duration-200 select-none z-10 ${
+                `relative px-4 py-2 rounded-full font-sans font-semibold text-[13.5px] tracking-[-0.01em] transition-all duration-200 select-none z-10 ${
                   isActive
-                    ? 'text-blue-600'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'text-blue-600 shadow-xs'
+                    : 'text-slate-700 hover:text-slate-950 hover:bg-white/60'
                 }`
               }
             >
@@ -99,11 +99,16 @@ export default function Navbar() {
                   {isActive && (
                     <motion.div
                       layoutId="nav-pill"
-                      className="absolute inset-0 bg-blue-500/10 rounded-full z-[-1]"
-                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      className="absolute inset-0 bg-white rounded-full border border-blue-100 shadow-[0_2px_8px_rgba(59,130,246,0.12)] z-[-1]"
+                      transition={{ type: 'spring', stiffness: 450, damping: 32 }}
                     />
                   )}
-                  <span>{link.label}</span>
+                  <span className="flex items-center gap-1.5">
+                    {link.label}
+                    {isActive && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+                    )}
+                  </span>
                 </>
               )}
             </NavLink>
@@ -111,23 +116,23 @@ export default function Navbar() {
         </div>
 
         {/* CTA BUTTON */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <Link
             to="/contact"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-[#0A0F1E] hover:bg-blue-600 text-white font-sans font-semibold text-xs px-4 py-2 transition-colors shadow-2xs"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-slate-950 hover:bg-blue-600 text-white font-sans font-semibold text-[13.5px] px-5 sm:px-6 py-2.5 sm:py-2.5 transition-all duration-200 shadow-sm hover:shadow-[0_4px_18px_rgba(37,99,235,0.3)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 group whitespace-nowrap select-none"
           >
             <span>Start a Project</span>
-            <ArrowRight size={13} />
+            <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5 flex-shrink-0" />
           </Link>
 
           {/* MOBILE HAMBURGER BUTTON */}
           <button
             onClick={toggleMenu}
-            className="md:hidden w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-slate-700 hover:bg-black/5 active:scale-95 transition-all"
+            className="md:hidden w-10 h-10 rounded-full border border-slate-200 bg-white/80 flex items-center justify-center text-slate-800 hover:bg-slate-100 active:scale-95 transition-all shadow-xs"
             aria-label="Toggle navigation menu"
             aria-expanded={isMobileMenuOpen}
           >
-            <Menu size={18} />
+            <Menu size={19} />
           </button>
         </div>
 

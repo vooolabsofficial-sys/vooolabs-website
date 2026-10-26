@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Globe, Laptop, Cpu, Smartphone, ArrowRight, Search, Sparkles } from 'lucide-react';
+import { Globe, Laptop, Cpu, Smartphone, ArrowRight, Search } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 import { COMPANY } from '../../content/company';
 
@@ -63,13 +63,7 @@ export default function Slide1_Hero() {
       {/* CENTER CONTENT */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 max-w-5xl mx-auto py-2">
         
-        {/* EYEBROW BADGE */}
-        <FadeIn delay={0.02} y={15}>
-          <div className="inline-flex items-center gap-2 rounded-full bg-slate-900/[0.04] border border-slate-900/10 px-4 py-1.5 mb-5 text-slate-700 font-sans font-semibold text-xs tracking-wider uppercase">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Digital Product & Software Studio</span>
-          </div>
-        </FadeIn>
+
 
         {/* HEADLINE */}
         <FadeIn delay={0.08} y={25}>
@@ -90,10 +84,10 @@ export default function Slide1_Hero() {
         <FadeIn delay={0.35} y={15}>
           <div className="flex flex-wrap gap-3.5 justify-center items-center">
             <Link
-              to="/products"
+              to="/services"
               className="rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 px-8 py-3.5 font-sans font-semibold text-sm sm:text-base text-white transition-all duration-200 hover:scale-[1.03] shadow-[0_4px_20px_rgba(66,133,244,0.25)] hover:shadow-[0_8px_28px_rgba(66,133,244,0.35)] active:scale-[0.98] inline-flex items-center gap-2"
             >
-              <span>Explore All Solutions</span>
+              <span>Explore Business Solutions</span>
               <ArrowRight size={16} />
             </Link>
             <Link
@@ -111,7 +105,7 @@ export default function Slide1_Hero() {
         <div className="w-full max-w-5xl px-4 sm:px-6">
           <div className="rounded-2xl bg-slate-50/90 backdrop-blur-xl border border-slate-200/80 p-2 sm:p-2.5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 items-center">
             
-            <Link to="/products#web-apps" className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
+            <Link to="/services#custom-software" className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
               <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
                 <Globe size={15} />
               </div>
@@ -121,7 +115,7 @@ export default function Slide1_Hero() {
               </div>
             </Link>
 
-            <Link to="/products#websites" className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
+            <Link to="/services#websites" className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
               <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
                 <Laptop size={15} />
               </div>
@@ -131,7 +125,7 @@ export default function Slide1_Hero() {
               </div>
             </Link>
 
-            <Link to="/products#software" className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
+            <Link to="/services#custom-software" className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
               <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
                 <Cpu size={15} />
               </div>
@@ -141,7 +135,7 @@ export default function Slide1_Hero() {
               </div>
             </Link>
 
-            <Link to="/products#mobile-apps" className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
+            <Link to="/services#mobile-apps" className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
               <div className="w-8 h-8 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
                 <Smartphone size={15} />
               </div>
@@ -151,7 +145,7 @@ export default function Slide1_Hero() {
               </div>
             </Link>
 
-            <Link to="/products#websites" className="col-span-2 sm:col-span-1 flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
+            <Link to="/seo-ai" className="col-span-2 sm:col-span-1 flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
               <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
                 <Search size={15} />
               </div>

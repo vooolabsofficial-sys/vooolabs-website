@@ -9,28 +9,28 @@ const SERVICES = [
     title: 'Websites & Web Apps',
     description: 'High-speed, modern websites and custom web portals designed to look stunning and convert visitors into clients.',
     accent: '#3B82F6',
-    link: '/products#websites',
+    link: '/services#websites',
   },
   {
     icon: Smartphone,
     title: 'Mobile Applications',
     description: 'Smooth, lightweight Android and iOS apps engineered for high performance, intuitive design, and happy users.',
     accent: '#8B5CF6',
-    link: '/products#mobile-apps',
+    link: '/services#mobile-apps',
   },
   {
     icon: Cpu,
     title: 'Custom Software & Automation',
     description: 'Tailored business software and dashboards that eliminate manual spreadsheets and automate your daily operations.',
     accent: '#10B981',
-    link: '/products#software',
+    link: '/services#custom-software',
   },
   {
     icon: Search,
     title: 'Google & AI Search Ranking',
     description: 'Modern SEO and AI answer engine optimization (AEO) so customers find your business first on Google and ChatGPT.',
     accent: '#F59E0B',
-    link: '/products#websites',
+    link: '/seo-ai',
   },
 ];
 

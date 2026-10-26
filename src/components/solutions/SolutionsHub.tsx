@@ -603,7 +603,7 @@ export default function SolutionsHub() {
                         {[
                           { title: '2-Second Ad Lead Ingress', desc: 'Direct push from Facebook & Instagram Ads' },
                           { title: '1-Click Mobile SIM Dialing', desc: 'Zero VoIP charges, dials from your phone SIM' },
-                          { title: 'Marathi, Hindi & English UI', desc: 'Callers can use the app in their own language' },
+                          { title: 'Intuitive Multilingual UI', desc: 'Callers can use the app in their preferred language' },
                           { title: 'Offline Auto-Sync', desc: 'Saves calls and notes even when network drops' },
                           { title: 'Automated GST Invoices', desc: 'CGST/SGST tax invoices for tax input credit' },
                           { title: 'Zero Cloud Audio Storage', desc: '100% private, compliant customer calls' },

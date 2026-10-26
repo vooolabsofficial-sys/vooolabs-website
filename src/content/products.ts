@@ -128,7 +128,7 @@ export const PRODUCTS: Product[] = [
     name: 'CallMind CRM',
     tagline: 'India\'s Premier SIM Telecalling & Lead CRM.',
     description:
-      'Auto-capture leads in 2s from ads & webhooks, 1-click native mobile SIM dialing, multi-lingual interface (Marathi, Hindi, English), offline sync, and automated GST/ITC invoices with zero audio cloud storage.',
+      'Auto-capture leads in 2s from ads & webhooks, 1-click native mobile SIM dialing, intuitive multi-lingual interface, offline sync, and automated GST/ITC invoices with zero audio cloud storage.',
     status: 'live',
     platforms: 'Android & Web Cloud',
     vertical: 'software',

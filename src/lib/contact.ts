@@ -32,6 +32,7 @@ export type EnquiryKind =
   | 'Website'
   | 'Software CRM'
   | 'Mobile App'
+  | 'SEO & AI'
   | 'General'
   | 'Partnership'
   | 'Beta'

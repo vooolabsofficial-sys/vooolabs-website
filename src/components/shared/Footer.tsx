@@ -107,7 +107,7 @@ export default function Footer() {
               Custom Websites
             </Link>
             <Link
-              to="/services#software"
+              to="/services#custom-software"
               className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
             >
               Custom Software & Tools

@@ -30,6 +30,7 @@ const TABS: EnquiryKind[] = [
   'Website',
   'Software CRM',
   'Mobile App',
+  'SEO & AI',
   'General',
   'Beta',
   'Partnership',
@@ -49,6 +50,7 @@ export default function Slide2_Form() {
     else if (serviceParam === 'websites') setActiveTab('Website');
     else if (serviceParam === 'software') setActiveTab('Software CRM');
     else if (serviceParam === 'mobile-apps') setActiveTab('Mobile App');
+    else if (serviceParam === 'seo-ai') setActiveTab('SEO & AI');
     else if (location.hash === '#waitlist') setActiveTab('Beta');
 
     if (serviceParam || location.hash) {
