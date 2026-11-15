@@ -1,44 +1,43 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { Globe, Laptop, Cpu, Search, ArrowRight, ShieldCheck, Zap } from 'lucide-react';
+import { Globe, Laptop, Cpu, Sparkles, ArrowRight } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 
 const SERVICES = [
   {
     icon: Globe,
-    title: 'Custom Web Applications',
-    tag: 'Web Software & Portals',
-    description: 'Bespoke web applications designed around how your business operates — client portals, multi-tier staff access, and automated workflow tracking.',
-    accent: '#3B82F6',
-    glowColor: 'rgba(59, 130, 246, 0.12)',
-    link: '/services#web-apps',
-  },
-  {
-    icon: Laptop,
-    title: 'High-Conversion Business Websites',
-    tag: 'Fast Brand Platforms',
-    description: 'Sub-0.4s instant page loads on all mobile devices with persuasive storytelling, verified trust design, and 1-tap WhatsApp lead conversion.',
-    accent: '#8B5CF6',
-    glowColor: 'rgba(139, 92, 246, 0.12)',
+    title: 'All-Inclusive Business Websites',
+    tag: 'Domain, 24/7 Hosting & Leads',
+    description: 'Custom design, domain setup, 24/7 cloud hosting, and SSL security included. Engineered to turn mobile visitors into direct WhatsApp and phone inquiries.',
+    accent: '#0284C7',
+    glowColor: 'rgba(2, 132, 199, 0.08)',
     link: '/services#websites',
   },
   {
-    icon: Cpu,
-    title: 'Custom Business Software & Portals',
-    tag: 'Operations & Billing Tools',
-    description: 'Tailored management platforms that eliminate chaotic Excel sheets with automated GST invoicing, order pipelines, and real-time revenue visibility.',
-    accent: '#10B981',
-    glowColor: 'rgba(16, 185, 129, 0.12)',
-    link: '/services#software',
+    icon: Laptop,
+    title: 'Custom Web Apps & Client Portals',
+    tag: 'Customer & Member Portals',
+    description: 'Customer accounts, member dashboards, and appointment booking workflows. Practical and affordable for small and mid-sized businesses in the AI era.',
+    accent: '#3B82F6',
+    glowColor: 'rgba(59, 130, 246, 0.08)',
+    link: '/services#web-apps',
   },
   {
-    icon: Search,
-    title: 'Google & AI Search Discoverability',
-    tag: 'SEO · AEO · Local Ranking',
-    description: 'Advanced technical schema and entity structuring so prospective clients find your business first on Google Maps, Google Search, and AI search engines.',
-    accent: '#F59E0B',
-    glowColor: 'rgba(245, 158, 11, 0.12)',
-    link: '/seo-ai',
+    icon: Cpu,
+    title: 'Custom Business Software',
+    tag: 'GST Billing & Operations',
+    description: 'Replace messy spreadsheets and per-user SaaS fees with custom GST invoicing, customer inquiry pipelines, staff task tracking, and automated WhatsApp alerts.',
+    accent: '#10B981',
+    glowColor: 'rgba(16, 185, 129, 0.08)',
+    link: '/services#custom-software',
+  },
+  {
+    icon: Sparkles,
+    title: 'AI Search Visibility & AI Ads',
+    tag: 'Google SEO · AEO · Maps 3-Pack',
+    description: 'Get recommended where customers search today: Google Search, ChatGPT, Gemini, Perplexity, and Google Maps—plus full setup for AI search ad campaigns.',
+    accent: '#8B5CF6',
+    glowColor: 'rgba(139, 92, 246, 0.08)',
+    link: '/services#google-presence',
   },
 ];
 
@@ -46,7 +45,7 @@ export default function Slide3_CapabilitiesBento() {
   return (
     <section 
       className="bg-white py-20 sm:py-28 px-4 sm:px-6 select-none relative border-b border-slate-200/80"
-      aria-label="Studio Web Capabilities"
+      aria-label="Studio Core Capabilities"
     >
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         
@@ -60,14 +59,14 @@ export default function Slide3_CapabilitiesBento() {
         {/* HEADING */}
         <FadeIn delay={0.08} y={20}>
           <h2 className="font-clash text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 text-center leading-tight mb-4">
-            Web Applications, Portals & <span className="shimmer-text">Digital Systems.</span>
+            Web Applications, Business Software & Search Visibility.
           </h2>
-          <p className="font-sans font-normal text-base sm:text-lg text-slate-600 text-center max-w-xl mx-auto mb-14 leading-relaxed">
-            We engineer tailored web solutions that save your team dozens of manual hours every week and convert visitors into clients.
+          <p className="font-sans font-normal text-base sm:text-lg text-slate-600 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
+            We engineer tailored digital systems that save your team hours of manual work every week and convert modern searchers into confirmed clients.
           </p>
         </FadeIn>
 
-        {/* 4 CLEAN SERVICES IN LUXURY GLASS GRID */}
+        {/* 4 CORE SERVICES IN CLEAN CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {SERVICES.map((item, idx) => {
             const IconComp = item.icon;
@@ -75,16 +74,8 @@ export default function Slide3_CapabilitiesBento() {
               <FadeIn key={idx} delay={idx * 0.08} y={20} className="w-full flex">
                 <Link
                   to={item.link}
-                  style={{ '--card-glow': item.glowColor } as React.CSSProperties}
-                  className="w-full rounded-3xl bg-[#FAFAFD] border border-slate-200/80 p-7 sm:p-8 hover:bg-white hover:border-slate-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group text-left relative overflow-hidden"
+                  className="w-full rounded-3xl bg-[#FAFAFD] border border-slate-200/80 p-7 sm:p-8 hover:bg-white hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group text-left relative overflow-hidden"
                 >
-                  {/* CORNER AMBIENT ACCENT */}
-                  <div 
-                    className="absolute top-0 right-0 w-36 h-36 rounded-bl-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"
-                    style={{ backgroundColor: item.glowColor }}
-                    aria-hidden="true"
-                  />
-
                   <div className="relative z-10">
                     <div className="flex items-center justify-between gap-3 mb-6">
                       <div 

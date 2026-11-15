@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useState, useRef } from 'react';
+import { useEffect, useMemo, useState, useRef } from 'react';
 import { useInView } from 'framer-motion';
 import FadeIn from '../shared/FadeIn';
-import { COMPANY, LOCATION } from '../../content/company';
+import { COMPANY } from '../../content/company';
 
 interface CounterProps {
   value: string;
@@ -67,24 +67,24 @@ function Counter({ value, duration = 1.5 }: CounterProps) {
 export default function Slide5_Innovation() {
   const stats = [
     {
-      value: '3',
-      label: 'Core Web & Software Verticals',
-      sublabel: 'Web Apps · Portals · Websites',
-    },
-    {
-      value: '<0.4s',
-      label: 'First Contentful Paint Standard',
-      sublabel: 'Sub-second mobile speed',
+      value: '4',
+      label: 'Core Digital Verticals',
+      sublabel: 'Websites · Web Apps · Software · AI Search',
     },
     {
       value: '100%',
-      label: 'Client Source Code Ownership',
-      sublabel: 'Zero vendor lock-in',
+      label: 'Client Code & Asset Ownership',
+      sublabel: 'Zero vendor lock-in · Full IP handover',
     },
     {
-      value: String(COMPANY.foundedYear),
-      label: `Founded in ${LOCATION.region}, ${LOCATION.country}`,
-      sublabel: 'Engineering for global businesses',
+      value: '₹0',
+      label: 'Monthly Per-User Seat Fees',
+      sublabel: 'Custom-built once · No seat penalties',
+    },
+    {
+      value: 'All-In-One',
+      label: 'Domain, DNS & 24/7 Hosting',
+      sublabel: 'Complete technical setup included',
     },
   ];
 
@@ -98,14 +98,14 @@ export default function Slide5_Innovation() {
         {/* EYEBROW */}
         <FadeIn delay={0} y={15}>
           <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2 text-center">
-            BY THE BENCHMARKS
+            THE AI-ERA ADVANTAGE
           </span>
         </FadeIn>
 
         {/* HEADING */}
         <FadeIn delay={0.1} y={20}>
           <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-bold text-slate-900 text-center leading-tight mb-16">
-            Where <span className="shimmer-text">{COMPANY.brandName}</span> stands.
+            Where {COMPANY.brandName} stands.
           </h2>
         </FadeIn>
 
@@ -114,7 +114,7 @@ export default function Slide5_Innovation() {
           {stats.map((stat, idx) => (
             <FadeIn key={idx} delay={idx * 0.08} y={20} className="w-full">
               <div className="p-8 rounded-3xl bg-[#FAFAFD] border border-slate-200/80 text-center h-full flex flex-col justify-between hover:bg-white hover:border-slate-300 hover:shadow-md transition-all">
-                <div className="font-clash font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-900 mb-3">
+                <div className="font-clash font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 mb-3">
                   <Counter value={stat.value} />
                 </div>
                 <div>
@@ -130,7 +130,7 @@ export default function Slide5_Innovation() {
           ))}
         </div>
 
-        {/* BOTTOM QUOTE */}
+        {/* BOTTOM QUOTE — PRESERVED INTACT */}
         <FadeIn delay={0.35} y={15}>
           <p className="font-sans font-normal italic text-sm sm:text-base md:text-lg text-slate-600 text-center mt-16 max-w-xl leading-relaxed">
             "We don't resell bloated templates or outsource engineering. Every line of code is written with obsessive attention to performance, security, and real business utility."

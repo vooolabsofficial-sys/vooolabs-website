@@ -1,41 +1,40 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { Globe, Laptop, Cpu, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Globe, Laptop, Cpu, ArrowRight } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 
 const STUDIO_SYSTEMS = [
   {
-    tag: 'Web Software · Operations',
-    title: 'Custom Client & Operations Portals',
-    description: 'Bespoke web portals for tracking customer orders, staff task assignments, and internal deliverables with granular role-based security.',
-    status: 'Tailored Solution',
-    statusColor: 'text-blue-700 bg-blue-50 border-blue-200',
+    tag: 'All-Inclusive Launch Standard',
+    title: 'Turnkey Websites With Zero Tech Headaches',
+    description: 'Complete end-to-end delivery: domain acquisition assistance, full DNS routing, 24/7 fast cloud hosting, SSL certificates, and direct WhatsApp lead routing.',
+    status: 'All-Inclusive Build',
+    statusColor: 'text-sky-700 bg-sky-50 border-sky-200',
     icon: Globe,
+    accent: '#0284C7',
+    glowColor: 'rgba(2, 132, 199, 0.08)',
+    link: '/services#websites',
+  },
+  {
+    tag: 'AI-Era Advantage',
+    title: 'Affordable Client & Member Portals',
+    description: 'Modern engineering workflows lower development costs so small and mid-sized businesses can launch custom customer accounts, booking systems, and dashboards.',
+    status: '100% Client Owned',
+    statusColor: 'text-blue-700 bg-blue-50 border-blue-200',
+    icon: Laptop,
     accent: '#3B82F6',
     glowColor: 'rgba(59, 130, 246, 0.08)',
     link: '/services#web-apps',
   },
   {
-    tag: 'Business Systems · Billing',
-    title: 'Automated Billing & Invoicing Portals',
-    description: 'Centralized systems for instant GST tax invoice generation, customer accounts, and automated payment tracking with zero monthly per-seat fees.',
-    status: 'Workflow Engine',
+    tag: 'Internal Operations',
+    title: 'Custom GST Billing & Workflow Tools',
+    description: 'Replace fragile spreadsheets with structured task allocation, 1-click GST tax invoices, customer order pipelines, and daily WhatsApp reports—with ₹0 monthly software rent.',
+    status: 'Zero Monthly Rent',
     statusColor: 'text-emerald-700 bg-emerald-50 border-emerald-200',
     icon: Cpu,
     accent: '#10B981',
     glowColor: 'rgba(16, 185, 129, 0.08)',
-    link: '/services#software',
-  },
-  {
-    tag: 'Brand Web · Conversion',
-    title: 'High-Speed Corporate Web Platforms',
-    description: 'Sub-0.4s instant page loads on mobile networks with persuasive brand storytelling and direct 1-tap WhatsApp lead routing funnels.',
-    status: 'High Conversion',
-    statusColor: 'text-purple-700 bg-purple-50 border-purple-200',
-    icon: Laptop,
-    accent: '#8B5CF6',
-    glowColor: 'rgba(139, 92, 246, 0.08)',
-    link: '/services#websites',
+    link: '/services#custom-software',
   },
 ];
 
@@ -43,24 +42,24 @@ export default function Slide4_WhatWeBuild() {
   return (
     <section 
       className="bg-[#F8F9FC] py-20 sm:py-28 px-4 sm:px-6 select-none relative border-b border-slate-200/80"
-      aria-label="Web & Software Systems We Engineer"
+      aria-label="All-Inclusive Systems We Engineer"
     >
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         
         {/* EYEBROW */}
         <FadeIn delay={0} y={15}>
           <span className="font-mono text-xs font-semibold text-purple-600 uppercase tracking-widest block mb-2 text-center">
-            PROVEN ARCHITECTURAL ARTIFACTS
+            ALL-INCLUSIVE LAUNCH STANDARD
           </span>
         </FadeIn>
 
         {/* HEADING */}
         <FadeIn delay={0.08} y={20}>
           <h2 className="font-clash text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 text-center leading-tight mb-4">
-            Engineered by <span className="shimmer-text">VOOO LABS.</span>
+            Engineered by VOOO LABS.
           </h2>
-          <p className="font-sans font-normal text-base sm:text-lg text-slate-600 text-center max-w-xl mx-auto mb-14 leading-relaxed">
-            Real custom web software systems architected for businesses that prioritize speed, security, and measurable ROI.
+          <p className="font-sans font-normal text-base sm:text-lg text-slate-600 text-center max-w-2xl mx-auto mb-14 leading-relaxed">
+            In the AI era, custom digital systems that once cost lakhs are now practical and affordable for growing businesses. We handle everything from custom design to domain, DNS, and 24/7 cloud hosting.
           </p>
         </FadeIn>
 
@@ -72,16 +71,8 @@ export default function Slide4_WhatWeBuild() {
               <FadeIn key={idx} delay={idx * 0.1} y={20} className="w-full flex">
                 <Link
                   to={prod.link}
-                  style={{ '--prod-glow': prod.glowColor } as React.CSSProperties}
-                  className="w-full rounded-3xl bg-white border border-slate-200/80 p-7 sm:p-8 hover:border-slate-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group text-left relative overflow-hidden"
+                  className="w-full rounded-3xl bg-white border border-slate-200/80 p-7 sm:p-8 hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group text-left relative overflow-hidden"
                 >
-                  {/* TOP GLOW */}
-                  <div 
-                    className="absolute top-0 right-0 w-32 h-32 rounded-bl-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"
-                    style={{ backgroundColor: prod.glowColor }}
-                    aria-hidden="true"
-                  />
-
                   <div className="relative z-10">
                     {/* TOP BADGES */}
                     <div className="flex items-center justify-between gap-2 mb-6">
@@ -108,7 +99,7 @@ export default function Slide4_WhatWeBuild() {
                   </div>
 
                   <div className="flex items-center gap-1.5 text-xs font-mono font-medium text-blue-600 group-hover:translate-x-1.5 transition-transform duration-200 pt-4 border-t border-slate-200/60 relative z-10">
-                    <span>Inspect System Blueprint</span>
+                    <span>Inspect System Deliverables</span>
                     <ArrowRight size={13} />
                   </div>
                 </Link>
@@ -120,10 +111,10 @@ export default function Slide4_WhatWeBuild() {
         {/* BOTTOM CTA LINK */}
         <FadeIn delay={0.35} y={15}>
           <Link
-            to="/services"
-            className="inline-flex items-center gap-2 font-sans font-medium text-xs sm:text-sm text-slate-700 hover:text-blue-600 border border-slate-200/80 hover:border-blue-300 bg-white hover:bg-slate-50 px-6 py-3 rounded-full shadow-sm transition-all hover:scale-105"
+            to="/contact"
+            className="inline-flex items-center gap-2 font-sans font-medium text-xs sm:text-sm text-slate-700 hover:text-blue-600 border border-slate-200/80 hover:border-blue-300 bg-white hover:bg-slate-50 px-6 py-3.5 rounded-full shadow-2xs transition-all hover:scale-105"
           >
-            <span>Explore All Studio Services & Case Studies</span>
+            <span>See what your project will cost</span>
             <ArrowRight size={14} />
           </Link>
         </FadeIn>

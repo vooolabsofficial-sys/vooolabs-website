@@ -1,45 +1,39 @@
-import React from 'react';
 import FadeIn from '../shared/FadeIn';
 import { 
+  Globe,
   Laptop, 
-  Zap, 
+  Cpu,
   ShieldCheck, 
   MessageSquare, 
   Database, 
   Search, 
   Lock, 
-  CheckCircle2, 
-  BarChart3, 
   Clock, 
   FileCheck, 
   Layers, 
   Sparkles,
-  Users
+  Target
 } from 'lucide-react';
 
 export default function Slide2_Marquee() {
   const row1Standards = [
-    { name: 'Custom Admin Portals', icon: Laptop },
-    { name: 'Sub-0.4s Web Architecture', icon: Zap },
-    { name: 'Automated WhatsApp Ingress', icon: MessageSquare },
-    { name: '100% Client Code Ownership', icon: Database },
-    { name: 'Enterprise Data Security', icon: ShieldCheck },
-    { name: 'Zero Monthly Platform Fees', icon: Lock },
-    { name: 'Seamless Screen Responsiveness', icon: Layers },
-    { name: 'Bespoke Business Workflows', icon: CheckCircle2 },
-    { name: 'Automated GST Invoicing', icon: FileCheck },
+    { name: 'Custom Business Websites', icon: Globe },
+    { name: '24/7 Cloud Hosting & SSL Included', icon: ShieldCheck },
+    { name: 'Domain & DNS Setup', icon: Layers },
+    { name: 'Custom Web Apps & Portals', icon: Laptop },
+    { name: '100% Source Code Ownership', icon: Database },
+    { name: 'Zero Monthly Seat Fees', icon: Lock },
+    { name: 'Workflow-Based Timelines', icon: Clock },
   ];
 
   const row2Outcomes = [
-    { name: 'Instant 1-Tap Lead Routing', icon: MessageSquare },
-    { name: 'Role-Based Staff Access', icon: Users },
-    { name: 'Google #1 & AI Search Optimization', icon: Search },
-    { name: 'Zero Bloated Templates', icon: Zap },
-    { name: 'Real-Time Revenue Telemetry', icon: BarChart3 },
-    { name: 'Direct Lead Architect Access', icon: Sparkles },
-    { name: 'Automated Daily Cloud Backups', icon: Lock },
-    { name: 'Full GitHub Handover on Day 1', icon: Database },
-    { name: 'Guaranteed Uptime Standards', icon: Clock },
+    { name: 'GST Billing & Operations Software', icon: Cpu },
+    { name: 'ChatGPT & Google AI Search Visibility', icon: Search },
+    { name: 'AI Platform Ads Setup', icon: Target },
+    { name: '1-Tap WhatsApp Lead Capture', icon: MessageSquare },
+    { name: 'Automated Daily Cloud Backups', icon: Database },
+    { name: 'GST Tax Invoicing Engine', icon: FileCheck },
+    { name: 'Multi-Engine Recommendation (AEO)', icon: Sparkles },
   ];
 
   // Triple items for continuous smooth looping
@@ -50,27 +44,27 @@ export default function Slide2_Marquee() {
     <section className="bg-[#F8F9FC] py-20 overflow-hidden relative select-none border-b border-slate-200/80">
       
       {/* SECTION HEADER */}
-      <div className="text-center mb-16 px-6">
+      <div className="text-center mb-14 px-6">
         <FadeIn delay={0} y={20}>
           <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
             CLIENT VALUE ASSURANCE
           </span>
-          <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-semibold text-slate-900">
-            Engineering Standards <span className="shimmer-text">Delivered</span>
+          <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-bold text-slate-900">
+            Engineering Standards Delivered
           </h2>
         </FadeIn>
       </div>
 
       {/* MARQUEE CAROUSELS WITH PRECISE CSS EDGE FADE-OUT MASKS */}
       <div 
-        className="w-full flex flex-col gap-5"
+        className="w-full flex flex-col gap-4"
         style={{
           maskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
           WebkitMaskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)'
         }}
       >
         
-        {/* ROW 1: CORE STANDARDS (SCROLL LEFT) */}
+        {/* ROW 1: CORE DELIVERABLES (SCROLL LEFT) */}
         <div className="relative w-full overflow-hidden flex whitespace-nowrap py-1">
           <div className="animate-marquee-left flex gap-3 sm:gap-4 pl-4">
             {row1Items.map((item, idx) => {

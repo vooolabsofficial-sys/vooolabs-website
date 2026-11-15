@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../shared/FadeIn';
-import { MessageSquare, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ShieldCheck, CheckCircle2, MessageSquare } from 'lucide-react';
 import { COMPANY } from '../../content/company';
 
 export default function Slide6_CTA() {
+  const whatsappUrl = `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent("Hello VOOO LABS, I want to discover what my business is missing in websites, custom software, and AI search visibility.")}`;
+
   return (
     <section className="bg-[#F8F9FC] py-24 sm:py-32 px-4 sm:px-6 text-center relative overflow-hidden select-none border-b border-slate-200/80">
       {/* SOFT RADIAL BACKDROP */}
@@ -17,22 +18,22 @@ export default function Slide6_CTA() {
         <FadeIn delay={0} y={15}>
           <div className="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200/80 px-4 py-1.5 mb-6 text-slate-700 font-mono text-xs tracking-wider uppercase shadow-xs">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-            <span>Ready To Start Your Project</span>
+            <span>BUILT FOR THE AI ERA • ALL-INCLUSIVE EXECUTION</span>
           </div>
         </FadeIn>
 
-        {/* HEADING */}
+        {/* HEADLINE */}
         <FadeIn delay={0.1} y={20}>
-          <h2 className="font-clash text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.02] tracking-tight mb-6">
-            Partner with <br />
-            <span className="shimmer-text">VOOO LABS.</span>
+          <h2 className="font-clash text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 leading-[1.08] tracking-tight mb-6">
+            Professional Software & Websites. <br />
+            <span className="text-slate-900">Built Around Your Budget and Workflow.</span>
           </h2>
         </FadeIn>
 
-        {/* SUBTEXT */}
+        {/* SUBTEXT / BODY */}
         <FadeIn delay={0.18} y={15}>
-          <p className="font-sans font-normal text-base sm:text-lg text-slate-600 max-w-xl mx-auto leading-relaxed mb-10">
-            Skip the bloated templates and confusing sales pitches. Speak directly with our lead software architect and get a deterministic milestone plan for your business platform.
+          <p className="font-sans font-normal text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10">
+            Whether you are launching a growing local business or upgrading company operations, we handle everything—custom build, domain, DNS, 24/7 hosting, social media integration, and AI search visibility. Share your requirements and get an honest plan and timeline.
           </p>
         </FadeIn>
 
@@ -41,32 +42,42 @@ export default function Slide6_CTA() {
           <div className="flex flex-wrap gap-4 justify-center items-center">
             <Link
               to="/contact"
-              className="rounded-full bg-slate-900 hover:bg-blue-600 text-white px-8 py-4 font-sans font-semibold text-sm sm:text-base transition-all duration-200 hover:scale-[1.02] shadow-[0_4px_20px_rgba(15,23,42,0.15)] active:scale-[0.98] inline-flex items-center gap-2"
+              className="rounded-full bg-slate-900 hover:bg-blue-600 text-white px-8 py-4 font-sans font-semibold text-sm sm:text-base transition-all duration-200 hover:scale-[1.02] shadow-xs active:scale-[0.98] inline-flex items-center gap-2"
             >
-              <MessageSquare size={16} />
-              <span>Start Technical Consultation</span>
+              <span>See what your project will cost</span>
               <ArrowRight size={16} />
             </Link>
-            <Link
-              to="/services"
-              className="rounded-full border border-slate-200/80 bg-white hover:bg-slate-50 px-8 py-4 font-sans font-medium text-sm sm:text-base text-slate-700 hover:text-slate-900 hover:border-slate-300 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xs"
+
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-slate-200/80 bg-white hover:bg-slate-50 px-8 py-4 font-sans font-medium text-sm sm:text-base text-slate-700 hover:text-slate-900 hover:border-slate-300 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xs inline-flex items-center gap-2"
             >
-              Inspect All Services
-            </Link>
+              <MessageSquare size={16} className="text-purple-600" />
+              <span>Discover what you're missing</span>
+            </a>
           </div>
+        </FadeIn>
+
+        {/* MICRO-COPY BELOW BUTTONS */}
+        <FadeIn delay={0.3} y={10}>
+          <p className="font-sans text-xs text-slate-500 mt-4 max-w-lg mx-auto leading-relaxed">
+            No fixed templates or false timelines. We review your exact requirements first and share a clear cost estimate and realistic delivery schedule.
+          </p>
         </FadeIn>
 
         {/* TRUST BADGES */}
         <FadeIn delay={0.35} y={10}>
           <div className="mt-12 flex flex-wrap justify-center items-center gap-6 text-slate-600 font-mono text-xs">
             <span className="flex items-center gap-1.5">
-              <ShieldCheck size={14} className="text-emerald-600" /> 100% Code Ownership
+              <ShieldCheck size={14} className="text-emerald-600" /> 100% Code & Data Ownership
             </span>
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={14} className="text-blue-600" /> Sub-0.4s Speed Standard
+              <CheckCircle2 size={14} className="text-blue-600" /> All-In-One Domain & 24/7 Hosting
             </span>
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={14} className="text-purple-600" /> Zero Monthly Seat Fees
+              <CheckCircle2 size={14} className="text-purple-600" /> ₹0 Monthly Per-Seat Rent
             </span>
           </div>
         </FadeIn>
