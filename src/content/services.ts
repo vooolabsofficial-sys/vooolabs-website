@@ -1,4 +1,4 @@
-import { Globe, Laptop, Cpu, Smartphone } from 'lucide-react';
+import { Globe, Laptop, Cpu } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export interface ServiceProject {
@@ -255,57 +255,57 @@ export const SERVICES: ServiceVertical[] = [
   {
     id: 'software',
     slug: 'software',
-    title: 'Custom Software & Sales CRM Systems',
-    shortTitle: 'Software Systems',
-    tagline: 'SIM calling automation, lead management & business workflow tools.',
+    title: 'Custom Business Software & Management Portals',
+    shortTitle: 'Business Software',
+    tagline: 'Internal workflow tools, automated invoicing, and operations dashboards.',
     icon: Cpu,
-    badge: 'Sales & Lead Automation',
+    badge: 'Operations & Workflow Systems',
     accentColor: '#10B981',
-    gradientClass: 'bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 bg-clip-text text-transparent',
+    gradientClass: 'bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-500 bg-clip-text text-transparent',
     glowShadow: 'hover:shadow-[0_16px_40px_rgba(16,185,129,0.18)]',
     bgGradient: 'from-emerald-500/10 via-teal-500/5 to-transparent',
-    summary: 'We build custom software suites and sales tools (like our flagship CallMind CRM) that help Indian businesses capture leads from ads and call directly from their mobile SIM.',
+    summary: 'We engineer tailor-made business management systems, automated invoicing tools, and custom workflow dashboards that replace chaotic spreadsheets and generic SaaS retainers.',
     
     whyYouNeedThis: {
-      heading: 'Why Manual Calling & Ad Leads Get Wasted',
-      subheading: 'Inquiries from Facebook and Google sit uncalled in spreadsheets for hours, while telecallers waste 3+ hours every day typing numbers manually.',
+      heading: 'Why Spreadsheets & Generic SaaS Slow Down Operations',
+      subheading: 'Scattered customer inquiries, missing follow-ups, and disconnected billing tools cost businesses dozens of productive hours every week.',
       points: [
         {
-          title: 'Manual Dialing Wastes Hours Every Day',
-          description: 'Callers typing numbers by hand make typing mistakes, dial wrong numbers, and get tired quickly.',
-          impact: '1-tap instant dialing directly from your Android phone SIM card.',
+          title: 'Fragmented Tools Cause Bottlenecks',
+          description: 'Using separate tools for notes, billing, and customer records leads to miscommunication and delayed fulfillment.',
+          impact: 'One unified custom system designed specifically for your company workflow.',
         },
         {
-          title: 'Delayed Calling Kills Sales',
-          description: 'When a customer fills a Facebook or Instagram ad form, calling them after 2 hours reduces conversion by 80%.',
-          impact: 'Auto-delivers the lead to your telecaller\'s phone in under 2 seconds.',
+          title: 'Recurring Per-User Licensing Adds Up Fast',
+          description: 'Most SaaS tools penalize business growth with escalating monthly seat charges for features you do not use.',
+          impact: 'A bespoke platform you own 100% with zero recurring seat fees.',
         },
         {
-          title: 'Cloud Telephony is Overpriced in India',
-          description: 'Third-party calling platforms charge high per-minute fees and store private customer conversations on unknown servers.',
-          impact: 'Uses your existing mobile recharge plan with zero audio stored on cloud.',
+          title: 'Lack of Automated Invoicing & Tracking',
+          description: 'Manual invoice generation and payment tracking waste management time and cause accounting discrepancies.',
+          impact: 'Automated GST-compliant billing and real-time revenue visibility.',
         },
       ],
     },
 
     howWeHelp: {
-      heading: 'How Our Software Helps Your Sales Team',
-      subheading: 'Engineered specifically for Indian sales agencies, real estate builders, consultants, and service businesses.',
+      heading: 'How We Build Custom Operations Software',
+      subheading: 'Bespoke web tools engineered to centralize operations, automate routine tasks, and provide crystal-clear business oversight.',
       features: [
         {
-          title: 'Instant Ad Lead Ingress (Facebook, Insta & Sheets)',
-          description: 'New leads from ad campaigns immediately pop up on your callers\' screens ready to dial.',
-          tech: 'Instant Lead Push',
+          title: 'Automated Customer & Order Pipelines',
+          description: 'Incoming inquiries and client orders automatically route into an organized Kanban pipeline with instant notifications.',
+          tech: 'Live Order Pipeline',
         },
         {
-          title: 'Intuitive Multilingual Caller Interface',
-          description: 'Your callers can operate the app in their preferred language (Hindi, English, or Regional), hiring sales talent without barriers.',
-          tech: 'Multilingual UI',
+          title: 'Role-Based Team Access & Security',
+          description: 'Granular permissions ensure employees only access their assigned tasks, while management maintains complete financial control.',
+          tech: 'Role-Based Security',
         },
         {
-          title: 'Automated GST Invoices for Subscriptions',
-          description: 'Generates proper GST tax invoices with CGST and SGST split ready for Input Tax Credit (ITC).',
-          tech: 'GST Compliant',
+          title: 'Automated GST Invoicing & Payment Tracking',
+          description: 'Generate professional, compliant tax invoices in one click with automated tracking of paid and pending amounts.',
+          tech: 'Automated Billing',
         },
       ],
     },
@@ -313,124 +313,29 @@ export const SERVICES: ServiceVertical[] = [
     roiBenefits: {
       heading: 'Direct Benefits to Your Business',
       metrics: [
-        { value: '2 sec', label: 'Lead Ingress Speed', detail: 'From Facebook/Google ad directly to the telecaller screen.' },
-        { value: '3+ hrs', label: 'Saved Per Caller Daily', detail: '1-tap SIM dialing eliminates manual number typing.' },
-        { value: '₹0', label: 'Extra Calling Platform Charges', detail: 'Calls route through your existing mobile SIM unlimited plan.' },
+        { value: '4+ hrs', label: 'Saved Daily Across Staff', detail: 'Automates manual data entry and routine status reporting.' },
+        { value: '100%', label: 'Source Code & Data Ownership', detail: 'Full intellectual property rights with zero vendor lock-in.' },
+        { value: '₹0', label: 'Monthly Per-Seat Licensing', detail: 'Bespoke software built once and owned forever.' },
       ],
       highlights: [
-        'Double or triple the daily connected calls made by your sales team',
-        'Track daily call targets, connected talk-time, and customer follow-up notes',
-        'Keep working even when mobile data drops; auto-syncs when connection returns',
+        'Centralize orders, staff tasks, and client records in one secure portal',
+        'Eliminate manual mistakes in invoicing and customer tracking',
+        'Live dashboard accessible securely from any desktop, tablet, or phone browser',
       ],
     },
 
     featuredProjects: [
       {
-        title: 'CallMind CRM — SIM Telecalling & Lead Platform',
-        subtitle: 'Flagship Sales Suite',
-        description: 'India\'s premier SIM telecalling CRM. Auto-captures ad leads in 2 seconds, 1-click mobile SIM dialing, WhatsApp follow-ups, and automated GST invoices.',
-        tags: ['Sales CRM', 'SIM Telecalling', 'Lead Management', 'Live App'],
-        liveUrl: 'https://callmind-crm-app.onrender.com/',
-        badge: 'Live Flagship Product',
+        title: 'B2B Operations & Billing Management Portal',
+        subtitle: 'Custom Business Software',
+        description: 'Comprehensive operational portal featuring automated inquiry intake, staff assignment routing, GST tax invoice generation, and financial reporting.',
+        tags: ['Business Portal', 'Invoicing Engine', 'Workflow Automation', 'Admin Dashboard'],
+        badge: 'Custom Client System',
         accentColor: '#10B981',
       },
     ],
 
-    techStack: ['SIM Calling Integration', 'Lead Management CRM', 'Offline Sync', 'WhatsApp Follow-ups', 'GST Invoicing'],
-  },
-
-  {
-    id: 'mobile-apps',
-    slug: 'mobile-apps',
-    title: 'Native Android & Mobile Applications',
-    shortTitle: 'Mobile Apps',
-    tagline: 'Fast, smooth Android apps built with local security and offline reliability.',
-    icon: Smartphone,
-    badge: 'Native Mobile Apps',
-    accentColor: '#F97316',
-    gradientClass: 'bg-gradient-to-r from-orange-500 via-amber-500 to-purple-600 bg-clip-text text-transparent',
-    glowShadow: 'hover:shadow-[0_16px_40px_rgba(249,115,22,0.18)]',
-    bgGradient: 'from-orange-500/10 via-amber-500/5 to-transparent',
-    summary: 'We build native Android applications that feel fluid and fast — with fingerprint vault protection, offline storage, and clean Material Design.',
-    
-    whyYouNeedThis: {
-      heading: 'Why Your Business or Product Needs a Native Mobile App',
-      subheading: 'Over 85% of internet screen time in India happens on smartphones. A dedicated mobile app keeps your business one tap away from your customers.',
-      points: [
-        {
-          title: 'Direct Presence on Customer\'s Phone',
-          description: 'An app icon on the home screen keeps your brand top of mind, driving repeat orders and long-term customer loyalty.',
-          impact: '3x higher customer retention compared to mobile browsers.',
-        },
-        {
-          title: 'Uses Phone Hardware (Fingerprint, Camera, Alarms)',
-          description: 'Regular websites cannot reliably access biometric security, silent alarms, or background notifications.',
-          impact: 'High-security biometric vaults and instant push notifications.',
-        },
-        {
-          title: 'Works Perfectly Without Continuous Internet',
-          description: 'Native mobile apps store critical records locally, so your team or customers can use the app even in low-network areas.',
-          impact: 'Zero downtime during field work or travel.',
-        },
-      ],
-    },
-
-    howWeHelp: {
-      heading: 'How We Build Mobile Applications',
-      subheading: 'Engineered for smooth 60fps performance, quick responsiveness, and battery efficiency.',
-      features: [
-        {
-          title: 'Smooth & Intuitive Touch Interface',
-          description: 'Modern, clean screen designs with big touch targets and instant response to every swipe and tap.',
-          tech: 'Native Android UI',
-        },
-        {
-          title: 'Fingerprint & PIN Security Vaults',
-          description: 'Lock sensitive customer records, financial documents, and personal files behind biometric security.',
-          tech: 'Biometric Lock',
-        },
-        {
-          title: 'Offline Database & Auto Cloud Sync',
-          description: 'Data is saved on the phone immediately and synchronizes with your cloud server whenever internet is active.',
-          tech: 'Offline-First',
-        },
-      ],
-    },
-
-    roiBenefits: {
-      heading: 'Direct Benefits to Your Business',
-      metrics: [
-        { value: '60 fps', label: 'Smooth Animation Speed', detail: 'Zero lag or stuttering on all modern Android devices.' },
-        { value: '100%', label: 'Offline Usability', detail: 'Access critical files and forms without active network.' },
-        { value: '1-Tap', label: 'Instant Biometric Login', detail: 'Fingerprint and face unlock for effortless security.' },
-      ],
-      highlights: [
-        'Send direct push notifications to announce offers, updates, and reminders',
-        'Protect sensitive client or business documents with fingerprint encryption',
-        'Ready for deployment to the Google Play Store with full support',
-      ],
-    },
-
-    featuredProjects: [
-      {
-        title: 'VOOO Files — Storage & Biometric Vault',
-        subtitle: 'Android File Ecosystem',
-        description: 'Complete Android storage manager with fingerprint secret vault, duplicate photo cleaner, and built-in music player.',
-        tags: ['Android App', 'Biometric Vault', 'Storage Cleaner'],
-        badge: 'In Development',
-        accentColor: '#3B82F6',
-      },
-      {
-        title: 'SMARAN AI — Smart Memory & Reminders',
-        subtitle: 'Contextual Reminder App',
-        description: 'Smart reminder app with visual strobe alarms that break through silent mode, with specialized presets for Students, Professionals, and Elders.',
-        tags: ['Smart Alarms', 'Student Mode', 'Elder Mode'],
-        badge: 'Architecture Phase',
-        accentColor: '#8B5CF6',
-      },
-    ],
-
-    techStack: ['Native Android App', 'Fingerprint Vault', 'Offline Storage', 'Push Notifications', 'Google Play Ready'],
+    techStack: ['Custom Web Portal', 'Admin Dashboard', 'Workflow Engine', 'GST Invoicing', 'Secure Database'],
   },
 ];
 

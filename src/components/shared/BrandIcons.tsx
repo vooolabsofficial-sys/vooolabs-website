@@ -59,3 +59,72 @@ export const WhatsappIcon = ({ size = 18, className = '' }: IconProps) => (
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
   </svg>
 );
+
+export const ReactIcon = ({ size = 18, className = '' }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className} aria-hidden="true">
+    <ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(0 12 12)" />
+    <ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)" />
+    <ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)" />
+    <circle cx="12" cy="12" r="1.8" fill="currentColor" />
+  </svg>
+);
+
+export const TypeScriptIcon = ({ size = 18, className = '' }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className} aria-hidden="true">
+    <rect x="3" y="3" width="18" height="18" rx="3" strokeWidth={1.75} />
+    <path d="M7 8h6M10 8v8" strokeLinecap="round" />
+    <path d="M14 13.5c.8.8 1.8 1.2 2.8.8.7-.3 1.2-1 1.2-1.8 0-1.8-3-1.4-3-3.2 0-.8.5-1.5 1.5-1.8 1.1-.3 2.1.2 2.8.8" strokeLinecap="round" />
+  </svg>
+);
+
+export const NextjsIcon = ({ size = 18, className = '' }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className} aria-hidden="true">
+    <circle cx="12" cy="12" r="9" />
+    <path d="M9 8.5v7M15 8.5v4M9 10l6 5.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const TailwindIcon = ({ size = 18, className = '' }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className} aria-hidden="true">
+    <path d="M6 10c1.5-3 4-4.5 7.5-4.5 4.5 0 6 3 8 4.5-2 1.5-4 2.5-6.5 2.5-4 0-5.5-2.5-9-2.5zm-3.5 6c1.5-3 4-4.5 7.5-4.5 4.5 0 6 3 8 4.5-2 1.5-4 2.5-6.5 2.5-4 0-5.5-2.5-9-2.5z" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const KotlinIcon = ({ size = 18, className = '' }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className} aria-hidden="true">
+    <rect x="3" y="3" width="18" height="18" rx="3" />
+    <path d="M3 3l9 9-9 9M12 12l9-9M12 12l9 9" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const PythonIcon = ({ size = 18, className = '' }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className} aria-hidden="true">
+    <path d="M12 3c-4 0-4 1.8-4 1.8v2.7h4v.9H6.5S3 8 3 12.5s3 4.5 3 4.5h1.5v-2.2s0-2.8 2.8-2.8h4.5s2.7 0 2.7-2.7V6.5S17.5 3 12 3zm-2.2 2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8z" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M12 21c4 0 4-1.8 4-1.8v-2.7h-4v-.9h5.5s3.5.4 3.5-4.1-3-4.5-3-4.5h-1.5v2.2s0 2.8-2.8 2.8H9.2S6.5 12 6.5 14.7v3.1s0 3.2 5.5 3.2zm2.2-2a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8z" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const PostgresIcon = ({ size = 18, className = '' }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className} aria-hidden="true">
+    <ellipse cx="12" cy="6" rx="8" ry="3" />
+    <path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6" />
+    <path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" />
+  </svg>
+);
+
+export const DockerIcon = ({ size = 18, className = '' }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className} aria-hidden="true">
+    <path d="M3 13.5h18c-.5 4-4.5 6.5-9 6.5s-8.5-2.5-9-6.5z" strokeLinecap="round" strokeLinejoin="round" />
+    <rect x="7" y="10" width="2.5" height="2.5" rx="0.5" />
+    <rect x="10.5" y="10" width="2.5" height="2.5" rx="0.5" />
+    <rect x="14" y="10" width="2.5" height="2.5" rx="0.5" />
+    <rect x="10.5" y="6.5" width="2.5" height="2.5" rx="0.5" />
+    <rect x="14" y="6.5" width="2.5" height="2.5" rx="0.5" />
+  </svg>
+);
+
+export const SupabaseIcon = ({ size = 18, className = '' }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className} aria-hidden="true">
+    <path d="M13.5 2L4 13.5h7.5L10.5 22l9.5-11.5h-7.5L13.5 2z" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);

@@ -1,110 +1,84 @@
 import React from 'react';
 import FadeIn from '../shared/FadeIn';
 import { 
-  Code2, 
-  Palette, 
-  Layout, 
-  Atom, 
-  FileCode2, 
-  Flame, 
-  Cog, 
-  Database, 
-  Tv, 
-  Wind, 
+  Laptop, 
   Zap, 
-  Film, 
-  Server, 
-  Sparkles, 
   ShieldCheck, 
-  Globe, 
-  Smartphone,
-  Bot,
-  Lock,
-  Users,
-  Clock,
-  MapPin,
-  FolderLock,
-  Briefcase,
-  Trash2,
-  PhoneCall,
-  Rocket
+  MessageSquare, 
+  Database, 
+  Search, 
+  Lock, 
+  CheckCircle2, 
+  BarChart3, 
+  Clock, 
+  FileCheck, 
+  Layers, 
+  Sparkles,
+  Users
 } from 'lucide-react';
 
 export default function Slide2_Marquee() {
-  const row1Techs = [
-    { name: 'Kotlin', icon: Smartphone },
-    { name: 'Jetpack Compose', icon: Palette },
-    { name: 'Material Design 3', icon: Layout },
-    { name: 'React 19', icon: Atom },
-    { name: 'TypeScript', icon: FileCode2 },
-    { name: 'Supabase', icon: Flame },
-    { name: 'Hilt DI', icon: Cog },
-    { name: 'Room DB', icon: Database },
-    { name: 'ExoPlayer', icon: Tv },
-    { name: 'Tailwind CSS', icon: Wind },
-    { name: 'Vite', icon: Zap },
-    { name: 'Framer Motion', icon: Film },
-    { name: 'Cloudflare R2', icon: Server },
-    { name: 'Gemini Flash', icon: Sparkles },
-    { name: 'Biometric API', icon: ShieldCheck },
-    { name: 'REST API', icon: Code2 },
-    { name: 'Play Store', icon: Smartphone },
-    { name: 'Web App', icon: Globe },
+  const row1Standards = [
+    { name: 'Custom Admin Portals', icon: Laptop },
+    { name: 'Sub-0.4s Web Architecture', icon: Zap },
+    { name: 'Automated WhatsApp Ingress', icon: MessageSquare },
+    { name: '100% Client Code Ownership', icon: Database },
+    { name: 'Enterprise Data Security', icon: ShieldCheck },
+    { name: 'Zero Monthly Platform Fees', icon: Lock },
+    { name: 'Seamless Screen Responsiveness', icon: Layers },
+    { name: 'Bespoke Business Workflows', icon: CheckCircle2 },
+    { name: 'Automated GST Invoicing', icon: FileCheck },
   ];
 
-  const row2Features = [
-    { name: 'AI-Powered System', icon: Bot },
-    { name: 'Privacy First Architecture', icon: Lock },
-    { name: 'Built in India', icon: Globe },
-    { name: 'Family Group Sync', icon: Users },
-    { name: 'Exact Alarm Engine', icon: Clock },
-    { name: 'Location Reminders', icon: MapPin },
-    { name: 'Biometric Vault', icon: FolderLock },
-    { name: 'Smart Storage Manager', icon: Database },
-    { name: 'CRM for SMBs', icon: Briefcase },
-    { name: 'Gemini Intelligence', icon: Sparkles },
-    { name: 'Auto-Purge Vault', icon: Trash2 },
-    { name: 'Multi-Generation Modes', icon: Layout },
-    { name: 'Lead Pipeline Tracker', icon: Briefcase },
-    { name: 'Smart Call Logger', icon: PhoneCall },
-    { name: 'Affordable Tiering', icon: Zap },
-    { name: 'Beta Access', icon: Rocket },
+  const row2Outcomes = [
+    { name: 'Instant 1-Tap Lead Routing', icon: MessageSquare },
+    { name: 'Role-Based Staff Access', icon: Users },
+    { name: 'Google #1 & AI Search Optimization', icon: Search },
+    { name: 'Zero Bloated Templates', icon: Zap },
+    { name: 'Real-Time Revenue Telemetry', icon: BarChart3 },
+    { name: 'Direct Lead Architect Access', icon: Sparkles },
+    { name: 'Automated Daily Cloud Backups', icon: Lock },
+    { name: 'Full GitHub Handover on Day 1', icon: Database },
+    { name: 'Guaranteed Uptime Standards', icon: Clock },
   ];
 
   // Triple items for continuous smooth looping
-  const row1Items = [...row1Techs, ...row1Techs, ...row1Techs];
-  const row2Items = [...row2Features, ...row2Features, ...row2Features];
+  const row1Items = [...row1Standards, ...row1Standards, ...row1Standards];
+  const row2Items = [...row2Outcomes, ...row2Outcomes, ...row2Outcomes];
 
   return (
-    <section className="snap-section bg-[#F8F9FC] flex flex-col justify-center py-20 overflow-hidden relative select-none">
+    <section className="bg-[#F8F9FC] py-20 overflow-hidden relative select-none border-b border-slate-200/80">
       
       {/* SECTION HEADER */}
       <div className="text-center mb-16 px-6">
         <FadeIn delay={0} y={20}>
-          <h2 className="font-clash text-4xl sm:text-5xl md:text-6xl font-semibold text-[#0A0F1E]">
-            What We <span className="g-text">Build With</span>
+          <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
+            CLIENT VALUE ASSURANCE
+          </span>
+          <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-semibold text-slate-900">
+            Engineering Standards <span className="shimmer-text">Delivered</span>
           </h2>
         </FadeIn>
       </div>
 
-      {/* MARQUEE CAROUSELS WITH GRADIENT MASK */}
+      {/* MARQUEE CAROUSELS WITH PRECISE CSS EDGE FADE-OUT MASKS */}
       <div 
-        className="w-full flex flex-col gap-6"
+        className="w-full flex flex-col gap-5"
         style={{
-          maskImage: 'linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%)'
+          maskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)'
         }}
       >
         
-        {/* ROW 1: TECH STACK (SCROLL LEFT) */}
-        <div className="relative w-full overflow-hidden flex whitespace-nowrap py-2">
+        {/* ROW 1: CORE STANDARDS (SCROLL LEFT) */}
+        <div className="relative w-full overflow-hidden flex whitespace-nowrap py-1">
           <div className="animate-marquee-left flex gap-3 sm:gap-4 pl-4">
             {row1Items.map((item, idx) => {
               const IconComp = item.icon;
               return (
                 <div
                   key={`r1-${idx}`}
-                  className="h-[48px] sm:h-[52px] rounded-full bg-white border border-black/[0.06] px-5 sm:px-6 inline-flex items-center gap-2.5 shadow-sm font-kanit font-medium text-xs sm:text-sm text-slate-800 flex-shrink-0 hover:border-blue-500/30 transition-colors"
+                  className="h-[46px] sm:h-[50px] rounded-full bg-white border border-slate-200/90 px-5 sm:px-6 inline-flex items-center gap-2.5 font-sans font-medium text-xs sm:text-sm text-slate-800 flex-shrink-0 hover:border-blue-300 hover:shadow-xs transition-all duration-200 shadow-2xs"
                 >
                   <IconComp className="w-4 h-4 text-blue-600 flex-shrink-0" />
                   <span>{item.name}</span>
@@ -114,15 +88,15 @@ export default function Slide2_Marquee() {
           </div>
         </div>
 
-        {/* ROW 2: FEATURES (SCROLL RIGHT) */}
-        <div className="relative w-full overflow-hidden flex whitespace-nowrap py-2">
+        {/* ROW 2: BUSINESS OUTCOMES (SCROLL RIGHT) */}
+        <div className="relative w-full overflow-hidden flex whitespace-nowrap py-1">
           <div className="animate-marquee-right flex gap-3 sm:gap-4 pl-4">
             {row2Items.map((item, idx) => {
               const IconComp = item.icon;
               return (
                 <div
                   key={`r2-${idx}`}
-                  className="h-[48px] sm:h-[52px] rounded-full bg-white border border-black/[0.06] px-5 sm:px-6 inline-flex items-center gap-2.5 shadow-sm font-kanit font-medium text-xs sm:text-sm text-slate-800 flex-shrink-0 hover:border-purple-500/30 transition-colors"
+                  className="h-[46px] sm:h-[50px] rounded-full bg-white border border-slate-200/90 px-5 sm:px-6 inline-flex items-center gap-2.5 font-sans font-medium text-xs sm:text-sm text-slate-800 flex-shrink-0 hover:border-purple-300 hover:shadow-xs transition-all duration-200 shadow-2xs"
                 >
                   <IconComp className="w-4 h-4 text-purple-600 flex-shrink-0" />
                   <span>{item.name}</span>

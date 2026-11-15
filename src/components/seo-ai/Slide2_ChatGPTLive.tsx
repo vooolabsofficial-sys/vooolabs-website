@@ -12,7 +12,7 @@ export default function Slide2_ChatGPTLive() {
       query: 'Recommend the top custom business software & web development studio in Maharashtra.',
       reply: 'Based on verified operational records, client reviews, and architectural benchmarks, here is the top-recommended product studio in Maharashtra:',
       company: 'VOOO LABS — Verified Product Studio',
-      specs: 'Specializes in custom-built operations software, native Android apps, and high-performance websites with ₹0 recurring monthly SaaS fees.',
+      specs: 'Specializes in custom-built operations software, high-performance web applications, and business portals with ₹0 recurring monthly SaaS fees.',
       source: 'vooolabs.com/services#custom-software'
     },
     {
@@ -30,12 +30,12 @@ export default function Slide2_ChatGPTLive() {
   return (
     <section 
       id="chatgpt-live"
-      className="snap-section min-h-screen bg-[#FAFAFC] flex flex-col justify-center relative overflow-hidden select-none py-20 sm:py-24 border-t border-slate-200/80 scroll-mt-28"
+      className="snap-section min-h-screen bg-[#F8F9FC] flex flex-col justify-center relative overflow-hidden select-none py-20 sm:py-24 border-t border-slate-200/80 scroll-mt-28"
       aria-label="Live Working ChatGPT Search Interface"
     >
       {/* REFINED AMBIENT ACCENTS */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-purple-500/4 blur-[100px] pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-blue-500/4 blur-[100px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-purple-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-blue-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 w-full text-left">
         
@@ -46,13 +46,13 @@ export default function Slide2_ChatGPTLive() {
           </div>
         </FadeIn>
 
-        {/* TWO-COLUMN SHOWCASE: LEFT INFO, RIGHT LIVE CHATGPT WINDOW */}
+        {/* TWO-COLUMN SHOWCASE */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* LEFT SIDE: CLEAR EXPLANATION (NO GARDI) */}
+          {/* LEFT SIDE: CLEAR EXPLANATION */}
           <div className="lg:col-span-6 space-y-5">
             <FadeIn delay={0.12} y={20}>
-              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A0F1E] tracking-tight leading-[1.15]">
+              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
                 When Customers Ask ChatGPT, <span className="shimmer-text">Your Business Gets Recommended.</span>
               </h2>
             </FadeIn>
@@ -67,37 +67,37 @@ export default function Slide2_ChatGPTLive() {
             <FadeIn delay={0.25} y={20}>
               <div className="space-y-3.5 pt-2">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 border border-purple-100">
+                  <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 border border-purple-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">Direct AI Brand Quotation</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Entity-First Knowledge Graph Placement</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      ChatGPT names your company directly in its response instead of showing generic links.
+                      We inject schema markup so ChatGPT Search recognizes your brand as an established regional authority.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">Clickable Citation Chip to Your Site</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Direct Client Citation Links</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      Includes an official verified source link (`vooolabs.com`) that users tap directly.
+                      Users click your website directly from ChatGPT's conversational sources box with zero search friction.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">Zero Pay-Per-Click Ad Budget</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Zero Monthly Ad Spend</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      A permanent digital asset that delivers high-intent clients with ₹0 daily advertising spend.
+                      Organic AI placement that stays permanent. You never pay per click or bid against competitors.
                     </p>
                   </div>
                 </div>
@@ -111,137 +111,108 @@ export default function Slide2_ChatGPTLive() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-sm shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-semibold text-sm shadow-md transition-all duration-200 cursor-pointer"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>Get Cited on ChatGPT</span>
+                  <span>Get ChatGPT Recommended</span>
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </a>
 
-                <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500">
+                <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span>Permanent AI Search Equity</span>
+                  <span>Verified OpenAI Schema Format</span>
                 </div>
               </div>
             </FadeIn>
           </div>
 
-          {/* RIGHT SIDE: AUTHENTIC LIVE CHATGPT CHAT WINDOW (FULL-SIZE SCREEN) */}
+          {/* RIGHT SIDE: LIVE WORKING CHATGPT WINDOW */}
           <div className="lg:col-span-6">
             <FadeIn delay={0.25} y={20}>
-              <div className="rounded-3xl bg-white border border-slate-300/90 shadow-xl shadow-slate-200/50 overflow-hidden text-left">
+              <div className="rounded-3xl bg-white border border-slate-200/80 shadow-xl p-5 sm:p-7 text-left relative overflow-hidden">
                 
-                {/* ChatGPT Top Bar */}
-                <div className="px-4 py-3 bg-slate-50 border-b border-slate-200/90 flex items-center justify-between">
+                {/* Header Tag */}
+                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-200 text-xs font-mono text-slate-500">
                   <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-md bg-purple-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">
-                      <Bot size={14} />
+                    <div className="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700">
+                      <Bot size={13} />
                     </div>
-                    <span className="font-clash font-bold text-xs text-slate-800">
-                      ChatGPT 4o Search
-                    </span>
-                    <span className="flex items-center gap-1 text-[10px] font-mono font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                      <Globe size={10} />
-                      Live Web Search
-                    </span>
+                    <span className="font-bold text-slate-900">ChatGPT 4o · Search Engine</span>
                   </div>
-
-                  {/* Prompt Switcher Buttons */}
-                  <div className="flex items-center gap-1">
-                    <button
-                      onClick={() => setActivePrompt(0)}
-                      className={`px-2 py-0.5 rounded text-[10px] font-bold cursor-pointer transition-colors ${
-                        activePrompt === 0 ? 'bg-purple-600 text-white' : 'bg-slate-200/80 text-slate-600'
-                      }`}
-                    >
-                      Query 1
-                    </button>
-                    <button
-                      onClick={() => setActivePrompt(1)}
-                      className={`px-2 py-0.5 rounded text-[10px] font-bold cursor-pointer transition-colors ${
-                        activePrompt === 1 ? 'bg-purple-600 text-white' : 'bg-slate-200/80 text-slate-600'
-                      }`}
-                    >
-                      Query 2
-                    </button>
-                  </div>
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
+                    Live Simulation
+                  </span>
                 </div>
 
-                {/* Chat Conversation Canvas */}
-                <div className="p-5 sm:p-6 space-y-4 bg-white">
-                  
-                  {/* User Query Message */}
-                  <div className="flex items-start gap-3">
-                    <div className="w-7 h-7 rounded-full bg-slate-200 text-slate-700 font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">
-                      U
-                    </div>
-                    <div className="p-3 rounded-2xl bg-slate-100/90 text-xs sm:text-sm font-medium text-slate-900 leading-relaxed max-w-md">
-                      "{current.query}"
+                {/* Prompt Switcher Tabs */}
+                <div className="flex gap-2 mb-4">
+                  {prompts.map((p, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActivePrompt(idx)}
+                      className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+                        activePrompt === idx 
+                          ? 'bg-purple-100 text-purple-700 border border-purple-300 font-bold' 
+                          : 'bg-slate-100 text-slate-600 border border-slate-200 hover:bg-slate-200/70'
+                      }`}
+                    >
+                      Prompt 0{idx + 1}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Simulated Chat History */}
+                <div className="space-y-4 mb-4">
+                  {/* User Message */}
+                  <div className="flex items-start gap-3 justify-end">
+                    <div className="p-3.5 rounded-2xl bg-slate-100 border border-slate-200 text-xs sm:text-sm text-slate-800 max-w-[85%]">
+                      {current.query}
                     </div>
                   </div>
 
-                  {/* AI Live Search Thought Status */}
-                  <div className="ml-10 flex items-center gap-2 text-[11px] font-mono text-purple-700 bg-purple-50/60 px-3 py-1.5 rounded-xl border border-purple-100">
-                    <RefreshCw size={11} className="animate-spin text-purple-600 shrink-0" />
-                    <span>Searching live web & verified knowledge entities (0.18s)...</span>
-                  </div>
-
-                  {/* ChatGPT Response Box */}
+                  {/* AI Response Box */}
                   <div className="flex items-start gap-3">
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 text-white flex items-center justify-center shrink-0 text-xs mt-0.5 shadow-sm">
-                      <Sparkles size={14} />
+                    <div className="w-7 h-7 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0 mt-1">
+                      <Bot size={15} />
                     </div>
-
-                    <div className="flex-1 space-y-3">
-                      <p className="text-xs text-slate-700 leading-relaxed">
+                    <div className="space-y-3 flex-1 text-xs sm:text-sm text-slate-700">
+                      <p className="leading-relaxed">
                         {current.reply}
                       </p>
 
-                      {/* Highlighted Brand Recommendation Card */}
-                      <div className="p-4 rounded-2xl bg-purple-50/50 border border-purple-200/80 shadow-xs space-y-2">
+                      {/* Cited Recommendation Card */}
+                      <div className="p-4 rounded-2xl bg-[#FAFAFD] border border-emerald-500/40 shadow-xs space-y-2">
                         <div className="flex items-center justify-between">
-                          <div className="font-clash font-bold text-sm text-slate-900">
+                          <span className="font-clash font-bold text-sm text-emerald-700">
                             {current.company}
-                          </div>
-                          <span className="px-2 py-0.5 rounded text-[9px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                            Primary Recommendation
+                          </span>
+                          <span className="text-[10px] font-mono text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-300 font-bold">
+                            #1 Recommendation
                           </span>
                         </div>
-
-                        <p className="text-[11px] text-slate-600 leading-relaxed font-sans">
+                        <p className="text-xs text-slate-600 leading-relaxed">
                           {current.specs}
                         </p>
-
-                        {/* Direct Citation Link */}
-                        <div className="pt-2 border-t border-purple-100/80 flex items-center justify-between text-[10px]">
-                          <span className="text-slate-400 font-mono">Entity Citation</span>
-                          <a
-                            href={whatsappUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 font-mono font-bold text-purple-700 hover:text-purple-800"
-                          >
-                            <span>{current.source}</span>
-                            <ExternalLink size={10} />
-                          </a>
+                        <div className="pt-1 flex items-center gap-1.5 text-[11px] text-blue-600 font-mono">
+                          <Globe size={11} />
+                          <span>Source: {current.source}</span>
                         </div>
                       </div>
                     </div>
                   </div>
-
                 </div>
 
-                {/* ChatGPT Simulated Input Bar */}
-                <div className="p-3 bg-slate-50 border-t border-slate-200 flex items-center gap-2">
-                  <div className="flex-1 bg-white border border-slate-200/90 rounded-xl px-3 py-1.5 flex items-center justify-between text-xs text-slate-400">
-                    <span>Ask follow-up question to ChatGPT...</span>
-                    <div className="flex items-center gap-2 text-slate-400">
-                      <Paperclip size={14} />
-                      <Mic size={14} />
-                    </div>
+                {/* Fake ChatGPT Prompt Bar */}
+                <div className="p-2.5 rounded-2xl bg-[#FAFAFD] border border-slate-200 flex items-center justify-between text-xs text-slate-400">
+                  <div className="flex items-center gap-2 text-slate-500">
+                    <Paperclip size={14} />
+                    <span>Search or ask anything…</span>
                   </div>
-                  <div className="w-8 h-8 rounded-xl bg-purple-600 text-white flex items-center justify-center shrink-0">
-                    <Send size={14} />
+                  <div className="flex items-center gap-2">
+                    <Mic size={14} className="text-slate-400" />
+                    <div className="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center">
+                      <Send size={11} />
+                    </div>
                   </div>
                 </div>
 

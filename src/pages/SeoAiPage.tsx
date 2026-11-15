@@ -23,7 +23,7 @@ export default function SeoAiPage() {
   }, []);
 
   return (
-    <div className="page-wrap bg-white">
+    <div className="page-wrap bg-white min-h-screen text-slate-900">
       {/* 01: Hero & 3D Generative Search Paradigm */}
       <Slide1_HeroShift />
 

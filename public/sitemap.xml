@@ -16,11 +16,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://vooolabs.com/products</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>https://vooolabs.com/contact</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
@@ -46,12 +41,12 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://vooolabs.com/legal/refunds</loc>
-    <priority>0.3</priority>
+    <loc>https://vooolabs.com/legal/ip-ownership</loc>
+    <priority>0.4</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://vooolabs.com/legal/app-permissions</loc>
+    <loc>https://vooolabs.com/legal/refunds</loc>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>

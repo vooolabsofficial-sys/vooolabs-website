@@ -14,9 +14,9 @@
 export const COMPANY = {
   brandName: 'VOOO LABS',
   legalName: 'VOOO LABS',
-  tagline: 'Engineering High-Performance Web Apps, Software & Mobile Apps',
+  tagline: 'Engineering Custom Web Applications, Business Portals & High-Conversion Websites',
   description:
-    'Digital product studio from Maharashtra, India. We engineer custom Web Apps, high-converting Websites, B2B Software Suites, and native Android applications alongside flagship in-house tools.',
+    'Boutique web & software engineering studio from Maharashtra, India. We architect custom web applications, internal business management portals, and high-conversion company websites with 100% client code ownership.',
   foundedYear: 2025,
   domain: 'https://vooolabs.com',
   email: 'vooolabsofficial@gmail.com',
@@ -41,11 +41,11 @@ export const SOCIALS = {
 
 export const FOUNDER = {
   name: 'Vrushabh Santosh Shinde',
-  role: 'Founder & Software Architect',
+  role: 'Founder & Lead Software Architect',
   initials: 'VS',
-  bio: 'SaaS developer, Android software architect, and creative technologist from rural Maharashtra building digital experiences that feel five years ahead.',
+  bio: 'Full-stack software architect and creative technologist from Maharashtra building high-speed web applications, internal business systems, and digital platforms that deliver tangible commercial results.',
   quote:
-    "I build products that don't just work — they feel alive. VOOO LABS is built on clean architecture, relentless execution, and genuine business impact.",
+    "We don't resell bloated templates or outsource engineering. Every line of code is written with obsessive attention to performance, security, and real business utility.",
   portfolio: 'https://share.google/CA0DOimc3VLYNbEwl',
   portfolioFallback: 'https://vrushabhshinde-portfolio.netlify.app/',
   github: 'https://github.com/vrushabh-shinde',

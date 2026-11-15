@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import { Check, Clock, Sparkles, Layers, ArrowRight } from 'lucide-react';
 import {
   ROADMAP,
   STATUS_LABEL,
@@ -8,14 +8,35 @@ import {
   type RoadmapPhase,
 } from '../../content/roadmap';
 
-const ACCENTS: Record<RoadmapPhase['status'], { dot: string; chip: string }> = {
+const ACCENTS: Record<RoadmapPhase['status'], { dot: string; ring: string; chip: string; glow: string; text: string }> = {
   shipped: {
-    dot: 'border-emerald-500',
-    chip: 'text-emerald-600 bg-emerald-500/10',
+    dot: 'bg-emerald-600',
+    ring: 'border-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.2)]',
+    chip: 'text-emerald-700 bg-emerald-50 border-emerald-200',
+    glow: 'hover:border-emerald-300 hover:shadow-md',
+    text: 'text-emerald-700',
   },
-  current: { dot: 'border-[#4285F4]', chip: 'text-blue-600 bg-blue-500/10' },
-  next: { dot: 'border-[#7C3AED]', chip: 'text-purple-600 bg-purple-500/10' },
-  later: { dot: 'border-slate-300', chip: 'text-slate-500 bg-slate-100' },
+  current: {
+    dot: 'bg-blue-600',
+    ring: 'border-blue-500 shadow-[0_0_14px_rgba(59,130,246,0.3)] ring-4 ring-blue-100',
+    chip: 'text-blue-700 bg-blue-50 border-blue-200',
+    glow: 'border-blue-300 shadow-md',
+    text: 'text-blue-700',
+  },
+  next: {
+    dot: 'bg-purple-600',
+    ring: 'border-purple-500 shadow-[0_0_12px_rgba(147,51,234,0.2)]',
+    chip: 'text-purple-700 bg-purple-50 border-purple-200',
+    glow: 'hover:border-purple-300 hover:shadow-md',
+    text: 'text-purple-700',
+  },
+  later: {
+    dot: 'bg-slate-400',
+    ring: 'border-slate-300 shadow-2xs',
+    chip: 'text-slate-600 bg-slate-100 border-slate-200',
+    glow: 'hover:border-slate-300 hover:shadow-sm',
+    text: 'text-slate-600',
+  },
 };
 
 export default function Slide2_Timeline() {
@@ -23,16 +44,15 @@ export default function Slide2_Timeline() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start start', 'end end'],
+    offset: ['start 20%', 'end 80%'],
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ['10vw', '-65vw']);
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 24,
+    restDelta: 0.001,
+  });
 
-  /**
-   * Shouts in the console when the roadmap has gone stale. The previous
-   * timeline hardcoded "2025 Q3" with a live "Active" badge and was still
-   * showing it most of a year later, because nothing anywhere noticed.
-   */
   useEffect(() => {
     if (!import.meta.env.DEV) return;
     const problem = assertRoadmapIsCurrent();
@@ -40,112 +60,122 @@ export default function Slide2_Timeline() {
   }, []);
 
   return (
-    <div
+    <section
       ref={sectionRef}
-      className="relative bg-[#F8F9FC] z-10 select-none"
-      style={{ height: '320vh' }}
+      className="bg-[#F8F9FC] py-20 sm:py-28 px-4 sm:px-6 relative select-none antialiased border-b border-slate-200/80"
     >
-      <div className="sticky top-0 h-[100vh] w-full overflow-hidden flex flex-col justify-center">
-
-        {/* HEADER LABEL */}
-        <div className="absolute top-24 left-6 sm:left-12 md:left-20 z-20">
-          <span className="font-kanit font-semibold text-xs tracking-[0.3em] g-text uppercase">
-            Roadmap
+      <div className="max-w-5xl mx-auto">
+        
+        {/* SECTION HEADER */}
+        <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
+          <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
+            PHASED EXECUTION PIPELINE
           </span>
+          <h2 className="font-clash font-semibold text-3xl sm:text-5xl text-slate-900 mb-3">
+            Milestones & Delivery Cycle
+          </h2>
+          <p className="font-sans text-xs sm:text-sm text-slate-600 font-normal">
+            Every phase represents verifiable deliverables, transparent sprint reviews, and guaranteed code ownership.
+          </p>
         </div>
 
-        {/* HORIZONTAL CARDS TRACK */}
-        <div className="relative flex flex-col justify-center w-full h-[650px] overflow-hidden">
-          <motion.div style={{ x }} className="flex items-center relative py-12 pr-[40vw]">
+        {/* VERTICAL TIMELINE CONTAINER */}
+        <div className="relative">
+          
+          {/* STATIC BASE LINE */}
+          <div
+            className="absolute left-6 md:left-1/2 -translate-x-1/2 top-4 bottom-8 w-[2px] bg-slate-200 rounded-full"
+            aria-hidden="true"
+          />
 
-            {/* CENTER LINE */}
-            <div
-              className="absolute left-0 right-0 h-[3px] bg-gradient-to-r from-[#4285F4] via-[#7C3AED] to-[#F97316] z-0"
-              style={{ width: '400vw' }}
-              aria-hidden="true"
-            />
+          {/* SCROLL-LINKED VERTICAL PROGRESS BEAM */}
+          <motion.div
+            style={{ scaleY }}
+            className="absolute left-6 md:left-1/2 -translate-x-1/2 top-4 bottom-8 w-[2px] bg-gradient-to-b from-blue-500 via-purple-500 to-emerald-500 origin-top rounded-full shadow-[0_0_12px_rgba(59,130,246,0.5)] z-0"
+            aria-hidden="true"
+          />
 
+          {/* TIMELINE NODES */}
+          <div className="space-y-12 sm:space-y-16 relative z-10">
             {ROADMAP.map((phase, idx) => {
               const accent = ACCENTS[phase.status];
-              const above = idx % 2 === 0;
+              const isEven = idx % 2 === 0;
               const isCurrent = phase.status === 'current';
 
               return (
                 <div
                   key={phase.id}
-                  className={`relative flex-shrink-0 w-[340px] sm:w-[380px] mx-8 z-10 flex flex-col items-center ${
-                    above ? 'pb-[180px]' : 'pt-[180px]'
-                  }`}
+                  className={`relative flex flex-col md:flex-row items-start ${
+                    isEven ? 'md:flex-row-reverse' : ''
+                  } gap-6 md:gap-12 pl-14 md:pl-0`}
                 >
-                  {!above && (
-                    <div
-                      className={`w-5 h-5 rounded-full border-[3px] bg-white absolute top-[-10px] left-1/2 -translate-x-1/2 z-20 shadow-md ${accent.dot}`}
-                    />
-                  )}
-
+                  
+                  {/* NODE PIN ON THE BEAM */}
                   <div
-                    className={`rounded-[32px] p-8 bg-white w-full text-left relative transition-all duration-300 hover:-translate-y-1 ${
-                      isCurrent
-                        ? 'border border-[#4285F4] shadow-[0_12px_40px_rgba(66,133,244,0.12)]'
-                        : 'border border-slate-100 shadow-md'
-                    }`}
+                    className={`absolute left-6 md:left-1/2 -translate-x-1/2 top-6 w-5 h-5 rounded-full border-[3px] bg-white flex items-center justify-center z-20 ${accent.ring}`}
                   >
-                    <div className="flex items-center gap-2 mb-3">
-                      {isCurrent && (
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 pulse-dot" />
-                      )}
-                      <span
-                        className={`font-kanit font-medium text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-full ${accent.chip}`}
-                      >
-                        {STATUS_LABEL[phase.status]}
-                      </span>
-                      <span className="font-kanit font-medium text-xs text-slate-400 ml-auto">
-                        {phase.period}
-                      </span>
-                    </div>
-
-                    <h3 className="font-clash font-bold text-2xl text-[#0A0F1E] mb-4">
-                      {phase.title}
-                    </h3>
-
-                    {/*
-                      A list, not a percentage. The bars this replaces read
-                      "70%", "20%" and "100% On-Track" against a 2030 goal --
-                      numbers with nothing behind them.
-                    */}
-                    <ul className="flex flex-col gap-2.5 font-kanit font-light text-slate-600 text-sm">
-                      {phase.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2.5">
-                          {phase.status === 'shipped' ? (
-                            <Check
-                              size={14}
-                              className="text-emerald-500 flex-shrink-0 mt-1"
-                            />
-                          ) : (
-                            <span
-                              aria-hidden="true"
-                              className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"
-                            />
-                          )}
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className={`w-2 h-2 rounded-full ${accent.dot}`} />
                   </div>
 
-                  {above && (
+                  {/* CONTENT CARD */}
+                  <div className="w-full md:w-[calc(50%-24px)]">
                     <div
-                      className={`w-5 h-5 rounded-full border-[3px] bg-white absolute bottom-[-10px] left-1/2 -translate-x-1/2 z-20 shadow-md ${accent.dot}`}
-                    />
-                  )}
+                      className={`p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm transition-all duration-300 text-left hover:-translate-y-1 ${accent.glow}`}
+                    >
+                      {/* CARD HEADER */}
+                      <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
+                        <div className="flex items-center gap-2">
+                          {isCurrent && (
+                            <span className="w-2 h-2 rounded-full bg-blue-600 animate-ping" />
+                          )}
+                          <span
+                            className={`font-mono text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${accent.chip}`}
+                          >
+                            {STATUS_LABEL[phase.status]}
+                          </span>
+                        </div>
+                        <span className="font-mono text-xs font-medium text-slate-500">
+                          {phase.period}
+                        </span>
+                      </div>
+
+                      {/* PHASE TITLE */}
+                      <h3 className="font-clash font-semibold text-xl sm:text-2xl text-slate-900 mb-4">
+                        {phase.title}
+                      </h3>
+
+                      {/* DELIVERABLE CHECKLIST */}
+                      <ul className="space-y-2.5 font-sans text-xs sm:text-sm text-slate-600">
+                        {phase.items.map((item, itemIdx) => (
+                          <li key={itemIdx} className="flex items-start gap-2.5">
+                            {phase.status === 'shipped' ? (
+                              <div className="w-4 h-4 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <Check size={11} className="text-emerald-600" />
+                              </div>
+                            ) : phase.status === 'current' ? (
+                              <div className="w-4 h-4 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <Clock size={11} className="text-blue-600 animate-pulse" />
+                              </div>
+                            ) : (
+                              <div className="w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0 mt-2 mx-1" />
+                            )}
+                            <span className={phase.status === 'shipped' ? 'text-slate-500' : 'text-slate-800'}>
+                              {item}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
                 </div>
               );
             })}
+          </div>
 
-          </motion.div>
         </div>
 
       </div>
-    </div>
+    </section>
   );
 }

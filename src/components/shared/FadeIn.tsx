@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 interface FadeInProps {
   delay?: number;
@@ -12,18 +12,31 @@ interface FadeInProps {
 
 export default function FadeIn({
   delay = 0,
-  duration = 0.7,
+  duration,
   x = 0,
-  y = 30,
+  y = 20,
   children,
   className = ''
 }: FadeInProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, x, y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ delay, duration, ease: [0.25, 0.1, 0.25, 1] }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ 
+        type: 'spring',
+        stiffness: 90,
+        damping: 20,
+        mass: 0.8,
+        delay,
+        ...(duration ? { duration } : {})
+      }}
       className={className}
     >
       {children}

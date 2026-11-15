@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, Cpu, Smartphone, Globe, MapPin, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ArrowDown, Cpu, Layout, Globe, MapPin, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 
 const DISCIPLINES = [
@@ -11,41 +11,32 @@ const DISCIPLINES = [
     title: 'Custom Business Software',
     shortDesc: 'Bespoke systems tailored 100% to your daily workflow. ₹0 recurring monthly software rent.',
     accent: '#3B82F6',
-    accentBg: 'bg-blue-50',
-    accentBorder: 'border-blue-200',
-    accentText: 'text-blue-600',
     icon: Cpu,
     highlights: ['Tailored to your exact routine', '100% Owned · ₹0 monthly rent', 'Runs on mobile, tablet & PC'],
     previewMetric: '₹0 / mo Rent',
     previewBadge: 'Perpetual Asset'
   },
   {
-    id: 'mobile-apps',
+    id: 'web-apps',
     number: '02',
-    category: 'Mobile Engineering',
-    title: 'Native Mobile Applications',
-    shortDesc: 'Smooth, lightweight Android and iOS apps engineered for native speed and verified Play Store publication.',
+    category: 'Cloud Platforms & SaaS',
+    title: 'Custom Web Applications',
+    shortDesc: 'Interactive client portals, SaaS dashboards, and modern cloud applications built with React & Next.js.',
     accent: '#8B5CF6',
-    accentBg: 'bg-purple-50',
-    accentBorder: 'border-purple-200',
-    accentText: 'text-purple-600',
-    icon: Smartphone,
-    highlights: ['Idea to Play Store live', 'Silky 60 FPS native speed', 'Instant push notifications'],
-    previewMetric: '60 FPS Native',
-    previewBadge: 'Google Play Verified'
+    icon: Layout,
+    highlights: ['Sub-second edge speed', 'Secure role-based access', '100% responsive cross-device'],
+    previewMetric: '< 100ms API',
+    previewBadge: 'Cloud Scalable'
   },
   {
     id: 'websites',
     number: '03',
     category: 'Web Platform & Inquiries',
-    title: 'High-Impact Websites',
-    shortDesc: 'Sub-second mobile speed that builds immediate trust and turns visitors into 1-tap WhatsApp inquiries.',
+    title: 'High-Impact Brand Websites',
+    shortDesc: 'Sub-second mobile speed that builds immediate trust and turns visitors into direct client inquiries.',
     accent: '#0284C7',
-    accentBg: 'bg-sky-50',
-    accentBorder: 'border-sky-200',
-    accentText: 'text-sky-600',
     icon: Globe,
-    highlights: ['Loads in < 0.4s on 4G/5G', '1-Tap WhatsApp & Call leads', '100% source & domain ownership'],
+    highlights: ['Loads in < 0.4s on 4G/5G', 'Direct WhatsApp & Call leads', '100% source & domain ownership'],
     previewMetric: '< 0.4s FCP',
     previewBadge: '99/100 Lighthouse'
   },
@@ -56,9 +47,6 @@ const DISCIPLINES = [
     title: 'Google Maps & Local SEO',
     shortDesc: 'Rank in Google Maps Top 3 and search results so local clients call you first with ₹0 ongoing ad spend.',
     accent: '#10B981',
-    accentBg: 'bg-emerald-50',
-    accentBorder: 'border-emerald-200',
-    accentText: 'text-emerald-600',
     icon: MapPin,
     highlights: ['Google Maps 3-Pack pin', 'High-intent customer calls', 'Permanent organic visibility'],
     previewMetric: 'Top 3 Local',
@@ -79,20 +67,19 @@ export default function Slide1_Overview() {
   return (
     <section 
       id="services-overview"
-      className="snap-section min-h-screen bg-white flex flex-col justify-between relative overflow-hidden select-none pt-24 pb-12"
+      className="snap-section min-h-screen bg-white flex flex-col justify-between relative overflow-hidden select-none pt-28 pb-12 border-b border-slate-200/80"
       aria-label="Services Overview — VOOO LABS"
     >
-      {/* REFINED AMBIENT BACKGROUND GLOWS (MATCHING HOMEPAGE) */}
-      <div className="absolute top-[-180px] left-[-180px] w-[650px] h-[650px] rounded-full bg-radial from-blue-500/6 to-transparent blur-[90px] animate-blob-1 pointer-events-none z-0" aria-hidden="true" />
-      <div className="absolute top-[-100px] right-[-180px] w-[600px] h-[600px] rounded-full bg-radial from-purple-500/5 to-transparent blur-[90px] animate-blob-2 pointer-events-none z-0" aria-hidden="true" />
-      <div className="absolute bottom-[-180px] left-1/2 -translate-x-1/2 w-[750px] h-[750px] rounded-full bg-radial from-orange-500/4 to-transparent blur-[90px] animate-blob-3 pointer-events-none z-0" aria-hidden="true" />
+      {/* AMBIENT BACKGROUND GLOWS */}
+      <div className="absolute top-[-180px] left-[-180px] w-[650px] h-[650px] rounded-full bg-radial from-blue-500/[0.04] to-transparent blur-[120px] pointer-events-none z-0" aria-hidden="true" />
+      <div className="absolute top-[-100px] right-[-180px] w-[600px] h-[600px] rounded-full bg-radial from-purple-500/[0.04] to-transparent blur-[120px] pointer-events-none z-0" aria-hidden="true" />
 
       {/* ULTRA-SUBTLE ARCHITECTURAL GRID */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.025] z-0"
+        className="absolute inset-0 pointer-events-none opacity-[0.03] z-0"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #0A0F1E 1px, transparent 0)`,
-          backgroundSize: '32px 32px'
+          backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
         }}
         aria-hidden="true"
       />
@@ -108,8 +95,9 @@ export default function Slide1_Overview() {
           </FadeIn>
 
           <FadeIn delay={0.12} y={20}>
-            <h1 className="font-clash text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0A0F1E] leading-[1.12] mb-5">
-              Software, Native Apps & <span className="shimmer-text">High-Impact Websites.</span>
+            <h1 className="font-clash text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-5">
+              Software, Web Platforms & <br />
+              <span className="shimmer-text">High-Impact Websites.</span>
             </h1>
           </FadeIn>
 
@@ -120,9 +108,9 @@ export default function Slide1_Overview() {
           </FadeIn>
         </div>
 
-        {/* $10,000 EDITORIAL INTERACTIVE SHOWCASE (CLEAN, SOPHISTICATED, NO CHEESY AI GRAPHICS) */}
+        {/* EDITORIAL INTERACTIVE SHOWCASE */}
         <FadeIn delay={0.25} y={20} className="w-full">
-          <div className="bg-[#FAFAFC] border border-slate-200/90 rounded-3xl p-4 sm:p-7 shadow-sm">
+          <div className="bg-[#FAFAFD] border border-slate-200/80 rounded-3xl p-4 sm:p-7 shadow-sm">
             
             {/* Top Navigation Tabs */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 mb-6">
@@ -135,8 +123,8 @@ export default function Slide1_Overview() {
                     onClick={() => setActiveTab(idx)}
                     className={`text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-200 border cursor-pointer ${
                       isActive 
-                        ? 'bg-white border-slate-300 shadow-sm shadow-slate-200/50' 
-                        : 'bg-transparent border-transparent hover:bg-white/60 hover:border-slate-200/60'
+                        ? 'bg-white border-slate-300 shadow-xs' 
+                        : 'bg-transparent border-transparent hover:bg-white/60 hover:border-slate-200'
                     }`}
                   >
                     <div className="flex items-center gap-2 mb-2">
@@ -144,11 +132,11 @@ export default function Slide1_Overview() {
                         className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold transition-transform ${
                           isActive ? 'scale-105' : 'opacity-70'
                         }`}
-                        style={{ backgroundColor: `${item.accent}14`, color: item.accent }}
+                        style={{ backgroundColor: `${item.accent}15`, color: item.accent }}
                       >
                         <IconComp size={15} />
                       </div>
-                      <span className="font-mono text-[11px] font-semibold text-slate-400">
+                      <span className="font-mono text-[11px] font-semibold text-slate-500">
                         {item.number}
                       </span>
                     </div>
@@ -182,14 +170,14 @@ export default function Slide1_Overview() {
                         <div className="flex items-center gap-2">
                           <span 
                             className="px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider"
-                            style={{ backgroundColor: `${current.accent}12`, color: current.accent }}
+                            style={{ backgroundColor: `${current.accent}15`, color: current.accent }}
                           >
                             {current.category}
                           </span>
-                          <span className="text-xs font-mono text-slate-400">100% Bespoke Execution</span>
+                          <span className="text-xs font-mono text-slate-500">100% Bespoke Execution</span>
                         </div>
 
-                        <h2 className="font-clash text-2xl sm:text-3xl font-bold text-[#0A0F1E]">
+                        <h2 className="font-clash text-2xl sm:text-3xl font-bold text-slate-900">
                           {current.title}
                         </h2>
 
@@ -199,7 +187,7 @@ export default function Slide1_Overview() {
 
                         <div className="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                           {current.highlights.map((h, i) => (
-                            <div key={i} className="flex items-center gap-2 text-xs font-medium text-slate-700 bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                            <div key={i} className="flex items-center gap-2 text-xs font-medium text-slate-700 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
                               <CheckCircle2 className="w-3.5 h-3.5 shrink-0" style={{ color: current.accent }} />
                               <span className="leading-snug">{h}</span>
                             </div>
@@ -218,27 +206,27 @@ export default function Slide1_Overview() {
                         </div>
                       </div>
 
-                      {/* Right Column: Clean Architectural Card Preview (Light, High-Fidelity) */}
+                      {/* Right Column: Architectural Card Preview */}
                       <div className="lg:col-span-5">
-                        <div className="rounded-2xl border border-slate-200/90 bg-[#F8F9FC] p-5 sm:p-6 text-left relative overflow-hidden shadow-xs">
+                        <div className="rounded-2xl border border-slate-200/80 bg-[#FAFAFD] p-5 sm:p-6 text-left relative overflow-hidden shadow-xs">
                           <div className="flex items-center justify-between mb-4">
                             <div className="flex items-center gap-2">
                               <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
                               <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
                               <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-                              <span className="text-[10px] font-mono text-slate-400 ml-1">vooo.architecture</span>
+                              <span className="text-[10px] font-mono text-slate-500 ml-1">vooo.architecture</span>
                             </div>
                             <span 
                               className="px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase border"
-                              style={{ backgroundColor: `${current.accent}12`, borderColor: `${current.accent}30`, color: current.accent }}
+                              style={{ backgroundColor: `${current.accent}15`, borderColor: `${current.accent}40`, color: current.accent }}
                             >
                               {current.previewBadge}
                             </span>
                           </div>
 
                           <div className="space-y-3">
-                            <div className="bg-white rounded-xl p-3.5 border border-slate-200/80 shadow-xs">
-                              <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Core Performance Benchmark</div>
+                            <div className="bg-white rounded-xl p-3.5 border border-slate-200/80 shadow-2xs">
+                              <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">Core Performance Benchmark</div>
                               <div className="text-2xl font-clash font-bold text-slate-900 mt-0.5" style={{ color: current.accent }}>
                                 {current.previewMetric}
                               </div>
@@ -263,9 +251,9 @@ export default function Slide1_Overview() {
           </div>
         </FadeIn>
 
-        {/* BOTTOM METRIC STRIP (LIGHT & CLEAN) */}
+        {/* BOTTOM METRIC STRIP */}
         <FadeIn delay={0.35} y={15}>
-          <div className="mt-8 pt-5 border-t border-slate-100 flex flex-wrap items-center justify-center gap-x-8 gap-y-2.5 text-xs text-slate-500 font-medium">
+          <div className="mt-8 pt-5 border-t border-slate-200/80 flex flex-wrap items-center justify-center gap-x-8 gap-y-2.5 text-xs text-slate-600 font-medium">
             <span className="flex items-center gap-1.5 text-slate-700">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
               100% Bespoke Code Architecture
@@ -289,11 +277,11 @@ export default function Slide1_Overview() {
         <div className="mt-6 flex justify-center">
           <button 
             onClick={() => scrollToSection('custom-software')}
-            className="flex flex-col items-center text-xs font-semibold text-slate-400 hover:text-blue-600 transition-colors group cursor-pointer"
+            className="flex flex-col items-center text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors group cursor-pointer"
             aria-label="Scroll to Custom Software"
           >
             <span className="tracking-wider uppercase text-[10px] mb-1">Explore Disciplines</span>
-            <ArrowDown className="w-4 h-4 animate-bounce text-slate-400 group-hover:text-blue-600" />
+            <ArrowDown className="w-4 h-4 animate-bounce text-slate-500 group-hover:text-blue-600" />
           </button>
         </div>
 

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Globe, Smartphone, Users, Layers, type LucideIcon } from 'lucide-react';
+import { Globe, Cpu, TrendingUp, Layers, type LucideIcon } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 
 interface VisionItem {
   icon: LucideIcon;
   iconColor: string;
   iconBg: string;
+  glowHover: string;
   title: string;
   description: string;
 }
@@ -14,72 +15,75 @@ export default function Slide4_Vision2030() {
   const visions: VisionItem[] = [
     {
       icon: Globe,
-      iconColor: 'text-blue-400',
-      iconBg: 'bg-blue-500/10 border-blue-500/20',
-      title: 'Global Reach',
-      description: 'Apps used in 50+ countries. VOOO LABS recognized globally as a benchmark for indie design and engineering.',
+      iconColor: 'text-blue-700',
+      iconBg: 'bg-blue-50 border-blue-200',
+      glowHover: 'hover:border-blue-300 hover:shadow-lg',
+      title: 'Global Web Architecture Benchmark',
+      description: 'Engineering bespoke web software, custom business portals, and cloud platforms for ambitious businesses across global markets.',
     },
     {
-      icon: Smartphone,
-      iconColor: 'text-purple-400',
-      iconBg: 'bg-purple-500/10 border-purple-500/20',
-      title: '10+ Apps',
-      description: 'A portfolio of 10+ highly specialized micro-utility applications across Android platforms and the web.',
+      icon: Cpu,
+      iconColor: 'text-purple-700',
+      iconBg: 'bg-purple-50 border-purple-200',
+      glowHover: 'hover:border-purple-300 hover:shadow-lg',
+      title: 'Resilient Serverless Systems',
+      description: 'Pioneering zero-maintenance serverless architectures with automated observability, fast edge caching, and scalable database schemas.',
     },
     {
-      icon: Users,
-      iconColor: 'text-emerald-400',
-      iconBg: 'bg-emerald-500/10 border-emerald-500/20',
-      title: '1M+ Users',
-      description: 'One million active users whose daily routines and productivity are enriched by software crafted at VOOO LABS.',
+      icon: TrendingUp,
+      iconColor: 'text-emerald-700',
+      iconBg: 'bg-emerald-50 border-emerald-200',
+      glowHover: 'hover:border-emerald-300 hover:shadow-lg',
+      title: 'High-Impact Client Scalability',
+      description: 'Architecting digital platforms engineered to handle millions of monthly transactions, inquiries, and user workflows with 99.9% uptime.',
     },
     {
       icon: Layers,
-      iconColor: 'text-orange-400',
-      iconBg: 'bg-orange-500/10 border-orange-500/20',
-      title: 'VOOO Platform',
-      description: 'A unified platform connecting all VOOO LABS products together, powered by local encryption and family synchronization.',
+      iconColor: 'text-amber-700',
+      iconBg: 'bg-amber-50 border-amber-200',
+      glowHover: 'hover:border-amber-300 hover:shadow-lg',
+      title: 'Open Engineering Standards',
+      description: 'Publishing production-tested design tokens, performance recipes, and developer utilities that elevate the craft of software delivery.',
     },
   ];
 
   return (
-    <section className="snap-section bg-[#0A0F1E] noise flex flex-col justify-center items-center px-6 py-24 text-center relative overflow-hidden select-none">
-      
-      {/* SHADOW & BLOBS */}
-      <div className="absolute top-[20%] left-[10%] w-[300px] h-[300px] rounded-full bg-radial from-blue-500/10 to-transparent blur-[80px] pointer-events-none" />
-      <div className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] rounded-full bg-radial from-purple-500/8 to-transparent blur-[80px] pointer-events-none" />
-
-      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center">
+    <section className="bg-[#F8F9FC] py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-slate-200/80">
+      <div className="max-w-6xl mx-auto">
         
-        {/* HEADINGS */}
-        <div className="mb-16">
-          <FadeIn delay={0} y={35}>
-            <h2 className="font-clash text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-tight mb-4 text-white">
-              VOOO LABS <br />
-              <span className="shimmer-text">Vision 2030</span>
+        {/* SECTION HEADER */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <FadeIn delay={0} y={15}>
+            <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
+              LONG-TERM PERSPECTIVE
+            </span>
+            <h2 className="font-clash font-semibold text-3xl sm:text-5xl text-slate-900 mb-3">
+              Studio Engineering <span className="shimmer-text font-bold">Horizon</span>
             </h2>
-            <p className="font-kanit font-light text-base sm:text-lg md:text-xl text-slate-300 mt-4 max-w-md mx-auto">
-              Where we're headed in the next 5 years.
+            <p className="font-sans text-xs sm:text-sm text-slate-600 font-normal">
+              Where we are taking our engineering studio standards over the coming decade.
             </p>
           </FadeIn>
         </div>
 
-        {/* 4 VISION CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-2">
+        {/* 4 VISION CARDS IN EDITORIAL SWISS GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visions.map((vision, idx) => {
             const IconComp = vision.icon;
             return (
-              <FadeIn key={idx} delay={idx * 0.12} y={30} className="w-full">
+              <FadeIn key={idx} delay={idx * 0.08} y={20} className="w-full">
                 <div 
-                  className="rounded-3xl bg-white/[0.04] border border-white/[0.1] p-8 sm:p-10 backdrop-blur-md hover:bg-white/[0.07] hover:border-white/20 transition-all duration-300 h-full flex flex-col items-center md:items-start text-center md:text-left group"
+                  className={`p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-sm transition-all duration-300 h-full flex flex-col items-start text-left group hover:-translate-y-1 ${vision.glowHover}`}
                 >
-                  <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center mb-6 ${vision.iconBg} group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
-                    <IconComp className={`w-7 h-7 ${vision.iconColor}`} />
+                  <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center mb-6 ${vision.iconBg} group-hover:scale-105 transition-transform duration-200`}>
+                    <IconComp className={`w-6 h-6 ${vision.iconColor}`} />
                   </div>
-                  <h3 className="font-clash font-semibold text-xl text-white mb-3">
+                  
+                  <h3 className="font-clash font-semibold text-xl sm:text-2xl text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
                     {vision.title}
                   </h3>
-                  <p className="font-kanit font-light text-sm sm:text-base text-slate-300 leading-relaxed">
+                  
+                  <p className="font-sans text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {vision.description}
                   </p>
                 </div>

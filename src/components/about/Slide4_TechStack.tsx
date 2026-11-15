@@ -1,157 +1,206 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Globe, Smartphone, Server, Search, Check, Layers, Code2, Database, Bot, Zap } from 'lucide-react';
+import { Layers, Zap, ShieldCheck, Database, Search, MessageSquare, Laptop, CheckCircle2 } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 
-export default function Slide4_TechStack() {
-  const [activeTab, setActiveTab] = useState<number>(0);
+type StandardCategory = 'all' | 'speed' | 'operations' | 'security';
 
-  const STACKS = [
+interface StudioStandard {
+  id: string;
+  category: 'speed' | 'operations' | 'security';
+  title: string;
+  categoryBadge: string;
+  role: string;
+  outcome: string;
+  benchmark: string;
+  icon: typeof Zap;
+  iconColor: string;
+  iconBg: string;
+}
+
+export default function Slide4_TechStack() {
+  const [activeCategory, setActiveCategory] = useState<StandardCategory>('all');
+
+  const STANDARDS: StudioStandard[] = [
     {
-      id: 'web',
-      name: 'Web Platforms',
-      icon: Globe,
-      color: '#3B82F6',
-      desc: 'Modern web architecture engineered for sub-second loading speeds and maximum search discoverability.',
-      tools: [
-        { name: 'React 19', role: 'Latest Component Architecture', badge: 'Frontend' },
-        { name: 'TypeScript', role: 'Strict Type-Safety & Zero Runtime Crashes', badge: 'Language' },
-        { name: 'Next.js & Vite', role: 'Lightning-Fast Edge Bundling', badge: 'Tooling' },
-        { name: 'Tailwind CSS', role: 'Ultra-Lightweight Atomic Styling', badge: 'Design' },
-      ],
+      id: 'speed-arch',
+      category: 'speed',
+      categoryBadge: 'Speed & Conversion',
+      title: 'High-Speed Web Architecture',
+      role: 'Instant Page Loads & Zero Bounce',
+      outcome: 'Pages load in under 0.4 seconds on mobile. Visitors stay on your site, read your offering, and convert instead of abandoning a sluggish page.',
+      benchmark: '<0.4s Instant First Paint',
+      icon: Zap,
+      iconColor: 'text-blue-700',
+      iconBg: 'bg-blue-50 border-blue-200',
     },
     {
-      id: 'mobile',
-      name: 'Mobile Engineering',
-      icon: Smartphone,
-      color: '#F97316',
-      desc: 'High-performance Android and iOS mobile applications with offline caching and native responsiveness.',
-      tools: [
-        { name: 'Android SDK & Kotlin', role: 'Native Android High Performance', badge: 'Core' },
-        { name: 'Jetpack Compose', role: 'Modern Declarative Reactive UI', badge: 'UI Engine' },
-        { name: 'Offline Storage', role: 'Local SQLite & Room Data Persistence', badge: 'Database' },
-        { name: 'Biometric Auth', role: 'Hardware Fingerprint & FaceID', badge: 'Security' },
-      ],
+      id: 'admin-portal',
+      category: 'operations',
+      categoryBadge: 'Internal Systems',
+      title: 'Custom Admin & Operations Portals',
+      role: 'Bespoke Management & Task Routing',
+      outcome: 'Replaces messy Excel sheets with a dedicated web portal for managing staff assignments, tracking orders, and monitoring daily revenue in real-time.',
+      benchmark: '100% Custom Workflows',
+      icon: Laptop,
+      iconColor: 'text-purple-700',
+      iconBg: 'bg-purple-50 border-purple-200',
     },
     {
-      id: 'cloud',
-      name: 'Cloud & Database',
-      icon: Server,
-      color: '#8B5CF6',
-      desc: 'Centralized cloud infrastructure with automated daily backups and zero-maintenance serverless hosting.',
-      tools: [
-        { name: 'Supabase / PostgreSQL', role: 'Relational Database with Row-Level Security', badge: 'Database' },
-        { name: 'Cloud Edge CDN', role: 'Sub-40ms Global Content Distribution', badge: 'Hosting' },
-        { name: 'Automated Webhooks', role: 'Instant WhatsApp & SMS Notification Triggers', badge: 'Alerts' },
-        { name: 'Automated Daily Backups', role: 'Encrypted Cloud Storage Snapshots', badge: 'Reliability' },
-      ],
+      id: 'lead-routing',
+      category: 'speed',
+      categoryBadge: 'Lead Generation',
+      title: 'Automated WhatsApp & Lead Funnels',
+      role: 'Sub-2s Ingestion & Direct Alerts',
+      outcome: 'Inquiries from website visitors and ad campaigns route directly to your team’s WhatsApp and email with zero delay, ensuring fast customer follow-ups.',
+      benchmark: 'Sub-2s Direct Ingress',
+      icon: MessageSquare,
+      iconColor: 'text-emerald-700',
+      iconBg: 'bg-emerald-50 border-emerald-200',
     },
     {
-      id: 'search',
-      name: 'Search & AI Discovery',
+      id: 'data-security',
+      category: 'security',
+      categoryBadge: 'Confidentiality',
+      title: 'Enterprise Data Security & Backups',
+      role: 'Role-Based Access & Encrypted Storage',
+      outcome: 'Staff only access the records they need, while executives maintain full financial control. Customer databases are encrypted and backed up automatically every day.',
+      benchmark: 'Automated Daily Snapshots',
+      icon: ShieldCheck,
+      iconColor: 'text-cyan-700',
+      iconBg: 'bg-cyan-50 border-cyan-200',
+    },
+    {
+      id: 'code-ownership',
+      category: 'security',
+      categoryBadge: 'Client Independence',
+      title: '100% Source Code & IP Ownership',
+      role: 'Complete Handover & Zero Vendor Lock-in',
+      outcome: 'You own every line of code, database schema, and design asset upon delivery. Full GitHub transfer with zero recurring per-seat monthly hostage fees.',
+      benchmark: '100% Client IP Rights',
+      icon: Database,
+      iconColor: 'text-amber-700',
+      iconBg: 'bg-amber-50 border-amber-200',
+    },
+    {
+      id: 'search-aeo',
+      category: 'operations',
+      categoryBadge: 'Discovery & SEO',
+      title: 'Search & AI Discoverability (SEO & AEO)',
+      role: 'Google Ranking & AI Recommendation',
+      outcome: 'Engineered with clean metadata and structured schemas so your company ranks prominently on Google Maps, Google Search, and gets cited by AI engines like ChatGPT.',
+      benchmark: 'Top Search & AI Citations',
       icon: Search,
-      color: '#10B981',
-      desc: 'Technical infrastructure to rank prominently on Google, Google Maps, and AI conversational search engines.',
-      tools: [
-        { name: 'Schema.org JSON-LD', role: 'Structured Google 5-Star Rich Snippets', badge: 'SEO' },
-        { name: 'LLM Knowledge Graph', role: 'Entity Structuring for ChatGPT & Perplexity', badge: 'AEO' },
-        { name: 'Google Search Console', role: 'Verified Domain Sitemaps & Indexing', badge: 'Analytics' },
-        { name: 'Google Maps 3-Pack', role: 'Local Discovery & 1-Tap Lead Calling', badge: 'GEO' },
-      ],
+      iconColor: 'text-indigo-700',
+      iconBg: 'bg-indigo-50 border-indigo-200',
     },
   ];
 
-  const current = STACKS[activeTab];
-  const CurrentIcon = current.icon;
+  const CATEGORIES = [
+    { key: 'all' as StandardCategory, label: 'All Standards', icon: Layers },
+    { key: 'speed' as StandardCategory, label: 'Speed & Conversion', icon: Zap },
+    { key: 'operations' as StandardCategory, label: 'Business Portals', icon: Laptop },
+    { key: 'security' as StandardCategory, label: 'Security & Ownership', icon: ShieldCheck },
+  ];
+
+  const filtered = activeCategory === 'all'
+    ? STANDARDS
+    : STANDARDS.filter((s) => s.category === activeCategory);
 
   return (
-    <section className="bg-[#F6F7FB] py-16 sm:py-20 px-4 sm:px-6 select-none antialiased border-t border-slate-200/70">
+    <section className="bg-[#F8F9FC] py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-slate-200/80">
       <div className="max-w-6xl mx-auto">
         
         {/* SECTION HEADER */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <FadeIn delay={0} y={15}>
             <span className="font-mono text-xs font-semibold text-emerald-600 uppercase tracking-widest block mb-2">
-              TECHNOLOGY MATRIX
+              CLIENT ASSURANCE MATRIX
             </span>
-            <h2 className="font-clash font-semibold text-2xl sm:text-4xl text-slate-800 mb-2">
-              Our Core Technology Stack
+            <h2 className="font-clash font-semibold text-3xl sm:text-5xl text-slate-900 mb-3">
+              Studio Capabilities & Standards
             </h2>
-            <p className="font-sans text-xs sm:text-sm text-slate-500 font-normal">
-              We choose modern, rock-solid technologies designed for long-term scalability and zero ongoing maintenance headaches.
+            <p className="font-sans text-xs sm:text-sm text-slate-600 font-normal">
+              How our web systems are engineered for speed, operational clarity, and total client independence without confusing technical jargon.
             </p>
           </FadeIn>
         </div>
 
-        {/* INTERACTIVE STACK SWITCHER */}
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
-          {STACKS.map((stack, idx) => {
-            const SIcon = stack.icon;
-            const isActive = activeTab === idx;
+        {/* CATEGORY TABS FILTER */}
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
+          {CATEGORIES.map((cat) => {
+            const IconComp = cat.icon;
+            const isActive = activeCategory === cat.key;
             return (
               <button
-                key={stack.id}
-                onClick={() => setActiveTab(idx)}
-                className={`px-4 sm:px-5 py-2 rounded-full font-sans font-medium text-xs sm:text-sm transition-all duration-200 flex items-center gap-2 ${
+                key={cat.key}
+                onClick={() => setActiveCategory(cat.key)}
+                className={`px-4 sm:px-5 py-2.5 rounded-full font-sans font-medium text-xs sm:text-sm transition-all duration-200 flex items-center gap-2 shadow-2xs ${
                   isActive
-                    ? 'bg-slate-800 text-white shadow-sm scale-[1.01]'
-                    : 'bg-white border border-slate-200/80 text-slate-700 hover:bg-slate-50'
+                    ? 'bg-slate-900 text-white shadow-md scale-[1.02]'
+                    : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300'
                 }`}
               >
-                <SIcon size={14} className={isActive ? 'text-blue-400' : 'text-slate-400'} />
-                <span>{stack.name}</span>
+                <IconComp size={14} className={isActive ? 'text-blue-400' : 'text-slate-500'} />
+                <span>{cat.label}</span>
               </button>
             );
           })}
         </div>
 
-        {/* ACTIVE STACK SHOWCASE */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current.id}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="rounded-3xl bg-white border border-slate-200/80 p-6 sm:p-10 shadow-sm text-left max-w-4xl mx-auto"
-          >
-            <div className="flex items-center gap-3 pb-4 mb-6 border-b border-slate-100">
-              <div 
-                className="w-10 h-10 rounded-xl flex items-center justify-center text-white"
-                style={{ backgroundColor: current.color }}
-              >
-                <CurrentIcon size={20} />
-              </div>
-              <div>
-                <h3 className="font-clash font-semibold text-xl sm:text-2xl text-slate-800">
-                  {current.name} Stack
-                </h3>
-                <p className="font-sans text-xs sm:text-sm text-slate-500 font-normal">
-                  {current.desc}
-                </p>
-              </div>
-            </div>
-
-            {/* 4 TOOLS GRID */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {current.tools.map((tool, tIdx) => (
-                <div key={tIdx} className="p-4 rounded-2xl bg-[#F8F9FD] border border-slate-100 flex items-start justify-between gap-3">
+        {/* STANDARDS CARDS GRID */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
+          <AnimatePresence>
+            {filtered.map((std) => {
+              const StandardIcon = std.icon;
+              return (
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  key={std.id}
+                  className="p-7 rounded-3xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between text-left group"
+                >
                   <div>
-                    <span className="font-sans font-semibold text-sm text-slate-800 block mb-1">
-                      {tool.name}
-                    </span>
-                    <span className="font-sans text-xs text-slate-500 font-normal leading-relaxed block">
-                      {tool.role}
-                    </span>
+                    {/* TOP BADGES */}
+                    <div className="flex items-center justify-between gap-3 mb-5">
+                      <div className={`w-11 h-11 rounded-2xl border flex items-center justify-center ${std.iconBg} ${std.iconColor} group-hover:scale-105 transition-transform duration-200`}>
+                        <StandardIcon size={20} />
+                      </div>
+                      <span className="font-mono text-[10px] font-semibold text-slate-600 uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200/80">
+                        {std.categoryBadge}
+                      </span>
+                    </div>
+
+                    {/* TITLE & ROLE */}
+                    <h3 className="font-clash font-semibold text-xl text-slate-900 mb-1.5 group-hover:text-blue-600 transition-colors">
+                      {std.title}
+                    </h3>
+                    <p className="font-sans text-xs font-medium text-slate-500 mb-3">
+                      {std.role}
+                    </p>
+
+                    {/* BUSINESS OUTCOME */}
+                    <p className="font-sans text-xs text-slate-600 leading-relaxed font-normal mb-6">
+                      {std.outcome}
+                    </p>
                   </div>
-                  <span className="px-2 py-0.5 rounded-md bg-white border border-slate-200 text-[10px] font-mono font-medium text-slate-600 flex-shrink-0">
-                    {tool.badge}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </AnimatePresence>
+
+                  {/* BOTTOM BENCHMARK */}
+                  <div className="pt-3.5 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-mono">
+                    <span className="text-slate-500">Benchmark Spec</span>
+                    <span className="text-blue-600 font-semibold">{std.benchmark}</span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </motion.div>
 
       </div>
     </section>

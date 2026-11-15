@@ -7,7 +7,7 @@ import Slide5_OpenDev from '../components/roadmap/Slide5_OpenDev';
 
 export default function RoadmapPage() {
   return (
-    <div className="page-wrap">
+    <div className="page-wrap bg-white min-h-screen text-slate-900">
       <Slide1_RoadmapHero />
       <Slide2_Timeline />
       <Slide3_AppRoadmaps />

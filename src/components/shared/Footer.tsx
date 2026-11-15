@@ -16,16 +16,14 @@ import {
   whatsappLink,
   copyrightLine,
 } from '../../content/company';
-import { PRODUCTS } from '../../content/products';
 
 export default function Footer() {
   return (
     <footer 
-      className="w-full bg-[#0A0F1E] text-white px-6 sm:px-16 pt-16 pb-32 sm:pb-36 relative overflow-hidden select-none"
+      className="w-full bg-[#0A0F1E] text-white px-6 sm:px-16 pt-16 pb-32 sm:pb-36 relative overflow-hidden select-none border-t border-slate-800"
       role="contentinfo"
       aria-label="Footer"
     >
-      
       {/* GHOST WATERMARK */}
       <div 
         className="absolute top-6 left-1/2 -translate-x-1/2 font-clash font-extrabold text-[8vw] sm:text-[10vw] text-white/[0.03] select-none pointer-events-none whitespace-nowrap leading-none z-0"
@@ -38,22 +36,21 @@ export default function Footer() {
         
         {/* COL 1: BRANDING (col-span-2) */}
         <div className="md:col-span-2 flex flex-col items-start gap-5">
-          {/* BRAND LOGO — LOCKED PERMANENTLY TO CRAZY BLOCKS FONT (#5) */}
           <Link to="/" className="flex items-baseline group" aria-label="VOOO LABS Home">
             <span className="shimmer-text font-crazyblocks text-3xl sm:text-4xl tracking-wider">VOOO</span>
             <span className="font-crazyblocks text-2xl sm:text-3xl text-white ml-2 tracking-wider">LABS</span>
           </Link>
-          <p className="font-kanit font-light text-sm text-slate-300 max-w-[280px] leading-relaxed">
+          <p className="font-sans font-light text-sm text-slate-300 max-w-[280px] leading-relaxed">
             {COMPANY.tagline}
           </p>
 
           {/* LOCATION & MADE IN INDIA BADGES */}
           <div className="flex flex-wrap items-center gap-2">
-            <div className="rounded-full border border-white/15 px-3.5 py-1 font-kanit font-normal text-xs text-white/90 bg-white/[0.04] flex items-center gap-1.5">
+            <div className="rounded-full border border-white/15 px-3.5 py-1 font-sans font-normal text-xs text-white/90 bg-white/[0.04] flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-orange-500" />
               <span>Built in {LOCATION.country}</span>
             </div>
-            <div className="rounded-full border border-white/15 px-3.5 py-1 font-kanit font-normal text-xs text-white/90 bg-white/[0.04] flex items-center gap-1.5">
+            <div className="rounded-full border border-white/15 px-3.5 py-1 font-sans font-normal text-xs text-white/90 bg-white/[0.04] flex items-center gap-1.5">
               <MapPin size={12} className="text-emerald-400" />
               <span>{LOCATION.hubs.join(' · ')}</span>
             </div>
@@ -61,12 +58,12 @@ export default function Footer() {
 
           <a
             href={`mailto:${COMPANY.email}`}
-            className="font-kanit font-normal text-sm text-blue-400 hover:text-blue-300 transition-colors"
+            className="font-sans font-normal text-sm text-blue-400 hover:text-blue-300 transition-colors"
           >
             {COMPANY.email}
           </a>
 
-          {/* SOCIALS - 44px (w-11 h-11) Touch Targets */}
+          {/* SOCIALS */}
           <div className="flex items-center gap-2.5 mt-2">
             {[
               { icon: <GithubIcon size={18} />, href: SOCIALS.github, label: 'GitHub', hover: 'hover:border-blue-400 hover:text-white hover:shadow-[0_0_15px_rgba(66,133,244,0.4)]' },
@@ -102,25 +99,25 @@ export default function Footer() {
           <div className="flex flex-col gap-2.5">
             <Link
               to="/services#websites"
-              className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
+              className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
             >
               Custom Websites
             </Link>
             <Link
               to="/services#custom-software"
-              className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
+              className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
             >
               Custom Software & Tools
             </Link>
             <Link
-              to="/services#mobile-apps"
-              className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
+              to="/services#web-apps"
+              className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
             >
-              Mobile Applications
+              Custom Web Applications
             </Link>
             <Link
               to="/seo-ai"
-              className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
+              className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all"
             >
               SEO & AI Discovery (AEO)
             </Link>
@@ -131,10 +128,10 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <h4 className="font-clash font-semibold text-sm tracking-wider uppercase text-white">Company</h4>
           <div className="flex flex-col gap-2.5">
-            <Link to="/about" className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">About Studio</Link>
-            <Link to="/about#founder" className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">Founder Profile</Link>
-            <Link to="/roadmap" className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">Product Roadmap</Link>
-            <Link to="/contact" className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">Contact Us</Link>
+            <Link to="/about" className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">About Studio</Link>
+            <Link to="/about#founder" className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">Founder Profile</Link>
+            <Link to="/roadmap" className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">Delivery Roadmap</Link>
+            <Link to="/contact" className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">Contact Us</Link>
           </div>
         </div>
 
@@ -142,10 +139,10 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <h4 className="font-clash font-semibold text-sm tracking-wider uppercase text-white">Legal & Support</h4>
           <div className="flex flex-col gap-2.5">
-            <Link to="/legal/privacy" className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">Privacy Policy</Link>
-            <Link to="/legal/terms" className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">Terms of Service</Link>
-            <Link to="/legal/app-permissions" className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">App Permissions</Link>
-            <a href={`mailto:${COMPANY.email}`} className="font-kanit font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">Support Inbox</a>
+            <Link to="/legal/privacy" className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">Privacy Policy</Link>
+            <Link to="/legal/terms" className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">Terms of Service</Link>
+            <Link to="/legal/ip-ownership" className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">Code Ownership</Link>
+            <Link to="/legal/refunds" className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all">Milestone Policy</Link>
           </div>
         </div>
 
@@ -153,15 +150,15 @@ export default function Footer() {
 
       {/* BOTTOM FOOTER BAR */}
       <div className="relative max-w-7xl mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left z-10">
-        <p className="font-kanit font-normal text-xs text-slate-400">
+        <p className="font-sans font-normal text-xs text-slate-400">
           {copyrightLine()}
         </p>
-        <p className="shimmer-text font-kanit font-semibold text-xs uppercase tracking-wider">
+        <p className="shimmer-text font-sans font-semibold text-xs uppercase tracking-wider">
           Built in {LOCATION.region}, {LOCATION.country}
         </p>
         <a
           href={`mailto:${COMPANY.email}`}
-          className="font-kanit font-normal text-xs text-slate-400 hover:text-white transition-colors"
+          className="font-sans font-normal text-xs text-slate-400 hover:text-white transition-colors"
         >
           {COMPANY.email}
         </a>

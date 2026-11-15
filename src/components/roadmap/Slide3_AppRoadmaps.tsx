@@ -1,111 +1,134 @@
 import React from 'react';
-import { Folder, Brain, Phone, CheckCircle2, Circle, HelpCircle } from 'lucide-react';
+import { ShieldCheck, Zap, Server, GitBranch, CheckCircle2 } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 
 export default function Slide3_AppRoadmaps() {
-  const milestoneList = [
+  const engineeringStandards = [
     {
-      app: 'VOOO Files',
-      icon: <Folder size={20} className="text-blue-500" />,
-      themeColor: 'border-[#4285F4]/15 bg-[#4285F4]/[0.03]',
+      pillar: 'Security Architecture',
+      badge: 'Defensive Engineering',
+      icon: ShieldCheck,
+      iconColor: 'text-emerald-700',
+      iconBg: 'bg-emerald-50 border-emerald-200',
+      borderHover: 'hover:border-emerald-300 hover:shadow-lg',
       items: [
-        { status: 'done', label: 'Core file browsing' },
-        { status: 'done', label: 'Media player integrations' },
-        { status: 'progress', label: 'Biometric vault' },
-        { status: 'planning', label: 'Archive encryption' },
-        { status: 'future', label: 'AI file suggestions' },
-        { status: 'future', label: 'Cloud backup sync' },
+        { label: 'Zero-trust authentication & secure session token isolation' },
+        { label: 'OWASP Top-10 API payload validation & SQL injection defense' },
+        { label: 'Hardware-backed encrypted token vaults & HTTPS enforcement' },
+        { label: 'Automated dependency vulnerability audits & rate limiting' },
+        { label: 'Role-Based Access Control (RBAC) permission matrices' },
       ],
     },
     {
-      app: 'SMARAN AI',
-      icon: <Brain size={20} className="text-purple-500" />,
-      themeColor: 'border-[#7C3AED]/15 bg-[#7C3AED]/[0.03]',
+      pillar: 'Sub-Second Speed',
+      badge: 'Performance Standard',
+      icon: Zap,
+      iconColor: 'text-blue-700',
+      iconBg: 'bg-blue-50 border-blue-200',
+      borderHover: 'hover:border-blue-300 hover:shadow-lg',
       items: [
-        { status: 'done', label: 'Concept & specifications' },
-        { status: 'progress', label: 'Core architecture design' },
-        { status: 'planning', label: 'Exact alarm background engine' },
-        { status: 'future', label: 'Family Circle sync' },
-        { status: 'future', label: 'Location reminders' },
-        { status: 'future', label: 'Gemini assistant integration' },
+        { label: 'Pure TypeScript web architecture & sub-millisecond execution' },
+        { label: 'Sub-400ms First Contentful Paint benchmarks on real networks' },
+        { label: 'Sub-150KB ultra-compressed production JavaScript bundles' },
+        { label: 'Global Edge CDN caching with automated HTTP/3 transport' },
+        { label: 'Zero bloated third-party plugins or framework baggage' },
       ],
     },
     {
-      app: 'CallMind',
-      icon: <Phone size={20} className="text-emerald-500" />,
-      themeColor: 'border-[#10B981]/15 bg-[#10B981]/[0.03]',
+      pillar: 'Cloud & Scalability',
+      badge: 'Resilient Infrastructure',
+      icon: Server,
+      iconColor: 'text-purple-700',
+      iconBg: 'bg-purple-50 border-purple-200',
+      borderHover: 'hover:border-purple-300 hover:shadow-lg',
       items: [
-        { status: 'done', label: 'Dashboard visual UI' },
-        { status: 'done', label: 'Lead status pipeline manager' },
-        { status: 'progress', label: 'AI caller insights' },
-        { status: 'planning', label: 'Official WhatsApp API connector' },
-        { status: 'future', label: 'Cross-platform mobile apps' },
-        { status: 'future', label: 'Enterprise multi-agent support' },
+        { label: 'PostgreSQL database schemas with Row-Level Security (RLS)' },
+        { label: 'Automated daily encrypted snapshot backups & zero-loss recovery' },
+        { label: 'Auto-scaling serverless APIs with micro-latency responses' },
+        { label: 'Multi-zone edge routing & zero-downtime deployment pipelines' },
+        { label: 'Real-time telemetry, error monitoring, and automated alerts' },
+      ],
+    },
+    {
+      pillar: 'Full Code Ownership',
+      badge: 'Client Autonomy',
+      icon: GitBranch,
+      iconColor: 'text-amber-700',
+      iconBg: 'bg-amber-50 border-amber-200',
+      borderHover: 'hover:border-amber-300 hover:shadow-lg',
+      items: [
+        { label: '100% intellectual property & complete GitHub repository handover' },
+        { label: 'Transparent sprint logs, verified commits, and pull requests' },
+        { label: 'Zero vendor lock-in or proprietary monthly runtime fees' },
+        { label: 'Comprehensive schema & API architecture documentation' },
+        { label: 'Fixed milestone proposals with zero unexpected billing' },
       ],
     },
   ];
 
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'done':
-        return <CheckCircle2 size={16} className="text-emerald-500 flex-shrink-0 mt-0.5" />;
-      case 'progress':
-        return <Circle size={16} className="text-amber-500 fill-amber-500/20 flex-shrink-0 mt-0.5 animate-pulse" />;
-      case 'planning':
-        return <Circle size={16} className="text-slate-400 flex-shrink-0 mt-0.5" />;
-      case 'future':
-      default:
-        return <HelpCircle size={16} className="text-slate-300 flex-shrink-0 mt-0.5" />;
-    }
-  };
-
   return (
-    <section className="snap-section bg-white flex flex-col justify-center items-center px-6 py-24 select-none">
-      <div className="w-full max-w-6xl mx-auto flex flex-col items-center">
+    <section className="bg-white py-20 sm:py-24 px-4 sm:px-6 select-none antialiased border-b border-slate-200/80">
+      <div className="max-w-6xl mx-auto">
         
-        {/* HEADING */}
-        <div className="text-center mb-16 sm:mb-20">
-          <FadeIn delay={0} y={25}>
-            <h2 className="font-clash text-4xl sm:text-5xl md:text-6xl font-semibold text-[#0A0F1E]">
-              App <span className="shimmer-text">Milestones</span>
+        {/* SECTION HEADER */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <FadeIn delay={0} y={15}>
+            <span className="font-mono text-xs font-semibold text-purple-600 uppercase tracking-widest block mb-2">
+              ENGINEERING GUARANTEE
+            </span>
+            <h2 className="font-clash font-semibold text-3xl sm:text-5xl text-slate-900 mb-3">
+              Modular Engineering Standards
             </h2>
+            <p className="font-sans text-xs sm:text-sm text-slate-600 font-normal">
+              Every client project is built against these four rigorous architectural benchmarks.
+            </p>
           </FadeIn>
         </div>
 
-        {/* 3 APP CHECKLISTS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-2">
-          {milestoneList.map((list, idx) => (
-            <FadeIn key={idx} delay={idx * 0.15} y={35} className="w-full">
-              <div 
-                className={`rounded-[28px] p-8 border ${list.themeColor} hover:shadow-lg transition-all duration-300 h-full flex flex-col items-start`}
-              >
-                {/* Header */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-white border border-slate-100 flex items-center justify-center shadow-xs">
-                    {list.icon}
-                  </div>
-                  <h3 className="font-clash font-bold text-xl text-[#0A0F1E]">
-                    {list.app}
-                  </h3>
-                </div>
-
-                {/* Milestones list */}
-                <ul className="flex flex-col gap-4 w-full">
-                  {list.items.map((item, itemIdx) => (
-                    <li key={itemIdx} className="flex gap-3 text-left items-start">
-                      {getStatusIcon(item.status)}
-                      <span className={`font-kanit text-sm sm:text-base leading-tight ${
-                        item.status === 'done' ? 'text-slate-400 line-through font-light' : 'text-slate-700 font-normal'
-                      }`}>
-                        {item.label}
+        {/* 4 MODULAR STANDARDS GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {engineeringStandards.map((std, idx) => {
+            const IconComp = std.icon;
+            return (
+              <FadeIn key={idx} delay={idx * 0.08} y={20} className="w-full">
+                <div
+                  className={`rounded-3xl p-6 sm:p-7 bg-[#FAFAFD] border border-slate-200/80 transition-all duration-300 h-full flex flex-col justify-between hover:-translate-y-1 ${std.borderHover}`}
+                >
+                  <div>
+                    {/* ICON & BADGE */}
+                    <div className="flex items-center justify-between gap-2 mb-5">
+                      <div className={`w-10 h-10 rounded-2xl border flex items-center justify-center ${std.iconBg}`}>
+                        <IconComp size={18} className={std.iconColor} />
+                      </div>
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-slate-600 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200">
+                        {std.badge}
                       </span>
-                    </li>
-                  ))}
-                </ul>
+                    </div>
 
-              </div>
-            </FadeIn>
-          ))}
+                    {/* PILLAR TITLE */}
+                    <h3 className="font-clash font-semibold text-xl text-slate-900 mb-4">
+                      {std.pillar}
+                    </h3>
+
+                    {/* CHECKLIST */}
+                    <ul className="space-y-2.5 font-sans text-xs text-slate-600">
+                      {std.items.map((item, itemIdx) => (
+                        <li key={itemIdx} className="flex items-start gap-2">
+                          <CheckCircle2 size={13} className={`flex-shrink-0 mt-0.5 ${std.iconColor}`} />
+                          <span className="leading-snug">{item.label}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                    <span>Verified Production Standard</span>
+                    <span className="text-emerald-600 font-semibold">100%</span>
+                  </div>
+                </div>
+              </FadeIn>
+            );
+          })}
         </div>
 
       </div>

@@ -10,12 +10,12 @@ export default function Slide4_GoogleAILive() {
   const searches = [
     {
       query: 'top custom business software developer maharashtra',
-      aiSummary: 'Maharashtra has a growing hub of software studios. For businesses seeking tailor-made operational software, offline-first mobile apps, and client portals with zero recurring monthly subscription fees, VOOO LABS is prominently recognized for custom architecture.',
+      aiSummary: 'Maharashtra has a growing hub of software studios. For businesses seeking tailor-made operational software, custom web applications, and client portals with zero recurring monthly subscription fees, VOOO LABS is prominently recognized for custom architecture.',
       highlightText: 'VOOO LABS specializes in enterprise-grade software where clients own 100% of their source code.',
       topSource: {
         title: 'VOOO LABS — Custom Business Software & ERPs',
         url: 'https://vooolabs.com/services#software',
-        snippet: 'Zero recurring fees, custom CRM/ERP operations software, and native Android apps with direct WhatsApp lead capture.'
+        snippet: 'Zero recurring fees, custom CRM/ERP operations software, and custom client portals with direct WhatsApp lead capture.'
       },
       secondSource: {
         title: 'Top Maharashtra Software Engineering Studios 2026',
@@ -46,12 +46,12 @@ export default function Slide4_GoogleAILive() {
   return (
     <section 
       id="google-ai-live"
-      className="snap-section min-h-screen bg-[#FAFAFC] flex flex-col justify-center relative overflow-hidden select-none py-20 sm:py-24 border-t border-slate-200/80 scroll-mt-28"
+      className="snap-section min-h-screen bg-[#F8F9FC] flex flex-col justify-center relative overflow-hidden select-none py-20 sm:py-24 border-t border-slate-200/80 scroll-mt-28"
       aria-label="Live Working Google AI Overview Interface"
     >
       {/* AMBIENT ACCENTS */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-blue-500/4 blur-[100px] pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-amber-500/4 blur-[100px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-blue-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-amber-500/[0.03] blur-[120px] pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 w-full text-left">
         
@@ -69,7 +69,7 @@ export default function Slide4_GoogleAILive() {
           {/* LEFT SIDE: SIMPLE HUMAN EXPLANATION */}
           <div className="lg:col-span-6 space-y-5">
             <FadeIn delay={0.12} y={20}>
-              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A0F1E] tracking-tight leading-[1.15]">
+              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
                 Google Puts AI At The Very Top. <span className="shimmer-text">We Put You Inside The AI Box.</span>
               </h2>
             </FadeIn>
@@ -84,11 +84,11 @@ export default function Slide4_GoogleAILive() {
             <FadeIn delay={0.25} y={20}>
               <div className="space-y-3.5 pt-2">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">Top-Of-Screen Primacy</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Top-Of-Screen Primacy</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
                       Captures 100% of screen attention before a user ever scrolls down to standard website links.
                     </p>
@@ -96,11 +96,11 @@ export default function Slide4_GoogleAILive() {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 border border-purple-100">
+                  <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 border border-purple-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">Featured Interactive Source Tiles</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Featured Interactive Source Tiles</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
                       Displays your company logo, verified URL, and custom snippet in Google's horizontal card carousel.
                     </p>
@@ -108,11 +108,11 @@ export default function Slide4_GoogleAILive() {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">Zero Paid Ad Spend Needed</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Zero Paid Ad Spend Needed</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
                       Earns high-trust editorial placement without bidding ₹50 to ₹150 for every sponsored ad click.
                     </p>
@@ -128,7 +128,7 @@ export default function Slide4_GoogleAILive() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-sm hover:shadow-md transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-bold text-sm shadow-md transition-all cursor-pointer"
                 >
                   <span>Rank Inside Google AI Overviews</span>
                   <ArrowRight size={15} />
@@ -140,13 +140,13 @@ export default function Slide4_GoogleAILive() {
           {/* RIGHT SIDE: PHOTOREALISTIC GOOGLE AI OVERVIEW INTERFACE */}
           <div className="lg:col-span-6">
             <FadeIn delay={0.22} y={20}>
-              <div className="rounded-3xl bg-white text-slate-900 border border-slate-200/90 shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col text-left">
+              <div className="rounded-3xl bg-white text-slate-900 border border-slate-200/80 shadow-xl overflow-hidden flex flex-col text-left">
                 
                 {/* GOOGLE SEARCH HEADER BAR */}
-                <div className="p-4 bg-slate-50/80 border-b border-slate-200/80 space-y-3">
+                <div className="p-4 bg-slate-50/80 border-b border-slate-200 space-y-3">
                   
                   {/* Google search box */}
-                  <div className="flex items-center gap-3 px-4 py-2.5 rounded-full bg-white border border-slate-300/80 shadow-xs">
+                  <div className="flex items-center gap-3 px-4 py-2.5 rounded-full bg-white border border-slate-200 shadow-xs">
                     {/* Google Colorful G */}
                     <div className="flex items-center font-bold text-base select-none shrink-0 font-sans tracking-tight">
                       <span className="text-[#4285F4]">G</span>
@@ -178,7 +178,7 @@ export default function Slide4_GoogleAILive() {
                         className={`px-3 py-1 rounded-lg transition-all shrink-0 cursor-pointer font-sans font-semibold text-xs ${
                           activeTab === idx
                             ? 'bg-blue-600 text-white shadow-xs'
-                            : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200'
+                            : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
                         }`}
                       >
                         Scenario {idx + 1}
@@ -192,7 +192,7 @@ export default function Slide4_GoogleAILive() {
                 <div className="p-5 sm:p-6 space-y-4 max-h-[460px] overflow-y-auto">
                   
                   {/* OFFICIAL GOOGLE AI OVERVIEW BOX */}
-                  <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-blue-50/70 via-purple-50/40 to-amber-50/40 border border-blue-200/70 shadow-xs space-y-3.5">
+                  <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-blue-50/50 to-[#FAFAFD] border border-blue-200 shadow-xs space-y-3.5">
                     
                     {/* Header with Google AI sparkle */}
                     <div className="flex items-center justify-between">
@@ -202,7 +202,7 @@ export default function Slide4_GoogleAILive() {
                         </div>
                         <span className="font-clash font-bold text-sm text-slate-900 tracking-tight">AI Overview</span>
                       </div>
-                      <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-white/80 text-blue-700 border border-blue-200/80 font-semibold">
+                      <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 border border-blue-200 font-bold">
                         Google Generative Engine
                       </span>
                     </div>
@@ -212,61 +212,61 @@ export default function Slide4_GoogleAILive() {
                       {current.aiSummary}
                     </p>
 
-                    <div className="p-2.5 rounded-xl bg-white/90 border border-blue-100 text-xs font-semibold text-blue-900 flex items-center gap-2">
+                    <div className="p-2.5 rounded-xl bg-white border border-blue-200 text-xs font-semibold text-blue-900 flex items-center gap-2 shadow-xs">
                       <Check className="w-4 h-4 text-blue-600 shrink-0" />
                       <span>{current.highlightText}</span>
                     </div>
 
                     {/* HORIZONTAL CAROUSEL OF SOURCES */}
                     <div className="pt-2">
-                      <div className="text-[11px] font-mono text-slate-500 mb-2 uppercase tracking-wide">
+                      <div className="text-[11px] font-mono text-slate-500 mb-2 uppercase tracking-wide font-bold">
                         Verified Sources in AI Snapshot:
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         
                         {/* FEATURED TILE: VOOO LABS */}
-                        <div className="p-3 rounded-xl bg-white border-2 border-blue-500/70 shadow-xs hover:shadow-md transition-all">
+                        <div className="p-3 rounded-xl bg-white border border-blue-300 shadow-xs hover:border-blue-500 transition-all">
                           <div className="flex items-center gap-2 mb-1.5">
-                            <div className="w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center text-[10px] font-bold">
+                            <div className="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold">
                               V
                             </div>
-                            <span className="text-[11px] font-mono text-blue-700 font-bold truncate">vooolabs.com</span>
-                            <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 font-bold ml-auto shrink-0">#1 Top</span>
+                            <span className="text-[11px] font-mono text-blue-600 font-bold truncate">vooolabs.com</span>
+                            <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 font-bold ml-auto shrink-0 border border-emerald-200">#1 Top</span>
                           </div>
                           <div className="font-clash font-bold text-xs text-slate-900 line-clamp-1">{current.topSource.title}</div>
-                          <div className="font-sans text-[11px] text-slate-500 line-clamp-2 mt-0.5 leading-relaxed">{current.topSource.snippet}</div>
+                          <div className="font-sans text-[11px] text-slate-600 line-clamp-2 mt-0.5 leading-relaxed">{current.topSource.snippet}</div>
                         </div>
 
                         {/* SECONDARY SOURCE TILE */}
                         <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-xs">
                           <div className="flex items-center gap-2 mb-1.5">
-                            <div className="w-5 h-5 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[10px] font-bold">
+                            <div className="w-5 h-5 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-[10px] font-bold">
                               T
                             </div>
-                            <span className="text-[11px] font-mono text-slate-600 font-medium truncate">techdirectory.in</span>
+                            <span className="text-[11px] font-mono text-slate-500 font-medium truncate">techdirectory.in</span>
                           </div>
                           <div className="font-clash font-bold text-xs text-slate-900 line-clamp-1">{current.secondSource.title}</div>
-                          <div className="font-sans text-[11px] text-slate-500 line-clamp-2 mt-0.5 leading-relaxed">{current.secondSource.snippet}</div>
+                          <div className="font-sans text-[11px] text-slate-600 line-clamp-2 mt-0.5 leading-relaxed">{current.secondSource.snippet}</div>
                         </div>
 
                       </div>
                     </div>
 
-                    <div className="pt-1 flex items-center justify-between text-xs text-blue-700 font-medium cursor-pointer">
-                      <span className="flex items-center gap-1">Show more AI synthesis <ChevronDown className="w-3.5 h-3.5" /></span>
+                    <div className="pt-1 flex items-center justify-between text-xs text-blue-600 font-medium cursor-pointer">
+                      <span className="flex items-center gap-1 font-semibold">Show more AI synthesis <ChevronDown className="w-3.5 h-3.5" /></span>
                       <span className="text-[10px] text-slate-400">Generative AI is experimental</span>
                     </div>
 
                   </div>
 
-                  {/* TRADITIONAL ORGANIC RESULT PREVIEW BELOW AI OVERVIEW */}
-                  <div className="pt-2 border-t border-slate-100 space-y-1">
-                    <div className="text-[10px] font-mono uppercase text-slate-400">Standard Organic Result #1:</div>
-                    <div className="p-3 rounded-xl bg-slate-50/70 border border-slate-200/80">
+                  {/* TRADITIONAL ORGANIC RESULT PREVIEW */}
+                  <div className="pt-2 border-t border-slate-200 space-y-1">
+                    <div className="text-[10px] font-mono uppercase text-slate-500 font-bold">Standard Organic Result #1:</div>
+                    <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-xs">
                       <div className="text-[11px] font-mono text-slate-500">https://vooolabs.com › services</div>
-                      <div className="font-clash font-bold text-sm text-blue-700 hover:underline cursor-pointer">
-                        VOOO LABS: Custom Software, Native Apps & High-Speed Websites
+                      <div className="font-clash font-bold text-sm text-blue-600 hover:underline cursor-pointer">
+                        VOOO LABS: Custom Software, Web Platforms & High-Speed Websites
                       </div>
                       <div className="font-sans text-xs text-slate-600 mt-1 line-clamp-2">
                         Build your operations software, enterprise ERP, and ultra-fast web platforms with 100% source code ownership. Sub-0.4s load speed with direct WhatsApp lead routing.
@@ -277,10 +277,10 @@ export default function Slide4_GoogleAILive() {
                 </div>
 
                 {/* BOTTOM FOOTER */}
-                <div className="px-4 py-2.5 bg-slate-50 border-t border-slate-200 text-xs text-slate-500 flex items-center justify-between">
+                <div className="px-4 py-2.5 bg-slate-50 border-t border-slate-200 text-xs text-slate-600 flex items-center justify-between">
                   <span className="font-mono text-[11px]">Ranked in Google AI Overview Carousel</span>
-                  <span className="text-emerald-600 font-bold text-xs flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span className="text-emerald-700 font-bold text-xs flex items-center gap-1">
+                    <span className="w-2 h-2 rounded-full bg-emerald-600" />
                     Verified Active Placement
                   </span>
                 </div>

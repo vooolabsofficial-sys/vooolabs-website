@@ -1,65 +1,102 @@
 import React from 'react';
-import { MapPin, Globe } from 'lucide-react';
+import { MapPin, Globe, Clock, ArrowUp, ArrowRight } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
+import { LOCATION, COMPANY } from '../../content/company';
 
 export default function Slide5_Location() {
   return (
-    <section className="snap-section animated-gradient-bg noise flex flex-col justify-center items-center px-6 py-24 text-center rounded-t-[40px] sm:rounded-t-[60px] relative overflow-hidden select-none">
-      
-      {/* SHADOW OVERLAY */}
-      <div className="absolute inset-0 bg-black/20 pointer-events-none z-0" />
-
-      <div className="relative z-10 w-full max-w-3xl mx-auto flex flex-col items-center">
+    <section className="bg-white py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-slate-200/80">
+      <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
         
-        {/* BIG LOCAL HEADINGS */}
-        <FadeIn delay={0} y={45}>
-          <h2 
-            className="font-clash text-4xl sm:text-6xl md:text-7xl font-bold text-white leading-none tracking-tight mb-8"
-            style={{ textShadow: '0 4px 30px rgba(0,0,0,0.15)' }}
-          >
-            Made in <br />
-            Maharashtra, <br />
-            India.
-          </h2>
-        </FadeIn>
-
-        {/* MOTTO DESCRIPTIONS */}
-        <FadeIn delay={0.15} y={20}>
-          <p className="font-kanit font-light text-xl sm:text-2xl text-white/95 mb-3">
-            Rural roots. Global ambitions.
-          </p>
-          <p className="font-kanit font-light text-base sm:text-lg text-white/80 max-w-md mx-auto leading-relaxed mb-12">
-            Building world-class software from the heart of India.
-          </p>
-        </FadeIn>
-
-        {/* LARGE INDIA BADGE */}
-        <FadeIn delay={0.3} y={25} className="mb-12">
-          <div 
-            className="rounded-[24px] bg-white/15 border border-white/25 px-8 sm:px-10 py-5 sm:py-6 flex flex-col sm:flex-row items-center gap-3 sm:gap-6 backdrop-blur-md shadow-xl select-none"
-          >
-            <span className="font-kanit font-semibold text-lg sm:text-xl text-white flex items-center gap-2">
-              <MapPin size={20} className="text-emerald-400" />
-              <span>Maharashtra, India</span>
+        {/* SECTION HEADER */}
+        <div className="mb-14 max-w-2xl mx-auto">
+          <FadeIn delay={0} y={15}>
+            <span className="font-mono text-xs font-semibold text-emerald-600 uppercase tracking-widest block mb-2">
+              GEOGRAPHIC ORIGIN & REACH
             </span>
-            {/* Divider */}
-            <div className="hidden sm:block w-[1px] h-6 bg-white/30" />
-            <span className="font-kanit font-medium text-sm sm:text-base text-white/85 flex items-center gap-2">
-              <Globe size={18} className="text-blue-300" />
-              <span>Serving Worldwide</span>
-            </span>
-          </div>
-        </FadeIn>
+            <h2 className="font-clash font-semibold text-3xl sm:text-5xl text-slate-900 mb-3">
+              Engineered in Maharashtra, <br />
+              <span className="shimmer-text font-bold">Shipped Globally</span>
+            </h2>
+            <p className="font-sans text-xs sm:text-sm text-slate-600 font-normal">
+              High-caliber software craft from the heart of India, deploying production systems for international clients.
+            </p>
+          </FadeIn>
+        </div>
 
-        {/* BACK TO TOP OF CONTACT PAGE ACTION */}
-        <FadeIn delay={0.4} y={15}>
-          <a
-            href="#contact-form-section"
-            className="rounded-full bg-white text-blue-600 hover:scale-[1.04] active:scale-[0.98] px-8 py-3.5 font-kanit font-semibold text-sm sm:text-base transition-all duration-300 shadow-lg inline-block select-none min-h-[44px]"
-          >
-            Write Message ↑
-          </a>
-        </FadeIn>
+        {/* 3 TECHNICAL LOCATION TILES */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-12">
+          
+          {/* TILE 1: REGION */}
+          <FadeIn delay={0.06} y={15} className="w-full">
+            <div className="p-7 rounded-3xl bg-[#FAFAFD] border border-slate-200/80 text-left h-full flex flex-col justify-between hover:bg-white hover:border-slate-300 hover:shadow-md transition-all">
+              <div>
+                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-4">
+                  <MapPin size={18} />
+                </div>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500 font-semibold block mb-1">
+                  Primary Jurisdiction
+                </span>
+                <h3 className="font-clash font-semibold text-xl text-slate-900 mb-2">
+                  {LOCATION.region}, {LOCATION.country}
+                </h3>
+                <p className="font-sans text-xs text-slate-600 leading-relaxed font-normal">
+                  Operating hubs across {LOCATION.hubs.join(', ')} with full legal and commercial compliance.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-slate-100 font-mono text-[11px] text-emerald-600 font-semibold">
+                HQ Verified
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* TILE 2: TIMEZONE */}
+          <FadeIn delay={0.12} y={15} className="w-full">
+            <div className="p-7 rounded-3xl bg-[#FAFAFD] border border-slate-200/80 text-left h-full flex flex-col justify-between hover:bg-white hover:border-slate-300 hover:shadow-md transition-all">
+              <div>
+                <div className="w-10 h-10 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 mb-4">
+                  <Clock size={18} />
+                </div>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500 font-semibold block mb-1">
+                  Working Hours & Timezone
+                </span>
+                <h3 className="font-clash font-semibold text-xl text-slate-900 mb-2">
+                  IST (UTC+05:30)
+                </h3>
+                <p className="font-sans text-xs text-slate-600 leading-relaxed font-normal">
+                  Overlapping operational business windows for UK, European, Middle Eastern, and Asian client partners.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-slate-100 font-mono text-[11px] text-blue-600 font-semibold">
+                Daily 9:00 AM – 9:00 PM IST
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* TILE 3: GLOBAL DISTRIBUTION */}
+          <FadeIn delay={0.18} y={15} className="w-full">
+            <div className="p-7 rounded-3xl bg-[#FAFAFD] border border-slate-200/80 text-left h-full flex flex-col justify-between hover:bg-white hover:border-slate-300 hover:shadow-md transition-all">
+              <div>
+                <div className="w-10 h-10 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center text-purple-600 mb-4">
+                  <Globe size={18} />
+                </div>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500 font-semibold block mb-1">
+                  Global Edge Network
+                </span>
+                <h3 className="font-clash font-semibold text-xl text-slate-900 mb-2">
+                  Multi-Region Deployments
+                </h3>
+                <p className="font-sans text-xs text-slate-600 leading-relaxed font-normal">
+                  Edge caching, CDN routing, and low-latency databases deployed close to your customers worldwide.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-slate-100 font-mono text-[11px] text-purple-600 font-semibold">
+                Sub-40ms Edge Latency
+              </div>
+            </div>
+          </FadeIn>
+
+        </div>
 
       </div>
     </section>

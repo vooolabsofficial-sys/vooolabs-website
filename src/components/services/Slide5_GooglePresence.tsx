@@ -5,7 +5,7 @@ import FadeIn from '../shared/FadeIn';
 import { COMPANY } from '../../content/company';
 
 export default function Slide5_GooglePresence() {
-  const whatsappUrl = `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent("Hello VOOO LABS, I want to discuss a project (Custom Software / Mobile App / Website / Google SEO).")}`;
+  const whatsappUrl = `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent("Hello VOOO LABS, I want to discuss a project (Custom Software / Web Platform / Local SEO).")}`;
   const phoneCallUrl = `tel:+${COMPANY.whatsapp}`;
 
   return (
@@ -15,8 +15,8 @@ export default function Slide5_GooglePresence() {
       aria-label="Google Business Presence & Local Growth — VOOO LABS"
     >
       {/* REFINED AMBIENT ACCENTS */}
-      <div className="absolute top-1/4 -right-32 w-96 h-96 rounded-full bg-emerald-500/4 blur-[100px] pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-1/4 -left-32 w-96 h-96 rounded-full bg-blue-500/4 blur-[100px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/4 -right-32 w-96 h-96 rounded-full bg-emerald-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-1/4 -left-32 w-96 h-96 rounded-full bg-blue-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 w-full">
         
@@ -33,7 +33,7 @@ export default function Slide5_GooglePresence() {
           {/* LEFT COLUMN: THE PROPOSITION */}
           <div className="lg:col-span-6 space-y-5 text-left">
             <FadeIn delay={0.12} y={20}>
-              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A0F1E] tracking-tight leading-[1.15]">
+              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
                 Get Discovered by <span className="shimmer-text">Local Customers</span> on Google.
               </h2>
             </FadeIn>
@@ -48,11 +48,11 @@ export default function Slide5_GooglePresence() {
             <FadeIn delay={0.25} y={20}>
               <div className="space-y-3.5 pt-2">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">Google Business Profile (Maps 3-Pack)</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Google Business Profile (Maps 3-Pack)</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
                       Accurate map pin, verified address, professional photos, operating hours, and 1-tap driving directions for nearby local clients.
                     </p>
@@ -60,123 +60,118 @@ export default function Slide5_GooglePresence() {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">Organic Google Search Visibility (SEO)</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Direct Phone Call & WhatsApp Conversion</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      Optimized so your brand appears when potential buyers search for services in your city or region.
+                      Turn casual searchers into confirmed inquiries. Direct click-to-call buttons eliminate all barriers between customers and your sales team.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 border border-purple-100">
+                  <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 border border-purple-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">Continuous Inbound Calls with ₹0 Ad Spend</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Permanent Organic Discovery · ₹0 Daily Ads</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      A permanent digital footprint that delivers high-intent inbound customer inquiries month after month without draining ad budgets.
+                      Build long-term organic equity. Unlike pay-per-click ads that disappear the moment your budget runs out, optimized local SEO keeps generating leads.
                     </p>
                   </div>
                 </div>
               </div>
             </FadeIn>
+
+            {/* ACTION TRIGGER */}
+            <FadeIn delay={0.32} y={15}>
+              <div className="pt-4 flex flex-wrap items-center gap-4">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-semibold text-sm shadow-md transition-all duration-200 cursor-pointer"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Claim Your Free Local Audit</span>
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </a>
+
+                <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <span>Verified Google Guidelines</span>
+                </div>
+              </div>
+            </FadeIn>
           </div>
 
-          {/* RIGHT COLUMN: AUTHENTIC GOOGLE BUSINESS & MAP CARD (LIGHT STUDIO AESTHETIC) */}
+          {/* RIGHT COLUMN: GOOGLE SEARCH MOCKUP */}
           <div className="lg:col-span-6">
             <FadeIn delay={0.25} y={20}>
-              <div className="rounded-3xl bg-[#FAFAFC] border border-slate-200/90 shadow-lg shadow-slate-200/40 p-6 sm:p-7 text-left relative overflow-hidden">
+              <div className="rounded-3xl bg-[#FAFAFD] border border-slate-200/80 shadow-md p-6 sm:p-7 text-left relative overflow-hidden">
                 
-                {/* Search Simulation Bar */}
-                <div className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center justify-between mb-5">
-                  <div className="flex items-center gap-2.5 text-xs text-slate-700 font-medium">
-                    <Search size={15} className="text-slate-400" />
-                    <span>"best [your service] near me"</span>
+                {/* Header Tag */}
+                <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
+                  <div className="flex items-center gap-2">
+                    <Search className="w-3.5 h-3.5 text-slate-400" />
+                    <span className="text-[11px] font-mono text-slate-500">google.com/search / local-pack</span>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-blue-500" />
-                    <span className="w-2 h-2 rounded-full bg-red-500" />
-                    <span className="w-2 h-2 rounded-full bg-amber-500" />
-                    <span className="w-2 h-2 rounded-full bg-green-500" />
-                  </div>
-                </div>
-
-                {/* Google Business Profile Card */}
-                <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm space-y-3.5">
-                  
-                  {/* Top Header & Rating */}
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h4 className="font-clash font-bold text-lg text-slate-900">Your Business Name</h4>
-                        <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-blue-50 text-blue-600 border border-blue-100">
-                          VERIFIED
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-1.5 mt-1 text-xs">
-                        <div className="flex items-center text-amber-500">
-                          <Star size={13} className="fill-amber-400 text-amber-400" />
-                          <Star size={13} className="fill-amber-400 text-amber-400" />
-                          <Star size={13} className="fill-amber-400 text-amber-400" />
-                          <Star size={13} className="fill-amber-400 text-amber-400" />
-                          <Star size={13} className="fill-amber-400 text-amber-400" />
-                        </div>
-                        <span className="font-bold text-slate-800">5.0</span>
-                        <span className="text-slate-500">(120+ Verified Client Reviews)</span>
-                      </div>
-                    </div>
-
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200">
-                      Rank #1 Local
-                    </span>
-                  </div>
-
-                  {/* Business Details */}
-                  <div className="text-xs text-slate-600 space-y-1 pt-1 border-t border-slate-100">
-                    <div className="flex items-center gap-2">
-                      <span className="text-emerald-600 font-bold">Open</span>
-                      <span className="text-slate-400">·</span>
-                      <span>Closes 8:00 PM</span>
-                      <span className="text-slate-400">·</span>
-                      <span>Fast Inquiries Confirmed</span>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-slate-500">
-                      <MapPin size={13} className="text-slate-400" />
-                      <span>Verified Google Maps Coordinates & Directions</span>
-                    </div>
-                  </div>
-
-                  {/* 3 Real Google Action Buttons */}
-                  <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-100">
-                    <div className="p-2.5 rounded-xl bg-blue-50/80 border border-blue-100 text-center flex flex-col items-center justify-center gap-1">
-                      <Phone size={14} className="text-blue-600" />
-                      <span className="text-[11px] font-bold text-blue-700">Call Now</span>
-                    </div>
-
-                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center flex flex-col items-center justify-center gap-1">
-                      <MapPin size={14} className="text-slate-700" />
-                      <span className="text-[11px] font-bold text-slate-800">Directions</span>
-                    </div>
-
-                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center flex flex-col items-center justify-center gap-1">
-                      <Search size={14} className="text-slate-700" />
-                      <span className="text-[11px] font-bold text-slate-800">Website</span>
-                    </div>
-                  </div>
-
-                </div>
-
-                {/* Footer Notes */}
-                <div className="mt-4 pt-3 border-t border-slate-200/80 flex items-center justify-between text-[11px] font-mono text-slate-500">
-                  <span className="flex items-center gap-1 text-emerald-600 font-semibold">
-                    <CheckCircle2 size={13} />
-                    Google Maps 3-Pack Authority
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    Rank #1 Local
                   </span>
-                  <span>₹0 Ongoing Ad Fees</span>
+                </div>
+
+                {/* Google Maps Top Result Card */}
+                <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-2xs mb-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <span className="text-xs font-mono font-semibold text-emerald-600">Verified Profile</span>
+                      </div>
+                      <h4 className="font-clash font-bold text-lg text-slate-900">Your Business Name</h4>
+                      <div className="flex items-center gap-1 mt-1 text-xs text-amber-500">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                          ))}
+                        </div>
+                        <span className="font-bold ml-1 text-slate-900">5.0</span>
+                        <span className="text-slate-500">(48+ verified reviews)</span>
+                      </div>
+                      <div className="text-xs text-slate-500 mt-2 font-sans flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <span>Near you · Open now · Closes 8 PM</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2.5">
+                    <div className="flex-1 py-2 rounded-xl bg-slate-900 text-white font-semibold text-xs flex items-center justify-center gap-1.5 shadow-2xs">
+                      <Phone className="w-3 h-3 text-white" />
+                      <span>Call Business</span>
+                    </div>
+                    <div className="flex-1 py-2 rounded-xl bg-slate-50 text-slate-800 font-semibold text-xs border border-slate-200 flex items-center justify-center gap-1.5">
+                      <MapPin className="w-3 h-3 text-emerald-600" />
+                      <span>Directions</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Local Reach Insights */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                    <div className="text-[10px] font-semibold uppercase text-slate-500 tracking-wider">Search Impressions</div>
+                    <div className="text-base font-clash font-bold text-slate-900 mt-0.5">+340%</div>
+                    <div className="text-[11px] text-emerald-600 font-medium">30-day organic growth</div>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                    <div className="text-[10px] font-semibold uppercase text-slate-500 tracking-wider">Direct Phone Calls</div>
+                    <div className="text-base font-clash font-bold text-emerald-600 mt-0.5">High Intent</div>
+                    <div className="text-[11px] text-slate-500 font-medium">₹0 per click cost</div>
+                  </div>
                 </div>
 
               </div>
@@ -184,71 +179,6 @@ export default function Slide5_GooglePresence() {
           </div>
 
         </div>
-
-        {/* ═══════════════════════════════════════════════
-            PROJECT KICKOFF ACTION (REFINED STUDIO CONTAINER)
-            ═══════════════════════════════════════════════ */}
-        <FadeIn delay={0.3} y={20}>
-          <div className="relative rounded-3xl bg-[#FAFAFC] border border-slate-200/90 shadow-md p-8 sm:p-12 text-center max-w-4xl mx-auto overflow-hidden">
-            
-            {/* Top Brand Gradient Line */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-500" />
-
-            <div className="max-w-2xl mx-auto space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider border border-blue-200/80">
-                <Sparkles size={13} />
-                <span>Ready to Build or Scale?</span>
-              </div>
-
-              <h3 className="font-clash text-2xl sm:text-3xl md:text-4xl font-bold text-[#0A0F1E] tracking-tight">
-                Let's Build the Exact Digital System Your Business Deserves.
-              </h3>
-
-              <p className="font-sans text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto">
-                Tell us your requirement — whether it's custom software, a native mobile app, a high-converting website, or local Google presence. We'll provide a clear architecture, timeline, and exact quote within 2 hours.
-              </p>
-
-              {/* Action Buttons */}
-              <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-sm shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
-                >
-                  <MessageSquare size={16} />
-                  <span>Chat on WhatsApp Directly</span>
-                  <ArrowRight size={14} className="ml-0.5" />
-                </a>
-
-                <a
-                  href={phoneCallUrl}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-900 font-semibold text-sm border border-slate-200 shadow-xs transition-all duration-200 cursor-pointer"
-                >
-                  <Phone size={15} className="text-blue-600" />
-                  <span>Call +91 76202 36178</span>
-                </a>
-              </div>
-
-              {/* Trust Guarantees */}
-              <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 font-medium">
-                <span className="flex items-center gap-1.5 text-slate-700">
-                  <ShieldCheck size={14} className="text-emerald-600" />
-                  100% IP & Code Ownership
-                </span>
-                <span className="flex items-center gap-1.5 text-slate-700">
-                  <Check size={14} className="text-blue-600" />
-                  ₹0 Hidden Monthly Fees
-                </span>
-                <span className="flex items-center gap-1.5 text-slate-700">
-                  <Check size={14} className="text-purple-600" />
-                  Direct Architect Communication
-                </span>
-              </div>
-            </div>
-
-          </div>
-        </FadeIn>
 
       </div>
     </section>

@@ -20,7 +20,7 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <div className="page-wrap">
+    <div className="page-wrap bg-white min-h-screen text-slate-900">
       <Slide1_ContactHero />
       <Slide2_Form />
       <Slide3_FAQ />

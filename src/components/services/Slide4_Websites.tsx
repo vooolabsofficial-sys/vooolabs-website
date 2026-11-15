@@ -10,12 +10,12 @@ export default function Slide4_Websites() {
   return (
     <section 
       id="websites"
-      className="snap-section min-h-screen bg-[#FAFAFC] flex flex-col justify-center relative overflow-hidden select-none py-20 sm:py-24 border-t border-slate-200/80"
+      className="snap-section min-h-screen bg-[#F8F9FC] flex flex-col justify-center relative overflow-hidden select-none py-20 sm:py-24 border-t border-slate-200/80"
       aria-label="High-Impact Websites — VOOO LABS"
     >
       {/* REFINED AMBIENT ACCENTS */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-sky-500/4 blur-[100px] pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-blue-500/4 blur-[100px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-sky-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-blue-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 w-full">
         
@@ -32,7 +32,7 @@ export default function Slide4_Websites() {
           {/* LEFT COLUMN: THE PROPOSITION */}
           <div className="lg:col-span-6 space-y-5 text-left">
             <FadeIn delay={0.12} y={20}>
-              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A0F1E] tracking-tight leading-[1.15]">
+              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
                 High-Impact Websites That <span className="shimmer-text">Convert Visitors</span> into Clients.
               </h2>
             </FadeIn>
@@ -47,11 +47,11 @@ export default function Slide4_Websites() {
             <FadeIn delay={0.25} y={20}>
               <div className="space-y-3.5 pt-2">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 border border-sky-100">
+                  <div className="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 border border-sky-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">Sub-Second Mobile Load Times</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Sub-Second Mobile Load Times</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
                       Loads in under 0.4 seconds on mobile data networks. Zero visitor bounce caused by sluggish pages.
                     </p>
@@ -59,25 +59,25 @@ export default function Slide4_Websites() {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">1-Tap Direct WhatsApp & Call Ingress</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Direct WhatsApp & One-Tap Calling</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      No lengthy, abandoned contact forms. High-intent visitors reach out to your phone with a single tap.
+                      Strategically engineered call-to-actions make it effortless for interested clients to initiate immediate contact.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">100% Unrestricted Code & Asset Handover</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">100% Unrestricted Asset Ownership</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      You own the complete source code, domain registration, and hosting setup. Zero monthly agency lock-in.
+                      Full ownership of your source code, domain names, DNS, and hosting accounts upon project completion.
                     </p>
                   </div>
                 </div>
@@ -91,94 +91,96 @@ export default function Slide4_Websites() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-semibold text-sm shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-semibold text-sm shadow-md transition-all duration-200 cursor-pointer"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>Launch Your Website</span>
+                  <span>Discuss Your New Website</span>
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </a>
 
                 <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500">
-                  <Zap className="w-4 h-4 text-amber-500" />
-                  <span>Sub-0.4s Mobile Latency</span>
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <span>Fixed Milestone Pricing</span>
                 </div>
               </div>
             </FadeIn>
           </div>
 
-          {/* RIGHT COLUMN: HIGH-END BROWSER & CORE WEB VITALS CARD */}
+          {/* RIGHT COLUMN: WEBSITE SHOWCASE */}
           <div className="lg:col-span-6">
             <FadeIn delay={0.25} y={20}>
-              <div className="rounded-3xl bg-white border border-slate-200/90 shadow-lg shadow-slate-200/40 p-6 sm:p-7 text-left relative overflow-hidden">
+              <div className="rounded-3xl bg-white border border-slate-200/80 shadow-md p-6 sm:p-7 text-left relative overflow-hidden">
                 
-                {/* Browser Window Chrome */}
-                <div className="flex items-center justify-between border-b border-slate-100 pb-3.5 mb-4">
+                {/* Browser Frame Header */}
+                <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
                   <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                    <span className="text-[11px] font-mono text-slate-500 ml-2">https://brand-domain.com</span>
                   </div>
-                  
-                  {/* URL Bar */}
-                  <div className="px-3.5 py-1 rounded-full bg-slate-50 border border-slate-200/80 flex items-center gap-1.5 text-[11px] font-mono text-slate-500">
-                    <Lock size={10} className="text-emerald-500" />
-                    <span>https://yourbusiness.com</span>
-                  </div>
-
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200">
-                    Live Edge CDN
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-sky-50 text-sky-700 border border-sky-200">
+                    Lighthouse 99/100
                   </span>
                 </div>
 
-                {/* Simulated Website Hero Card with 1-Tap Trigger */}
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-50 to-blue-50/40 border border-slate-200/80 mb-4">
-                  <div className="flex items-center justify-between text-[11px] text-slate-500 mb-2">
-                    <span className="font-semibold text-slate-800">Your High-Converting Web Platform</span>
-                    <span className="text-[10px] font-mono text-sky-600 font-bold">100% Mobile Ready</span>
-                  </div>
-                  <div className="font-clash text-lg font-bold text-slate-900 leading-snug">
-                    Modern digital presence designed to build authority & capture ready-to-buy leads.
+                {/* Performance Metrics */}
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div className="p-3.5 rounded-2xl bg-[#FAFAFD] border border-slate-200/80">
+                    <div className="text-[10px] uppercase font-semibold text-slate-500 tracking-wider">Mobile Load Speed</div>
+                    <div className="text-lg font-clash font-bold text-sky-600 mt-0.5">&lt; 0.4s FCP</div>
+                    <div className="text-[11px] text-emerald-600 font-medium mt-0.5">Instant Visual Render</div>
                   </div>
 
-                  {/* 1-Tap Lead Trigger Simulation */}
-                  <div className="mt-3.5 flex items-center gap-2.5">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500 text-white text-xs font-bold shadow-xs">
-                      <span>WhatsApp Direct Inquiry</span>
+                  <div className="p-3.5 rounded-2xl bg-[#FAFAFD] border border-slate-200/80">
+                    <div className="text-[10px] uppercase font-semibold text-slate-500 tracking-wider">Conversion Engine</div>
+                    <div className="text-lg font-clash font-bold text-emerald-600 mt-0.5">1-Tap WhatsApp</div>
+                    <div className="text-[11px] text-slate-500 font-medium mt-0.5">Zero Lost Leads</div>
+                  </div>
+                </div>
+
+                {/* Features */}
+                <div className="space-y-2.5 mb-5">
+                  <div className="p-3 rounded-xl border border-slate-100 bg-[#FAFAFD] flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 border border-sky-200">
+                        <Monitor size={16} />
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-slate-900">Editorial Swiss Typography & Layout</div>
+                        <div className="text-[11px] text-slate-500">Crisp contrast, zero cheap stock feel</div>
+                      </div>
                     </div>
-                    <span className="text-[11px] text-slate-500 font-medium">1-Tap Ingress (No Forms)</span>
+                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-sky-50 text-sky-700 border border-sky-200">
+                      Clean
+                    </span>
+                  </div>
+
+                  <div className="p-3 rounded-xl border border-slate-100 bg-[#FAFAFD] flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
+                        <Zap size={16} />
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-slate-900">SEO & AI Search Discoverability</div>
+                        <div className="text-[11px] text-slate-500">Structured Schema.org JSON-LD included</div>
+                      </div>
+                    </div>
+                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      Ranked
+                    </span>
                   </div>
                 </div>
 
-                {/* Real Core Web Vitals Benchmark Strip */}
-                <div className="grid grid-cols-3 gap-2.5 mb-4 text-center">
-                  <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-100">
-                    <div className="text-[10px] uppercase font-semibold text-slate-400">Lighthouse</div>
-                    <div className="text-xl font-clash font-bold text-emerald-600 mt-0.5">99/100</div>
-                    <div className="text-[10px] text-slate-500 mt-0.5">Google Score</div>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-100">
-                    <div className="text-[10px] uppercase font-semibold text-slate-400">Load Time</div>
-                    <div className="text-xl font-clash font-bold text-sky-600 mt-0.5">0.38s</div>
-                    <div className="text-[10px] text-slate-500 mt-0.5">Sub-Second FCP</div>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-100">
-                    <div className="text-[10px] uppercase font-semibold text-slate-400">Bounce Rate</div>
-                    <div className="text-xl font-clash font-bold text-slate-900 mt-0.5">Zero</div>
-                    <div className="text-[10px] text-slate-500 mt-0.5">Instant Mobile Open</div>
-                  </div>
-                </div>
-
-                {/* Footer Strip */}
+                {/* Status Bar */}
                 <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-mono">
-                  <span className="flex items-center gap-1.5 text-slate-600">
-                    <Monitor size={13} className="text-sky-500" />
-                    Responsive on Mobile & Desktop
+                  <span className="flex items-center gap-1.5 text-slate-500">
+                    <Lock size={13} className="text-emerald-600" />
+                    Automated Free SSL / TLS
                   </span>
                   <span className="text-emerald-600 font-semibold flex items-center gap-1">
                     <CheckCircle2 size={13} />
-                    100% Source Handover
+                    100% Client Owned
                   </span>
                 </div>
 

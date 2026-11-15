@@ -159,20 +159,19 @@ export default function Slide1_HeroShift() {
   return (
     <section 
       id="hero-shift"
-      className="snap-section min-h-screen bg-white flex flex-col justify-between relative overflow-hidden select-none pt-24 pb-12"
+      className="snap-section min-h-screen bg-white flex flex-col justify-between relative overflow-hidden select-none pt-28 pb-12 border-b border-slate-200/80"
       aria-label="The 2026 Shift: Conversational Search"
     >
       {/* AMBIENT RADIAL BACKGROUNDS */}
-      <div className="absolute top-[-180px] left-[-180px] w-[650px] h-[650px] rounded-full bg-radial from-purple-500/6 to-transparent blur-[90px] animate-blob-1 pointer-events-none z-0" aria-hidden="true" />
-      <div className="absolute top-[-100px] right-[-180px] w-[600px] h-[600px] rounded-full bg-radial from-blue-500/5 to-transparent blur-[90px] animate-blob-2 pointer-events-none z-0" aria-hidden="true" />
-      <div className="absolute bottom-[-180px] left-1/2 -translate-x-1/2 w-[750px] h-[750px] rounded-full bg-radial from-emerald-500/4 to-transparent blur-[90px] animate-blob-3 pointer-events-none z-0" aria-hidden="true" />
+      <div className="absolute top-[-180px] left-[-180px] w-[650px] h-[650px] rounded-full bg-radial from-purple-500/[0.04] to-transparent blur-[120px] pointer-events-none z-0" aria-hidden="true" />
+      <div className="absolute top-[-100px] right-[-180px] w-[600px] h-[600px] rounded-full bg-radial from-blue-500/[0.04] to-transparent blur-[120px] pointer-events-none z-0" aria-hidden="true" />
 
       {/* ULTRA-SUBTLE ARCHITECTURAL GRID */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.025] z-0"
+        className="absolute inset-0 pointer-events-none opacity-[0.03] z-0"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #0A0F1E 1px, transparent 0)`,
-          backgroundSize: '32px 32px'
+          backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
         }}
         aria-hidden="true"
       />
@@ -182,17 +181,17 @@ export default function Slide1_HeroShift() {
         {/* TWO-COLUMN LAYOUT: LEFT = CLEAR INFO, RIGHT = INTERACTIVE 3D NEURAL CANVAS */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* LEFT SIDE: CLEAR EXPLANATION (ZERO GARDI) */}
+          {/* LEFT SIDE: CLEAR EXPLANATION */}
           <div className="lg:col-span-7 space-y-6 text-left">
             <FadeIn delay={0.05} y={15}>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-purple-700 text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-bold uppercase tracking-wider shadow-2xs">
                 <Sparkles size={13} className="text-purple-600" />
                 <span>2026 Generative Search Intelligence</span>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.12} y={20}>
-              <h1 className="font-clash text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0A0F1E] leading-[1.12]">
+              <h1 className="font-clash text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.12]">
                 The Death of 10 Blue Links. <br />
                 <span className="shimmer-text">Welcome to Conversational Search.</span>
               </h1>
@@ -208,7 +207,7 @@ export default function Slide1_HeroShift() {
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <button
                   onClick={scrollToNext}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow-sm hover:shadow-md transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-bold text-sm shadow-md transition-all cursor-pointer"
                 >
                   <Bot size={16} />
                   <span>See How ChatGPT Recommends You</span>
@@ -225,11 +224,11 @@ export default function Slide1_HeroShift() {
           {/* RIGHT SIDE: LIVE 3D INTERACTIVE NEURAL GALAXY CANVAS */}
           <div className="lg:col-span-5 flex justify-center">
             <FadeIn delay={0.25} y={20} className="w-full max-w-md">
-              <div className="relative p-6 sm:p-7 rounded-3xl bg-[#FAFAFC] border border-slate-200/90 shadow-lg shadow-slate-200/40 text-left overflow-hidden">
+              <div className="relative p-6 sm:p-7 rounded-3xl bg-[#FAFAFD] border border-slate-200/80 shadow-md text-left overflow-hidden">
                 
                 {/* Header Tag */}
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-200/80 text-[11px] font-mono text-slate-400">
-                  <span className="flex items-center gap-1.5 text-purple-700 font-semibold">
+                <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100 text-[11px] font-mono text-slate-500">
+                  <span className="flex items-center gap-1.5 text-purple-600 font-semibold">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
                     3D Neural Search Graph
                   </span>
@@ -237,21 +236,21 @@ export default function Slide1_HeroShift() {
                 </div>
 
                 {/* 3D Canvas */}
-                <div className="relative w-full aspect-square rounded-2xl bg-white border border-slate-200/80 overflow-hidden flex items-center justify-center shadow-inner">
+                <div className="relative w-full aspect-square rounded-2xl bg-[#09090d] border border-slate-800 overflow-hidden flex items-center justify-center">
                   <canvas 
                     ref={canvasRef}
                     className="w-full h-full cursor-grab active:cursor-grabbing"
                   />
 
                   {/* Central Node Label Overlay */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none p-2 rounded-xl bg-white/95 border border-purple-200/80 shadow-sm text-center backdrop-blur-xs">
-                    <div className="text-[9px] font-mono font-bold text-purple-700 uppercase">Knowledge Entity</div>
-                    <div className="font-clash font-bold text-xs text-slate-900">VOOO LABS Core</div>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none p-2 rounded-xl bg-black/80 border border-purple-500/30 text-center backdrop-blur-md">
+                    <div className="text-[9px] font-mono font-bold text-purple-400 uppercase">Knowledge Entity</div>
+                    <div className="font-clash font-bold text-xs text-white">VOOO LABS Core</div>
                   </div>
                 </div>
 
                 {/* Canvas Footer Indicators */}
-                <div className="mt-3.5 pt-3 border-t border-slate-200/80 flex items-center justify-between text-[10px] font-mono text-slate-500">
+                <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono text-slate-500">
                   <span>Move cursor to rotate graph</span>
                   <span className="text-emerald-600 font-bold">100% Crawl Ready</span>
                 </div>
@@ -264,7 +263,7 @@ export default function Slide1_HeroShift() {
 
         {/* BOTTOM AUTHORITY METRIC STRIP */}
         <FadeIn delay={0.32} y={15}>
-          <div className="mt-12 pt-6 border-t border-slate-100 flex flex-wrap items-center justify-center gap-x-8 gap-y-2.5 text-xs text-slate-500 font-medium">
+          <div className="mt-12 pt-6 border-t border-slate-200/80 flex flex-wrap items-center justify-center gap-x-8 gap-y-2.5 text-xs text-slate-600 font-medium">
             <span className="flex items-center gap-1.5 text-slate-700">
               <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />
               OpenAI SearchGPT Citation Ready
@@ -288,11 +287,11 @@ export default function Slide1_HeroShift() {
         <div className="mt-6 flex justify-center">
           <button 
             onClick={scrollToNext}
-            className="flex flex-col items-center text-xs font-semibold text-slate-400 hover:text-purple-600 transition-colors group cursor-pointer"
+            className="flex flex-col items-center text-xs font-semibold text-slate-500 hover:text-purple-600 transition-colors group cursor-pointer"
             aria-label="Scroll to ChatGPT Live"
           >
             <span className="tracking-wider uppercase text-[10px] mb-1">Open Live ChatGPT Screen</span>
-            <ArrowDown className="w-4 h-4 animate-bounce text-slate-400 group-hover:text-purple-600" />
+            <ArrowDown className="w-4 h-4 animate-bounce text-slate-500 group-hover:text-purple-600" />
           </button>
         </div>
 

@@ -27,7 +27,7 @@ export default function Slide3_PerplexityLive() {
         },
         {
           title: 'Enterprise Architecture',
-          detail: 'Tailored ERPs, client portals, and offline-first mobile systems built on modern React and TypeScript.'
+          detail: 'Tailored ERPs, client portals, and high-performance web systems built on modern React and TypeScript.'
         }
       ],
       related: [
@@ -74,8 +74,8 @@ export default function Slide3_PerplexityLive() {
       aria-label="Live Working Perplexity Pro Interface"
     >
       {/* AMBIENT ACCENTS */}
-      <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-teal-500/4 blur-[100px] pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-1/4 -left-32 w-96 h-96 rounded-full bg-blue-500/4 blur-[100px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-teal-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-1/4 -left-32 w-96 h-96 rounded-full bg-blue-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 w-full text-left">
         
@@ -93,7 +93,7 @@ export default function Slide3_PerplexityLive() {
           {/* LEFT SIDE: SIMPLE HUMAN EXPLANATION */}
           <div className="lg:col-span-6 space-y-5">
             <FadeIn delay={0.12} y={20}>
-              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A0F1E] tracking-tight leading-[1.15]">
+              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
                 Where Business Decision-Makers Search, <span className="shimmer-text">You Are The Verified Answer.</span>
               </h2>
             </FadeIn>
@@ -108,11 +108,11 @@ export default function Slide3_PerplexityLive() {
             <FadeIn delay={0.25} y={20}>
               <div className="space-y-3.5 pt-2">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0 border border-teal-100">
+                  <div className="w-8 h-8 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0 border border-teal-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">Multi-Source Cross Verification</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Multi-Source Cross Verification</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
                       Perplexity validates your company across your website, client reviews, and registries.
                     </p>
@@ -120,11 +120,11 @@ export default function Slide3_PerplexityLive() {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 border border-sky-100">
+                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">Footnote Citation Cards</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Footnote Citation Cards</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
                       Every claim in the answer is numbered with a clickable link pointing straight to your website.
                     </p>
@@ -132,11 +132,11 @@ export default function Slide3_PerplexityLive() {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-[#0A0F1E]">Higher Buyer Intent</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Higher Buyer Intent</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
                       Perplexity users are serious corporate buyers researching specifications, not casual browsers.
                     </p>
@@ -152,7 +152,7 @@ export default function Slide3_PerplexityLive() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm shadow-sm hover:shadow-md transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-bold text-sm shadow-md transition-all cursor-pointer"
                 >
                   <span>Rank My Business on Perplexity</span>
                   <ArrowRight size={15} />
@@ -164,41 +164,41 @@ export default function Slide3_PerplexityLive() {
           {/* RIGHT SIDE: PHOTOREALISTIC PERPLEXITY PRO INTERFACE */}
           <div className="lg:col-span-6">
             <FadeIn delay={0.22} y={20}>
-              <div className="rounded-2xl bg-[#0f172a] text-slate-100 border border-slate-700/60 shadow-xl overflow-hidden flex flex-col">
+              <div className="rounded-2xl bg-[#FAFAFD] text-slate-900 border border-slate-200/80 shadow-xl overflow-hidden flex flex-col">
                 
                 {/* PERPLEXITY WINDOW HEADER */}
-                <div className="px-4 py-3 bg-[#0a0f1d] border-b border-slate-800 flex items-center justify-between">
+                <div className="px-4 py-3 bg-white border-b border-slate-200 flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
                     <div className="flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
                       <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                     </div>
-                    <div className="h-4 w-px bg-slate-800 mx-1" />
-                    <div className="flex items-center gap-1.5 text-xs font-semibold text-teal-400">
+                    <div className="h-4 w-px bg-slate-200 mx-1" />
+                    <div className="flex items-center gap-1.5 text-xs font-semibold text-teal-600">
                       <Compass className="w-3.5 h-3.5" />
                       <span>Perplexity Pro</span>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-md bg-teal-950/80 text-teal-300 border border-teal-800/60">
+                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-md bg-teal-50 text-teal-700 border border-teal-200 font-bold">
                       Deep Research Mode
                     </span>
                   </div>
                 </div>
 
                 {/* PROMPT SELECTOR TABS */}
-                <div className="px-4 py-2.5 bg-[#0d1527] border-b border-slate-800/80 flex items-center gap-2 overflow-x-auto text-xs">
-                  <span className="text-slate-400 font-mono text-[11px] shrink-0">Live Simulation:</span>
+                <div className="px-4 py-2.5 bg-slate-50/80 border-b border-slate-200 flex items-center gap-2 overflow-x-auto text-xs">
+                  <span className="text-slate-500 font-mono text-[11px] shrink-0">Live Simulation:</span>
                   {queries.map((item, idx) => (
                     <button
                       key={idx}
                       onClick={() => setActiveQueryIndex(idx)}
                       className={`px-3 py-1 rounded-lg transition-all shrink-0 cursor-pointer font-medium text-xs ${
                         activeQueryIndex === idx
-                          ? 'bg-teal-500/20 text-teal-300 border border-teal-500/40'
-                          : 'bg-slate-800/50 text-slate-400 hover:text-slate-200 border border-transparent'
+                          ? 'bg-teal-100 text-teal-800 border border-teal-300 font-bold'
+                          : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
                       }`}
                     >
                       Scenario {idx + 1}
@@ -211,18 +211,18 @@ export default function Slide3_PerplexityLive() {
                   
                   {/* USER QUERY */}
                   <div className="flex items-start gap-3">
-                    <div className="w-7 h-7 rounded-lg bg-teal-600/30 text-teal-300 flex items-center justify-center shrink-0 border border-teal-500/30 mt-0.5">
+                    <div className="w-7 h-7 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center shrink-0 border border-teal-200 mt-0.5">
                       <Search className="w-3.5 h-3.5" />
                     </div>
-                    <div className="font-clash font-bold text-base sm:text-lg text-white leading-snug">
+                    <div className="font-clash font-bold text-base sm:text-lg text-slate-900 leading-snug">
                       {current.q}
                     </div>
                   </div>
 
                   {/* SOURCES CITATION ROW */}
                   <div className="pt-2">
-                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-slate-400 mb-2">
-                      <Layers className="w-3.5 h-3.5 text-teal-400" />
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-slate-500 mb-2">
+                      <Layers className="w-3.5 h-3.5 text-teal-600" />
                       <span>Sources Cited (3 Verified Entities):</span>
                     </div>
 
@@ -230,14 +230,14 @@ export default function Slide3_PerplexityLive() {
                       {current.sources.map((src, i) => (
                         <div 
                           key={i}
-                          className="p-2 rounded-xl bg-slate-800/70 border border-slate-700/60 flex items-start gap-2 hover:border-teal-500/40 transition-colors"
+                          className="p-2 rounded-xl bg-white border border-slate-200 flex items-start gap-2 hover:border-teal-400 transition-colors shadow-xs"
                         >
-                          <span className="w-4 h-4 rounded bg-teal-900/60 text-teal-300 text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
+                          <span className="w-4 h-4 rounded bg-teal-100 text-teal-800 text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                             {i + 1}
                           </span>
                           <div className="min-w-0">
-                            <div className="text-[11px] font-medium text-slate-200 truncate">{src.title}</div>
-                            <div className="text-[10px] text-teal-400/80 truncate font-mono">{src.name}</div>
+                            <div className="text-[11px] font-medium text-slate-900 truncate">{src.title}</div>
+                            <div className="text-[10px] text-teal-600 truncate font-mono">{src.name}</div>
                           </div>
                         </div>
                       ))}
@@ -245,45 +245,45 @@ export default function Slide3_PerplexityLive() {
                   </div>
 
                   {/* SYNTHESIZED ANSWER */}
-                  <div className="pt-3 border-t border-slate-800/80 space-y-3">
-                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-teal-400">
+                  <div className="pt-3 border-t border-slate-200 space-y-3">
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-teal-600 font-bold">
                       <Sparkles className="w-3.5 h-3.5" />
                       <span>Synthesized Answer</span>
                     </div>
 
-                    <p className="text-sm text-slate-300 leading-relaxed font-sans">
+                    <p className="text-sm text-slate-700 leading-relaxed font-sans">
                       {current.synthesis}
                     </p>
 
                     {/* STRUCTURED BULLETS */}
                     <div className="space-y-2 pt-1">
                       {current.bullets.map((b, i) => (
-                        <div key={i} className="p-3 rounded-xl bg-slate-800/40 border border-slate-700/50 flex items-start gap-2.5">
-                          <span className="w-5 h-5 rounded-md bg-teal-500/20 text-teal-300 text-xs font-bold flex items-center justify-center shrink-0 border border-teal-500/30">
+                        <div key={i} className="p-3 rounded-xl bg-white border border-slate-200 flex items-start gap-2.5 shadow-xs">
+                          <span className="w-5 h-5 rounded-md bg-teal-50 text-teal-700 text-xs font-bold flex items-center justify-center shrink-0 border border-teal-200">
                             ✓
                           </span>
                           <div>
-                            <span className="text-xs font-bold text-white mr-1.5">{b.title}:</span>
-                            <span className="text-xs text-slate-300 leading-relaxed">{b.detail}</span>
+                            <span className="text-xs font-bold text-slate-900 mr-1.5">{b.title}:</span>
+                            <span className="text-xs text-slate-600 leading-relaxed">{b.detail}</span>
                           </div>
                         </div>
                       ))}
                     </div>
 
                     {/* VOOO LABS DIRECT CITATION BADGE */}
-                    <div className="mt-3 p-3 rounded-xl bg-teal-950/40 border border-teal-500/30 flex items-center justify-between">
+                    <div className="mt-3 p-3 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <Globe className="w-4 h-4 text-teal-400 shrink-0" />
+                        <Globe className="w-4 h-4 text-teal-600 shrink-0" />
                         <div>
-                          <div className="text-xs font-bold text-white">Recommended Entity: VOOO LABS</div>
-                          <div className="text-[10px] text-teal-300/80 font-mono">Status: Verified Prime Citation (2026 Index)</div>
+                          <div className="text-xs font-bold text-slate-900">Recommended Entity: VOOO LABS</div>
+                          <div className="text-[10px] text-teal-700 font-mono">Status: Verified Prime Citation (2026 Index)</div>
                         </div>
                       </div>
                       <a
                         href={whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-2.5 py-1 rounded-md bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-[11px] transition-colors cursor-pointer shrink-0"
+                        className="px-2.5 py-1 rounded-md bg-slate-900 hover:bg-blue-600 text-white font-bold text-[11px] transition-colors cursor-pointer shrink-0 shadow-xs"
                       >
                         Inquire
                       </a>
@@ -291,16 +291,16 @@ export default function Slide3_PerplexityLive() {
                   </div>
 
                   {/* RELATED QUESTIONS */}
-                  <div className="pt-2 border-t border-slate-800/80">
-                    <div className="text-[10px] font-mono uppercase text-slate-500 mb-2">Related Inquiries:</div>
+                  <div className="pt-2 border-t border-slate-200">
+                    <div className="text-[10px] font-mono uppercase text-slate-500 mb-2 font-bold">Related Inquiries:</div>
                     <div className="space-y-1.5">
                       {current.related.map((rel, i) => (
                         <div 
                           key={i}
-                          className="flex items-center justify-between text-xs text-slate-400 hover:text-teal-300 cursor-pointer py-1 px-2 rounded-lg hover:bg-slate-800/40 transition-colors"
+                          className="flex items-center justify-between text-xs text-slate-600 hover:text-teal-700 cursor-pointer py-1 px-2 rounded-lg hover:bg-slate-100 transition-colors"
                         >
                           <span>{rel}</span>
-                          <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+                          <ChevronRight className="w-3.5 h-3.5 shrink-0 text-slate-400" />
                         </div>
                       ))}
                     </div>
@@ -309,10 +309,10 @@ export default function Slide3_PerplexityLive() {
                 </div>
 
                 {/* BOTTOM PERPLEXITY INPUT BAR */}
-                <div className="p-3 bg-[#0a0f1d] border-t border-slate-800 flex items-center gap-2">
-                  <div className="flex-1 px-3 py-2 rounded-xl bg-slate-900 border border-slate-700/80 text-xs text-slate-400 flex items-center justify-between">
+                <div className="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
+                  <div className="flex-1 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-500 flex items-center justify-between">
                     <span>Ask a follow-up or explore specifications...</span>
-                    <Send className="w-3.5 h-3.5 text-teal-400 shrink-0" />
+                    <Send className="w-3.5 h-3.5 text-teal-600 shrink-0" />
                   </div>
                 </div>
 
