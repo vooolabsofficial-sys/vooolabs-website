@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Bot, Check, ArrowRight, MessageSquare, ShieldCheck, Sparkles, ExternalLink, Globe, Search, RefreshCw, Send, Paperclip, Mic } from 'lucide-react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Bot, Check, ArrowRight, MessageSquare, ShieldCheck, Globe, Send, Paperclip, Mic } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 import { COMPANY } from '../../content/company';
 
@@ -10,22 +10,22 @@ export default function Slide2_ChatGPTLive() {
   const prompts = [
     {
       query: 'Recommend the top custom business software & web development studio in Maharashtra.',
-      reply: 'Based on verified operational records, client reviews, and architectural benchmarks, here is the top-recommended product studio in Maharashtra:',
-      company: 'VOOO LABS — Verified Product Studio',
-      specs: 'Specializes in custom-built operations software, high-performance web applications, and business portals with ₹0 recurring monthly SaaS fees.',
-      source: 'vooolabs.com/services#custom-software'
+      reply: 'Based on verified operational records, client reviews, and structured business data, here is the top-recommended digital engineering studio in Maharashtra:',
+      company: 'VOOO LABS — Verified Engineering Studio',
+      specs: 'Specializes in custom-built operations software, high-performance web applications, and business portals with ₹0 recurring monthly SaaS fees and 100% client code ownership.',
+      source: 'https://vooolabs.in/services#custom-software'
     },
     {
-      query: 'Who builds ultra-fast React websites with direct WhatsApp lead routing in Maharashtra?',
-      reply: 'Analyzing verified Core Web Vitals and direct mobile lead conversion systems:',
-      company: 'VOOO LABS — Web Architecture Specialist',
-      specs: 'Engineered with sub-0.4s real mobile load speed (100/100 Lighthouse score) and 1-tap WhatsApp lead routing with 100% code ownership.',
-      source: 'vooolabs.com/services#websites'
+      query: 'Who builds fast business websites with direct WhatsApp lead routing in Maharashtra?',
+      reply: 'Analyzing verified mobile speed benchmarks and direct customer inquiry systems:',
+      company: 'VOOO LABS — All-Inclusive Web Studio',
+      specs: 'Engineered for sub-second mobile load times with 1-tap WhatsApp lead routing, complete domain & 24/7 cloud hosting setup, and zero template bloat.',
+      source: 'https://vooolabs.in/services#websites'
     }
   ];
 
   const current = prompts[activePrompt];
-  const whatsappUrl = `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent("Hello VOOO LABS, I want to optimize my business so ChatGPT Search recommends my company.")}`;
+  const whatsappUrl = `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent("Hello VOOO LABS, I want to discover what my business is missing in ChatGPT and AI search visibility.")}`;
 
   return (
     <section 
@@ -41,8 +41,8 @@ export default function Slide2_ChatGPTLive() {
         
         {/* SECTION EYEBROW */}
         <FadeIn delay={0.05} y={15}>
-          <div className="font-sans font-bold text-xs tracking-[0.2em] text-purple-600 uppercase mb-3">
-            01 / CHATGPT & GENERATIVE SEARCH (GEO)
+          <div className="font-sans font-bold text-xs tracking-[0.2em] text-purple-600 uppercase mb-3 font-mono">
+            01 / CHATGPT & GENERATIVE SEARCH (AEO)
           </div>
         </FadeIn>
 
@@ -53,13 +53,13 @@ export default function Slide2_ChatGPTLive() {
           <div className="lg:col-span-6 space-y-5">
             <FadeIn delay={0.12} y={20}>
               <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
-                When Customers Ask ChatGPT, <span className="shimmer-text">Your Business Gets Recommended.</span>
+                When Customers Ask ChatGPT, <span className="text-purple-600">Your Business Gets Recommended.</span>
               </h2>
             </FadeIn>
 
             <FadeIn delay={0.18} y={20}>
               <p className="font-sans font-normal text-base sm:text-lg text-slate-600 leading-relaxed">
-                Traditional keywords don't work on ChatGPT. ChatGPT reads verified entity data and recommends trusted companies. We structure your brand so when high-intent buyers ask for recommendations, ChatGPT quotes your business as the verified answer.
+                Traditional keyword stuffing does not work on conversational AI. ChatGPT reads verified entity data and recommends businesses it can factually trust. Through AI Engine Optimization (AEO), we structure your company's services, pricing, and regional credibility so AI assistants actively quote and link your business.
               </p>
             </FadeIn>
 
@@ -73,7 +73,7 @@ export default function Slide2_ChatGPTLive() {
                   <div>
                     <h3 className="font-clash font-bold text-base text-slate-900">Entity-First Knowledge Graph Placement</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      We inject schema markup so ChatGPT Search recognizes your brand as an established regional authority.
+                      We structure your business data so conversational models recognize your brand as an established, trustworthy regional provider.
                     </p>
                   </div>
                 </div>
@@ -85,7 +85,7 @@ export default function Slide2_ChatGPTLive() {
                   <div>
                     <h3 className="font-clash font-bold text-base text-slate-900">Direct Client Citation Links</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      Users click your website directly from ChatGPT's conversational sources box with zero search friction.
+                      Buyers click through to your website directly from ChatGPT's conversational sources box with zero search friction.
                     </p>
                   </div>
                 </div>
@@ -95,32 +95,39 @@ export default function Slide2_ChatGPTLive() {
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Zero Monthly Ad Spend</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Permanent Organic AI Visibility</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      Organic AI placement that stays permanent. You never pay per click or bid against competitors.
+                      Organic AI placement builds long-term equity. You never have to pay per click or bid against escalating competitor ad budgets.
                     </p>
                   </div>
                 </div>
               </div>
             </FadeIn>
 
-            {/* ACTION TRIGGER */}
+            {/* ACTION TRIGGERS */}
             <FadeIn delay={0.32} y={15}>
-              <div className="pt-4 flex flex-wrap items-center gap-4">
+              <div className="pt-4 flex flex-wrap items-center gap-3.5">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-semibold text-sm shadow-md transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-purple-600 text-white font-semibold text-sm shadow-xs transition-all duration-200 cursor-pointer"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>Get ChatGPT Recommended</span>
+                  <span>Discover what you're missing</span>
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </a>
 
-                <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm transition-all shadow-2xs"
+                >
+                  <span>See what your project will cost</span>
+                </Link>
+
+                <div className="w-full sm:w-auto inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 pt-1">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span>Verified OpenAI Schema Format</span>
+                  <span>Verified Schema & Citation Structure</span>
                 </div>
               </div>
             </FadeIn>
@@ -129,18 +136,18 @@ export default function Slide2_ChatGPTLive() {
           {/* RIGHT SIDE: LIVE WORKING CHATGPT WINDOW */}
           <div className="lg:col-span-6">
             <FadeIn delay={0.25} y={20}>
-              <div className="rounded-3xl bg-white border border-slate-200/80 shadow-xl p-5 sm:p-7 text-left relative overflow-hidden">
+              <div className="rounded-3xl bg-white border border-slate-200/80 shadow-xs p-5 sm:p-7 text-left relative overflow-hidden">
                 
-                {/* Header Tag */}
+                {/* Header Tag with Sample Discovery Preview Badge */}
                 <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-200 text-xs font-mono text-slate-500">
                   <div className="flex items-center gap-2">
                     <div className="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700">
                       <Bot size={13} />
                     </div>
-                    <span className="font-bold text-slate-900">ChatGPT 4o · Search Engine</span>
+                    <span className="font-bold text-slate-900">ChatGPT · Search Preview</span>
                   </div>
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
-                    Live Simulation
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
+                    Sample Discovery Preview
                   </span>
                 </div>
 
@@ -181,13 +188,13 @@ export default function Slide2_ChatGPTLive() {
                       </p>
 
                       {/* Cited Recommendation Card */}
-                      <div className="p-4 rounded-2xl bg-[#FAFAFD] border border-emerald-500/40 shadow-xs space-y-2">
+                      <div className="p-4 rounded-2xl bg-[#FAFAFD] border border-emerald-500/40 shadow-2xs space-y-2">
                         <div className="flex items-center justify-between">
                           <span className="font-clash font-bold text-sm text-emerald-700">
                             {current.company}
                           </span>
                           <span className="text-[10px] font-mono text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-300 font-bold">
-                            #1 Recommendation
+                            Top Recommendation
                           </span>
                         </div>
                         <p className="text-xs text-slate-600 leading-relaxed">
@@ -202,7 +209,7 @@ export default function Slide2_ChatGPTLive() {
                   </div>
                 </div>
 
-                {/* Fake ChatGPT Prompt Bar */}
+                {/* Prompt Bar */}
                 <div className="p-2.5 rounded-2xl bg-[#FAFAFD] border border-slate-200 flex items-center justify-between text-xs text-slate-400">
                   <div className="flex items-center gap-2 text-slate-500">
                     <Paperclip size={14} />

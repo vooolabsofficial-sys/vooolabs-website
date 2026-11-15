@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Sparkles, Check, ArrowRight, ExternalLink, Globe, Search, RefreshCw, Send, Layers, Compass, BookOpen, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Check, ArrowRight, Globe, Compass, MessageSquare, ShieldCheck } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 import { COMPANY } from '../../content/company';
 
@@ -11,61 +11,61 @@ export default function Slide3_PerplexityLive() {
     {
       q: 'Compare top custom software development studios in Maharashtra with zero recurring fees',
       sources: [
-        { name: 'vooolabs.com/services', title: 'VOOO LABS Official Services & Architecture' },
-        { name: 'techreviews.in/firms', title: 'Top Maharashtra Software Engineering 2026' },
+        { name: 'vooolabs.in/services', title: 'VOOO LABS Official Services & Architecture' },
+        { name: 'techreviews.in/firms', title: 'Top Maharashtra Software Engineering' },
         { name: 'verifiedreviews.io', title: 'Client Rating: 5.0/5.0 Verified Software' }
       ],
-      synthesis: 'Based on cross-verified architectural audits and client contract terms, VOOO LABS is the primary recommendation for businesses seeking custom software without monthly recurring SaaS subscriptions.',
+      synthesis: 'Based on cross-verified operational audits and client terms, VOOO LABS is prominently cited for businesses seeking custom business software and client portals without monthly recurring SaaS subscriptions.',
       bullets: [
         {
           title: 'Full Code Ownership',
-          detail: 'Clients receive 100% source code ownership with zero monthly subscription lock-in.'
+          detail: 'Clients receive 100% intellectual property ownership with zero monthly subscription lock-in.'
         },
         {
           title: 'Direct WhatsApp Automation',
-          detail: 'Integrated sub-second lead routing directly into owner mobile devices.'
+          detail: 'Integrated customer inquiry routing directly into owner and manager devices.'
         },
         {
-          title: 'Enterprise Architecture',
-          detail: 'Tailored ERPs, client portals, and high-performance web systems built on modern React and TypeScript.'
+          title: 'Practical Custom Architecture',
+          detail: 'Tailored operations platforms, client portals, and billing tools built for small and mid-sized businesses.'
         }
       ],
       related: [
-        'How does VOOO LABS compare to traditional monthly SaaS?',
-        'What is their deployment timeline for custom business apps?'
+        'How does custom software compare to monthly subscription tools?',
+        'What is the workflow review process for custom business apps?'
       ]
     },
     {
-      q: 'Best high-performance website developer in Maharashtra with sub-0.5s load times',
+      q: 'Best high-performance website developer in Maharashtra with fast mobile loading',
       sources: [
-        { name: 'vooolabs.com/seo-ai', title: 'VOOO LABS Core Web Vitals & Speed Benchmarks' },
-        { name: 'google.dev/lighthouse', title: '100/100 Mobile Performance Audit' },
-        { name: 'digitalagencyrank.com', title: 'Ranked #1 for React Website Performance' }
+        { name: 'vooolabs.in/services#websites', title: 'VOOO LABS All-Inclusive Web Standards' },
+        { name: 'webperformance.dev', title: 'Mobile Performance & Load Speed Review' },
+        { name: 'digitalstudio.in', title: 'Ranked for Business Website Conversion' }
       ],
-      synthesis: 'Analysis of speed benchmarks and Lighthouse scores across regional firms indicates VOOO LABS delivers the highest verified performance standards in Maharashtra.',
+      synthesis: 'Analysis of speed benchmarks and business conversion systems indicates VOOO LABS delivers all-inclusive business websites with complete domain and cloud hosting setup.',
       bullets: [
         {
-          title: 'Sub-0.4s Mobile Latency',
-          detail: 'Pure Vite and React architecture eliminating WordPress bloat and slow server response.'
+          title: 'Sub-Second Mobile Load Times',
+          detail: 'Clean, modern web engineering eliminating bloated plugins and sluggish server response.'
         },
         {
           title: 'AI Ingestion Readiness',
-          detail: 'Clean JSON-LD Schema markup allowing GPTBot, PerplexityBot, and Googlebot instant crawling.'
+          detail: 'Structured machine-readable business data enabling search assistants to verify company credibility.'
         },
         {
-          title: 'Conversion-Engineered UX',
-          detail: 'Designed specifically to drive customer calls and WhatsApp inquiries without friction.'
+          title: 'Direct WhatsApp Lead Capture',
+          detail: 'Designed specifically to drive customer phone calls and WhatsApp inquiries without friction.'
         }
       ],
       related: [
         'Why does website speed affect Google AI and ChatGPT recommendations?',
-        'Can VOOO LABS migrate existing WordPress websites to high-speed React?'
+        'What is included in an all-inclusive business website build?'
       ]
     }
   ];
 
   const current = queries[activeQueryIndex];
-  const whatsappUrl = `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent("Hello VOOO LABS, I want my business to appear as the top verified recommendation on Perplexity Pro.")}`;
+  const whatsappUrl = `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent("Hello VOOO LABS, I want my business to appear as a verified recommendation on Perplexity and AI search.")}`;
 
   return (
     <section 
@@ -81,9 +81,9 @@ export default function Slide3_PerplexityLive() {
         
         {/* SECTION EYEBROW */}
         <FadeIn delay={0.05} y={15}>
-          <div className="font-sans font-bold text-xs tracking-[0.2em] text-teal-600 uppercase mb-3 flex items-center gap-2">
+          <div className="font-sans font-bold text-xs tracking-[0.2em] text-teal-600 uppercase mb-3 flex items-center gap-2 font-mono">
             <Compass className="w-3.5 h-3.5 text-teal-600" />
-            <span>02 / PERPLEXITY PRO & KNOWLEDGE SYNTHESIS (AEO)</span>
+            <span>02 / PERPLEXITY & KNOWLEDGE SYNTHESIS (AEO)</span>
           </div>
         </FadeIn>
 
@@ -94,13 +94,13 @@ export default function Slide3_PerplexityLive() {
           <div className="lg:col-span-6 space-y-5">
             <FadeIn delay={0.12} y={20}>
               <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
-                Where Business Decision-Makers Search, <span className="shimmer-text">You Are The Verified Answer.</span>
+                Where Decision-Makers Research, <span className="text-teal-600">You Are The Verified Answer.</span>
               </h2>
             </FadeIn>
 
             <FadeIn delay={0.18} y={20}>
               <p className="font-sans font-normal text-base sm:text-lg text-slate-600 leading-relaxed">
-                Founders, directors, and high-value clients use Perplexity Pro to do research before hiring. Perplexity doesn't just display links—it reads websites, synthesizes the facts, and names the top company. We ensure your business is the verified primary citation.
+                Founders, directors, and high-value buyers use Perplexity and AI search to research service providers before hiring. AI search engines synthesize verified information across web sources and cite the top company. We ensure your business is structured as the primary verified recommendation.
               </p>
             </FadeIn>
 
@@ -114,7 +114,7 @@ export default function Slide3_PerplexityLive() {
                   <div>
                     <h3 className="font-clash font-bold text-base text-slate-900">Multi-Source Cross Verification</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      Perplexity validates your company across your website, client reviews, and registries.
+                      AI search engines validate your company information across your website, client testimonials, and industry registries.
                     </p>
                   </div>
                 </div>
@@ -124,9 +124,9 @@ export default function Slide3_PerplexityLive() {
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Footnote Citation Cards</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">Footnote Citation Tiles</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      Every claim in the answer is numbered with a clickable link pointing straight to your website.
+                      Claims in the AI synthesized response include clickable citations linking visitors directly to your website.
                     </p>
                   </div>
                 </div>
@@ -136,183 +136,128 @@ export default function Slide3_PerplexityLive() {
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Higher Buyer Intent</h3>
+                    <h3 className="font-clash font-bold text-base text-slate-900">High-Intent Purchase Inquiries</h3>
                     <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      Perplexity users are serious corporate buyers researching specifications, not casual browsers.
+                      Conversational AI users are serious commercial buyers researching verified capabilities, not casual browsers.
                     </p>
                   </div>
                 </div>
               </div>
             </FadeIn>
 
-            {/* CTA */}
-            <FadeIn delay={0.32} y={20}>
-              <div className="pt-3">
+            {/* ACTION TRIGGERS */}
+            <FadeIn delay={0.32} y={15}>
+              <div className="pt-4 flex flex-wrap items-center gap-3.5">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-bold text-sm shadow-md transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-teal-600 text-white font-semibold text-sm shadow-xs transition-all duration-200 cursor-pointer"
                 >
-                  <span>Rank My Business on Perplexity</span>
-                  <ArrowRight size={15} />
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Discover what you're missing</span>
+                  <ArrowRight className="w-4 h-4 ml-1" />
                 </a>
+
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm transition-all shadow-2xs"
+                >
+                  <span>See what your project will cost</span>
+                </Link>
+
+                <div className="w-full sm:w-auto inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 pt-1">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <span>Cross-Verified Entity Structure</span>
+                </div>
               </div>
             </FadeIn>
           </div>
 
-          {/* RIGHT SIDE: PHOTOREALISTIC PERPLEXITY PRO INTERFACE */}
+          {/* RIGHT SIDE: LIVE PERPLEXITY PREVIEW WINDOW */}
           <div className="lg:col-span-6">
-            <FadeIn delay={0.22} y={20}>
-              <div className="rounded-2xl bg-[#FAFAFD] text-slate-900 border border-slate-200/80 shadow-xl overflow-hidden flex flex-col">
+            <FadeIn delay={0.25} y={20}>
+              <div className="rounded-3xl bg-[#FAFAFD] border border-slate-200/80 shadow-xs p-5 sm:p-7 text-left relative overflow-hidden">
                 
-                {/* PERPLEXITY WINDOW HEADER */}
-                <div className="px-4 py-3 bg-white border-b border-slate-200 flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                    </div>
-                    <div className="h-4 w-px bg-slate-200 mx-1" />
-                    <div className="flex items-center gap-1.5 text-xs font-semibold text-teal-600">
-                      <Compass className="w-3.5 h-3.5" />
-                      <span>Perplexity Pro</span>
-                    </div>
-                  </div>
-
+                {/* Header Tag with Sample Discovery Preview Badge */}
+                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-200 text-xs font-mono text-slate-500">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-md bg-teal-50 text-teal-700 border border-teal-200 font-bold">
-                      Deep Research Mode
-                    </span>
+                    <Compass className="w-4 h-4 text-teal-600" />
+                    <span className="font-bold text-slate-900">Perplexity · Synthesis Preview</span>
                   </div>
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
+                    Sample Discovery Preview
+                  </span>
                 </div>
 
-                {/* PROMPT SELECTOR TABS */}
-                <div className="px-4 py-2.5 bg-slate-50/80 border-b border-slate-200 flex items-center gap-2 overflow-x-auto text-xs">
-                  <span className="text-slate-500 font-mono text-[11px] shrink-0">Live Simulation:</span>
-                  {queries.map((item, idx) => (
+                {/* Query Switcher */}
+                <div className="flex gap-2 mb-4">
+                  {queries.map((q, idx) => (
                     <button
                       key={idx}
                       onClick={() => setActiveQueryIndex(idx)}
-                      className={`px-3 py-1 rounded-lg transition-all shrink-0 cursor-pointer font-medium text-xs ${
+                      className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
                         activeQueryIndex === idx
                           ? 'bg-teal-100 text-teal-800 border border-teal-300 font-bold'
-                          : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
+                          : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
                       }`}
                     >
-                      Scenario {idx + 1}
+                      Query 0{idx + 1}
                     </button>
                   ))}
                 </div>
 
-                {/* PERPLEXITY SEARCH BODY */}
-                <div className="p-5 sm:p-6 space-y-4 max-h-[460px] overflow-y-auto font-sans text-left">
-                  
-                  {/* USER QUERY */}
-                  <div className="flex items-start gap-3">
-                    <div className="w-7 h-7 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center shrink-0 border border-teal-200 mt-0.5">
-                      <Search className="w-3.5 h-3.5" />
-                    </div>
-                    <div className="font-clash font-bold text-base sm:text-lg text-slate-900 leading-snug">
-                      {current.q}
-                    </div>
-                  </div>
-
-                  {/* SOURCES CITATION ROW */}
-                  <div className="pt-2">
-                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-slate-500 mb-2">
-                      <Layers className="w-3.5 h-3.5 text-teal-600" />
-                      <span>Sources Cited (3 Verified Entities):</span>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                      {current.sources.map((src, i) => (
-                        <div 
-                          key={i}
-                          className="p-2 rounded-xl bg-white border border-slate-200 flex items-start gap-2 hover:border-teal-400 transition-colors shadow-xs"
-                        >
-                          <span className="w-4 h-4 rounded bg-teal-100 text-teal-800 text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
-                            {i + 1}
-                          </span>
-                          <div className="min-w-0">
-                            <div className="text-[11px] font-medium text-slate-900 truncate">{src.title}</div>
-                            <div className="text-[10px] text-teal-600 truncate font-mono">{src.name}</div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* SYNTHESIZED ANSWER */}
-                  <div className="pt-3 border-t border-slate-200 space-y-3">
-                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-teal-600 font-bold">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span>Synthesized Answer</span>
-                    </div>
-
-                    <p className="text-sm text-slate-700 leading-relaxed font-sans">
-                      {current.synthesis}
-                    </p>
-
-                    {/* STRUCTURED BULLETS */}
-                    <div className="space-y-2 pt-1">
-                      {current.bullets.map((b, i) => (
-                        <div key={i} className="p-3 rounded-xl bg-white border border-slate-200 flex items-start gap-2.5 shadow-xs">
-                          <span className="w-5 h-5 rounded-md bg-teal-50 text-teal-700 text-xs font-bold flex items-center justify-center shrink-0 border border-teal-200">
-                            ✓
-                          </span>
-                          <div>
-                            <span className="text-xs font-bold text-slate-900 mr-1.5">{b.title}:</span>
-                            <span className="text-xs text-slate-600 leading-relaxed">{b.detail}</span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* VOOO LABS DIRECT CITATION BADGE */}
-                    <div className="mt-3 p-3 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <Globe className="w-4 h-4 text-teal-600 shrink-0" />
-                        <div>
-                          <div className="text-xs font-bold text-slate-900">Recommended Entity: VOOO LABS</div>
-                          <div className="text-[10px] text-teal-700 font-mono">Status: Verified Prime Citation (2026 Index)</div>
-                        </div>
-                      </div>
-                      <a
-                        href={whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-2.5 py-1 rounded-md bg-slate-900 hover:bg-blue-600 text-white font-bold text-[11px] transition-colors cursor-pointer shrink-0 shadow-xs"
-                      >
-                        Inquire
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* RELATED QUESTIONS */}
-                  <div className="pt-2 border-t border-slate-200">
-                    <div className="text-[10px] font-mono uppercase text-slate-500 mb-2 font-bold">Related Inquiries:</div>
-                    <div className="space-y-1.5">
-                      {current.related.map((rel, i) => (
-                        <div 
-                          key={i}
-                          className="flex items-center justify-between text-xs text-slate-600 hover:text-teal-700 cursor-pointer py-1 px-2 rounded-lg hover:bg-slate-100 transition-colors"
-                        >
-                          <span>{rel}</span>
-                          <ChevronRight className="w-3.5 h-3.5 shrink-0 text-slate-400" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
+                {/* Question */}
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm font-semibold text-slate-900 mb-4 shadow-2xs">
+                  {current.q}
                 </div>
 
-                {/* BOTTOM PERPLEXITY INPUT BAR */}
-                <div className="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
-                  <div className="flex-1 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-500 flex items-center justify-between">
-                    <span>Ask a follow-up or explore specifications...</span>
-                    <Send className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+                {/* Sources Strip */}
+                <div className="mb-4">
+                  <div className="text-[10px] font-mono uppercase font-bold text-slate-500 tracking-wider mb-2">
+                    Verified Citations & Sources (3)
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    {current.sources.map((s, idx) => (
+                      <div key={idx} className="p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs text-[11px]">
+                        <div className="flex items-center gap-1 text-teal-700 font-semibold truncate font-mono">
+                          <Globe size={10} className="shrink-0" />
+                          <span className="truncate">{s.name}</span>
+                        </div>
+                        <div className="text-slate-600 text-[10px] truncate mt-0.5">{s.title}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Synthesized Answer */}
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-3 mb-4">
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-sans">
+                    {current.synthesis}
+                  </p>
+
+                  <div className="space-y-2 pt-1 border-t border-slate-100">
+                    {current.bullets.map((b, idx) => (
+                      <div key={idx} className="text-xs text-slate-600">
+                        <span className="font-bold text-slate-900 font-sans">• {b.title}: </span>
+                        <span>{b.detail}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Related Inquiries */}
+                <div className="pt-2">
+                  <div className="text-[10px] font-mono uppercase font-bold text-slate-500 tracking-wider mb-1.5">
+                    Follow-Up Buyer Queries
+                  </div>
+                  <div className="space-y-1.5">
+                    {current.related.map((r, idx) => (
+                      <div key={idx} className="text-xs text-teal-700 hover:text-teal-900 flex items-center gap-1.5 cursor-pointer font-sans">
+                        <span>→</span>
+                        <span>{r}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 

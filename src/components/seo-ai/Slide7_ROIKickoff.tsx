@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, ArrowRight, MessageSquare, Check, X, ChevronDown, Sparkles, Building, Globe, HelpCircle } from 'lucide-react';
+import { ArrowRight, MessageSquare, Check, X, ChevronDown, Sparkles, Building, Globe, HelpCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import FadeIn from '../shared/FadeIn';
 import { COMPANY } from '../../content/company';
 
@@ -11,26 +12,26 @@ export default function Slide7_ROIKickoff() {
 
   const handleAuditSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const query = `Hello VOOO LABS, I would like a Free 2026 AI Visibility Audit for my business:%0A• Business Name: ${encodeURIComponent(businessName || 'My Business')}%0A• Website / City: ${encodeURIComponent(websiteCity || 'Maharashtra')}%0APlease check our ChatGPT, Perplexity, and Google AI Overview presence.`;
+    const query = `Hello VOOO LABS, I would like a Free AI Search Visibility Audit for my business:%0A• Business Name: ${encodeURIComponent(businessName || 'My Business')}%0A• Website / City: ${encodeURIComponent(websiteCity || 'Maharashtra')}%0APlease check our ChatGPT, Perplexity, and Google presence.`;
     window.open(`https://wa.me/${COMPANY.whatsapp}?text=${query}`, '_blank');
   };
 
   const faqs = [
     {
-      q: 'How long does it take for ChatGPT & Perplexity to start recommending my business?',
-      a: 'AI crawler ingestion cycles (OpenAI GPTBot and PerplexityBot) typically index entity schemas and cross-reference citations within 3 to 6 weeks, after which generative recommendations become visible.'
+      q: 'How long does it take for ChatGPT & Google AI to start recommending my business?',
+      a: 'Search crawlers typically index structured business data within 3 to 6 weeks, after which conversational citations and recommendations become visible.'
     },
     {
-      q: 'Do I have to pay monthly fees to OpenAI, Perplexity, or Google?',
-      a: 'No. AI search citations are purely organic editorial answers. Once your business entity authority and sub-0.4s code are structured, you pay ₹0 monthly recurring ad fees.'
+      q: 'Do I have to pay monthly fees to OpenAI, Perplexity, or Google for AI citations?',
+      a: 'No. AI search citations are purely organic answers. Once your business profile structure and fast website are in place, you pay ₹0 monthly recurring citation fees.'
     },
     {
       q: 'Can you optimize my existing website or do I need a new build?',
-      a: 'We can inject JSON-LD schemas and entity structures into your existing website, or migrate your frontend to our sub-0.4s headless React architecture if your current site is too slow for AI crawlers.'
+      a: 'We can structure your existing website for AI search engines, or build you an all-inclusive high-speed website if your current platform is too slow or outdated.'
     },
     {
-      q: 'How do we know when ChatGPT or Google AI recommends our business?',
-      a: 'We provide before-and-after query verification screenshots across multiple high-intent prompts, plus inbound WhatsApp referral tracking so you see exactly which inquiries originated from AI search.'
+      q: 'How does AI Platform Ads setup work?',
+      a: 'We configure targeted campaigns on emerging conversational and AI search networks, create dedicated high-converting landing pages, and route all leads directly to your sales WhatsApp.'
     }
   ];
 
@@ -38,7 +39,7 @@ export default function Slide7_ROIKickoff() {
     <section 
       id="audit-kickoff"
       className="snap-section min-h-screen bg-white flex flex-col justify-center relative overflow-hidden select-none py-20 sm:py-24 border-t border-slate-200/80 scroll-mt-28"
-      aria-label="ROI Financial Comparison and Free AI Audit Kickoff"
+      aria-label="Financial Comparison and Free AI Audit Kickoff"
     >
       {/* AMBIENT ACCENTS */}
       <div className="absolute top-1/4 -right-32 w-96 h-96 rounded-full bg-purple-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true" />
@@ -48,9 +49,9 @@ export default function Slide7_ROIKickoff() {
         
         {/* SECTION EYEBROW */}
         <FadeIn delay={0.05} y={15}>
-          <div className="font-sans font-bold text-xs tracking-[0.2em] text-purple-600 uppercase mb-3 flex items-center gap-2">
+          <div className="font-sans font-bold text-xs tracking-[0.2em] text-purple-600 uppercase mb-3 flex items-center gap-2 font-mono">
             <Sparkles className="w-3.5 h-3.5 text-purple-600" />
-            <span>06 / FINANCIAL REALITY & PERMANENT AI EQUITY</span>
+            <span>06 / PERMANENT AI EQUITY • OWNED DISCOVERY</span>
           </div>
         </FadeIn>
 
@@ -61,13 +62,13 @@ export default function Slide7_ROIKickoff() {
           <div className="lg:col-span-6 space-y-6">
             <FadeIn delay={0.12} y={20}>
               <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
-                Stop Paying Monthly Rent On Ads. <span className="shimmer-text">Build Owned AI Search Equity.</span>
+                Stop Paying Monthly Rent On Ads. <span className="text-purple-600">Build Owned AI Search Equity.</span>
               </h2>
             </FadeIn>
 
             <FadeIn delay={0.18} y={20}>
               <p className="font-sans font-normal text-base sm:text-lg text-slate-600 leading-relaxed">
-                When you run Google Ads, the minute you stop paying ₹50,000 every month, all your traffic and leads vanish overnight. AI search optimization is like buying commercial land: you build permanent entity authority that recommends your business 24/7 with zero ongoing ad spend.
+                When you rent pay-per-click ads, the moment your budget runs out, all traffic disappears overnight. AI search optimization builds permanent digital authority: ChatGPT, Google Gemini, and Google Maps recommend your business 24/7 with zero ongoing click fees.
               </p>
             </FadeIn>
 
@@ -79,11 +80,11 @@ export default function Slide7_ROIKickoff() {
                 <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 space-y-2">
                   <div className="flex items-center gap-2 text-rose-700 font-bold text-xs font-mono uppercase">
                     <X className="w-4 h-4 stroke-[2.5]" />
-                    <span>Rented Google / Meta Ads</span>
+                    <span>Rented Ad Spend</span>
                   </div>
                   <div className="font-clash font-bold text-xl text-slate-900">₹30,000 – ₹1L+ / mo</div>
                   <p className="font-sans text-xs text-slate-600 leading-relaxed">
-                    Zero permanent equity. Clicks vanish the instant your daily credit card balance is drained.
+                    Zero permanent equity. Inquiries vanish the instant your daily credit card balance runs out.
                   </p>
                 </div>
 
@@ -91,11 +92,11 @@ export default function Slide7_ROIKickoff() {
                 <div className="p-4 rounded-2xl bg-emerald-50 border-2 border-emerald-300 shadow-xs space-y-2">
                   <div className="flex items-center gap-2 text-emerald-700 font-bold text-xs font-mono uppercase">
                     <Check className="w-4 h-4 stroke-[2.5]" />
-                    <span>VOOO LABS AI Search Equity</span>
+                    <span>Owned AI Search Equity</span>
                   </div>
-                  <div className="font-clash font-bold text-xl text-emerald-800">₹0 / month Recurring</div>
+                  <div className="font-clash font-bold text-xl text-emerald-800">₹0 / month Ongoing</div>
                   <p className="font-sans text-xs text-slate-600 leading-relaxed">
-                    100% owned asset. ChatGPT, Perplexity, and Google cite your brand organically forever.
+                    100% client-owned asset. ChatGPT, Perplexity, and Google cite your brand organically.
                   </p>
                 </div>
 
@@ -107,7 +108,7 @@ export default function Slide7_ROIKickoff() {
               <div className="space-y-2.5 pt-2 text-xs sm:text-sm text-slate-700 font-medium">
                 <div className="flex items-center gap-2.5">
                   <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Cites your brand at the exact moment of high-intent purchase decisions</span>
+                  <span>Recommends your business at the exact moment of high-intent purchase queries</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Check className="w-4 h-4 text-emerald-600 shrink-0" />
@@ -115,8 +116,18 @@ export default function Slide7_ROIKickoff() {
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Guaranteed 100% source code and entity data ownership</span>
+                  <span>100% client code and entity data ownership with zero lock-in</span>
                 </div>
+              </div>
+
+              <div className="pt-3">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                >
+                  <span>See what your project will cost</span>
+                  <ArrowRight size={13} />
+                </Link>
               </div>
             </FadeIn>
           </div>
@@ -126,20 +137,20 @@ export default function Slide7_ROIKickoff() {
             <FadeIn delay={0.22} y={20}>
               
               {/* INTERACTIVE SCANNER BOX */}
-              <div className="rounded-3xl bg-[#FAFAFD] border border-slate-200/80 shadow-xl p-6 sm:p-8 space-y-5 text-left relative overflow-hidden">
+              <div className="rounded-3xl bg-[#FAFAFD] border border-slate-200/80 shadow-xs p-6 sm:p-8 space-y-5 text-left relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-emerald-500" />
                 
                 <div>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold mb-2 border border-purple-200">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold mb-2 border border-purple-200 font-mono">
                     <Sparkles className="w-3.5 h-3.5" />
-                    <span>Free 2026 AI Search Visibility Audit</span>
+                    <span>Free AI Search Visibility Audit</span>
                   </div>
 
                   <h3 className="font-clash font-bold text-xl sm:text-2xl text-slate-900 leading-tight">
-                    Does ChatGPT Recommend Your Company Today?
+                    Does ChatGPT Recommend Your Business Today?
                   </h3>
                   <p className="font-sans text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                    Enter your business details below. We will test your business across ChatGPT, Perplexity, and Google AI Overviews and send you a detailed audit report on WhatsApp.
+                    Enter your business details below. We review your business presence across ChatGPT, Perplexity, and Google and share an honest audit report on WhatsApp.
                   </p>
                 </div>
 
@@ -155,7 +166,7 @@ export default function Slide7_ROIKickoff() {
                         required
                         value={businessName}
                         onChange={(e) => setBusinessName(e.target.value)}
-                        placeholder="e.g. Apex Engineering Works or Dr. Sharma Clinic"
+                        placeholder="e.g. Acme Industrial Works"
                         className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600/30"
                       />
                     </div>
@@ -172,7 +183,7 @@ export default function Slide7_ROIKickoff() {
                         required
                         value={websiteCity}
                         onChange={(e) => setWebsiteCity(e.target.value)}
-                        placeholder="e.g. apexengineering.in or Pune, Maharashtra"
+                        placeholder="e.g. acmeindustrial.in or Pune, Maharashtra"
                         className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600/30"
                       />
                     </div>
@@ -180,17 +191,17 @@ export default function Slide7_ROIKickoff() {
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 px-6 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-3.5 px-6 rounded-xl bg-slate-900 hover:bg-purple-600 text-white font-bold text-sm shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <MessageSquare className="w-4 h-4" />
-                    <span>Run AI Audit & Send Report on WhatsApp</span>
+                    <span>Discover what you're missing</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </form>
 
-                <div className="text-[11px] text-slate-500 flex items-center justify-between pt-1 border-t border-slate-200">
+                <div className="text-[11px] text-slate-500 flex items-center justify-between pt-1 border-t border-slate-200 font-sans">
                   <span>✓ 100% Free · No Obligation</span>
-                  <span>✓ Delivered directly to your phone</span>
+                  <span>✓ Honest feedback direct to your WhatsApp</span>
                 </div>
 
               </div>
@@ -205,7 +216,7 @@ export default function Slide7_ROIKickoff() {
                 {faqs.map((faq, idx) => (
                   <div 
                     key={idx}
-                    className="rounded-2xl border border-slate-200/80 bg-white shadow-xs overflow-hidden"
+                    className="rounded-2xl border border-slate-200/80 bg-white shadow-2xs overflow-hidden"
                   >
                     <button
                       onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
