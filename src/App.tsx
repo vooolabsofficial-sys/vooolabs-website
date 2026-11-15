@@ -11,7 +11,6 @@ const HomePage = React.lazy(() => import('./pages/HomePage'));
 const ServicesPage = React.lazy(() => import('./pages/ServicesPage'));
 const SeoAiPage = React.lazy(() => import('./pages/SeoAiPage'));
 const AboutPage = React.lazy(() => import('./pages/AboutPage'));
-const RoadmapPage = React.lazy(() => import('./pages/RoadmapPage'));
 const ContactPage = React.lazy(() => import('./pages/ContactPage'));
 const LegalPage = React.lazy(() => import('./pages/LegalPage'));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage'));
@@ -70,8 +69,6 @@ function AppRoutes() {
       title = 'AI Search & Organic Discovery (AEO/GEO) — VOOO LABS';
     } else if (path === '/about') {
       title = 'About Studio & Lead Architect — VOOO LABS';
-    } else if (path === '/roadmap') {
-      title = 'Engineering Delivery Roadmap — VOOO LABS';
     } else if (path === '/contact') {
       title = 'Start Your Project & Inquire — VOOO LABS';
     } else if (path === '/legal/privacy') {
@@ -98,7 +95,6 @@ function AppRoutes() {
         <Route path="/services" element={<PageWrapper><ServicesPage /></PageWrapper>} />
         <Route path="/seo-ai" element={<PageWrapper><SeoAiPage /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
-        <Route path="/roadmap" element={<PageWrapper><RoadmapPage /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
         <Route path="/legal" element={<PageWrapper><LegalPage /></PageWrapper>} />
         <Route path="/legal/:doc" element={<PageWrapper><LegalPage /></PageWrapper>} />

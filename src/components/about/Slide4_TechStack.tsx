@@ -26,17 +26,17 @@ const STEPS: ProcessStep[] = [
   {
     step: '02',
     badge: 'ARCHITECTURE',
-    title: 'Honest Plan & Timeline',
+    title: 'Clear Plan & Honest Timeline',
     role: 'Fixed Milestones & Transparent Cost',
     description:
       'Deterministic delivery milestones, all-inclusive pricing, and a realistic schedule with zero hidden fees or false timeline promises.',
-    deliverable: 'All-Inclusive Quote & Delivery Roadmap',
+    deliverable: 'All-Inclusive Quote & Delivery Schedule',
     icon: Compass,
   },
   {
     step: '03',
     badge: 'ENGINEERING',
-    title: 'Live Build Preview',
+    title: 'Build & Live Preview',
     role: 'Weekly Working Milestones',
     description:
       'Transparent weekly review sessions where you interact with the working website, web app, or software on your own smartphone and PC.',
@@ -46,7 +46,7 @@ const STEPS: ProcessStep[] = [
   {
     step: '04',
     badge: 'HANDOVER',
-    title: 'Launch & 100% Ownership',
+    title: 'Launch & 100% Handover',
     role: 'Deployment & Full Client IP',
     description:
       'Complete domain setup, DNS configuration, 24/7 cloud hosting, SSL, and 100% source code, database, and asset handover.',

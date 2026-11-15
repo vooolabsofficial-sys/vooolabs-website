@@ -43,10 +43,10 @@ export default function LegalPage() {
                   key={item.slug}
                   to={`/legal/${item.slug}`}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`rounded-full border px-4 py-1.5 font-sans font-medium text-xs transition-colors shadow-2xs ${
+                  className={`rounded-xl border px-3.5 py-1.5 font-sans font-medium text-xs transition-colors shadow-2xs ${
                     isActive
-                      ? 'border-blue-600 bg-blue-50 text-blue-700 font-semibold'
-                      : 'border-slate-200 text-slate-600 hover:border-slate-300 hover:text-slate-900 bg-slate-50'
+                      ? 'border-zinc-950 bg-zinc-900 text-white font-semibold'
+                      : 'border-zinc-200 text-zinc-600 hover:border-zinc-300 hover:text-zinc-950 bg-zinc-50'
                   }`}
                 >
                   {item.title}
@@ -58,33 +58,33 @@ export default function LegalPage() {
 
         {/* DOCUMENT HEADER */}
         <FadeIn delay={0.1} y={20}>
-          <header className="mb-10 pb-8 border-b border-slate-200/80">
-            <h1 className="font-clash text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 mb-3">
+          <header className="mb-10 pb-8 border-b border-zinc-200">
+            <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-950 mb-3 tracking-tight">
               {document.title}
             </h1>
-            <p className="font-sans text-sm sm:text-base text-slate-600 mb-4 leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-zinc-600 mb-4 leading-relaxed">
               {document.summary}
             </p>
-            <span className="font-mono text-xs text-slate-500">
+            <span className="font-mono text-xs text-zinc-500">
               Last updated: {formatDate(document.updated)}
             </span>
           </header>
         </FadeIn>
 
         {/* SECTIONS */}
-        <div className="space-y-10">
+        <div className="space-y-8">
           {document.sections.map((section, idx) => (
             <FadeIn key={idx} delay={0.15 + idx * 0.05} y={20}>
-              <section className="rounded-3xl border border-slate-200/80 bg-[#FAFAFD] p-6 sm:p-8 shadow-xs">
-                <h2 className="font-clash text-xl sm:text-2xl font-semibold text-slate-900 mb-4">
+              <section className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 sm:p-8 shadow-2xs">
+                <h2 className="font-sans text-xl sm:text-2xl font-bold text-zinc-950 mb-4 tracking-tight">
                   {section.heading}
                 </h2>
-                <div className="space-y-3 font-sans text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <div className="space-y-3 font-sans text-xs sm:text-sm text-zinc-700 leading-relaxed">
                   {section.paragraphs.map((p, pIdx) => (
                     <p key={pIdx}>{p}</p>
                   ))}
                   {section.bullets && (
-                    <ul className="list-disc list-inside space-y-1.5 pl-2 pt-2 text-slate-600">
+                    <ul className="list-disc list-inside space-y-1.5 pl-2 pt-2 text-zinc-600">
                       {section.bullets.map((b, bIdx) => (
                         <li key={bIdx}>{b}</li>
                       ))}

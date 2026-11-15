@@ -48,8 +48,8 @@ export default function Navbar() {
   const navLinks = [
     { path: '/', label: 'Home' },
     { path: '/services', label: 'Services' },
-    { path: '/seo-ai', label: 'SEO & AI Growth' },
-    { path: '/about', label: 'About Studio' },
+    { path: '/seo-ai', label: 'AI Search & Ads' },
+    { path: '/about', label: 'About' },
     { path: '/contact', label: 'Contact' },
   ];
 

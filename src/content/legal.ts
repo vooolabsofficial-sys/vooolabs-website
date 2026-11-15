@@ -26,13 +26,13 @@ export const LEGAL_DOCUMENTS: LegalDocument[] = [
   {
     slug: 'privacy',
     title: 'Privacy Policy',
-    summary: `How ${ENTITY} handles information across our client portal and web studio platforms.`,
-    updated: '2026-10-24',
+    summary: `How ${ENTITY} (${COMPANY.domain}) handles information across our studio website and client inquiry channels.`,
+    updated: '2026-11-16',
     sections: [
       {
         heading: 'Who this covers',
         paragraphs: [
-          `${ENTITY} is an independent web software and digital engineering studio based in ${PLACE}. This policy applies to this website and to client scoping forms.`,
+          `${ENTITY} (${COMPANY.domain}) is an independent web software and digital engineering studio based in ${PLACE}. This policy applies to this website (vooolabs.in) and to client project inquiry forms.`,
           `We believe in radical data privacy. We do not sell user data, we do not run third-party advertising tracking scripts, and we do not profile visitors.`,
         ],
       },
@@ -40,7 +40,7 @@ export const LEGAL_DOCUMENTS: LegalDocument[] = [
         heading: 'What this website collects',
         paragraphs: [
           'This site runs zero intrusive third-party trackers, zero advertising tags, and sets zero cross-site tracking cookies.',
-          'The only information we receive is what you voluntarily type into our project inquiry form: your name, business email, project requirements, and estimated budget. This information is transmitted securely to our lead architect exclusively to prepare your project proposal.',
+          `The only information we receive is what you voluntarily type into our project inquiry form: your name, business email, project requirements, and estimated budget. This information is transmitted securely to our founder (${COMPANY.email}) exclusively to prepare your project proposal.`,
         ],
       },
       {
@@ -55,9 +55,9 @@ export const LEGAL_DOCUMENTS: LegalDocument[] = [
           'Client software and production web platforms use industry-standard enterprise cloud infrastructure:',
         ],
         bullets: [
-          'PostgreSQL databases with Row-Level Security (RLS) and encrypted storage at rest.',
-          'Cloudflare global edge network with TLS 1.3 encryption and automated DDoS mitigation.',
-          'Zero-trust token handling and private environment variable isolation.',
+          'Secure databases with Row-Level Security (RLS) and encrypted storage at rest.',
+          'Global cloud edge network with TLS 1.3 encryption and automated DDoS mitigation.',
+          'Zero-trust credential handling and private environment variable isolation.',
         ],
       },
       {
@@ -71,26 +71,26 @@ export const LEGAL_DOCUMENTS: LegalDocument[] = [
   {
     slug: 'terms',
     title: 'Terms of Service',
-    summary: `Standard engagement and service terms for client engineering projects with ${ENTITY}.`,
-    updated: '2026-10-24',
+    summary: `Standard engagement and service terms for custom web development, business software engineering, and AI search growth with ${ENTITY} (${COMPANY.domain}).`,
+    updated: '2026-11-16',
     sections: [
       {
         heading: 'Agreement',
         paragraphs: [
-          `By engaging ${ENTITY} for web development, custom software engineering, or technical consulting, you agree to these transparent engagement terms.`,
+          `By engaging ${ENTITY} (${COMPANY.domain}) for custom websites, web applications, business software engineering, or AI search visibility, you agree to these transparent engagement terms.`,
         ],
       },
       {
         heading: 'Deterministic project scoping',
         paragraphs: [
-          'Every client project begins with an architectural specification outlining exact deliverables, tech stack choices, milestone dates, and investment brackets.',
+          'Every client project begins with an architectural specification outlining exact deliverables, architecture choices, milestone dates, and transparent all-inclusive pricing.',
           'Any additions beyond the approved technical specification are estimated and agreed upon in writing before engineering work commences.',
         ],
       },
       {
         heading: 'Direct architect collaboration',
         paragraphs: [
-          'Clients collaborate directly with our lead software architect throughout the project lifecycle. Weekly sprint demonstrations and live preview URLs are provided at each milestone.',
+          'Clients collaborate directly with our founder and lead software architect throughout the project lifecycle. Weekly sprint demonstrations and live preview links are provided at each milestone.',
         ],
       },
       {
@@ -107,8 +107,8 @@ export const LEGAL_DOCUMENTS: LegalDocument[] = [
   {
     slug: 'ip-ownership',
     title: 'Code Ownership & IP Guarantee',
-    summary: 'Our guarantee of 100% intellectual property and source code handover.',
-    updated: '2026-10-24',
+    summary: 'Our guarantee of 100% intellectual property, domain, and source code handover.',
+    updated: '2026-11-16',
     sections: [
       {
         heading: '100% Client Intellectual Property',
@@ -122,7 +122,7 @@ export const LEGAL_DOCUMENTS: LegalDocument[] = [
           'We transfer primary ownership of the GitHub repository containing the complete commit history, automated CI/CD configurations, and documentation.',
         ],
         bullets: [
-          '100% unminified, clean TypeScript and React source code.',
+          '100% clean, production-ready, fully commented source code.',
           'Production build scripts and automated deployment workflows.',
           'Database migration files, schema seeds, and configuration templates.',
           'Architectural documentation and deployment setup runbooks.',
@@ -131,7 +131,7 @@ export const LEGAL_DOCUMENTS: LegalDocument[] = [
       {
         heading: 'Zero vendor lock-in',
         paragraphs: [
-          'We use standard, industry-proven open-source frameworks and modern cloud platforms. There is zero proprietary licensing fee, zero mandatory retainer, and zero vendor lock-in.',
+          'We use standard, industry-proven open-source foundations and modern cloud platforms. There is zero proprietary licensing fee, zero mandatory recurring retainer, and zero vendor lock-in.',
         ],
       },
     ],
@@ -140,7 +140,7 @@ export const LEGAL_DOCUMENTS: LegalDocument[] = [
     slug: 'refunds',
     title: 'Milestone & Refund Policy',
     summary: 'Clear milestone review protocols and fair cancellation terms.',
-    updated: '2026-10-24',
+    updated: '2026-11-16',
     sections: [
       {
         heading: 'Phased milestone delivery',

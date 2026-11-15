@@ -26,11 +26,6 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://vooolabs.in/roadmap</loc>
-    <priority>0.5</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>https://vooolabs.in/legal/privacy</loc>
     <priority>0.4</priority>
     <changefreq>yearly</changefreq>

@@ -1,102 +1,102 @@
 import React from 'react';
-import { ShieldCheck, Zap, Layers, Users } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 
 export default function Slide2_Story() {
   const comparisons = [
     {
-      metric: 'Speed & Responsiveness',
-      traditional: '4 to 8 second load times on mobile due to bloated themes and 30+ unmaintained third-party plugins.',
-      vooolabs: 'Sub-0.4 second instant loads engineered with pure, compiled web code on high-speed global Edge CDNs.',
+      metric: 'Speed & Mobile Conversion',
+      traditional: 'Slow 4 to 8 second mobile load times caused by unmaintained WordPress themes, bloated visual builders, and dozens of third-party plugins.',
+      vooolabs: 'Instant mobile page loads engineered with clean, modern web standards and high-speed cloud hosting across India.',
     },
     {
-      metric: 'Code & Data Ownership',
-      traditional: 'Proprietary platform lock-ins, hidden per-seat licensing, and monthly hostage maintenance fees.',
-      vooolabs: '100% intellectual property ownership with full GitHub repository transfer upon final milestone delivery.',
+      metric: 'Source Code & Data Ownership',
+      traditional: 'Proprietary platform locks, forced monthly per-seat licensing fees, and refusal to grant database access or export source code.',
+      vooolabs: '100% intellectual property ownership. You receive full domain control, hosting access, and full repository handover with zero vendor locks.',
     },
     {
-      metric: 'Lead & Sales Capture',
-      traditional: 'Passive email forms that get buried in spam folders and lose 70% of potential client inquiries.',
-      vooolabs: 'Direct 1-tap WhatsApp lead funnels and automated alerts that reach your team in under 2 seconds.',
+      metric: 'Lead & Inquiry Funnels',
+      traditional: 'Passive email forms that get buried in spam folders while interested customers give up and contact competing businesses.',
+      vooolabs: 'Direct 1-tap WhatsApp lead funnels and phone calling buttons that deliver high-intent customer inquiries directly to your team.',
     },
     {
-      metric: 'Communication & Delivery',
-      traditional: 'Non-technical account managers who misinterpret requirements and outsource development.',
-      vooolabs: 'Direct collaboration with our lead software architect with live staging previews every week.',
+      metric: 'Technical Leadership',
+      traditional: 'Polished sales representatives who promise features they cannot build, then hand your project off to junior contractors.',
+      vooolabs: 'Direct collaboration with our lead software architect with weekly working staging previews on your smartphone and PC.',
     },
   ];
 
   return (
-    <section className="bg-[#F8F9FC] py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-slate-200/80">
+    <section className="bg-zinc-50 py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-zinc-200">
       <div className="max-w-6xl mx-auto">
         
-        {/* EDITORIAL SWISS HEADER */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16 pb-12 border-b border-slate-200/80">
-          <div className="lg:col-span-5">
+        {/* EDITORIAL HEADER */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16 pb-12 border-b border-zinc-200">
+          <div className="lg:col-span-5 text-left">
             <FadeIn delay={0} y={15}>
-              <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
-                ORIGIN & MANIFESTO
+              <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
+                ORIGIN & STUDIO ETHOS
               </span>
-              <h2 className="font-clash font-semibold text-3xl sm:text-5xl text-slate-900 leading-[1.08]">
+              <h2 className="font-sans font-bold text-3xl sm:text-5xl text-zinc-950 leading-[1.08] tracking-tight">
                 Why We Built <br />
-                <span className="shimmer-text font-bold">VOOO LABS.</span>
+                VOOO LABS.
               </h2>
             </FadeIn>
           </div>
 
-          <div className="lg:col-span-7 space-y-4">
+          <div className="lg:col-span-7 space-y-4 text-left">
             <FadeIn delay={0.08} y={15}>
-              <p className="font-sans text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                Modern businesses require web software that loads instantly, operates without crashes, and delivers measurable commercial outcomes. Yet, most traditional web agencies continue reselling bloated templates that fail to convert visitors or solve internal operational headaches.
+              <p className="font-sans text-sm sm:text-base text-zinc-700 leading-relaxed font-normal">
+                Growing businesses in Maharashtra and across India need web platforms and operational software that load instantly, handle real volume without breaking, and turn website traffic into paying clients.
               </p>
-              <p className="font-sans text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                We founded <strong>VOOO LABS</strong> in Maharashtra to offer a disciplined engineering alternative: <strong>deterministic milestones, sub-second execution speeds, automated WhatsApp lead funnels, and uncompromised client source code ownership.</strong>
+              <p className="font-sans text-sm sm:text-base text-zinc-700 leading-relaxed font-normal">
+                Yet most agencies continue selling fragile, pre-made website templates that break after six months and leave clients locked out of their own systems. We founded <strong>VOOO LABS</strong> to provide a disciplined engineering alternative: <strong>honest planning, instant loading speed, automated WhatsApp leads, and 100% client code and hosting ownership.</strong>
               </p>
             </FadeIn>
           </div>
         </div>
 
-        {/* COMPARATIVE SWISS GRID */}
+        {/* COMPARATIVE GRID */}
         <FadeIn delay={0.16} y={20}>
-          <div className="rounded-3xl border border-slate-200/80 bg-white overflow-hidden shadow-sm">
-            <div className="p-6 sm:p-8 border-b border-slate-200/80 bg-[#FAFAFD] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 block mb-1">
-                  ARCHITECTURAL BENCHMARK
+          <div className="rounded-2xl border border-zinc-200 bg-white overflow-hidden shadow-2xs">
+            <div className="p-6 sm:p-8 border-b border-zinc-200 bg-zinc-50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="text-left">
+                <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-zinc-500 block mb-1">
+                  INDUSTRY BENCHMARK
                 </span>
-                <h3 className="font-clash font-semibold text-xl sm:text-2xl text-slate-900">
-                  Generic Agencies vs. VOOO LABS Engineering
+                <h3 className="font-sans font-bold text-xl sm:text-2xl text-zinc-950">
+                  Generic Agency Templates vs. VOOO LABS Engineering
                 </h3>
               </div>
-              <div className="flex items-center gap-2 text-xs font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-full self-start sm:self-auto font-medium">
-                <ShieldCheck size={14} />
+              <div className="flex items-center gap-2 text-xs font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-lg self-start sm:self-auto font-medium">
+                <ShieldCheck size={14} className="text-emerald-600" />
                 <span>Deterministic Standard</span>
               </div>
             </div>
 
-            <div className="divide-y divide-slate-200/80">
+            <div className="divide-y divide-zinc-200 text-left">
               {comparisons.map((item, idx) => (
                 <div
                   key={idx}
-                  className="grid grid-cols-1 md:grid-cols-12 p-6 sm:p-8 hover:bg-slate-50/60 transition-colors duration-200 gap-4 items-center"
+                  className="grid grid-cols-1 md:grid-cols-12 p-6 sm:p-8 hover:bg-zinc-50/70 transition-colors duration-150 gap-4 items-center"
                 >
                   <div className="md:col-span-3">
-                    <span className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-1">
+                    <span className="font-mono text-xs font-semibold uppercase tracking-wider text-zinc-400 block mb-1">
                       Standard 0{idx + 1}
                     </span>
-                    <h4 className="font-clash font-semibold text-base sm:text-lg text-slate-900">
+                    <h4 className="font-sans font-bold text-base sm:text-lg text-zinc-950">
                       {item.metric}
                     </h4>
                   </div>
 
-                  <div className="md:col-span-4 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-xs sm:text-sm text-rose-950">
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-rose-700 font-bold block mb-1.5">
+                  <div className="md:col-span-4 p-4 rounded-xl bg-zinc-100 border border-zinc-200 text-xs sm:text-sm text-zinc-700">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-500 font-bold block mb-1.5">
                       Generic Agency Template
                     </span>
                     <span className="font-sans leading-relaxed">{item.traditional}</span>
                   </div>
 
-                  <div className="md:col-span-5 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-xs sm:text-sm text-emerald-950">
+                  <div className="md:col-span-5 p-4 rounded-xl bg-white border border-zinc-300 text-xs sm:text-sm text-zinc-950 shadow-2xs">
                     <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-700 font-bold block mb-1.5">
                       VOOO LABS Studio Standard
                     </span>

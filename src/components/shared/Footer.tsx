@@ -122,7 +122,6 @@ export default function Footer() {
           <div className="flex flex-col gap-2.5">
             <Link to="/about" className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all">About Studio</Link>
             <Link to="/about#founder" className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all">Founder Profile</Link>
-            <Link to="/roadmap" className="font-sans font-normal text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all">Delivery Roadmap</Link>
             <Link
               to="/contact"
               className="font-sans font-medium text-sm text-blue-400 hover:text-blue-300 inline-flex items-center gap-1.5 transition-colors pt-1"
