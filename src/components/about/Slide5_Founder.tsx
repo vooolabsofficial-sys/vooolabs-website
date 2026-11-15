@@ -12,19 +12,19 @@ export default function Slide5_Founder() {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <section id="founder" className="bg-white py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-zinc-200">
-      <div className="max-w-5xl mx-auto">
+    <section id="founder" className="bg-white py-20 lg:py-28 px-6 sm:px-8 select-none antialiased border-b border-zinc-200">
+      <div className="max-w-6xl mx-auto">
         
         {/* EDITORIAL HEADER */}
         <div className="mb-14 pb-8 border-b border-zinc-200 text-left">
           <FadeIn delay={0} y={15}>
-            <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
+            <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
               STUDIO LEADERSHIP & ACCOUNTABILITY
             </span>
-            <h2 className="font-sans font-bold text-3xl sm:text-5xl text-zinc-950 tracking-tight mb-3">
+            <h2 className="font-sans font-semibold text-2xl sm:text-3xl text-zinc-950 tracking-tight leading-snug mb-3">
               A Direct Letter from the Founder
             </h2>
-            <p className="font-sans text-xs sm:text-sm text-zinc-600 max-w-2xl font-normal">
+            <p className="font-sans text-base text-zinc-600 max-w-2xl font-normal leading-relaxed">
               When you work with VOOO LABS, you work directly with the software engineer who designs, codes, and maintains your systems. No salespeople, no account managers, and no outsourced junior staff.
             </p>
           </FadeIn>
@@ -144,7 +144,7 @@ export default function Slide5_Founder() {
               </blockquote>
 
               {/* EDITORIAL LETTER PROSE */}
-              <div className="space-y-4 font-sans text-xs sm:text-sm text-zinc-700 leading-relaxed font-normal">
+              <div className="space-y-4 font-sans text-base text-zinc-700 leading-relaxed font-normal">
                 <p>
                   Dear Business Owner,
                 </p>

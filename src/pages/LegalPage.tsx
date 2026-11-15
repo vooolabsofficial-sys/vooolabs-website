@@ -79,7 +79,7 @@ export default function LegalPage() {
                 <h2 className="font-sans text-xl sm:text-2xl font-bold text-zinc-950 mb-4 tracking-tight">
                   {section.heading}
                 </h2>
-                <div className="space-y-3 font-sans text-xs sm:text-sm text-zinc-700 leading-relaxed">
+                <div className="space-y-3 font-sans text-sm sm:text-base text-zinc-700 leading-relaxed">
                   {section.paragraphs.map((p, pIdx) => (
                     <p key={pIdx}>{p}</p>
                   ))}

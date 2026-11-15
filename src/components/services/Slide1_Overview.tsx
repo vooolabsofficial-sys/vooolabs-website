@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, Cpu, Laptop, Globe, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Globe, Laptop, Cpu, Sparkles, ArrowRight, ArrowDown, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../shared/FadeIn';
 
@@ -10,78 +8,83 @@ const DISCIPLINES = [
     number: '01',
     category: 'All-Inclusive Web Platform',
     title: 'All-Inclusive Business Websites',
-    shortDesc: 'Custom design, domain setup, 24/7 cloud hosting & direct WhatsApp lead integration. Complete technical setup with zero headaches.',
-    accent: '#0284C7',
-    icon: Globe,
-    highlights: ['Domain, DNS & 24/7 Hosting Included', '1-Tap WhatsApp & Phone Inquiries', '100% Client Code & Asset Ownership'],
-    previewMetric: 'All-In-One',
-    previewBadge: 'Complete Setup',
-    specRows: [
-      { label: 'Domain & Complete DNS Routing', val: 'INCLUDED' },
-      { label: '24/7 Fast Cloud Hosting & SSL', val: 'INCLUDED' },
-      { label: '1-Tap WhatsApp Ingress Funnel', val: 'INCLUDED' },
-      { label: 'Monthly Website Hostage Fees', val: '₹0' },
-    ]
+    description: 'High-trust, ultra-fast websites designed for small, mid-sized, and growing businesses to convert visitors into direct WhatsApp and phone inquiries. We handle the entire technical lifecycle: custom visual design, responsive build, domain registration, complete DNS configuration, 24/7 cloud hosting, and SSL certificates with 100% client code ownership.',
+    deliverables: [
+      'Custom Design & Responsive Build',
+      'Domain & Complete DNS Setup',
+      '24/7 Fast Cloud Hosting & SSL',
+      '1-Tap WhatsApp Lead Ingress',
+      '100% Code & Asset Ownership',
+    ],
+    anchor: '#websites',
   },
   {
     id: 'web-apps',
     number: '02',
     category: 'Client & Member Portals',
     title: 'Custom Web Apps & Portals',
-    shortDesc: 'Customer-facing portals, student dashboards & booking systems. In today’s AI era, custom web apps are practical and affordable for growing businesses.',
-    accent: '#3B82F6',
-    icon: Laptop,
-    highlights: ['Affordable custom engineering', 'Secure client & member logins', '100% responsive cross-device'],
-    previewMetric: '₹0 / mo',
-    previewBadge: 'No Per-Seat Fees',
-    specRows: [
-      { label: 'Customer Accounts & Logins', val: 'INCLUDED' },
-      { label: 'Role-Based Access Security', val: 'INCLUDED' },
-      { label: 'Centralized Cloud Database', val: 'INCLUDED' },
-      { label: 'Per-User Monthly Seat Fees', val: '₹0 FOREVER' },
-    ]
+    description: 'Self-service customer portals, student and member dashboards, appointment booking systems, and interactive operational tools. In today’s AI era, custom web applications that previously cost lakhs are now practical and affordable for growing businesses—built robustly without cutting corners.',
+    deliverables: [
+      'Customer Portals & Secure Logins',
+      'Role-Based Staff Access Controls',
+      'Centralized Cloud Database',
+      'Affordable AI-Era Engineering',
+      '₹0 Monthly Per-User Seat Fees',
+    ],
+    anchor: '#web-apps',
   },
   {
     id: 'custom-software',
     number: '03',
     category: 'Operations & Workflow Systems',
     title: 'Custom Business Software',
-    shortDesc: 'Custom GST invoicing, inquiry pipelines, staff task tracking & operations dashboards that replace chaotic spreadsheets and WhatsApp notes.',
-    accent: '#10B981',
-    icon: Cpu,
-    highlights: ['Tailored 100% to your routine', 'Replaces Excel & WhatsApp chaos', '100% Owned · Zero software rent'],
-    previewMetric: '100% Owned',
-    previewBadge: 'Perpetual Asset',
-    specRows: [
-      { label: 'Custom GST Invoicing Engine', val: '1-CLICK PDF' },
-      { label: 'Inquiry & Order Pipeline', val: 'SYNCHRONIZED' },
-      { label: 'Staff Task Tracking Board', val: 'INCLUDED' },
-      { label: 'Source Code & Data Handover', val: '100% OWNED' },
-    ]
+    description: 'Replace fragile spreadsheets, scattered WhatsApp notes, and expensive per-user monthly SaaS tools with unified business operations software. Custom-tailored to your exact daily workflow with 1-click GST tax invoicing, real-time order and payment tracking, and staff task boards.',
+    deliverables: [
+      '1-Click GST Invoicing Engine (PDF)',
+      'Real-Time Order & Payment Pipelines',
+      'Staff Task Assignment Board',
+      'Automated Daily Cloud Backups',
+      '100% Owned · Zero Software Rent',
+    ],
+    anchor: '#custom-software',
   },
   {
     id: 'google-presence',
     number: '04',
     category: 'Search & AI Discovery',
-    title: 'AI Search, Ads & Google Presence',
-    shortDesc: 'Google SEO, ChatGPT & Gemini recommendations (AEO), Google Maps 3-Pack (GEO), and targeted AI platform ad campaign setups.',
-    accent: '#8B5CF6',
-    icon: Sparkles,
-    highlights: ['ChatGPT, Gemini & Perplexity citations', 'Google Maps 3-Pack local ranking', 'Targeted AI platform ad setup'],
-    previewMetric: 'Multi-Engine',
-    previewBadge: 'AI & Map Discovery',
-    specRows: [
-      { label: 'Google Search SEO Optimization', val: 'INCLUDED' },
-      { label: 'ChatGPT & Gemini AEO Structuring', val: 'INCLUDED' },
-      { label: 'Google Maps Top-3 Local Pin', val: 'OPTIMIZED' },
-      { label: 'Targeted AI Ads & Landing Page', val: 'CONFIGURED' },
-    ]
+    title: 'AI Search Visibility & AI Ads',
+    description: 'Modern customers search conversational AI engines, Google AI Overviews, and Google Maps. We engineer your digital presence with verified schema markup, local entity citations, and targeted AI platform ad campaign setups so your business gets recommended first when buyers search.',
+    deliverables: [
+      'ChatGPT, Gemini & Perplexity Recommendations',
+      'Google Maps 3-Pack Local Pin Ranking',
+      'Google Search Technical SEO & Speed',
+      'Targeted AI Platform Ad Campaigns',
+      'Multi-Engine Business Knowledge Entity',
+    ],
+    anchor: '#google-presence',
+  },
+];
+
+const ALL_INCLUSIVE_DELIVERABLES = [
+  {
+    title: 'Domain Registration & Complete DNS Routing',
+    description: 'Complete setup of your business domain, DNS records, business email routing, and SSL certificates handled end-to-end.',
+  },
+  {
+    title: '24/7 Fast Cloud Hosting & SSL Security',
+    description: 'Sub-second mobile speed hosted on enterprise-grade global edge infrastructure with continuous HTTPS security.',
+  },
+  {
+    title: '1-Tap WhatsApp & Phone Lead Routing',
+    description: 'Prominent, high-converting contact triggers routing mobile visitors directly into personal sales chats with zero friction.',
+  },
+  {
+    title: '100% Client Code & Data Ownership',
+    description: 'Full intellectual property handover on day one. You own your code, database, and domain with zero monthly software rent or vendor lock-in.',
   },
 ];
 
 export default function Slide1_Overview() {
-  const [activeTab, setActiveTab] = useState(0);
-
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -89,222 +92,143 @@ export default function Slide1_Overview() {
     }
   };
 
-  const current = DISCIPLINES[activeTab];
-
   return (
     <section 
       id="services-overview"
-      className="snap-section min-h-screen bg-white flex flex-col justify-between relative overflow-hidden select-none pt-28 pb-12 border-b border-slate-200/80"
+      className="snap-section min-h-screen bg-white flex flex-col justify-between relative overflow-hidden select-none pt-28 pb-16 border-b border-slate-200/80"
       aria-label="Services Overview — VOOO LABS"
     >
-      {/* AMBIENT BACKGROUND GLOWS */}
-      <div className="absolute top-[-180px] left-[-180px] w-[650px] h-[650px] rounded-full bg-radial from-blue-500/[0.04] to-transparent blur-[120px] pointer-events-none z-0" aria-hidden="true" />
-      <div className="absolute top-[-100px] right-[-180px] w-[600px] h-[600px] rounded-full bg-radial from-purple-500/[0.04] to-transparent blur-[120px] pointer-events-none z-0" aria-hidden="true" />
+      {/* ORIGINAL VIBRANT AMBIENT GLOWS */}
+      <div className="absolute top-[-180px] left-[-180px] w-[650px] h-[650px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none z-0" aria-hidden="true" />
+      <div className="absolute top-[-100px] right-[-180px] w-[600px] h-[600px] rounded-full bg-purple-500/10 blur-[120px] pointer-events-none z-0" aria-hidden="true" />
+      <div className="absolute bottom-[-100px] left-1/3 w-[500px] h-[500px] rounded-full bg-orange-500/8 blur-[100px] pointer-events-none z-0" aria-hidden="true" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 w-full my-auto py-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 w-full my-auto py-8">
         
-        {/* EDITORIAL HEADER */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+        {/* EDITORIAL HEADER (STRICT LEFT-ALIGNMENT & 4-TIER TYPOGRAPHY SCALE) */}
+        <div className="max-w-3xl mb-14 text-left">
           <FadeIn delay={0.05} y={15}>
-            <div className="font-sans font-bold text-xs tracking-[0.2em] text-blue-600 uppercase mb-3 text-center font-mono">
+            <div className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider mb-2">
               VOOO LABS ENGINEERING · CORE DISCIPLINES
             </div>
           </FadeIn>
 
           <FadeIn delay={0.12} y={20}>
-            <h1 className="font-clash text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-5">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15] mb-5">
               Software, Web Platforms & <br />
-              <span className="text-slate-900">AI Search Visibility.</span>
+              <span className="shimmer-text">AI Search Visibility.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.18} y={20}>
-            <p className="font-sans font-normal text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              We design and engineer grounded digital systems tailored around how your business actually operates. Complete ownership, zero rigid templates, and honest workflow-based delivery.
+            <p className="text-base leading-relaxed text-slate-600 max-w-2xl">
+              We design and engineer grounded digital systems tailored around how your business actually operates. Complete code ownership, zero rigid templates, and honest workflow-based delivery.
             </p>
           </FadeIn>
         </div>
 
-        {/* NUMBERED EDITORIAL ROW LAYOUT (01 THROUGH 04) SPLIT WITH ARCHITECTURAL PREVIEW */}
+        {/* FULL-WIDTH ASYMMETRIC EDITORIAL LIST (DIVIDE-Y SEPARATED BY SUBTLE 1PX DIVIDERS) */}
         <FadeIn delay={0.25} y={20} className="w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            
-            {/* LEFT 60%: NUMBERED EDITORIAL ROWS SEPARATED BY HAIRLINE DIVIDERS */}
-            <div className="lg:col-span-7 space-y-2 text-left">
-              <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 mb-3 px-1">
-                Editorial Service Index (Click to Inspect)
-              </div>
-
-              {DISCIPLINES.map((item, idx) => {
-                const isActive = activeTab === idx;
-                const IconComp = item.icon;
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => setActiveTab(idx)}
-                    className={`w-full text-left p-4 sm:p-5 rounded-2xl transition-all duration-200 border cursor-pointer block relative ${
-                      isActive
-                        ? 'bg-white border-slate-300 shadow-xs ring-1 ring-slate-200'
-                        : 'bg-[#FAFAFD] border-slate-200/80 hover:bg-white hover:border-slate-300'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between gap-4">
-                      <div className="flex items-center gap-3.5">
-                        <span className={`font-mono text-sm font-bold ${
-                          isActive ? 'text-slate-900' : 'text-slate-500'
-                        }`}>
-                          {item.number}
-                        </span>
-                        <div 
-                          className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border"
-                          style={{ backgroundColor: `${item.accent}14`, color: item.accent, borderColor: `${item.accent}30` }}
-                        >
-                          <IconComp size={16} />
-                        </div>
-                        <div>
-                          <h2 className={`font-clash font-bold text-base sm:text-lg ${
-                            isActive ? 'text-slate-900' : 'text-slate-700'
-                          }`}>
-                            {item.title}
-                          </h2>
-                          <div className="text-[11px] text-slate-500 font-mono mt-0.5">
-                            {item.category}
-                          </div>
-                        </div>
-                      </div>
-
-                      <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded ${
-                        isActive 
-                          ? 'bg-slate-900 text-white' 
-                          : 'bg-slate-100 text-slate-500'
-                      }`}>
-                        {isActive ? 'ACTIVE' : 'VIEW'}
-                      </span>
-                    </div>
-
-                    {isActive && (
-                      <p className="mt-3 pt-3 border-t border-slate-100 font-sans text-xs text-slate-600 leading-relaxed">
-                        {item.shortDesc}
-                      </p>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* RIGHT 40%: ARCHITECTURAL PREVIEW FRAME & SPEC RECEIPT */}
-            <div className="lg:col-span-5 text-left">
-              <div className="rounded-3xl border border-slate-200/80 bg-[#FAFAFD] p-6 sm:p-7 shadow-xs relative overflow-hidden">
+          <div className="border-t border-b border-slate-200/80 divide-y divide-slate-200/80 mb-16">
+            {DISCIPLINES.map((item, idx) => (
+              <div key={item.id} className="py-10 sm:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-baseline text-left">
                 
-                {/* WINDOW HEADER */}
-                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-200/80">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-slate-400" />
-                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-900">
-                      Service Architecture Blueprint
+                {/* LEFT COLUMN (40% - md:col-span-5): NUMBER (01-04) + BOLD SERVICE TITLE */}
+                <div className="md:col-span-5 flex items-baseline gap-4">
+                  <span className="font-mono text-sm font-semibold text-blue-600 shrink-0">
+                    {item.number}
+                  </span>
+                  <div>
+                    <h2 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">
+                      {item.title}
+                    </h2>
+                    <span className="text-xs font-mono uppercase tracking-wider text-slate-500 mt-1 block">
+                      {item.category}
                     </span>
                   </div>
-                  <span 
-                    className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase border"
-                    style={{ backgroundColor: `${current.accent}15`, borderColor: `${current.accent}40`, color: current.accent }}
-                  >
-                    {current.previewBadge}
-                  </span>
                 </div>
 
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={current.id}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.2 }}
-                    className="space-y-4"
-                  >
-                    {/* Active Title Banner */}
-                    <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
-                      <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500">
-                        Selected Discipline {current.number}
-                      </div>
-                      <h3 className="font-clash font-bold text-lg text-slate-900 mt-0.5">
-                        {current.title}
-                      </h3>
-                      <p className="font-sans text-xs text-slate-600 mt-1 leading-relaxed">
-                        {current.shortDesc}
-                      </p>
-                    </div>
+                {/* RIGHT COLUMN (60% - md:col-span-7): CLEAN 16PX DESCRIPTION & DELIVERABLES ON OPEN BACKGROUND */}
+                <div className="md:col-span-7 space-y-4">
+                  <p className="text-base leading-relaxed text-slate-600">
+                    {item.description}
+                  </p>
 
-                    {/* Dotted Architectural Spec Receipt */}
-                    <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2 font-mono text-xs">
-                      <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1">
-                        Architectural Deliverables
-                      </div>
-                      {current.specRows.map((spec, i) => (
-                        <div key={i} className="flex items-baseline justify-between gap-2 py-0.5">
-                          <span className="text-slate-700 truncate">{spec.label}</span>
-                          <div className="flex-1 border-b border-dotted border-slate-300 mx-1" aria-hidden="true" />
-                          <span className="text-slate-900 font-bold shrink-0">{spec.val}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-mono text-slate-600 pt-1">
+                    {item.deliverables.map((del, dIdx) => (
+                      <span key={dIdx} className="inline-flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600/70" />
+                        <span>{del}</span>
+                      </span>
+                    ))}
+                  </div>
 
-                    {/* Action Triggers */}
-                    <div className="pt-2 flex flex-col gap-2">
-                      <button
-                        onClick={() => scrollToSection(current.id)}
-                        className="btn-3d-base btn-3d-primary w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-white cursor-pointer"
-                        style={{ backgroundColor: current.accent }}
-                      >
-                        <span>See how it can help your business</span>
-                        <ArrowRight size={13} />
-                      </button>
-
-                      <Link
-                        to="/contact"
-                        className="btn-3d-base btn-3d-secondary w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200"
-                      >
-                        <span>See what your project will cost</span>
-                      </Link>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
+                  <div className="pt-2 flex flex-wrap items-center gap-4">
+                    <button
+                      onClick={() => scrollToSection(item.id)}
+                      className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-blue-600 hover:text-blue-800 transition-colors cursor-pointer"
+                    >
+                      <span>Jump to Detailed Blueprint & Deliverables</span>
+                      <ArrowRight size={13} />
+                    </button>
+                    <span className="text-slate-300">•</span>
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-1 text-xs font-mono font-medium text-slate-600 hover:text-slate-900 transition-colors"
+                    >
+                      <span>Get Cost Estimate</span>
+                    </Link>
+                  </div>
+                </div>
 
               </div>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* ALL-INCLUSIVE DELIVERABLES (2-COLUMN TYPOGRAPHIC FEATURE LIST DIRECTLY ON SURFACE) */}
+        <div className="text-left pt-2 mb-12">
+          <FadeIn delay={0.3} y={15}>
+            <div className="max-w-2xl mb-8">
+              <span className="font-mono text-xs font-medium text-emerald-600 uppercase tracking-wider block mb-2">
+                ALL-INCLUSIVE TECHNICAL BASELINE
+              </span>
+              <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 mb-2">
+                Full-Stack Delivery Included With Every Engagement.
+              </h3>
+              <p className="text-base leading-relaxed text-slate-600">
+                You receive fully configured infrastructure with no hidden recurring platform licenses.
+              </p>
             </div>
+          </FadeIn>
 
-          </div>
-        </FadeIn>
+          <FadeIn delay={0.35} y={15}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
+              {ALL_INCLUSIVE_DELIVERABLES.map((del, dIdx) => (
+                <div key={dIdx} className="flex items-start gap-3.5">
+                  <CheckCircle2 size={18} className="text-emerald-600 shrink-0 mt-1" />
+                  <div>
+                    <h4 className="text-base font-semibold text-slate-900 leading-snug">
+                      {del.title}
+                    </h4>
+                    <p className="text-base leading-relaxed text-slate-600 mt-1">
+                      {del.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
 
-        {/* BOTTOM VALUE COMMITMENTS */}
-        <FadeIn delay={0.35} y={15}>
-          <div className="mt-12 pt-6 border-t border-slate-200/80 flex flex-wrap items-center justify-center gap-x-8 gap-y-2.5 text-xs text-slate-600 font-medium">
-            <span className="flex items-center gap-1.5 text-slate-700">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-              100% Code & Data Ownership
-            </span>
-            <span className="flex items-center gap-1.5 text-slate-700">
-              <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-              ₹0 Monthly Per-User Seat Fees
-            </span>
-            <span className="flex items-center gap-1.5 text-slate-700">
-              <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />
-              All-In-One Domain, DNS & Hosting
-            </span>
-            <span className="flex items-center gap-1.5 text-slate-700">
-              <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
-              Honest Workflow-Based Timelines
-            </span>
-          </div>
-        </FadeIn>
-
-        {/* SMOOTH SCROLL CUE */}
-        <div className="mt-6 flex justify-center">
+        {/* SCROLL CUE */}
+        <div className="pt-6 flex justify-center">
           <button 
-            onClick={() => scrollToSection('websites')}
-            className="flex flex-col items-center text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors group cursor-pointer"
+            onClick={() => scrollToSection('custom-software')}
+            className="flex flex-col items-center text-xs font-medium text-slate-500 hover:text-blue-600 transition-colors group cursor-pointer"
             aria-label="Scroll to Core Disciplines"
           >
-            <span className="tracking-wider uppercase text-[10px] mb-1">Explore Disciplines Below</span>
+            <span className="tracking-wider uppercase text-xs mb-1 font-mono">Inspect Individual Vertical Blueprints Below</span>
             <ArrowDown className="w-4 h-4 animate-bounce text-slate-500 group-hover:text-blue-600" />
           </button>
         </div>

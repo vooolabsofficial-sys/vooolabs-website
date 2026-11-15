@@ -30,7 +30,7 @@ export default function Slide2_ChatGPTLive() {
   return (
     <section 
       id="chatgpt-live"
-      className="snap-section min-h-screen bg-[#F8F9FC] flex flex-col justify-center relative overflow-hidden select-none py-20 sm:py-24 border-t border-slate-200/80 scroll-mt-28"
+      className="snap-section min-h-screen bg-[#F8F9FC] flex flex-col justify-center relative overflow-hidden select-none py-20 lg:py-28 border-t border-slate-200/80 scroll-mt-28"
       aria-label="Live Working ChatGPT Search Interface"
     >
       {/* REFINED AMBIENT ACCENTS */}
@@ -41,91 +41,93 @@ export default function Slide2_ChatGPTLive() {
         
         {/* SECTION EYEBROW */}
         <FadeIn delay={0.05} y={15}>
-          <div className="font-sans font-bold text-xs tracking-[0.2em] text-purple-600 uppercase mb-3 font-mono">
+          <div className="font-mono text-xs font-medium text-purple-600 uppercase tracking-wider mb-2">
             01 / CHATGPT & GENERATIVE SEARCH (AEO)
           </div>
         </FadeIn>
 
         {/* TWO-COLUMN SHOWCASE */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-stretch">
           
           {/* LEFT SIDE: CLEAR EXPLANATION */}
-          <div className="lg:col-span-6 space-y-5">
-            <FadeIn delay={0.12} y={20}>
-              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
-                When Customers Ask ChatGPT, <span className="text-purple-600">Your Business Gets Recommended.</span>
-              </h2>
-            </FadeIn>
+          <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
+            <div className="space-y-5">
+              <FadeIn delay={0.12} y={20}>
+                <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight leading-snug">
+                  When Customers Ask ChatGPT, <span className="shimmer-text">Your Business Gets Recommended.</span>
+                </h2>
+              </FadeIn>
 
-            <FadeIn delay={0.18} y={20}>
-              <p className="font-sans font-normal text-base sm:text-lg text-slate-600 leading-relaxed">
-                Traditional keyword stuffing does not work on conversational AI. ChatGPT reads verified entity data and recommends businesses it can factually trust. Through AI Engine Optimization (AEO), we structure your company's services, pricing, and regional credibility so AI assistants actively quote and link your business.
-              </p>
-            </FadeIn>
+              <FadeIn delay={0.18} y={20}>
+                <p className="text-base leading-relaxed text-slate-600">
+                  Traditional keyword stuffing does not work on conversational AI. ChatGPT reads verified entity data and recommends businesses it can factually trust. Through AI Engine Optimization (AEO), we structure your company's services, pricing, and regional credibility so AI assistants actively quote and link your business.
+                </p>
+              </FadeIn>
 
-            {/* VALUE BULLETS */}
-            <FadeIn delay={0.25} y={20}>
-              <div className="space-y-3.5 pt-2">
-                <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 border border-purple-200">
-                    <Check className="w-4 h-4 stroke-[2.5]" />
+              {/* VALUE BULLETS */}
+              <FadeIn delay={0.25} y={20}>
+                <div className="space-y-4 pt-2">
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 border border-purple-200 mt-1">
+                      <Check className="w-4 h-4 stroke-[2.5]" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">Entity-First Knowledge Graph Placement</h3>
+                      <p className="text-base leading-relaxed text-slate-600 mt-1">
+                        We structure your business data so conversational models recognize your brand as an established, trustworthy regional provider.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Entity-First Knowledge Graph Placement</h3>
-                    <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      We structure your business data so conversational models recognize your brand as an established, trustworthy regional provider.
-                    </p>
+
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200 mt-1">
+                      <Check className="w-4 h-4 stroke-[2.5]" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">Direct Client Citation Links</h3>
+                      <p className="text-base leading-relaxed text-slate-600 mt-1">
+                        Buyers click through to your website directly from ChatGPT's conversational sources box with zero search friction.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200 mt-1">
+                      <Check className="w-4 h-4 stroke-[2.5]" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">Permanent Organic AI Visibility</h3>
+                      <p className="text-base leading-relaxed text-slate-600 mt-1">
+                        Organic AI placement builds long-term equity. You never have to pay per click or bid against escalating competitor ad budgets.
+                      </p>
+                    </div>
                   </div>
                 </div>
-
-                <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200">
-                    <Check className="w-4 h-4 stroke-[2.5]" />
-                  </div>
-                  <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Direct Client Citation Links</h3>
-                    <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      Buyers click through to your website directly from ChatGPT's conversational sources box with zero search friction.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
-                    <Check className="w-4 h-4 stroke-[2.5]" />
-                  </div>
-                  <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Permanent Organic AI Visibility</h3>
-                    <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      Organic AI placement builds long-term equity. You never have to pay per click or bid against escalating competitor ad budgets.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            </div>
 
             {/* ACTION TRIGGERS */}
             <FadeIn delay={0.32} y={15}>
-              <div className="pt-4 flex flex-wrap items-center gap-3.5">
+              <div className="pt-4 flex flex-wrap items-center gap-4">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-purple-600 text-white font-semibold text-sm cursor-pointer"
+                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-purple-600 text-white font-semibold text-sm cursor-pointer"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <MessageSquare className="w-4 h-4 text-emerald-400" />
                   <span>Discover what you're missing</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
+                  <ArrowRight className="w-4 h-4" />
                 </a>
 
                 <Link
                   to="/contact"
-                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm"
+                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm"
                 >
                   <span>See what your project will cost</span>
                 </Link>
 
-                <div className="w-full sm:w-auto inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 pt-1">
+                <div className="w-full inline-flex items-center gap-1.5 text-xs font-mono text-slate-500 pt-1">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
                   <span>Verified Schema & Citation Structure</span>
                 </div>

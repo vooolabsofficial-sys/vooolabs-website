@@ -57,17 +57,17 @@ const STEPS: ProcessStep[] = [
 
 export default function Slide4_TechStack() {
   return (
-    <section className="bg-white py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-zinc-200">
+    <section className="bg-white py-20 lg:py-28 px-6 sm:px-8 select-none antialiased border-b border-zinc-200">
       <div className="max-w-6xl mx-auto">
         
         {/* SECTION HEADER */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-10 border-b border-zinc-200">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-10 border-b border-zinc-200 text-left">
           <div>
             <FadeIn delay={0} y={15}>
-              <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
+              <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
                 HOW WE DELIVER • 4-STEP ENGINEERING PROCESS
               </span>
-              <h2 className="font-sans font-bold text-3xl sm:text-5xl text-zinc-950 tracking-tight">
+              <h2 className="font-sans font-semibold text-2xl sm:text-3xl text-zinc-950 tracking-tight leading-snug">
                 Predictable, Step-by-Step Delivery
               </h2>
             </FadeIn>
@@ -75,7 +75,7 @@ export default function Slide4_TechStack() {
 
           <div className="max-w-md">
             <FadeIn delay={0.08} y={15}>
-              <p className="font-sans text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed">
+              <p className="font-sans text-base text-zinc-600 font-normal leading-relaxed">
                 From initial consultation to final production handover—every project follows a transparent engineering rail with zero middlemen and zero confusion.
               </p>
             </FadeIn>

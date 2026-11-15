@@ -41,16 +41,16 @@ export default function Slide2_Marquee() {
   const row2Items = [...row2Outcomes, ...row2Outcomes, ...row2Outcomes];
 
   return (
-    <section className="bg-[#F8F9FC] py-20 overflow-hidden relative select-none border-b border-slate-200/80">
+    <section className="bg-[#F8F9FC] py-20 lg:py-28 overflow-hidden relative select-none border-b border-slate-200/80">
       
       {/* SECTION HEADER */}
-      <div className="text-center mb-14 px-6">
-        <FadeIn delay={0} y={20}>
-          <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 mb-12 text-left">
+        <FadeIn delay={0} y={15}>
+          <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
             CLIENT VALUE ASSURANCE
           </span>
-          <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-bold text-slate-900">
-            Engineering Standards Delivered
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight leading-snug text-slate-900">
+            Engineering Standards <span className="shimmer-text">Delivered</span>
           </h2>
         </FadeIn>
       </div>

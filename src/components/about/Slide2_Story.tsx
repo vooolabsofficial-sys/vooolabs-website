@@ -27,29 +27,29 @@ export default function Slide2_Story() {
   ];
 
   return (
-    <section className="bg-zinc-50 py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-zinc-200">
+    <section className="bg-zinc-50 py-20 lg:py-28 px-6 sm:px-8 select-none antialiased border-b border-zinc-200">
       <div className="max-w-6xl mx-auto">
         
         {/* EDITORIAL HEADER */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16 pb-12 border-b border-zinc-200">
           <div className="lg:col-span-5 text-left">
             <FadeIn delay={0} y={15}>
-              <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
+              <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
                 ORIGIN & STUDIO ETHOS
               </span>
-              <h2 className="font-sans font-bold text-3xl sm:text-5xl text-zinc-950 leading-[1.08] tracking-tight">
+              <h2 className="font-sans font-semibold text-2xl sm:text-3xl text-zinc-950 leading-snug tracking-tight">
                 Why We Built <br />
-                VOOO LABS.
+                <span className="shimmer-text">VOOO LABS.</span>
               </h2>
             </FadeIn>
           </div>
 
           <div className="lg:col-span-7 space-y-4 text-left">
             <FadeIn delay={0.08} y={15}>
-              <p className="font-sans text-sm sm:text-base text-zinc-700 leading-relaxed font-normal">
+              <p className="font-sans text-base text-zinc-700 leading-relaxed font-normal">
                 Growing businesses in Maharashtra and across India need web platforms and operational software that load instantly, handle real volume without breaking, and turn website traffic into paying clients.
               </p>
-              <p className="font-sans text-sm sm:text-base text-zinc-700 leading-relaxed font-normal">
+              <p className="font-sans text-base text-zinc-700 leading-relaxed font-normal">
                 Yet most agencies continue selling fragile, pre-made website templates that break after six months and leave clients locked out of their own systems. We founded <strong>VOOO LABS</strong> to provide a disciplined engineering alternative: <strong>honest planning, instant loading speed, automated WhatsApp leads, and 100% client code and hosting ownership.</strong>
               </p>
             </FadeIn>

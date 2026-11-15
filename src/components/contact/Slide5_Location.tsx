@@ -5,20 +5,20 @@ import { LOCATION } from '../../content/company';
 
 export default function Slide5_Location() {
   return (
-    <section className="bg-white py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-zinc-200">
-      <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
+    <section className="bg-white py-20 lg:py-28 px-6 sm:px-8 select-none antialiased border-b border-zinc-200">
+      <div className="max-w-6xl mx-auto flex flex-col items-start text-left">
         
         {/* SECTION HEADER */}
-        <div className="mb-14 max-w-2xl mx-auto">
+        <div className="mb-14 max-w-2xl text-left">
           <FadeIn delay={0} y={15}>
             <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
               GEOGRAPHIC ORIGIN & REACH
             </span>
-            <h2 className="font-sans font-bold text-3xl sm:text-5xl text-zinc-950 mb-3 tracking-tight">
+            <h2 className="font-sans text-2xl sm:text-3xl font-semibold text-zinc-950 mb-3 tracking-tight">
               Engineered in Maharashtra, <br />
               Shipped Across India & Globally
             </h2>
-            <p className="font-sans text-xs sm:text-sm text-zinc-600 font-normal">
+            <p className="font-sans text-base text-zinc-600 font-normal leading-relaxed">
               High-caliber software craft from Maharashtra, delivering production web systems for growing businesses nationwide.
             </p>
           </FadeIn>
@@ -37,10 +37,10 @@ export default function Slide5_Location() {
                 <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold block mb-1">
                   Studio Hubs
                 </span>
-                <h3 className="font-sans font-bold text-lg text-zinc-950 mb-2">
+                <h3 className="font-sans font-semibold text-lg text-zinc-950 mb-2">
                   {LOCATION.hubs.join(' • ')}
                 </h3>
-                <p className="font-sans text-xs text-zinc-600 leading-relaxed font-normal">
+                <p className="font-sans text-sm text-zinc-600 leading-relaxed font-normal">
                   {LOCATION.region}, {LOCATION.country}. Serving small, mid-sized, and enterprise clients with complete commercial accountability.
                 </p>
               </div>
@@ -60,10 +60,10 @@ export default function Slide5_Location() {
                 <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold block mb-1">
                   Operating Timezone
                 </span>
-                <h3 className="font-sans font-bold text-lg text-zinc-950 mb-2">
+                <h3 className="font-sans font-semibold text-lg text-zinc-950 mb-2">
                   IST (UTC+05:30)
                 </h3>
-                <p className="font-sans text-xs text-zinc-600 leading-relaxed font-normal">
+                <p className="font-sans text-sm text-zinc-600 leading-relaxed font-normal">
                   Direct founder access with convenient working hours across Indian, Middle Eastern, and European business windows.
                 </p>
               </div>
@@ -83,10 +83,10 @@ export default function Slide5_Location() {
                 <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold block mb-1">
                   Fast Cloud Hosting
                 </span>
-                <h3 className="font-sans font-bold text-lg text-zinc-950 mb-2">
+                <h3 className="font-sans font-semibold text-lg text-zinc-950 mb-2">
                   24/7 High-Speed Cloud
                 </h3>
-                <p className="font-sans text-xs text-zinc-600 leading-relaxed font-normal">
+                <p className="font-sans text-sm text-zinc-600 leading-relaxed font-normal">
                   Every website and software platform runs on fast, resilient cloud infrastructure with automated SSL and edge caching.
                 </p>
               </div>

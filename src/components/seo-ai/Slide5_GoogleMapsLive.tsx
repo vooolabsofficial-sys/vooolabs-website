@@ -9,7 +9,7 @@ export default function Slide5_GoogleMapsLive() {
   return (
     <section 
       id="google-maps-live"
-      className="snap-section min-h-screen bg-white flex flex-col justify-center relative overflow-hidden select-none py-20 sm:py-24 border-t border-slate-200/80 scroll-mt-28"
+      className="snap-section min-h-screen bg-white flex flex-col justify-center relative overflow-hidden select-none py-20 lg:py-28 border-t border-slate-200/80 scroll-mt-28"
       aria-label="Google Maps 3-Pack Local Discovery"
     >
       {/* AMBIENT ACCENTS */}
@@ -20,7 +20,7 @@ export default function Slide5_GoogleMapsLive() {
         
         {/* SECTION EYEBROW */}
         <FadeIn delay={0.05} y={15}>
-          <div className="font-sans font-bold text-xs tracking-[0.2em] text-emerald-600 uppercase mb-3 flex items-center gap-2 font-mono">
+          <div className="font-mono text-xs font-medium text-emerald-600 uppercase tracking-wider mb-2 flex items-center gap-2">
             <MapPin className="w-3.5 h-3.5 text-emerald-600" />
             <span>04 / GOOGLE MAPS 3-PACK & LOCAL NEAR-ME OPTIMIZATION</span>
           </div>
@@ -30,53 +30,53 @@ export default function Slide5_GoogleMapsLive() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
           {/* LEFT SIDE: SIMPLE HUMAN EXPLANATION */}
-          <div className="lg:col-span-6 space-y-5">
+          <div className="lg:col-span-6 space-y-6">
             <FadeIn delay={0.12} y={20}>
-              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
-                When High-Value Clients Search 'Near Me', <span className="text-emerald-600">You Own The Top Map Pin.</span>
+              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight leading-snug">
+                When High-Value Clients Search 'Near Me', <span className="shimmer-text">You Own The Top Map Pin.</span>
               </h2>
             </FadeIn>
 
             <FadeIn delay={0.18} y={20}>
-              <p className="font-sans font-normal text-base sm:text-lg text-slate-600 leading-relaxed">
+              <p className="text-base leading-relaxed text-slate-600">
                 Local buyers, founders, and regional business owners rely on Google Maps to find established, trustworthy service providers nearby. We optimize your Google Business Profile entity data, local city signals, and verified review structures so you consistently rank in the coveted #1 Google Maps 3-Pack.
               </p>
             </FadeIn>
 
             {/* THREE SIMPLE BENEFIT BULLETS */}
             <FadeIn delay={0.25} y={20}>
-              <div className="space-y-3.5 pt-2">
+              <div className="space-y-4 pt-2">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200 mt-1">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Direct 1-Tap Mobile Phone Calls & WhatsApp</h3>
-                    <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
+                    <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">Direct 1-Tap Mobile Phone Calls & WhatsApp</h3>
+                    <p className="text-base leading-relaxed text-slate-600 mt-1">
                       Customers immediately tap `[Call]`, `[Directions]`, or `[Website]` straight from your local map profile.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200">
+                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200 mt-1">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Voice Search & Mobile Assistant Prominence</h3>
-                    <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
+                    <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">Voice Search & Mobile Assistant Prominence</h3>
+                    <p className="text-base leading-relaxed text-slate-600 mt-1">
                       Google Assistant and smartphone voice searches cite your verified local business details when drivers query near-me services.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 border border-purple-200">
+                  <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 border border-purple-200 mt-1">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Verified Customer Social Proof</h3>
-                    <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
+                    <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">Verified Customer Social Proof</h3>
+                    <p className="text-base leading-relaxed text-slate-600 mt-1">
                       Structured review strategies establish high-trust social proof that turns searchers into immediate incoming inquiries.
                     </p>
                   </div>
@@ -86,21 +86,21 @@ export default function Slide5_GoogleMapsLive() {
 
             {/* ACTION TRIGGERS */}
             <FadeIn delay={0.32} y={15}>
-              <div className="pt-4 flex flex-wrap items-center gap-3.5">
+              <div className="pt-4 flex flex-wrap items-center gap-4">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white font-semibold text-sm cursor-pointer"
+                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-emerald-600 text-white font-semibold text-sm cursor-pointer"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <MessageSquare className="w-4 h-4 text-emerald-400" />
                   <span>Discover what you're missing</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
+                  <ArrowRight className="w-4 h-4" />
                 </a>
 
                 <Link
                   to="/contact"
-                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm"
+                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm"
                 >
                   <span>See what your project will cost</span>
                 </Link>

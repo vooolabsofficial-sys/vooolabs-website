@@ -46,7 +46,7 @@ export default function Slide4_GoogleAILive() {
   return (
     <section 
       id="google-ai-live"
-      className="snap-section min-h-screen bg-[#F8F9FC] flex flex-col justify-center relative overflow-hidden select-none py-20 sm:py-24 border-t border-slate-200/80 scroll-mt-28"
+      className="snap-section min-h-screen bg-[#F8F9FC] flex flex-col justify-center relative overflow-hidden select-none py-20 lg:py-28 border-t border-slate-200/80 scroll-mt-28"
       aria-label="Google AI Overviews & AI Platform Ads"
     >
       {/* AMBIENT ACCENTS */}
@@ -57,7 +57,7 @@ export default function Slide4_GoogleAILive() {
         
         {/* SECTION EYEBROW */}
         <FadeIn delay={0.05} y={15}>
-          <div className="font-sans font-bold text-xs tracking-[0.2em] text-blue-600 uppercase mb-3 flex items-center gap-2 font-mono">
+          <div className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider mb-2 flex items-center gap-2">
             <Sparkles className="w-3.5 h-3.5 text-blue-600" />
             <span>03 / GOOGLE AI OVERVIEWS & TARGETED AI PLATFORM ADS</span>
           </div>
@@ -67,53 +67,53 @@ export default function Slide4_GoogleAILive() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
           {/* LEFT SIDE: SIMPLE HUMAN EXPLANATION */}
-          <div className="lg:col-span-6 space-y-5">
+          <div className="lg:col-span-6 space-y-6">
             <FadeIn delay={0.12} y={20}>
-              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
-                Capture Buyers on Google AI Overviews & <span className="text-blue-600">Emerging AI Ad Networks.</span>
+              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight leading-snug">
+                Capture Buyers on Google AI Overviews & <span className="shimmer-text">Emerging AI Ad Networks.</span>
               </h2>
             </FadeIn>
 
             <FadeIn delay={0.18} y={20}>
-              <p className="font-sans font-normal text-base sm:text-lg text-slate-600 leading-relaxed">
+              <p className="text-base leading-relaxed text-slate-600">
                 When customers search on Google, the first thing they see on mobile is the Google AI Overview snapshot—pushing standard links off the screen. Simultaneously, new AI ad channels (including conversational ad placements on ChatGPT and AI search platforms) are creating massive lead opportunities that most competitors don't know how to set up.
               </p>
             </FadeIn>
 
             {/* THREE BENEFIT BULLETS */}
             <FadeIn delay={0.25} y={20}>
-              <div className="space-y-3.5 pt-2">
+              <div className="space-y-4 pt-2">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200">
+                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200 mt-1">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Featured Placement in Google AI Overviews</h3>
-                    <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
+                    <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">Featured Placement in Google AI Overviews</h3>
+                    <p className="text-base leading-relaxed text-slate-600 mt-1">
                       We structure your content so Google's AI summary cites your brand and displays your clickable source card at the top of search results.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-200">
+                  <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-200 mt-1">
                     <Target className="w-4 h-4 text-amber-600" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Targeted AI Search Ads Setup & Lead Tracking</h3>
-                    <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
+                    <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">Targeted AI Search Ads Setup & Lead Tracking</h3>
+                    <p className="text-base leading-relaxed text-slate-600 mt-1">
                       We configure targeted campaigns on emerging AI ad networks paired with dedicated high-converting landing pages—handling the technical setup most businesses lack.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200 mt-1">
                     <Check className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Direct WhatsApp Lead Routing</h3>
-                    <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
+                    <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">Direct WhatsApp Lead Routing</h3>
+                    <p className="text-base leading-relaxed text-slate-600 mt-1">
                       Every search click and AI ad interaction connects directly into your sales team's WhatsApp and phone lines with zero lost leads.
                     </p>
                   </div>
@@ -123,21 +123,21 @@ export default function Slide4_GoogleAILive() {
 
             {/* ACTION TRIGGERS */}
             <FadeIn delay={0.32} y={15}>
-              <div className="pt-4 flex flex-wrap items-center gap-3.5">
+              <div className="pt-4 flex flex-wrap items-center gap-4">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-semibold text-sm cursor-pointer"
+                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-blue-600 text-white font-semibold text-sm cursor-pointer"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <MessageSquare className="w-4 h-4 text-blue-400" />
                   <span>Discover what you're missing</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
+                  <ArrowRight className="w-4 h-4" />
                 </a>
 
                 <Link
                   to="/contact"
-                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm"
+                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm"
                 >
                   <span>See what your project will cost</span>
                 </Link>

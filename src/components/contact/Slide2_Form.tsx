@@ -174,7 +174,7 @@ export default function Slide2_Form() {
   return (
     <section 
       id="contact-form-section" 
-      className="bg-zinc-50 py-20 sm:py-28 px-4 sm:px-6 relative select-none antialiased border-b border-zinc-200"
+      className="bg-zinc-50 py-20 lg:py-28 px-6 sm:px-8 relative select-none antialiased border-b border-zinc-200"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
         
@@ -296,13 +296,13 @@ export default function Slide2_Form() {
               
               {/* ACCENT HEADER */}
               <div className="mb-8 pb-6 border-b border-zinc-200">
-                <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
+                <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
                   PROJECT SPECIFICATION FORM
                 </span>
-                <h3 className="font-sans font-bold text-2xl sm:text-3xl text-zinc-950 mb-2 tracking-tight">
+                <h3 className="font-sans font-semibold text-2xl sm:text-3xl text-zinc-950 mb-2 tracking-tight leading-snug">
                   Start Your Project
                 </h3>
-                <p className="font-sans text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed">
+                <p className="font-sans text-base text-zinc-600 font-normal leading-relaxed">
                   Every inquiry goes directly to the founder. Select what you need, share your requirements, and get an honest roadmap and cost estimate.
                 </p>
               </div>

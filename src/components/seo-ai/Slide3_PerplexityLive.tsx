@@ -70,7 +70,7 @@ export default function Slide3_PerplexityLive() {
   return (
     <section 
       id="perplexity-live"
-      className="snap-section min-h-screen bg-white flex flex-col justify-center relative overflow-hidden select-none py-20 sm:py-24 border-t border-slate-200/80 scroll-mt-28"
+      className="snap-section min-h-screen bg-white flex flex-col justify-center relative overflow-hidden select-none py-20 lg:py-28 border-t border-slate-200/80 scroll-mt-28"
       aria-label="Live Working Perplexity Pro Interface"
     >
       {/* AMBIENT ACCENTS */}
@@ -81,92 +81,94 @@ export default function Slide3_PerplexityLive() {
         
         {/* SECTION EYEBROW */}
         <FadeIn delay={0.05} y={15}>
-          <div className="font-sans font-bold text-xs tracking-[0.2em] text-teal-600 uppercase mb-3 flex items-center gap-2 font-mono">
+          <div className="font-mono text-xs font-medium text-teal-600 uppercase tracking-wider mb-2 flex items-center gap-2">
             <Compass className="w-3.5 h-3.5 text-teal-600" />
             <span>02 / PERPLEXITY & KNOWLEDGE SYNTHESIS (AEO)</span>
           </div>
         </FadeIn>
 
         {/* TWO-COLUMN SHOWCASE */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-stretch">
           
           {/* LEFT SIDE: SIMPLE HUMAN EXPLANATION */}
-          <div className="lg:col-span-6 space-y-5">
-            <FadeIn delay={0.12} y={20}>
-              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
-                Where Decision-Makers Research, <span className="text-teal-600">You Are The Verified Answer.</span>
-              </h2>
-            </FadeIn>
+          <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
+            <div className="space-y-5">
+              <FadeIn delay={0.12} y={20}>
+                <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight leading-snug">
+                  Where Decision-Makers Research, <span className="shimmer-text">You Are The Verified Answer.</span>
+                </h2>
+              </FadeIn>
 
-            <FadeIn delay={0.18} y={20}>
-              <p className="font-sans font-normal text-base sm:text-lg text-slate-600 leading-relaxed">
-                Founders, directors, and high-value buyers use Perplexity and AI search to research service providers before hiring. AI search engines synthesize verified information across web sources and cite the top company. We ensure your business is structured as the primary verified recommendation.
-              </p>
-            </FadeIn>
+              <FadeIn delay={0.18} y={20}>
+                <p className="text-base leading-relaxed text-slate-600">
+                  Founders, directors, and high-value buyers use Perplexity and AI search to research service providers before hiring. AI search engines synthesize verified information across web sources and cite the top company. We ensure your business is structured as the primary verified recommendation.
+                </p>
+              </FadeIn>
 
-            {/* THREE SIMPLE BENEFIT BULLETS */}
-            <FadeIn delay={0.25} y={20}>
-              <div className="space-y-3.5 pt-2">
-                <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0 border border-teal-200">
-                    <Check className="w-4 h-4 stroke-[2.5]" />
+              {/* THREE SIMPLE BENEFIT BULLETS */}
+              <FadeIn delay={0.25} y={20}>
+                <div className="space-y-4 pt-2">
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-8 h-8 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0 border border-teal-200 mt-1">
+                      <Check className="w-4 h-4 stroke-[2.5]" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">Multi-Source Cross Verification</h3>
+                      <p className="text-base leading-relaxed text-slate-600 mt-1">
+                        AI search engines validate your company information across your website, client testimonials, and industry registries.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Multi-Source Cross Verification</h3>
-                    <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      AI search engines validate your company information across your website, client testimonials, and industry registries.
-                    </p>
+
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200 mt-1">
+                      <Check className="w-4 h-4 stroke-[2.5]" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">Footnote Citation Tiles</h3>
+                      <p className="text-base leading-relaxed text-slate-600 mt-1">
+                        Claims in the AI synthesized response include clickable citations linking visitors directly to your website.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200 mt-1">
+                      <Check className="w-4 h-4 stroke-[2.5]" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">High-Intent Purchase Inquiries</h3>
+                      <p className="text-base leading-relaxed text-slate-600 mt-1">
+                        Conversational AI users are serious commercial buyers researching verified capabilities, not casual browsers.
+                      </p>
+                    </div>
                   </div>
                 </div>
-
-                <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200">
-                    <Check className="w-4 h-4 stroke-[2.5]" />
-                  </div>
-                  <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">Footnote Citation Tiles</h3>
-                    <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      Claims in the AI synthesized response include clickable citations linking visitors directly to your website.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
-                    <Check className="w-4 h-4 stroke-[2.5]" />
-                  </div>
-                  <div>
-                    <h3 className="font-clash font-bold text-base text-slate-900">High-Intent Purchase Inquiries</h3>
-                    <p className="font-sans text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      Conversational AI users are serious commercial buyers researching verified capabilities, not casual browsers.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            </div>
 
             {/* ACTION TRIGGERS */}
             <FadeIn delay={0.32} y={15}>
-              <div className="pt-4 flex flex-wrap items-center gap-3.5">
+              <div className="pt-4 flex flex-wrap items-center gap-4">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-teal-600 text-white font-semibold text-sm cursor-pointer"
+                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-teal-600 text-white font-semibold text-sm cursor-pointer"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <MessageSquare className="w-4 h-4 text-teal-400" />
                   <span>Discover what you're missing</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
+                  <ArrowRight className="w-4 h-4" />
                 </a>
 
                 <Link
                   to="/contact"
-                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm"
+                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm"
                 >
                   <span>See what your project will cost</span>
                 </Link>
 
-                <div className="w-full sm:w-auto inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 pt-1">
+                <div className="w-full inline-flex items-center gap-1.5 text-xs font-mono text-slate-500 pt-1">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
                   <span>Cross-Verified Entity Structure</span>
                 </div>

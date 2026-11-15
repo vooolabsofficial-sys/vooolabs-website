@@ -39,17 +39,17 @@ export default function Slide3_Values() {
   ];
 
   return (
-    <section className="bg-white py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-zinc-200">
+    <section className="bg-white py-20 lg:py-28 px-6 sm:px-8 select-none antialiased border-b border-zinc-200">
       <div className="max-w-6xl mx-auto">
         
         {/* SECTION HEADER */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-10 border-b border-zinc-200 text-left">
           <div>
             <FadeIn delay={0} y={15}>
-              <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
+              <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
                 FOUNDATIONAL PILLARS
               </span>
-              <h2 className="font-sans font-bold text-3xl sm:text-5xl text-zinc-950 leading-tight tracking-tight">
+              <h2 className="font-sans font-semibold text-2xl sm:text-3xl text-zinc-950 leading-snug tracking-tight">
                 Our 4 Studio Standards
               </h2>
             </FadeIn>
@@ -57,7 +57,7 @@ export default function Slide3_Values() {
 
           <div className="max-w-md">
             <FadeIn delay={0.08} y={15}>
-              <p className="font-sans text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed">
+              <p className="font-sans text-base text-zinc-600 font-normal leading-relaxed">
                 The non-negotiable engineering principles that govern every application, system architecture, and interface we build for our clients.
               </p>
             </FadeIn>

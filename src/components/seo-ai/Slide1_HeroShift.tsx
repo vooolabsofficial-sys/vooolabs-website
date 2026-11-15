@@ -161,9 +161,9 @@ export default function Slide1_HeroShift() {
       className="snap-section min-h-screen bg-white flex flex-col justify-between relative overflow-hidden select-none pt-28 pb-12 border-b border-slate-200/80"
       aria-label="AI Search Visibility & Growth"
     >
-      {/* AMBIENT RADIAL BACKGROUNDS */}
-      <div className="absolute top-[-180px] left-[-180px] w-[650px] h-[650px] rounded-full bg-radial from-purple-500/[0.04] to-transparent blur-[120px] pointer-events-none z-0" aria-hidden="true" />
-      <div className="absolute top-[-100px] right-[-180px] w-[600px] h-[600px] rounded-full bg-radial from-blue-500/[0.04] to-transparent blur-[120px] pointer-events-none z-0" aria-hidden="true" />
+      {/* ORIGINAL VIBRANT AMBIENT BACKGROUNDS */}
+      <div className="absolute top-[-180px] left-[-180px] w-[650px] h-[650px] rounded-full bg-radial from-purple-500/10 to-transparent blur-[120px] pointer-events-none z-0" aria-hidden="true" />
+      <div className="absolute top-[-100px] right-[-180px] w-[600px] h-[600px] rounded-full bg-radial from-blue-500/10 to-transparent blur-[120px] pointer-events-none z-0" aria-hidden="true" />
 
       {/* ULTRA-SUBTLE ARCHITECTURAL GRID */}
       <div 
@@ -175,7 +175,7 @@ export default function Slide1_HeroShift() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 w-full my-auto py-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 w-full my-auto py-8">
         
         {/* TWO-COLUMN LAYOUT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
@@ -183,30 +183,30 @@ export default function Slide1_HeroShift() {
           {/* LEFT SIDE: CLEAR EXPLANATION */}
           <div className="lg:col-span-7 space-y-6 text-left">
             <FadeIn delay={0.05} y={15}>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-bold uppercase tracking-wider shadow-2xs font-mono">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-mono font-medium uppercase tracking-wider shadow-2xs">
                 <Sparkles size={13} className="text-purple-600" />
                 <span>AI SEARCH VISIBILITY & AI ADS • SEO • AEO • GEO</span>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.12} y={20}>
-              <h1 className="font-clash text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.12]">
-                Your Customers Are Asking ChatGPT and Google AI Who to Hire. <br />
-                <span className="text-purple-600">Make Sure They Recommend You.</span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15]">
+                Your Customers Are Asking ChatGPT and Google AI Who to Hire. <br className="hidden sm:inline" />
+                <span className="shimmer-text">Make Sure They Recommend You.</span>
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.18} y={20}>
-              <p className="font-sans font-normal text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
+              <p className="text-base leading-relaxed text-slate-600 max-w-xl">
                 Ranking on Google is only half the game now. We structure your website and local presence so ChatGPT, Google Gemini, Perplexity, and Google Maps recommend your business—and we set up targeted AI Ads so you capture high-intent buyers early.
               </p>
             </FadeIn>
 
             <FadeIn delay={0.25} y={20}>
-              <div className="pt-2 flex flex-wrap items-center gap-3.5">
+              <div className="pt-2 flex flex-wrap items-center gap-4">
                 <button
                   onClick={scrollToNext}
-                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-purple-600 text-white font-bold text-sm cursor-pointer"
+                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-purple-600 text-white font-semibold text-sm cursor-pointer"
                 >
                   <Bot size={16} />
                   <span>Discover what you're missing</span>
@@ -215,7 +215,7 @@ export default function Slide1_HeroShift() {
 
                 <Link
                   to="/contact"
-                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm"
+                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm"
                 >
                   <span>See what your project will cost</span>
                 </Link>

@@ -47,14 +47,14 @@ export default function Slide3_FAQ() {
   ];
 
   return (
-    <section className="bg-white py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-zinc-200">
+    <section className="bg-white py-20 lg:py-28 px-6 sm:px-8 select-none antialiased border-b border-zinc-200">
       <div className="max-w-4xl mx-auto flex flex-col items-center">
         
         {/* BACK TO TOP ANCHOR */}
         <FadeIn delay={0} y={10}>
           <a 
             href="#contact-form-section" 
-            className="inline-flex items-center gap-1.5 font-mono text-[11px] text-zinc-400 uppercase tracking-wider mb-4 hover:text-zinc-900 transition-colors"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-zinc-400 uppercase tracking-wider mb-4 hover:text-zinc-900 transition-colors"
           >
             <ArrowUp size={12} />
             <span>Jump to Project Form</span>
@@ -64,13 +64,13 @@ export default function Slide3_FAQ() {
         {/* SECTION HEADER */}
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <FadeIn delay={0.05} y={15}>
-            <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
+            <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
               FREQUENTLY ASKED QUESTIONS
             </span>
-            <h2 className="font-sans font-bold text-3xl sm:text-5xl text-zinc-950 mb-3 tracking-tight">
+            <h2 className="font-sans font-semibold text-2xl sm:text-3xl text-zinc-950 mb-3 tracking-tight leading-snug">
               Common Questions
             </h2>
-            <p className="font-sans text-xs sm:text-sm text-zinc-600 font-normal">
+            <p className="font-sans text-base text-zinc-600 font-normal leading-relaxed">
               Everything you need to know about our engineering standards, pricing, and 100% handover process.
             </p>
           </FadeIn>

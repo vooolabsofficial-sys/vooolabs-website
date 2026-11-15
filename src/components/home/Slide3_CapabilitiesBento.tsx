@@ -1,196 +1,199 @@
 import { Link } from 'react-router-dom';
-import { Globe, Laptop, Cpu, Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
-
-const DELIVERABLES_SPEC = [
-  { item: 'Custom Visual Design & Full Functional Build', status: 'INCLUDED', note: 'Bespoke layout, zero generic templates' },
-  { item: 'Domain Registration & Complete DNS Routing', status: 'INCLUDED', note: 'Email records, MX, and domain setup' },
-  { item: '24/7 Fast Cloud Hosting & SSL Security', status: 'INCLUDED', note: 'High-speed cloud servers with HTTPS' },
-  { item: '1-Tap WhatsApp & Phone Lead Routing', status: 'INCLUDED', note: 'Direct mobile inquiry conversion' },
-  { item: 'Google SEO & ChatGPT AEO Discovery Readiness', status: 'INCLUDED', note: 'Structured business data for search & AI' },
-  { item: 'Monthly Per-User Software Seat Fees', status: '₹0 FOREVER', note: 'Custom software built once, owned forever' },
-  { item: 'Source Code & Client Data Handover', status: '100% OWNED', note: 'Full intellectual property transfer' },
-];
 
 const CORE_SERVICES = [
   {
     number: '01',
     title: 'All-Inclusive Business Websites',
     tag: 'Web Platform & Leads',
-    description: 'Custom design, domain, DNS, 24/7 hosting, and 1-tap WhatsApp lead triggers handled end-to-end.',
-    accent: '#0284C7',
-    icon: Globe,
+    description: 'High-trust, ultra-fast websites designed for growing businesses to convert visitors into direct WhatsApp and phone inquiries. We handle custom design, domain setup, DNS routing, 24/7 cloud hosting, and SSL certificates end-to-end.',
+    deliverables: [
+      'Custom Design & Full Functional Build',
+      'Domain & 24/7 Cloud Hosting Included',
+      '1-Tap WhatsApp & Phone Lead Triggers',
+      '100% Client Source Code Ownership',
+    ],
     link: '/services#websites',
   },
   {
     number: '02',
     title: 'Custom Web Apps & Portals',
     tag: 'Customer & Member Accounts',
-    description: 'Self-service customer portals, appointment booking systems, and dashboards—affordable in the AI era.',
-    accent: '#3B82F6',
-    icon: Laptop,
+    description: 'Customer-facing portals, student and member dashboards, appointment booking systems, and interactive web applications. In today’s AI era, custom web apps that previously cost lakhs are now practical and affordable for growing businesses.',
+    deliverables: [
+      'Customer Portals & Secure Logins',
+      'Role-Based Staff Access Controls',
+      'Centralized Cloud Database',
+      '₹0 Monthly Per-User Seat Fees',
+    ],
     link: '/services#web-apps',
   },
   {
     number: '03',
     title: 'Custom Business Software',
     tag: 'GST Billing & Operations',
-    description: 'Replaces messy spreadsheets with 1-click GST invoices, order pipelines, and staff task tracking.',
-    accent: '#10B981',
-    icon: Cpu,
+    description: 'Replace fragile spreadsheets and scattered WhatsApp messages with unified business software. Built around your exact daily workflow with 1-click GST tax invoicing, customer account ledgers, order pipelines, and staff task tracking boards.',
+    deliverables: [
+      '1-Click GST Invoicing Engine (PDF)',
+      'Real-Time Order & Payment Pipelines',
+      'Staff Task Assignment Board',
+      '100% Owned Software · Zero Rent',
+    ],
     link: '/services#custom-software',
   },
   {
     number: '04',
     title: 'AI Search Visibility & AI Ads',
     tag: 'Google SEO, AEO & Maps',
-    description: 'Recommended on ChatGPT, Gemini, Perplexity, and Google Maps—plus targeted AI search ad campaigns.',
-    accent: '#8B5CF6',
-    icon: Sparkles,
+    description: 'Modern customers search on ChatGPT, Gemini, Perplexity, and Google Maps. We engineer your digital presence with structured entity schema and verified citations so your business gets recommended first when buyers ask for solutions.',
+    deliverables: [
+      'ChatGPT, Gemini & Perplexity Recommendations',
+      'Google Maps 3-Pack Local Pin Ranking',
+      'Google Search Technical SEO & Speed',
+      'Targeted AI Platform Ad Campaigns',
+    ],
     link: '/seo-ai',
+  },
+];
+
+const ALL_INCLUSIVE_DELIVERABLES = [
+  {
+    title: 'Custom Visual Design & Full Functional Build',
+    description: 'Bespoke layout and architecture crafted around your brand and offerings—zero generic templates or bloated plugins.',
+  },
+  {
+    title: 'Domain Registration & Complete DNS Routing',
+    description: 'Complete setup of your business domain, DNS records, business email routing, and SSL certificates handled end-to-end.',
+  },
+  {
+    title: '24/7 Fast Cloud Hosting & SSL Security',
+    description: 'Sub-second mobile speed hosted on enterprise-grade global edge infrastructure with continuous HTTPS security.',
+  },
+  {
+    title: '1-Tap WhatsApp & Phone Lead Routing',
+    description: 'Prominent, high-converting contact triggers routing mobile visitors directly into personal sales chats with zero friction.',
+  },
+  {
+    title: 'WhatsApp, Social & Map Embed Integration',
+    description: 'Direct links to your verified social profiles, interactive Google Maps directions, and automated chat links.',
+  },
+  {
+    title: '100% Client Code & Data Ownership',
+    description: 'Full intellectual property handover on day one. You own your code, database, and domain with zero monthly software rent or vendor lock-in.',
   },
 ];
 
 export default function Slide3_CapabilitiesBento() {
   return (
     <section 
-      className="bg-white py-20 sm:py-28 px-4 sm:px-6 select-none relative border-b border-slate-200/80"
+      className="bg-white py-20 lg:py-28 px-6 sm:px-8 select-none relative border-b border-slate-200/80"
       aria-label="Studio Core Capabilities & All-Inclusive Deliverables"
     >
       <div className="max-w-6xl mx-auto">
         
-        {/* SECTION HEADER */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        {/* SECTION HEADER (STRICT LEFT-ALIGNMENT & 4-TIER TYPOGRAPHY SCALE) */}
+        <div className="max-w-3xl mb-14 text-left">
           <FadeIn delay={0} y={15}>
-            <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2 text-center">
-              CORE CAPABILITIES & ALL-INCLUSIVE STANDARDS
+            <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
+              CORE CAPABILITIES & PILLARS
             </span>
           </FadeIn>
           <FadeIn delay={0.08} y={20}>
-            <h2 className="font-clash text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 text-center leading-tight mb-4">
-              Bespoke Systems. <span className="text-blue-600">Zero Technical Headaches.</span>
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight leading-snug text-slate-900 mb-4">
+              Bespoke Digital Systems. <span className="shimmer-text">Zero Technical Headaches.</span>
             </h2>
-            <p className="font-sans font-normal text-base sm:text-lg text-slate-600 text-center max-w-2xl mx-auto leading-relaxed">
-              We design and engineer grounded digital platforms tailored around how your business actually operates—delivering every technical component all-inclusive.
+            <p className="text-base leading-relaxed text-slate-600">
+              We design and engineer grounded digital platforms tailored around how your business actually operates. Every technical component is delivered all-inclusive with 100% client ownership.
             </p>
           </FadeIn>
         </div>
 
-        {/* ASYMMETRIC SPLIT: LEFT = 4 EDITORIAL SERVICES ROWS, RIGHT = ARCHITECTURAL SPEC SHEET */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          
-          {/* LEFT 60%: NUMBERED EDITORIAL SERVICE ROWS */}
-          <div className="lg:col-span-7 space-y-3 text-left">
-            <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 mb-2 px-1">
-              Core Engineering Verticals
-            </div>
-
-            {CORE_SERVICES.map((serv, idx) => {
-              const IconComp = serv.icon;
-              return (
-                <FadeIn key={serv.number} delay={idx * 0.08} y={15}>
-                  <Link
-                    to={serv.link}
-                    className="block p-5 sm:p-6 rounded-2xl bg-[#FAFAFD] border border-slate-200/80 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all group relative overflow-hidden"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex items-start gap-4">
-                        <div 
-                          className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border border-slate-200/60 mt-0.5 group-hover:scale-105 transition-transform"
-                          style={{ backgroundColor: `${serv.accent}14`, color: serv.accent }}
-                        >
-                          <IconComp size={18} />
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className="font-mono text-xs font-bold text-slate-500">{serv.number}</span>
-                            <span className="text-slate-300">/</span>
-                            <span className="font-mono text-[10px] uppercase tracking-wider text-slate-600 px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200/60">
-                              {serv.tag}
-                            </span>
-                          </div>
-                          <h3 className="font-clash font-bold text-lg sm:text-xl text-slate-900 group-hover:text-blue-600 transition-colors">
-                            {serv.title}
-                          </h3>
-                          <p className="font-sans text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
-                            {serv.description}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="w-8 h-8 rounded-full border border-slate-200 bg-white flex items-center justify-center shrink-0 text-slate-400 group-hover:text-blue-600 group-hover:border-blue-300 transition-colors shadow-2xs">
-                        <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-                      </div>
-                    </div>
-                  </Link>
-                </FadeIn>
-              );
-            })}
-          </div>
-
-          {/* RIGHT 40%: ALL-INCLUSIVE DELIVERABLES ARCHITECTURAL SPEC SHEET */}
-          <div className="lg:col-span-5 text-left">
-            <FadeIn delay={0.2} y={20}>
-              <div className="rounded-3xl border border-slate-200/80 bg-[#FAFAFD] p-6 sm:p-7 shadow-xs relative overflow-hidden">
+        {/* FULL-WIDTH ASYMMETRIC EDITORIAL LIST (SEPARATED BY SUBTLE 1PX DIVIDER LINES) */}
+        <div className="border-t border-b border-slate-200/80 divide-y divide-slate-200/80 mb-20">
+          {CORE_SERVICES.map((serv, idx) => (
+            <FadeIn key={serv.number} delay={idx * 0.08} y={15}>
+              <div className="py-10 sm:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-baseline text-left">
                 
-                {/* SPEC SHEET HEADER */}
-                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-200/80">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-slate-400" />
-                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-900">
-                      All-Inclusive Spec Sheet
+                {/* LEFT COLUMN (40% - md:col-span-5): NUMBER (01-04) + BOLD SERVICE TITLE */}
+                <div className="md:col-span-5 flex items-baseline gap-4">
+                  <span className="font-mono text-sm font-semibold text-blue-600 shrink-0">
+                    {serv.number}
+                  </span>
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">
+                      {serv.title}
+                    </h3>
+                    <span className="text-xs font-mono uppercase tracking-wider text-slate-500 mt-1 block">
+                      {serv.tag}
                     </span>
                   </div>
-                  <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-white text-emerald-700 border border-slate-200">
-                    Standard Scope
-                  </span>
                 </div>
 
-                <p className="font-sans text-xs text-slate-600 leading-relaxed mb-5">
-                  Every project delivered by VOOO LABS includes full operational setup so the business owner never has to navigate domain settings or server consoles.
-                </p>
+                {/* RIGHT COLUMN (60% - md:col-span-7): CLEAN 16PX DESCRIPTION & DELIVERABLES ON OPEN SURFACE */}
+                <div className="md:col-span-7 space-y-4">
+                  <p className="text-base leading-relaxed text-slate-600">
+                    {serv.description}
+                  </p>
 
-                {/* ARCHITECTURAL RECEIPT / SPEC SHEET WITH DOTTED LEADER LINES */}
-                <div className="space-y-3 font-mono text-xs">
-                  {DELIVERABLES_SPEC.map((spec, i) => (
-                    <div key={i} className="space-y-0.5">
-                      <div className="flex items-baseline justify-between gap-2">
-                        <span className="text-slate-800 font-medium truncate shrink-0">
-                          {spec.item}
-                        </span>
-                        <div className="flex-1 border-b border-dotted border-slate-300 mx-1" aria-hidden="true" />
-                        <span className={`px-2 py-0.5 rounded text-[10px] font-bold shrink-0 border ${
-                          spec.status === '₹0 FOREVER' 
-                            ? 'bg-purple-50 text-purple-700 border-purple-200'
-                            : spec.status === '100% OWNED'
-                            ? 'bg-blue-50 text-blue-700 border-blue-200'
-                            : 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                        }`}>
-                          {spec.status}
-                        </span>
-                      </div>
-                      <div className="text-[10px] text-slate-600 font-sans pl-0.5">
-                        {spec.note}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-mono text-slate-600 pt-1">
+                    {serv.deliverables.map((del, dIdx) => (
+                      <span key={dIdx} className="inline-flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600/70" />
+                        <span>{del}</span>
+                      </span>
+                    ))}
+                  </div>
 
-                {/* SPEC FOOTER SUMMARY */}
-                <div className="mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between text-[11px] font-mono text-slate-600">
-                  <span className="flex items-center gap-1.5">
-                    <CheckCircle2 size={13} className="text-emerald-600" />
-                    Zero Agency Lock-In
-                  </span>
-                  <Link to="/contact" className="text-blue-600 hover:text-blue-700 font-bold font-sans">
-                    Get custom scope →
-                  </Link>
+                  <div className="pt-2">
+                    <Link
+                      to={serv.link}
+                      className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                    >
+                      <span>Inspect Deliverables & Case Studies</span>
+                      <ArrowRight size={13} />
+                    </Link>
+                  </div>
                 </div>
 
               </div>
             </FadeIn>
-          </div>
+          ))}
+        </div>
 
+        {/* ALL-INCLUSIVE DELIVERABLES (CLEAN 2-COLUMN TYPOGRAPHIC FEATURE LIST DIRECTLY ON SURFACE) */}
+        <div className="text-left pt-4">
+          <FadeIn delay={0.1} y={15}>
+            <div className="max-w-2xl mb-8">
+              <span className="font-mono text-xs font-medium text-emerald-600 uppercase tracking-wider block mb-2">
+                ALL-INCLUSIVE DELIVERABLES SPECIFICATION
+              </span>
+              <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 mb-2">
+                Every Standard Included. Zero Hidden Surcharges.
+              </h3>
+              <p className="text-base leading-relaxed text-slate-600">
+                When you partner with VOOO LABS, there are no surprise fees for hosting setup, domain routing, or security certificates.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.18} y={15}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-12">
+              {ALL_INCLUSIVE_DELIVERABLES.map((del, dIdx) => (
+                <div key={dIdx} className="flex items-start gap-3.5">
+                  <CheckCircle2 size={18} className="text-emerald-600 shrink-0 mt-1" />
+                  <div>
+                    <h4 className="text-base font-semibold text-slate-900 leading-snug">
+                      {del.title}
+                    </h4>
+                    <p className="text-base leading-relaxed text-slate-600 mt-1">
+                      {del.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
 
       </div>

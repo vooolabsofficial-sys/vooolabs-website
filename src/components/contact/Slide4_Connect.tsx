@@ -46,19 +46,19 @@ export default function Slide4_Connect() {
   ];
 
   return (
-    <section className="bg-zinc-50 py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-zinc-200">
-      <div className="max-w-5xl mx-auto flex flex-col items-center">
+    <section className="bg-zinc-50 py-20 lg:py-28 px-6 sm:px-8 select-none antialiased border-b border-zinc-200">
+      <div className="max-w-6xl mx-auto flex flex-col items-start">
         
         {/* SECTION HEADER */}
-        <div className="text-center mb-16 max-w-2xl mx-auto">
+        <div className="text-left mb-14 max-w-2xl">
           <FadeIn delay={0} y={15}>
             <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
               PUBLIC CHANNELS & PROFILES
             </span>
-            <h2 className="font-sans font-bold text-3xl sm:text-5xl text-zinc-950 mb-3 tracking-tight">
+            <h2 className="font-sans text-2xl sm:text-3xl font-semibold text-zinc-950 mb-3 tracking-tight">
               Connect Across Platforms
             </h2>
-            <p className="font-sans text-xs sm:text-sm text-zinc-600 font-normal">
+            <p className="font-sans text-base text-zinc-600 leading-relaxed font-normal">
               Follow our engineering dispatches, open repositories, and verified release logs.
             </p>
           </FadeIn>
@@ -87,13 +87,13 @@ export default function Slide4_Connect() {
                       </span>
                     </div>
 
-                    <h3 className="font-sans font-bold text-lg text-zinc-950 mb-0.5">
+                    <h3 className="font-sans font-semibold text-lg text-zinc-950 mb-1">
                       {soc.name}
                     </h3>
                     <p className="font-mono text-xs text-zinc-500 mb-2.5">
                       {soc.handle}
                     </p>
-                    <p className="font-sans text-xs text-zinc-600 leading-relaxed font-normal">
+                    <p className="font-sans text-sm text-zinc-600 leading-relaxed font-normal">
                       {soc.desc}
                     </p>
                   </div>

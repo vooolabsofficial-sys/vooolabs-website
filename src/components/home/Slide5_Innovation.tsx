@@ -89,39 +89,43 @@ export default function Slide5_Innovation() {
   ];
 
   return (
-    <section className="bg-white py-20 sm:py-28 px-4 sm:px-6 select-none border-b border-slate-200/80 relative overflow-hidden">
-      {/* AMBIENT LIGHT */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] rounded-full bg-blue-600/[0.03] blur-[140px] pointer-events-none" />
+    <section className="bg-white py-20 lg:py-28 px-6 sm:px-8 select-none border-b border-slate-200/80 relative overflow-hidden">
+      {/* ORIGINAL VIBRANT AMBIENT LIGHT */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] rounded-full bg-blue-500/10 blur-[140px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto flex flex-col items-center relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10 text-left">
         
-        {/* EYEBROW */}
-        <FadeIn delay={0} y={15}>
-          <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2 text-center">
-            THE AI-ERA ADVANTAGE
-          </span>
-        </FadeIn>
+        {/* EYEBROW & SECTION HEADING */}
+        <div className="max-w-3xl mb-12">
+          <FadeIn delay={0} y={15}>
+            <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
+              THE AI-ERA ADVANTAGE
+            </span>
+          </FadeIn>
 
-        {/* HEADING */}
-        <FadeIn delay={0.1} y={20}>
-          <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-bold text-slate-900 text-center leading-tight mb-16">
-            Where {COMPANY.brandName} stands.
-          </h2>
-        </FadeIn>
+          <FadeIn delay={0.08} y={20}>
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight leading-snug text-slate-900 mb-4">
+              Where {COMPANY.brandName} <span className="shimmer-text">Stands.</span>
+            </h2>
+            <p className="text-base leading-relaxed text-slate-600">
+              Clear benchmarks built around client ownership, radical speed, and honest software engineering.
+            </p>
+          </FadeIn>
+        </div>
 
-        {/* STATS GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+        {/* STATS ROW (EQUAL-HEIGHT & GENEROUSLY PADDED) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full mb-16">
           {stats.map((stat, idx) => (
             <FadeIn key={idx} delay={idx * 0.08} y={20} className="w-full">
-              <div className="p-8 rounded-3xl bg-[#FAFAFD] border border-slate-200/80 text-center h-full flex flex-col justify-between hover:bg-white hover:border-slate-300 hover:shadow-md transition-all">
-                <div className="font-clash font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 mb-3">
+              <div className="p-7 sm:p-8 rounded-3xl bg-[#FAFAFD] border border-slate-200/80 text-left h-full flex flex-col justify-between hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all">
+                <div className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
                   <Counter value={stat.value} />
                 </div>
                 <div>
-                  <div className="font-sans text-xs sm:text-sm text-slate-800 font-semibold mb-1">
+                  <div className="text-base font-semibold text-slate-900 mb-1 leading-snug">
                     {stat.label}
                   </div>
-                  <div className="font-mono text-[11px] text-slate-500">
+                  <div className="text-xs font-mono text-slate-500">
                     {stat.sublabel}
                   </div>
                 </div>
@@ -130,11 +134,16 @@ export default function Slide5_Innovation() {
           ))}
         </div>
 
-        {/* BOTTOM QUOTE — PRESERVED INTACT */}
-        <FadeIn delay={0.35} y={15}>
-          <p className="font-sans font-normal italic text-sm sm:text-base md:text-lg text-slate-600 text-center mt-16 max-w-xl leading-relaxed">
-            "We don't resell bloated templates or outsource engineering. Every line of code is written with obsessive attention to performance, security, and real business utility."
-          </p>
+        {/* BOTTOM QUOTE — PRESERVED INTACT FROM ORIGINAL GIT COMMITS */}
+        <FadeIn delay={0.3} y={15}>
+          <div className="max-w-3xl border-l-2 border-blue-600 pl-6 py-2">
+            <p className="italic text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+              "We don't resell bloated templates or outsource engineering. Every line of code is written with obsessive attention to performance, security, and real business utility."
+            </p>
+            <span className="text-xs font-mono uppercase tracking-wider text-slate-500 mt-2 block">
+              VOOO LABS Core Engineering Standard
+            </span>
+          </div>
         </FadeIn>
 
       </div>

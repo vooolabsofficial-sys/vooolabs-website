@@ -6,28 +6,28 @@ import { WhatsappIcon } from '../shared/BrandIcons';
 
 export default function Slide1_ContactHero() {
   return (
-    <section className="bg-white flex flex-col justify-center items-center px-4 sm:px-6 py-20 pt-28 sm:pt-36 text-center relative overflow-hidden select-none antialiased border-b border-zinc-200">
-      <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
+    <section className="bg-white flex flex-col justify-center items-center px-6 sm:px-8 py-20 pt-28 sm:pt-36 text-center relative overflow-hidden select-none antialiased border-b border-zinc-200">
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center">
         
         {/* EYEBROW BADGE */}
         <FadeIn delay={0} y={15}>
-          <div className="inline-flex items-center gap-2 rounded-full bg-zinc-50 border border-zinc-200 px-4 py-1.5 mb-6 text-zinc-700 font-mono text-xs tracking-wider uppercase shadow-2xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+          <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200 px-4 py-1.5 mb-6 text-blue-700 font-mono text-xs font-medium tracking-wider uppercase shadow-2xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <span>START A CONVERSATION • PUNE • NASHIK • SATARA</span>
           </div>
         </FadeIn>
 
         {/* HERO TITLE */}
         <FadeIn delay={0.08} y={20}>
-          <h1 className="font-sans font-bold text-3xl sm:text-5xl md:text-6xl text-zinc-950 leading-[1.1] tracking-tight mb-6">
+          <h1 className="font-sans font-bold text-3xl sm:text-4xl lg:text-5xl text-zinc-950 leading-[1.15] tracking-tight mb-6">
             Tell Us About Your Business. <br className="hidden sm:inline" />
-            Get an Honest Cost Estimate & Plan.
+            <span className="shimmer-text">Get an Honest Cost Estimate & Plan.</span>
           </h1>
         </FadeIn>
 
         {/* SUBTITLE */}
         <FadeIn delay={0.16} y={15}>
-          <p className="font-sans text-sm sm:text-base text-zinc-600 max-w-2xl mx-auto leading-relaxed font-normal mb-8">
+          <p className="font-sans text-base text-zinc-600 max-w-2xl mx-auto leading-relaxed font-normal mb-8">
             Whether you need an all-inclusive website, custom business software, or visibility on ChatGPT and Google AI—share what you are looking to build and we will review your requirements carefully.
           </p>
         </FadeIn>

@@ -38,7 +38,7 @@ export default function Slide7_ROIKickoff() {
   return (
     <section 
       id="audit-kickoff"
-      className="snap-section min-h-screen bg-white flex flex-col justify-center relative overflow-hidden select-none py-20 sm:py-24 border-t border-slate-200/80 scroll-mt-28"
+      className="snap-section min-h-screen bg-white flex flex-col justify-center relative overflow-hidden select-none py-20 lg:py-28 border-t border-slate-200/80 scroll-mt-28"
       aria-label="Financial Comparison and Free AI Audit Kickoff"
     >
       {/* AMBIENT ACCENTS */}
@@ -49,7 +49,7 @@ export default function Slide7_ROIKickoff() {
         
         {/* SECTION EYEBROW */}
         <FadeIn delay={0.05} y={15}>
-          <div className="font-sans font-bold text-xs tracking-[0.2em] text-purple-600 uppercase mb-3 flex items-center gap-2 font-mono">
+          <div className="font-mono text-xs font-medium text-purple-600 uppercase tracking-wider mb-2 flex items-center gap-2">
             <Sparkles className="w-3.5 h-3.5 text-purple-600" />
             <span>06 / PERMANENT AI EQUITY • OWNED DISCOVERY</span>
           </div>
@@ -61,13 +61,13 @@ export default function Slide7_ROIKickoff() {
           {/* LEFT SIDE: FINANCIAL REALITY */}
           <div className="lg:col-span-6 space-y-6">
             <FadeIn delay={0.12} y={20}>
-              <h2 className="font-clash text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
-                Stop Paying Monthly Rent On Ads. <span className="text-purple-600">Build Owned AI Search Equity.</span>
+              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight leading-snug">
+                Stop Paying Monthly Rent On Ads. <span className="shimmer-text">Build Owned AI Search Equity.</span>
               </h2>
             </FadeIn>
 
             <FadeIn delay={0.18} y={20}>
-              <p className="font-sans font-normal text-base sm:text-lg text-slate-600 leading-relaxed">
+              <p className="text-base leading-relaxed text-slate-600">
                 When you rent pay-per-click ads, the moment your budget runs out, all traffic disappears overnight. AI search optimization builds permanent digital authority: ChatGPT, Google Gemini, and Google Maps recommend your business 24/7 with zero ongoing click fees.
               </p>
             </FadeIn>
