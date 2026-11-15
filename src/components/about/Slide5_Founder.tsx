@@ -1,200 +1,210 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink, MapPin, MessageSquare, ArrowRight, ShieldCheck, Terminal, Award, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, MessageSquare, ShieldCheck } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 import { GithubIcon, LinkedinIcon, InstagramIcon } from '../shared/BrandIcons';
 import {
-  COMPANY,
   LOCATION,
   FOUNDER,
-  whatsappLink,
 } from '../../content/company';
 
 export default function Slide5_Founder() {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <section id="founder" className="bg-white py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-slate-200/80 relative overflow-hidden">
-      {/* AMBIENT BACKLIGHT */}
-      <div className="absolute top-[30%] left-[10%] w-[500px] h-[500px] rounded-full bg-blue-600/[0.03] blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] rounded-full bg-purple-600/[0.03] blur-[140px] pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto flex flex-col items-center relative z-10">
+    <section id="founder" className="bg-white py-20 sm:py-28 px-4 sm:px-6 select-none antialiased border-b border-zinc-200">
+      <div className="max-w-5xl mx-auto">
         
-        {/* SECTION HEADER */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        {/* EDITORIAL HEADER */}
+        <div className="mb-14 pb-8 border-b border-zinc-200 text-left">
           <FadeIn delay={0} y={15}>
-            <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
-              FOUNDER & LEAD SOFTWARE ARCHITECT
+            <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
+              STUDIO LEADERSHIP & ACCOUNTABILITY
             </span>
-            <h2 className="font-clash font-semibold text-3xl sm:text-5xl text-slate-900 mb-3">
-              Direct Technical <span className="shimmer-text font-bold">Leadership</span>
+            <h2 className="font-sans font-bold text-3xl sm:text-5xl text-zinc-950 tracking-tight mb-3">
+              A Direct Letter from the Founder
             </h2>
-            <p className="font-sans text-xs sm:text-sm text-slate-600 font-normal">
-              You collaborate directly with the software engineer designing and building your digital systems.
+            <p className="font-sans text-xs sm:text-sm text-zinc-600 max-w-2xl font-normal">
+              When you work with VOOO LABS, you work directly with the software engineer who designs, codes, and maintains your systems. No salespeople, no account managers, and no outsourced junior staff.
             </p>
           </FadeIn>
         </div>
 
-        {/* FLAGSHIP EXECUTIVE FOUNDER SHOWCASE */}
-        <FadeIn delay={0.1} y={20} className="w-full">
-          <div className="rounded-3xl bg-[#FAFAFD] border border-slate-200/80 p-7 sm:p-12 shadow-sm text-left relative overflow-hidden">
+        {/* EDITORIAL LETTER SPLIT */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start text-left">
+          
+          {/* LEFT COLUMN: FOUNDER IDENTITY & SPEC (4 COLS) */}
+          <div className="lg:col-span-4 flex flex-col gap-6">
             
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* PORTRAIT CONTAINER */}
+            <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-zinc-200 bg-zinc-100 group shadow-2xs">
+              {!imageError ? (
+                <img
+                  src="/founder.jpg"
+                  alt={FOUNDER.name}
+                  onError={() => setImageError(true)}
+                  className="w-full h-full object-cover object-top filter grayscale contrast-105 group-hover:grayscale-0 transition-all duration-500"
+                />
+              ) : (
+                <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center bg-zinc-50">
+                  <div className="w-20 h-20 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center text-zinc-900 mb-3 shadow-2xs">
+                    <span className="font-sans font-bold text-2xl tracking-wider text-zinc-900">
+                      {FOUNDER.initials}
+                    </span>
+                  </div>
+                  <span className="font-sans font-semibold text-base text-zinc-950">
+                    {FOUNDER.name}
+                  </span>
+                  <span className="font-mono text-xs text-zinc-500 mt-1">
+                    {FOUNDER.role}
+                  </span>
+                </div>
+              )}
+
+              {/* STATUS PILL */}
+              <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between p-2.5 rounded-xl bg-white/95 backdrop-blur-sm border border-zinc-200 shadow-2xs">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span className="font-mono text-[11px] text-zinc-900 font-medium">Available for Projects</span>
+                </div>
+                <span className="font-mono text-[10px] text-zinc-500 uppercase">{LOCATION.country}</span>
+              </div>
+            </div>
+
+            {/* IDENTITY SPEC SHEET */}
+            <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-5 space-y-3 font-mono text-xs">
+              <div className="flex items-center justify-between pb-2 border-b border-zinc-200">
+                <span className="text-zinc-500">Engineer</span>
+                <span className="font-semibold text-zinc-900">{FOUNDER.name}</span>
+              </div>
+              <div className="flex items-center justify-between pb-2 border-b border-zinc-200">
+                <span className="text-zinc-500">Role</span>
+                <span className="font-semibold text-zinc-900">{FOUNDER.role}</span>
+              </div>
+              <div className="flex items-center justify-between pb-2 border-b border-zinc-200">
+                <span className="text-zinc-500">Hubs</span>
+                <span className="font-semibold text-zinc-900">{LOCATION.hubs.join(' · ')}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-zinc-500">Ownership</span>
+                <span className="font-semibold text-emerald-700">100% Client IP</span>
+              </div>
+            </div>
+
+            {/* SOCIAL PROFILES */}
+            <div className="flex items-center gap-2">
+              <a
+                href={FOUNDER.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
+                className="w-9 h-9 rounded-xl bg-zinc-50 border border-zinc-200 flex items-center justify-center text-zinc-700 hover:text-zinc-950 hover:bg-white hover:border-zinc-300 transition-colors shadow-2xs"
+              >
+                <GithubIcon size={15} />
+              </a>
+              <a
+                href={FOUNDER.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
+                className="w-9 h-9 rounded-xl bg-zinc-50 border border-zinc-200 flex items-center justify-center text-zinc-700 hover:text-zinc-950 hover:bg-white hover:border-zinc-300 transition-colors shadow-2xs"
+              >
+                <LinkedinIcon size={15} />
+              </a>
+              <a
+                href={FOUNDER.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram Profile"
+                className="w-9 h-9 rounded-xl bg-zinc-50 border border-zinc-200 flex items-center justify-center text-zinc-700 hover:text-zinc-950 hover:bg-white hover:border-zinc-300 transition-colors shadow-2xs"
+              >
+                <InstagramIcon size={15} />
+              </a>
+              <a
+                href={FOUNDER.portfolio}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-700 text-xs font-sans font-medium flex items-center gap-1.5 hover:bg-white hover:border-zinc-300 transition-colors shadow-2xs"
+              >
+                <span>Portfolio</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+          </div>
+
+          {/* RIGHT COLUMN: EDITORIAL LETTER CONTENT (8 COLS) */}
+          <div className="lg:col-span-8 flex flex-col justify-between">
+            
+            <div className="space-y-6">
               
-              {/* LEFT COLUMN: DEDICATED EXECUTIVE PORTRAIT CONTAINER (ASPECT [4/5]) */}
-              <div className="lg:col-span-5 flex flex-col items-center">
-                <div className="relative w-full max-w-[340px] aspect-[4/5] rounded-3xl overflow-hidden border border-slate-200 bg-slate-100 shadow-[0_12px_40px_rgba(0,0,0,0.08)] group mb-6">
-                  
-                  {/* AMBIENT PORTRAIT LIGHT */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-80 z-10 pointer-events-none" />
-                  <div className="absolute -top-24 -left-24 w-60 h-60 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
-                  <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-purple-500/10 blur-3xl pointer-events-none" />
+              {/* FOUNDER'S DIRECT QUOTE IN EDITORIAL CALLOUT */}
+              <blockquote className="p-6 rounded-2xl bg-zinc-50 border-l-2 border-zinc-900 border-y border-r border-zinc-200 text-zinc-900 font-sans text-sm sm:text-base leading-relaxed italic">
+                "{FOUNDER.quote}"
+              </blockquote>
 
-                  {/* PORTRAIT IMAGE OR ELEGANT MONOGRAM FALLBACK */}
-                  {!imageError ? (
-                    <img
-                      src="/founder.jpg"
-                      alt={FOUNDER.name}
-                      onError={() => setImageError(true)}
-                      className="w-full h-full object-cover object-top filter grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center bg-radial from-slate-100 to-white">
-                      <div className="w-24 h-24 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-slate-900 mb-4 shadow-sm">
-                        <span className="font-clash font-bold text-3xl tracking-wider shimmer-text">
-                          {FOUNDER.initials}
-                        </span>
-                      </div>
-                      <span className="font-clash font-semibold text-lg text-slate-900 mb-1">
-                        {FOUNDER.name}
-                      </span>
-                      <span className="font-mono text-xs text-blue-600">
-                        {FOUNDER.role}
-                      </span>
-                    </div>
-                  )}
+              {/* EDITORIAL LETTER PROSE */}
+              <div className="space-y-4 font-sans text-xs sm:text-sm text-zinc-700 leading-relaxed font-normal">
+                <p>
+                  Dear Business Owner,
+                </p>
+                <p>
+                  I started <strong>VOOO LABS</strong> with a very grounded conviction: growing businesses in Maharashtra and across India deserve websites and software engineered with the same rigor, speed, and clean code that global technology firms demand—without paying inflated agency overhead or being trapped in perpetual monthly subscription lock-ins.
+                </p>
+                <p>
+                  Most digital agencies run on a broken model. You speak to a polished salesperson who promises the world, but once you pay an advance, your project gets tossed down to an inexperienced contractor or built on a bloated WordPress theme with 40 unvetted plugins that break after six months. When you need a change, you get billed extra or wait weeks for a reply.
+                </p>
+                <p>
+                  At VOOO LABS, we work entirely differently. We keep our studio intentionally lean and technical. When you hire us for a website, an internal operations system, or AI search discoverability, you work directly with me. Every database model, UI layout, domain configuration, and cloud deployment is engineered to run reliably for years.
+                </p>
+                <p>
+                  Most importantly: <strong>you own everything we build</strong>. 100% of the code, domain records, hosting accounts, and customer databases are handed over to you on completion. We don't hold your business hostage.
+                </p>
+                <p>
+                  If you have an idea, a manual workflow that needs software, or a website that isn't generating real customer calls, let's talk.
+                </p>
+              </div>
 
-                  {/* OVERLAY BADGE */}
-                  <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between p-3 rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-xs">
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                      <span className="font-mono text-[11px] text-slate-800 font-medium">Available for Projects</span>
-                    </div>
-                    <span className="font-mono text-[10px] text-slate-500 uppercase tracking-wider">{LOCATION.country}</span>
+              {/* EDITORIAL SIGNATURE BLOCK */}
+              <div className="pt-6 border-t border-zinc-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <div className="font-serif italic text-xl sm:text-2xl text-zinc-950 font-normal">
+                    {FOUNDER.name}
+                  </div>
+                  <div className="font-mono text-xs text-zinc-500 mt-0.5">
+                    {FOUNDER.role} • VOOO LABS
                   </div>
                 </div>
-
-                {/* SOCIAL PROFILES */}
-                <div className="flex items-center gap-2.5">
-                  <a
-                    href={FOUNDER.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub Profile"
-                    className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-blue-600 hover:border-slate-300 transition-colors shadow-2xs"
-                  >
-                    <GithubIcon size={15} />
-                  </a>
-                  <a
-                    href={FOUNDER.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn Profile"
-                    className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-blue-600 hover:border-slate-300 transition-colors shadow-2xs"
-                  >
-                    <LinkedinIcon size={15} />
-                  </a>
-                  <a
-                    href={FOUNDER.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram Profile"
-                    className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-blue-600 hover:border-slate-300 transition-colors shadow-2xs"
-                  >
-                    <InstagramIcon size={15} />
-                  </a>
-                  <a
-                    href={FOUNDER.portfolio}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-sans font-medium flex items-center gap-1.5 hover:border-slate-300 hover:text-blue-600 transition-colors shadow-2xs"
-                  >
-                    <span>Portfolio</span>
-                    <ExternalLink size={12} />
-                  </a>
-                </div>
-              </div>
-
-              {/* RIGHT COLUMN: AUTHENTIC FOUNDER'S STATEMENT & CRAFTSMANSHIP */}
-              <div className="lg:col-span-7 space-y-6">
-                <div>
-                  <h3 className="font-clash font-semibold text-2xl sm:text-3xl text-slate-900 mb-1">
-                    {FOUNDER.name}
-                  </h3>
-                  <p className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-wider mb-3">
-                    {FOUNDER.role} · {LOCATION.region}, {LOCATION.country}
-                  </p>
-                </div>
-
-                {/* STATEMENT CALLOUT */}
-                <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs relative">
-                  <p className="font-sans text-xs sm:text-sm text-slate-800 leading-relaxed italic font-normal">
-                    "{FOUNDER.quote}"
-                  </p>
-                </div>
-
-                <div className="space-y-4 font-sans text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  <p>
-                    I started VOOO LABS with a simple conviction: businesses deserve custom software engineered with the same level of architectural discipline found at top global technology companies.
-                  </p>
-                  <p>
-                    When you partner with VOOO LABS, there are no outsourced contractors or layers of account managers. Every architectural decision, database model, and interface interaction is built directly by me with transparent weekly milestone reviews.
-                  </p>
-                </div>
-
-                {/* ARCHITECTURAL STANDARDS */}
-                <div className="pt-2 flex flex-wrap gap-2">
-                  <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-mono text-slate-700 shadow-2xs">
-                    Custom Web Applications
-                  </span>
-                  <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-mono text-slate-700 shadow-2xs">
-                    B2B Operations Portals
-                  </span>
-                  <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-mono text-slate-700 shadow-2xs">
-                    High-Conversion Brand Web
-                  </span>
-                  <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-mono text-slate-700 shadow-2xs">
-                    100% Client Code Ownership
-                  </span>
+                <div className="flex items-center gap-2 text-zinc-600 font-mono text-xs">
+                  <ShieldCheck size={15} className="text-emerald-600" />
+                  <span>Pune • Nashik • Satara</span>
                 </div>
               </div>
 
             </div>
 
-          </div>
-        </FadeIn>
-
-        {/* BOTTOM CONSULTATION CARD */}
-        <FadeIn delay={0.2} y={15} className="w-full mt-16">
-          <div className="rounded-3xl bg-slate-900 border border-slate-800 text-white p-8 sm:p-10 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-            <div>
-              <h3 className="font-clash font-semibold text-2xl sm:text-3xl text-white mb-2">
-                Have an ambitious web project in mind?
-              </h3>
-              <p className="font-sans text-xs sm:text-sm text-slate-300 max-w-lg leading-relaxed font-normal">
-                Skip the generic agency sales pitches. Speak directly with our lead software architect to scope your platform requirements and delivery timeline.
-              </p>
+            {/* DIRECT ACTION BAR */}
+            <div className="mt-10 p-6 rounded-2xl bg-zinc-950 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <h4 className="font-sans font-bold text-base text-white">
+                  Have a specific software or web requirement?
+                </h4>
+                <p className="font-sans text-xs text-zinc-400 mt-0.5">
+                  Send your project requirements directly to the founder. No sales pressure.
+                </p>
+              </div>
+              <Link
+                to="/contact"
+                className="rounded-xl bg-white text-zinc-950 hover:bg-zinc-100 font-sans font-semibold text-xs px-5 py-2.5 transition-colors flex items-center gap-2 flex-shrink-0"
+              >
+                <MessageSquare size={14} />
+                <span>Start Direct Project Consultation</span>
+              </Link>
             </div>
-            <Link
-              to="/contact"
-              className="rounded-full bg-white hover:bg-slate-100 text-slate-900 font-sans font-semibold text-xs sm:text-sm px-7 py-3.5 transition-all duration-200 shadow-lg inline-flex items-center gap-2 flex-shrink-0"
-            >
-              <MessageSquare size={15} />
-              <span>Start Technical Consultation</span>
-            </Link>
+
           </div>
-        </FadeIn>
+
+        </div>
 
       </div>
     </section>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { Check, Clock, Sparkles, Layers, ArrowRight } from 'lucide-react';
+import { Check, Clock } from 'lucide-react';
 import {
   ROADMAP,
   STATUS_LABEL,
@@ -11,31 +11,31 @@ import {
 const ACCENTS: Record<RoadmapPhase['status'], { dot: string; ring: string; chip: string; glow: string; text: string }> = {
   shipped: {
     dot: 'bg-emerald-600',
-    ring: 'border-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.2)]',
-    chip: 'text-emerald-700 bg-emerald-50 border-emerald-200',
-    glow: 'hover:border-emerald-300 hover:shadow-md',
-    text: 'text-emerald-700',
+    ring: 'border-emerald-600',
+    chip: 'text-emerald-800 bg-emerald-50 border-emerald-200',
+    glow: 'hover:border-zinc-300 hover:shadow-sm',
+    text: 'text-emerald-800',
   },
   current: {
-    dot: 'bg-blue-600',
-    ring: 'border-blue-500 shadow-[0_0_14px_rgba(59,130,246,0.3)] ring-4 ring-blue-100',
-    chip: 'text-blue-700 bg-blue-50 border-blue-200',
-    glow: 'border-blue-300 shadow-md',
-    text: 'text-blue-700',
+    dot: 'bg-zinc-950',
+    ring: 'border-zinc-950 ring-4 ring-zinc-100',
+    chip: 'text-zinc-950 bg-zinc-100 border-zinc-300 font-semibold',
+    glow: 'border-zinc-400 shadow-sm',
+    text: 'text-zinc-950',
   },
   next: {
-    dot: 'bg-purple-600',
-    ring: 'border-purple-500 shadow-[0_0_12px_rgba(147,51,234,0.2)]',
-    chip: 'text-purple-700 bg-purple-50 border-purple-200',
-    glow: 'hover:border-purple-300 hover:shadow-md',
-    text: 'text-purple-700',
+    dot: 'bg-zinc-400',
+    ring: 'border-zinc-300',
+    chip: 'text-zinc-600 bg-zinc-50 border-zinc-200',
+    glow: 'hover:border-zinc-300 hover:shadow-2xs',
+    text: 'text-zinc-700',
   },
   later: {
-    dot: 'bg-slate-400',
-    ring: 'border-slate-300 shadow-2xs',
-    chip: 'text-slate-600 bg-slate-100 border-slate-200',
-    glow: 'hover:border-slate-300 hover:shadow-sm',
-    text: 'text-slate-600',
+    dot: 'bg-zinc-300',
+    ring: 'border-zinc-200',
+    chip: 'text-zinc-500 bg-zinc-50 border-zinc-200',
+    glow: 'hover:border-zinc-300',
+    text: 'text-zinc-500',
   },
 };
 
@@ -62,20 +62,20 @@ export default function Slide2_Timeline() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#F8F9FC] py-20 sm:py-28 px-4 sm:px-6 relative select-none antialiased border-b border-slate-200/80"
+      className="bg-zinc-50 py-20 sm:py-28 px-4 sm:px-6 relative select-none antialiased border-b border-zinc-200"
     >
       <div className="max-w-5xl mx-auto">
         
         {/* SECTION HEADER */}
         <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
-          <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
-            PHASED EXECUTION PIPELINE
+          <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
+            ENGINEERING MILESTONES & CAPABILITIES
           </span>
-          <h2 className="font-clash font-semibold text-3xl sm:text-5xl text-slate-900 mb-3">
-            Milestones & Delivery Cycle
+          <h2 className="font-sans font-bold text-3xl sm:text-5xl text-zinc-950 tracking-tight mb-3">
+            Studio Roadmap & Execution
           </h2>
-          <p className="font-sans text-xs sm:text-sm text-slate-600 font-normal">
-            Every phase represents verifiable deliverables, transparent sprint reviews, and guaranteed code ownership.
+          <p className="font-sans text-xs sm:text-sm text-zinc-600 font-normal">
+            Every phase reflects concrete engineering capabilities, deterministic milestones, and complete client code ownership.
           </p>
         </div>
 
@@ -84,14 +84,14 @@ export default function Slide2_Timeline() {
           
           {/* STATIC BASE LINE */}
           <div
-            className="absolute left-6 md:left-1/2 -translate-x-1/2 top-4 bottom-8 w-[2px] bg-slate-200 rounded-full"
+            className="absolute left-6 md:left-1/2 -translate-x-1/2 top-4 bottom-8 w-[1px] bg-zinc-200"
             aria-hidden="true"
           />
 
           {/* SCROLL-LINKED VERTICAL PROGRESS BEAM */}
           <motion.div
             style={{ scaleY }}
-            className="absolute left-6 md:left-1/2 -translate-x-1/2 top-4 bottom-8 w-[2px] bg-gradient-to-b from-blue-500 via-purple-500 to-emerald-500 origin-top rounded-full shadow-[0_0_12px_rgba(59,130,246,0.5)] z-0"
+            className="absolute left-6 md:left-1/2 -translate-x-1/2 top-4 bottom-8 w-[2px] bg-zinc-900 origin-top rounded-full z-0"
             aria-hidden="true"
           />
 
@@ -112,54 +112,54 @@ export default function Slide2_Timeline() {
                   
                   {/* NODE PIN ON THE BEAM */}
                   <div
-                    className={`absolute left-6 md:left-1/2 -translate-x-1/2 top-6 w-5 h-5 rounded-full border-[3px] bg-white flex items-center justify-center z-20 ${accent.ring}`}
+                    className={`absolute left-6 md:left-1/2 -translate-x-1/2 top-6 w-4 h-4 rounded-full border-2 bg-white flex items-center justify-center z-20 ${accent.ring}`}
                   >
-                    <div className={`w-2 h-2 rounded-full ${accent.dot}`} />
+                    <div className={`w-1.5 h-1.5 rounded-full ${accent.dot}`} />
                   </div>
 
                   {/* CONTENT CARD */}
                   <div className="w-full md:w-[calc(50%-24px)]">
                     <div
-                      className={`p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm transition-all duration-300 text-left hover:-translate-y-1 ${accent.glow}`}
+                      className={`p-6 sm:p-8 rounded-2xl bg-white border border-zinc-200 transition-all duration-200 text-left ${accent.glow}`}
                     >
                       {/* CARD HEADER */}
-                      <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
+                      <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-zinc-200">
                         <div className="flex items-center gap-2">
                           {isCurrent && (
-                            <span className="w-2 h-2 rounded-full bg-blue-600 animate-ping" />
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                           )}
                           <span
-                            className={`font-mono text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${accent.chip}`}
+                            className={`font-mono text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-md border ${accent.chip}`}
                           >
                             {STATUS_LABEL[phase.status]}
                           </span>
                         </div>
-                        <span className="font-mono text-xs font-medium text-slate-500">
+                        <span className="font-mono text-xs font-medium text-zinc-500">
                           {phase.period}
                         </span>
                       </div>
 
                       {/* PHASE TITLE */}
-                      <h3 className="font-clash font-semibold text-xl sm:text-2xl text-slate-900 mb-4">
+                      <h3 className="font-sans font-bold text-xl sm:text-2xl text-zinc-950 mb-4 tracking-tight">
                         {phase.title}
                       </h3>
 
                       {/* DELIVERABLE CHECKLIST */}
-                      <ul className="space-y-2.5 font-sans text-xs sm:text-sm text-slate-600">
+                      <ul className="space-y-2.5 font-sans text-xs sm:text-sm text-zinc-600">
                         {phase.items.map((item, itemIdx) => (
                           <li key={itemIdx} className="flex items-start gap-2.5">
                             {phase.status === 'shipped' ? (
-                              <div className="w-4 h-4 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <Check size={11} className="text-emerald-600" />
+                              <div className="w-4 h-4 rounded-md bg-emerald-50 border border-emerald-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <Check size={11} className="text-emerald-700" />
                               </div>
                             ) : phase.status === 'current' ? (
-                              <div className="w-4 h-4 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <Clock size={11} className="text-blue-600 animate-pulse" />
+                              <div className="w-4 h-4 rounded-md bg-zinc-100 border border-zinc-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <Clock size={11} className="text-zinc-900" />
                               </div>
                             ) : (
-                              <div className="w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0 mt-2 mx-1" />
+                              <div className="w-1.5 h-1.5 rounded-full bg-zinc-300 flex-shrink-0 mt-2 mx-1" />
                             )}
-                            <span className={phase.status === 'shipped' ? 'text-slate-500' : 'text-slate-800'}>
+                            <span className={phase.status === 'shipped' ? 'text-zinc-500' : 'text-zinc-800'}>
                               {item}
                             </span>
                           </li>

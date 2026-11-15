@@ -108,7 +108,7 @@ export default function Slide5_OpenDev() {
                 Have an architecture or project requirement to review?
               </h3>
               <p className="font-sans text-xs sm:text-sm text-slate-600 mt-1">
-                We review technical specifications and provide detailed sprint breakdowns within 24 hours.
+                Every inquiry goes straight to the founder. We review your requirements and provide an honest milestone estimate and roadmap.
               </p>
             </div>
             <Link

@@ -12,6 +12,11 @@ import { COMPANY } from '../content/company';
 const ENQUIRY_ENDPOINT = '';
 
 export type EnquiryKind =
+  | 'Business Website'
+  | 'Custom Web App'
+  | 'Billing & Staff Software'
+  | 'AI Search & AI Ads'
+  | 'Multiple Services'
   | 'Web App'
   | 'Website'
   | 'Software CRM'
@@ -105,6 +110,6 @@ export async function submitEnquiry(enquiry: Enquiry): Promise<SubmitResult> {
 export const resultCopy = (result: SubmitResult): string => {
   if (!result.ok) return result.error;
   return result.delivered === 'stored'
-    ? 'Inquiry received. Our lead software architect will review your project requirements and respond directly.'
-    : 'Your email client is opening with your project brief — click Send to transmit your requirements directly.';
+    ? 'Inquiry received. Every inquiry goes straight to the founder. We review your requirements first and share an honest plan, transparent cost estimate, and realistic delivery schedule.'
+    : 'Your email client is opening with your project brief — click Send to transmit your requirements directly to the founder.';
 };
