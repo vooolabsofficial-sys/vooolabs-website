@@ -195,7 +195,7 @@ export default function Slide5_Founder() {
               </div>
               <Link
                 to="/contact"
-                className="rounded-xl bg-white text-zinc-950 hover:bg-zinc-100 font-sans font-semibold text-xs px-5 py-2.5 transition-colors flex items-center gap-2 flex-shrink-0"
+                className="btn-3d-base btn-3d-white rounded-xl bg-white text-zinc-950 hover:bg-zinc-100 font-sans font-semibold text-xs px-5 py-2.5 flex items-center gap-2 flex-shrink-0"
               >
                 <MessageSquare size={14} />
                 <span>Discuss your project with the founder</span>

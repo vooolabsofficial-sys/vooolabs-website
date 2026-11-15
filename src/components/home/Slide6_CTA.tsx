@@ -42,7 +42,7 @@ export default function Slide6_CTA() {
           <div className="flex flex-wrap gap-4 justify-center items-center">
             <Link
               to="/contact"
-              className="rounded-full bg-slate-900 hover:bg-blue-600 text-white px-8 py-4 font-sans font-semibold text-sm sm:text-base transition-all duration-200 hover:scale-[1.02] shadow-xs active:scale-[0.98] inline-flex items-center gap-2"
+              className="btn-3d-base btn-3d-primary rounded-full bg-slate-900 hover:bg-blue-600 text-white px-8 py-4 font-sans font-semibold text-sm sm:text-base inline-flex items-center gap-2"
             >
               <span>See what your project will cost</span>
               <ArrowRight size={16} />
@@ -52,7 +52,7 @@ export default function Slide6_CTA() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-slate-200/80 bg-white hover:bg-slate-50 px-8 py-4 font-sans font-medium text-sm sm:text-base text-slate-700 hover:text-slate-900 hover:border-slate-300 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xs inline-flex items-center gap-2"
+              className="btn-3d-base btn-3d-secondary rounded-full border border-slate-200/80 bg-white hover:bg-slate-50 px-8 py-4 font-sans font-medium text-sm sm:text-base text-slate-700 hover:text-slate-900 hover:border-slate-300 inline-flex items-center gap-2"
             >
               <MessageSquare size={16} className="text-purple-600" />
               <span>Discover what you're missing</span>

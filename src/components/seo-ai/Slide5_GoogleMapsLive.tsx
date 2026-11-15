@@ -91,7 +91,7 @@ export default function Slide5_GoogleMapsLive() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white font-semibold text-sm shadow-xs transition-all duration-200 cursor-pointer"
+                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white font-semibold text-sm cursor-pointer"
                 >
                   <MessageSquare className="w-4 h-4" />
                   <span>Discover what you're missing</span>
@@ -100,7 +100,7 @@ export default function Slide5_GoogleMapsLive() {
 
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm transition-all shadow-2xs"
+                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm"
                 >
                   <span>See what your project will cost</span>
                 </Link>

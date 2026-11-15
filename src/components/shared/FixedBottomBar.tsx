@@ -86,7 +86,7 @@ export default function FixedBottomBar() {
         {/* PRIMARY OUTCOME CTA */}
         <Link
           to="/contact"
-          className="rounded-full bg-slate-950 hover:bg-blue-600 text-white px-3.5 sm:px-4 py-1.5 font-sans font-medium text-[11px] sm:text-xs transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-xs"
+          className="btn-3d-base btn-3d-primary rounded-full bg-slate-950 hover:bg-blue-600 text-white px-3.5 sm:px-4 py-1.5 font-sans font-medium text-[11px] sm:text-xs"
         >
           See what your project will cost →
         </Link>

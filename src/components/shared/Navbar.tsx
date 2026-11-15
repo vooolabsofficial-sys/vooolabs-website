@@ -113,7 +113,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2 flex-shrink-0">
             <Link
               to="/contact"
-              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-slate-950 hover:bg-blue-600 text-white font-sans font-medium text-[13px] px-5 py-2.5 transition-all duration-200 shadow-xs hover:-translate-y-0.5 active:translate-y-0 active:scale-95 group whitespace-nowrap select-none"
+              className="btn-3d-base btn-3d-primary hidden sm:inline-flex items-center gap-2 rounded-full bg-slate-950 hover:bg-blue-600 text-white font-sans font-medium text-[13px] px-5 py-2.5 group whitespace-nowrap"
             >
               <span>See what your project will cost</span>
               <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-0.5 flex-shrink-0" />
@@ -122,7 +122,7 @@ export default function Navbar() {
             {/* MOBILE HAMBURGER BUTTON */}
             <button
               onClick={toggleMenu}
-              className="md:hidden w-10 h-10 rounded-full border border-slate-200 bg-white/80 flex items-center justify-center text-slate-800 hover:bg-slate-100 active:scale-95 transition-all shadow-xs"
+              className="btn-3d-base btn-3d-secondary md:hidden w-10 h-10 rounded-full border border-slate-200 bg-white/90 flex items-center justify-center text-slate-800 hover:bg-slate-50 transition-all"
               aria-label="Toggle navigation menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -181,7 +181,7 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 onClick={closeMenu}
-                className="w-full rounded-full bg-slate-950 hover:bg-blue-600 text-white font-sans font-semibold text-sm py-3.5 flex items-center justify-center gap-2 shadow-sm transition-all"
+                className="btn-3d-base btn-3d-primary w-full rounded-full bg-slate-950 hover:bg-blue-600 text-white font-sans font-semibold text-sm py-3.5 flex items-center justify-center gap-2"
               >
                 <span>See what your project will cost</span>
                 <ArrowRight size={15} />
@@ -191,7 +191,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenu}
-                className="w-full rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-sans font-medium text-sm py-3 flex items-center justify-center gap-2 transition-all"
+                className="btn-3d-base btn-3d-secondary w-full rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-sans font-medium text-sm py-3 flex items-center justify-center gap-2"
               >
                 <MessageSquare size={15} className="text-emerald-600" />
                 <span>Discuss your project</span>

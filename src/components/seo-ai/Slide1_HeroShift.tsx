@@ -206,7 +206,7 @@ export default function Slide1_HeroShift() {
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <button
                   onClick={scrollToNext}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-purple-600 text-white font-bold text-sm shadow-xs transition-all cursor-pointer"
+                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-purple-600 text-white font-bold text-sm cursor-pointer"
                 >
                   <Bot size={16} />
                   <span>Discover what you're missing</span>
@@ -215,7 +215,7 @@ export default function Slide1_HeroShift() {
 
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm transition-all shadow-2xs"
+                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm"
                 >
                   <span>See what your project will cost</span>
                 </Link>

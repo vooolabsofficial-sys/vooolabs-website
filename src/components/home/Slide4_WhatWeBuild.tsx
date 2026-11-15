@@ -124,7 +124,7 @@ export default function Slide4_WhatWeBuild() {
           <div className="mt-12 text-center">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 font-sans font-semibold text-xs sm:text-sm text-white bg-slate-900 hover:bg-purple-600 px-7 py-3.5 rounded-full shadow-xs transition-all hover:scale-[1.02] cursor-pointer"
+              className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 font-sans font-semibold text-xs sm:text-sm text-white bg-slate-900 hover:bg-purple-600 px-7 py-3.5 rounded-full"
             >
               <span>See what your project will cost</span>
               <ArrowRight size={14} />

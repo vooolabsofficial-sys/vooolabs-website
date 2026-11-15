@@ -307,3 +307,156 @@ p {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-2);
 }
+
+/* ═══════════════════════════════════════════════
+   3D TACTILE PHYSICAL SWITCH BUTTON SYSTEM
+   ═══════════════════════════════════════════════ */
+
+/* Base tactile mechanics */
+.btn-3d-base {
+  position: relative;
+  overflow: hidden;
+  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 120ms cubic-bezier(0.16, 1, 0.3, 1), background-color 150ms ease, border-color 150ms ease;
+  will-change: transform, box-shadow;
+  border-width: 1px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Fast satin light-sweep across button on hover (450ms) */
+.btn-3d-base::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  transition: none;
+}
+
+.btn-3d-base:hover::after {
+  left: 170%;
+  transition: left 450ms ease-out;
+}
+
+/* PRIMARY (DARK BUTTONS: ZINC-950, SLATE-900, SLATE-950) */
+.btn-3d-primary {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 3px 0 0 rgba(15, 23, 42, 0.45);
+  transform: translateY(0);
+}
+
+.btn-3d-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 0 rgba(15, 23, 42, 0.65);
+}
+
+.btn-3d-primary:active {
+  transform: translateY(3px) scale(0.985);
+  box-shadow: 0 0px 0 0 rgba(15, 23, 42, 0.2);
+  transition-duration: 90ms;
+}
+
+/* SECONDARY (LIGHT / WHITE / ZINC-50 BUTTONS) */
+.btn-3d-secondary {
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 3px 0 0 rgba(15, 23, 42, 0.16);
+  transform: translateY(0);
+}
+
+.btn-3d-secondary::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(15, 23, 42, 0.06) 50%,
+    transparent 100%
+  );
+}
+
+.btn-3d-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 0 rgba(15, 23, 42, 0.22);
+}
+
+.btn-3d-secondary:hover::after {
+  left: 170%;
+  transition: left 450ms ease-out;
+}
+
+.btn-3d-secondary:active {
+  transform: translateY(3px) scale(0.985);
+  box-shadow: 0 0px 0 0 rgba(15, 23, 42, 0.1);
+  transition-duration: 90ms;
+}
+
+/* EMERALD / WHATSAPP BUTTONS */
+.btn-3d-emerald {
+  border-color: rgba(5, 150, 105, 0.25);
+  box-shadow: 0 3px 0 0 rgba(4, 120, 87, 0.45);
+  transform: translateY(0);
+}
+
+.btn-3d-emerald::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+.btn-3d-emerald:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 0 rgba(4, 120, 87, 0.65);
+}
+
+.btn-3d-emerald:hover::after {
+  left: 170%;
+  transition: left 450ms ease-out;
+}
+
+.btn-3d-emerald:active {
+  transform: translateY(3px) scale(0.985);
+  box-shadow: 0 0px 0 0 rgba(4, 120, 87, 0.2);
+  transition-duration: 90ms;
+}
+
+/* WHITE BUTTON ON DARK SURFACES */
+.btn-3d-white {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.35);
+  transform: translateY(0);
+}
+
+.btn-3d-white::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.08) 50%,
+    transparent 100%
+  );
+}
+
+.btn-3d-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 0 rgba(0, 0, 0, 0.5);
+}
+
+.btn-3d-white:hover::after {
+  left: 170%;
+  transition: left 450ms ease-out;
+}
+
+.btn-3d-white:active {
+  transform: translateY(3px) scale(0.985);
+  box-shadow: 0 0px 0 0 rgba(0, 0, 0, 0.15);
+  transition-duration: 90ms;
+}

@@ -91,7 +91,7 @@ export default function Slide2_CustomSoftware() {
               <div className="pt-4 flex flex-wrap items-center gap-3.5">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white font-semibold text-sm shadow-xs transition-all duration-200 cursor-pointer"
+                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white font-semibold text-sm cursor-pointer"
                 >
                   <span>See what your project will cost</span>
                   <ArrowRight className="w-4 h-4 ml-1" />
@@ -101,7 +101,7 @@ export default function Slide2_CustomSoftware() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm transition-all duration-200 cursor-pointer"
+                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm cursor-pointer"
                 >
                   <MessageSquare className="w-4 h-4 text-emerald-600" />
                   <span>See how it can help your business</span>

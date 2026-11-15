@@ -238,7 +238,7 @@ export default function Slide2_Form() {
                     href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent("Hello VOOO LABS, I'm reaching out about a project for my business.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 font-sans font-semibold text-xs hover:bg-emerald-100 transition-colors"
+                    className="btn-3d-base btn-3d-emerald inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 font-sans font-semibold text-xs hover:bg-emerald-100"
                   >
                     <WhatsappIcon size={14} />
                     <span>Open Instant WhatsApp Chat</span>
@@ -329,7 +329,7 @@ export default function Slide2_Form() {
                       href={whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 hover:bg-emerald-100 font-sans font-semibold text-xs inline-flex items-center justify-center gap-2 transition-colors"
+                      className="btn-3d-base btn-3d-emerald px-5 py-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 hover:bg-emerald-100 font-sans font-semibold text-xs inline-flex items-center justify-center gap-2"
                     >
                       <WhatsappIcon size={14} />
                       <span>Message on WhatsApp for Immediate Priority</span>
@@ -337,7 +337,7 @@ export default function Slide2_Form() {
                     <button
                       type="button"
                       onClick={() => setIsSuccess(false)}
-                      className="px-5 py-2.5 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-white font-sans font-medium text-xs transition-colors"
+                      className="btn-3d-base btn-3d-primary px-5 py-2.5 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-white font-sans font-medium text-xs"
                     >
                       Submit Another Inquiry
                     </button>
@@ -556,7 +556,7 @@ export default function Slide2_Form() {
                     <button
                       type="submit"
                       disabled={isSending}
-                      className="flex-1 rounded-xl bg-zinc-950 hover:bg-zinc-800 py-3.5 px-6 font-sans font-semibold text-xs sm:text-sm text-white transition-all duration-150 shadow-2xs disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      className="btn-3d-base btn-3d-primary flex-1 rounded-xl bg-zinc-950 hover:bg-zinc-800 py-3.5 px-6 font-sans font-semibold text-xs sm:text-sm text-white disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                       {isSending ? (
                         <>
@@ -575,7 +575,7 @@ export default function Slide2_Form() {
                     <button
                       type="button"
                       onClick={handleSendViaWhatsApp}
-                      className="rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 hover:border-zinc-300 py-3.5 px-5 font-sans font-semibold text-xs sm:text-sm text-zinc-800 transition-colors flex items-center justify-center gap-2 flex-shrink-0"
+                      className="btn-3d-base btn-3d-secondary rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 py-3.5 px-5 font-sans font-semibold text-xs sm:text-sm text-zinc-800 flex items-center justify-center gap-2 flex-shrink-0"
                     >
                       <WhatsappIcon size={14} />
                       <span>Send details via WhatsApp instead</span>

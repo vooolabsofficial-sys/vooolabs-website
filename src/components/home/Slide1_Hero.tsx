@@ -56,7 +56,7 @@ export default function Slide1_Hero() {
               <div className="flex flex-wrap items-center gap-4 pt-1">
                 <Link
                   to="/contact"
-                  className="rounded-full bg-slate-900 hover:bg-blue-600 text-white px-7 py-3.5 font-sans font-semibold text-sm sm:text-base transition-all duration-200 hover:scale-[1.02] shadow-xs active:scale-[0.98] inline-flex items-center gap-2"
+                  className="btn-3d-base btn-3d-primary rounded-full bg-slate-900 hover:bg-blue-600 text-white px-7 py-3.5 font-sans font-semibold text-sm sm:text-base inline-flex items-center gap-2"
                 >
                   <span>See what your project will cost</span>
                   <ArrowRight size={16} />
@@ -66,9 +66,9 @@ export default function Slide1_Hero() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-slate-200/90 bg-white hover:bg-slate-50 px-6 py-3.5 font-sans font-medium text-sm sm:text-base text-slate-700 hover:text-slate-900 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xs inline-flex items-center gap-2"
+                  className="btn-3d-base btn-3d-secondary rounded-full border border-slate-200/90 bg-white hover:bg-slate-50 px-6 py-3.5 font-sans font-medium text-sm sm:text-base text-slate-700 hover:text-slate-900 inline-flex items-center gap-2"
                 >
-                  <MessageSquare size={16} className="text-blue-600" />
+                  <MessageSquare size={16} className="text-emerald-600" />
                   <span>See how it can help your business</span>
                 </a>
               </div>

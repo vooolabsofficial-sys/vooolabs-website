@@ -191,7 +191,7 @@ export default function Slide7_ROIKickoff() {
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 px-6 rounded-xl bg-slate-900 hover:bg-purple-600 text-white font-bold text-sm shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="btn-3d-base btn-3d-primary w-full py-3.5 px-6 rounded-xl bg-slate-900 hover:bg-purple-600 text-white font-bold text-sm flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <MessageSquare className="w-4 h-4" />
                     <span>Discover what you're missing</span>

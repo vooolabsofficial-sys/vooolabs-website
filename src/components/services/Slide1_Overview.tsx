@@ -252,7 +252,7 @@ export default function Slide1_Overview() {
                     <div className="pt-2 flex flex-col gap-2">
                       <button
                         onClick={() => scrollToSection(current.id)}
-                        className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-white transition-all shadow-xs hover:shadow-md cursor-pointer"
+                        className="btn-3d-base btn-3d-primary w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-white cursor-pointer"
                         style={{ backgroundColor: current.accent }}
                       >
                         <span>See how it can help your business</span>
@@ -261,7 +261,7 @@ export default function Slide1_Overview() {
 
                       <Link
                         to="/contact"
-                        className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 transition-colors shadow-2xs"
+                        className="btn-3d-base btn-3d-secondary w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200"
                       >
                         <span>See what your project will cost</span>
                       </Link>
