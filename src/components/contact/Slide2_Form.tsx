@@ -1,88 +1,59 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, PhoneCall, AlertCircle, Loader2, Send, ArrowRight, CheckCircle2, Check } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, PhoneCall, Copy, Check, Loader2, Send, ArrowRight, CheckCircle2, AlertCircle, ShieldCheck } from 'lucide-react';
+import { motion } from 'framer-motion';
 import FadeIn from '../shared/FadeIn';
-import {
-  GithubIcon,
-  LinkedinIcon,
-  TwitterIcon,
-  InstagramIcon,
-  WhatsappIcon,
-} from '../shared/BrandIcons';
-import {
-  COMPANY,
-  LOCATION,
-  SOCIALS,
-  FOUNDER,
-  whatsappLink,
-} from '../../content/company';
-import {
-  submitEnquiry,
-  resultCopy,
-  type EnquiryKind,
-  type SubmitResult,
-} from '../../lib/contact';
+import { WhatsappIcon } from '../shared/BrandIcons';
+import { COMPANY, LOCATION, whatsappLink } from '../../content/company';
 import { useLocation } from 'react-router-dom';
 
-interface ScopeOption {
-  kind: EnquiryKind;
-  title: string;
-  subtitle: string;
-}
+const SCOPE_OPTIONS = [
+  'All-Inclusive Business Website',
+  'Custom Web App / Client Portal',
+  'Custom Business Software (Billing / CRM)',
+  'AI Search Visibility & AI Ads (ChatGPT / Google)',
+  'Not Sure — Help Me Choose',
+] as const;
 
-const SCOPE_OPTIONS: ScopeOption[] = [
-  {
-    kind: 'Business Website',
-    title: 'Business Website',
-    subtitle: 'All-inclusive design, domain, hosting, SSL & WhatsApp',
-  },
-  {
-    kind: 'Custom Web App',
-    title: 'Custom Web App',
-    subtitle: 'Client portals, member dashboards & web applications',
-  },
-  {
-    kind: 'Billing & Staff Software',
-    title: 'Billing & Staff Software',
-    subtitle: 'Custom GST invoicing, team management & operations',
-  },
-  {
-    kind: 'AI Search & AI Ads',
-    title: 'AI Search & AI Ads',
-    subtitle: 'Google presence, ChatGPT/Perplexity discovery & ads',
-  },
-];
+type ScopeType = typeof SCOPE_OPTIONS[number];
 
-const BUDGET_OPTIONS = [
-  'Under ₹50k',
-  '₹50k – ₹1.5L',
-  '₹1.5L – ₹5L',
-  '₹5L+ Enterprise',
-  'Undetermined',
-];
-
-const getInitialScopes = (search: string): EnquiryKind[] => {
+const getInitialScopes = (search: string): ScopeType[] => {
   const params = new URLSearchParams(search);
-  const serviceParam = params.get('service');
-  if (serviceParam === 'websites') return ['Business Website'];
-  if (serviceParam === 'web-apps') return ['Custom Web App'];
-  if (serviceParam === 'software') return ['Billing & Staff Software'];
-  if (serviceParam === 'seo-ai') return ['AI Search & AI Ads'];
-  return ['Business Website'];
+  const service = params.get('service');
+  if (service === 'websites') return ['All-Inclusive Business Website'];
+  if (service === 'web-apps') return ['Custom Web App / Client Portal'];
+  if (service === 'software') return ['Custom Business Software (Billing / CRM)'];
+  if (service === 'ai-growth' || service === 'seo-ai') return ['AI Search Visibility & AI Ads (ChatGPT / Google)'];
+  return ['All-Inclusive Business Website'];
 };
 
 export default function Slide2_Form() {
   const location = useLocation();
-  const [selectedScopes, setSelectedScopes] = useState<EnquiryKind[]>(() =>
+
+  const [selectedScopes, setSelectedScopes] = useState<ScopeType[]>(() =>
     getInitialScopes(location.search)
   );
-  const [selectedBudget, setSelectedBudget] = useState<string>('₹50k – ₹1.5L');
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    phone: '',
+    email: '',
+    location: '',
+    message: '',
+  });
+
   const [honeypot, setHoneypot] = useState('');
-  const [touched, setTouched] = useState({ name: false, email: false, message: false });
-  const [result, setResult] = useState<SubmitResult | null>(null);
+  const [touched, setTouched] = useState({
+    name: false,
+    phone: false,
+    email: false,
+    message: false,
+  });
+
   const [isSending, setIsSending] = useState(false);
-  const [isSubmittedSuccess, setIsSubmittedSuccess] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [copiedEmail, setCopiedEmail] = useState(false);
 
   useEffect(() => {
     if (location.search || location.hash) {
@@ -90,10 +61,9 @@ export default function Slide2_Form() {
     }
   }, [location.search, location.hash]);
 
-  const toggleScope = (scope: EnquiryKind) => {
+  const toggleScope = (scope: ScopeType) => {
     setSelectedScopes((prev) => {
       if (prev.includes(scope)) {
-        // Keep at least one selected
         return prev.length > 1 ? prev.filter((s) => s !== scope) : prev;
       } else {
         return [...prev, scope];
@@ -101,46 +71,103 @@ export default function Slide2_Form() {
     });
   };
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const isEmailValid = emailRegex.test(formData.email);
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(COMPANY.email);
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2000);
+    } catch {
+      // fallback
+    }
+  };
+
+  // Validation
   const isNameValid = formData.name.trim().length >= 2;
-  const isMessageValid = formData.message.trim().length >= 8;
-  const isFormValid = isNameValid && isEmailValid && isMessageValid;
+  const isPhoneValid = formData.phone.trim().length >= 7;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const isEmailValid = emailRegex.test(formData.email.trim());
+  const isMessageValid = formData.message.trim().length >= 5;
+  const isFormValid = isNameValid && isPhoneValid && isEmailValid && isMessageValid;
+
+  // Build clean formatted WhatsApp message
+  const buildWhatsAppMessage = () => {
+    const lines = [
+      `*New Project Inquiry for VOOO LABS*`,
+      `• *Name:* ${formData.name || 'Not provided'}`,
+      formData.company ? `• *Company:* ${formData.company}` : null,
+      `• *Phone:* ${formData.phone || 'Not provided'}`,
+      `• *Email:* ${formData.email || 'Not provided'}`,
+      formData.location ? `• *City:* ${formData.location}` : null,
+      `• *Services Needed:* ${selectedScopes.join(', ')}`,
+      formData.message ? `\n*Project Details:*\n${formData.message}` : null,
+    ].filter(Boolean);
+
+    return encodeURIComponent(lines.join('\n'));
+  };
+
+  const handleSendViaWhatsApp = () => {
+    const text = buildWhatsAppMessage();
+    const url = `https://wa.me/${COMPANY.whatsapp}?text=${text}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSending || !isFormValid) {
-      setTouched({ name: true, email: true, message: true });
+      setTouched({ name: true, phone: true, email: true, message: true });
+      return;
+    }
+
+    if (honeypot.trim().length > 0) {
+      setIsSuccess(true);
       return;
     }
 
     setIsSending(true);
-    const scopeKind: EnquiryKind =
-      selectedScopes.length === 1 ? selectedScopes[0] : 'Multiple Services';
+    setSubmitError(null);
 
-    const formattedMessage = [
-      `Selected Services: ${selectedScopes.join(', ')}`,
-      `Investment Range: ${selectedBudget}`,
-      `\nProject Requirements:`,
-      formData.message.trim(),
-    ].join('\n');
-
-    const outcome = await submitEnquiry({
+    const payload = {
       name: formData.name.trim(),
+      company: formData.company.trim() || 'Not specified',
+      phone: formData.phone.trim(),
       email: formData.email.trim(),
-      message: formattedMessage,
-      kind: scopeKind,
-      budget: selectedBudget,
-      honeypot: honeypot,
-      source: 'Contact Page Inquiry',
-    });
-    setIsSending(false);
-    setResult(outcome);
+      location: formData.location.trim() || 'Not specified',
+      selected_services: selectedScopes.join(', '),
+      requirements: formData.message.trim(),
+      _subject: `New VOOO LABS Inquiry — ${selectedScopes[0] || 'Project Scoping'}`,
+      _template: 'table',
+    };
 
-    if (outcome.ok) {
-      setIsSubmittedSuccess(true);
-      setFormData({ name: '', email: '', message: '' });
-      setTouched({ name: false, email: false, message: false });
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${COMPANY.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+        setFormData({
+          name: '',
+          company: '',
+          phone: '',
+          email: '',
+          location: '',
+          message: '',
+        });
+        setTouched({ name: false, phone: false, email: false, message: false });
+      } else {
+        throw new Error('Network error during form submission');
+      }
+    } catch {
+      setSubmitError(
+        'Unable to send via email right now. Please use the direct WhatsApp button below—your entered details are saved.'
+      );
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -151,17 +178,53 @@ export default function Slide2_Form() {
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
         
-        {/* LEFT COLUMN: DIRECT CHANNELS & STUDIO DETAILS */}
-        <div className="lg:col-span-5 flex flex-col gap-5 w-full order-2 lg:order-1">
+        {/* LEFT COLUMN: DIRECT STUDIO CHANNELS (5 COLS) */}
+        <div className="lg:col-span-5 flex flex-col gap-5 w-full order-2 lg:order-1 text-left">
           
-          {/* CARD 1: WHATSAPP DIRECT PIPELINE */}
+          {/* EMAIL CHANNEL WITH 1-CLICK COPY */}
           <FadeIn delay={0} y={15}>
-            <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-2xs hover:border-zinc-300 transition-colors">
+            <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-2xs">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-800 flex-shrink-0">
+                  <Mail size={18} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 block mb-1">
+                    Direct Studio Email
+                  </span>
+                  <div className="font-mono text-xs sm:text-sm font-semibold text-zinc-950 truncate mb-3">
+                    {COMPANY.email}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleCopyEmail}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 bg-zinc-50 hover:bg-white text-zinc-700 text-xs font-mono font-medium transition-colors"
+                  >
+                    {copiedEmail ? (
+                      <>
+                        <Check size={13} className="text-emerald-600" />
+                        <span className="text-emerald-700">Copied to Clipboard!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy size={13} />
+                        <span>Copy Email Address</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* DIRECT WHATSAPP INSTANT CHANNEL */}
+          <FadeIn delay={0.06} y={15}>
+            <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-2xs">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 flex-shrink-0">
                   <PhoneCall size={18} />
                 </div>
-                <div className="flex-1 min-w-0 text-left">
+                <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                     <h4 className="font-sans font-bold text-base text-zinc-950">
@@ -169,16 +232,16 @@ export default function Slide2_Form() {
                     </h4>
                   </div>
                   <p className="font-sans text-xs text-zinc-600 mb-4 leading-relaxed">
-                    Direct line for quick scoping, pricing questions, and same-day project discussions.
+                    Direct line for fast scoping, pricing questions, and same-day project kickoff discussions.
                   </p>
                   <a
-                    href={whatsappLink}
+                    href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent("Hello VOOO LABS, I'm reaching out about a project for my business.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-sans font-semibold text-xs hover:bg-emerald-100 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 font-sans font-semibold text-xs hover:bg-emerald-100 transition-colors"
                   >
                     <WhatsappIcon size={14} />
-                    <span>Open 1-Tap WhatsApp Chat</span>
+                    <span>Open Instant WhatsApp Chat</span>
                     <ArrowRight size={13} />
                   </a>
                 </div>
@@ -186,106 +249,66 @@ export default function Slide2_Form() {
             </div>
           </FadeIn>
 
-          {/* CARD 2: DIRECT EMAIL */}
-          <FadeIn delay={0.06} y={15}>
-            <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-2xs hover:border-zinc-300 transition-colors">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-700 flex-shrink-0">
-                  <Mail size={18} />
-                </div>
-                <div className="flex-1 min-w-0 text-left">
-                  <h4 className="font-sans font-bold text-base text-zinc-950 mb-1">
-                    Direct Studio Email
-                  </h4>
-                  <p className="font-mono text-xs text-zinc-700 mb-3 truncate font-semibold">
-                    {COMPANY.email}
-                  </p>
-                  <p className="font-sans text-xs text-zinc-500 leading-normal">
-                    Send detailed RFPs, specifications, or existing website links directly to our studio inbox.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </FadeIn>
-
-          {/* CARD 3: FOUNDER SPEC & GUARANTEE */}
+          {/* OPERATING HUBS */}
           <FadeIn delay={0.12} y={15}>
-            <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-2xs text-left">
-              <div className="flex items-center gap-3.5 mb-4 pb-4 border-b border-zinc-200">
-                <div className="w-11 h-11 rounded-xl bg-zinc-950 flex items-center justify-center text-white font-sans font-bold text-sm flex-shrink-0">
-                  {FOUNDER.initials}
-                </div>
-                <div>
-                  <h4 className="font-sans font-bold text-base text-zinc-950 leading-tight">
-                    {FOUNDER.name}
-                  </h4>
-                  <p className="font-mono text-xs text-zinc-500 mt-0.5">
-                    {FOUNDER.role}
-                  </p>
-                </div>
-              </div>
-
-              <p className="font-sans text-xs text-zinc-600 leading-relaxed font-normal mb-5">
-                Every project begins with a direct requirements review. We provide transparent fixed milestones, all-inclusive pricing, and 100% client code and hosting ownership.
+            <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-2xs">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 block mb-1">
+                Studio Hubs & Coverage
+              </span>
+              <h4 className="font-sans font-bold text-sm text-zinc-950 mb-1">
+                {LOCATION.hubs.join(' • ')}
+              </h4>
+              <p className="font-sans text-xs text-zinc-600">
+                Independent studio in Maharashtra, serving growing businesses across India with 100% remote delivery and in-person reviews.
               </p>
-
-              {/* SOCIAL HANDLES */}
-              <div className="flex items-center gap-2">
-                {[
-                  { icon: <GithubIcon size={14} />, href: FOUNDER.github, label: 'GitHub' },
-                  { icon: <LinkedinIcon size={14} />, href: FOUNDER.linkedin, label: 'LinkedIn' },
-                  { icon: <TwitterIcon size={14} />, href: SOCIALS.twitter, label: 'Twitter' },
-                  { icon: <InstagramIcon size={14} />, href: FOUNDER.instagram, label: 'Instagram' },
-                ].map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 rounded-lg border border-zinc-200 bg-zinc-50 flex items-center justify-center text-zinc-600 hover:text-zinc-950 hover:bg-white hover:border-zinc-300 transition-colors"
-                    aria-label={s.label}
-                  >
-                    {s.icon}
-                  </a>
-                ))}
-              </div>
             </div>
           </FadeIn>
 
-          {/* CARD 4: LOCATION ATTRIBUTION */}
+          {/* WHAT HAPPENS NEXT: 3 HONEST STEPS */}
           <FadeIn delay={0.18} y={15}>
-            <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-2xs text-left font-mono text-xs flex flex-col gap-1.5">
-              <span className="text-[10px] uppercase tracking-wider text-zinc-400">
-                Studio Hubs & Jurisdiction
+            <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-2xs">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-500 block mb-3 font-semibold">
+                WHAT HAPPENS NEXT (3 HONEST STEPS)
               </span>
-              <span className="font-sans font-semibold text-zinc-900 text-xs">
-                {LOCATION.hubs.join(' · ')}, {LOCATION.region}, {LOCATION.country}
-              </span>
+              <ol className="space-y-3 font-sans text-xs text-zinc-700">
+                <li className="flex items-start gap-2.5">
+                  <span className="font-mono font-bold text-zinc-950 text-xs mt-0.5">01</span>
+                  <span><strong>We review your business requirements & current workflow:</strong> We examine what you are looking to build and your operational goals.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="font-mono font-bold text-zinc-950 text-xs mt-0.5">02</span>
+                  <span><strong>We prepare a clear feature scope, cost estimate, and realistic timeline:</strong> Transparent, all-inclusive deliverables with zero hidden extras.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="font-mono font-bold text-zinc-950 text-xs mt-0.5">03</span>
+                  <span><strong>We walk you through the plan:</strong> Direct technical consultation—zero sales pressure or obligation.</span>
+                </li>
+              </ol>
             </div>
           </FadeIn>
 
         </div>
 
-        {/* RIGHT COLUMN: INTERACTIVE SCOPE SELECTOR & ONBOARDING FORM */}
-        <div className="lg:col-span-7 w-full order-1 lg:order-2">
+        {/* RIGHT COLUMN: INTERACTIVE FORM (7 COLS) */}
+        <div className="lg:col-span-7 w-full order-1 lg:order-2 text-left">
           <FadeIn delay={0.08} y={20}>
-            <div className="rounded-2xl border border-zinc-200 bg-white p-7 sm:p-10 shadow-2xs text-left relative">
+            <div className="rounded-2xl border border-zinc-200 bg-white p-7 sm:p-10 shadow-2xs relative">
               
               {/* ACCENT HEADER */}
               <div className="mb-8 pb-6 border-b border-zinc-200">
                 <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
-                  PROJECT SCOPE & INQUIRY
+                  PROJECT SPECIFICATION FORM
                 </span>
                 <h3 className="font-sans font-bold text-2xl sm:text-3xl text-zinc-950 mb-2 tracking-tight">
                   Start Your Project
                 </h3>
                 <p className="font-sans text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed">
-                  Tell us what you want to build. Every inquiry goes straight to the founder. We review your requirements first and share an honest plan, transparent cost estimate, and realistic delivery schedule.
+                  Every inquiry goes directly to the founder. Select what you need, share your requirements, and get an honest roadmap and cost estimate.
                 </p>
               </div>
 
-              {/* SUCCESS STATE */}
-              {isSubmittedSuccess ? (
+              {/* SUCCESS CONFIRMATION STATE */}
+              {isSuccess ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -298,15 +321,27 @@ export default function Slide2_Form() {
                     Inquiry Received
                   </h4>
                   <p className="font-sans text-xs sm:text-sm text-zinc-600 max-w-md mx-auto mb-6 leading-relaxed">
-                    Thank you for reaching out to VOOO LABS. Every inquiry goes straight to the founder. We review your requirements first and share an honest plan, transparent cost estimate, and realistic delivery schedule.
+                    Your project details have been transmitted directly to <strong>{COMPANY.email}</strong>. The founder will review your requirements and respond with an honest plan and transparent cost estimate.
                   </p>
-                  <button
-                    type="button"
-                    onClick={() => setIsSubmittedSuccess(false)}
-                    className="px-6 py-2.5 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-white font-sans font-medium text-xs transition-colors"
-                  >
-                    Submit Another Inquiry
-                  </button>
+                  
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <a
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 hover:bg-emerald-100 font-sans font-semibold text-xs inline-flex items-center justify-center gap-2 transition-colors"
+                    >
+                      <WhatsappIcon size={14} />
+                      <span>Message on WhatsApp for Immediate Priority</span>
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => setIsSuccess(false)}
+                      className="px-5 py-2.5 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-white font-sans font-medium text-xs transition-colors"
+                    >
+                      Submit Another Inquiry
+                    </button>
+                  </div>
                 </motion.div>
               ) : (
                 <form onSubmit={handleFormSubmit} className="flex flex-col gap-6">
@@ -314,7 +349,7 @@ export default function Slide2_Form() {
                   {/* HONEYPOT ANTI-SPAM TRAP */}
                   <input
                     type="text"
-                    name="website_url"
+                    name="_gotcha"
                     value={honeypot}
                     onChange={(e) => setHoneypot(e.target.value)}
                     tabIndex={-1}
@@ -323,7 +358,7 @@ export default function Slide2_Form() {
                     aria-hidden="true"
                   />
 
-                  {/* STEP 1: INTERACTIVE MULTI-SELECT SCOPE PILLS */}
+                  {/* 1. MULTI-SELECT SCOPE PILLS */}
                   <div className="flex flex-col gap-2.5">
                     <div className="flex items-center justify-between">
                       <label className="font-mono text-xs font-semibold text-zinc-700 uppercase tracking-wider">
@@ -334,70 +369,35 @@ export default function Slide2_Form() {
                       </span>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {SCOPE_OPTIONS.map((opt) => {
-                        const isSelected = selectedScopes.includes(opt.kind);
-                        return (
-                          <button
-                            type="button"
-                            key={opt.kind}
-                            onClick={() => toggleScope(opt.kind)}
-                            className={`p-3.5 rounded-xl border text-left transition-all duration-150 flex flex-col justify-between ${
-                              isSelected
-                                ? 'border-zinc-950 bg-zinc-900 text-white shadow-2xs'
-                                : 'border-zinc-200 bg-zinc-50 text-zinc-900 hover:bg-white hover:border-zinc-300'
-                            }`}
-                          >
-                            <div className="flex items-center justify-between gap-2 mb-1">
-                              <span className="font-sans font-bold text-xs">
-                                {opt.title}
-                              </span>
-                              <div className={`w-4 h-4 rounded flex items-center justify-center flex-shrink-0 ${
-                                isSelected ? 'bg-white text-zinc-950' : 'border border-zinc-300 bg-white'
-                              }`}>
-                                {isSelected && <Check size={11} strokeWidth={3} />}
-                              </div>
-                            </div>
-                            <span className={`font-sans text-[11px] leading-tight ${
-                              isSelected ? 'text-zinc-300' : 'text-zinc-500'
-                            }`}>
-                              {opt.subtitle}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* STEP 2: BUDGET BRACKET SELECTOR */}
-                  <div className="flex flex-col gap-2">
-                    <label className="font-mono text-xs font-semibold text-zinc-700 uppercase tracking-wider">
-                      2. Estimated Investment Range
-                    </label>
                     <div className="flex flex-wrap gap-2">
-                      {BUDGET_OPTIONS.map((budget) => {
-                        const isSelected = selectedBudget === budget;
+                      {SCOPE_OPTIONS.map((scope) => {
+                        const isSelected = selectedScopes.includes(scope);
                         return (
                           <button
                             type="button"
-                            key={budget}
-                            onClick={() => setSelectedBudget(budget)}
-                            className={`px-3 py-1.5 rounded-lg font-mono text-xs transition-all duration-150 ${
+                            key={scope}
+                            onClick={() => toggleScope(scope)}
+                            className={`px-3 py-2 rounded-xl border text-left font-sans text-xs transition-all duration-150 flex items-center gap-2 ${
                               isSelected
-                                ? 'bg-zinc-950 text-white font-semibold'
-                                : 'bg-zinc-100 text-zinc-700 hover:text-zinc-950 hover:bg-zinc-200 border border-zinc-200'
+                                ? 'border-zinc-950 bg-zinc-950 text-white font-semibold shadow-2xs'
+                                : 'border-zinc-200 bg-zinc-50 text-zinc-800 hover:bg-white hover:border-zinc-300'
                             }`}
                           >
-                            {budget}
+                            <div className={`w-3.5 h-3.5 rounded flex items-center justify-center flex-shrink-0 ${
+                              isSelected ? 'bg-white text-zinc-950' : 'border border-zinc-300 bg-white'
+                            }`}>
+                              {isSelected && <Check size={10} strokeWidth={3} />}
+                            </div>
+                            <span>{scope}</span>
                           </button>
                         );
                       })}
                     </div>
                   </div>
 
-                  {/* STEP 3: CONTACT INFORMATION */}
+                  {/* 2. FORM FIELDS */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* NAME */}
+                    {/* YOUR NAME */}
                     <div className="flex flex-col gap-1.5">
                       <div className="flex justify-between items-center">
                         <label htmlFor="name-input" className="font-sans font-medium text-xs text-zinc-700">
@@ -423,7 +423,48 @@ export default function Slide2_Form() {
                       />
                     </div>
 
-                    {/* EMAIL */}
+                    {/* BUSINESS / COMPANY NAME */}
+                    <div className="flex flex-col gap-1.5">
+                      <label htmlFor="company-input" className="font-sans font-medium text-xs text-zinc-700">
+                        Business / Company Name <span className="text-zinc-400 text-[11px]">(Optional)</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="company-input"
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        placeholder="e.g. Patil Logistics & Trading"
+                        className="w-full rounded-xl border border-zinc-200 px-3.5 py-2.5 font-sans text-xs sm:text-sm text-zinc-900 bg-zinc-50 placeholder:text-zinc-400 outline-none focus:bg-white focus:border-zinc-950 transition-all duration-150"
+                      />
+                    </div>
+
+                    {/* PHONE / WHATSAPP NUMBER */}
+                    <div className="flex flex-col gap-1.5">
+                      <div className="flex justify-between items-center">
+                        <label htmlFor="phone-input" className="font-sans font-medium text-xs text-zinc-700">
+                          Phone / WhatsApp Number *
+                        </label>
+                        {touched.phone && !isPhoneValid && (
+                          <span className="font-mono text-[10px] text-rose-500">Valid number required</span>
+                        )}
+                      </div>
+                      <input
+                        type="tel"
+                        id="phone-input"
+                        value={formData.phone}
+                        onBlur={() => setTouched({ ...touched, phone: true })}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder="e.g. +91 98765 43210"
+                        required
+                        className={`w-full rounded-xl border px-3.5 py-2.5 font-sans text-xs sm:text-sm text-zinc-900 bg-zinc-50 placeholder:text-zinc-400 outline-none transition-all duration-150 ${
+                          touched.phone && !isPhoneValid
+                            ? 'border-rose-300 focus:border-rose-500'
+                            : 'border-zinc-200 focus:bg-white focus:border-zinc-950'
+                        }`}
+                      />
+                    </div>
+
+                    {/* EMAIL ADDRESS */}
                     <div className="flex flex-col gap-1.5">
                       <div className="flex justify-between items-center">
                         <label htmlFor="email-input" className="font-sans font-medium text-xs text-zinc-700">
@@ -450,14 +491,29 @@ export default function Slide2_Form() {
                     </div>
                   </div>
 
-                  {/* STEP 4: PROJECT DETAILS & REQUIREMENTS */}
+                  {/* CITY / LOCATION */}
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="location-input" className="font-sans font-medium text-xs text-zinc-700">
+                      City / Location <span className="text-zinc-400 text-[11px]">(Optional, e.g., Pune, Nashik, Satara)</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="location-input"
+                      value={formData.location}
+                      onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                      placeholder="e.g. Pune, Maharashtra"
+                      className="w-full rounded-xl border border-zinc-200 px-3.5 py-2.5 font-sans text-xs sm:text-sm text-zinc-900 bg-zinc-50 placeholder:text-zinc-400 outline-none focus:bg-white focus:border-zinc-950 transition-all duration-150"
+                    />
+                  </div>
+
+                  {/* TELL US ABOUT YOUR PROJECT OR WORKFLOW */}
                   <div className="flex flex-col gap-1.5">
                     <div className="flex justify-between items-center">
                       <label htmlFor="message-input" className="font-sans font-medium text-xs text-zinc-700">
-                        Project Scope & Requirements *
+                        Tell us about your project or current workflow *
                       </label>
                       {touched.message && !isMessageValid && (
-                        <span className="font-mono text-[10px] text-rose-500">Min 8 characters required</span>
+                        <span className="font-mono text-[10px] text-rose-500">Min 5 characters required</span>
                       )}
                     </div>
                     <textarea
@@ -465,7 +521,7 @@ export default function Slide2_Form() {
                       value={formData.message}
                       onBlur={() => setTouched({ ...touched, message: true })}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Describe what your business does and what you need (e.g. new website, GST billing software, staff management, Google search visibility)..."
+                      placeholder="Describe what your business does and what you need (e.g., website for customer inquiries, internal software to replace Excel, Google presence, preferred timeline)..."
                       required
                       rows={4}
                       className={`w-full rounded-xl border px-3.5 py-3 font-sans text-xs sm:text-sm text-zinc-900 bg-zinc-50 placeholder:text-zinc-400 outline-none resize-none min-h-[110px] transition-all duration-150 ${
@@ -476,28 +532,60 @@ export default function Slide2_Form() {
                     />
                   </div>
 
-                  {/* SUBMISSION BUTTON */}
-                  <button
-                    type="submit"
-                    disabled={isSending}
-                    className="rounded-xl bg-zinc-950 hover:bg-zinc-800 py-3 sm:py-3.5 font-sans font-semibold text-xs sm:text-sm text-white transition-all duration-150 shadow-2xs disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                  >
-                    {isSending ? (
-                      <>
-                        <Loader2 className="w-4 h-4 animate-spin text-white" />
-                        <span>Sending Inquiry to Founder…</span>
-                      </>
-                    ) : (
-                      <>
-                        <Send size={14} />
-                        <span>Submit Project Inquiry to Founder →</span>
-                      </>
-                    )}
-                  </button>
+                  {/* SUBMISSION ERROR STATE WITH 1-CLICK WHATSAPP FALLBACK */}
+                  {submitError && (
+                    <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="flex items-center gap-2">
+                        <AlertCircle size={16} className="text-amber-700 flex-shrink-0" />
+                        <span>{submitError}</span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleSendViaWhatsApp}
+                        className="px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-sans font-semibold text-xs flex items-center justify-center gap-1.5 flex-shrink-0"
+                      >
+                        <WhatsappIcon size={13} />
+                        <span>Send via WhatsApp</span>
+                      </button>
+                    </div>
+                  )}
 
-                  <p className="font-sans text-[11px] text-zinc-500 text-center leading-normal">
-                    Strict privacy guaranteed. 100% intellectual property rights belong to your business upon delivery.
-                  </p>
+                  {/* PRIMARY & SECONDARY ACTIONS */}
+                  <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                    {/* PRIMARY ACTION */}
+                    <button
+                      type="submit"
+                      disabled={isSending}
+                      className="flex-1 rounded-xl bg-zinc-950 hover:bg-zinc-800 py-3.5 px-6 font-sans font-semibold text-xs sm:text-sm text-white transition-all duration-150 shadow-2xs disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
+                      {isSending ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin text-white" />
+                          <span>Sending your requirements...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send size={14} />
+                          <span>See what your project will cost →</span>
+                        </>
+                      )}
+                    </button>
+
+                    {/* SECONDARY INSTANT WHATSAPP OPTION */}
+                    <button
+                      type="button"
+                      onClick={handleSendViaWhatsApp}
+                      className="rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 hover:border-zinc-300 py-3.5 px-5 font-sans font-semibold text-xs sm:text-sm text-zinc-800 transition-colors flex items-center justify-center gap-2 flex-shrink-0"
+                    >
+                      <WhatsappIcon size={14} />
+                      <span>Send details via WhatsApp instead</span>
+                    </button>
+                  </div>
+
+                  <div className="flex items-center justify-center gap-1.5 text-zinc-500 font-mono text-[11px] text-center pt-1">
+                    <ShieldCheck size={13} className="text-emerald-600 flex-shrink-0" />
+                    <span>Transmitted to {COMPANY.email} • 100% Client Privacy Guaranteed</span>
+                  </div>
 
                 </form>
               )}
@@ -507,42 +595,6 @@ export default function Slide2_Form() {
         </div>
 
       </div>
-
-      {/* RESULT TOAST NOTIFICATION */}
-      <AnimatePresence>
-        {result && (
-          <motion.div
-            key="enquiry-result"
-            role="status"
-            initial={{ opacity: 0, y: 50, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.95 }}
-            transition={{ duration: 0.35, ease: 'easeOut' }}
-            className={`fixed bottom-24 right-6 z-[8000] flex items-center gap-3 rounded-2xl border bg-white p-4 pr-6 shadow-[0_12px_40px_rgba(0,0,0,0.12)] cursor-default max-w-sm ${
-              result.ok ? 'border-emerald-200' : 'border-amber-200'
-            }`}
-          >
-            <div
-              className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${
-                result.ok
-                  ? 'bg-emerald-50 text-emerald-600 border border-emerald-200'
-                  : 'bg-amber-50 text-amber-600 border border-amber-200'
-              }`}
-            >
-              {result.ok ? <Check size={16} /> : <AlertCircle size={16} />}
-            </div>
-            <div className="flex flex-col text-left min-w-0">
-              <span className="font-sans font-bold text-xs sm:text-sm text-zinc-950">
-                {result.ok ? 'Inquiry Transmitted' : 'Action Required'}
-              </span>
-              <span className="font-sans text-[11px] text-zinc-600 mt-0.5 leading-normal">
-                {resultCopy(result)}
-              </span>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
     </section>
   );
 }
