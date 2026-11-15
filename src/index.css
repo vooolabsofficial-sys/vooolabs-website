@@ -89,9 +89,9 @@ body {
   width: 100%;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Clash Display', sans-serif;
-  letter-spacing: -0.02em;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.025em;
   color: #0A0F1E;
 }
 
@@ -202,19 +202,13 @@ p {
 }
 
 /* ═══════════════════════════════════════════════
-   SHIMMER TEXT (ORIGINAL VIBRANT PALETTE)
+   STUDIO BRAND TEXT & ACCENTS
    ═══════════════════════════════════════════════ */
-@keyframes shimmer-anim {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
 .shimmer-text {
-  background: linear-gradient(90deg, #4285F4 0%, #7C3AED 25%, #F97316 50%, #7C3AED 75%, #4285F4 100%);
-  background-size: 200% auto;
+  background: linear-gradient(135deg, #2563EB 0%, #4F46E5 60%, #EA580C 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmer-anim 5s linear infinite;
 }
 
 /* ═══════════════════════════════════════════════
@@ -265,13 +259,13 @@ p {
 }
 
 .glow-blue {
-  box-shadow: 0 8px 30px -4px rgba(66, 133, 244, 0.25);
+  box-shadow: 0 4px 20px -2px rgba(37, 99, 235, 0.12);
 }
 .glow-purple {
-  box-shadow: 0 8px 30px -4px rgba(124, 58, 237, 0.25);
+  box-shadow: 0 4px 20px -2px rgba(124, 58, 237, 0.12);
 }
 .glow-emerald {
-  box-shadow: 0 8px 30px -4px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.12);
 }
 
 /* ═══════════════════════════════════════════════

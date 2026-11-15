@@ -62,7 +62,7 @@ function AppRoutes() {
     window.scrollTo(0, 0);
 
     const path = location.pathname;
-    let title = 'VOOO LABS — Custom Web Applications & Software Engineering Studio';
+    let title = 'VOOO LABS — Enterprise-Grade Websites, Web Apps & Business Software';
 
     if (path === '/services') {
       title = 'Services & Capabilities — VOOO LABS';

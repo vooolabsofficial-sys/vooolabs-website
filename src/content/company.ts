@@ -14,11 +14,11 @@
 export const COMPANY = {
   brandName: 'VOOO LABS',
   legalName: 'VOOO LABS',
-  tagline: 'Engineering Custom Web Applications, Business Portals & High-Conversion Websites',
+  tagline: 'Enterprise-Grade Websites, Web Apps & Business Software — Built Practical for the AI Era',
   description:
-    'Boutique web & software engineering studio from Maharashtra, India. We architect custom web applications, internal business management portals, and high-conversion company websites with 100% client code ownership.',
+    'Independent web and software engineering studio in Maharashtra, India. In the AI era, we build custom websites, web apps, business software, and AI search visibility for small, mid-sized, and growing businesses—complete with domain, 24/7 hosting, and 100% client ownership.',
   foundedYear: 2025,
-  domain: 'https://vooolabs.com',
+  domain: 'https://vooolabs.in',
   email: 'vooolabsofficial@gmail.com',
   /** Digits only, country code first -- used to build wa.me links. */
   whatsapp: '917620236178',
@@ -63,7 +63,8 @@ export const mailtoLink = `mailto:${COMPANY.email}`;
  * hours" in three places, including a hard badge, for a studio staffed by one
  * person. A promise that cannot be kept costs more than a vague one.
  */
-export const RESPONSE_COPY = 'Every message goes straight to the founder.';
+export const RESPONSE_COPY =
+  'Every inquiry goes straight to the founder. We review your work first and share an honest plan and realistic timeline.';
 
 export const copyrightLine = () =>
   `© ${new Date().getFullYear()} ${COMPANY.legalName}. All rights reserved.`;

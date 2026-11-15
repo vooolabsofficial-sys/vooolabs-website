@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, MessageSquare } from 'lucide-react';
+import { whatsappLink } from '../../content/company';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -112,10 +113,10 @@ export default function Navbar() {
           <div className="flex items-center gap-2 flex-shrink-0">
             <Link
               to="/contact"
-              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-slate-950 hover:bg-blue-600 text-white font-sans font-semibold text-[13.5px] px-5 sm:px-6 py-2.5 sm:py-2.5 transition-all duration-200 shadow-sm hover:shadow-[0_4px_18px_rgba(37,99,235,0.3)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 group whitespace-nowrap select-none"
+              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-slate-950 hover:bg-blue-600 text-white font-sans font-medium text-[13px] px-5 py-2.5 transition-all duration-200 shadow-xs hover:-translate-y-0.5 active:translate-y-0 active:scale-95 group whitespace-nowrap select-none"
             >
-              <span>Start a Project</span>
-              <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5 flex-shrink-0" />
+              <span>See what your project will cost</span>
+              <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-0.5 flex-shrink-0" />
             </Link>
 
             {/* MOBILE HAMBURGER BUTTON */}
@@ -152,7 +153,7 @@ export default function Navbar() {
               </Link>
               <button
                 onClick={closeMenu}
-                className="w-11 h-11 rounded-full border border-black/10 flex items-center justify-center text-slate-700 hover:bg-black/5 active:scale-95 transition-all"
+                className="w-11 h-11 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-700 hover:bg-slate-100 active:scale-95 transition-all"
                 aria-label="Close menu"
               >
                 <X size={20} />
@@ -166,8 +167,8 @@ export default function Navbar() {
                   to={link.path}
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    `font-clash font-semibold text-2xl py-2 transition-colors ${
-                      isActive ? 'g-text' : 'text-[#0A0F1E] hover:text-blue-600'
+                    `font-sans font-semibold text-xl py-2 transition-colors ${
+                      isActive ? 'text-blue-600' : 'text-slate-900 hover:text-blue-600'
                     }`
                   }
                 >
@@ -176,15 +177,25 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className="w-full max-w-sm mx-auto flex-shrink-0 pt-4 border-t border-black/5">
+            <div className="w-full max-w-sm mx-auto flex-shrink-0 pt-4 border-t border-slate-200 flex flex-col gap-2.5">
               <Link
                 to="/contact"
                 onClick={closeMenu}
-                className="w-full rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 text-white font-sans font-semibold text-sm py-3.5 flex items-center justify-center gap-2 shadow-md"
+                className="w-full rounded-full bg-slate-950 hover:bg-blue-600 text-white font-sans font-semibold text-sm py-3.5 flex items-center justify-center gap-2 shadow-sm transition-all"
               >
-                <span>Start a Project</span>
-                <ArrowRight size={16} />
+                <span>See what your project will cost</span>
+                <ArrowRight size={15} />
               </Link>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+                className="w-full rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-sans font-medium text-sm py-3 flex items-center justify-center gap-2 transition-all"
+              >
+                <MessageSquare size={15} className="text-emerald-600" />
+                <span>Discuss your project</span>
+              </a>
             </div>
           </motion.div>
         )}

@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://vooolabs.com/sitemap.xml
+Sitemap: https://vooolabs.in/sitemap.xml
 
 # Allow AI Search & Discovery bots
 User-agent: GPTBot

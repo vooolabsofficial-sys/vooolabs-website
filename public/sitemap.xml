@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://vooolabs.com/</loc>
+    <loc>https://vooolabs.in/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://vooolabs.com/services</loc>
+    <loc>https://vooolabs.in/services</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://vooolabs.com/seo-ai</loc>
+    <loc>https://vooolabs.in/seo-ai</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://vooolabs.com/contact</loc>
+    <loc>https://vooolabs.in/contact</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://vooolabs.com/about</loc>
+    <loc>https://vooolabs.in/about</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://vooolabs.com/roadmap</loc>
+    <loc>https://vooolabs.in/roadmap</loc>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://vooolabs.com/legal/privacy</loc>
+    <loc>https://vooolabs.in/legal/privacy</loc>
     <priority>0.4</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://vooolabs.com/legal/terms</loc>
+    <loc>https://vooolabs.in/legal/terms</loc>
     <priority>0.4</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://vooolabs.com/legal/ip-ownership</loc>
+    <loc>https://vooolabs.in/legal/ip-ownership</loc>
     <priority>0.4</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://vooolabs.com/legal/refunds</loc>
+    <loc>https://vooolabs.in/legal/refunds</loc>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
