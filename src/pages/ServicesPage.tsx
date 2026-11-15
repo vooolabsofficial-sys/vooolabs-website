@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Slide1_Overview from '../components/services/Slide1_Overview';
 import Slide2_CustomSoftware from '../components/services/Slide2_CustomSoftware';
 import Slide3_CustomWebApps from '../components/services/Slide3_CustomWebApps';
@@ -7,11 +7,20 @@ import Slide5_GooglePresence from '../components/services/Slide5_GooglePresence'
 
 export default function ServicesPage() {
   useEffect(() => {
-    // Handle hash scrolling if user lands with #custom-software, #web-apps, etc.
+    // Handle hash scrolling for any direct links (#websites, #web-apps, #custom-software, #software, #google-presence, #ai-growth)
     const hash = window.location.hash;
     if (hash) {
       const timer = setTimeout(() => {
-        const element = document.querySelector(hash);
+        let element = document.querySelector(hash);
+        if (!element && hash === '#software') {
+          element = document.querySelector('#custom-software');
+        } else if (!element && hash === '#custom-software') {
+          element = document.querySelector('#software');
+        } else if (!element && hash === '#ai-growth') {
+          element = document.querySelector('#google-presence');
+        } else if (!element && hash === '#google-presence') {
+          element = document.querySelector('#ai-growth');
+        }
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }

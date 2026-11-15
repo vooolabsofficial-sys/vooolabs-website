@@ -1,56 +1,57 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, Cpu, Layout, Globe, MapPin, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ArrowDown, Cpu, Laptop, Globe, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import FadeIn from '../shared/FadeIn';
 
 const DISCIPLINES = [
   {
-    id: 'custom-software',
+    id: 'websites',
     number: '01',
-    category: 'Operations & Automation',
-    title: 'Custom Business Software',
-    shortDesc: 'Bespoke systems tailored 100% to your daily workflow. ₹0 recurring monthly software rent.',
-    accent: '#3B82F6',
-    icon: Cpu,
-    highlights: ['Tailored to your exact routine', '100% Owned · ₹0 monthly rent', 'Runs on mobile, tablet & PC'],
-    previewMetric: '₹0 / mo Rent',
-    previewBadge: 'Perpetual Asset'
+    category: 'All-Inclusive Web Platform',
+    title: 'All-Inclusive Business Websites',
+    shortDesc: 'Custom design, domain setup, 24/7 cloud hosting & direct WhatsApp lead integration. Complete technical setup with zero headaches.',
+    accent: '#0284C7',
+    icon: Globe,
+    highlights: ['Domain, DNS & 24/7 Hosting Included', '1-Tap WhatsApp & Phone Inquiries', '100% Client Code & Asset Ownership'],
+    previewMetric: 'All-In-One',
+    previewBadge: 'Complete Setup'
   },
   {
     id: 'web-apps',
     number: '02',
-    category: 'Cloud Platforms & SaaS',
-    title: 'Custom Web Applications',
-    shortDesc: 'Interactive client portals, SaaS dashboards, and modern cloud applications built with React & Next.js.',
-    accent: '#8B5CF6',
-    icon: Layout,
-    highlights: ['Sub-second edge speed', 'Secure role-based access', '100% responsive cross-device'],
-    previewMetric: '< 100ms API',
-    previewBadge: 'Cloud Scalable'
+    category: 'Client & Member Portals',
+    title: 'Custom Web Apps & Portals',
+    shortDesc: 'Customer-facing portals, student dashboards & booking systems. In today’s AI era, custom web apps are practical and affordable for growing businesses.',
+    accent: '#3B82F6',
+    icon: Laptop,
+    highlights: ['Affordable custom engineering', 'Secure client & member logins', '100% responsive cross-device'],
+    previewMetric: '₹0 / mo',
+    previewBadge: 'No Per-Seat Fees'
   },
   {
-    id: 'websites',
+    id: 'custom-software',
     number: '03',
-    category: 'Web Platform & Inquiries',
-    title: 'High-Impact Brand Websites',
-    shortDesc: 'Sub-second mobile speed that builds immediate trust and turns visitors into direct client inquiries.',
-    accent: '#0284C7',
-    icon: Globe,
-    highlights: ['Loads in < 0.4s on 4G/5G', 'Direct WhatsApp & Call leads', '100% source & domain ownership'],
-    previewMetric: '< 0.4s FCP',
-    previewBadge: '99/100 Lighthouse'
+    category: 'Operations & Workflow Systems',
+    title: 'Custom Business Software',
+    shortDesc: 'Custom GST invoicing, inquiry pipelines, staff task tracking & operations dashboards that replace chaotic spreadsheets and WhatsApp notes.',
+    accent: '#10B981',
+    icon: Cpu,
+    highlights: ['Tailored 100% to your routine', 'Replaces Excel & WhatsApp chaos', '100% Owned · Zero software rent'],
+    previewMetric: '100% Owned',
+    previewBadge: 'Perpetual Asset'
   },
   {
     id: 'google-presence',
     number: '04',
-    category: 'Local Discovery & Reach',
-    title: 'Google Maps & Local SEO',
-    shortDesc: 'Rank in Google Maps Top 3 and search results so local clients call you first with ₹0 ongoing ad spend.',
-    accent: '#10B981',
-    icon: MapPin,
-    highlights: ['Google Maps 3-Pack pin', 'High-intent customer calls', 'Permanent organic visibility'],
-    previewMetric: 'Top 3 Local',
-    previewBadge: '5.0 Verified Profile'
+    category: 'Search & AI Discovery',
+    title: 'AI Search, Ads & Google Presence',
+    shortDesc: 'Google SEO, ChatGPT & Gemini recommendations (AEO), Google Maps 3-Pack (GEO), and targeted AI platform ad campaign setups.',
+    accent: '#8B5CF6',
+    icon: Sparkles,
+    highlights: ['ChatGPT, Gemini & Perplexity citations', 'Google Maps 3-Pack local ranking', 'Targeted AI platform ad setup'],
+    previewMetric: 'Multi-Engine',
+    previewBadge: 'AI & Map Discovery'
   },
 ];
 
@@ -97,20 +98,20 @@ export default function Slide1_Overview() {
           <FadeIn delay={0.12} y={20}>
             <h1 className="font-clash text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-5">
               Software, Web Platforms & <br />
-              <span className="shimmer-text">High-Impact Websites.</span>
+              <span className="text-slate-900">AI Search Visibility.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.18} y={20}>
             <p className="font-sans font-normal text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              We design and build bespoke digital systems tailored 100% around your exact business workflow. Zero rigid templates, ₹0 recurring monthly software rent, and lifetime code ownership.
+              We design and engineer grounded digital systems tailored around how your business actually operates. Complete ownership, zero rigid templates, and honest workflow-based delivery.
             </p>
           </FadeIn>
         </div>
 
         {/* EDITORIAL INTERACTIVE SHOWCASE */}
         <FadeIn delay={0.25} y={20} className="w-full">
-          <div className="bg-[#FAFAFD] border border-slate-200/80 rounded-3xl p-4 sm:p-7 shadow-sm">
+          <div className="bg-[#FAFAFD] border border-slate-200/80 rounded-3xl p-4 sm:p-7 shadow-xs">
             
             {/* Top Navigation Tabs */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 mb-6">
@@ -155,7 +156,6 @@ export default function Slide1_Overview() {
               <AnimatePresence mode="wait">
                 {(() => {
                   const current = DISCIPLINES[activeTab];
-                  const IconComp = current.icon;
                   return (
                     <motion.div
                       key={current.id}
@@ -174,7 +174,7 @@ export default function Slide1_Overview() {
                           >
                             {current.category}
                           </span>
-                          <span className="text-xs font-mono text-slate-500">100% Bespoke Execution</span>
+                          <span className="text-xs font-mono text-slate-500">100% Client Ownership</span>
                         </div>
 
                         <h2 className="font-clash text-2xl sm:text-3xl font-bold text-slate-900">
@@ -194,21 +194,28 @@ export default function Slide1_Overview() {
                           ))}
                         </div>
 
-                        <div className="pt-3">
+                        <div className="pt-3 flex flex-wrap items-center gap-3">
                           <button
                             onClick={() => scrollToSection(current.id)}
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-white transition-all shadow-sm hover:shadow-md cursor-pointer group"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-white transition-all shadow-xs hover:shadow-md cursor-pointer group"
                             style={{ backgroundColor: current.accent }}
                           >
-                            <span>Explore Full Breakdown</span>
+                            <span>See how it can help your business</span>
                             <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
                           </button>
+
+                          <Link
+                            to="/contact"
+                            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors"
+                          >
+                            <span>See what your project will cost</span>
+                          </Link>
                         </div>
                       </div>
 
                       {/* Right Column: Architectural Card Preview */}
                       <div className="lg:col-span-5">
-                        <div className="rounded-2xl border border-slate-200/80 bg-[#FAFAFD] p-5 sm:p-6 text-left relative overflow-hidden shadow-xs">
+                        <div className="rounded-2xl border border-slate-200/80 bg-[#FAFAFD] p-5 sm:p-6 text-left relative overflow-hidden shadow-2xs">
                           <div className="flex items-center justify-between mb-4">
                             <div className="flex items-center gap-2">
                               <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
@@ -226,17 +233,17 @@ export default function Slide1_Overview() {
 
                           <div className="space-y-3">
                             <div className="bg-white rounded-xl p-3.5 border border-slate-200/80 shadow-2xs">
-                              <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">Core Performance Benchmark</div>
+                              <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">Value Commitment</div>
                               <div className="text-2xl font-clash font-bold text-slate-900 mt-0.5" style={{ color: current.accent }}>
                                 {current.previewMetric}
                               </div>
                               <div className="text-[11px] text-slate-500 mt-1 font-sans">
-                                Engineered for zero bloat, high security, and perpetual business ownership.
+                                Engineered for zero bloat, high reliability, and perpetual business ownership.
                               </div>
                             </div>
 
                             <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 px-1 pt-1">
-                              <span>Delivery: 2-3 Weeks</span>
+                              <span>Honest Project Scope</span>
                               <span className="text-emerald-600 font-bold">100% Code Handover</span>
                             </div>
                           </div>
@@ -256,19 +263,19 @@ export default function Slide1_Overview() {
           <div className="mt-8 pt-5 border-t border-slate-200/80 flex flex-wrap items-center justify-center gap-x-8 gap-y-2.5 text-xs text-slate-600 font-medium">
             <span className="flex items-center gap-1.5 text-slate-700">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-              100% Bespoke Code Architecture
+              100% Code & Data Ownership
             </span>
             <span className="flex items-center gap-1.5 text-slate-700">
               <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-              ₹0 Ongoing Monthly Software Rent
+              ₹0 Monthly Per-User Seat Fees
             </span>
             <span className="flex items-center gap-1.5 text-slate-700">
               <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />
-              Direct WhatsApp Lead Conversion
+              All-In-One Domain, DNS & Hosting
             </span>
             <span className="flex items-center gap-1.5 text-slate-700">
               <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
-              100% Unrestricted IP & Source Handover
+              Honest Workflow-Based Timelines
             </span>
           </div>
         </FadeIn>
@@ -276,9 +283,9 @@ export default function Slide1_Overview() {
         {/* SMOOTH SCROLL CUE */}
         <div className="mt-6 flex justify-center">
           <button 
-            onClick={() => scrollToSection('custom-software')}
+            onClick={() => scrollToSection('websites')}
             className="flex flex-col items-center text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors group cursor-pointer"
-            aria-label="Scroll to Custom Software"
+            aria-label="Scroll to Core Disciplines"
           >
             <span className="tracking-wider uppercase text-[10px] mb-1">Explore Disciplines</span>
             <ArrowDown className="w-4 h-4 animate-bounce text-slate-500 group-hover:text-blue-600" />

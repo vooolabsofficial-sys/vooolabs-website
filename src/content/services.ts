@@ -1,4 +1,4 @@
-import { Globe, Laptop, Cpu } from 'lucide-react';
+import { Globe, Laptop, Cpu, Sparkles } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export interface ServiceProject {
@@ -47,7 +47,7 @@ export interface ServiceVertical {
     }[];
   };
 
-  // 3. Direct Business Value
+  // 3. Direct Business Value (Honest value commitments, zero fake metrics)
   roiBenefits: {
     heading: string;
     metrics: {
@@ -58,287 +58,400 @@ export interface ServiceVertical {
     highlights: string[];
   };
 
-  // 4. Featured Projects
+  // 4. Featured Projects (Empty by default — real client projects added only when live)
   featuredProjects: ServiceProject[];
 
-  // 5. Core Deliverables
+  // 5. Core Deliverables (Plain-English business deliverables — zero framework/tech jargon)
   techStack: string[];
 }
 
 export const SERVICES: ServiceVertical[] = [
+  // VERTICAL 1: WEBSITES
   {
-    id: 'web-apps',
-    slug: 'web-apps',
-    title: 'Custom Web Apps & Business Portals',
-    shortTitle: 'Web Apps',
-    tagline: 'Custom management portals, billing systems & client dashboards.',
+    id: 'websites',
+    slug: 'websites',
+    title: 'All-Inclusive Business Websites',
+    shortTitle: 'Websites',
+    tagline: 'Custom design, domain setup, 24/7 cloud hosting & direct WhatsApp lead integration.',
     icon: Globe,
-    badge: 'Custom Business Software',
-    accentColor: '#3B82F6',
-    gradientClass: 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 bg-clip-text text-transparent',
-    glowShadow: 'hover:shadow-[0_16px_40px_rgba(59,130,246,0.18)]',
-    bgGradient: 'from-blue-500/10 via-indigo-500/5 to-transparent',
-    summary: 'We build custom web software designed around how your business actually operates — from staff management and billing to client tracking and automated reports.',
+    badge: 'All-Inclusive Web Platform',
+    accentColor: '#0284C7',
+    gradientClass: 'text-slate-900',
+    glowShadow: '',
+    bgGradient: 'from-sky-500/10 via-blue-500/5 to-transparent',
+    summary: 'High-trust, ultra-fast websites designed for small, mid-sized, and growing businesses to turn visitors into direct WhatsApp and phone inquiries. We handle the entire technical setup end-to-end—complete with domain setup, DNS, 24/7 cloud hosting, and SSL security.',
     
     whyYouNeedThis: {
-      heading: 'Why Spreadsheets & Generic Software Hurt Your Growth',
-      subheading: 'Managing a growing business through WhatsApp groups and Excel sheets causes lost customer data, billing confusion, and wasted hours every week.',
+      heading: 'Why Most Small & Mid-Sized Business Websites Fail to Convert',
+      subheading: 'Outdated templates, slow mobile load speeds, and missing contact channels lose high-intent clients to your competitors every single day.',
       points: [
         {
-          title: 'Excel Sheets Cause Human Errors',
-          description: 'Team members accidentally delete rows, formulas break, and managers never know which record is updated.',
-          impact: 'Centralized database accessible securely from any phone or laptop.',
+          title: 'First Impressions Decide Business Deals',
+          description: 'When potential clients hear about your business, they inspect your website first. A generic or outdated page creates immediate doubt about your service quality.',
+          impact: 'A grounded, authoritative digital presence that commands trust and justifies premium pricing.',
         },
         {
-          title: 'Ready-Made Software Doesn\'t Fit Your Needs',
-          description: 'Most monthly subscription tools force you to pay per user and contain hundreds of confusing buttons you will never use.',
-          impact: 'Simple, tailored system with only the features your business needs.',
+          title: 'Slow Mobile Load Times Cause High Visitor Bounce',
+          description: 'If your website takes more than 3 seconds to load on mobile data, over half your visitors leave and contact the next competitor.',
+          impact: 'Engineered for sub-second load times across 4G and 5G mobile connections in India.',
         },
         {
-          title: 'No Real-Time Visibility on Business',
-          description: 'Founders must ask staff at the end of the day to know daily sales, pending orders, or open client requests.',
-          impact: 'Live dashboard showing daily sales and tasks at a glance.',
+          title: 'Friction-Heavy Forms Discourage Immediate Contact',
+          description: 'Complex multi-step contact forms create unnecessary barriers between interested customers and your team.',
+          impact: '1-Tap WhatsApp chat and direct phone calling triggers for instant customer conversations.',
         },
       ],
     },
 
     howWeHelp: {
-      heading: 'What We Build Specifically For Your Business',
-      subheading: 'Clean, fast, and easy-to-use web applications with simple logins for your staff, managers, and clients.',
+      heading: 'Everything Included In Your Website Build',
+      subheading: 'We handle the complete technical lifecycle so you never have to deal with hosting companies, DNS records, or broken plugins.',
       features: [
         {
-          title: 'Role-Based Access for Staff & Managers',
-          description: 'Each staff member sees only their assigned tasks, while the owner has full control over revenue, reports, and settings.',
+          title: 'Custom Design & Full Functional Build',
+          description: 'Bespoke layout and structure designed specifically around your service offerings, products, and customer journey—zero generic templates.',
+          tech: 'Custom Design',
+        },
+        {
+          title: 'Domain Setup & Complete DNS Configuration',
+          description: 'Assistance with domain selection and complete configuration of DNS, MX email records, and routing so your web address works seamlessly.',
+          tech: 'Domain & DNS',
+        },
+        {
+          title: '24/7 Fast Cloud Hosting & SSL Security',
+          description: 'High-availability modern cloud hosting with automated HTTPS encryption, global CDN delivery, and 99.9% uptime reliability.',
+          tech: '24/7 Cloud Host',
+        },
+        {
+          title: '1-Tap WhatsApp & Social Media Integration',
+          description: 'Prominent, attractive contact actions that route interested visitors straight to your WhatsApp chat, phone lines, and social channels.',
+          tech: 'WhatsApp Leads',
+        },
+        {
+          title: 'Foundational Google SEO & AI Search Readiness',
+          description: 'Clean semantic structure, metadata, OpenGraph cards, and schema markup so Google and conversational AI engines understand your business.',
+          tech: 'SEO & AI Ready',
+        },
+      ],
+    },
+
+    roiBenefits: {
+      heading: 'Honest, Verifiable Value Commitments',
+      metrics: [
+        { value: '100%', label: 'Code & Data Ownership', detail: 'Full intellectual property handover with zero vendor lock-in' },
+        { value: '₹0', label: 'Monthly Per-User Seat Fees', detail: 'Custom-built once around your exact workflow' },
+        { value: 'All-In-One', label: 'Domain, DNS & 24/7 Hosting Included', detail: 'Complete technical setup handled end-to-end' },
+        { value: 'Honest', label: 'Workflow-Based Timelines', detail: 'We review your exact requirements first before committing to a delivery date' },
+      ],
+      highlights: [
+        'Turn organic visitors and ad traffic into direct WhatsApp inquiries and customer calls',
+        'Complete asset handover: your domain, DNS, and hosting accounts belong entirely to you',
+        'Crisp, responsive presentation optimized across mobile phones, tablets, and desktop computers',
+      ],
+    },
+
+    featuredProjects: [],
+
+    techStack: [
+      'Custom Design & Build',
+      'Domain Setup & DNS',
+      '24/7 Fast Cloud Hosting',
+      'SSL Security Included',
+      '1-Tap WhatsApp Inquiries',
+      'Google SEO & AI Search Ready',
+    ],
+  },
+
+  // VERTICAL 2: CUSTOM WEB APPS & CLIENT PORTALS
+  {
+    id: 'web-apps',
+    slug: 'web-apps',
+    title: 'Custom Web Apps & Client Portals',
+    shortTitle: 'Web Apps',
+    tagline: 'Customer-facing portals, member dashboards & booking platforms — practical in the AI era.',
+    icon: Laptop,
+    badge: 'Client & Member Portals',
+    accentColor: '#3B82F6',
+    gradientClass: 'text-slate-900',
+    glowShadow: '',
+    bgGradient: 'from-blue-500/10 via-indigo-500/5 to-transparent',
+    summary: 'Customer-facing portals, student and member dashboards, appointment booking systems, and interactive web applications. In today’s AI era, custom web apps that previously cost lakhs are now practical and affordable for small and mid-sized businesses—engineered professionally without cutting corners.',
+    
+    whyYouNeedThis: {
+      heading: 'Why Generic SaaS Subscriptions and Spreadsheets Hold Back Growth',
+      subheading: 'Managing customer requests through WhatsApp chats and manual spreadsheets leads to miscommunication, delayed service, and wasted staff hours.',
+      points: [
+        {
+          title: 'Manual Coordination Wastes Valuable Staff Hours',
+          description: 'Team members spend hours answering repetitive questions, confirming appointments, and sending status updates manually over the phone.',
+          impact: 'A self-service portal where customers can log in, check progress, and download documents 24/7.',
+        },
+        {
+          title: 'Expensive Monthly Subscriptions Penalize Growth',
+          description: 'Most commercial SaaS tools charge steep per-user monthly seat fees that escalate as your team and client base expand.',
+          impact: 'A custom web application built once around your exact business model with zero per-user seat penalties.',
+        },
+        {
+          title: 'Customer Data Fragmented Across Multiple Files',
+          description: 'Client records, booking schedules, and transaction histories scattered across Excel sheets risk permanent data loss.',
+          impact: 'One secure, centralized cloud database accessible from any smartphone, tablet, or laptop.',
+        },
+      ],
+    },
+
+    howWeHelp: {
+      heading: 'Custom Web Applications Built for Practical Use',
+      subheading: 'Clean, intuitive web applications with dedicated logins for your customers, team members, and management.',
+      features: [
+        {
+          title: 'Customer & Member Account Portals',
+          description: 'Dedicated client accounts where customers can log in, view order or project status, download invoices, and access services securely.',
+          tech: 'Client Portals',
+        },
+        {
+          title: 'Interactive Booking, Scheduling & Intake',
+          description: 'Guided booking workflows with instant availability checks, intake forms, and automated confirmation routing.',
+          tech: 'Booking Engine',
+        },
+        {
+          title: 'Granular Role-Based Permissions',
+          description: 'Separate access controls for customers, operational staff, and business owners ensuring data security and confidentiality.',
           tech: 'Secure Permissions',
         },
         {
           title: 'Automated WhatsApp & Email Notifications',
-          description: 'Send instant invoice receipts, payment reminders, and order updates directly to your customers\' WhatsApp.',
+          description: 'Trigger instant status updates, booking receipts, and payment reminders directly to your clients’ WhatsApp.',
           tech: 'Auto Alerts',
         },
         {
-          title: 'Works Smoothly on Mobile & Desktop',
-          description: 'Open your business portal from your phone anytime, anywhere without needing a complex setup.',
+          title: 'Full Cross-Device Mobile & Desktop Access',
+          description: 'Runs smoothly in any mobile or desktop web browser with zero app store installation friction.',
           tech: 'Phone & PC Ready',
         },
       ],
     },
 
     roiBenefits: {
-      heading: 'Direct Benefits to Your Business',
+      heading: 'Honest, Verifiable Value Commitments',
       metrics: [
-        { value: '3+ hrs', label: 'Saved Daily Per Person', detail: 'Automates manual bookkeeping and report generation.' },
-        { value: '100%', label: 'Data Security & Ownership', detail: 'You own your system and customer database completely.' },
-        { value: '0₹', label: 'Hidden Per-User Monthly Fees', detail: 'One-time custom build without recurring per-seat penalties.' },
+        { value: '100%', label: 'Code & Data Ownership', detail: 'Full intellectual property handover with zero vendor lock-in' },
+        { value: '₹0', label: 'Monthly Per-User Seat Fees', detail: 'Custom-built once around your exact workflow' },
+        { value: 'All-In-One', label: 'Domain, DNS & 24/7 Hosting Included', detail: 'Complete technical setup handled end-to-end' },
+        { value: 'Honest', label: 'Workflow-Based Timelines', detail: 'We review your exact requirements first before committing to a delivery date' },
       ],
       highlights: [
-        'Eliminate 80% of repetitive daily paperwork and manual entries',
-        'Check pending payments, orders, and team progress in seconds',
-        'Full customer records safely stored in one secure location',
+        'Affordable custom web application engineering tailored for growing business budgets',
+        '24/7 client self-service significantly reduces repetitive support phone calls',
+        'Built on robust modern cloud foundations with 100% intellectual property ownership',
       ],
     },
 
-    featuredProjects: [
-      {
-        title: 'Custom Business Management & Billing Portal',
-        subtitle: 'Tailored Client Portal',
-        description: 'Complete web system for managing customer accounts, generating instant PDF tax invoices, tracking staff tasks, and automated WhatsApp payment reminders.',
-        tags: ['Client Portal', 'Invoicing', 'WhatsApp Alerts', 'Admin Dashboard'],
-        badge: 'Custom Solution',
-        accentColor: '#3B82F6',
-      },
-    ],
+    featuredProjects: [],
 
-    techStack: ['Custom Web Portal', 'Admin Dashboard', 'WhatsApp Integration', 'Secure Database', 'PDF Invoicing'],
+    techStack: [
+      'Custom Client Portal',
+      'Secure User Accounts',
+      'Role-Based Permissions',
+      'Automated WhatsApp Alerts',
+      'Centralized Cloud Database',
+      'Mobile & Desktop Responsive',
+    ],
   },
 
-  {
-    id: 'websites',
-    slug: 'websites',
-    title: 'High-Converting Business Websites',
-    shortTitle: 'Websites',
-    tagline: 'Modern, fast corporate websites that bring in real client inquiries.',
-    icon: Laptop,
-    badge: 'Sales & Lead Generation',
-    accentColor: '#8B5CF6',
-    gradientClass: 'bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent',
-    glowShadow: 'hover:shadow-[0_16px_40px_rgba(139,92,246,0.18)]',
-    bgGradient: 'from-purple-500/10 via-pink-500/5 to-transparent',
-    summary: 'We build beautiful, ultra-fast websites designed to turn visitors into paying clients with compelling storytelling and high-converting layouts.',
-    
-    whyYouNeedThis: {
-      heading: 'Why an Outdated Website Loses You Clients',
-      subheading: 'When potential clients hear about your business, they search online. A slow, outdated, or confusing website makes them choose your competitor.',
-      points: [
-        {
-          title: 'First Impressions Decide the Deal',
-          description: 'High-value clients judge your trustworthiness and professionalism within seconds of opening your website.',
-          impact: 'Creates instant credibility and brand authority in your market.',
-        },
-        {
-          title: 'Slow Websites Lose Inquiries',
-          description: 'If a website takes more than 3 seconds to load on mobile, 50% of visitors leave immediately.',
-          impact: 'Opens instantly on all 4G and 5G mobile connections.',
-        },
-        {
-          title: 'No Direct Contact Channel',
-          description: 'Websites with complicated forms make customers leave without contacting you.',
-          impact: '1-click WhatsApp and direct calling buttons for instant customer inquiries.',
-        },
-      ],
-    },
-
-    howWeHelp: {
-      heading: 'How We Build Your High-Ranking Online Presence',
-      subheading: 'Crafted with premium visual appeal, persuasive conversion copy, and advanced SEO, AEO & GEO discovery ranking.',
-      features: [
-        {
-          title: 'Google SEO (Search Engine Optimization)',
-          description: 'Keyword research, meta tags, schema.org markup, and sub-1s load speeds so Google ranks you on Page #1 for customer searches.',
-          tech: 'Google #1 SEO',
-        },
-        {
-          title: 'AEO (AI Engine Optimization)',
-          description: 'We structure your content so conversational AI engines like ChatGPT, Google Gemini, Perplexity & Claude cite and recommend your business when potential clients ask questions.',
-          tech: 'AI Recommendation (AEO)',
-        },
-        {
-          title: 'GEO (Generative & Local Map Optimization)',
-          description: 'Google Business Profile, map pin optimization, and localized geo-targeted keywords so nearby local clients discover your shop or company first.',
-          tech: 'Local Map Ranking (GEO)',
-        },
-        {
-          title: '1-Click Direct WhatsApp & Calling Lead Routing',
-          description: 'Prominent, attractive 1-tap WhatsApp and calling buttons so customers reach you within seconds with 0 friction.',
-          tech: 'Instant WhatsApp Leads',
-        },
-      ],
-    },
-
-    roiBenefits: {
-      heading: 'Direct Benefits to Your Business',
-      metrics: [
-        { value: '< 1s', label: 'Instant Mobile Page Load', detail: 'Smooth experience even on slow mobile networks.' },
-        { value: '3x', label: 'More Customer Inquiries', detail: 'Prominent 1-click WhatsApp and call action buttons.' },
-        { value: 'Top', label: 'Google, AI & Local Maps Visibility', detail: 'Optimized for Google SEO, ChatGPT AEO, and local GEO maps.' },
-      ],
-      highlights: [
-        'Turn social media visitors and ad traffic into direct WhatsApp inquiries',
-        'Be discovered when customers search on Google, ChatGPT, Perplexity, or Google Maps',
-        'Professional business presence with authoritative brand storytelling that commands trust',
-      ],
-    },
-
-    featuredProjects: [
-      {
-        title: 'VOOO LABS Studio Platform',
-        subtitle: 'Official Software Studio',
-        description: 'Ultra-fast modern platform with bilingual messaging, responsive layout, and direct client inquiry workflows.',
-        tags: ['Corporate Site', 'SEO Optimized', 'Mobile Friendly', 'Bilingual'],
-        badge: 'Live Platform',
-        accentColor: '#8B5CF6',
-      },
-      {
-        title: 'Vrushabh Shinde — Founder Portfolio',
-        subtitle: 'Creative Technologist Showcase',
-        description: 'Personal portfolio highlighting software architecture, client projects, and product engineering.',
-        tags: ['Portfolio', 'Case Studies', 'Interactive'],
-        liveUrl: 'https://share.google/CA0DOimc3VLYNbEwl',
-        badge: 'Live Portfolio',
-        accentColor: '#EC4899',
-      },
-    ],
-
-    techStack: ['Mobile Responsive', 'Google SEO Ready', 'WhatsApp Integration', 'Ultra-Fast Load', 'Bilingual Support'],
-  },
-
+  // VERTICAL 3: CUSTOM BUSINESS SOFTWARE & INTERNAL OPERATIONS
   {
     id: 'software',
     slug: 'software',
-    title: 'Custom Business Software & Management Portals',
+    title: 'Custom Business Software & Internal Operations',
     shortTitle: 'Business Software',
-    tagline: 'Internal workflow tools, automated invoicing, and operations dashboards.',
+    tagline: 'Custom GST invoicing, inquiry pipelines, staff task tracking & operations dashboards.',
     icon: Cpu,
     badge: 'Operations & Workflow Systems',
     accentColor: '#10B981',
-    gradientClass: 'bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-500 bg-clip-text text-transparent',
-    glowShadow: 'hover:shadow-[0_16px_40px_rgba(16,185,129,0.18)]',
+    gradientClass: 'text-slate-900',
+    glowShadow: '',
     bgGradient: 'from-emerald-500/10 via-teal-500/5 to-transparent',
-    summary: 'We engineer tailor-made business management systems, automated invoicing tools, and custom workflow dashboards that replace chaotic spreadsheets and generic SaaS retainers.',
+    summary: 'Internal workflow systems that replace messy Excel sheets, scattered WhatsApp notes, and expensive per-user monthly SaaS tools. Includes custom GST invoicing, inquiry pipelines, staff task tracking, and automated WhatsApp alerts—built to fit small, mid-sized, or large teams with 100% source code and data ownership.',
     
     whyYouNeedThis: {
-      heading: 'Why Spreadsheets & Generic SaaS Slow Down Operations',
-      subheading: 'Scattered customer inquiries, missing follow-ups, and disconnected billing tools cost businesses dozens of productive hours every week.',
+      heading: 'Why Spreadsheets & Scattered WhatsApp Notes Slow Down Operations',
+      subheading: 'Managing daily customer orders, staff assignments, and billing manually leads to costly mistakes, delayed invoices, and lack of business visibility.',
       points: [
         {
-          title: 'Fragmented Tools Cause Bottlenecks',
-          description: 'Using separate tools for notes, billing, and customer records leads to miscommunication and delayed fulfillment.',
-          impact: 'One unified custom system designed specifically for your company workflow.',
+          title: 'Fragile Spreadsheets Lead to Costly Human Errors',
+          description: 'Team members accidentally overwrite formulas, delete critical rows, and work on mismatched file versions.',
+          impact: 'A single, reliable source of truth with automated daily cloud backups and zero file corruption.',
         },
         {
-          title: 'Recurring Per-User Licensing Adds Up Fast',
-          description: 'Most SaaS tools penalize business growth with escalating monthly seat charges for features you do not use.',
-          impact: 'A bespoke platform you own 100% with zero recurring seat fees.',
+          title: 'Manual Invoicing & Disorganized Payment Tracking',
+          description: 'Creating invoices manually in Word or Excel causes billing delays, calculation errors, and lost revenue from untracked payments.',
+          impact: '1-Click GST-compliant tax invoicing with automated tracking of paid, partial, and pending balances.',
         },
         {
-          title: 'Lack of Automated Invoicing & Tracking',
-          description: 'Manual invoice generation and payment tracking waste management time and cause accounting discrepancies.',
-          impact: 'Automated GST-compliant billing and real-time revenue visibility.',
+          title: 'Disorganized Daily Task Allocation',
+          description: 'Daily assignments given over phone calls or WhatsApp groups get forgotten without clear accountability.',
+          impact: 'Visual task boards where managers assign tasks and track completion status in real-time.',
         },
       ],
     },
 
     howWeHelp: {
-      heading: 'How We Build Custom Operations Software',
-      subheading: 'Bespoke web tools engineered to centralize operations, automate routine tasks, and provide crystal-clear business oversight.',
+      heading: 'Tailored Operations Tools Engineered for Your Team',
+      subheading: 'We engineer internal business software molded 100% around your daily operating routine and team habits.',
       features: [
         {
-          title: 'Automated Customer & Order Pipelines',
-          description: 'Incoming inquiries and client orders automatically route into an organized Kanban pipeline with instant notifications.',
-          tech: 'Live Order Pipeline',
+          title: 'Custom GST Invoicing & Payment Tracking',
+          description: 'Generate clean, professional GST tax invoices in seconds with instant PDF export and automated payment status logs.',
+          tech: 'GST Invoicing',
         },
         {
-          title: 'Role-Based Team Access & Security',
-          description: 'Granular permissions ensure employees only access their assigned tasks, while management maintains complete financial control.',
-          tech: 'Role-Based Security',
+          title: 'Customer Inquiry & Order Pipeline',
+          description: 'Incoming customer leads and orders automatically organize into a structured visual pipeline with clear stage progression.',
+          tech: 'Order Pipeline',
         },
         {
-          title: 'Automated GST Invoicing & Payment Tracking',
-          description: 'Generate professional, compliant tax invoices in one click with automated tracking of paid and pending amounts.',
-          tech: 'Automated Billing',
+          title: 'Staff Task Assignment & Accountability',
+          description: 'Assign work to individual employees, set deadlines, and monitor daily progress without micromanagement.',
+          tech: 'Task Management',
+        },
+        {
+          title: 'Automated Daily Business Summaries',
+          description: 'Receive automated daily end-of-day summaries of revenue, completed orders, and pending follow-ups via WhatsApp or email.',
+          tech: 'Daily Reports',
+        },
+        {
+          title: 'Dedicated Cloud Database & Automated Backups',
+          description: 'Your business records reside in a private, encrypted cloud database with automated daily snapshots and zero third-party snooping.',
+          tech: 'Encrypted Backups',
         },
       ],
     },
 
     roiBenefits: {
-      heading: 'Direct Benefits to Your Business',
+      heading: 'Honest, Verifiable Value Commitments',
       metrics: [
-        { value: '4+ hrs', label: 'Saved Daily Across Staff', detail: 'Automates manual data entry and routine status reporting.' },
-        { value: '100%', label: 'Source Code & Data Ownership', detail: 'Full intellectual property rights with zero vendor lock-in.' },
-        { value: '₹0', label: 'Monthly Per-Seat Licensing', detail: 'Bespoke software built once and owned forever.' },
+        { value: '100%', label: 'Code & Data Ownership', detail: 'Full intellectual property handover with zero vendor lock-in' },
+        { value: '₹0', label: 'Monthly Per-User Seat Fees', detail: 'Custom-built once around your exact workflow' },
+        { value: 'All-In-One', label: 'Domain, DNS & 24/7 Hosting Included', detail: 'Complete technical setup handled end-to-end' },
+        { value: 'Honest', label: 'Workflow-Based Timelines', detail: 'We review your exact requirements first before committing to a delivery date' },
       ],
       highlights: [
-        'Centralize orders, staff tasks, and client records in one secure portal',
-        'Eliminate manual mistakes in invoicing and customer tracking',
-        'Live dashboard accessible securely from any desktop, tablet, or phone browser',
+        'Replace disconnected spreadsheets and WhatsApp notes with one unified business dashboard',
+        'Eliminate recurring per-user monthly SaaS fees—you own the software completely',
+        'Secure browser-based access from any smartphone, tablet, or office desktop computer',
       ],
     },
 
-    featuredProjects: [
-      {
-        title: 'B2B Operations & Billing Management Portal',
-        subtitle: 'Custom Business Software',
-        description: 'Comprehensive operational portal featuring automated inquiry intake, staff assignment routing, GST tax invoice generation, and financial reporting.',
-        tags: ['Business Portal', 'Invoicing Engine', 'Workflow Automation', 'Admin Dashboard'],
-        badge: 'Custom Client System',
-        accentColor: '#10B981',
-      },
-    ],
+    featuredProjects: [],
 
-    techStack: ['Custom Web Portal', 'Admin Dashboard', 'Workflow Engine', 'GST Invoicing', 'Secure Database'],
+    techStack: [
+      'Custom GST Invoicing',
+      'Inquiry & Order Pipeline',
+      'Staff Task Boards',
+      'Automated WhatsApp Reports',
+      'Encrypted Cloud Backups',
+      'Zero Monthly Seat Fees',
+    ],
+  },
+
+  // VERTICAL 4: AI SEARCH VISIBILITY, AI ADS & GOOGLE PRESENCE
+  {
+    id: 'ai-growth',
+    slug: 'ai-growth',
+    title: 'AI Search Visibility, AI Ads & Google Presence',
+    shortTitle: 'AI Growth & Search',
+    tagline: 'Google SEO, ChatGPT & Gemini recommendations, Local Maps 3-Pack & AI ad campaigns.',
+    icon: Sparkles,
+    badge: 'Search & AI Discovery',
+    accentColor: '#8B5CF6',
+    gradientClass: 'text-slate-900',
+    glowShadow: '',
+    bgGradient: 'from-purple-500/10 via-indigo-500/5 to-transparent',
+    summary: 'Helping businesses get discovered and recommended where modern customers actually search today: ranking on Google Search, getting cited on ChatGPT, Gemini & Perplexity (AEO), dominating local Google Maps (GEO), and setting up targeted ad campaigns on emerging AI search platforms with conversion tracking.',
+    
+    whyYouNeedThis: {
+      heading: 'Where Your Customers Search Has Changed Forever',
+      subheading: 'Customers no longer rely solely on traditional search links. They ask conversational AI assistants, check Google AI Overviews, and use Google Maps to find nearby businesses.',
+      points: [
+        {
+          title: 'Invisible to AI Search Engines & Conversational Assistants',
+          description: 'If your business information is not structured for machine readability, AI assistants like ChatGPT, Gemini, and Perplexity will cite your competitors instead.',
+          impact: 'Structured Schema.org data and entity optimization so AI engines recommend your business.',
+        },
+        {
+          title: 'Competitors Capturing High-Intent Local Searches',
+          description: 'When potential clients search for nearby services on Google Maps, businesses with verified, optimized profiles get the phone calls and store visits.',
+          impact: 'Google Business Profile optimization to capture top local map placement and high-intent calls.',
+        },
+        {
+          title: 'Wasted Money on Poorly Targeted Generic Ad Campaigns',
+          description: 'Running generic ads without understanding modern AI ad networks or without dedicated landing pages wastes substantial marketing budget.',
+          impact: 'Targeted ad campaign setup on emerging AI search platforms paired with high-converting landing pages.',
+        },
+      ],
+    },
+
+    howWeHelp: {
+      heading: '4 Core Pillars of Modern Search & AI Discovery',
+      subheading: 'A grounded, end-to-end strategy engineered to capture high-intent customer inquiries from traditional and AI engines alike.',
+      features: [
+        {
+          title: 'Google SEO (Search Engine Optimization)',
+          description: 'Targeted high-intent keyword research, technical performance tuning, fast load times, and on-page optimization so Google ranks you on Page #1.',
+          tech: 'Google SEO',
+        },
+        {
+          title: 'AEO (AI Engine Optimization)',
+          description: 'Structuring your business knowledge, pricing, and services with machine-readable data so ChatGPT, Google Gemini, and Perplexity actively recommend your business.',
+          tech: 'AEO Optimization',
+        },
+        {
+          title: 'GEO (Local Map & Near-Me Optimization)',
+          description: 'Google Business Profile verification, localized city keywords, accurate map pins, and review strategies so nearby customers find and call you first.',
+          tech: 'Local Maps GEO',
+        },
+        {
+          title: 'AI Platform Ads Setup & Lead Tracking',
+          description: 'Setting up targeted ad campaigns on emerging AI search platforms (including Google AI Overviews and conversational ad channels) paired with dedicated conversion landing pages.',
+          tech: 'AI Ads & Tracking',
+        },
+      ],
+    },
+
+    roiBenefits: {
+      heading: 'Honest, Verifiable Value Commitments',
+      metrics: [
+        { value: '100%', label: 'Code & Data Ownership', detail: 'Full intellectual property handover with zero vendor lock-in' },
+        { value: '₹0', label: 'Monthly Per-User Seat Fees', detail: 'Custom-built once around your exact workflow' },
+        { value: 'All-In-One', label: 'Domain, DNS & 24/7 Hosting Included', detail: 'Complete technical setup handled end-to-end' },
+        { value: 'Honest', label: 'Workflow-Based Timelines', detail: 'We review your exact requirements first before committing to a delivery date' },
+      ],
+      highlights: [
+        'Be discovered and recommended when customers search on Google, ChatGPT, Google Gemini, or Google Maps',
+        'Direct phone call and WhatsApp lead routing ensures zero inquiries slip through the cracks',
+        'Targeted AI ad campaign setup configured professionally with conversion analytics',
+      ],
+    },
+
+    featuredProjects: [],
+
+    techStack: [
+      'Google Search SEO',
+      'ChatGPT & Gemini AEO',
+      'Google Maps 3-Pack Optimization',
+      'AI Platform Ads Setup',
+      'Dedicated Landing Pages',
+      'Direct Lead Call Tracking',
+    ],
   },
 ];
 
 export function getService(id: string): ServiceVertical | undefined {
-  return SERVICES.find((s) => s.id === id || s.slug === id);
+  return SERVICES.find(
+    (s) =>
+      s.id === id ||
+      s.slug === id ||
+      (id === 'custom-software' && s.id === 'software') ||
+      (id === 'google-presence' && s.id === 'ai-growth')
+  );
 }
