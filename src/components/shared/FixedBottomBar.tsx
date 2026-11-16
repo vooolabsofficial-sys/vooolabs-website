@@ -7,7 +7,7 @@ import { COMPANY, SOCIALS, whatsappLink } from '../../content/company';
 
 export default function FixedBottomBar() {
   return (
-    <div className="fixed bottom-4 sm:bottom-5 inset-x-0 z-[9000] flex md:hidden justify-center px-3 sm:px-4 pointer-events-none">
+    <div className="fixed bottom-4 sm:bottom-5 inset-x-0 z-[9000] flex justify-center px-3 sm:px-4 pointer-events-none">
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
