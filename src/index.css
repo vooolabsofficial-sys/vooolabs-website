@@ -78,7 +78,7 @@ html {
 body {
   background: var(--bg);
   color: #1E293B;
-  font-family: 'Kanit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
   line-height: 1.65;
   letter-spacing: -0.011em;
@@ -90,13 +90,13 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Clash Display', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: -0.02em;
   color: #0A0F1E;
 }
 
 button, input, textarea, select {
-  font-family: 'Kanit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 code, pre, kbd, samp {

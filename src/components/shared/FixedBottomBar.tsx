@@ -86,7 +86,7 @@ export default function FixedBottomBar() {
         {/* PRIMARY OUTCOME CTA */}
         <Link
           to="/contact"
-          className="rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-orange-500 hover:opacity-95 text-white px-4 py-1.5 font-kanit font-medium text-[11px] sm:text-xs transition-all duration-300 hover:scale-[1.04] active:scale-[0.98] shadow-sm"
+          className="rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-orange-500 hover:opacity-95 text-white px-4 py-1.5 font-sans font-medium text-[11px] sm:text-xs transition-all duration-300 hover:scale-[1.04] active:scale-[0.98] shadow-sm"
         >
           See what your project will cost →
         </Link>
