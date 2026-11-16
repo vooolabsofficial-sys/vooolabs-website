@@ -19,7 +19,7 @@ export default function Slide2_GoogleVerification() {
             <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
               VERIFIED SEARCH ENTITY
             </span>
-            <h2 className="font-anton text-3xl sm:text-5xl text-zinc-950 tracking-wide leading-tight uppercase">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-950 tracking-tight leading-tight">
               Google-Standard Trust & Verification
             </h2>
             <p className="text-sm sm:text-base text-zinc-600 max-w-xl mx-auto mt-3 font-normal leading-relaxed">
@@ -82,7 +82,7 @@ export default function Slide2_GoogleVerification() {
                       <Globe size={22} />
                     </div>
                     <div>
-                      <h3 className="font-anton text-xl text-zinc-950 uppercase tracking-wide">
+                      <h3 className="text-xl font-bold text-zinc-950 tracking-tight">
                         {COMPANY.brandName}
                       </h3>
                       <a
@@ -130,7 +130,7 @@ export default function Slide2_GoogleVerification() {
                       <Lock size={18} />
                     </div>
                     <div>
-                      <h3 className="font-anton text-lg text-zinc-950 uppercase tracking-wide">
+                      <h3 className="text-lg font-bold text-zinc-950 tracking-tight">
                         256-Bit SSL & Edge Cloud Security
                       </h3>
                       <span className="font-mono text-xs text-emerald-600 font-medium">
@@ -163,7 +163,7 @@ export default function Slide2_GoogleVerification() {
                       <ShieldCheck size={18} />
                     </div>
                     <div>
-                      <h3 className="font-anton text-lg text-zinc-950 uppercase tracking-wide">
+                      <h3 className="text-lg font-bold text-zinc-950 tracking-tight">
                         100% Client Code Ownership Guarantee
                       </h3>
                       <span className="font-mono text-xs text-purple-600 font-medium">

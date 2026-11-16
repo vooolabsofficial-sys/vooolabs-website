@@ -25,7 +25,7 @@ export default function Slide4_ClosingCTA() {
 
         {/* HEADLINE: UNDER 8 WORDS */}
         <FadeIn delay={0.08} y={20}>
-          <h2 className="font-anton text-3xl sm:text-5xl lg:text-6xl text-white leading-[1.08] tracking-wide mb-4 uppercase">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.18] mb-4">
             Build Bold. Ship Smart. <br />
             <span className="shimmer-text">Live Different.</span>
           </h2>

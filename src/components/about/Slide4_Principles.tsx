@@ -51,7 +51,7 @@ export default function Slide4_Principles() {
             <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
               STUDIO PHILOSOPHY
             </span>
-            <h2 className="font-anton text-3xl sm:text-5xl text-zinc-950 tracking-wide leading-tight uppercase">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-950 tracking-tight leading-tight">
               Our 4 Engineering Principles
             </h2>
             <p className="text-sm sm:text-base text-zinc-600 max-w-lg mx-auto mt-3 font-normal leading-relaxed">
@@ -80,7 +80,7 @@ export default function Slide4_Principles() {
                       </div>
                     </div>
 
-                    <h3 className="font-anton text-xl sm:text-2xl text-zinc-950 uppercase tracking-wide mb-2.5 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight mb-2.5 group-hover:text-blue-600 transition-colors">
                       {item.title}
                     </h3>
 

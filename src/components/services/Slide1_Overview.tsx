@@ -114,7 +114,7 @@ export default function Slide1_Overview() {
           </FadeIn>
 
           <FadeIn delay={0.12} y={20}>
-            <h1 className="font-anton text-4xl sm:text-6xl lg:text-7xl text-slate-900 leading-[1.08] tracking-wide mb-5 uppercase">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.18] mb-5">
               Software, Web Platforms & <br />
               <span className="shimmer-text">AI Search Visibility.</span>
             </h1>

@@ -55,7 +55,7 @@ export default function Slide4_Connect() {
             <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
               PUBLIC CHANNELS & PROFILES
             </span>
-            <h2 className="font-clash text-2xl sm:text-3xl font-semibold text-zinc-950 mb-3 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-950 mb-3 tracking-tight">
               Connect Across Platforms
             </h2>
             <p className="font-sans text-base text-zinc-600 leading-relaxed font-normal">
@@ -87,7 +87,7 @@ export default function Slide4_Connect() {
                       </span>
                     </div>
 
-                    <h3 className="font-clash font-semibold text-lg text-zinc-950 mb-1">
+                    <h3 className="font-bold text-lg text-zinc-950 mb-1">
                       {soc.name}
                     </h3>
                     <p className="font-mono text-xs text-zinc-500 mb-2.5">

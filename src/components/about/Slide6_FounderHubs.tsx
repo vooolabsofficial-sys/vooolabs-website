@@ -22,7 +22,7 @@ export default function Slide6_FounderHubs() {
             <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
               FOUNDER COMMITMENT & GEOGRAPHY
             </span>
-            <h2 className="font-anton text-3xl sm:text-5xl text-zinc-950 tracking-wide leading-tight uppercase mb-3">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-950 tracking-tight leading-tight mb-3">
               Direct Engineering Leadership
             </h2>
             <p className="text-sm sm:text-base text-zinc-600 max-w-2xl font-normal leading-relaxed">
@@ -46,13 +46,13 @@ export default function Slide6_FounderHubs() {
                     className="w-full h-full object-cover object-top"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 text-blue-600 font-anton text-5xl">
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 text-blue-600 font-bold text-5xl">
                     {FOUNDER.initials}
                   </div>
                 )}
                 
                 <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md rounded-xl p-3 border border-zinc-200 text-left shadow-2xs">
-                  <div className="font-anton text-base text-zinc-950 uppercase tracking-wide">
+                  <div className="text-base font-bold text-zinc-950 tracking-tight">
                     {FOUNDER.name}
                   </div>
                   <div className="font-mono text-[11px] text-zinc-500">
@@ -113,7 +113,7 @@ export default function Slide6_FounderHubs() {
                 Open Letter to Business Owners
               </span>
               
-              <h3 className="font-anton text-xl sm:text-2xl text-zinc-950 uppercase tracking-wide leading-snug">
+              <h3 className="text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight leading-snug">
                 "We don't resell templates. We engineer systems."
               </h3>
 

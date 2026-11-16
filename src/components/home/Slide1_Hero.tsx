@@ -69,7 +69,7 @@ export default function Slide1_Hero() {
 
         {/* HEADLINE */}
         <FadeIn delay={0.08} y={20}>
-          <h1 className="font-anton text-4xl sm:text-6xl lg:text-7xl text-slate-900 leading-[1.08] tracking-wide mb-4 max-w-4xl mx-auto uppercase">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.18] mb-4 max-w-4xl mx-auto">
             Engineering Digital Products <br />
             <span className="shimmer-text">with Obsession & Scale.</span>
           </h1>

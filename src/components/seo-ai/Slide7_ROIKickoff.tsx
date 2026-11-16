@@ -146,7 +146,7 @@ export default function Slide7_ROIKickoff() {
                     <span>Free AI Search Visibility Audit</span>
                   </div>
 
-                  <h3 className="font-clash font-semibold text-xl sm:text-2xl text-slate-900 leading-tight">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
                     Does ChatGPT Recommend Your Business Today?
                   </h3>
                   <p className="font-sans text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">

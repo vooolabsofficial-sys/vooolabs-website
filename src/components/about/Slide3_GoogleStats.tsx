@@ -105,7 +105,7 @@ export default function Slide3_GoogleStats() {
             <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
               MEASURED BENCHMARKS
             </span>
-            <h2 className="font-anton text-3xl sm:text-5xl text-zinc-950 tracking-wide leading-tight uppercase">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-950 tracking-tight leading-tight">
               By The Numbers
             </h2>
             <p className="text-sm sm:text-base text-zinc-600 max-w-lg mx-auto mt-3 font-normal leading-relaxed">
@@ -119,7 +119,7 @@ export default function Slide3_GoogleStats() {
           {stats.map((stat, idx) => (
             <FadeIn key={idx} delay={idx * 0.08} y={20} className="w-full">
               <div className="p-8 rounded-3xl bg-zinc-50 border border-zinc-200/90 h-full flex flex-col justify-between hover:bg-white hover:border-zinc-300 hover:shadow-sm transition-all duration-200">
-                <div className={`font-anton text-4xl sm:text-5xl lg:text-6xl ${stat.accent} mb-3 uppercase tracking-wide`}>
+                <div className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold ${stat.accent} mb-3 tracking-tight`}>
                   <Counter value={stat.value} />
                 </div>
                 <div>

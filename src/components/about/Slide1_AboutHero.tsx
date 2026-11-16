@@ -26,9 +26,9 @@ export default function Slide1_AboutHero() {
           </div>
         </FadeIn>
 
-        {/* MISSION HEADLINE: ANTON DISPLAY FONT */}
+        {/* MISSION HEADLINE */}
         <FadeIn delay={0.08} y={20}>
-          <h1 className="font-anton text-4xl sm:text-6xl lg:text-7xl text-zinc-950 leading-[1.08] tracking-wide mb-6 max-w-3xl mx-auto uppercase">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-950 leading-[1.18] mb-6 max-w-3xl mx-auto">
             Replacing Fragile Templates With <br />
             <span className="shimmer-text">High-Performance Software.</span>
           </h1>

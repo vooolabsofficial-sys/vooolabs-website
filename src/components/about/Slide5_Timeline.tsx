@@ -60,7 +60,7 @@ export default function Slide5_Timeline() {
             <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
               STUDIO EVOLUTION
             </span>
-            <h2 className="font-anton text-3xl sm:text-5xl text-zinc-950 tracking-wide leading-tight uppercase">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-950 tracking-tight leading-tight">
               Our Journey & Milestones
             </h2>
             <p className="text-sm sm:text-base text-zinc-600 max-w-lg mx-auto mt-3 font-normal leading-relaxed">
@@ -117,7 +117,7 @@ export default function Slide5_Timeline() {
                     </span>
                   </div>
 
-                  <h3 className="font-anton text-2xl sm:text-3xl text-zinc-950 uppercase tracking-wide leading-snug">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-zinc-950 tracking-tight leading-snug">
                     {current.title}
                   </h3>
 
@@ -141,7 +141,7 @@ export default function Slide5_Timeline() {
                     <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold block">
                       Architectural Milestone
                     </span>
-                    <div className="font-anton text-xl text-zinc-950 uppercase tracking-wide">
+                    <div className="text-xl font-bold text-zinc-950 tracking-tight">
                       {current.phase} Standard
                     </div>
                     <p className="font-mono text-xs text-zinc-500 leading-relaxed">

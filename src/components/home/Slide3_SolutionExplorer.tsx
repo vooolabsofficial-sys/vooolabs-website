@@ -93,7 +93,7 @@ export default function Slide3_SolutionExplorer() {
             <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
               INTERACTIVE SOLUTION EXPLORER
             </span>
-            <h2 className="font-anton text-2xl sm:text-4xl text-slate-900 tracking-wide leading-tight uppercase">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 leading-snug">
               Explore What We Build.
             </h2>
             <p className="text-sm text-slate-600 max-w-md mx-auto mt-2 font-normal leading-relaxed">

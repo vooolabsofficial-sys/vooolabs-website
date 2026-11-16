@@ -190,7 +190,7 @@ export default function Slide1_HeroShift() {
             </FadeIn>
 
             <FadeIn delay={0.12} y={20}>
-              <h1 className="font-anton text-3xl sm:text-5xl lg:text-6xl text-slate-900 leading-[1.08] tracking-wide uppercase">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.18]">
                 Your Customers Are Asking ChatGPT and Google AI Who to Hire. <br className="hidden sm:inline" />
                 <span className="shimmer-text">Make Sure They Recommend You.</span>
               </h1>
