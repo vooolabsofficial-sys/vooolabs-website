@@ -39,7 +39,7 @@ export default function Slide2_ValueStrip() {
             <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
               ENGINEERING ASSURANCE
             </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 leading-snug">
+            <h2 className="font-anton text-2xl sm:text-4xl text-slate-900 tracking-wide leading-tight uppercase">
               Built for Reliability. Zero Vendor Rent.
             </h2>
           </FadeIn>

@@ -63,13 +63,13 @@ export default function Slide1_Hero() {
         <FadeIn delay={0.02} y={15}>
           <div className="inline-flex items-center gap-2 rounded-full bg-slate-900/[0.03] border border-black/10 px-4 py-1.5 mb-5 text-slate-800 text-xs sm:text-sm font-medium shadow-2xs">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-            <span>"पहले बनाते हैं कुछ, फिर उसे सुंदर बनाते हैं" · First make it work, then make it beautiful.</span>
+            <span>First make it work, then make it beautiful.</span>
           </div>
         </FadeIn>
 
         {/* HEADLINE */}
         <FadeIn delay={0.08} y={20}>
-          <h1 className="text-3xl sm:text-5xl font-bold text-slate-900 leading-[1.15] tracking-tight mb-4 max-w-4xl mx-auto">
+          <h1 className="font-anton text-4xl sm:text-6xl lg:text-7xl text-slate-900 leading-[1.08] tracking-wide mb-4 max-w-4xl mx-auto uppercase">
             Engineering Digital Products <br />
             <span className="shimmer-text">with Obsession & Scale.</span>
           </h1>
@@ -166,7 +166,7 @@ export default function Slide1_Hero() {
         <FadeIn delay={0.35} y={10}>
           <div className="font-mono text-[11px] sm:text-xs text-slate-500 uppercase tracking-widest leading-relaxed flex items-center gap-2 text-center sm:text-left">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span>पहले बनाते हैं कुछ, फिर उसे सुंदर बनाते हैं · BUILD BOLD. SHIP SMART. LIVE DIFFERENT.</span>
+            <span>First make it work, then make it beautiful. · BUILD BOLD. SHIP SMART. LIVE DIFFERENT.</span>
           </div>
         </FadeIn>
         <FadeIn delay={0.35} y={10}>

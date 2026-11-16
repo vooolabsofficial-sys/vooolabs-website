@@ -19,13 +19,13 @@ export default function Slide4_ClosingCTA() {
         <FadeIn delay={0} y={15}>
           <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] border border-white/10 px-4 py-1.5 mb-6 text-xs sm:text-sm text-slate-300 font-medium">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>"पहले बनाते हैं कुछ, फिर उसे सुंदर बनाते हैं"</span>
+            <span>"First make it work, then make it beautiful."</span>
           </div>
         </FadeIn>
 
         {/* HEADLINE: UNDER 8 WORDS */}
         <FadeIn delay={0.08} y={20}>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-4">
+          <h2 className="font-anton text-3xl sm:text-5xl lg:text-6xl text-white leading-[1.08] tracking-wide mb-4 uppercase">
             Build Bold. Ship Smart. <br />
             <span className="shimmer-text">Live Different.</span>
           </h2>

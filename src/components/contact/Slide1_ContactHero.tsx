@@ -19,7 +19,7 @@ export default function Slide1_ContactHero() {
 
         {/* HERO TITLE */}
         <FadeIn delay={0.08} y={20}>
-          <h1 className="font-clash font-bold text-3xl sm:text-4xl lg:text-5xl text-zinc-950 leading-[1.15] tracking-tight mb-6">
+          <h1 className="font-anton text-3xl sm:text-5xl lg:text-6xl text-zinc-950 leading-[1.08] tracking-wide mb-6 uppercase">
             Tell Us About Your Business. <br className="hidden sm:inline" />
             <span className="shimmer-text">Get an Honest Cost Estimate & Plan.</span>
           </h1>

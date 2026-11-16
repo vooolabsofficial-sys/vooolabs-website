@@ -19,10 +19,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        anton: ['Anton', 'sans-serif'],
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         inter: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        clash: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        display: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        clash: ['Anton', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        display: ['Anton', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         kanit: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         crazyblocks: ['CrazyBlocks', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
