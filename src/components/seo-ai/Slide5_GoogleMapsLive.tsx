@@ -170,7 +170,7 @@ export default function Slide5_GoogleMapsLive() {
                       <div className="text-[11px] font-mono font-semibold text-emerald-600 mb-0.5">
                         Verified Business Profile · Top 3-Pack
                       </div>
-                      <h4 className="font-clash font-bold text-lg text-slate-900">
+                      <h4 className="font-sans font-semibold text-lg text-slate-900">
                         {COMPANY.legalName}
                       </h4>
                       <div className="flex items-center gap-1 mt-1 text-xs text-amber-500">

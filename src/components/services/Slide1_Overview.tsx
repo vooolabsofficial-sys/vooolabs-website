@@ -95,7 +95,7 @@ export default function Slide1_Overview() {
   return (
     <section 
       id="services-overview"
-      className="snap-section min-h-screen bg-white flex flex-col justify-between relative overflow-hidden select-none pt-28 pb-16 border-b border-slate-200/80"
+      className="snap-section min-h-screen bg-white flex flex-col justify-between relative overflow-hidden select-none pt-32 sm:pt-36 pb-16 border-b border-slate-200/80"
       aria-label="Services Overview — VOOO LABS"
     >
       {/* ORIGINAL VIBRANT AMBIENT GLOWS */}

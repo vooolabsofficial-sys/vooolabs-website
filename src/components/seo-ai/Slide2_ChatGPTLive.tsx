@@ -192,7 +192,7 @@ export default function Slide2_ChatGPTLive() {
                       {/* Cited Recommendation Card */}
                       <div className="p-4 rounded-2xl bg-[#FAFAFD] border border-emerald-500/40 shadow-2xs space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="font-clash font-bold text-sm text-emerald-700">
+                          <span className="font-sans font-semibold text-sm text-emerald-700">
                             {current.company}
                           </span>
                           <span className="text-[10px] font-mono text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-300 font-bold">

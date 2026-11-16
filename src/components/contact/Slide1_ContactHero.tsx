@@ -6,7 +6,7 @@ import { WhatsappIcon } from '../shared/BrandIcons';
 
 export default function Slide1_ContactHero() {
   return (
-    <section className="bg-white flex flex-col justify-center items-center px-6 sm:px-8 py-20 pt-28 sm:pt-36 text-center relative overflow-hidden select-none antialiased border-b border-zinc-200">
+    <section className="bg-white flex flex-col justify-center items-center px-6 sm:px-8 pt-32 sm:pt-36 pb-20 text-center relative overflow-hidden select-none antialiased border-b border-zinc-200">
       <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center">
         
         {/* EYEBROW BADGE */}

@@ -158,7 +158,7 @@ export default function Slide1_HeroShift() {
   return (
     <section 
       id="hero-shift"
-      className="snap-section min-h-screen bg-white flex flex-col justify-between relative overflow-hidden select-none pt-28 pb-12 border-b border-slate-200/80"
+      className="snap-section min-h-screen bg-white flex flex-col justify-between relative overflow-hidden select-none pt-32 sm:pt-36 pb-12 border-b border-slate-200/80"
       aria-label="AI Search Visibility & Growth"
     >
       {/* ORIGINAL VIBRANT AMBIENT BACKGROUNDS */}
@@ -247,7 +247,7 @@ export default function Slide1_HeroShift() {
                   {/* Central Node Label Overlay */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none p-2 rounded-xl bg-black/80 border border-purple-500/30 text-center backdrop-blur-md">
                     <div className="text-[9px] font-mono font-bold text-purple-400 uppercase">Knowledge Entity</div>
-                    <div className="font-clash font-bold text-xs text-white">Your Business</div>
+                    <div className="font-sans font-semibold text-xs text-white">Your Business</div>
                   </div>
                 </div>
 

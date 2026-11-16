@@ -59,7 +59,7 @@ export default function Slide1_Hero() {
       <div className="absolute bottom-[-100px] left-1/3 w-[500px] h-[500px] rounded-full bg-orange-500/8 blur-[100px] pointer-events-none z-0" aria-hidden="true" />
 
       {/* NAVBAR SPACER */}
-      <div className="h-[95px] sm:h-[110px]" />
+      <div className="h-[120px] sm:h-[135px]" />
 
       {/* MAIN EDITORIAL HERO CONTENT */}
       <div className="relative z-10 flex-1 max-w-6xl mx-auto px-6 sm:px-8 w-full my-auto py-10 lg:py-14 text-left">

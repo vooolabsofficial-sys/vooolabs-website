@@ -82,7 +82,7 @@ export default function Slide7_ROIKickoff() {
                     <X className="w-4 h-4 stroke-[2.5]" />
                     <span>Rented Ad Spend</span>
                   </div>
-                  <div className="font-clash font-bold text-xl text-slate-900">₹30,000 – ₹1L+ / mo</div>
+                  <div className="font-sans font-semibold text-xl text-slate-900">₹30,000 – ₹1L+ / mo</div>
                   <p className="font-sans text-xs text-slate-600 leading-relaxed">
                     Zero permanent equity. Inquiries vanish the instant your daily credit card balance runs out.
                   </p>
@@ -94,7 +94,7 @@ export default function Slide7_ROIKickoff() {
                     <Check className="w-4 h-4 stroke-[2.5]" />
                     <span>Owned AI Search Equity</span>
                   </div>
-                  <div className="font-clash font-bold text-xl text-emerald-800">₹0 / month Ongoing</div>
+                  <div className="font-sans font-semibold text-xl text-emerald-800">₹0 / month Ongoing</div>
                   <p className="font-sans text-xs text-slate-600 leading-relaxed">
                     100% client-owned asset. ChatGPT, Perplexity, and Google cite your brand organically.
                   </p>
@@ -146,7 +146,7 @@ export default function Slide7_ROIKickoff() {
                     <span>Free AI Search Visibility Audit</span>
                   </div>
 
-                  <h3 className="font-clash font-bold text-xl sm:text-2xl text-slate-900 leading-tight">
+                  <h3 className="font-sans font-semibold text-xl sm:text-2xl text-slate-900 leading-tight">
                     Does ChatGPT Recommend Your Business Today?
                   </h3>
                   <p className="font-sans text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
@@ -220,7 +220,7 @@ export default function Slide7_ROIKickoff() {
                   >
                     <button
                       onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                      className="w-full p-4 text-left flex items-center justify-between gap-3 text-xs sm:text-sm font-clash font-bold text-slate-900 hover:text-purple-600 transition-colors cursor-pointer"
+                      className="w-full p-4 text-left flex items-center justify-between gap-3 text-xs sm:text-sm font-sans font-semibold text-slate-900 hover:text-purple-600 transition-colors cursor-pointer"
                     >
                       <span>{faq.q}</span>
                       <ChevronDown 
