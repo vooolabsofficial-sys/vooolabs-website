@@ -73,13 +73,12 @@ html {
   max-width: 100vw;
   scroll-behavior: smooth;
   background-color: var(--bg);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 body {
   background: var(--bg);
   color: #1E293B;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
   line-height: 1.65;
   letter-spacing: -0.011em;
@@ -90,14 +89,14 @@ body {
   width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+h1, h2, h3, h4, h5 {
+  font-family: 'Clash Display', 'Inter', sans-serif;
   letter-spacing: -0.02em;
   color: #0A0F1E;
 }
 
 button, input, textarea, select {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 code, pre, kbd, samp {
@@ -274,13 +273,56 @@ p {
 }
 
 .glow-blue {
-  box-shadow: 0 4px 20px -2px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 8px 30px -4px rgba(66, 133, 244, 0.25);
 }
 .glow-purple {
-  box-shadow: 0 4px 20px -2px rgba(124, 58, 237, 0.12);
+  box-shadow: 0 8px 30px -4px rgba(124, 58, 237, 0.25);
 }
 .glow-emerald {
-  box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.12);
+  box-shadow: 0 8px 30px -4px rgba(16, 185, 129, 0.25);
+}
+
+/* ═══════════════════════════════════════════════
+   BLOB ANIMATIONS
+   ═══════════════════════════════════════════════ */
+@keyframes blob-anim {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 30px) scale(0.95); }
+}
+.animate-blob-1 {
+  animation: blob-anim 8s infinite ease-in-out;
+}
+.animate-blob-2 {
+  animation: blob-anim 10s infinite ease-in-out 2s;
+}
+.animate-blob-3 {
+  animation: blob-anim 12s infinite ease-in-out 4s;
+}
+
+/* ═══════════════════════════════════════════════
+   MARQUEE ANIMATIONS
+   ═══════════════════════════════════════════════ */
+@keyframes mq-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes mq-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: mq-left 30s linear infinite;
+}
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: mq-right 25s linear infinite;
+}
+.animate-marquee-left:hover, .animate-marquee-right:hover {
+  animation-play-state: paused;
 }
 
 /* ═══════════════════════════════════════════════

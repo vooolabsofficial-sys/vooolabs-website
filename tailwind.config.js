@@ -31,8 +31,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        display: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        clash: ['Clash Display', 'Plus Jakarta Sans', 'Inter', 'sans-serif'],
+        display: ['Clash Display', 'Plus Jakarta Sans', 'Inter', 'sans-serif'],
         crazyblocks: ['CrazyBlocks', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },

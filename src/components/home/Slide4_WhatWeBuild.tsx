@@ -1,116 +1,131 @@
-import { Check, X } from 'lucide-react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Globe, Laptop, Cpu, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
 
+const STUDIO_SYSTEMS = [
+  {
+    tag: 'Web Software · Operations',
+    title: 'Custom Client & Operations Portals',
+    description: 'Bespoke web portals for tracking customer orders, staff task assignments, and internal deliverables with granular role-based security.',
+    status: 'Tailored Solution',
+    statusColor: 'text-blue-700 bg-blue-50 border-blue-200',
+    icon: Globe,
+    accent: '#3B82F6',
+    glowColor: 'rgba(59, 130, 246, 0.08)',
+    link: '/services#web-apps',
+  },
+  {
+    tag: 'Business Systems · Billing',
+    title: 'Automated Billing & Invoicing Portals',
+    description: 'Centralized systems for instant GST tax invoice generation, customer accounts, and automated payment tracking with zero monthly per-seat fees.',
+    status: 'Workflow Engine',
+    statusColor: 'text-emerald-700 bg-emerald-50 border-emerald-200',
+    icon: Cpu,
+    accent: '#10B981',
+    glowColor: 'rgba(16, 185, 129, 0.08)',
+    link: '/services#software',
+  },
+  {
+    tag: 'Brand Web · Conversion',
+    title: 'High-Speed Corporate Web Platforms',
+    description: 'Sub-0.4s instant page loads on mobile networks with persuasive brand storytelling and direct 1-tap WhatsApp lead routing funnels.',
+    status: 'High Conversion',
+    statusColor: 'text-purple-700 bg-purple-50 border-purple-200',
+    icon: Laptop,
+    accent: '#8B5CF6',
+    glowColor: 'rgba(139, 92, 246, 0.08)',
+    link: '/services#websites',
+  },
+];
+
 export default function Slide4_WhatWeBuild() {
-  const painPoints = [
-    { title: 'Inquiries Lost in Personal WhatsApp Chats', desc: 'Customer inquiries are scattered across employee phones with zero centralized tracking or automated follow-up.' },
-    { title: 'Fragile Excel Workbooks & Invoicing Errors', desc: 'Spreadsheet formulas break, order history gets lost, and invoices take hours to generate manually with frequent errors.' },
-    { title: 'Zero ChatGPT & AI Search Discoverability', desc: 'When prospective buyers ask ChatGPT or Google AI for local recommendations, competitors get cited instead.' },
-    { title: 'Escalating Per-User Monthly SaaS Fees', desc: 'Generic software companies charge steep recurring fees per employee for bloated menus you never use.' },
-  ];
-
-  const studioOutcomes = [
-    { title: '1-Tap Direct WhatsApp Lead Capture', desc: 'Prominent, attractive inquiry triggers routing mobile visitors straight to your sales team with zero friction.' },
-    { title: 'Automated GST Invoicing & Order Pipeline', desc: 'Generate compliant tax invoices in one click with real-time logs of paid, partial, and pending balances.' },
-    { title: 'Multi-Engine Recommendation (SEO & AEO)', desc: 'Structured entity data ensuring ChatGPT, Gemini, and Google Maps actively cite and recommend your business.' },
-    { title: '100% Code Ownership · ₹0 Monthly Rent', desc: 'Bespoke digital software engineered once around your exact routine and owned completely by your company.' },
-  ];
-
   return (
     <section 
-      className="bg-[#F8F9FC] py-20 lg:py-28 px-6 sm:px-8 select-none relative border-b border-slate-200/80"
-      aria-label="Before vs After Contrast Ledger"
+      className="bg-[#F8F9FC] py-20 sm:py-28 px-4 sm:px-6 select-none relative border-b border-slate-200/80"
+      aria-label="Web & Software Systems We Engineer"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
         
-        {/* SECTION HEADER (STRICT LEFT-ALIGNMENT & 4-TIER TYPOGRAPHY SCALE) */}
-        <div className="max-w-3xl mb-14 text-left">
-          <FadeIn delay={0} y={15}>
-            <span className="font-mono text-xs font-medium text-purple-600 uppercase tracking-wider block mb-2">
-              OPERATIONAL COMPARISON LEDGER
-            </span>
-          </FadeIn>
-          <FadeIn delay={0.08} y={20}>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight leading-snug text-slate-900 mb-4">
-              How Your Business Runs <span className="shimmer-text">With VOOO LABS.</span>
-            </h2>
-            <p className="text-base leading-relaxed text-slate-600">
-              Compare how most businesses struggle with disconnected manual tools versus the operational clarity of a custom-engineered digital system.
-            </p>
-          </FadeIn>
+        {/* EYEBROW */}
+        <FadeIn delay={0} y={15}>
+          <span className="font-mono text-xs font-semibold text-purple-600 uppercase tracking-widest block mb-2 text-center">
+            PROVEN ARCHITECTURAL ARTIFACTS
+          </span>
+        </FadeIn>
+
+        {/* HEADING */}
+        <FadeIn delay={0.08} y={20}>
+          <h2 className="font-clash text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 text-center leading-tight mb-4">
+            Engineered by <span className="shimmer-text">VOOO LABS.</span>
+          </h2>
+          <p className="font-sans font-normal text-base sm:text-lg text-slate-600 text-center max-w-xl mx-auto mb-14 leading-relaxed">
+            Real custom web software systems architected for businesses that prioritize speed, security, and measurable ROI.
+          </p>
+        </FadeIn>
+
+        {/* 3 CLIENT SYSTEMS CARDS */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-12">
+          {STUDIO_SYSTEMS.map((prod, idx) => {
+            const IconComp = prod.icon;
+            return (
+              <FadeIn key={idx} delay={idx * 0.1} y={20} className="w-full flex">
+                <Link
+                  to={prod.link}
+                  style={{ '--prod-glow': prod.glowColor } as React.CSSProperties}
+                  className="w-full rounded-3xl bg-white border border-slate-200/80 p-7 sm:p-8 hover:border-slate-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group text-left relative overflow-hidden"
+                >
+                  {/* TOP GLOW */}
+                  <div 
+                    className="absolute top-0 right-0 w-32 h-32 rounded-bl-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"
+                    style={{ backgroundColor: prod.glowColor }}
+                    aria-hidden="true"
+                  />
+
+                  <div className="relative z-10">
+                    {/* TOP BADGES */}
+                    <div className="flex items-center justify-between gap-2 mb-6">
+                      <div 
+                        className="w-11 h-11 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border border-slate-200/60"
+                        style={{ backgroundColor: `${prod.accent}14`, color: prod.accent }}
+                      >
+                        <IconComp size={20} />
+                      </div>
+                      <span className={`font-mono text-[10px] font-semibold px-2.5 py-1 rounded-full border ${prod.statusColor}`}>
+                        {prod.status}
+                      </span>
+                    </div>
+
+                    <span className="font-mono text-[11px] font-medium uppercase tracking-wider text-slate-500 block mb-1.5">
+                      {prod.tag}
+                    </span>
+                    <h3 className="font-clash font-bold text-xl text-slate-900 group-hover:text-blue-600 transition-colors mb-3">
+                      {prod.title}
+                    </h3>
+                    <p className="font-sans font-normal text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                      {prod.description}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 text-xs font-mono font-medium text-blue-600 group-hover:translate-x-1.5 transition-transform duration-200 pt-4 border-t border-slate-200/60 relative z-10">
+                    <span>Inspect System Blueprint</span>
+                    <ArrowRight size={13} />
+                  </div>
+                </Link>
+              </FadeIn>
+            );
+          })}
         </div>
 
-        {/* 2-COLUMN COMPARISON SPLIT PANEL (EQUAL-HEIGHT & GENEROUSLY PADDED) */}
-        <FadeIn delay={0.16} y={20} className="w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch text-left">
-            
-            {/* LEFT COLUMN: HOW MOST BUSINESSES OPERATE TODAY */}
-            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-9 flex flex-col justify-between h-full">
-              <div>
-                <div className="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
-                  <div className="flex items-center gap-2 text-rose-600 font-mono text-xs font-medium uppercase tracking-wider">
-                    <span className="w-2 h-2 rounded-full bg-rose-500" />
-                    <span>How Most Businesses Operate Today</span>
-                  </div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-rose-50 text-rose-700 border border-rose-200">
-                    Fragile & Disconnected
-                  </span>
-                </div>
-
-                <div className="space-y-6">
-                  {painPoints.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-3.5">
-                      <div className="w-6 h-6 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 border border-rose-200/70 mt-1">
-                        <X size={14} className="stroke-[2.5]" />
-                      </div>
-                      <div>
-                        <h3 className="text-base font-semibold text-slate-900 leading-snug">{item.title}</h3>
-                        <p className="text-base leading-relaxed text-slate-600 mt-1">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-6 mt-6 border-t border-slate-100 text-xs font-mono text-slate-500">
-                Result: Lost customer inquiries, bookkeeping chaos, and escalating monthly subscription bills.
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN: HOW YOUR BUSINESS RUNS WITH VOOO LABS */}
-            <div className="rounded-3xl border border-emerald-500/50 bg-white p-7 sm:p-9 flex flex-col justify-between h-full relative overflow-hidden">
-              <div>
-                <div className="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
-                  <div className="flex items-center gap-2 text-emerald-700 font-mono text-xs font-medium uppercase tracking-wider">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span>How Your Business Runs With VOOO LABS</span>
-                  </div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
-                    Unified & 100% Owned
-                  </span>
-                </div>
-
-                <div className="space-y-6">
-                  {studioOutcomes.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-3.5">
-                      <div className="w-6 h-6 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200 mt-1">
-                        <Check size={14} className="stroke-[2.5]" />
-                      </div>
-                      <div>
-                        <h3 className="text-base font-semibold text-slate-900 leading-snug">{item.title}</h3>
-                        <p className="text-base leading-relaxed text-slate-600 mt-1">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-6 mt-6 border-t border-slate-100 text-xs font-mono text-emerald-700 font-medium">
-                Result: 1-tap inquiries, error-free automated GST billing, and zero recurring seat rent.
-              </div>
-            </div>
-
-          </div>
+        {/* BOTTOM CTA LINK */}
+        <FadeIn delay={0.35} y={15}>
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 font-sans font-medium text-xs sm:text-sm text-slate-700 hover:text-blue-600 border border-slate-200/80 hover:border-blue-300 bg-white hover:bg-slate-50 px-6 py-3 rounded-full shadow-sm transition-all hover:scale-105"
+          >
+            <span>Explore All Studio Services & Case Studies</span>
+            <ArrowRight size={14} />
+          </Link>
         </FadeIn>
 
       </div>
