@@ -20,7 +20,7 @@ export default function NotFoundPage() {
           <p className="font-mono font-semibold text-xs tracking-[0.3em] text-zinc-500 uppercase mb-4">
             404 — Not Found
           </p>
-          <h1 className="font-sans font-bold text-4xl sm:text-5xl md:text-6xl text-zinc-950 leading-tight mb-4 tracking-tight">
+          <h1 className="font-clash font-bold text-4xl sm:text-5xl md:text-6xl text-zinc-950 leading-tight mb-4 tracking-tight">
             This page isn't here.
           </h1>
           <p className="font-sans font-normal text-sm sm:text-base text-zinc-600 max-w-md mx-auto leading-relaxed mb-10">

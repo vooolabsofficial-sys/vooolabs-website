@@ -24,7 +24,7 @@ export default function Slide1_AboutHero() {
 
         {/* HEADING & SUBHEADLINE */}
         <FadeIn delay={0.08} y={20}>
-          <h1 className="font-sans font-bold text-3xl sm:text-4xl lg:text-5xl text-zinc-950 leading-[1.15] tracking-tight mb-6">
+          <h1 className="font-clash font-bold text-3xl sm:text-4xl lg:text-5xl text-zinc-950 leading-[1.15] tracking-tight mb-6">
             Enterprise-Grade Websites, Web Apps & Software—Built Around <span className="shimmer-text">Real Business Workflows.</span>
           </h1>
           <p className="font-sans text-base text-zinc-600 leading-relaxed max-w-2xl mx-auto font-normal mb-10">

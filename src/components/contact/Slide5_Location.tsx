@@ -14,7 +14,7 @@ export default function Slide5_Location() {
             <span className="font-mono text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2">
               GEOGRAPHIC ORIGIN & REACH
             </span>
-            <h2 className="font-sans text-2xl sm:text-3xl font-semibold text-zinc-950 mb-3 tracking-tight">
+            <h2 className="font-clash text-2xl sm:text-3xl font-semibold text-zinc-950 mb-3 tracking-tight">
               Engineered in Maharashtra, <br />
               Shipped Across India & Globally
             </h2>
@@ -37,7 +37,7 @@ export default function Slide5_Location() {
                 <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold block mb-1">
                   Studio Hubs
                 </span>
-                <h3 className="font-sans font-semibold text-lg text-zinc-950 mb-2">
+                <h3 className="font-clash font-semibold text-lg text-zinc-950 mb-2">
                   {LOCATION.hubs.join(' • ')}
                 </h3>
                 <p className="font-sans text-sm text-zinc-600 leading-relaxed font-normal">
@@ -60,7 +60,7 @@ export default function Slide5_Location() {
                 <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold block mb-1">
                   Operating Timezone
                 </span>
-                <h3 className="font-sans font-semibold text-lg text-zinc-950 mb-2">
+                <h3 className="font-clash font-semibold text-lg text-zinc-950 mb-2">
                   IST (UTC+05:30)
                 </h3>
                 <p className="font-sans text-sm text-zinc-600 leading-relaxed font-normal">
@@ -83,7 +83,7 @@ export default function Slide5_Location() {
                 <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold block mb-1">
                   Fast Cloud Hosting
                 </span>
-                <h3 className="font-sans font-semibold text-lg text-zinc-950 mb-2">
+                <h3 className="font-clash font-semibold text-lg text-zinc-950 mb-2">
                   24/7 High-Speed Cloud
                 </h3>
                 <p className="font-sans text-sm text-zinc-600 leading-relaxed font-normal">

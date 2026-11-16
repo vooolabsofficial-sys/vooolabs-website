@@ -299,7 +299,7 @@ export default function Slide2_Form() {
                 <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
                   PROJECT SPECIFICATION FORM
                 </span>
-                <h3 className="font-sans font-semibold text-2xl sm:text-3xl text-zinc-950 mb-2 tracking-tight leading-snug">
+                <h3 className="font-clash font-semibold text-2xl sm:text-3xl text-zinc-950 mb-2 tracking-tight leading-snug">
                   Start Your Project
                 </h3>
                 <p className="font-sans text-base text-zinc-600 font-normal leading-relaxed">

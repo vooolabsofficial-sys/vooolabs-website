@@ -181,7 +181,7 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 onClick={closeMenu}
-                className="btn-3d-base btn-3d-primary w-full rounded-full bg-slate-950 hover:bg-blue-600 text-white font-sans font-semibold text-sm py-3.5 flex items-center justify-center gap-2"
+                className="w-full rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 hover:opacity-95 text-white font-kanit font-semibold text-sm py-3.5 flex items-center justify-center gap-2 shadow-md"
               >
                 <span>See what your project will cost</span>
                 <ArrowRight size={15} />

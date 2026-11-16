@@ -49,7 +49,7 @@ export default function Slide3_Values() {
               <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
                 FOUNDATIONAL PILLARS
               </span>
-              <h2 className="font-sans font-semibold text-2xl sm:text-3xl text-zinc-950 leading-snug tracking-tight">
+              <h2 className="font-clash font-semibold text-2xl sm:text-3xl text-zinc-950 leading-snug tracking-tight">
                 Our 4 Studio Standards
               </h2>
             </FadeIn>
@@ -85,7 +85,7 @@ export default function Slide3_Values() {
                     </div>
 
                     {/* TITLE */}
-                    <h3 className="font-sans font-bold text-lg text-zinc-950 mb-3 tracking-tight">
+                    <h3 className="font-clash font-bold text-lg text-zinc-950 mb-3 tracking-tight">
                       {pillar.title}
                     </h3>
 

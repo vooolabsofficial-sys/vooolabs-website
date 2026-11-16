@@ -7,9 +7,10 @@ import { COMPANY } from '../../content/company';
 export default function Slide6_CTA() {
   return (
     <section className="bg-[#F8F9FC] py-24 sm:py-32 px-4 sm:px-6 text-center relative overflow-hidden select-none border-b border-slate-200/80">
-      {/* SOFT RADIAL BACKDROP */}
-      <div className="absolute inset-0 bg-radial from-blue-500/[0.04] via-purple-500/[0.02] to-transparent pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] rounded-full bg-blue-500/[0.04] blur-[120px] pointer-events-none" />
+      {/* SOFT RADIAL BACKDROP & AMBIENT BLOBS */}
+      <div className="absolute top-[-100px] left-1/4 w-[500px] h-[500px] rounded-full bg-radial from-blue-500/10 to-transparent blur-[100px] animate-blob-1 pointer-events-none" />
+      <div className="absolute bottom-[-100px] right-1/4 w-[500px] h-[500px] rounded-full bg-radial from-purple-500/10 to-transparent blur-[100px] animate-blob-2 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] rounded-full bg-orange-500/8 blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-3xl mx-auto flex flex-col items-center">
         
@@ -41,7 +42,7 @@ export default function Slide6_CTA() {
           <div className="flex flex-wrap gap-4 justify-center items-center">
             <Link
               to="/contact"
-              className="rounded-full bg-slate-900 hover:bg-blue-600 text-white px-8 py-4 font-sans font-semibold text-sm sm:text-base transition-all duration-200 hover:scale-[1.02] shadow-[0_4px_20px_rgba(15,23,42,0.15)] active:scale-[0.98] inline-flex items-center gap-2"
+              className="rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 hover:opacity-95 text-white px-8 py-4 font-kanit font-semibold text-sm sm:text-base transition-all duration-200 hover:scale-[1.03] shadow-[0_4px_24px_rgba(66,133,244,0.35)] active:scale-[0.98] inline-flex items-center gap-2"
             >
               <MessageSquare size={16} />
               <span>Start Technical Consultation</span>
@@ -49,7 +50,7 @@ export default function Slide6_CTA() {
             </Link>
             <Link
               to="/services"
-              className="rounded-full border border-slate-200/80 bg-white hover:bg-slate-50 px-8 py-4 font-sans font-medium text-sm sm:text-base text-slate-700 hover:text-slate-900 hover:border-slate-300 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xs"
+              className="rounded-full border border-slate-200/80 bg-white hover:bg-slate-50 px-8 py-4 font-kanit font-medium text-sm sm:text-base text-slate-700 hover:text-slate-900 hover:border-slate-300 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xs"
             >
               Inspect All Services
             </Link>

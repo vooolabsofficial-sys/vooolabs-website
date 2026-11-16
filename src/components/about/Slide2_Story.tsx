@@ -37,7 +37,7 @@ export default function Slide2_Story() {
               <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
                 ORIGIN & STUDIO ETHOS
               </span>
-              <h2 className="font-sans font-semibold text-2xl sm:text-3xl text-zinc-950 leading-snug tracking-tight">
+              <h2 className="font-clash font-semibold text-2xl sm:text-3xl text-zinc-950 leading-snug tracking-tight">
                 Why We Built <br />
                 <span className="shimmer-text">VOOO LABS.</span>
               </h2>
@@ -64,7 +64,7 @@ export default function Slide2_Story() {
                 <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-zinc-500 block mb-1">
                   INDUSTRY BENCHMARK
                 </span>
-                <h3 className="font-sans font-bold text-xl sm:text-2xl text-zinc-950">
+                <h3 className="font-clash font-bold text-xl sm:text-2xl text-zinc-950">
                   Generic Agency Templates vs. VOOO LABS Engineering
                 </h3>
               </div>

@@ -78,7 +78,7 @@ html {
 body {
   background: var(--bg);
   color: #1E293B;
-  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Kanit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
   line-height: 1.65;
   letter-spacing: -0.011em;
@@ -90,13 +90,13 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Clash Display', 'Inter', sans-serif;
+  font-family: 'Clash Display', sans-serif;
   letter-spacing: -0.02em;
   color: #0A0F1E;
 }
 
 button, input, textarea, select {
-  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Kanit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 code, pre, kbd, samp {
@@ -187,15 +187,14 @@ p {
    ANIMATED GRADIENT BACKGROUND
    ═══════════════════════════════════════════════ */
 .animated-gradient-bg {
-  background: linear-gradient(-45deg, #F8F9FC, #EEF2FF, #FAF5FF, #FFF7ED);
+  background: linear-gradient(135deg, #4285F4, #7C3AED, #F97316, #10B981);
   background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  animation: grad-shift 12s ease infinite;
 }
 
-@keyframes gradientShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes grad-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 /* ═══════════════════════════════════════════════

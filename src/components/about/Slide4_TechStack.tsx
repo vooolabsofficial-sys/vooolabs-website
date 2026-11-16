@@ -67,7 +67,7 @@ export default function Slide4_TechStack() {
               <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
                 HOW WE DELIVER • 4-STEP ENGINEERING PROCESS
               </span>
-              <h2 className="font-sans font-semibold text-2xl sm:text-3xl text-zinc-950 tracking-tight leading-snug">
+              <h2 className="font-clash font-semibold text-2xl sm:text-3xl text-zinc-950 tracking-tight leading-snug">
                 Predictable, Step-by-Step Delivery
               </h2>
             </FadeIn>
@@ -111,7 +111,7 @@ export default function Slide4_TechStack() {
                       {/* TITLE & ROLE */}
                       <div className="flex items-center gap-2 mb-1.5">
                         <IconComp size={16} className="text-zinc-700" />
-                        <h3 className="font-sans font-bold text-lg text-zinc-950">
+                        <h3 className="font-clash font-bold text-lg text-zinc-950">
                           {step.title}
                         </h3>
                       </div>

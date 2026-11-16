@@ -132,9 +132,14 @@ export default function Slide5_Innovation() {
 
         {/* BOTTOM QUOTE */}
         <FadeIn delay={0.35} y={15}>
-          <p className="font-sans font-normal italic text-sm sm:text-base md:text-lg text-slate-600 text-center mt-16 max-w-xl leading-relaxed">
-            "We don't resell bloated templates or outsource engineering. Every line of code is written with obsessive attention to performance, security, and real business utility."
-          </p>
+          <div className="text-center mt-16 max-w-2xl mx-auto space-y-2">
+            <p className="font-clash font-semibold text-lg sm:text-xl text-slate-900 leading-snug">
+              "पहले बनाते हैं कुछ, फिर उसे सुंदर बनाते हैं。"
+            </p>
+            <p className="font-sans font-normal italic text-sm sm:text-base text-slate-600 leading-relaxed">
+              "We don't resell bloated templates or outsource engineering. Every line of code is written with obsessive attention to performance, security, and real business utility."
+            </p>
+          </div>
         </FadeIn>
 
       </div>

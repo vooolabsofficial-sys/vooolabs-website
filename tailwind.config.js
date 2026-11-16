@@ -18,22 +18,11 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        studio: {
-          bg: '#060608',
-          surface: '#0c0c10',
-          elevated: '#121218',
-          border: 'rgba(255, 255, 255, 0.08)',
-          'border-hover': 'rgba(255, 255, 255, 0.16)',
-          muted: '#71717a',
-          dim: '#a1a1aa',
-          white: '#f4f4f5',
-        },
-      },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        clash: ['Clash Display', 'Plus Jakarta Sans', 'Inter', 'sans-serif'],
-        display: ['Clash Display', 'Plus Jakarta Sans', 'Inter', 'sans-serif'],
+        sans: ['Kanit', 'Plus Jakarta Sans', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        kanit: ['Kanit', 'sans-serif'],
+        clash: ['Clash Display', 'Plus Jakarta Sans', 'sans-serif'],
+        display: ['Clash Display', 'Plus Jakarta Sans', 'sans-serif'],
         crazyblocks: ['CrazyBlocks', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },

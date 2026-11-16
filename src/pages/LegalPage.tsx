@@ -59,7 +59,7 @@ export default function LegalPage() {
         {/* DOCUMENT HEADER */}
         <FadeIn delay={0.1} y={20}>
           <header className="mb-10 pb-8 border-b border-zinc-200">
-            <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-950 mb-3 tracking-tight">
+            <h1 className="font-clash text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-950 mb-3 tracking-tight">
               {document.title}
             </h1>
             <p className="font-sans text-sm sm:text-base text-zinc-600 mb-4 leading-relaxed">
@@ -76,7 +76,7 @@ export default function LegalPage() {
           {document.sections.map((section, idx) => (
             <FadeIn key={idx} delay={0.15 + idx * 0.05} y={20}>
               <section className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 sm:p-8 shadow-2xs">
-                <h2 className="font-sans text-xl sm:text-2xl font-bold text-zinc-950 mb-4 tracking-tight">
+                <h2 className="font-clash text-xl sm:text-2xl font-bold text-zinc-950 mb-4 tracking-tight">
                   {section.heading}
                 </h2>
                 <div className="space-y-3 font-sans text-sm sm:text-base text-zinc-700 leading-relaxed">

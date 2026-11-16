@@ -21,7 +21,7 @@ export default function Slide5_Founder() {
             <span className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider block mb-2">
               STUDIO LEADERSHIP & ACCOUNTABILITY
             </span>
-            <h2 className="font-sans font-semibold text-2xl sm:text-3xl text-zinc-950 tracking-tight leading-snug mb-3">
+            <h2 className="font-clash font-semibold text-2xl sm:text-3xl text-zinc-950 tracking-tight leading-snug mb-3">
               A Direct Letter from the Founder
             </h2>
             <p className="font-sans text-base text-zinc-600 max-w-2xl font-normal leading-relaxed">
