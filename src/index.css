@@ -5,9 +5,13 @@
 @font-face {
   font-family: 'CrazyBlocks';
   src: url('/fonts/crazy-blocks/crazyblocks.otf') format('opentype');
-  font-weight: normal;
+  font-weight: 100 900;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
+}
+
+.font-crazyblocks {
+  font-family: 'CrazyBlocks', sans-serif !important;
 }
 
 :root {
