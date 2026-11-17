@@ -1,10 +1,12 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Lenis from 'lenis';
 import Navbar from './components/shared/Navbar';
 import Footer from './components/shared/Footer';
 import FixedBottomBar from './components/shared/FixedBottomBar';
+import BrandPreloader from './components/shared/BrandPreloader';
+import TopRouteProgressBar from './components/shared/TopRouteProgressBar';
 
 // Route-level code splitting using React.lazy() for optimal loading speed and minimal initial bundle
 const HomePage = React.lazy(() => import('./pages/HomePage'));
@@ -27,17 +29,36 @@ const pageVariants: Variants = {
 function MinimalLoadingFallback() {
   return (
     <div 
-      className="min-h-screen bg-white flex flex-col items-center justify-center relative overflow-hidden"
+      className="min-h-[70vh] bg-white flex flex-col items-center justify-center relative overflow-hidden select-none"
       role="status"
       aria-label="Loading page"
     >
-      <div className="w-10 h-10 rounded-2xl bg-slate-900/5 border border-slate-200/80 flex items-center justify-center relative shadow-xs">
-        <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-ping absolute opacity-75" />
-        <span className="w-2 h-2 rounded-full bg-blue-600 relative" />
+      <div className="flex items-baseline justify-center mb-3">
+        <span className="font-crazyblocks text-3xl text-[#4285F4] tracking-wider leading-none">V</span>
+        <span className="font-crazyblocks text-3xl text-[#5B5BD6] tracking-wider leading-none">O</span>
+        <span className="font-crazyblocks text-3xl text-[#7C3AED] tracking-wider leading-none">O</span>
+        <span className="font-crazyblocks text-3xl text-[#F97316] tracking-wider leading-none">O</span>
+        <span 
+          className="font-crazyblocks text-2xl ml-2 tracking-wider leading-none font-bold"
+          style={{
+            background: 'linear-gradient(135deg, #4285F4 0%, #7C3AED 50%, #F97316 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+          }}
+        >
+          LABS
+        </span>
       </div>
-      <div className="mt-4 flex items-center gap-1.5">
-        <span className="font-crazyblocks text-sm text-slate-900 tracking-wider">VOOO</span>
-        <span className="font-crazyblocks text-xs text-slate-500 tracking-wider">LABS</span>
+      <div className="flex items-center gap-1.5 mb-3">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#4285F4] animate-pulse" />
+        <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED] animate-pulse" style={{ animationDelay: '150ms' }} />
+        <span className="w-1.5 h-1.5 rounded-full bg-[#F97316] animate-pulse" style={{ animationDelay: '300ms' }} />
+      </div>
+      <div className="w-24 h-0.5 bg-slate-100 rounded-full overflow-hidden">
+        <div 
+          className="h-full w-full animate-pulse"
+          style={{ background: 'linear-gradient(90deg, #4285F4, #7C3AED, #F97316)' }}
+        />
       </div>
     </div>
   );
@@ -105,6 +126,8 @@ function AppRoutes() {
 }
 
 export default function App() {
+  const [showPreloader, setShowPreloader] = useState(true);
+
   // Initialize Lenis smooth scroll with clean rAF cleanup and reduced-motion detection
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -135,6 +158,10 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      {showPreloader && (
+        <BrandPreloader onComplete={() => setShowPreloader(false)} />
+      )}
+      <TopRouteProgressBar />
       <Navbar />
       <FixedBottomBar />
       <AppRoutes />
