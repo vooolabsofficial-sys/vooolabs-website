@@ -81,22 +81,22 @@ export default function Slide1_Hero() {
       {/* SUBTLE CORNER AMBIENT LIGHTING */}
       <div className="absolute top-0 right-0 w-[450px] h-[450px] rounded-full bg-radial from-purple-500/[0.03] to-transparent blur-[80px] pointer-events-none z-0" aria-hidden="true" />
 
-      {/* LEFT-ALIGNED HERO EDITORIAL ANCHOR */}
-      <div className="relative z-10 flex-1 flex flex-col items-start justify-center text-left px-6 max-w-6xl mx-auto w-full py-2">
+      {/* CENTERED HERO EDITORIAL ANCHOR (PILL IN MIDDLE, HEADLINE DIRECTLY UNDERNEATH) */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-5xl mx-auto py-2 w-full">
         
-        {/* TOP-LEFT QUOTE BADGE - FADES IN FIRST */}
+        {/* CENTERED TAGLINE PILL WITH BOTH CONNECTED LINES */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05, ease: EASING }}
-          className="inline-flex items-center gap-2 rounded-full bg-slate-900/[0.03] border border-black/10 px-4 py-1.5 mb-6 text-slate-800 text-xs sm:text-sm font-medium shadow-2xs"
+          className="inline-flex items-center gap-2 rounded-full bg-slate-900/[0.03] border border-black/10 px-4 py-1.5 mb-5 text-slate-800 text-xs sm:text-sm font-medium shadow-2xs mx-auto"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-          <span>First make it work, then make it beautiful.</span>
+          <span>"पहले बनाते हैं कुछ, फिर उसे सुंदर बनाते हैं" · First make it work, then make it beautiful.</span>
         </motion.div>
 
-        {/* MAIN H1 - MASKED LINE-BY-LINE REVEAL */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-[-0.025em] text-slate-900 leading-[1.12] mb-5 max-w-4xl">
+        {/* HEADLINE: DIRECTLY BELOW THE MIDDLE PILL, STARTING WITH 'Engineering' */}
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.18] mb-4 max-w-4xl mx-auto">
           <span className="block overflow-hidden py-1">
             <motion.span
               className="block"
@@ -104,7 +104,7 @@ export default function Slide1_Hero() {
               animate={{ y: '0%' }}
               transition={{ duration: 0.7, delay: 0.12, ease: EASING }}
             >
-              Engineering Digital Systems
+              Engineering Digital Products
             </motion.span>
           </span>
           <span className="block overflow-hidden py-1">
@@ -114,28 +114,28 @@ export default function Slide1_Hero() {
               animate={{ y: '0%' }}
               transition={{ duration: 0.7, delay: 0.22, ease: EASING }}
             >
-              Built for Serious Growth.
+              with Obsession & Scale.
             </motion.span>
           </span>
         </h1>
 
-        {/* SUBHEADING WITH ROTATING TYPEWRITER */}
+        {/* SUBHEADING WITH ROTATING TYPEWRITER IN THE MIDDLE */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.32, ease: EASING }}
         >
-          <p className="font-normal text-base sm:text-lg md:text-xl text-slate-600 max-w-xl leading-relaxed mb-8">
+          <p className="font-normal text-base sm:text-lg md:text-xl text-slate-600 max-w-xl mx-auto leading-relaxed mb-8">
             We build high-performance <CleanTypewriter />
           </p>
         </motion.div>
 
-        {/* DUAL LIQUID CTAS WITH MAGNETIC ATTRACTION */}
+        {/* DUAL LIQUID CTAS WITH MAGNETIC ATTRACTION IN THE MIDDLE */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.40, ease: EASING }}
-          className="flex flex-wrap gap-3.5 justify-start items-center"
+          className="flex flex-wrap gap-3.5 justify-center items-center"
         >
           <LiquidButton
             to="/contact"
@@ -251,7 +251,7 @@ export default function Slide1_Hero() {
           className="font-mono text-[11px] sm:text-xs text-slate-500 uppercase tracking-widest leading-relaxed flex items-center gap-2 text-center sm:text-left"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>First make it work, then make it beautiful. · BUILD BOLD. SHIP SMART. LIVE DIFFERENT.</span>
+          <span>"पहले बनाते हैं कुछ, फिर उसे सुंदर बनाते हैं" · First make it work, then make it beautiful. · BUILD BOLD. SHIP SMART. LIVE DIFFERENT.</span>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
