@@ -1,6 +1,7 @@
 import { MapPin, Search, Star, Phone, ArrowRight, MessageSquare, ShieldCheck, Sparkles, Bot, Target, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../shared/FadeIn';
+import LiquidButton from '../shared/LiquidButton';
 import { COMPANY } from '../../content/company';
 
 export default function Slide5_GooglePresence() {
@@ -17,13 +18,13 @@ export default function Slide5_GooglePresence() {
 
       {/* REFINED AMBIENT ACCENTS */}
       <div className="absolute top-1/4 -right-32 w-96 h-96 rounded-full bg-purple-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-1/4 -left-32 w-96 h-96 rounded-full bg-emerald-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-1/4 -left-32 w-96 h-96 rounded-full bg-orange-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 w-full">
         
         {/* SECTION EYEBROW */}
         <FadeIn delay={0.05} y={15}>
-          <div className="font-mono text-xs font-medium text-purple-600 uppercase tracking-wider mb-2 text-left">
+          <div className="font-mono text-xs font-bold text-orange-600 uppercase tracking-widest mb-2.5 text-left">
             04 / Search & AI Discovery
           </div>
         </FadeIn>
@@ -35,13 +36,13 @@ export default function Slide5_GooglePresence() {
           <div className="lg:col-span-6 space-y-6 text-left flex flex-col justify-between">
             <div className="space-y-5">
               <FadeIn delay={0.12} y={20}>
-                <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight leading-snug">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
                   Get Discovered & Recommended Where <span className="shimmer-text">Customers Search Today</span>.
                 </h2>
               </FadeIn>
 
               <FadeIn delay={0.18} y={20}>
-                <p className="text-base leading-relaxed text-slate-600">
+                <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
                   Modern customers no longer rely only on traditional blue links. They ask conversational AI assistants, check Google AI Overviews, and search Google Maps for nearby businesses. We engineer your digital presence so you get discovered and recommended across all 4 modern discovery channels.
                 </p>
               </FadeIn>
@@ -54,8 +55,8 @@ export default function Slide5_GooglePresence() {
                       <Search className="w-4 h-4" />
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">1. Google SEO (Search Engine Optimization)</h3>
-                      <p className="text-base leading-relaxed text-slate-600 mt-1">
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">1. Google SEO (Search Engine Optimization)</h3>
+                      <p className="text-sm sm:text-base leading-relaxed text-slate-600 mt-1">
                         Rank on Google Search for high-intent customer queries with technical speed, semantic keywords, and clean indexation.
                       </p>
                     </div>
@@ -66,8 +67,8 @@ export default function Slide5_GooglePresence() {
                       <Bot className="w-4 h-4" />
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">2. AEO (AI Engine Optimization)</h3>
-                      <p className="text-base leading-relaxed text-slate-600 mt-1">
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">2. AEO (AI Engine Optimization)</h3>
+                      <p className="text-sm sm:text-base leading-relaxed text-slate-600 mt-1">
                         Structure your company services and data so ChatGPT, Google Gemini, and Perplexity cite and recommend your business.
                       </p>
                     </div>
@@ -78,20 +79,20 @@ export default function Slide5_GooglePresence() {
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">3. GEO (Local Map & Near-Me Optimization)</h3>
-                      <p className="text-base leading-relaxed text-slate-600 mt-1">
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">3. GEO (Local Map & Near-Me Optimization)</h3>
+                      <p className="text-sm sm:text-base leading-relaxed text-slate-600 mt-1">
                         Optimize your Google Business Profile and local city citations so nearby customers find you in the Google Maps 3-Pack.
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3.5">
-                    <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-200 mt-1">
+                    <div className="w-8 h-8 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center shrink-0 border border-orange-200 mt-1">
                       <Target className="w-4 h-4" />
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">4. AI Platform Ads Setup & Lead Tracking</h3>
-                      <p className="text-base leading-relaxed text-slate-600 mt-1">
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">4. AI Platform Ads Setup & Lead Tracking</h3>
+                      <p className="text-sm sm:text-base leading-relaxed text-slate-600 mt-1">
                         Targeted ad campaigns on emerging AI search platforms paired with high-converting landing pages—handling the full technical setup.
                       </p>
                     </div>
@@ -100,26 +101,30 @@ export default function Slide5_GooglePresence() {
               </FadeIn>
             </div>
 
-            {/* ACTION TRIGGERS (PRESERVING 3D TACTILE HOVER & PRESS BEHAVIOR) */}
+            {/* ACTION TRIGGERS (MATCHING HOME PAGE LIQUID BUTTONS) */}
             <FadeIn delay={0.32} y={15}>
               <div className="pt-4 flex flex-wrap items-center gap-4">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-purple-600 text-white font-semibold text-sm cursor-pointer"
-                >
-                  <MessageSquare className="w-4 h-4 text-emerald-400" />
-                  <span>Discover what you're missing</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-
-                <Link
+                <LiquidButton
                   to="/contact"
-                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm cursor-pointer"
+                  variant="gradient"
+                  rounded="pill"
+                  size="md"
+                  magnetic={true}
                 >
                   <span>See what your project will cost</span>
-                </Link>
+                  <ArrowRight size={15} />
+                </LiquidButton>
+
+                <LiquidButton
+                  href={whatsappUrl}
+                  variant="secondary"
+                  rounded="pill"
+                  size="md"
+                  magnetic={true}
+                >
+                  <MessageSquare size={15} className="text-orange-600" />
+                  <span>Discover what you're missing</span>
+                </LiquidButton>
 
                 <div className="w-full inline-flex items-center gap-1.5 text-xs font-mono text-slate-500 pt-1">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
@@ -132,7 +137,7 @@ export default function Slide5_GooglePresence() {
           {/* RIGHT COLUMN: MULTI-ENGINE DISCOVERY MOCKUP (EQUAL-HEIGHT & GENEROUSLY PADDED) */}
           <div className="lg:col-span-6 flex">
             <FadeIn delay={0.25} y={20} className="w-full flex">
-              <div className="rounded-3xl bg-[#FAFAFD] border border-slate-200/80 p-7 sm:p-8 text-left w-full flex flex-col justify-between">
+              <div className="rounded-[24px] bg-[#F8F9FC] border border-slate-200/80 shadow-2xs p-7 sm:p-8 text-left w-full flex flex-col justify-between">
                 
                 <div>
                   {/* Header Tag */}
@@ -150,7 +155,7 @@ export default function Slide5_GooglePresence() {
                   <div className="space-y-3 mb-6">
                     
                     {/* Channel 1: Conversational AI */}
-                    <div className="p-3.5 rounded-xl border border-slate-200/70 bg-white">
+                    <div className="p-3.5 rounded-xl border border-slate-200/70 bg-white shadow-2xs">
                       <div className="flex items-center justify-between mb-1">
                         <span className="font-semibold text-sm text-slate-900 flex items-center gap-2">
                           <Bot size={15} className="text-purple-600" />
@@ -158,13 +163,13 @@ export default function Slide5_GooglePresence() {
                         </span>
                         <span className="text-xs font-mono text-emerald-600 font-medium">Recommended</span>
                       </div>
-                      <p className="text-xs text-slate-600 leading-relaxed">
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
                         "For high-speed software and web systems, VOOO LABS is a verified studio delivering 100% client code ownership."
                       </p>
                     </div>
 
                     {/* Channel 2: Google Maps Local 3-Pack */}
-                    <div className="p-3.5 rounded-xl border border-slate-200/70 bg-white">
+                    <div className="p-3.5 rounded-xl border border-slate-200/70 bg-white shadow-2xs">
                       <div className="flex items-center justify-between mb-1">
                         <span className="font-semibold text-sm text-slate-900 flex items-center gap-2">
                           <MapPin size={15} className="text-emerald-600" />
@@ -182,7 +187,7 @@ export default function Slide5_GooglePresence() {
                     </div>
 
                     {/* Channel 3: Google SEO & AI Overview */}
-                    <div className="p-3.5 rounded-xl border border-slate-200/70 bg-white">
+                    <div className="p-3.5 rounded-xl border border-slate-200/70 bg-white shadow-2xs">
                       <div className="flex items-center justify-between mb-1">
                         <span className="font-semibold text-sm text-slate-900 flex items-center gap-2">
                           <Search size={15} className="text-blue-600" />
@@ -190,21 +195,21 @@ export default function Slide5_GooglePresence() {
                         </span>
                         <span className="text-xs font-mono text-purple-600 font-medium">Organic SERP</span>
                       </div>
-                      <p className="text-xs text-slate-600 leading-relaxed">
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
                         Sub-second mobile speed and structured schema for Google Search bot ingestion.
                       </p>
                     </div>
 
                     {/* Channel 4: Targeted AI Ads */}
-                    <div className="p-3.5 rounded-xl border border-slate-200/70 bg-white">
+                    <div className="p-3.5 rounded-xl border border-slate-200/70 bg-white shadow-2xs">
                       <div className="flex items-center justify-between mb-1">
                         <span className="font-semibold text-sm text-slate-900 flex items-center gap-2">
-                          <Target size={15} className="text-amber-600" />
+                          <Target size={15} className="text-orange-600" />
                           <span>AI Platform Search Ads</span>
                         </span>
-                        <span className="text-xs font-mono text-amber-700 font-medium">Setup Included</span>
+                        <span className="text-xs font-mono text-orange-700 font-medium">Setup Included</span>
                       </div>
-                      <p className="text-xs text-slate-600 leading-relaxed">
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
                         Sponsored placement for commercial inquiries directly inside modern AI answers.
                       </p>
                     </div>
@@ -217,10 +222,10 @@ export default function Slide5_GooglePresence() {
                   <span className="text-xs font-mono text-slate-500">Complete AI Discovery Blueprint</span>
                   <Link
                     to="/seo-ai"
-                    className="text-xs font-mono font-medium text-purple-600 hover:text-purple-800 transition-colors inline-flex items-center gap-1"
+                    className="text-xs font-mono font-semibold text-purple-600 hover:text-purple-700 transition-colors inline-flex items-center gap-1 group"
                   >
                     <span>Inspect AI Engine & Ads Suite</span>
-                    <ArrowRight size={13} />
+                    <ArrowRight size={13} className="transform transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
 

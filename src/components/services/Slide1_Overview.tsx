@@ -108,20 +108,20 @@ export default function Slide1_Overview() {
         {/* EDITORIAL HEADER (STRICT LEFT-ALIGNMENT & 4-TIER TYPOGRAPHY SCALE) */}
         <div className="max-w-3xl mb-14 text-left">
           <FadeIn delay={0.05} y={15}>
-            <div className="font-mono text-xs font-medium text-blue-600 uppercase tracking-wider mb-2">
+            <div className="font-mono text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2.5">
               VOOO LABS ENGINEERING · CORE DISCIPLINES
             </div>
           </FadeIn>
 
           <FadeIn delay={0.12} y={20}>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.18] mb-5">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-950 leading-[1.15] mb-5">
               Software, Web Platforms & <br />
               <span className="shimmer-text">AI Search Visibility.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.18} y={20}>
-            <p className="text-base leading-relaxed text-slate-600 max-w-2xl">
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl font-normal leading-relaxed">
               We design and engineer grounded digital systems tailored around how your business actually operates. Complete code ownership, zero rigid templates, and honest workflow-based delivery.
             </p>
           </FadeIn>
@@ -135,14 +135,14 @@ export default function Slide1_Overview() {
                 
                 {/* LEFT COLUMN (40% - md:col-span-5): NUMBER (01-04) + BOLD SERVICE TITLE */}
                 <div className="md:col-span-5 flex items-baseline gap-4">
-                  <span className="font-mono text-sm font-semibold text-blue-600 shrink-0">
+                  <span className="font-mono text-xs sm:text-sm font-bold text-blue-600 shrink-0">
                     {item.number}
                   </span>
                   <div>
-                    <h2 className="text-lg sm:text-xl font-semibold leading-snug text-slate-900">
+                    <h2 className="text-lg sm:text-xl font-bold leading-snug text-slate-950">
                       {item.title}
                     </h2>
-                    <span className="text-xs font-mono uppercase tracking-wider text-slate-500 mt-1 block">
+                    <span className="text-xs font-mono font-medium uppercase tracking-wider text-slate-500 mt-1 block">
                       {item.category}
                     </span>
                   </div>
@@ -157,7 +157,7 @@ export default function Slide1_Overview() {
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-mono text-slate-600 pt-1">
                     {item.deliverables.map((del, dIdx) => (
                       <span key={dIdx} className="inline-flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600/70" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />
                         <span>{del}</span>
                       </span>
                     ))}
@@ -166,15 +166,15 @@ export default function Slide1_Overview() {
                   <div className="pt-2 flex flex-wrap items-center gap-4">
                     <button
                       onClick={() => scrollToSection(item.id)}
-                      className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-blue-600 hover:text-blue-800 transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-600 hover:text-blue-700 transition-colors cursor-pointer group"
                     >
                       <span>Jump to Detailed Blueprint & Deliverables</span>
-                      <ArrowRight size={13} />
+                      <ArrowRight size={13} className="transform transition-transform group-hover:translate-x-1" />
                     </button>
                     <span className="text-slate-300">•</span>
                     <Link
                       to="/contact"
-                      className="inline-flex items-center gap-1 text-xs font-mono font-medium text-slate-600 hover:text-slate-900 transition-colors"
+                      className="inline-flex items-center gap-1 text-xs font-mono font-medium text-slate-600 hover:text-slate-950 transition-colors"
                     >
                       <span>Get Cost Estimate</span>
                     </Link>
@@ -190,13 +190,13 @@ export default function Slide1_Overview() {
         <div className="text-left pt-6 mb-12">
           <FadeIn delay={0.3} y={15}>
             <div className="max-w-2xl mb-8">
-              <span className="font-mono text-xs font-semibold text-emerald-600 uppercase tracking-wider block mb-2">
+              <span className="font-mono text-xs font-bold text-emerald-600 uppercase tracking-widest block mb-2.5">
                 ALL-INCLUSIVE TECHNICAL BASELINE
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mb-2">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-950 mb-2.5">
                 Full-Stack Delivery Included With Every Engagement.
               </h3>
-              <p className="text-base leading-relaxed text-slate-600">
+              <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
                 You receive fully configured infrastructure with no hidden recurring platform licenses.
               </p>
             </div>
@@ -207,22 +207,22 @@ export default function Slide1_Overview() {
               {ALL_INCLUSIVE_DELIVERABLES.map((del, dIdx) => (
                 <div 
                   key={dIdx} 
-                  className="p-5 sm:p-6 rounded-2xl bg-[#FAFAFD] border border-slate-200/80 hover:border-slate-300 hover:bg-white transition-all duration-200 flex flex-col justify-between shadow-2xs group"
+                  className="p-6 rounded-[24px] bg-[#F8F9FC] border border-slate-200/80 hover:border-slate-300 hover:bg-white transition-all duration-200 flex flex-col justify-between shadow-2xs group"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                        <CheckCircle2 size={16} />
+                      <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        <CheckCircle2 size={18} />
                       </div>
                       <span className="font-mono text-[10px] font-bold text-emerald-600 uppercase tracking-wider">
                         Included
                       </span>
                     </div>
-                    <h4 className="text-sm sm:text-base font-semibold text-slate-900 leading-snug mb-2">
+                    <h4 className="text-base font-bold text-slate-950 leading-snug mb-2">
                       {del.title}
                     </h4>
                   </div>
-                  <p className="text-xs sm:text-sm leading-relaxed text-slate-600 mt-1">
+                  <p className="text-sm leading-relaxed text-slate-600 mt-1 font-normal">
                     {del.description}
                   </p>
                 </div>
