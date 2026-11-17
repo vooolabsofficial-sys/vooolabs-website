@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Laptop, 
-  Layers, 
-  Cpu, 
-  Search, 
-  Check, 
-  CheckCircle2, 
-  ArrowRight,
-  ShieldCheck,
-  Zap,
-  Sparkles
-} from 'lucide-react';
+import { Laptop, Layers, Cpu, Search, ArrowRight } from 'lucide-react';
 import LiquidButton from '../shared/LiquidButton';
+import { DuotoneCheckIcon, DuotoneProblemIcon, DuotoneSolutionIcon } from '../shared/StudioIcons';
 
-const EASING = [0.22, 1, 0.36, 1] as const;
+const EASING = [0.16, 1, 0.3, 1] as const;
+
+interface Pillar {
+  title: string;
+  description: string;
+}
 
 interface ChapterData {
   id: string;
@@ -25,173 +19,234 @@ interface ChapterData {
   serviceParam: string;
   icon: React.ElementType;
   accent: string;
-  businessOutcome: string;
-  deliverables: string[];
-  checklistItems: string[];
+  bottleneck: string;
+  solution: string;
+  pillars: Pillar[];
+  adoptionExamples: Record<string, string>;
 }
+
+const INDUSTRIES = [
+  { id: 'manufacturing', label: 'Manufacturing & Trade' },
+  { id: 'healthcare', label: 'Clinics & Healthcare' },
+  { id: 'education', label: 'Institutes & Education' },
+  { id: 'realestate', label: 'Real Estate & Retail' },
+  { id: 'b2b', label: 'B2B Services' },
+] as const;
 
 const CHAPTERS: ChapterData[] = [
   {
     id: 'websites',
     index: '01',
-    title: 'All-Inclusive Business Websites',
-    subtitle: 'High-conversion marketing engines',
+    title: 'Business Websites',
+    subtitle: 'Turn visitors into direct inquiries',
     serviceParam: 'websites',
     icon: Laptop,
     accent: '#4285F4',
-    businessOutcome:
-      'High-converting websites engineered to turn cold visitors into qualified business inquiries. Everything is managed from custom UI/UX design to automated domain configuration and sub-second edge hosting.',
-    deliverables: [
-      'Custom UI/UX & Conversion Architecture',
-      'Domain, DNS routing & edge CDN hosting included',
-      'Instant WhatsApp and direct lead routing',
+    bottleneck:
+      'Generic template websites load slowly on mobile, bury key details, and lose high-intent visitors within seconds.',
+    solution:
+      'We engineer fast, clarity-first web platforms built to earn immediate buyer trust and route inquiries straight to your WhatsApp and phone.',
+    pillars: [
+      {
+        title: 'Clarity-First Brand Architecture',
+        description: 'Structured so any visitor understands your credibility and offerings within seconds.',
+      },
+      {
+        title: 'Mobile-Speed & Conversion Engineering',
+        description: 'Built clean from scratch for fast mobile browsing and frictionless inquiries.',
+      },
+      {
+        title: 'Complete Technical Infrastructure',
+        description: 'Domain registration, DNS routing, SSL security, and 24/7 cloud deployment handled end-to-end.',
+      },
+      {
+        title: '100% Source Code Ownership',
+        description: 'Full codebase and repository transferred directly to your accounts.',
+      },
     ],
-    checklistItems: [
-      'Custom UI/UX & Responsive Conversion Design',
-      'Domain, DNS Routing & 24/7 Cloud Hosting',
-      'Direct WhatsApp & Lead Routing Integration',
-      'Search Engine & Google Business Profile Setup',
-      'Interactive Pricing & Estimate Calculator',
-      'Multi-Language / Regional Language Support',
-    ],
+    adoptionExamples: {
+      manufacturing:
+        'Showcase ISO certifications, detailed machinery catalog specs, and route bulk quotation requests directly to sales executives.',
+      healthcare:
+        'Publish doctor credentials, treatment specializations, and enable 1-tap WhatsApp consultation scheduling for local patients.',
+      education:
+        'Present accredited curricula, fee breakdowns, and virtual tour walk-throughs that convert visiting parents into campus inquiries.',
+      realestate:
+        'Highlight RERA credentials, high-res floor plans, and capture site visit bookings with automated location maps.',
+      b2b:
+        'Demonstrate verified case studies, client ROI testimonials, and pre-qualify corporate RFP inquiries with upfront scope details.',
+    },
   },
   {
     id: 'web-apps',
     index: '02',
-    title: 'Custom Web Apps & Client Portals',
-    subtitle: 'Role-based operations & SaaS',
+    title: 'Web Apps & Client Portals',
+    subtitle: 'Self-service logins & live tracking',
     serviceParam: 'web-apps',
     icon: Layers,
     accent: '#7C3AED',
-    businessOutcome:
-      'Role-based web applications that streamline how your team and clients collaborate in real time. Engineered with secure authentication, scalable cloud databases, and zero recurring per-user software rent.',
-    deliverables: [
-      'Role-Based Access Control (Admin, Staff, Client Portals)',
-      'Real-Time Data Sync & Cloud Database Architecture',
-      'Automated Notifications & WhatsApp Status Alerts',
+    bottleneck:
+      'Teams waste hours every day answering repetitive status calls, sending manual PDFs, and managing disconnected booking requests.',
+    solution:
+      'We build dedicated customer and staff login portals where bookings, project progress, and documents update live in one place.',
+    pillars: [
+      {
+        title: 'Dedicated Client & Admin Logins',
+        description: 'Secure, role-based access tailored separately for your team and your customers.',
+      },
+      {
+        title: 'Self-Service Tracking & Bookings',
+        description: 'Live schedules, status updates, and document access that eliminate repetitive calls.',
+      },
+      {
+        title: 'Reliable Cloud Data Architecture',
+        description: 'Built to handle growing users and daily transactions smoothly.',
+      },
+      {
+        title: 'Automated Status Alerts',
+        description: 'Instant WhatsApp and email updates triggered automatically by real user actions.',
+      },
     ],
-    checklistItems: [
-      'Secure Staff & Client Login Portal',
-      'Real-Time Admin Dashboard & Analytics',
-      'Role-Based Permissions (RBAC)',
-      'Document & File Vault with Cloud Storage',
-      'Custom Payment Gateway & Subscription Engine',
-      'Automated WhatsApp & Email Alert Triggers',
-    ],
+    adoptionExamples: {
+      manufacturing:
+        'Dealers and distributors log in to place bulk reorders, track dispatch timelines, and download stamped shipment bills.',
+      healthcare:
+        'Patients access prescription histories, view lab test results securely, and reschedule upcoming appointments online.',
+      education:
+        'Students and parents access live attendance records, semester grade reports, and submit assignment files in one portal.',
+      realestate:
+        'Property buyers track stage-wise construction milestones, view verified payment receipts, and submit snagging lists directly.',
+      b2b:
+        'Retainer clients review weekly deliverables, submit design feedback, and download monthly service activity logs securely.',
+    },
   },
   {
     id: 'software',
     index: '03',
-    title: 'Custom Business & GST Software',
-    subtitle: 'Internal ops, billing & zero rent',
+    title: 'Custom Business Software',
+    subtitle: 'Unified operations & GST billing',
     serviceParam: 'software',
     icon: Cpu,
     accent: '#10B981',
-    businessOutcome:
-      'Tailored operational software that replaces chaotic spreadsheets and expensive monthly ERP subscriptions. Generate 1-click GST invoices, track warehouse inventory, and reconcile balances effortlessly.',
-    deliverables: [
-      'Automated GST Invoicing & 1-Click PDF Generation',
-      'Real-Time Inventory & Ledger Book Tracking',
-      'Offline-First Capable & Fast Desktop/Mobile Sync',
+    bottleneck:
+      'Outgrowing spreadsheets leads to stock mismatches, delayed GST invoices, missed follow-ups, and zero real-time visibility for owners.',
+    solution:
+      'We engineer unified internal operations, inventory, and GST billing software shaped precisely around your company’s daily workflow.',
+    pillars: [
+      {
+        title: 'Workflow-Exact System Design',
+        description: 'Engineered around how your staff, branches, and approvals actually operate.',
+      },
+      {
+        title: 'Automated GST Invoicing & Ledgers',
+        description: 'Accurate tax billing, order logs, and payment tracking without spreadsheet errors.',
+      },
+      {
+        title: 'Real-Time Owner Command View',
+        description: 'Live visibility into daily sales, pending orders, and team accountability from anywhere.',
+      },
+      {
+        title: 'Full GitHub & Cloud Handover',
+        description: 'Complete intellectual property and system control retained by your company.',
+      },
     ],
-    checklistItems: [
-      'Custom GST Billing & 1-Click PDF Generation',
-      'Client Ledger & Outstanding Payment Tracking',
-      'Multi-User Staff Access & Audit Logs',
-      'Real-Time Stock & Warehouse Inventory Sync',
-      'Tally & Excel Data Export / Import',
-      'Automated WhatsApp Payment Reminders',
-    ],
+    adoptionExamples: {
+      manufacturing:
+        'Track raw material inventory across warehouses, generate multi-tier GST delivery challans, and automate vendor payables.',
+      healthcare:
+        'Manage patient OPD queues, reconcile multi-doctor commission payouts, and issue computerized GST medicine bills.',
+      education:
+        'Automate multi-installment student fee collection, track hostel bed occupancy, and reconcile monthly staff payroll.',
+      realestate:
+        'Sync inventory across offline stores, handle POS barcode billing, and reconcile channel partner brokerage payouts in real time.',
+      b2b:
+        'Log billable engineer hours against project milestones, generate recurring tax invoices, and reconcile outstanding client ledgers.',
+    },
   },
   {
     id: 'ai-growth',
     index: '04',
-    title: 'ChatGPT, Google AI Search & Ads',
-    subtitle: 'AEO & GEO search authority',
+    title: 'AI Search & Targeted Ads',
+    subtitle: 'ChatGPT, Google AI & local discovery',
     serviceParam: 'ai-growth',
     icon: Search,
     accent: '#F97316',
-    businessOutcome:
-      'Position your company as the verified recommendation across generative search engines like ChatGPT, Perplexity, and Google AI Overviews. Capture high-intent buyers right when they seek solutions.',
-    deliverables: [
-      'AEO & GEO Structured Entity Optimization',
-      'High-Intent Keyword & Search Engine Architecture',
-      'AI Overviews Knowledge Graph Integration',
+    bottleneck:
+      'Buyers now ask ChatGPT, Google AI, and Google Maps who to hire—leaving businesses with unstructured sites invisible while ad budgets leak.',
+    solution:
+      'We structure your digital authority for AI recommendations and run focused search campaigns built to capture ready-to-buy customers.',
+    pillars: [
+      {
+        title: 'ChatGPT & Google AI Visibility',
+        description: 'Machine-readable business structuring so AI search engines cite and recommend you.',
+      },
+      {
+        title: 'Google Maps & Local Search Authority',
+        description: 'High-trust regional and city presence where local buyers look first.',
+      },
+      {
+        title: 'High-Intent Search & AI Campaigns',
+        description: 'Precision ad targeting focused on buyers actively searching for your service.',
+      },
+      {
+        title: 'Dedicated Conversion Landing Pages',
+        description: 'Fast, focused pages engineered to turn ad clicks into direct calls and WhatsApp leads.',
+      },
     ],
-    checklistItems: [
-      'Schema.org Knowledge Graph & Entity Architecture',
-      'ChatGPT & Perplexity Recommendation Optimization',
-      'Google AI Overviews & Local Map Pack Sync',
-      'High-Intent Commercial Keyword Landing Pages',
-      'Competitor Disruption & Search Footprint Audit',
-      'Conversion Tracking & Search Console Integration',
-    ],
+    adoptionExamples: {
+      manufacturing:
+        'Rank as the verified OEM manufacturer in ChatGPT and Google AI Overviews for high-value industrial component procurement.',
+      healthcare:
+        'Dominate Google Maps local pack and AI search recommendations for top-rated specialists in your city.',
+      education:
+        'Capture admission-intent searches on Google and Meta right during annual board exam result and enrollment cycles.',
+      realestate:
+        'Target high-intent home buyers and investors searching for premium residential and commercial spaces in your target micro-market.',
+      b2b:
+        'Position your consultancy as the verified authority when corporate founders search AI platforms for niche engineering partners.',
+    },
   },
 ];
 
 export default function Slide3_SolutionExplorer() {
   const [activeChapterIndex, setActiveChapterIndex] = useState(0);
-
-  // Per-chapter selected checklist items: store by chapter id
-  const [selectedScopesByChapter, setSelectedScopesByChapter] = useState<Record<string, string[]>>({
-    websites: CHAPTERS[0].checklistItems.slice(0, 3),
-    'web-apps': CHAPTERS[1].checklistItems.slice(0, 3),
-    software: CHAPTERS[2].checklistItems.slice(0, 3),
-    'ai-growth': CHAPTERS[3].checklistItems.slice(0, 3),
-  });
+  const [activeIndustry, setActiveIndustry] = useState<string>('manufacturing');
 
   const activeChapter = CHAPTERS[activeChapterIndex];
-  const activeSelectedScopes = selectedScopesByChapter[activeChapter.id] || [];
-
-  const toggleScopeItem = (item: string) => {
-    setSelectedScopesByChapter((prev) => {
-      const current = prev[activeChapter.id] || [];
-      const updated = current.includes(item)
-        ? current.filter((i) => i !== item)
-        : [...current, item];
-      return {
-        ...prev,
-        [activeChapter.id]: updated,
-      };
-    });
-  };
-
-  const IconComponent = activeChapter.icon;
 
   return (
     <section 
-      className="bg-[#FAFAFD] py-20 sm:py-28 px-4 sm:px-6 border-b border-slate-200/80 relative select-none"
-      aria-label="Engineered Deliverables & Interactive Chapter Stage"
+      className="bg-white py-20 sm:py-24 px-6 border-b border-slate-200/80 relative select-none"
+      aria-label="Capabilities and Real-World Fit"
     >
       <div className="max-w-6xl mx-auto">
         
-        {/* SECTION HEADER */}
+        {/* SECTION HEADER (LEFT-ALIGNED INSIDE max-w-6xl mx-auto px-6) */}
         <motion.div 
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: EASING }}
-          className="text-left sm:text-center mb-14 sm:mb-16"
+          className="text-left mb-14 sm:mb-16"
         >
           <span className="font-mono text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2.5">
-            ENGINEERED DELIVERABLES • ZERO AI SLOP
+            CAPABILITIES & REAL-WORLD FIT
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
-            We Don't Resell Templates. <br />
-            <span className="shimmer-text">We Engineer Systems.</span>
+            Four Core Systems. Built to Solve Real Bottlenecks.
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto mt-3 font-normal leading-relaxed">
-            Every deliverable is crafted from scratch with <span className="font-semibold text-slate-900">clean code</span>, sub-second speeds, <span className="font-bold text-emerald-600">₹0 monthly software rent</span>, and <span className="font-bold text-blue-600">100% client code ownership</span>.
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mt-3 font-normal leading-relaxed">
+            Every growing business hits digital friction—slow sites, manual follow-ups, spreadsheet chaos, or invisibility on AI search. We engineer the exact system to replace it.
           </p>
         </motion.div>
 
-        {/* ASYMMETRIC INTERACTIVE CHAPTER STAGE (40% RAIL / 60% WORKSPACE) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        {/* ASYMMETRIC 2-COLUMN LAYOUT (lg:col-span-4 RAIL / lg:col-span-8 WORKSPACE) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           
           {/* ══════════════════════════════════════════════════════
-              LEFT COLUMN (40% — CHAPTER RAIL, lg:col-span-5)
+              LEFT COLUMN (lg:col-span-4 — LIQUID 4-SYSTEM CHAPTER RAIL)
              ══════════════════════════════════════════════════════ */}
-          <div className="lg:col-span-5 flex flex-col gap-2.5">
+          <div className="lg:col-span-4 flex flex-col divide-y divide-slate-200/80 border-y border-slate-200/80">
             {CHAPTERS.map((chapter, idx) => {
               const isActive = idx === activeChapterIndex;
               const ChapterIcon = chapter.icon;
@@ -200,33 +255,26 @@ export default function Slide3_SolutionExplorer() {
                 <button
                   key={chapter.id}
                   onClick={() => setActiveChapterIndex(idx)}
-                  className={`group relative text-left p-4 sm:p-5 rounded-2xl transition-all duration-200 flex items-start gap-3.5 sm:gap-4 outline-none ${
-                    isActive ? 'text-slate-900' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
+                  className={`group relative text-left py-5 px-4 transition-all duration-200 flex items-start gap-4 outline-none ${
+                    isActive ? 'text-slate-900 bg-blue-50/40' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/60'
                   }`}
                 >
-                  {/* SHARED-ELEMENT SLIDING STUDIO BLUE VERTICAL BAR + BACKGROUND TINT */}
+                  {/* LIQUID-SMOOTH SHARED-ELEMENT STUDIO BLUE ACTIVE BAR */}
                   {isActive && (
                     <motion.div
-                      layoutId="active-system-rail"
+                      layoutId="capability-active-bar"
                       transition={{ type: 'spring', stiffness: 380, damping: 34 }}
-                      className="absolute inset-0 bg-blue-50/70 border border-blue-200/90 rounded-2xl -z-10 shadow-2xs"
-                    />
-                  )}
-                  {isActive && (
-                    <motion.div
-                      layoutId="active-rail-bar"
-                      transition={{ type: 'spring', stiffness: 380, damping: 34 }}
-                      className="absolute left-0 top-3.5 bottom-3.5 w-1 bg-blue-600 rounded-r-full"
+                      className="absolute left-0 top-3 bottom-3 w-1 bg-blue-600 rounded-r-full"
                     />
                   )}
 
                   {/* CHAPTER ICON CONTAINER */}
                   <div 
-                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${
+                    className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${
                       isActive ? 'scale-105' : 'group-hover:scale-105'
                     }`}
                     style={{ 
-                      backgroundColor: isActive ? `${chapter.accent}18` : '#F1F5F9',
+                      backgroundColor: isActive ? `${chapter.accent}16` : '#F1F5F9',
                       color: isActive ? chapter.accent : '#64748B'
                     }}
                   >
@@ -235,16 +283,16 @@ export default function Slide3_SolutionExplorer() {
 
                   {/* CHAPTER TITLES */}
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-0.5">
-                      <span className={`font-mono text-xs ${isActive ? 'font-bold text-blue-600' : 'font-medium text-slate-400'}`}>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className={`font-mono text-xs font-bold ${isActive ? 'text-blue-600' : 'text-slate-400'}`}>
                         {chapter.index}
                       </span>
-                      <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider truncate">
+                      <span className="text-xs font-medium text-slate-500 truncate">
                         {chapter.subtitle}
                       </span>
                     </div>
-                    <h3 className={`text-sm sm:text-base tracking-tight leading-snug truncate ${
-                      isActive ? 'font-extrabold text-slate-950' : 'font-medium text-slate-700'
+                    <h3 className={`text-sm sm:text-base font-bold tracking-tight leading-snug truncate ${
+                      isActive ? 'text-slate-950' : 'text-slate-700'
                     }`}>
                       {chapter.title}
                     </h3>
@@ -255,123 +303,130 @@ export default function Slide3_SolutionExplorer() {
           </div>
 
           {/* ══════════════════════════════════════════════════════
-              RIGHT COLUMN (60% — MORPHING WORKSPACE, lg:col-span-7)
+              RIGHT COLUMN (lg:col-span-8 — SINGLE ARCHITECTURAL WORKSPACE)
              ══════════════════════════════════════════════════════ */}
-          <div className="lg:col-span-7">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeChapter.id}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.35, ease: EASING }}
-                className="space-y-6"
-              >
-                {/* 1. BUSINESS OUTCOME (2-SENTENCE PLAIN ENGLISH) */}
-                <div className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-xs">
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <div 
-                      className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: `${activeChapter.accent}14`, color: activeChapter.accent }}
-                    >
-                      <IconComponent size={16} />
+          <div className="lg:col-span-8">
+            <div className="rounded-[24px] bg-[#F8F9FC] border border-slate-200/80 p-7 sm:p-10 shadow-2xs">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeChapter.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.35, ease: EASING }}
+                >
+                  {/* LAYER A: THE REAL PROBLEM TODAY VS. THE VOOO LABS SOLUTION */}
+                  <div className="space-y-4 mb-8">
+                    <div className="border-l-2 border-slate-300 pl-4 py-0.5">
+                      <div className="flex items-center gap-2 mb-1">
+                        <DuotoneProblemIcon size={15} />
+                        <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-500">
+                          The Bottleneck Today
+                        </span>
+                      </div>
+                      <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
+                        {activeChapter.bottleneck}
+                      </p>
                     </div>
-                    <span className="font-mono text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                      Business Outcome Standard
-                    </span>
+
+                    <div className="border-l-2 border-[#4285F4] pl-4 py-0.5">
+                      <div className="flex items-center gap-2 mb-1">
+                        <DuotoneSolutionIcon size={15} accentColor={activeChapter.accent} />
+                        <span className="font-mono text-xs font-bold uppercase tracking-wider text-blue-600">
+                          The VOOO LABS Solution
+                        </span>
+                      </div>
+                      <p className="text-sm sm:text-base text-slate-900 leading-relaxed font-medium">
+                        {activeChapter.solution}
+                      </p>
+                    </div>
                   </div>
 
-                  <p className="text-base sm:text-lg text-slate-800 leading-relaxed font-medium">
-                    {activeChapter.businessOutcome}
-                  </p>
-
-                  {/* 2. THREE REAL DELIVERABLES */}
-                  <div className="mt-5 pt-5 border-t border-slate-100 flex flex-col gap-2.5">
-                    {activeChapter.deliverables.map((del, dIdx) => (
-                      <div key={dIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                        <CheckCircle2 size={16} className="text-emerald-500 flex-shrink-0 mt-0.5" />
-                        <span className="font-medium leading-snug">{del}</span>
+                  {/* LAYER B: 4 ENGINEERED PILLARS (2x2 TYPOGRAPHIC GRID, ZERO BOXES) */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mb-8 pt-6 border-t border-slate-200/80">
+                    {activeChapter.pillars.map((pillar, pIdx) => (
+                      <div key={pIdx} className="flex items-start gap-3">
+                        <DuotoneCheckIcon size={20} accentColor={activeChapter.accent} className="shrink-0 mt-0.5" />
+                        <div>
+                          <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-snug mb-1">
+                            {pillar.title}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                            {pillar.description}
+                          </p>
+                        </div>
                       </div>
                     ))}
                   </div>
-                </div>
 
-                {/* 3. FLAT SCOPE CHECKLIST & DYNAMIC CTA */}
-                <div className="rounded-2xl bg-[#F8F9FC] border border-slate-200/90 p-6 sm:p-7 text-left shadow-2xs">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-200/70">
-                    <div>
-                      <h4 className="text-sm sm:text-base font-bold text-slate-900">
-                        Scope Checklist & Instant Estimate
-                      </h4>
-                      <p className="text-xs text-slate-500">
-                        Select what your project requires to configure an upfront scope:
-                      </p>
-                    </div>
-                    <span className="self-start sm:self-center font-mono text-[11px] font-semibold text-blue-600 bg-blue-50 border border-blue-200/60 px-2.5 py-1 rounded-full">
-                      {activeSelectedScopes.length} selected
+                  {/* LAYER C: INTERACTIVE CROSS-INDUSTRY ADOPTION STRIP */}
+                  <div className="border-t border-slate-200/80 pt-6">
+                    <span className="font-mono text-xs font-bold uppercase tracking-widest text-slate-500 block mb-3.5">
+                      HOW DIFFERENT BUSINESSES ADOPT THIS
                     </span>
-                  </div>
 
-                  {/* CHECKLIST ITEMS WITH LIQUID 280MS TRANSITIONS */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6">
-                    {activeChapter.checklistItems.map((item, itemIdx) => {
-                      const isChecked = activeSelectedScopes.includes(item);
-                      return (
-                        <button
-                          key={itemIdx}
-                          type="button"
-                          onClick={() => toggleScopeItem(item)}
-                          className={`flex items-center gap-3 p-3 rounded-xl border text-left text-xs sm:text-sm font-medium transition-all duration-[280ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-[1px] active:scale-[0.985] ${
-                            isChecked
-                              ? 'bg-white border-blue-400 text-slate-900 shadow-xs'
-                              : 'bg-white/60 border-slate-200/80 text-slate-600 hover:bg-white hover:border-slate-300'
-                          }`}
-                        >
-                          <div 
-                            className={`w-4 h-4 rounded flex items-center justify-center flex-shrink-0 transition-all duration-[280ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                              isChecked ? 'bg-blue-600 text-white shadow-2xs' : 'border border-slate-300 bg-white'
+                    {/* 5 TACTILE INDUSTRY PILLS */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {INDUSTRIES.map((ind) => {
+                        const isSelected = activeIndustry === ind.id;
+                        return (
+                          <button
+                            key={ind.id}
+                            type="button"
+                            onClick={() => setActiveIndustry(ind.id)}
+                            className={`px-3 py-1.5 rounded-[12px] text-xs font-medium transition-all duration-200 outline-none ${
+                              isSelected
+                                ? 'bg-slate-900 text-white shadow-xs'
+                                : 'bg-white border border-slate-200/80 text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                             }`}
                           >
-                            {isChecked && (
-                              <motion.span
-                                initial={{ scale: 0.7, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                              >
-                                <Check size={12} strokeWidth={3} />
-                              </motion.span>
-                            )}
-                          </div>
-                          <span className={`truncate ${isChecked ? 'font-semibold text-slate-950' : 'font-normal text-slate-700'}`}>{item}</span>
-                        </button>
-                      );
-                    })}
+                            {ind.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* ADOPTION EXAMPLE DISPLAY */}
+                    <div className="bg-white rounded-[14px] border border-slate-200/80 p-4">
+                      <AnimatePresence mode="wait">
+                        <motion.p
+                          key={`${activeChapter.id}-${activeIndustry}`}
+                          initial={{ opacity: 0, y: 4 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -4 }}
+                          transition={{ duration: 0.2, ease: EASING }}
+                          className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium"
+                        >
+                          <span className="font-bold text-blue-600">
+                            {INDUSTRIES.find((i) => i.id === activeIndustry)?.label}:{' '}
+                          </span>
+                          {activeChapter.adoptionExamples[activeIndustry]}
+                        </motion.p>
+                      </AnimatePresence>
+                    </div>
                   </div>
 
-                  {/* DYNAMIC JUMP-TO-CONTACT LIQUID CTA */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+                  {/* BOTTOM ACTION ROW */}
+                  <div className="pt-6 mt-6 border-t border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <LiquidButton
-                      to={`/contact?service=${activeChapter.serviceParam}&scopes=${encodeURIComponent(
-                        activeSelectedScopes.join(';')
-                      )}`}
+                      to={`/contact?service=${activeChapter.serviceParam}`}
                       variant="gradient"
                       rounded="pill"
                       size="md"
                       magnetic={true}
                     >
-                      <span>See what your project will cost ({activeSelectedScopes.length} selected)</span>
+                      <span>See what your project will cost</span>
                       <ArrowRight size={16} />
                     </LiquidButton>
 
-                    <div className="flex items-center gap-1.5 text-xs text-slate-500 font-mono">
-                      <ShieldCheck size={14} className="text-emerald-500" />
-                      <span>Zero setup fee · Day 1 handover</span>
-                    </div>
+                    <span className="font-mono text-xs text-slate-500">
+                      Direct scoping · 100% source code ownership
+                    </span>
                   </div>
-                </div>
 
-              </motion.div>
-            </AnimatePresence>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
 
         </div>

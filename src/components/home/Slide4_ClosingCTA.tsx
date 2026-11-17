@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck, Server, Sparkles } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Server, Sparkles, UserCheck } from 'lucide-react';
 import LiquidButton from '../shared/LiquidButton';
 
 const EASING = [0.22, 1, 0.36, 1] as const;
@@ -112,11 +112,11 @@ export default function Slide4_ClosingCTA() {
           </span>
           <span className="flex items-center gap-2">
             <Server size={15} className="text-blue-400" />
-            <span><strong className="font-bold text-blue-400">All-Inclusive</strong> Domain & Hosting</span>
+            <span><strong className="font-bold text-blue-400">Complete</strong> Cloud & Domain Setup</span>
           </span>
           <span className="flex items-center gap-2">
-            <strong className="text-orange-400 font-bold">₹0</strong>
-            <span>Zero Monthly Software Rent</span>
+            <UserCheck size={15} className="text-orange-400" />
+            <span><strong className="font-bold text-orange-400">Direct</strong> Lead Architect Access</span>
           </span>
         </motion.div>
 

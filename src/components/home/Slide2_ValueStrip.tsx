@@ -1,19 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Server, Key, Code2, SlidersHorizontal } from 'lucide-react';
+import { Server, SlidersHorizontal, Code2, UserCheck } from 'lucide-react';
 
 const EASING = [0.22, 1, 0.36, 1] as const;
 
 interface DifferentiatorItem {
   index: string;
   icon: React.ElementType;
-  titleBold: string;
-  titleNormal?: string;
-  titleAccent?: string;
-  accentColorClass?: string;
-  descriptionPrefix: string;
-  descriptionHighlight: string;
-  descriptionSuffix: string;
+  title: string;
+  description: string;
   accent: string;
 }
 
@@ -21,43 +16,29 @@ const DIFFERENTIATORS: DifferentiatorItem[] = [
   {
     index: '01',
     icon: Server,
-    titleBold: 'End-to-End',
-    titleNormal: 'Launch Setup',
-    descriptionPrefix: 'Domain registration, DNS routing, SSL, and ',
-    descriptionHighlight: '24/7 cloud hosting',
-    descriptionSuffix: ' configured completely before handover.',
+    title: 'End-to-End Technical Setup',
+    description: 'Domain registration, DNS routing, SSL security, and cloud deployment configured cleanly before handover.',
     accent: '#4285F4',
   },
   {
     index: '02',
-    icon: Key,
-    titleBold: 'One-Time Build,',
-    titleAccent: '₹0 Per-User Rent',
-    accentColorClass: 'text-emerald-600',
-    descriptionPrefix: 'No recurring monthly seat fees per employee; your custom system runs with ',
-    descriptionHighlight: 'zero subscription lock-in',
-    descriptionSuffix: '.',
+    icon: SlidersHorizontal,
+    title: 'Built Around Your Workflow',
+    description: 'Custom architecture shaped around how your team actually operates—never forced into rigid templates.',
     accent: '#10B981',
   },
   {
     index: '03',
     icon: Code2,
-    titleBold: 'Full Repository',
-    titleNormal: '& Data Handover',
-    descriptionPrefix: '',
-    descriptionHighlight: 'Complete source code',
-    descriptionSuffix: ' transferred directly to your own GitHub and cloud accounts on day one.',
+    title: 'Full Repository & Code Handover',
+    description: 'Complete source code transferred directly to your own GitHub and cloud accounts with zero vendor lock-in.',
     accent: '#7C3AED',
   },
   {
     index: '04',
-    icon: SlidersHorizontal,
-    titleBold: 'Tailored for',
-    titleAccent: 'Real Operations',
-    accentColorClass: 'text-orange-600',
-    descriptionPrefix: '',
-    descriptionHighlight: 'Direct WhatsApp lead routing',
-    descriptionSuffix: ', custom GST billing, and AI-ready search structure built around how you work.',
+    icon: UserCheck,
+    title: 'Direct Lead Architect Access',
+    description: 'Work directly with the engineer building your system—clear communication from initial scope to launch.',
     accent: '#F97316',
   },
 ];
@@ -148,22 +129,14 @@ export default function Slide2_ValueStrip() {
                   </div>
                 </div>
 
-                {/* TITLE WITH DELIBERATE BOLD / NORMAL / COLOR ACCENT */}
-                <h3 className="text-base sm:text-lg mb-2.5 leading-snug tracking-tight">
-                  <span className="font-extrabold text-slate-950">{item.titleBold}</span>{' '}
-                  {item.titleNormal && (
-                    <span className="font-normal text-slate-700">{item.titleNormal}</span>
-                  )}
-                  {item.titleAccent && (
-                    <span className={`font-extrabold ${item.accentColorClass || 'text-blue-600'}`}>{item.titleAccent}</span>
-                  )}
+                {/* TITLE */}
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2.5 leading-snug tracking-tight">
+                  {item.title}
                 </h3>
 
-                {/* DESCRIPTION WITH SUBTLE EMPHASIS */}
+                {/* DESCRIPTION */}
                 <p className="text-sm text-slate-600 leading-relaxed font-normal">
-                  {item.descriptionPrefix}
-                  <span className="font-medium text-slate-900">{item.descriptionHighlight}</span>
-                  {item.descriptionSuffix}
+                  {item.description}
                 </p>
               </motion.div>
             );
