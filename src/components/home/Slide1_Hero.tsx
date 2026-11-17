@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useMotionValue, useSpring, useMotionTemplate, useTransform } from 'framer-motion';
 import { Globe, Laptop, Cpu, Smartphone, Search, ArrowRight } from 'lucide-react';
-import FadeIn from '../shared/FadeIn';
 import { COMPANY } from '../../content/company';
+
+const EASING = [0.22, 1, 0.36, 1] as const;
 
 const CAPABILITIES = [
   'Business Websites',
@@ -46,134 +48,213 @@ function CleanTypewriter() {
 }
 
 export default function Slide1_Hero() {
+  // Cursor-reactive ambient Studio Blue glow physics
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.35);
+  const smoothX = useSpring(mouseX, { stiffness: 120, damping: 24 });
+  const smoothY = useSpring(mouseY, { stiffness: 120, damping: 24 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  const bgGradient = useMotionTemplate`radial-gradient(750px circle at ${useTransform(smoothX, (v) => `${v * 100}%`)} ${useTransform(smoothY, (v) => `${v * 100}%`)}, rgba(66, 133, 244, 0.06), transparent 75%)`;
+
   return (
     <section 
+      onMouseMove={handleMouseMove}
       className="snap-section min-h-screen bg-white flex flex-col justify-between relative overflow-hidden select-none border-b border-slate-200/80 pt-32 sm:pt-36 pb-8"
       aria-label="Hero — VOOO LABS Introduction"
     >
-      {/* VIBRANT AMBIENT GLOW BACKDROP */}
-      <div className="absolute top-[-200px] left-[-200px] w-[700px] h-[700px] rounded-full bg-radial from-blue-500/10 to-transparent blur-[90px] animate-blob-1 pointer-events-none z-0" aria-hidden="true" />
-      <div className="absolute top-[-100px] right-[-200px] w-[500px] h-[500px] rounded-full bg-radial from-purple-500/10 to-transparent blur-[90px] animate-blob-2 pointer-events-none z-0" aria-hidden="true" />
-      <div className="absolute bottom-[-200px] left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-radial from-orange-500/8 to-transparent blur-[90px] animate-blob-3 pointer-events-none z-0" aria-hidden="true" />
+      {/* CURSOR-REACTIVE STUDIO BLUE AMBIENT LIGHT GRADIENT */}
+      <motion.div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{ background: bgGradient }}
+        aria-hidden="true"
+      />
 
-      {/* LEFT-ALIGNED HERO CONTENT */}
+      {/* SUBTLE CORNER AMBIENT LIGHTING */}
+      <div className="absolute top-0 right-0 w-[450px] h-[450px] rounded-full bg-radial from-purple-500/[0.03] to-transparent blur-[80px] pointer-events-none z-0" aria-hidden="true" />
+
+      {/* LEFT-ALIGNED HERO EDITORIAL ANCHOR */}
       <div className="relative z-10 flex-1 flex flex-col items-start justify-center text-left px-6 max-w-6xl mx-auto w-full py-2">
         
-        {/* TAGLINE BADGE / QUOTE PILL - ALIGNED DIRECTLY ABOVE 'Engineering' */}
-        <FadeIn delay={0.02} y={15}>
-          <div className="inline-flex items-center gap-2 rounded-full bg-slate-900/[0.03] border border-black/10 px-4 py-1.5 mb-5 text-slate-800 text-xs sm:text-sm font-medium shadow-2xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-            <span>First make it work, then make it beautiful.</span>
-          </div>
-        </FadeIn>
+        {/* TOP-LEFT QUOTE BADGE - FADES IN FIRST */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.05, ease: EASING }}
+          className="inline-flex items-center gap-2 rounded-full bg-slate-900/[0.03] border border-black/10 px-4 py-1.5 mb-6 text-slate-800 text-xs sm:text-sm font-medium shadow-2xs"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+          <span>First make it work, then make it beautiful.</span>
+        </motion.div>
 
-        {/* HEADLINE */}
-        <FadeIn delay={0.08} y={20}>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.02em] text-slate-900 leading-[1.18] mb-4 max-w-4xl">
-            Engineering Digital Products <br />
-            <span className="shimmer-text">with Obsession & Scale.</span>
-          </h1>
-        </FadeIn>
+        {/* MAIN H1 - MASKED LINE-BY-LINE REVEAL */}
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-[-0.025em] text-slate-900 leading-[1.12] mb-5 max-w-4xl">
+          <span className="block overflow-hidden py-1">
+            <motion.span
+              className="block"
+              initial={{ y: '100%' }}
+              animate={{ y: '0%' }}
+              transition={{ duration: 0.7, delay: 0.12, ease: EASING }}
+            >
+              Engineering Digital Systems
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden py-1">
+            <motion.span
+              className="block shimmer-text"
+              initial={{ y: '100%' }}
+              animate={{ y: '0%' }}
+              transition={{ duration: 0.7, delay: 0.22, ease: EASING }}
+            >
+              Built for Serious Growth.
+            </motion.span>
+          </span>
+        </h1>
 
-        {/* SUBHEADING WITH TYPEWRITER */}
-        <FadeIn delay={0.16} y={15}>
+        {/* SUBHEADING WITH ROTATING TYPEWRITER */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.32, ease: EASING }}
+        >
           <p className="font-normal text-base sm:text-lg md:text-xl text-slate-600 max-w-xl leading-relaxed mb-8">
             We build high-performance <CleanTypewriter />
           </p>
-        </FadeIn>
+        </motion.div>
 
-        {/* CTA ROW */}
-        <FadeIn delay={0.24} y={15}>
-          <div className="flex flex-wrap gap-3.5 justify-start items-center">
-            <Link
-              to="/contact"
-              className="btn-3d-base btn-3d-primary rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 px-8 py-3.5 font-medium text-sm sm:text-base text-white transition-all duration-200 hover:scale-[1.03] shadow-[0_4px_20px_rgba(66,133,244,0.3)] hover:shadow-[0_8px_28px_rgba(66,133,244,0.4)] active:scale-[0.98] inline-flex items-center gap-2"
-            >
-              <span>See what your project will cost</span>
-              <ArrowRight size={16} />
-            </Link>
-            <Link
-              to="/services"
-              className="btn-3d-base btn-3d-secondary rounded-full border border-slate-300 bg-white/90 backdrop-blur-sm px-8 py-3.5 font-medium text-sm sm:text-base text-slate-800 hover:bg-slate-50 hover:border-slate-400 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xs"
-            >
-              <span>See how it can help your business</span>
-            </Link>
-          </div>
-        </FadeIn>
+        {/* DUAL TACTILE CTAS */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.40, ease: EASING }}
+          className="flex flex-wrap gap-3.5 justify-start items-center"
+        >
+          <Link
+            to="/contact"
+            className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 px-8 py-3.5 font-medium text-sm sm:text-base text-white shadow-[0_4px_16px_rgba(66,133,244,0.25)] hover:shadow-[0_8px_24px_rgba(66,133,244,0.35)] transition-all duration-200 hover:-translate-y-[2px] active:translate-y-[2px] active:scale-[0.985] overflow-hidden"
+          >
+            <span className="relative z-10 font-medium">See what your project will cost</span>
+            <ArrowRight size={16} className="relative z-10 transition-transform duration-200 group-hover:translate-x-0.5" />
+            <span className="absolute inset-0 bg-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
+          </Link>
+
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/90 backdrop-blur-sm px-8 py-3.5 font-medium text-sm sm:text-base text-slate-800 shadow-2xs hover:bg-slate-50 hover:border-slate-400 hover:shadow-xs transition-all duration-200 hover:-translate-y-[2px] active:translate-y-[2px] active:scale-[0.985]"
+          >
+            <span>See how it can help your business</span>
+          </Link>
+        </motion.div>
       </div>
 
-      {/* CAPABILITIES BAR — FLOATING DOCK (NAVBAR-STYLE SECONDARY BAR) */}
+      {/* CAPABILITIES STRIP — OPEN ARCHITECTURAL (NO HEAVY BOXY BORDERS) */}
       <div className="relative z-10 w-full flex flex-col items-center justify-end select-none mt-10 mb-2">
         <div className="w-full max-w-6xl px-6">
-          <div className="rounded-2xl bg-slate-50/90 backdrop-blur-xl border border-slate-200/90 p-2 sm:p-2.5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 items-center shadow-xs">
-            
-            <Link to="/services#web-apps" className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
-              <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                <Globe size={15} />
+          <motion.div 
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.48, ease: EASING }}
+            className="py-3 border-y border-slate-200/70 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6 items-center"
+          >
+            <Link 
+              to="/services#web-apps" 
+              className="group relative flex items-center gap-2.5 py-1 text-left transition-colors"
+            >
+              <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Globe size={14} />
               </div>
               <div className="min-w-0">
                 <span className="font-semibold text-xs text-slate-900 block truncate group-hover:text-blue-600 transition-colors">Web Apps</span>
                 <span className="text-[10px] text-slate-500 block truncate font-normal">SaaS & Portals</span>
               </div>
+              <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-blue-600 group-hover:w-full transition-all duration-200 rounded-full" />
             </Link>
 
-            <Link to="/services#websites" className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
-              <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                <Laptop size={15} />
+            <Link 
+              to="/services#websites" 
+              className="group relative flex items-center gap-2.5 py-1 text-left transition-colors"
+            >
+              <div className="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Laptop size={14} />
               </div>
               <div className="min-w-0">
                 <span className="font-semibold text-xs text-slate-900 block truncate group-hover:text-purple-600 transition-colors">Websites</span>
                 <span className="text-[10px] text-slate-500 block truncate font-normal">High Converting</span>
               </div>
+              <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-purple-600 group-hover:w-full transition-all duration-200 rounded-full" />
             </Link>
 
-            <Link to="/services#custom-software" className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
-              <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                <Cpu size={15} />
+            <Link 
+              to="/services#custom-software" 
+              className="group relative flex items-center gap-2.5 py-1 text-left transition-colors"
+            >
+              <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Cpu size={14} />
               </div>
               <div className="min-w-0">
                 <span className="font-semibold text-xs text-slate-900 block truncate group-hover:text-emerald-600 transition-colors">Software</span>
                 <span className="text-[10px] text-slate-500 block truncate font-normal">Automation & APIs</span>
               </div>
+              <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-emerald-600 group-hover:w-full transition-all duration-200 rounded-full" />
             </Link>
 
-            <Link to="/services#web-apps" className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
-              <div className="w-8 h-8 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                <Smartphone size={15} />
+            <Link 
+              to="/services#web-apps" 
+              className="group relative flex items-center gap-2.5 py-1 text-left transition-colors"
+            >
+              <div className="w-7 h-7 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Smartphone size={14} />
               </div>
               <div className="min-w-0">
                 <span className="font-semibold text-xs text-slate-900 block truncate group-hover:text-orange-600 transition-colors">Mobile Ready</span>
                 <span className="text-[10px] text-slate-500 block truncate font-normal">PWA & Responsive</span>
               </div>
+              <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-orange-600 group-hover:w-full transition-all duration-200 rounded-full" />
             </Link>
 
-            <Link to="/seo-ai" className="col-span-2 sm:col-span-1 flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
-              <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                <Search size={15} />
+            <Link 
+              to="/seo-ai" 
+              className="col-span-2 sm:col-span-1 group relative flex items-center gap-2.5 py-1 text-left transition-colors"
+            >
+              <div className="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Search size={14} />
               </div>
               <div className="min-w-0">
                 <span className="font-semibold text-xs text-slate-900 block truncate group-hover:text-indigo-600 transition-colors">SEO & AI</span>
                 <span className="text-[10px] text-slate-500 block truncate font-normal">AEO · GEO Ranking</span>
               </div>
+              <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-indigo-600 group-hover:w-full transition-all duration-200 rounded-full" />
             </Link>
-
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* BOTTOM ROW BANNER */}
+      {/* BOTTOM STUDIO QUOTE STRIP */}
       <div className="relative z-20 px-6 pb-2 flex flex-col sm:flex-row justify-between items-center sm:items-end gap-3 w-full max-w-6xl mx-auto border-t border-slate-100 pt-4">
-        <FadeIn delay={0.35} y={10}>
-          <div className="font-mono text-[11px] sm:text-xs text-slate-500 uppercase tracking-widest leading-relaxed flex items-center gap-2 text-center sm:text-left">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span>First make it work, then make it beautiful. · BUILD BOLD. SHIP SMART. LIVE DIFFERENT.</span>
-          </div>
-        </FadeIn>
-        <FadeIn delay={0.35} y={10}>
-          <div className="font-mono text-[11px] text-slate-400 text-center sm:text-right">
-            © {COMPANY.foundedYear}–{new Date().getFullYear()} {COMPANY.legalName}.
-          </div>
-        </FadeIn>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.55 }}
+          className="font-mono text-[11px] sm:text-xs text-slate-500 uppercase tracking-widest leading-relaxed flex items-center gap-2 text-center sm:text-left"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <span>First make it work, then make it beautiful. · BUILD BOLD. SHIP SMART. LIVE DIFFERENT.</span>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.55 }}
+          className="font-mono text-[11px] text-slate-400 text-center sm:text-right"
+        >
+          © {COMPANY.foundedYear}–{new Date().getFullYear()} {COMPANY.legalName}.
+        </motion.div>
       </div>
 
     </section>

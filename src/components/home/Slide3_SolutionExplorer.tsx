@@ -3,593 +3,367 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Laptop, 
-  Globe, 
+  Layers, 
   Cpu, 
   Search, 
-  ArrowRight, 
-  Sparkles, 
-  ShieldCheck, 
+  Check, 
   CheckCircle2, 
-  Zap, 
-  Users, 
-  Bot, 
-  FileText,
-  Clock,
-  Gauge,
-  Check,
-  Building,
-  DollarSign
+  ArrowRight,
+  ShieldCheck,
+  Zap,
+  Sparkles
 } from 'lucide-react';
-import FadeIn from '../shared/FadeIn';
+
+const EASING = [0.22, 1, 0.36, 1] as const;
+
+interface ChapterData {
+  id: string;
+  index: string;
+  title: string;
+  subtitle: string;
+  serviceParam: string;
+  icon: React.ElementType;
+  accent: string;
+  businessOutcome: string;
+  deliverables: string[];
+  checklistItems: string[];
+}
+
+const CHAPTERS: ChapterData[] = [
+  {
+    id: 'websites',
+    index: '01',
+    title: 'All-Inclusive Business Websites',
+    subtitle: 'High-conversion marketing engines',
+    serviceParam: 'websites',
+    icon: Laptop,
+    accent: '#4285F4',
+    businessOutcome:
+      'High-converting websites engineered to turn cold visitors into qualified business inquiries. Everything is managed from custom UI/UX design to automated domain configuration and sub-second edge hosting.',
+    deliverables: [
+      'Custom UI/UX & Conversion Architecture',
+      'Domain, DNS routing & edge CDN hosting included',
+      'Instant WhatsApp and direct lead routing',
+    ],
+    checklistItems: [
+      'Custom UI/UX & Responsive Conversion Design',
+      'Domain, DNS Routing & 24/7 Cloud Hosting',
+      'Direct WhatsApp & Lead Routing Integration',
+      'Search Engine & Google Business Profile Setup',
+      'Interactive Pricing & Estimate Calculator',
+      'Multi-Language / Regional Language Support',
+    ],
+  },
+  {
+    id: 'web-apps',
+    index: '02',
+    title: 'Custom Web Apps & Client Portals',
+    subtitle: 'Role-based operations & SaaS',
+    serviceParam: 'web-apps',
+    icon: Layers,
+    accent: '#7C3AED',
+    businessOutcome:
+      'Role-based web applications that streamline how your team and clients collaborate in real time. Engineered with secure authentication, scalable cloud databases, and zero recurring per-user software rent.',
+    deliverables: [
+      'Role-Based Access Control (Admin, Staff, Client Portals)',
+      'Real-Time Data Sync & Cloud Database Architecture',
+      'Automated Notifications & WhatsApp Status Alerts',
+    ],
+    checklistItems: [
+      'Secure Staff & Client Login Portal',
+      'Real-Time Admin Dashboard & Analytics',
+      'Role-Based Permissions (RBAC)',
+      'Document & File Vault with Cloud Storage',
+      'Custom Payment Gateway & Subscription Engine',
+      'Automated WhatsApp & Email Alert Triggers',
+    ],
+  },
+  {
+    id: 'software',
+    index: '03',
+    title: 'Custom Business & GST Software',
+    subtitle: 'Internal ops, billing & zero rent',
+    serviceParam: 'software',
+    icon: Cpu,
+    accent: '#10B981',
+    businessOutcome:
+      'Tailored operational software that replaces chaotic spreadsheets and expensive monthly ERP subscriptions. Generate 1-click GST invoices, track warehouse inventory, and reconcile balances effortlessly.',
+    deliverables: [
+      'Automated GST Invoicing & 1-Click PDF Generation',
+      'Real-Time Inventory & Ledger Book Tracking',
+      'Offline-First Capable & Fast Desktop/Mobile Sync',
+    ],
+    checklistItems: [
+      'Custom GST Billing & 1-Click PDF Generation',
+      'Client Ledger & Outstanding Payment Tracking',
+      'Multi-User Staff Access & Audit Logs',
+      'Real-Time Stock & Warehouse Inventory Sync',
+      'Tally & Excel Data Export / Import',
+      'Automated WhatsApp Payment Reminders',
+    ],
+  },
+  {
+    id: 'ai-growth',
+    index: '04',
+    title: 'ChatGPT, Google AI Search & Ads',
+    subtitle: 'AEO & GEO search authority',
+    serviceParam: 'ai-growth',
+    icon: Search,
+    accent: '#F97316',
+    businessOutcome:
+      'Position your company as the verified recommendation across generative search engines like ChatGPT, Perplexity, and Google AI Overviews. Capture high-intent buyers right when they seek solutions.',
+    deliverables: [
+      'AEO & GEO Structured Entity Optimization',
+      'High-Intent Keyword & Search Engine Architecture',
+      'AI Overviews Knowledge Graph Integration',
+    ],
+    checklistItems: [
+      'Schema.org Knowledge Graph & Entity Architecture',
+      'ChatGPT & Perplexity Recommendation Optimization',
+      'Google AI Overviews & Local Map Pack Sync',
+      'High-Intent Commercial Keyword Landing Pages',
+      'Competitor Disruption & Search Footprint Audit',
+      'Conversion Tracking & Search Console Integration',
+    ],
+  },
+];
 
 export default function Slide3_SolutionExplorer() {
-  // Card 1 State: Website Speed comparison
-  const [speedStack, setSpeedStack] = useState<'vooo' | 'wp'>('vooo');
+  const [activeChapterIndex, setActiveChapterIndex] = useState(0);
 
-  // Card 2 State: Web App Role switch
-  const [activeRole, setActiveRole] = useState<'admin' | 'client'>('admin');
+  // Per-chapter selected checklist items: store by chapter id
+  const [selectedScopesByChapter, setSelectedScopesByChapter] = useState<Record<string, string[]>>({
+    websites: CHAPTERS[0].checklistItems.slice(0, 3),
+    'web-apps': CHAPTERS[1].checklistItems.slice(0, 3),
+    software: CHAPTERS[2].checklistItems.slice(0, 3),
+    'ai-growth': CHAPTERS[3].checklistItems.slice(0, 3),
+  });
 
-  // Card 3 State: Software Invoice preview
-  const [invoiceStatus, setInvoiceStatus] = useState<'generated' | 'sent'>('generated');
+  const activeChapter = CHAPTERS[activeChapterIndex];
+  const activeSelectedScopes = selectedScopesByChapter[activeChapter.id] || [];
 
-  // Card 4 State: AI Engine switch
-  const [aiEngine, setAiEngine] = useState<'chatgpt' | 'perplexity'>('chatgpt');
+  const toggleScopeItem = (item: string) => {
+    setSelectedScopesByChapter((prev) => {
+      const current = prev[activeChapter.id] || [];
+      const updated = current.includes(item)
+        ? current.filter((i) => i !== item)
+        : [...current, item];
+      return {
+        ...prev,
+        [activeChapter.id]: updated,
+      };
+    });
+  };
+
+  const IconComponent = activeChapter.icon;
 
   return (
     <section 
       className="bg-[#FAFAFD] py-20 sm:py-28 px-4 sm:px-6 border-b border-slate-200/80 relative select-none"
-      aria-label="Core Engineering Capabilities"
+      aria-label="Engineered Deliverables & Interactive Chapter Stage"
     >
       <div className="max-w-6xl mx-auto">
         
         {/* SECTION HEADER */}
-        <div className="text-center mb-14 sm:mb-16">
-          <FadeIn delay={0} y={15}>
-            <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2">
-              ENGINEERED DELIVERABLES • ZERO AI SLOP
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
-              We Don't Resell Templates. <br />
-              <span className="shimmer-text">We Engineer Systems.</span>
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto mt-3 font-normal leading-relaxed">
-              Every deliverable is crafted from scratch with clean code, sub-second speeds, zero monthly software rent, and 100% client code ownership.
-            </p>
-          </FadeIn>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6, ease: EASING }}
+          className="text-left sm:text-center mb-14 sm:mb-16"
+        >
+          <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2.5">
+            ENGINEERED DELIVERABLES • ZERO AI SLOP
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
+            We Don't Resell Templates. <br />
+            <span className="shimmer-text">We Engineer Systems.</span>
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto mt-3 font-normal leading-relaxed">
+            Every deliverable is crafted from scratch with clean code, sub-second speeds, zero monthly software rent, and 100% client code ownership.
+          </p>
+        </motion.div>
 
-        {/* 2X2 BESPOKE INTERACTIVE BENTO GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        {/* ASYMMETRIC INTERACTIVE CHAPTER STAGE (40% RAIL / 60% WORKSPACE) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* ══════════════════════════════════════════════════════
-              CARD 1: HIGH-PERFORMANCE WEBSITES (ALL-INCLUSIVE)
+              LEFT COLUMN (40% — CHAPTER RAIL, lg:col-span-5)
              ══════════════════════════════════════════════════════ */}
-          <FadeIn delay={0.06} y={20} className="w-full flex">
-            <div className="w-full rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 text-left group">
-              <div>
-                {/* CARD TOP META */}
-                <div className="flex items-center justify-between gap-3 mb-5">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 border border-purple-100 flex items-center justify-center flex-shrink-0">
-                      <Laptop size={20} />
-                    </div>
-                    <div>
-                      <span className="font-mono text-[10px] font-semibold text-purple-600 uppercase tracking-wider block">
-                        01 / ALL-INCLUSIVE WEB
-                      </span>
-                      <span className="font-mono text-xs text-slate-500 font-medium">
-                        3 to 7 Days Delivery
-                      </span>
-                    </div>
-                  </div>
-                  <span className="font-mono text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
-                    Hosting Included
-                  </span>
-                </div>
+          <div className="lg:col-span-5 flex flex-col gap-2.5">
+            {CHAPTERS.map((chapter, idx) => {
+              const isActive = idx === activeChapterIndex;
+              const ChapterIcon = chapter.icon;
 
-                {/* TITLE & DESCRIPTION */}
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 tracking-tight group-hover:text-purple-600 transition-colors">
-                  High-Conversion Business Websites
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed font-normal mb-5">
-                  Visual storytelling that converts visitors into paying customers. Domain registration, DNS, SSL, and high-speed 24/7 cloud hosting included.
-                </p>
-
-                {/* INTERACTIVE MINI WIDGET: LIGHTHOUSE & SPEED TESTER */}
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 sm:p-5 mb-5 space-y-3.5">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] text-slate-500 font-semibold uppercase tracking-wider flex items-center gap-1.5">
-                      <Gauge size={13} className="text-purple-600" />
-                      Speed Benchmark
-                    </span>
-                    {/* Toggle Stack */}
-                    <div className="flex bg-slate-200/70 p-0.5 rounded-lg text-[10px] font-mono">
-                      <button
-                        onClick={() => setSpeedStack('vooo')}
-                        className={`px-2 py-0.5 rounded-md font-semibold transition-all ${
-                          speedStack === 'vooo'
-                            ? 'bg-white text-purple-600 shadow-2xs'
-                            : 'text-slate-600 hover:text-slate-900'
-                        }`}
-                      >
-                        VOOO Stack
-                      </button>
-                      <button
-                        onClick={() => setSpeedStack('wp')}
-                        className={`px-2 py-0.5 rounded-md font-semibold transition-all ${
-                          speedStack === 'wp'
-                            ? 'bg-white text-slate-900 shadow-2xs'
-                            : 'text-slate-600 hover:text-slate-900'
-                        }`}
-                      >
-                        Typical WP
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* SPEED DISPLAY */}
-                  {speedStack === 'vooo' ? (
-                    <div className="grid grid-cols-3 gap-2 text-center pt-1">
-                      <div className="p-2.5 rounded-xl bg-white border border-emerald-200 shadow-2xs">
-                        <span className="font-bold text-emerald-600 text-lg sm:text-xl block leading-tight">100</span>
-                        <span className="font-mono text-[9px] text-slate-500 uppercase">Performance</span>
-                      </div>
-                      <div className="p-2.5 rounded-xl bg-white border border-emerald-200 shadow-2xs">
-                        <span className="font-bold text-emerald-600 text-lg sm:text-xl block leading-tight">0.38s</span>
-                        <span className="font-mono text-[9px] text-slate-500 uppercase">Load Time</span>
-                      </div>
-                      <div className="p-2.5 rounded-xl bg-white border border-emerald-200 shadow-2xs">
-                        <span className="font-bold text-emerald-600 text-lg sm:text-xl block leading-tight">100</span>
-                        <span className="font-mono text-[9px] text-slate-500 uppercase">SEO & Security</span>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="grid grid-cols-3 gap-2 text-center pt-1">
-                      <div className="p-2.5 rounded-xl bg-white border border-rose-200 shadow-2xs">
-                        <span className="font-bold text-rose-500 text-lg sm:text-xl block leading-tight">46</span>
-                        <span className="font-mono text-[9px] text-slate-500 uppercase">Bloated Theme</span>
-                      </div>
-                      <div className="p-2.5 rounded-xl bg-white border border-amber-200 shadow-2xs">
-                        <span className="font-bold text-amber-600 text-lg sm:text-xl block leading-tight">3.8s</span>
-                        <span className="font-mono text-[9px] text-slate-500 uppercase">High Drop-off</span>
-                      </div>
-                      <div className="p-2.5 rounded-xl bg-white border border-rose-200 shadow-2xs">
-                        <span className="font-bold text-rose-500 text-lg sm:text-xl block leading-tight">Plugins</span>
-                        <span className="font-mono text-[9px] text-slate-500 uppercase">Plugin Risk</span>
-                      </div>
-                    </div>
+              return (
+                <button
+                  key={chapter.id}
+                  onClick={() => setActiveChapterIndex(idx)}
+                  className={`group relative text-left p-4 sm:p-5 rounded-2xl transition-all duration-200 flex items-start gap-3.5 sm:gap-4 outline-none ${
+                    isActive ? 'text-slate-900' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
+                  }`}
+                >
+                  {/* SHARED-ELEMENT SLIDING STUDIO BLUE VERTICAL BAR + BACKGROUND TINT */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-system-rail"
+                      transition={{ type: 'spring', stiffness: 380, damping: 34 }}
+                      className="absolute inset-0 bg-blue-50/70 border border-blue-200/90 rounded-2xl -z-10 shadow-2xs"
+                    />
+                  )}
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-rail-bar"
+                      transition={{ type: 'spring', stiffness: 380, damping: 34 }}
+                      className="absolute left-0 top-3.5 bottom-3.5 w-1 bg-blue-600 rounded-r-full"
+                    />
                   )}
 
-                  <div className="text-[11px] font-mono text-slate-500 flex items-center justify-between pt-1 border-t border-slate-200/60">
-                    <span className="flex items-center gap-1 text-emerald-600 font-medium">
-                      <Zap size={11} /> Edge Cache Enabled
-                    </span>
-                    <span>1-Tap WhatsApp Lead Funnel</span>
+                  {/* CHAPTER ICON CONTAINER */}
+                  <div 
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${
+                      isActive ? 'scale-105' : 'group-hover:scale-105'
+                    }`}
+                    style={{ 
+                      backgroundColor: isActive ? `${chapter.accent}18` : '#F1F5F9',
+                      color: isActive ? chapter.accent : '#64748B'
+                    }}
+                  >
+                    <ChapterIcon size={18} />
                   </div>
-                </div>
 
-                {/* 3 CHECKMARKS */}
-                <ul className="space-y-2 mb-6 text-xs sm:text-sm text-slate-700 font-medium">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
-                    <span>Domain name, DNS setup & automated SSL included</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
-                    <span>Sub-0.4s instant mobile loading on 4G & 5G</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
-                    <span>100% full source code ownership handed over</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* CARD BOTTOM CTA */}
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                <Link
-                  to="/services#websites"
-                  className="font-mono text-xs font-semibold text-purple-600 hover:text-purple-700 hover:underline flex items-center gap-1"
-                >
-                  <span>Inspect Website Scope</span>
-                  <ArrowRight size={13} />
-                </Link>
-                <Link
-                  to="/contact?scope=website"
-                  className="btn-3d-base btn-3d-primary rounded-full bg-slate-900 hover:bg-purple-600 text-white px-4 py-2 text-xs font-medium"
-                >
-                  Get Cost Estimate
-                </Link>
-              </div>
-            </div>
-          </FadeIn>
-
+                  {/* CHAPTER TITLES */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className={`font-mono text-xs font-bold ${isActive ? 'text-blue-600' : 'text-slate-400'}`}>
+                        {chapter.index}
+                      </span>
+                      <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider truncate">
+                        {chapter.subtitle}
+                      </span>
+                    </div>
+                    <h3 className={`text-sm sm:text-base font-bold tracking-tight leading-snug truncate ${
+                      isActive ? 'text-slate-900' : 'text-slate-700'
+                    }`}>
+                      {chapter.title}
+                    </h3>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
 
           {/* ══════════════════════════════════════════════════════
-              CARD 2: CUSTOM WEB APPS & CLIENT PORTALS
+              RIGHT COLUMN (60% — MORPHING WORKSPACE, lg:col-span-7)
              ══════════════════════════════════════════════════════ */}
-          <FadeIn delay={0.12} y={20} className="w-full flex">
-            <div className="w-full rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 text-left group">
-              <div>
-                {/* CARD TOP META */}
-                <div className="flex items-center justify-between gap-3 mb-5">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center flex-shrink-0">
-                      <Globe size={20} />
+          <div className="lg:col-span-7">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeChapter.id}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.35, ease: EASING }}
+                className="space-y-6"
+              >
+                {/* 1. BUSINESS OUTCOME (2-SENTENCE PLAIN ENGLISH) */}
+                <div className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-xs">
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <div 
+                      className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                      style={{ backgroundColor: `${activeChapter.accent}14`, color: activeChapter.accent }}
+                    >
+                      <IconComponent size={16} />
                     </div>
+                    <span className="font-mono text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                      Business Outcome Standard
+                    </span>
+                  </div>
+
+                  <p className="text-base sm:text-lg text-slate-800 leading-relaxed font-medium">
+                    {activeChapter.businessOutcome}
+                  </p>
+
+                  {/* 2. THREE REAL DELIVERABLES */}
+                  <div className="mt-5 pt-5 border-t border-slate-100 flex flex-col gap-2.5">
+                    {activeChapter.deliverables.map((del, dIdx) => (
+                      <div key={dIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                        <CheckCircle2 size={16} className="text-emerald-500 flex-shrink-0 mt-0.5" />
+                        <span className="font-medium leading-snug">{del}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 3. FLAT SCOPE CHECKLIST & DYNAMIC CTA */}
+                <div className="rounded-2xl bg-[#F8F9FC] border border-slate-200/90 p-6 sm:p-7 text-left shadow-2xs">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-200/70">
                     <div>
-                      <span className="font-mono text-[10px] font-semibold text-blue-600 uppercase tracking-wider block">
-                        02 / WEB APPS & PORTALS
-                      </span>
-                      <span className="font-mono text-xs text-slate-500 font-medium">
-                        2 to 3 Weeks Delivery
-                      </span>
-                    </div>
-                  </div>
-                  <span className="font-mono text-[11px] font-semibold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-1 rounded-full">
-                    Zero Per-Seat Fees
-                  </span>
-                </div>
-
-                {/* TITLE & DESCRIPTION */}
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 tracking-tight group-hover:text-blue-600 transition-colors">
-                  Custom Client Portals & Dashboards
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed font-normal mb-5">
-                  Self-service client login portals, booking calendars, and staff management dashboards tailored around your exact workflow.
-                </p>
-
-                {/* INTERACTIVE MINI WIDGET: ROLE-BASED DASHBOARD PREVIEW */}
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 sm:p-5 mb-5 space-y-3.5">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5 font-mono text-[11px] text-slate-500 font-semibold">
-                      <div className="flex gap-1">
-                        <span className="w-2 h-2 rounded-full bg-rose-400" />
-                        <span className="w-2 h-2 rounded-full bg-amber-400" />
-                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                      </div>
-                      <span className="ml-1 text-slate-700 font-mono text-[10px]">app.yourbrand.in</span>
-                    </div>
-
-                    {/* Role Switcher */}
-                    <div className="flex bg-slate-200/70 p-0.5 rounded-lg text-[10px] font-mono">
-                      <button
-                        onClick={() => setActiveRole('admin')}
-                        className={`px-2 py-0.5 rounded-md font-semibold transition-all ${
-                          activeRole === 'admin'
-                            ? 'bg-white text-blue-600 shadow-2xs'
-                            : 'text-slate-600 hover:text-slate-900'
-                        }`}
-                      >
-                        Admin View
-                      </button>
-                      <button
-                        onClick={() => setActiveRole('client')}
-                        className={`px-2 py-0.5 rounded-md font-semibold transition-all ${
-                          activeRole === 'client'
-                            ? 'bg-white text-blue-600 shadow-2xs'
-                            : 'text-slate-600 hover:text-slate-900'
-                        }`}
-                      >
-                        Client View
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* ROLE DISPLAY */}
-                  {activeRole === 'admin' ? (
-                    <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-2">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-500 font-mono">Active Users</span>
-                        <span className="font-bold text-slate-900">142 Accounts (₹0 User Fees)</span>
-                      </div>
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-500 font-mono">Database Latency</span>
-                        <span className="font-bold text-emerald-600">28ms • Global Edge</span>
-                      </div>
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-500 font-mono">Security</span>
-                        <span className="font-mono text-[11px] text-slate-700 font-medium">JWT Auth + Daily Backups</span>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-2">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-500 font-mono">Client Login</span>
-                        <span className="font-bold text-blue-600">Secure Self-Service Active</span>
-                      </div>
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-500 font-mono">Project Files</span>
-                        <span className="font-bold text-slate-900">100% Downloadable</span>
-                      </div>
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-500 font-mono">Source Code</span>
-                        <span className="font-mono text-[11px] text-emerald-600 font-semibold">Client Owned Repository</span>
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="text-[11px] font-mono text-slate-500 flex items-center justify-between pt-1 border-t border-slate-200/60">
-                    <span className="flex items-center gap-1 text-blue-600 font-medium">
-                      <ShieldCheck size={12} /> Permanent Handover
-                    </span>
-                    <span>No SaaS subscription lock-in</span>
-                  </div>
-                </div>
-
-                {/* 3 CHECKMARKS */}
-                <ul className="space-y-2 mb-6 text-xs sm:text-sm text-slate-700 font-medium">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
-                    <span>Role-based staff and client authentication</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
-                    <span>Real-time database sync with sub-50ms latency</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
-                    <span>₹0 monthly user license rent (unlike SaaS tools)</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* CARD BOTTOM CTA */}
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                <Link
-                  to="/services#web-apps"
-                  className="font-mono text-xs font-semibold text-blue-600 hover:text-blue-700 hover:underline flex items-center gap-1"
-                >
-                  <span>Inspect Web App Scope</span>
-                  <ArrowRight size={13} />
-                </Link>
-                <Link
-                  to="/contact?scope=web-app"
-                  className="btn-3d-base btn-3d-primary rounded-full bg-slate-900 hover:bg-blue-600 text-white px-4 py-2 text-xs font-medium"
-                >
-                  Get Cost Estimate
-                </Link>
-              </div>
-            </div>
-          </FadeIn>
-
-
-          {/* ══════════════════════════════════════════════════════
-              CARD 3: BUSINESS OPERATIONS & AUTOMATED GST SOFTWARE
-             ══════════════════════════════════════════════════════ */}
-          <FadeIn delay={0.18} y={20} className="w-full flex">
-            <div className="w-full rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 text-left group">
-              <div>
-                {/* CARD TOP META */}
-                <div className="flex items-center justify-between gap-3 mb-5">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center flex-shrink-0">
-                      <Cpu size={20} />
-                    </div>
-                    <div>
-                      <span className="font-mono text-[10px] font-semibold text-emerald-600 uppercase tracking-wider block">
-                        03 / BUSINESS SOFTWARE
-                      </span>
-                      <span className="font-mono text-xs text-slate-500 font-medium">
-                        Fixed Milestone Delivery
-                      </span>
-                    </div>
-                  </div>
-                  <span className="font-mono text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
-                    ₹0 Monthly Software Rent
-                  </span>
-                </div>
-
-                {/* TITLE & DESCRIPTION */}
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 tracking-tight group-hover:text-emerald-600 transition-colors">
-                  Operations & Automated GST Invoicing
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed font-normal mb-5">
-                  Replace chaotic spreadsheets and expensive software rentals with custom software built exclusively around your company's workflows.
-                </p>
-
-                {/* INTERACTIVE MINI WIDGET: DIGITAL GST INVOICE ENGINE */}
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 sm:p-5 mb-5 space-y-3.5">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] text-slate-500 font-semibold uppercase tracking-wider flex items-center gap-1.5">
-                      <FileText size={13} className="text-emerald-600" />
-                      Live GST Invoice Engine
-                    </span>
-                    <span className="font-mono text-[10px] bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded">
-                      TAX VERIFIED
-                    </span>
-                  </div>
-
-                  {/* INVOICE CARD */}
-                  <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-2">
-                    <div className="flex items-center justify-between text-xs pb-1.5 border-b border-slate-100">
-                      <span className="font-mono font-bold text-slate-900">INV-2026-089</span>
-                      <span className="font-mono text-[11px] text-slate-500">Auto-Generated</span>
-                    </div>
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-slate-600">Tax Breakdown</span>
-                      <span className="font-mono text-[11px] font-medium text-slate-900">CGST (9%) + SGST (9%)</span>
-                    </div>
-                    <div className="flex items-center justify-between text-xs pt-1 border-t border-slate-100">
-                      <span className="font-semibold text-slate-800">Monthly Licensing Fee</span>
-                      <span className="font-bold text-emerald-600 font-mono text-sm">₹0 / month (Forever)</span>
-                    </div>
-                  </div>
-
-                  <div className="text-[11px] font-mono text-slate-500 flex items-center justify-between pt-1 border-t border-slate-200/60">
-                    <span className="flex items-center gap-1 text-emerald-600 font-medium">
-                      <Check size={12} /> Spreadsheets Eliminated
-                    </span>
-                    <span>1-Click PDF & WhatsApp Dispatch</span>
-                  </div>
-                </div>
-
-                {/* 3 CHECKMARKS */}
-                <ul className="space-y-2 mb-6 text-xs sm:text-sm text-slate-700 font-medium">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
-                    <span>Automated 1-click GST tax invoices and client statements</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
-                    <span>Real-time order tracking, payment logging & inventory</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
-                    <span>Zero per-user monthly rent — you own the platform entirely</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* CARD BOTTOM CTA */}
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                <Link
-                  to="/services#custom-software"
-                  className="font-mono text-xs font-semibold text-emerald-600 hover:text-emerald-700 hover:underline flex items-center gap-1"
-                >
-                  <span>Inspect Software Scope</span>
-                  <ArrowRight size={13} />
-                </Link>
-                <Link
-                  to="/contact?scope=software"
-                  className="btn-3d-base btn-3d-primary rounded-full bg-slate-900 hover:bg-emerald-600 text-white px-4 py-2 text-xs font-medium"
-                >
-                  Get Cost Estimate
-                </Link>
-              </div>
-            </div>
-          </FadeIn>
-
-
-          {/* ══════════════════════════════════════════════════════
-              CARD 4: CHATGPT & GOOGLE AI SEARCH VISIBILITY
-             ══════════════════════════════════════════════════════ */}
-          <FadeIn delay={0.24} y={20} className="w-full flex">
-            <div className="w-full rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 text-left group">
-              <div>
-                {/* CARD TOP META */}
-                <div className="flex items-center justify-between gap-3 mb-5">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 border border-amber-100 flex items-center justify-center flex-shrink-0">
-                      <Search size={20} />
-                    </div>
-                    <div>
-                      <span className="font-mono text-[10px] font-semibold text-amber-600 uppercase tracking-wider block">
-                        04 / AI SEARCH & ADS
-                      </span>
-                      <span className="font-mono text-xs text-slate-500 font-medium">
-                        Permanent Organic Equity
-                      </span>
-                    </div>
-                  </div>
-                  <span className="font-mono text-[11px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full">
-                    AEO & GEO Ready
-                  </span>
-                </div>
-
-                {/* TITLE & DESCRIPTION */}
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 tracking-tight group-hover:text-amber-600 transition-colors">
-                  ChatGPT & Google AI Recommendations
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed font-normal mb-5">
-                  When potential clients query ChatGPT, Perplexity, or Google, our structured schema ensures your business is cited and recommended as the authority.
-                </p>
-
-                {/* INTERACTIVE MINI WIDGET: AI CONVERSATION SIMULATOR */}
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 sm:p-5 mb-5 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] text-slate-500 font-semibold uppercase tracking-wider flex items-center gap-1.5">
-                      <Sparkles size={13} className="text-amber-500" />
-                      AI Search Query Simulation
-                    </span>
-                    <div className="flex bg-slate-200/70 p-0.5 rounded-lg text-[10px] font-mono">
-                      <button
-                        onClick={() => setAiEngine('chatgpt')}
-                        className={`px-2 py-0.5 rounded-md font-semibold transition-all ${
-                          aiEngine === 'chatgpt'
-                            ? 'bg-white text-emerald-600 shadow-2xs'
-                            : 'text-slate-600 hover:text-slate-900'
-                        }`}
-                      >
-                        ChatGPT
-                      </button>
-                      <button
-                        onClick={() => setAiEngine('perplexity')}
-                        className={`px-2 py-0.5 rounded-md font-semibold transition-all ${
-                          aiEngine === 'perplexity'
-                            ? 'bg-white text-blue-600 shadow-2xs'
-                            : 'text-slate-600 hover:text-slate-900'
-                        }`}
-                      >
-                        Perplexity
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* CHAT BUBBLE SIMULATION */}
-                  <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-2 text-xs">
-                    <div className="flex items-start gap-2">
-                      <span className="font-mono text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-semibold flex-shrink-0">
-                        Query
-                      </span>
-                      <p className="text-slate-700 italic">
-                        "Who are verified web and software engineers in Maharashtra?"
+                      <h4 className="text-sm sm:text-base font-bold text-slate-900">
+                        Scope Checklist & Instant Estimate
+                      </h4>
+                      <p className="text-xs text-slate-500">
+                        Select what your project requires to configure an upfront scope:
                       </p>
                     </div>
-
-                    <div className="flex items-start gap-2 pt-2 border-t border-slate-100">
-                      <span className="font-mono text-[10px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-bold flex-shrink-0">
-                        Answer
-                      </span>
-                      <p className="text-slate-800 font-medium">
-                        "Recommended: <span className="text-slate-950 font-bold">Your Business Entity</span> — verified structured schema, high trust metrics, and direct founder leadership."
-                      </p>
-                    </div>
+                    <span className="self-start sm:self-center font-mono text-[11px] font-semibold text-blue-600 bg-blue-50 border border-blue-200/60 px-2.5 py-1 rounded-full">
+                      {activeSelectedScopes.length} selected
+                    </span>
                   </div>
 
-                  <div className="text-[11px] font-mono text-slate-500 flex items-center justify-between pt-1 border-t border-slate-200/60">
-                    <span className="flex items-center gap-1 text-amber-600 font-medium">
-                      <Bot size={12} /> Knowledge Graph Validated
-                    </span>
-                    <span>Google Maps 3-Pack Pin</span>
+                  {/* CHECKLIST ITEMS */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6">
+                    {activeChapter.checklistItems.map((item, itemIdx) => {
+                      const isChecked = activeSelectedScopes.includes(item);
+                      return (
+                        <button
+                          key={itemIdx}
+                          type="button"
+                          onClick={() => toggleScopeItem(item)}
+                          className={`flex items-center gap-3 p-3 rounded-xl border text-left transition-all text-xs sm:text-sm font-medium ${
+                            isChecked
+                              ? 'bg-white border-blue-300 text-slate-900 shadow-2xs'
+                              : 'bg-white/50 border-slate-200/70 text-slate-600 hover:bg-white hover:border-slate-300'
+                          }`}
+                        >
+                          <div 
+                            className={`w-4 h-4 rounded flex items-center justify-center flex-shrink-0 transition-colors ${
+                              isChecked ? 'bg-blue-600 text-white' : 'border border-slate-300 bg-white'
+                            }`}
+                          >
+                            {isChecked && <Check size={12} strokeWidth={3} />}
+                          </div>
+                          <span className="truncate">{item}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* DYNAMIC JUMP-TO-CONTACT CTA */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+                    <Link
+                      to={`/contact?service=${activeChapter.serviceParam}&scopes=${encodeURIComponent(
+                        activeSelectedScopes.join(';')
+                      )}`}
+                      className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 px-7 py-3.5 font-medium text-sm sm:text-base text-white shadow-[0_4px_16px_rgba(66,133,244,0.25)] hover:shadow-[0_8px_24px_rgba(66,133,244,0.35)] transition-all duration-200 hover:-translate-y-[2px] active:translate-y-[2px] active:scale-[0.985] overflow-hidden"
+                    >
+                      <span className="relative z-10 font-medium">
+                        See what your project will cost ({activeSelectedScopes.length} selected)
+                      </span>
+                      <ArrowRight size={16} className="relative z-10 transition-transform duration-200 group-hover:translate-x-0.5" />
+                      <span className="absolute inset-0 bg-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
+                    </Link>
+
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500 font-mono">
+                      <ShieldCheck size={14} className="text-emerald-500" />
+                      <span>Zero setup fee · Day 1 handover</span>
+                    </div>
                   </div>
                 </div>
 
-                {/* 3 CHECKMARKS */}
-                <ul className="space-y-2 mb-6 text-xs sm:text-sm text-slate-700 font-medium">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
-                    <span>Structured Schema.org JSON-LD for AI search engines</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
-                    <span>Local Google Maps 3-Pack pin and business citation authority</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
-                    <span>High-intent Google Ads with zero wasted agency overhead</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* CARD BOTTOM CTA */}
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                <Link
-                  to="/seo-ai"
-                  className="font-mono text-xs font-semibold text-amber-600 hover:text-amber-700 hover:underline flex items-center gap-1"
-                >
-                  <span>Inspect AI Search Scope</span>
-                  <ArrowRight size={13} />
-                </Link>
-                <Link
-                  to="/contact?scope=seo-ai"
-                  className="btn-3d-base btn-3d-primary rounded-full bg-slate-900 hover:bg-amber-600 text-white px-4 py-2 text-xs font-medium"
-                >
-                  Get Cost Estimate
-                </Link>
-              </div>
-            </div>
-          </FadeIn>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
         </div>
 
