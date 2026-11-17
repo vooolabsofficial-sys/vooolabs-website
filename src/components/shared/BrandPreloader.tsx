@@ -1,57 +1,76 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { TargetAndTransition } from 'framer-motion';
 
 interface BrandPreloaderProps {
   onComplete?: () => void;
 }
 
 export default function BrandPreloader({ onComplete }: BrandPreloaderProps) {
-  const [progress, setProgress] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
 
   useEffect(() => {
-    // Calibrated progress simulation with realistic acceleration curve
-    const startTime = performance.now();
-    const duration = 1250; // 1.25s total preloader duration
+    // Calibrated studio sweet-spot timing: 1.25s total duration
+    const timer = setTimeout(() => {
+      setIsFinished(true);
+      if (onComplete) onComplete();
+    }, 1250);
 
-    let frameId: number;
-    const updateProgress = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const rawProgress = Math.min(elapsed / duration, 1);
-      
-      // Easing curve: quick start, brief dwell, fast completion
-      const eased = Math.pow(rawProgress, 0.85) * 100;
-      setProgress(Math.round(eased));
-
-      if (rawProgress < 1) {
-        frameId = requestAnimationFrame(updateProgress);
-      } else {
-        setProgress(100);
-        setTimeout(() => {
-          setIsFinished(true);
-          if (onComplete) onComplete();
-        }, 180);
-      }
-    };
-
-    frameId = requestAnimationFrame(updateProgress);
-
-    return () => cancelAnimationFrame(frameId);
+    return () => clearTimeout(timer);
   }, [onComplete]);
 
-  // Letter motion variant with tuned spring physics
-  const letterVariants = {
-    hidden: { opacity: 0, y: 18, scale: 0.85 },
-    visible: (custom: number) => ({
+  // High-rebound bouncy elastic letter drop keyframes
+  const dropBounce = {
+    initial: { 
+      opacity: 0, 
+      y: -95, 
+      scaleY: 1.4, 
+      scaleX: 0.75 
+    },
+    animate: (delay: number) => ({
       opacity: 1,
-      y: 0,
-      scale: 1,
+      y: [-95, 18, -10, 4, 0],
+      scaleY: [1.4, 0.75, 1.2, 0.94, 1],
+      scaleX: [0.75, 1.3, 0.88, 1.06, 1],
       transition: {
-        delay: custom * 0.08,
-        duration: 0.5,
-        ease: [0.16, 1, 0.3, 1] as any,
+        delay,
+        duration: 0.72,
+        ease: [0.22, 1, 0.36, 1] as any,
       },
     }),
+  };
+
+  // Secondary joyful wave jump for the three 'O's
+  const oWaveJump = (delay: number): TargetAndTransition => ({
+    opacity: 1,
+    y: [-95, 18, -10, 4, 0, 0, -18, 0],
+    scaleY: [1.4, 0.75, 1.2, 0.94, 1, 1, 1.15, 1],
+    scaleX: [0.75, 1.3, 0.88, 1.06, 1, 1, 0.9, 1],
+    transition: {
+      delay,
+      duration: 1.05,
+      times: [0, 0.35, 0.55, 0.7, 0.8, 0.85, 0.93, 1],
+      ease: 'easeOut',
+    },
+  });
+
+  // Bouncy pop-in for 'LABS'
+  const labsBounce = {
+    initial: { 
+      opacity: 0, 
+      scale: 0.3, 
+      y: 20 
+    },
+    animate: {
+      opacity: 1,
+      scale: [0.3, 1.28, 0.9, 1.08, 1],
+      y: [20, -8, 3, -1, 0],
+      transition: {
+        delay: 0.44,
+        duration: 0.75,
+        ease: [0.22, 1, 0.36, 1] as any,
+      },
+    },
   };
 
   return (
@@ -62,8 +81,9 @@ export default function BrandPreloader({ onComplete }: BrandPreloaderProps) {
           initial={{ opacity: 1 }}
           exit={{ 
             opacity: 0, 
-            scale: 1.02,
-            transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } 
+            scale: 1.04,
+            filter: 'blur(4px)',
+            transition: { duration: 0.38, ease: [0.16, 1, 0.3, 1] } 
           }}
           onClick={() => {
             setIsFinished(true);
@@ -71,83 +91,72 @@ export default function BrandPreloader({ onComplete }: BrandPreloaderProps) {
           }}
           className="fixed inset-0 z-[99999] bg-white flex flex-col items-center justify-center select-none overflow-hidden cursor-pointer"
           title="Click to enter immediately"
-          role="progressbar"
-          aria-valuenow={progress}
-          aria-valuemin={0}
-          aria-valuemax={100}
+          role="status"
           aria-label="VOOO LABS loading system"
         >
-          {/* AMBIENT BRAND COLOR GLOWS */}
+          {/* AMBIENT BRAND GLOWS */}
           <div 
-            className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-blue-500/10 blur-[100px] pointer-events-none" 
+            className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-blue-500/10 blur-[110px] pointer-events-none" 
             aria-hidden="true" 
           />
           <div 
-            className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-orange-500/10 blur-[100px] pointer-events-none" 
+            className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-orange-500/10 blur-[110px] pointer-events-none" 
             aria-hidden="true" 
           />
           <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-purple-500/8 blur-[90px] pointer-events-none" 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-purple-500/8 blur-[100px] pointer-events-none" 
             aria-hidden="true" 
           />
 
-          {/* MAIN BRAND CONTAINER */}
-          <div className="relative z-10 flex flex-col items-center max-w-sm w-full px-6 text-center">
+          {/* MAIN BRAND LOGO STAGE */}
+          <div className="relative z-10 flex flex-col items-center justify-center">
             
-            {/* LOGO ASSEMBLY WITH INDIVIDUAL LETTER PHYSICS */}
-            <div className="flex items-baseline justify-center mb-6">
+            {/* BOUNCY LOGO LETTERS */}
+            <div className="flex items-baseline justify-center">
               
-              {/* LETTER 'V' — GOOGLE BLUE */}
+              {/* LETTER 'V' — GOOGLE/BRAND BLUE */}
               <motion.span
-                custom={0}
-                variants={letterVariants}
-                initial="hidden"
-                animate="visible"
-                className="font-crazyblocks text-5xl sm:text-6xl text-[#4285F4] tracking-wider leading-none inline-block drop-shadow-sm"
+                variants={dropBounce}
+                initial="initial"
+                animate={dropBounce.animate(0.04)}
+                className="font-crazyblocks text-6xl sm:text-7xl md:text-8xl text-[#4285F4] tracking-wider leading-none inline-block drop-shadow-sm origin-bottom"
               >
                 V
               </motion.span>
 
-              {/* LETTER 'O' #1 — BLUE-PURPLE TRANSITION */}
+              {/* LETTER 'O' #1 — BLUE-PURPLE INDIGO */}
               <motion.span
-                custom={1}
-                variants={letterVariants}
-                initial="hidden"
-                animate="visible"
-                className="font-crazyblocks text-5xl sm:text-6xl text-[#5B5BD6] tracking-wider leading-none inline-block"
+                initial={{ opacity: 0, y: -95, scaleY: 1.4, scaleX: 0.75 }}
+                animate={oWaveJump(0.14)}
+                className="font-crazyblocks text-6xl sm:text-7xl md:text-8xl text-[#5B5BD6] tracking-wider leading-none inline-block origin-bottom"
               >
                 O
               </motion.span>
 
               {/* LETTER 'O' #2 — ROYAL PURPLE */}
               <motion.span
-                custom={2}
-                variants={letterVariants}
-                initial="hidden"
-                animate="visible"
-                className="font-crazyblocks text-5xl sm:text-6xl text-[#7C3AED] tracking-wider leading-none inline-block"
+                initial={{ opacity: 0, y: -95, scaleY: 1.4, scaleX: 0.75 }}
+                animate={oWaveJump(0.24)}
+                className="font-crazyblocks text-6xl sm:text-7xl md:text-8xl text-[#7C3AED] tracking-wider leading-none inline-block origin-bottom"
               >
                 O
               </motion.span>
 
               {/* LETTER 'O' #3 — VIBRANT ORANGE */}
               <motion.span
-                custom={3}
-                variants={letterVariants}
-                initial="hidden"
-                animate="visible"
-                className="font-crazyblocks text-5xl sm:text-6xl text-[#F97316] tracking-wider leading-none inline-block"
+                initial={{ opacity: 0, y: -95, scaleY: 1.4, scaleX: 0.75 }}
+                animate={oWaveJump(0.34)}
+                className="font-crazyblocks text-6xl sm:text-7xl md:text-8xl text-[#F97316] tracking-wider leading-none inline-block origin-bottom"
               >
                 O
               </motion.span>
 
               {/* 'LABS' — MULTI-COLOUR GRADIENT WITH SHIMMER SWEEP */}
               <motion.span
-                custom={4}
-                variants={letterVariants}
-                initial="hidden"
-                animate="visible"
-                className="font-crazyblocks text-3xl sm:text-4xl ml-3.5 tracking-wider leading-none inline-block shimmer-text font-bold"
+                variants={labsBounce}
+                initial="initial"
+                animate="animate"
+                className="font-crazyblocks text-4xl sm:text-5xl md:text-6xl ml-3.5 sm:ml-5 tracking-wider leading-none inline-block shimmer-text font-bold origin-center"
                 style={{
                   background: 'linear-gradient(135deg, #4285F4 0%, #7C3AED 50%, #F97316 100%)',
                   WebkitBackgroundClip: 'text',
@@ -158,42 +167,23 @@ export default function BrandPreloader({ onComplete }: BrandPreloaderProps) {
               </motion.span>
             </div>
 
-            {/* 3-DOT KINETIC PULSE RINGS */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.35, duration: 0.4 }}
-              className="flex items-center gap-2 mb-6"
-            >
-              <span className="w-2 h-2 rounded-full bg-[#4285F4] animate-pulse" style={{ animationDelay: '0ms' }} />
-              <span className="w-2 h-2 rounded-full bg-[#7C3AED] animate-pulse" style={{ animationDelay: '150ms' }} />
-              <span className="w-2 h-2 rounded-full bg-[#F97316] animate-pulse" style={{ animationDelay: '300ms' }} />
-            </motion.div>
-
-            {/* HIGH-PRECISION 2PX MULTI-COLOUR PROGRESS BAR */}
-            <div className="w-full max-w-[220px] h-[3px] bg-slate-100 rounded-full overflow-hidden relative shadow-inner mb-4">
-              <motion.div
-                className="h-full rounded-full"
-                style={{
-                  width: `${progress}%`,
-                  background: 'linear-gradient(90deg, #4285F4 0%, #7C3AED 50%, #F97316 100%)',
-                  boxShadow: '0 0 10px rgba(66, 133, 244, 0.4)',
-                }}
-                transition={{ ease: 'linear' }}
+            {/* 3 RHYTHMIC JELLY-BOUNCE DOTS IN BRAND COLORS */}
+            <div className="flex items-center gap-3 mt-8">
+              <motion.span 
+                animate={{ y: [0, -12, 0], scaleY: [1, 0.7, 1.2, 1] }}
+                transition={{ duration: 0.65, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
+                className="w-2.5 h-2.5 rounded-full bg-[#4285F4] shadow-xs" 
               />
-            </div>
-
-            {/* MONOSPACED TELEMETRY & LIVE COUNTER */}
-            <div className="w-full max-w-[240px] flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <span className="tracking-widest uppercase text-slate-500 font-medium">
-                {progress < 40 && 'INITIALIZING...'}
-                {progress >= 40 && progress < 85 && 'CALIBRATING CORE...'}
-                {progress >= 85 && progress < 100 && 'SYNCHRONIZING...'}
-                {progress === 100 && 'SYSTEM VERIFIED'}
-              </span>
-              <span className="text-slate-700 font-semibold tabular-nums">
-                {progress}%
-              </span>
+              <motion.span 
+                animate={{ y: [0, -12, 0], scaleY: [1, 0.7, 1.2, 1] }}
+                transition={{ duration: 0.65, repeat: Infinity, ease: 'easeInOut', delay: 0.15 }}
+                className="w-2.5 h-2.5 rounded-full bg-[#7C3AED] shadow-xs" 
+              />
+              <motion.span 
+                animate={{ y: [0, -12, 0], scaleY: [1, 0.7, 1.2, 1] }}
+                transition={{ duration: 0.65, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+                className="w-2.5 h-2.5 rounded-full bg-[#F97316] shadow-xs" 
+              />
             </div>
 
           </div>

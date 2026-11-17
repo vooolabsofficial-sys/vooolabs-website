@@ -49,16 +49,10 @@ function MinimalLoadingFallback() {
           LABS
         </span>
       </div>
-      <div className="flex items-center gap-1.5 mb-3">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#4285F4] animate-pulse" />
-        <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED] animate-pulse" style={{ animationDelay: '150ms' }} />
-        <span className="w-1.5 h-1.5 rounded-full bg-[#F97316] animate-pulse" style={{ animationDelay: '300ms' }} />
-      </div>
-      <div className="w-24 h-0.5 bg-slate-100 rounded-full overflow-hidden">
-        <div 
-          className="h-full w-full animate-pulse"
-          style={{ background: 'linear-gradient(90deg, #4285F4, #7C3AED, #F97316)' }}
-        />
+      <div className="flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-[#4285F4] animate-pulse" />
+        <span className="w-2 h-2 rounded-full bg-[#7C3AED] animate-pulse" style={{ animationDelay: '150ms' }} />
+        <span className="w-2 h-2 rounded-full bg-[#F97316] animate-pulse" style={{ animationDelay: '300ms' }} />
       </div>
     </div>
   );
