@@ -42,7 +42,7 @@ function CleanTypewriter() {
 
   return (
     <span className="inline-flex items-center">
-      <span className="g-text font-semibold">{displayText}</span>
+      <span className="g-text font-bold">{displayText}</span>
       <span className="typewriter-cursor ml-0.5 bg-blue-600" aria-hidden="true" />
     </span>
   );
@@ -84,20 +84,27 @@ export default function Slide1_Hero() {
       {/* HERO EDITORIAL CONTENT */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-5xl mx-auto py-2 w-full">
         
-        {/* LINE 1: PURE EDITORIAL TEXT (ZERO PILL/BADGE, NO MARATHI/HINDI, STARTS FROM LEFT) */}
+        {/* LINE 1: PURE EDITORIAL TEXT (MATCHED INTER FONT, WEIGHT CONTRAST, ZERO PILL) */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05, ease: EASING }}
-          className="w-full max-w-4xl text-left mb-3 px-1 sm:px-2"
+          className="flex items-center justify-center gap-2 select-none mb-4 text-center"
         >
-          <span className="font-mono text-xs sm:text-sm font-medium text-slate-500 tracking-wide select-none">
-            First make it work, then make it beautiful.
+          <span className="font-sans text-xs sm:text-sm font-normal text-slate-500 tracking-tight">
+            First make it work,
+          </span>
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 opacity-75" aria-hidden="true" />
+          <span className="font-sans text-xs sm:text-sm font-medium text-slate-700 tracking-tight">
+            then make it
+          </span>
+          <span className="font-sans text-xs sm:text-sm font-bold text-blue-600 tracking-tight">
+            beautiful.
           </span>
         </motion.div>
 
-        {/* LINES 2 & 3: CENTERED HEADLINE STARTING WITH 'Engineering Digital Products' */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-5 max-w-4xl mx-auto text-center">
+        {/* LINES 2 & 3: HEADLINE WITH BOLD / LIGHT CONTRAST & ACCENT COLOR */}
+        <h1 className="text-4xl sm:text-6xl lg:text-[4.25rem] tracking-[-0.03em] leading-[1.10] mb-5 max-w-4xl mx-auto text-center w-full">
           <span className="block overflow-hidden py-1">
             <motion.span
               className="block"
@@ -105,17 +112,19 @@ export default function Slide1_Hero() {
               animate={{ y: '0%' }}
               transition={{ duration: 0.7, delay: 0.12, ease: EASING }}
             >
-              Engineering Digital Products
+              <span className="font-extrabold text-slate-950">Engineering</span>{' '}
+              <span className="font-normal text-slate-600">Digital Products</span>
             </motion.span>
           </span>
           <span className="block overflow-hidden py-1">
             <motion.span
-              className="block shimmer-text"
+              className="block"
               initial={{ y: '100%' }}
               animate={{ y: '0%' }}
               transition={{ duration: 0.7, delay: 0.22, ease: EASING }}
             >
-              with Obsession & Scale.
+              <span className="font-light text-slate-400">with</span>{' '}
+              <span className="font-extrabold g-text shimmer-text">Obsession & Scale.</span>
             </motion.span>
           </span>
         </h1>
@@ -127,7 +136,7 @@ export default function Slide1_Hero() {
           transition={{ duration: 0.6, delay: 0.32, ease: EASING }}
         >
           <p className="font-normal text-base sm:text-lg md:text-xl text-slate-600 max-w-xl mx-auto leading-relaxed mb-8">
-            We build high-performance <CleanTypewriter />
+            <span className="font-light text-slate-500">We build high-performance</span> <CleanTypewriter />
           </p>
         </motion.div>
 
@@ -251,8 +260,13 @@ export default function Slide1_Hero() {
           transition={{ duration: 0.5, delay: 0.55 }}
           className="font-mono text-[11px] sm:text-xs text-slate-500 uppercase tracking-widest leading-relaxed flex items-center gap-2 text-center sm:text-left"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>First make it work, then make it beautiful. · BUILD BOLD. SHIP SMART. LIVE DIFFERENT.</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+          <span>
+            <span className="text-slate-500 font-normal">First make it work, </span>
+            <span className="text-slate-700 font-medium">then make it </span>
+            <span className="text-blue-600 font-bold">beautiful. </span>
+            <span className="text-slate-400 font-normal">· BUILD BOLD. SHIP SMART. LIVE DIFFERENT.</span>
+          </span>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}

@@ -4,33 +4,60 @@ import { Server, Key, Code2, SlidersHorizontal } from 'lucide-react';
 
 const EASING = [0.22, 1, 0.36, 1] as const;
 
-const DIFFERENTIATORS = [
+interface DifferentiatorItem {
+  index: string;
+  icon: React.ElementType;
+  titleBold: string;
+  titleNormal?: string;
+  titleAccent?: string;
+  accentColorClass?: string;
+  descriptionPrefix: string;
+  descriptionHighlight: string;
+  descriptionSuffix: string;
+  accent: string;
+}
+
+const DIFFERENTIATORS: DifferentiatorItem[] = [
   {
     index: '01',
     icon: Server,
-    title: 'End-to-End Launch Setup',
-    description: 'Domain registration, DNS routing, SSL, and 24/7 cloud hosting configured completely before handover.',
+    titleBold: 'End-to-End',
+    titleNormal: 'Launch Setup',
+    descriptionPrefix: 'Domain registration, DNS routing, SSL, and ',
+    descriptionHighlight: '24/7 cloud hosting',
+    descriptionSuffix: ' configured completely before handover.',
     accent: '#4285F4',
   },
   {
     index: '02',
     icon: Key,
-    title: 'One-Time Build, ₹0 Per-User Rent',
-    description: 'No recurring monthly seat fees per employee; your custom system runs with zero subscription lock-in.',
+    titleBold: 'One-Time Build,',
+    titleAccent: '₹0 Per-User Rent',
+    accentColorClass: 'text-emerald-600',
+    descriptionPrefix: 'No recurring monthly seat fees per employee; your custom system runs with ',
+    descriptionHighlight: 'zero subscription lock-in',
+    descriptionSuffix: '.',
     accent: '#10B981',
   },
   {
     index: '03',
     icon: Code2,
-    title: 'Full Repository & Data Handover',
-    description: 'Complete source code transferred directly to your own GitHub and cloud accounts on day one.',
+    titleBold: 'Full Repository',
+    titleNormal: '& Data Handover',
+    descriptionPrefix: '',
+    descriptionHighlight: 'Complete source code',
+    descriptionSuffix: ' transferred directly to your own GitHub and cloud accounts on day one.',
     accent: '#7C3AED',
   },
   {
     index: '04',
     icon: SlidersHorizontal,
-    title: 'Tailored for Real Operations',
-    description: 'Direct WhatsApp lead routing, custom GST billing, and AI-ready search structure built around how you work.',
+    titleBold: 'Tailored for',
+    titleAccent: 'Real Operations',
+    accentColorClass: 'text-orange-600',
+    descriptionPrefix: '',
+    descriptionHighlight: 'Direct WhatsApp lead routing',
+    descriptionSuffix: ', custom GST billing, and AI-ready search structure built around how you work.',
     accent: '#F97316',
   },
 ];
@@ -75,7 +102,7 @@ export default function Slide2_ValueStrip() {
       />
 
       <div className="max-w-6xl mx-auto">
-        {/* HEADER */}
+        {/* HEADER WITH DELIBERATE BOLD / LIGHT CONTRAST */}
         <motion.div 
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,11 +110,15 @@ export default function Slide2_ValueStrip() {
           transition={{ duration: 0.6, ease: EASING }}
           className="text-left sm:text-center mb-14 sm:mb-16"
         >
-          <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest block mb-2.5">
+          <span className="font-mono text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2.5">
             WHY BUSINESSES SWITCH TO VOOO LABS
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
-            Built Around Your Workflow. <br className="hidden sm:inline" /> Owned by You.
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight">
+            <span className="font-light text-slate-500">Built Around Your</span>{' '}
+            <span className="font-extrabold text-slate-950">Workflow.</span>{' '}
+            <br className="hidden sm:inline" />
+            <span className="font-light text-slate-400">100% Owned by</span>{' '}
+            <span className="font-extrabold text-blue-600">You.</span>
           </h2>
         </motion.div>
 
@@ -120,14 +151,22 @@ export default function Slide2_ValueStrip() {
                   </div>
                 </div>
 
-                {/* TITLE */}
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2.5 leading-snug tracking-tight">
-                  {item.title}
+                {/* TITLE WITH DELIBERATE BOLD / NORMAL / COLOR ACCENT */}
+                <h3 className="text-base sm:text-lg mb-2.5 leading-snug tracking-tight">
+                  <span className="font-extrabold text-slate-950">{item.titleBold}</span>{' '}
+                  {item.titleNormal && (
+                    <span className="font-normal text-slate-700">{item.titleNormal}</span>
+                  )}
+                  {item.titleAccent && (
+                    <span className={`font-extrabold ${item.accentColorClass || 'text-blue-600'}`}>{item.titleAccent}</span>
+                  )}
                 </h3>
 
-                {/* DESCRIPTION */}
+                {/* DESCRIPTION WITH SUBTLE EMPHASIS */}
                 <p className="text-sm text-slate-600 leading-relaxed font-normal">
-                  {item.description}
+                  {item.descriptionPrefix}
+                  <span className="font-medium text-slate-900">{item.descriptionHighlight}</span>
+                  {item.descriptionSuffix}
                 </p>
               </motion.div>
             );

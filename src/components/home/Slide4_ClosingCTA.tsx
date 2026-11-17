@@ -24,27 +24,37 @@ export default function Slide4_ClosingCTA() {
 
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
         
-        {/* STUDIO PHILOSOPHY (PURE TEXT, ZERO AI PILL) */}
+        {/* STUDIO PHILOSOPHY (MATCHED INTER FONT, WEIGHT CONTRAST, ZERO PILL) */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.05, ease: EASING }}
-          className="mb-4 text-xs sm:text-sm font-mono tracking-wider uppercase text-slate-400 font-medium"
+          className="flex items-center justify-center gap-2 select-none mb-4 text-center"
         >
-          <span>First make it work, then make it beautiful.</span>
+          <span className="font-sans text-xs sm:text-sm font-normal text-slate-400 tracking-tight">
+            First make it work,
+          </span>
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0 opacity-75" aria-hidden="true" />
+          <span className="font-sans text-xs sm:text-sm font-medium text-slate-200 tracking-tight">
+            then make it
+          </span>
+          <span className="font-sans text-xs sm:text-sm font-bold text-blue-400 tracking-tight">
+            beautiful.
+          </span>
         </motion.div>
 
-        {/* HEADLINE: UNDER 8 WORDS */}
+        {/* HEADLINE: UNDER 8 WORDS WITH DELIBERATE BOLD / LIGHT CONTRAST */}
         <motion.h2 
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.12, ease: EASING }}
-          className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-4"
+          className="text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.15] mb-4"
         >
-          Build Bold. Ship Smart. <br />
-          <span className="shimmer-text">Live Different.</span>
+          <span className="font-extrabold text-white">Build Bold.</span>{' '}
+          <span className="font-light text-slate-400">Ship Smart.</span> <br />
+          <span className="font-extrabold g-text shimmer-text">Live Different.</span>
         </motion.h2>
 
         {/* SUBHEADLINE */}
@@ -55,7 +65,7 @@ export default function Slide4_ClosingCTA() {
           transition={{ duration: 0.6, delay: 0.20, ease: EASING }}
           className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto mb-10 font-normal leading-relaxed"
         >
-          Direct engineer access, fixed timelines, and full source code ownership from day one.
+          <span className="font-medium text-white">Direct engineer access</span>, fixed timelines, and <span className="font-bold text-blue-400">100% source code ownership</span> from day one.
         </motion.p>
 
         {/* BUTTON CTAS WITH LIQUID MAGNETIC PHYSICS */}
@@ -99,14 +109,14 @@ export default function Slide4_ClosingCTA() {
         >
           <span className="flex items-center gap-2">
             <ShieldCheck size={15} className="text-emerald-400" />
-            <span>100% Source Code Ownership</span>
+            <span><strong className="font-bold text-emerald-400">100%</strong> Source Code Ownership</span>
           </span>
           <span className="flex items-center gap-2">
             <Server size={15} className="text-blue-400" />
-            <span>All-Inclusive Domain & Hosting</span>
+            <span><strong className="font-bold text-blue-400">All-Inclusive</strong> Domain & Hosting</span>
           </span>
           <span className="flex items-center gap-2">
-            <span className="text-orange-400 font-bold">₹0</span>
+            <strong className="text-orange-400 font-bold">₹0</strong>
             <span>Zero Monthly Software Rent</span>
           </span>
         </motion.div>
