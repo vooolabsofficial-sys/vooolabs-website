@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import Slide1_Overview from '../components/services/Slide1_Overview';
-import Slide2_CustomSoftware from '../components/services/Slide2_CustomSoftware';
-import Slide3_CustomWebApps from '../components/services/Slide3_CustomWebApps';
 import Slide4_Websites from '../components/services/Slide4_Websites';
+import Slide3_CustomWebApps from '../components/services/Slide3_CustomWebApps';
+import Slide2_CustomSoftware from '../components/services/Slide2_CustomSoftware';
 import Slide5_GooglePresence from '../components/services/Slide5_GooglePresence';
 
 export default function ServicesPage() {
@@ -32,9 +32,9 @@ export default function ServicesPage() {
   return (
     <div className="page-wrap bg-white min-h-screen text-slate-900">
       <Slide1_Overview />
-      <Slide2_CustomSoftware />
-      <Slide3_CustomWebApps />
       <Slide4_Websites />
+      <Slide3_CustomWebApps />
+      <Slide2_CustomSoftware />
       <Slide5_GooglePresence />
     </div>
   );
