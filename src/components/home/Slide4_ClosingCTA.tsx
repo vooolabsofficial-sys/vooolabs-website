@@ -24,16 +24,15 @@ export default function Slide4_ClosingCTA() {
 
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
         
-        {/* STUDIO PHILOSOPHY BADGE */}
+        {/* STUDIO PHILOSOPHY (PURE TEXT, ZERO AI PILL) */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.05, ease: EASING }}
-          className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] border border-white/10 px-4 py-1.5 mb-6 text-xs sm:text-sm text-slate-300 font-medium"
+          className="mb-4 text-xs sm:text-sm font-mono tracking-wider uppercase text-slate-400 font-medium"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span>"First make it work, then make it beautiful."</span>
+          <span>First make it work, then make it beautiful.</span>
         </motion.div>
 
         {/* HEADLINE: UNDER 8 WORDS */}

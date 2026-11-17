@@ -81,22 +81,23 @@ export default function Slide1_Hero() {
       {/* SUBTLE CORNER AMBIENT LIGHTING */}
       <div className="absolute top-0 right-0 w-[450px] h-[450px] rounded-full bg-radial from-purple-500/[0.03] to-transparent blur-[80px] pointer-events-none z-0" aria-hidden="true" />
 
-      {/* CENTERED HERO EDITORIAL ANCHOR (PILL IN MIDDLE, HEADLINE DIRECTLY UNDERNEATH) */}
+      {/* HERO EDITORIAL CONTENT */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-5xl mx-auto py-2 w-full">
         
-        {/* CENTERED TAGLINE PILL WITH BOTH CONNECTED LINES */}
+        {/* LINE 1: PURE EDITORIAL TEXT (ZERO PILL/BADGE, NO MARATHI/HINDI, STARTS FROM LEFT) */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05, ease: EASING }}
-          className="inline-flex items-center gap-2 rounded-full bg-slate-900/[0.03] border border-black/10 px-4 py-1.5 mb-5 text-slate-800 text-xs sm:text-sm font-medium shadow-2xs mx-auto"
+          className="w-full max-w-4xl text-left mb-3 px-1 sm:px-2"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-          <span>"पहले बनाते हैं कुछ, फिर उसे सुंदर बनाते हैं" · First make it work, then make it beautiful.</span>
+          <span className="font-mono text-xs sm:text-sm font-medium text-slate-500 tracking-wide select-none">
+            First make it work, then make it beautiful.
+          </span>
         </motion.div>
 
-        {/* HEADLINE: DIRECTLY BELOW THE MIDDLE PILL, STARTING WITH 'Engineering' */}
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.18] mb-4 max-w-4xl mx-auto">
+        {/* LINES 2 & 3: CENTERED HEADLINE STARTING WITH 'Engineering Digital Products' */}
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-5 max-w-4xl mx-auto text-center">
           <span className="block overflow-hidden py-1">
             <motion.span
               className="block"
@@ -130,7 +131,7 @@ export default function Slide1_Hero() {
           </p>
         </motion.div>
 
-        {/* DUAL LIQUID CTAS WITH MAGNETIC ATTRACTION IN THE MIDDLE */}
+        {/* DUAL LIQUID CTAS WITH MAGNETIC ATTRACTION */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -242,7 +243,7 @@ export default function Slide1_Hero() {
         </div>
       </div>
 
-      {/* BOTTOM STUDIO QUOTE STRIP */}
+      {/* BOTTOM STUDIO QUOTE STRIP — 100% CLEAN ENGLISH */}
       <div className="relative z-20 px-6 pb-2 flex flex-col sm:flex-row justify-between items-center sm:items-end gap-3 w-full max-w-6xl mx-auto border-t border-slate-100 pt-4">
         <motion.div
           initial={{ opacity: 0 }}
@@ -251,7 +252,7 @@ export default function Slide1_Hero() {
           className="font-mono text-[11px] sm:text-xs text-slate-500 uppercase tracking-widest leading-relaxed flex items-center gap-2 text-center sm:text-left"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>"पहले बनाते हैं कुछ, फिर उसे सुंदर बनाते हैं" · First make it work, then make it beautiful. · BUILD BOLD. SHIP SMART. LIVE DIFFERENT.</span>
+          <span>First make it work, then make it beautiful. · BUILD BOLD. SHIP SMART. LIVE DIFFERENT.</span>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}

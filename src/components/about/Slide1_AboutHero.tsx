@@ -36,9 +36,8 @@ export default function Slide1_AboutHero() {
 
         {/* MISSION SUBHEADLINE */}
         <FadeIn delay={0.16} y={15}>
-          <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200/80 px-4 py-1.5 mb-6 text-blue-700 text-xs sm:text-sm font-medium shadow-2xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-            <span>"First make it work, then make it beautiful."</span>
+          <div className="mb-4 text-xs sm:text-sm font-mono tracking-wider uppercase text-blue-600 font-semibold">
+            <span>First make it work, then make it beautiful.</span>
           </div>
 
           <p className="text-base sm:text-lg text-zinc-600 leading-relaxed max-w-2xl mx-auto font-normal mb-10">
