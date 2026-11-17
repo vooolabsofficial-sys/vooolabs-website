@@ -19,13 +19,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ['Poppins', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        sans: ['Poppins', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        inter: ['Poppins', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        clash: ['Poppins', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        display: ['Poppins', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        anton: ['Poppins', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        kanit: ['Poppins', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        inter: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        poppins: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        clash: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        display: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        anton: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        kanit: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         crazyblocks: ['CrazyBlocks', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },

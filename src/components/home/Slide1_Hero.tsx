@@ -5,10 +5,10 @@ import FadeIn from '../shared/FadeIn';
 import { COMPANY } from '../../content/company';
 
 const CAPABILITIES = [
-  'Web Applications',
-  'Mobile Applications',
-  'Custom Software Systems',
-  'AI & Digital Products',
+  'Business Websites',
+  'Custom Web Apps',
+  'Business Software',
+  'AI Search & AI Ads',
 ];
 
 function CleanTypewriter() {
@@ -56,10 +56,10 @@ export default function Slide1_Hero() {
       <div className="absolute top-[-100px] right-[-200px] w-[500px] h-[500px] rounded-full bg-radial from-purple-500/10 to-transparent blur-[90px] animate-blob-2 pointer-events-none z-0" aria-hidden="true" />
       <div className="absolute bottom-[-200px] left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-radial from-orange-500/8 to-transparent blur-[90px] animate-blob-3 pointer-events-none z-0" aria-hidden="true" />
 
-      {/* CENTER CONTENT */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-5xl mx-auto py-2">
+      {/* LEFT-ALIGNED HERO CONTENT */}
+      <div className="relative z-10 flex-1 flex flex-col items-start justify-center text-left px-6 max-w-6xl mx-auto w-full py-2">
         
-        {/* TAGLINE BADGE */}
+        {/* TAGLINE BADGE / QUOTE PILL - ALIGNED DIRECTLY ABOVE 'Engineering' */}
         <FadeIn delay={0.02} y={15}>
           <div className="inline-flex items-center gap-2 rounded-full bg-slate-900/[0.03] border border-black/10 px-4 py-1.5 mb-5 text-slate-800 text-xs sm:text-sm font-medium shadow-2xs">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
@@ -69,7 +69,7 @@ export default function Slide1_Hero() {
 
         {/* HEADLINE */}
         <FadeIn delay={0.08} y={20}>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.18] mb-4 max-w-4xl mx-auto">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.02em] text-slate-900 leading-[1.18] mb-4 max-w-4xl">
             Engineering Digital Products <br />
             <span className="shimmer-text">with Obsession & Scale.</span>
           </h1>
@@ -77,14 +77,14 @@ export default function Slide1_Hero() {
 
         {/* SUBHEADING WITH TYPEWRITER */}
         <FadeIn delay={0.16} y={15}>
-          <p className="font-normal text-base sm:text-lg md:text-xl text-slate-600 max-w-xl mx-auto leading-relaxed mb-8">
+          <p className="font-normal text-base sm:text-lg md:text-xl text-slate-600 max-w-xl leading-relaxed mb-8">
             We build high-performance <CleanTypewriter />
           </p>
         </FadeIn>
 
         {/* CTA ROW */}
         <FadeIn delay={0.24} y={15}>
-          <div className="flex flex-wrap gap-3.5 justify-center items-center">
+          <div className="flex flex-wrap gap-3.5 justify-start items-center">
             <Link
               to="/contact"
               className="btn-3d-base btn-3d-primary rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 px-8 py-3.5 font-medium text-sm sm:text-base text-white transition-all duration-200 hover:scale-[1.03] shadow-[0_4px_20px_rgba(66,133,244,0.3)] hover:shadow-[0_8px_28px_rgba(66,133,244,0.4)] active:scale-[0.98] inline-flex items-center gap-2"
@@ -104,7 +104,7 @@ export default function Slide1_Hero() {
 
       {/* CAPABILITIES BAR — FLOATING DOCK (NAVBAR-STYLE SECONDARY BAR) */}
       <div className="relative z-10 w-full flex flex-col items-center justify-end select-none mt-10 mb-2">
-        <div className="w-full max-w-5xl px-4 sm:px-6">
+        <div className="w-full max-w-6xl px-6">
           <div className="rounded-2xl bg-slate-50/90 backdrop-blur-xl border border-slate-200/90 p-2 sm:p-2.5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 items-center shadow-xs">
             
             <Link to="/services#web-apps" className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200/80 hover:shadow-xs transition-all text-left group">
@@ -162,7 +162,7 @@ export default function Slide1_Hero() {
       </div>
 
       {/* BOTTOM ROW BANNER */}
-      <div className="relative z-20 px-4 sm:px-6 pb-2 flex flex-col sm:flex-row justify-between items-center sm:items-end gap-3 w-full max-w-5xl mx-auto border-t border-slate-100 pt-4">
+      <div className="relative z-20 px-6 pb-2 flex flex-col sm:flex-row justify-between items-center sm:items-end gap-3 w-full max-w-6xl mx-auto border-t border-slate-100 pt-4">
         <FadeIn delay={0.35} y={10}>
           <div className="font-mono text-[11px] sm:text-xs text-slate-500 uppercase tracking-widest leading-relaxed flex items-center gap-2 text-center sm:text-left">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
