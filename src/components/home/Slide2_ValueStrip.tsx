@@ -102,7 +102,7 @@ export default function Slide2_ValueStrip() {
       />
 
       <div className="max-w-6xl mx-auto">
-        {/* HEADER WITH DELIBERATE BOLD / LIGHT CONTRAST */}
+        {/* HEADER */}
         <motion.div 
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -113,12 +113,9 @@ export default function Slide2_ValueStrip() {
           <span className="font-mono text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2.5">
             WHY BUSINESSES SWITCH TO VOOO LABS
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight">
-            <span className="font-light text-slate-500">Built Around Your</span>{' '}
-            <span className="font-extrabold text-slate-950">Workflow.</span>{' '}
-            <br className="hidden sm:inline" />
-            <span className="font-light text-slate-400">100% Owned by</span>{' '}
-            <span className="font-extrabold text-blue-600">You.</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
+            Built Around Your Workflow. <br className="hidden sm:inline" />
+            <span className="text-blue-600">Owned by You.</span>
           </h2>
         </motion.div>
 

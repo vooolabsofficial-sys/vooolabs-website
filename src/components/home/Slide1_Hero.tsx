@@ -84,50 +84,28 @@ export default function Slide1_Hero() {
       {/* HERO EDITORIAL CONTENT */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-5xl mx-auto py-2 w-full">
         
-        {/* LINE 1: PURE EDITORIAL TEXT (MATCHED INTER FONT, WEIGHT CONTRAST, ZERO PILL) */}
+        {/* LINE 1: PURE EDITORIAL TEXT (STARTS FROM LEFT OF HEADLINE, MATCHED INTER FONT) */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05, ease: EASING }}
-          className="flex items-center justify-center gap-2 select-none mb-4 text-center"
+          className="w-full max-w-4xl text-left mb-3.5 px-1 sm:px-2"
         >
-          <span className="font-sans text-xs sm:text-sm font-normal text-slate-500 tracking-tight">
-            First make it work,
-          </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 opacity-75" aria-hidden="true" />
-          <span className="font-sans text-xs sm:text-sm font-medium text-slate-700 tracking-tight">
-            then make it
-          </span>
-          <span className="font-sans text-xs sm:text-sm font-bold text-blue-600 tracking-tight">
-            beautiful.
+          <span className="font-sans text-xs sm:text-sm font-medium text-slate-500 tracking-wide select-none">
+            First make it work, then make it beautiful.
           </span>
         </motion.div>
 
-        {/* LINES 2 & 3: HEADLINE WITH BOLD / LIGHT CONTRAST & ACCENT COLOR */}
-        <h1 className="text-4xl sm:text-6xl lg:text-[4.25rem] tracking-[-0.03em] leading-[1.10] mb-5 max-w-4xl mx-auto text-center w-full">
-          <span className="block overflow-hidden py-1">
-            <motion.span
-              className="block"
-              initial={{ y: '100%' }}
-              animate={{ y: '0%' }}
-              transition={{ duration: 0.7, delay: 0.12, ease: EASING }}
-            >
-              <span className="font-extrabold text-slate-950">Engineering</span>{' '}
-              <span className="font-normal text-slate-600">Digital Products</span>
-            </motion.span>
-          </span>
-          <span className="block overflow-hidden py-1">
-            <motion.span
-              className="block"
-              initial={{ y: '100%' }}
-              animate={{ y: '0%' }}
-              transition={{ duration: 0.7, delay: 0.22, ease: EASING }}
-            >
-              <span className="font-light text-slate-400">with</span>{' '}
-              <span className="font-extrabold g-text shimmer-text">Obsession & Scale.</span>
-            </motion.span>
-          </span>
-        </h1>
+        {/* LINES 2 & 3: CRISP CENTERED HEADLINE (ZERO BLUR, SHARP VECTOR FONT) */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.12, ease: EASING }}
+          className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.14] mb-5 max-w-4xl mx-auto text-center w-full"
+        >
+          <span>Engineering Digital Products</span> <br />
+          <span className="shimmer-text">with Obsession & Scale.</span>
+        </motion.h1>
 
         {/* SUBHEADING WITH ROTATING TYPEWRITER IN THE MIDDLE */}
         <motion.div

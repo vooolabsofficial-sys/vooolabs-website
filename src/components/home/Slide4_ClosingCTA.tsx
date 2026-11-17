@@ -24,37 +24,27 @@ export default function Slide4_ClosingCTA() {
 
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
         
-        {/* STUDIO PHILOSOPHY (MATCHED INTER FONT, WEIGHT CONTRAST, ZERO PILL) */}
+        {/* STUDIO PHILOSOPHY (MATCHED INTER FONT, ZERO PILL) */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.05, ease: EASING }}
-          className="flex items-center justify-center gap-2 select-none mb-4 text-center"
+          className="mb-4 text-xs sm:text-sm font-sans tracking-wide text-slate-400 font-medium select-none"
         >
-          <span className="font-sans text-xs sm:text-sm font-normal text-slate-400 tracking-tight">
-            First make it work,
-          </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0 opacity-75" aria-hidden="true" />
-          <span className="font-sans text-xs sm:text-sm font-medium text-slate-200 tracking-tight">
-            then make it
-          </span>
-          <span className="font-sans text-xs sm:text-sm font-bold text-blue-400 tracking-tight">
-            beautiful.
-          </span>
+          <span>First make it work, then make it beautiful.</span>
         </motion.div>
 
-        {/* HEADLINE: UNDER 8 WORDS WITH DELIBERATE BOLD / LIGHT CONTRAST */}
+        {/* HEADLINE: UNDER 8 WORDS */}
         <motion.h2 
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.12, ease: EASING }}
-          className="text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.15] mb-4"
+          className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-4"
         >
-          <span className="font-extrabold text-white">Build Bold.</span>{' '}
-          <span className="font-light text-slate-400">Ship Smart.</span> <br />
-          <span className="font-extrabold g-text shimmer-text">Live Different.</span>
+          Build Bold. Ship Smart. <br />
+          <span className="shimmer-text">Live Different.</span>
         </motion.h2>
 
         {/* SUBHEADLINE */}

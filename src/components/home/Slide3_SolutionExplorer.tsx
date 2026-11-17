@@ -165,7 +165,7 @@ export default function Slide3_SolutionExplorer() {
     >
       <div className="max-w-6xl mx-auto">
         
-        {/* SECTION HEADER WITH DELIBERATE BOLD / LIGHT CONTRAST */}
+        {/* SECTION HEADER */}
         <motion.div 
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -176,14 +176,12 @@ export default function Slide3_SolutionExplorer() {
           <span className="font-mono text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2.5">
             ENGINEERED DELIVERABLES • ZERO AI SLOP
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight">
-            <span className="font-light text-slate-500">We Don't Resell</span>{' '}
-            <span className="font-extrabold text-slate-950">Templates.</span> <br />
-            <span className="font-light text-slate-400">We Engineer</span>{' '}
-            <span className="font-extrabold g-text shimmer-text">Systems.</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
+            We Don't Resell Templates. <br />
+            <span className="shimmer-text">We Engineer Systems.</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto mt-3 font-normal leading-relaxed">
-            Every deliverable is crafted from scratch with <span className="font-medium text-slate-900">clean code</span>, sub-second speeds, <span className="font-bold text-emerald-600">₹0 monthly software rent</span>, and <span className="font-bold text-blue-600">100% client code ownership</span>.
+            Every deliverable is crafted from scratch with <span className="font-semibold text-slate-900">clean code</span>, sub-second speeds, <span className="font-bold text-emerald-600">₹0 monthly software rent</span>, and <span className="font-bold text-blue-600">100% client code ownership</span>.
           </p>
         </motion.div>
 
