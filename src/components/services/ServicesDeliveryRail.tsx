@@ -29,9 +29,19 @@ const STEPS = [
 export default function ServicesDeliveryRail() {
   return (
     <section 
-      className="bg-[#F8F9FC] border-t border-slate-200/80 py-16 px-6 select-none text-left"
+      className="bg-[#F8F9FC] border-t border-slate-200/80 py-16 sm:py-20 px-6 select-none text-left relative overflow-hidden"
       aria-label="How VOOO LABS Delivers Projects"
     >
+      {/* TOP 2PX STUDIO BRAND PROGRESS LINE (MATCHING HOMEPAGE VALUE STRIP) */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 0.85, ease: EASING }}
+        className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 origin-left z-10"
+        aria-hidden="true"
+      />
+
       <div className="max-w-6xl mx-auto">
         
         {/* HEADER */}
@@ -44,8 +54,8 @@ export default function ServicesDeliveryRail() {
           <span className="font-mono text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2.5">
             HOW WE ENGINEER & DELIVER
           </span>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 leading-tight">
-            From Operational Discovery to 100% Ownership.
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-950 leading-tight">
+            From Operational Discovery to <span className="text-blue-600">100% Ownership.</span>
           </h2>
         </motion.div>
 
@@ -63,7 +73,7 @@ export default function ServicesDeliveryRail() {
               <span className="font-mono text-xs font-bold text-blue-600 mb-2.5 tracking-wider">
                 {step.num}
               </span>
-              <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug">
+              <h3 className="text-base font-bold text-slate-950 mb-2 leading-snug">
                 {step.title}
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed font-normal">

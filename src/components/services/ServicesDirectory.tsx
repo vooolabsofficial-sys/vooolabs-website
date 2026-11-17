@@ -116,7 +116,7 @@ export default function ServicesDirectory() {
                       style={{ color: item.accent }} 
                     />
 
-                    <h2 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                    <h2 className="text-lg sm:text-xl font-bold text-slate-950 group-hover:text-blue-600 transition-colors leading-snug">
                       {item.title}
                     </h2>
                   </div>
