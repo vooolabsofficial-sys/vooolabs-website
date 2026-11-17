@@ -24,24 +24,33 @@ export default function Slide4_ClosingCTA() {
 
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
         
-        {/* STUDIO PHILOSOPHY (MATCHED INTER FONT, ZERO PILL) */}
+        {/* STUDIO PHILOSOPHY (MATCHED SCALE, BOLD & BRAND ACCENT COLOR) */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.05, ease: EASING }}
-          className="mb-4 text-xs sm:text-sm font-sans tracking-wide text-slate-400 font-medium select-none"
+          className="inline-flex items-center gap-2 text-sm sm:text-base md:text-lg tracking-tight mb-4 select-none"
         >
-          <span>First make it work, then make it beautiful.</span>
+          <span className="font-bold text-white">
+            First make it work,
+          </span>
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" aria-hidden="true" />
+          <span className="font-medium text-slate-300">
+            then make it
+          </span>
+          <span className="font-extrabold text-blue-400">
+            beautiful.
+          </span>
         </motion.div>
 
-        {/* HEADLINE: UNDER 8 WORDS */}
+        {/* HEADLINE: UNDER 8 WORDS (BOLD & CRISP) */}
         <motion.h2 
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.12, ease: EASING }}
-          className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-4"
+          className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] mb-4"
         >
           Build Bold. Ship Smart. <br />
           <span className="shimmer-text">Live Different.</span>

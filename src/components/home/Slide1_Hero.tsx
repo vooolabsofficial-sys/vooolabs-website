@@ -84,26 +84,35 @@ export default function Slide1_Hero() {
       {/* HERO EDITORIAL CONTENT */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-5xl mx-auto py-2 w-full">
         
-        {/* LINE 1: PURE EDITORIAL TEXT (STARTS FROM LEFT OF HEADLINE, MATCHED INTER FONT) */}
+        {/* LINE 1: PURE EDITORIAL TEXT (MATCHED SCALE, BOLD & BRAND ACCENT COLOR) */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05, ease: EASING }}
-          className="w-full max-w-4xl text-left mb-3.5 px-1 sm:px-2"
+          className="w-full max-w-4xl text-left mb-4 px-1 sm:px-2 select-none"
         >
-          <span className="font-sans text-xs sm:text-sm font-medium text-slate-500 tracking-wide select-none">
-            First make it work, then make it beautiful.
-          </span>
+          <div className="inline-flex items-center gap-2 text-sm sm:text-base md:text-lg tracking-tight">
+            <span className="font-bold text-slate-950">
+              First make it work,
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" aria-hidden="true" />
+            <span className="font-medium text-slate-600">
+              then make it
+            </span>
+            <span className="font-extrabold text-blue-600">
+              beautiful.
+            </span>
+          </div>
         </motion.div>
 
-        {/* LINES 2 & 3: CRISP CENTERED HEADLINE (ZERO BLUR, SHARP VECTOR FONT) */}
+        {/* LINES 2 & 3: CRISP CENTERED HEADLINE (BOLD, EXECUTIVE SCALE, ZERO BLUR) */}
         <motion.h1 
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.12, ease: EASING }}
-          className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.14] mb-5 max-w-4xl mx-auto text-center w-full"
+          className="text-4xl sm:text-6xl lg:text-[4.5rem] font-extrabold tracking-[-0.03em] text-slate-950 leading-[1.12] mb-5 max-w-4xl mx-auto text-center w-full"
         >
-          <span>Engineering Digital Products</span> <br />
+          <span className="text-slate-950">Engineering Digital Products</span> <br />
           <span className="shimmer-text">with Obsession & Scale.</span>
         </motion.h1>
 
