@@ -101,24 +101,20 @@ export default function ServicesDirectory() {
                 <Link
                   to={item.href}
                   id={item.id}
-                  className="py-7 sm:py-8 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-center group transition-colors hover:bg-slate-50/70 -mx-4 px-4 sm:mx-0 sm:px-0 block"
+                  className="py-7 sm:py-9 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-center group transition-colors hover:bg-slate-50/70 -mx-4 px-4 sm:mx-0 sm:px-0 block"
                   aria-label={`Inspect ${item.index} ${item.title}`}
                 >
-                  {/* LEFT (lg:col-span-4): INDEX TAG + ICON CONTAINER + BOLD SYSTEM TITLE */}
+                  {/* LEFT (lg:col-span-4): INDEX TAG + PURE ICON + BOLD SYSTEM TITLE */}
                   <div className="lg:col-span-4 flex items-center gap-3.5 min-w-0">
                     <span className="font-mono text-xs sm:text-sm font-bold text-blue-600 shrink-0 w-6 sm:w-7">
                       {item.index}
                     </span>
 
-                    <div 
-                      className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-105"
-                      style={{ 
-                        backgroundColor: `${item.accent}14`, 
-                        color: item.accent 
-                      }}
-                    >
-                      <IconComp size={18} />
-                    </div>
+                    <IconComp 
+                      size={20} 
+                      className="shrink-0 transition-transform duration-200 group-hover:scale-110" 
+                      style={{ color: item.accent }} 
+                    />
 
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
                       {item.title}
@@ -143,7 +139,7 @@ export default function ServicesDirectory() {
 
                   {/* RIGHT (lg:col-span-2): EXPLORE LINK CUE WITH FLUID GLIDE */}
                   <div className="lg:col-span-2 lg:text-right flex items-center lg:justify-end pt-2 lg:pt-0">
-                    <span className="text-sm font-bold text-blue-600 inline-flex items-center gap-1.5 transition-transform duration-200 group-hover:translate-x-1">
+                    <span className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 inline-flex items-center gap-1.5 transition-transform duration-200 group-hover:translate-x-1">
                       <span>Explore</span>
                       <ArrowRight size={15} />
                     </span>

@@ -42,10 +42,10 @@ export default function ServicesDeliveryRail() {
           transition={{ duration: 0.5, ease: EASING }}
         >
           <span className="font-mono text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2.5">
-            HOW WE DELIVER
+            HOW WE ENGINEER & DELIVER
           </span>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 leading-tight">
-            A Clear, Grounded Process from First Scope to Launch.
+            From Operational Discovery to 100% Ownership.
           </h2>
         </motion.div>
 
@@ -58,7 +58,7 @@ export default function ServicesDeliveryRail() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: 0.5, delay: idx * 0.08, ease: EASING }}
-              className="py-7 md:px-6 lg:px-8 flex flex-col justify-start"
+              className="py-6 md:py-7 md:px-6 first:md:pl-0 last:md:pr-0 flex flex-col justify-start"
             >
               <span className="font-mono text-xs font-bold text-blue-600 mb-2.5 tracking-wider">
                 {step.num}

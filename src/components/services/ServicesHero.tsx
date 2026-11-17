@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import LiquidButton from '../shared/LiquidButton';
 
 const EASING = [0.22, 1, 0.36, 1] as const;
 
@@ -44,6 +46,32 @@ export default function ServicesHero() {
         >
           Select a system below to explore its complete architecture—built from scratch with clean code, 100% source code ownership, and zero rigid templates.
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.28, ease: EASING }}
+          className="mt-7 flex flex-wrap items-center gap-4"
+        >
+          <LiquidButton
+            to="/contact"
+            variant="primary"
+            rounded="pill"
+            size="md"
+          >
+            <span>See what your project will cost</span>
+            <ArrowRight size={15} />
+          </LiquidButton>
+
+          <LiquidButton
+            to="/seo-ai"
+            variant="secondary"
+            rounded="pill"
+            size="md"
+          >
+            <span>Discover what you're missing</span>
+          </LiquidButton>
+        </motion.div>
       </div>
     </section>
   );

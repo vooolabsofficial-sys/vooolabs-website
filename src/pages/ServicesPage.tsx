@@ -21,6 +21,8 @@ export default function ServicesPage() {
         }
       }, 300);
       return () => clearTimeout(timer);
+    } else {
+      window.scrollTo(0, 0);
     }
   }, []);
 
