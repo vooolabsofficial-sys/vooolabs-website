@@ -3,6 +3,7 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, MessageSquare } from 'lucide-react';
 import { whatsappLink } from '../../content/company';
+import LiquidButton from './LiquidButton';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -93,8 +94,8 @@ export default function Navbar() {
                     {isActive && (
                       <motion.div
                         layoutId="nav-pill"
-                        className="absolute inset-0 bg-white rounded-full border border-blue-100 shadow-[0_2px_8px_rgba(59,130,246,0.12)] z-[-1]"
-                        transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+                        className="absolute inset-0 bg-white rounded-full border border-blue-100 shadow-[0_2px_10px_rgba(59,130,246,0.14)] z-[-1]"
+                        transition={{ type: 'spring', stiffness: 360, damping: 32, mass: 0.8 }}
                       />
                     )}
                     <span className="flex items-center gap-1.5">
@@ -111,18 +112,23 @@ export default function Navbar() {
 
           {/* CTA BUTTON */}
           <div className="flex items-center gap-2 flex-shrink-0">
-            <Link
-              to="/contact"
-              className="btn-3d-base btn-3d-primary hidden sm:inline-flex items-center gap-2 rounded-full bg-slate-950 hover:bg-blue-600 text-white font-sans font-medium text-[13px] px-5 py-2.5 group whitespace-nowrap"
-            >
-              <span>See what your project will cost</span>
-              <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-0.5 flex-shrink-0" />
-            </Link>
+            <div className="hidden sm:inline-block">
+              <LiquidButton
+                to="/contact"
+                variant="primary"
+                rounded="pill"
+                size="sm"
+                className="font-medium text-[13px] px-5 py-2.5 whitespace-nowrap"
+              >
+                <span>See what your project will cost</span>
+                <ArrowRight size={13} className="flex-shrink-0" />
+              </LiquidButton>
+            </div>
 
             {/* MOBILE HAMBURGER BUTTON */}
             <button
               onClick={toggleMenu}
-              className="btn-3d-base btn-3d-secondary md:hidden w-10 h-10 rounded-full border border-slate-200 bg-white/90 flex items-center justify-center text-slate-800 hover:bg-slate-50 transition-all"
+              className="btn-liquid-base btn-liquid-secondary md:hidden w-10 h-10 rounded-full border border-slate-200 bg-white/90 flex items-center justify-center text-slate-800 hover:bg-slate-50 transition-all"
               aria-label="Toggle navigation menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -181,7 +187,7 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 onClick={closeMenu}
-                className="w-full rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 hover:opacity-95 text-white font-kanit font-semibold text-sm py-3.5 flex items-center justify-center gap-2 shadow-md"
+                className="btn-liquid-base btn-liquid-primary w-full rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 text-white font-medium text-sm py-3.5 flex items-center justify-center gap-2 shadow-md"
               >
                 <span>See what your project will cost</span>
                 <ArrowRight size={15} />
@@ -191,7 +197,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenu}
-                className="btn-3d-base btn-3d-secondary w-full rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-sans font-medium text-sm py-3 flex items-center justify-center gap-2"
+                className="btn-liquid-base btn-liquid-secondary w-full rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-medium text-sm py-3 flex items-center justify-center gap-2"
               >
                 <MessageSquare size={15} className="text-emerald-600" />
                 <span>Discuss your project</span>

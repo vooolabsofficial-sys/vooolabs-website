@@ -377,16 +377,24 @@ export default function Slide2_Form() {
                             type="button"
                             key={scope}
                             onClick={() => toggleScope(scope)}
-                            className={`px-3 py-2 rounded-xl border text-left font-sans text-xs transition-all duration-150 flex items-center gap-2 ${
+                            className={`px-3 py-2 rounded-xl border text-left font-sans text-xs transition-all duration-[280ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-[1px] active:scale-[0.98] flex items-center gap-2 ${
                               isSelected
                                 ? 'border-zinc-950 bg-zinc-950 text-white font-semibold shadow-2xs'
                                 : 'border-zinc-200 bg-zinc-50 text-zinc-800 hover:bg-white hover:border-zinc-300'
                             }`}
                           >
-                            <div className={`w-3.5 h-3.5 rounded flex items-center justify-center flex-shrink-0 ${
+                            <div className={`w-3.5 h-3.5 rounded flex items-center justify-center flex-shrink-0 transition-all duration-[280ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                               isSelected ? 'bg-white text-zinc-950' : 'border border-zinc-300 bg-white'
                             }`}>
-                              {isSelected && <Check size={10} strokeWidth={3} />}
+                              {isSelected && (
+                                <motion.span
+                                  initial={{ scale: 0.7, opacity: 0 }}
+                                  animate={{ scale: 1, opacity: 1 }}
+                                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                                >
+                                  <Check size={10} strokeWidth={3} />
+                                </motion.span>
+                              )}
                             </div>
                             <span>{scope}</span>
                           </button>
@@ -556,7 +564,7 @@ export default function Slide2_Form() {
                     <button
                       type="submit"
                       disabled={isSending}
-                      className="btn-3d-base btn-3d-primary flex-1 rounded-xl bg-zinc-950 hover:bg-zinc-800 py-3.5 px-6 font-sans font-semibold text-xs sm:text-sm text-white disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      className="btn-liquid-base btn-liquid-primary flex-1 rounded-xl bg-zinc-950 hover:bg-zinc-800 py-3.5 px-6 font-sans font-semibold text-xs sm:text-sm text-white disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                       {isSending ? (
                         <>
@@ -575,7 +583,7 @@ export default function Slide2_Form() {
                     <button
                       type="button"
                       onClick={handleSendViaWhatsApp}
-                      className="btn-3d-base btn-3d-secondary rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 py-3.5 px-5 font-sans font-semibold text-xs sm:text-sm text-zinc-800 flex items-center justify-center gap-2 flex-shrink-0"
+                      className="btn-liquid-base btn-liquid-secondary rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 py-3.5 px-5 font-sans font-semibold text-xs sm:text-sm text-zinc-800 flex items-center justify-center gap-2 flex-shrink-0"
                     >
                       <WhatsappIcon size={14} />
                       <span>Send details via WhatsApp instead</span>

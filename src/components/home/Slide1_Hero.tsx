@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, useMotionTemplate, useTransform } from 'framer-motion';
 import { Globe, Laptop, Cpu, Smartphone, Search, ArrowRight } from 'lucide-react';
 import { COMPANY } from '../../content/company';
+import LiquidButton from '../shared/LiquidButton';
 
 const EASING = [0.22, 1, 0.36, 1] as const;
 
@@ -129,28 +130,33 @@ export default function Slide1_Hero() {
           </p>
         </motion.div>
 
-        {/* DUAL TACTILE CTAS */}
+        {/* DUAL LIQUID CTAS WITH MAGNETIC ATTRACTION */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.40, ease: EASING }}
           className="flex flex-wrap gap-3.5 justify-start items-center"
         >
-          <Link
+          <LiquidButton
             to="/contact"
-            className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 px-8 py-3.5 font-medium text-sm sm:text-base text-white shadow-[0_4px_16px_rgba(66,133,244,0.25)] hover:shadow-[0_8px_24px_rgba(66,133,244,0.35)] transition-all duration-200 hover:-translate-y-[2px] active:translate-y-[2px] active:scale-[0.985] overflow-hidden"
+            variant="gradient"
+            rounded="pill"
+            size="lg"
+            magnetic={true}
           >
-            <span className="relative z-10 font-medium">See what your project will cost</span>
-            <ArrowRight size={16} className="relative z-10 transition-transform duration-200 group-hover:translate-x-0.5" />
-            <span className="absolute inset-0 bg-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
-          </Link>
+            <span>See what your project will cost</span>
+            <ArrowRight size={16} />
+          </LiquidButton>
 
-          <Link
+          <LiquidButton
             to="/services"
-            className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/90 backdrop-blur-sm px-8 py-3.5 font-medium text-sm sm:text-base text-slate-800 shadow-2xs hover:bg-slate-50 hover:border-slate-400 hover:shadow-xs transition-all duration-200 hover:-translate-y-[2px] active:translate-y-[2px] active:scale-[0.985]"
+            variant="secondary"
+            rounded="pill"
+            size="lg"
+            magnetic={true}
           >
             <span>See how it can help your business</span>
-          </Link>
+          </LiquidButton>
         </motion.div>
       </div>
 

@@ -41,6 +41,10 @@
   --duration-slow: 400ms;
   --ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Fluid Liquid Motion Tokens */
+  --ease-liquid: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-liquid: 280ms;
+  --duration-sheen: 650ms;
 }
 
 *, *::before, *::after {
@@ -148,6 +152,14 @@ p {
   .mask-fade-edges {
     mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+
+  .card-fluid-hover {
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease;
+  }
+  .card-fluid-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -6px rgba(10, 15, 30, 0.08);
   }
 }
 
@@ -370,32 +382,48 @@ p {
 }
 
 /* ═══════════════════════════════════════════════
-   3D TACTILE PHYSICAL SWITCH BUTTON SYSTEM
+   LIQUID-SMOOTH FLUID BUTTON & INTERACTION SYSTEM
+   Apple / Linear Caliber — Solid surfaces, Specular Liquid Rim
    ═══════════════════════════════════════════════ */
 
-/* Base tactile mechanics */
+/* Base Liquid Mechanics */
+.btn-liquid-base,
 .btn-3d-base {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   overflow: hidden;
-  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 120ms cubic-bezier(0.16, 1, 0.3, 1), background-color 150ms ease, border-color 150ms ease;
-  will-change: transform, box-shadow;
-  border-width: 1px;
-  cursor: pointer;
   user-select: none;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  border-width: 1px;
+  border-style: solid;
+  transition: 
+    transform var(--duration-liquid) var(--ease-liquid),
+    box-shadow var(--duration-liquid) var(--ease-liquid),
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+  will-change: transform, box-shadow;
 }
 
-/* Fast satin light-sweep across button on hover (450ms) */
+/* Gliding diagonal light sheen across button surface on hover */
+.btn-liquid-base::after,
 .btn-3d-base::after {
   content: '';
   position: absolute;
   top: 0;
-  left: -130%;
-  width: 60%;
+  left: -140%;
+  width: 70%;
   height: 100%;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.28) 50%,
     transparent 100%
   );
   transform: skewX(-20deg);
@@ -403,121 +431,180 @@ p {
   transition: none;
 }
 
+.btn-liquid-base:hover::after,
 .btn-3d-base:hover::after {
   left: 170%;
-  transition: left 450ms ease-out;
+  transition: left var(--duration-sheen) var(--ease-liquid);
 }
 
-/* PRIMARY (DARK BUTTONS: ZINC-950, SLATE-900, SLATE-950) */
+/* Trailing arrow/icon fluid glide */
+.btn-liquid-base svg:last-child,
+.btn-3d-base svg:last-child {
+  transition: transform var(--duration-liquid) var(--ease-liquid);
+}
+
+.btn-liquid-base:hover svg:last-child,
+.btn-3d-base:hover svg:last-child {
+  transform: translateX(3px);
+}
+
+/* 1. PRIMARY LIQUID BUTTON (Solid #0A0F1E, Studio Blue #4285F4, or Gradient) */
+.btn-liquid-primary,
 .btn-3d-primary {
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 3px 0 0 rgba(15, 23, 42, 0.45);
-  transform: translateY(0);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+    0 2px 8px -2px rgba(10, 15, 30, 0.18);
+  transform: translateY(0) scale(1);
 }
 
+.btn-liquid-primary:hover,
 .btn-3d-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 0 0 rgba(15, 23, 42, 0.65);
+  transform: translateY(-1.5px) scale(1.012);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.32),
+    0 10px 24px -6px rgba(66, 133, 244, 0.28);
 }
 
+.btn-liquid-primary:active,
 .btn-3d-primary:active {
-  transform: translateY(3px) scale(0.985);
-  box-shadow: 0 0px 0 0 rgba(15, 23, 42, 0.2);
-  transition-duration: 90ms;
+  transform: translateY(1px) scale(0.972);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+    0 2px 6px -1px rgba(10, 15, 30, 0.14);
+  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
 }
 
-/* SECONDARY (LIGHT / WHITE / ZINC-50 BUTTONS) */
+/* 2. SECONDARY LIQUID BUTTON (Crisp White #FFFFFF, 1px border) */
+.btn-liquid-secondary,
 .btn-3d-secondary {
-  border-color: rgba(15, 23, 42, 0.12);
-  box-shadow: 0 3px 0 0 rgba(15, 23, 42, 0.16);
-  transform: translateY(0);
+  border-color: #E2E8F0;
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  transform: translateY(0) scale(1);
 }
 
+.btn-liquid-secondary::after,
 .btn-3d-secondary::after {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(15, 23, 42, 0.06) 50%,
+    rgba(66, 133, 244, 0.10) 50%,
     transparent 100%
   );
 }
 
+.btn-liquid-secondary:hover,
 .btn-3d-secondary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 0 0 rgba(15, 23, 42, 0.22);
+  border-color: #93C5FD; /* border-blue-300 */
+  transform: translateY(-1.5px) scale(1.01);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 1),
+    0 8px 20px -6px rgba(10, 15, 30, 0.08);
 }
 
+.btn-liquid-secondary:hover::after,
 .btn-3d-secondary:hover::after {
   left: 170%;
-  transition: left 450ms ease-out;
+  transition: left var(--duration-sheen) var(--ease-liquid);
 }
 
+.btn-liquid-secondary:active,
 .btn-3d-secondary:active {
-  transform: translateY(3px) scale(0.985);
-  box-shadow: 0 0px 0 0 rgba(15, 23, 42, 0.1);
-  transition-duration: 90ms;
+  transform: translateY(1px) scale(0.975);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8),
+    0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
 }
 
-/* EMERALD / WHATSAPP BUTTONS */
-.btn-3d-emerald {
-  border-color: rgba(5, 150, 105, 0.25);
-  box-shadow: 0 3px 0 0 rgba(4, 120, 87, 0.45);
-  transform: translateY(0);
-}
-
-.btn-3d-emerald::after {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    transparent 100%
-  );
-}
-
-.btn-3d-emerald:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 0 0 rgba(4, 120, 87, 0.65);
-}
-
-.btn-3d-emerald:hover::after {
-  left: 170%;
-  transition: left 450ms ease-out;
-}
-
-.btn-3d-emerald:active {
-  transform: translateY(3px) scale(0.985);
-  box-shadow: 0 0px 0 0 rgba(4, 120, 87, 0.2);
-  transition-duration: 90ms;
-}
-
-/* WHITE BUTTON ON DARK SURFACES */
+/* 3. DARK LIQUID BUTTON (For dark sections like #0A0F1E closing stage) */
+.btn-liquid-dark,
 .btn-3d-white {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.35);
-  transform: translateY(0);
+  border-color: rgba(255, 255, 255, 0.20);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.20),
+    0 2px 8px rgba(0, 0, 0, 0.35);
+  transform: translateY(0) scale(1);
 }
 
+.btn-liquid-dark::after,
 .btn-3d-white::after {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(0, 0, 0, 0.08) 50%,
+    rgba(255, 255, 255, 0.24) 50%,
     transparent 100%
   );
 }
 
+.btn-liquid-dark:hover,
 .btn-3d-white:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 0 0 rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1.5px) scale(1.012);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.30),
+    0 8px 24px rgba(0, 0, 0, 0.50);
 }
 
+.btn-liquid-dark:hover::after,
 .btn-3d-white:hover::after {
   left: 170%;
-  transition: left 450ms ease-out;
+  transition: left var(--duration-sheen) var(--ease-liquid);
 }
 
+.btn-liquid-dark:active,
 .btn-3d-white:active {
-  transform: translateY(3px) scale(0.985);
-  box-shadow: 0 0px 0 0 rgba(0, 0, 0, 0.15);
-  transition-duration: 90ms;
+  transform: translateY(1px) scale(0.975);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.10),
+    0 2px 4px rgba(0, 0, 0, 0.25);
+  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
+}
+
+/* 4. EMERALD / WHATSAPP LIQUID BUTTON */
+.btn-liquid-emerald,
+.btn-3d-emerald {
+  border-color: rgba(5, 150, 105, 0.30);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.30),
+    0 2px 8px -2px rgba(5, 150, 105, 0.35);
+  transform: translateY(0) scale(1);
+}
+
+.btn-liquid-emerald::after,
+.btn-3d-emerald::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.30) 50%,
+    transparent 100%
+  );
+}
+
+.btn-liquid-emerald:hover,
+.btn-3d-emerald:hover {
+  transform: translateY(-1.5px) scale(1.012);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.40),
+    0 10px 24px -6px rgba(16, 185, 129, 0.40);
+}
+
+.btn-liquid-emerald:hover::after,
+.btn-3d-emerald:hover::after {
+  left: 170%;
+  transition: left var(--duration-sheen) var(--ease-liquid);
+}
+
+.btn-liquid-emerald:active,
+.btn-3d-emerald:active {
+  transform: translateY(1px) scale(0.972);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+    0 2px 4px rgba(5, 150, 105, 0.20);
+  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
 }

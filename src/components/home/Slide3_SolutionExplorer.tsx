@@ -13,6 +13,7 @@ import {
   Zap,
   Sparkles
 } from 'lucide-react';
+import LiquidButton from '../shared/LiquidButton';
 
 const EASING = [0.22, 1, 0.36, 1] as const;
 
@@ -311,7 +312,7 @@ export default function Slide3_SolutionExplorer() {
                     </span>
                   </div>
 
-                  {/* CHECKLIST ITEMS */}
+                  {/* CHECKLIST ITEMS WITH LIQUID 280MS TRANSITIONS */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6">
                     {activeChapter.checklistItems.map((item, itemIdx) => {
                       const isChecked = activeSelectedScopes.includes(item);
@@ -320,18 +321,26 @@ export default function Slide3_SolutionExplorer() {
                           key={itemIdx}
                           type="button"
                           onClick={() => toggleScopeItem(item)}
-                          className={`flex items-center gap-3 p-3 rounded-xl border text-left transition-all text-xs sm:text-sm font-medium ${
+                          className={`flex items-center gap-3 p-3 rounded-xl border text-left text-xs sm:text-sm font-medium transition-all duration-[280ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-[1px] active:scale-[0.985] ${
                             isChecked
-                              ? 'bg-white border-blue-300 text-slate-900 shadow-2xs'
-                              : 'bg-white/50 border-slate-200/70 text-slate-600 hover:bg-white hover:border-slate-300'
+                              ? 'bg-white border-blue-400 text-slate-900 shadow-xs'
+                              : 'bg-white/60 border-slate-200/80 text-slate-600 hover:bg-white hover:border-slate-300'
                           }`}
                         >
                           <div 
-                            className={`w-4 h-4 rounded flex items-center justify-center flex-shrink-0 transition-colors ${
-                              isChecked ? 'bg-blue-600 text-white' : 'border border-slate-300 bg-white'
+                            className={`w-4 h-4 rounded flex items-center justify-center flex-shrink-0 transition-all duration-[280ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                              isChecked ? 'bg-blue-600 text-white shadow-2xs' : 'border border-slate-300 bg-white'
                             }`}
                           >
-                            {isChecked && <Check size={12} strokeWidth={3} />}
+                            {isChecked && (
+                              <motion.span
+                                initial={{ scale: 0.7, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                              >
+                                <Check size={12} strokeWidth={3} />
+                              </motion.span>
+                            )}
                           </div>
                           <span className="truncate">{item}</span>
                         </button>
@@ -339,20 +348,20 @@ export default function Slide3_SolutionExplorer() {
                     })}
                   </div>
 
-                  {/* DYNAMIC JUMP-TO-CONTACT CTA */}
+                  {/* DYNAMIC JUMP-TO-CONTACT LIQUID CTA */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
-                    <Link
+                    <LiquidButton
                       to={`/contact?service=${activeChapter.serviceParam}&scopes=${encodeURIComponent(
                         activeSelectedScopes.join(';')
                       )}`}
-                      className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 px-7 py-3.5 font-medium text-sm sm:text-base text-white shadow-[0_4px_16px_rgba(66,133,244,0.25)] hover:shadow-[0_8px_24px_rgba(66,133,244,0.35)] transition-all duration-200 hover:-translate-y-[2px] active:translate-y-[2px] active:scale-[0.985] overflow-hidden"
+                      variant="gradient"
+                      rounded="pill"
+                      size="md"
+                      magnetic={true}
                     >
-                      <span className="relative z-10 font-medium">
-                        See what your project will cost ({activeSelectedScopes.length} selected)
-                      </span>
-                      <ArrowRight size={16} className="relative z-10 transition-transform duration-200 group-hover:translate-x-0.5" />
-                      <span className="absolute inset-0 bg-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
-                    </Link>
+                      <span>See what your project will cost ({activeSelectedScopes.length} selected)</span>
+                      <ArrowRight size={16} />
+                    </LiquidButton>
 
                     <div className="flex items-center gap-1.5 text-xs text-slate-500 font-mono">
                       <ShieldCheck size={14} className="text-emerald-500" />

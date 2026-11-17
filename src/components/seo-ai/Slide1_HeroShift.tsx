@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight, Bot, ArrowDown, CheckCircle2 } from 'lucide-react';
 import FadeIn from '../shared/FadeIn';
+import LiquidButton from '../shared/LiquidButton';
 
 export default function Slide1_HeroShift() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -204,21 +205,29 @@ export default function Slide1_HeroShift() {
 
             <FadeIn delay={0.25} y={20}>
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <button
+                <LiquidButton
                   onClick={scrollToNext}
-                  className="btn-3d-base btn-3d-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-purple-600 text-white font-semibold text-sm cursor-pointer"
+                  variant="primary"
+                  rounded="pill"
+                  size="md"
+                  magnetic={true}
+                  className="bg-slate-900 hover:bg-purple-600 font-semibold"
                 >
                   <Bot size={16} />
                   <span>Discover what you're missing</span>
                   <ArrowRight size={14} />
-                </button>
+                </LiquidButton>
 
-                <Link
+                <LiquidButton
                   to="/contact"
-                  className="btn-3d-base btn-3d-secondary inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-semibold text-sm"
+                  variant="secondary"
+                  rounded="pill"
+                  size="md"
+                  magnetic={true}
+                  className="font-semibold"
                 >
                   <span>See what your project will cost</span>
-                </Link>
+                </LiquidButton>
               </div>
             </FadeIn>
           </div>
