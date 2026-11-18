@@ -1,13 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, ArrowRight, MessageSquare, ShieldCheck, Terminal, Radio } from 'lucide-react';
-import {
-  GithubIcon,
-  LinkedinIcon,
-  TwitterIcon,
-  InstagramIcon,
-  WhatsappIcon,
-} from './BrandIcons';
 import {
   COMPANY,
   LOCATION,
@@ -17,226 +9,261 @@ import {
   copyrightLine,
 } from '../../content/company';
 
+const STUDIO_EMAIL = 'astrastudiosteam@gmail.com';
+
 export default function Footer() {
   return (
     <footer 
-      className="w-full bg-[#05070E] text-white px-6 sm:px-12 lg:px-16 pt-20 pb-16 sm:pb-20 relative overflow-hidden select-none border-t border-white/[0.08]"
+      className="w-full bg-[#05070E] text-white border-t border-white/[0.08] relative overflow-hidden select-none"
       role="contentinfo"
       aria-label="VOOO LABS Studio Footer"
     >
-      {/* SUBTLE AMBIENT STUDIO GLOW (ULTRA-LOW OPACITY, TECHIE VIBE) */}
+      {/* SUBTLE AMBIENT TOP RADIAL GLOW */}
       <div 
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-radial from-blue-500/[0.07] via-purple-500/[0.02] to-transparent blur-[120px]" 
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-[radial-gradient(ellipse_at_top,rgba(66,133,244,0.08),transparent_65%)] blur-[100px]" 
         aria-hidden="true" 
       />
 
-      <div className="relative max-w-7xl mx-auto z-10">
+      <div className="relative max-w-6xl mx-auto px-6 pt-20 pb-10 z-10">
         
-        {/* TOP GRID: STUDIO ARCHITECTURE & DIRECT NAVIGATION */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-16">
+        {/* 12-COLUMN ARCHITECTURAL GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
           
-          {/* COL 1: BRAND IDENTITY & STUDIO TELEMETRY (lg:col-span-3) */}
-          <div className="sm:col-span-2 lg:col-span-3 flex flex-col items-start gap-4">
+          {/* COLUMN 1: BRAND IDENTITY & STUDIO TELEMETRY (lg:col-span-4) */}
+          <div className="lg:col-span-4 space-y-5">
             <Link to="/" className="flex items-baseline group" aria-label="VOOO LABS Home">
-              <span className="shimmer-text font-crazyblocks text-3xl sm:text-4xl tracking-wider">VOOO</span>
-              <span className="font-crazyblocks text-2xl sm:text-3xl text-white ml-2 tracking-wider">LABS</span>
+              <span className="shimmer-text font-crazyblocks text-3xl sm:text-4xl tracking-wider leading-none">
+                VOOO
+              </span>
+              <span className="font-crazyblocks text-2xl sm:text-3xl text-white ml-2 tracking-wider leading-none">
+                LABS
+              </span>
             </Link>
 
-            <p className="font-sans font-normal text-xs sm:text-sm text-slate-300 max-w-sm leading-relaxed">
-              {COMPANY.tagline}
+            <p className="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm font-normal">
+              Custom business websites, web portals, internal software, and search visibility—engineered with 100% client source code ownership.
             </p>
 
-            {/* LIVE STUDIO TELEMETRY TAGS */}
-            <div className="flex flex-wrap items-center gap-2 pt-1">
-              <div className="rounded-full border border-white/[0.08] px-3 py-1 font-mono text-[11px] text-slate-300 bg-white/[0.02] backdrop-blur-md flex items-center gap-2">
+            {/* LIVE OPERATIONAL STATUS PILL */}
+            <div className="pt-1 flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] text-xs text-slate-300 backdrop-blur-md">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                 </span>
-                <span>Operational · {LOCATION.region}</span>
+                <span>Studio Operational · {LOCATION.region}, {LOCATION.country}</span>
               </div>
-              <div className="rounded-full border border-white/[0.08] px-3 py-1 font-mono text-[11px] text-slate-300 bg-white/[0.02] backdrop-blur-md flex items-center gap-1.5">
-                <MapPin size={11} className="text-blue-400" />
-                <span>{LOCATION.hubs.join(' · ')}</span>
+
+              <div className="font-mono text-[11px] text-slate-400 tracking-wider uppercase px-2 py-1">
+                {LOCATION.hubs.join(' · ')}
               </div>
             </div>
 
-            {/* DIRECT ARCHITECT EMAIL */}
-            <a
-              href={`mailto:${COMPANY.email}`}
-              className="font-mono text-xs text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2 pt-1"
-            >
-              <Terminal size={13} className="text-blue-400" />
-              <span>{COMPANY.email}</span>
-            </a>
-
-            {/* SOCIAL TOUCHPOINTS */}
-            <div className="flex items-center gap-2 mt-1">
-              {[
-                { icon: <GithubIcon size={15} />, href: SOCIALS.github, label: 'GitHub' },
-                { icon: <LinkedinIcon size={15} />, href: SOCIALS.linkedin, label: 'LinkedIn' },
-                { icon: <TwitterIcon size={15} />, href: SOCIALS.twitter, label: 'Twitter' },
-                { icon: <InstagramIcon size={15} />, href: FOUNDER.instagram, label: "Founder's Instagram" },
-                { icon: <WhatsappIcon size={15} />, href: whatsappLink, label: 'WhatsApp' },
-              ].map((soc) => (
-                <a
-                  key={soc.label}
-                  href={soc.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-slate-400 transition-all duration-200 hover:scale-105 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 active:scale-95"
-                  aria-label={soc.label}
-                >
-                  {soc.icon}
-                </a>
-              ))}
+            {/* 6 RAZOR-SHARP GLASS CIRCLE SVG BUTTONS */}
+            <div className="flex flex-wrap items-center gap-2.5 pt-1">
+              
+              {/* 1. WHATSAPP */}
               <a
-                href={`mailto:${COMPANY.email}`}
-                className="w-8 h-8 rounded-full border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-slate-400 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-200 hover:scale-105 active:scale-95"
-                aria-label="Direct Email"
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.09] hover:border-emerald-400/50 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all duration-300 active:scale-95"
+                aria-label="Direct WhatsApp"
+                title="Direct WhatsApp"
               >
-                <Mail size={15} />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
               </a>
+
+              {/* 2. INSTAGRAM */}
+              <a
+                href={FOUNDER.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.09] hover:border-[#4285F4]/50 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 active:scale-95"
+                aria-label="Founder's Instagram"
+                title="Instagram"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+
+              {/* 3. LINKEDIN */}
+              <a
+                href={SOCIALS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.09] hover:border-[#4285F4]/50 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 active:scale-95"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+
+              {/* 4. GITHUB */}
+              <a
+                href={SOCIALS.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.09] hover:border-[#4285F4]/50 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 active:scale-95"
+                aria-label="GitHub"
+                title="GitHub"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
+              </a>
+
+              {/* 5. X / TWITTER */}
+              <a
+                href={SOCIALS.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.09] hover:border-[#4285F4]/50 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 active:scale-95"
+                aria-label="X (Twitter)"
+                title="X"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+
+              {/* 6. DIRECT EMAIL */}
+              <a
+                href={`mailto:${STUDIO_EMAIL}`}
+                className="w-10 h-10 rounded-full border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.09] hover:border-[#4285F4]/50 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 active:scale-95"
+                aria-label="Direct Email"
+                title={`Email: ${STUDIO_EMAIL}`}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </a>
+
             </div>
           </div>
 
-          {/* COL 2: CORE SYSTEMS (lg:col-span-2) */}
-          <div className="flex flex-col gap-3">
-            <h4 className="font-mono font-semibold text-xs tracking-wider uppercase text-slate-400">
-              Core Systems
+          {/* COLUMN 2: CORE SYSTEMS (lg:col-span-3) */}
+          <div className="lg:col-span-3 space-y-3">
+            <h4 className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400">
+              CORE SYSTEMS
             </h4>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col space-y-2.5 text-sm text-slate-300">
               <Link
                 to="/services"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
                 All Systems Overview
               </Link>
               <Link
                 to="/services/websites"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
                 01 · Business Websites
               </Link>
               <Link
                 to="/services/web-apps"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
-                02 · Custom Web Apps
+                02 · Custom Web Apps & Portals
               </Link>
               <Link
                 to="/services/business-software"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
-                03 · Business Software
+                03 · Custom Business Software
               </Link>
             </div>
           </div>
 
-          {/* COL 3: SEARCH, AI & ADS (lg:col-span-3) */}
-          <div className="flex flex-col gap-3">
-            <h4 className="font-mono font-semibold text-xs tracking-wider uppercase text-slate-400">
-              Search, AI & Ads
+          {/* COLUMN 3: SEARCH & AI (lg:col-span-2) */}
+          <div className="lg:col-span-2 space-y-3">
+            <h4 className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400">
+              SEARCH & AI
             </h4>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col space-y-2.5 text-sm text-slate-300">
               <Link
                 to="/seo-ai"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
-                Overview & 4 Channels
+                4-Channel Overview
               </Link>
               <Link
                 to="/seo-ai/google-seo"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
-                01 · Technical Google SEO
+                Google Search SEO
               </Link>
               <Link
                 to="/seo-ai/ai-search"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
-                02 · ChatGPT & AI Search (AEO)
+                ChatGPT & AI (AEO)
               </Link>
               <Link
                 to="/seo-ai/google-maps"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
-                03 · Google Maps Local 3-Pack
+                Google Maps Local
               </Link>
               <Link
                 to="/seo-ai/google-ads"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
-                04 · Targeted Google Ads
+                Targeted Google Ads
               </Link>
             </div>
           </div>
 
-          {/* COL 4: STUDIO & DIRECT (lg:col-span-2) */}
-          <div className="flex flex-col gap-3">
-            <h4 className="font-mono font-semibold text-xs tracking-wider uppercase text-slate-400">
-              Studio & Direct
+          {/* COLUMN 4: STUDIO & POLICIES (lg:col-span-3) */}
+          <div className="lg:col-span-3 space-y-3">
+            <h4 className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400">
+              STUDIO & POLICIES
             </h4>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col space-y-2.5 text-sm text-slate-300">
               <Link
                 to="/about"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
-                About Studio
-              </Link>
-              <Link
-                to="/about#founder"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
-              >
-                Lead Architect
+                About VOOO LABS
               </Link>
               <Link
                 to="/contact"
-                className="font-sans font-medium text-xs sm:text-sm text-blue-400 hover:text-blue-300 inline-flex items-center gap-1.5 transition-colors pt-0.5"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
-                <span>Project Blueprint</span>
-                <ArrowRight size={12} />
+                Configure Project Blueprint
               </Link>
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-sans text-xs sm:text-sm text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5 transition-colors"
-              >
-                <MessageSquare size={13} />
-                <span>Direct WhatsApp</span>
-              </a>
-            </div>
-          </div>
-
-          {/* COL 5: IP & CLIENT PROTECTIONS (lg:col-span-2) */}
-          <div className="flex flex-col gap-3">
-            <h4 className="font-mono font-semibold text-xs tracking-wider uppercase text-slate-400">
-              IP & Ownership
-            </h4>
-            <div className="flex flex-col gap-2">
               <Link
                 to="/legal/ip-ownership"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all flex items-center gap-1.5"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
-                <ShieldCheck size={13} className="text-emerald-400 shrink-0" />
-                <span>100% Code Handover</span>
+                100% Source Code Ownership
               </Link>
               <Link
                 to="/legal/terms"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
                 Scope & Delivery Terms
               </Link>
               <Link
                 to="/legal/refunds"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
                 Milestone Sign-Off Policy
               </Link>
               <Link
                 to="/legal/privacy"
-                className="font-sans text-xs sm:text-sm text-slate-300 hover:text-white hover:translate-x-0.5 transition-all"
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
               >
                 Data Privacy & NDA
               </Link>
@@ -245,37 +272,40 @@ export default function Footer() {
 
         </div>
 
-        {/* ══════════════════════════════════════════════════════
-            SIGNATURE ARCHITECTURAL BRAND HORIZON
-            (Spans across the entire footer width with low opacity)
-           ══════════════════════════════════════════════════════ */}
-        <div className="relative w-full overflow-hidden select-none pointer-events-none py-10 sm:py-14 flex justify-center items-center border-t border-white/[0.06] mt-6">
-          <span 
-            className="font-crazyblocks tracking-wider text-center block text-[13vw] sm:text-[14vw] md:text-[15vw] leading-none whitespace-nowrap bg-gradient-to-b from-white/[0.12] via-white/[0.03] to-transparent bg-clip-text text-transparent font-normal"
-            aria-hidden="true"
-          >
-            VOOO LABS
-          </span>
-        </div>
-
-        {/* BOTTOM METADATA & TELEMETRY ROW */}
-        <div className="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-xs text-slate-400 font-mono">
-          <p>
-            {copyrightLine()}
-          </p>
-          <p className="tracking-wider uppercase text-slate-400 flex items-center gap-1.5">
-            <Radio size={12} className="text-blue-400 animate-pulse" />
-            <span>18.5204° N, 73.8567° E · Pune & Kolhapur, Maharashtra</span>
-          </p>
-          <a
-            href={`mailto:${COMPANY.email}`}
-            className="text-slate-400 hover:text-white transition-colors"
-          >
-            {COMPANY.email}
-          </a>
-        </div>
-
       </div>
+
+      {/* ══════════════════════════════════════════════════════
+          FULL-WIDTH BLURRED VOOO LABS WATERMARK
+          (Cleanly positioned right above the bottom copyright strip)
+         ══════════════════════════════════════════════════════ */}
+      <div className="relative w-full overflow-hidden select-none pointer-events-none py-6 sm:py-10 flex justify-center items-center border-t border-white/[0.06]">
+        <span 
+          className="text-[13.5vw] sm:text-[14.5vw] font-crazyblocks tracking-[0.06em] leading-none select-none pointer-events-none text-center bg-gradient-to-b from-white/[0.09] via-white/[0.03] to-transparent bg-clip-text text-transparent blur-[1.5px]"
+          aria-hidden="true"
+        >
+          VOOO LABS
+        </span>
+      </div>
+
+      {/* BOTTOM METADATA ROW */}
+      <div className="border-t border-white/[0.08] py-6 px-6 sm:px-12 max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div>
+          {copyrightLine()}
+        </div>
+
+        <div className="font-mono text-[11px] text-slate-400 flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+          <span>18.5204° N, 73.8567° E · Pune & Kolhapur</span>
+        </div>
+
+        <a
+          href={`mailto:${STUDIO_EMAIL}`}
+          className="text-slate-400 hover:text-white transition-colors font-mono"
+        >
+          {STUDIO_EMAIL}
+        </a>
+      </div>
+
     </footer>
   );
 }
