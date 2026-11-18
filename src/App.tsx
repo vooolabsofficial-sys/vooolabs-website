@@ -21,7 +21,7 @@ const GoogleMapsPage = React.lazy(() => import('./pages/GoogleMapsPage'));
 const GoogleAdsPage = React.lazy(() => import('./pages/GoogleAdsPage'));
 const AboutPage = React.lazy(() => import('./pages/AboutPage'));
 const ContactPage = React.lazy(() => import('./pages/ContactPage'));
-const LegalPage = React.lazy(() => import('./pages/LegalPage'));
+const LegalPolicyPage = React.lazy(() => import('./pages/LegalPolicyPage'));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage'));
 
 import type { Variants } from 'framer-motion';
@@ -108,15 +108,15 @@ function AppRoutes() {
     } else if (path === '/contact') {
       title = 'Start Your Project & Inquire — VOOO LABS';
     } else if (path === '/legal/privacy') {
-      title = 'Privacy Policy — VOOO LABS';
+      title = 'Data Privacy, Business NDA & Jurisdiction — VOOO LABS';
     } else if (path === '/legal/terms') {
-      title = 'Terms of Service — VOOO LABS';
+      title = 'Scope, Milestones & Delivery Terms — VOOO LABS';
     } else if (path === '/legal/ip-ownership') {
-      title = 'Code Ownership & IP Guarantee — VOOO LABS';
+      title = '100% Source Code & IP Ownership Guarantee — VOOO LABS';
     } else if (path === '/legal/refunds') {
-      title = 'Milestone & Refund Policy — VOOO LABS';
+      title = 'Milestone Sign-Off & Refund Policy — VOOO LABS';
     } else if (path.startsWith('/legal')) {
-      title = 'Legal & Terms — VOOO LABS';
+      title = 'Legal & Trust Architecture — VOOO LABS';
     } else if (path !== '/') {
       title = 'Page Not Found (404) — VOOO LABS';
     }
@@ -140,8 +140,12 @@ function AppRoutes() {
         <Route path="/seo-ai/google-ads" element={<PageWrapper><GoogleAdsPage /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
-        <Route path="/legal" element={<PageWrapper><LegalPage /></PageWrapper>} />
-        <Route path="/legal/:doc" element={<PageWrapper><LegalPage /></PageWrapper>} />
+        <Route path="/legal" element={<PageWrapper><LegalPolicyPage activePolicy="terms" /></PageWrapper>} />
+        <Route path="/legal/terms" element={<PageWrapper><LegalPolicyPage activePolicy="terms" /></PageWrapper>} />
+        <Route path="/legal/refunds" element={<PageWrapper><LegalPolicyPage activePolicy="refunds" /></PageWrapper>} />
+        <Route path="/legal/ip-ownership" element={<PageWrapper><LegalPolicyPage activePolicy="ip-ownership" /></PageWrapper>} />
+        <Route path="/legal/privacy" element={<PageWrapper><LegalPolicyPage activePolicy="privacy" /></PageWrapper>} />
+        <Route path="/legal/:doc" element={<PageWrapper><LegalPolicyPage /></PageWrapper>} />
         <Route path="*" element={<PageWrapper><NotFoundPage /></PageWrapper>} />
       </Routes>
     </AnimatePresence>
