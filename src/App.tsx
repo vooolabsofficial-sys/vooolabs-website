@@ -13,6 +13,7 @@ const HomePage = React.lazy(() => import('./pages/HomePage'));
 const ServicesPage = React.lazy(() => import('./pages/ServicesPage'));
 const WebsiteServicePage = React.lazy(() => import('./pages/WebsiteServicePage'));
 const WebAppsServicePage = React.lazy(() => import('./pages/WebAppsServicePage'));
+const BusinessSoftwareServicePage = React.lazy(() => import('./pages/BusinessSoftwareServicePage'));
 const SeoAiPage = React.lazy(() => import('./pages/SeoAiPage'));
 const AboutPage = React.lazy(() => import('./pages/AboutPage'));
 const ContactPage = React.lazy(() => import('./pages/ContactPage'));
@@ -86,6 +87,8 @@ function AppRoutes() {
       title = 'Business Websites — VOOO LABS';
     } else if (path === '/services/web-apps') {
       title = 'Custom Web Apps & Portals — VOOO LABS';
+    } else if (path === '/services/business-software') {
+      title = 'Custom Business Software — VOOO LABS';
     } else if (path === '/seo-ai') {
       title = 'AI Search & Organic Discovery (AEO/GEO) — VOOO LABS';
     } else if (path === '/about') {
@@ -116,6 +119,7 @@ function AppRoutes() {
         <Route path="/services" element={<PageWrapper><ServicesPage /></PageWrapper>} />
         <Route path="/services/websites" element={<PageWrapper><WebsiteServicePage /></PageWrapper>} />
         <Route path="/services/web-apps" element={<PageWrapper><WebAppsServicePage /></PageWrapper>} />
+        <Route path="/services/business-software" element={<PageWrapper><BusinessSoftwareServicePage /></PageWrapper>} />
         <Route path="/services/:slug" element={<PageWrapper><ServicesPage /></PageWrapper>} />
         <Route path="/seo-ai" element={<PageWrapper><SeoAiPage /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
