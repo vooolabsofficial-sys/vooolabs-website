@@ -15,6 +15,8 @@ const WebsiteServicePage = React.lazy(() => import('./pages/WebsiteServicePage')
 const WebAppsServicePage = React.lazy(() => import('./pages/WebAppsServicePage'));
 const BusinessSoftwareServicePage = React.lazy(() => import('./pages/BusinessSoftwareServicePage'));
 const SeoAiPage = React.lazy(() => import('./pages/SeoAiPage'));
+const GoogleSeoPage = React.lazy(() => import('./pages/GoogleSeoPage'));
+const AiSearchPage = React.lazy(() => import('./pages/AiSearchPage'));
 const AboutPage = React.lazy(() => import('./pages/AboutPage'));
 const ContactPage = React.lazy(() => import('./pages/ContactPage'));
 const LegalPage = React.lazy(() => import('./pages/LegalPage'));
@@ -90,7 +92,11 @@ function AppRoutes() {
     } else if (path === '/services/business-software') {
       title = 'Custom Business Software — VOOO LABS';
     } else if (path === '/seo-ai') {
-      title = 'AI Search & Organic Discovery (AEO/GEO) — VOOO LABS';
+      title = 'Google SEO, AI Search & Ads — VOOO LABS';
+    } else if (path === '/seo-ai/google-seo') {
+      title = 'Technical Google SEO & Service Intent Architecture — VOOO LABS';
+    } else if (path === '/seo-ai/ai-search') {
+      title = 'ChatGPT, Google AI & Machine-Readable Schema (AEO) — VOOO LABS';
     } else if (path === '/about') {
       title = 'About Studio & Lead Architect — VOOO LABS';
     } else if (path === '/contact') {
@@ -122,6 +128,8 @@ function AppRoutes() {
         <Route path="/services/business-software" element={<PageWrapper><BusinessSoftwareServicePage /></PageWrapper>} />
         <Route path="/services/:slug" element={<PageWrapper><ServicesPage /></PageWrapper>} />
         <Route path="/seo-ai" element={<PageWrapper><SeoAiPage /></PageWrapper>} />
+        <Route path="/seo-ai/google-seo" element={<PageWrapper><GoogleSeoPage /></PageWrapper>} />
+        <Route path="/seo-ai/ai-search" element={<PageWrapper><AiSearchPage /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
         <Route path="/legal" element={<PageWrapper><LegalPage /></PageWrapper>} />
