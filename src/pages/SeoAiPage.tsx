@@ -15,59 +15,49 @@ import SearchPlacementVisualizer from '../components/seo/SearchPlacementVisualiz
 
 const EASING = [0.22, 1, 0.36, 1] as const;
 
-const CAPABILITIES = [
+const PILLARS = [
   {
     num: '01',
-    title: 'Technical SEO Code Foundation',
-    desc: 'Clean semantic HTML, sitemaps, and edge-fast mobile delivery built directly into your codebase.',
+    title: 'Search & AI-Readable Website Architecture',
+    desc: 'Clean semantic HTML, sitemaps, JSON-LD schema, and llms.txt so Google Search and AI assistants read your services accurately.',
   },
   {
     num: '02',
-    title: 'AI Search & Schema Readiness (AEO)',
-    desc: 'Structured JSON-LD schema so ChatGPT, Google AI Overviews, and Perplexity recommend your business.',
+    title: 'Google Maps & WhatsApp Review Setup',
+    desc: 'Complete Google Business Profile optimization paired with a 1-tap WhatsApp review link for satisfied customers.',
   },
   {
     num: '03',
-    title: 'Google Maps & Local Authority',
-    desc: 'Complete Google Business Profile optimization to capture high-intent regional and local searches.',
+    title: 'Dedicated High-Speed Ad Landing Pages',
+    desc: "Focused, fast-loading landing pages built for paid campaigns so visitors don't bounce on cluttered homepages.",
   },
   {
     num: '04',
-    title: 'High-Intent Service Pages',
-    desc: 'Conversion-focused pages built around specific buyer searches rather than generic keyword blogs.',
-  },
-  {
-    num: '05',
-    title: 'Targeted Search & AI Ads',
-    desc: 'Precision ad execution paired with fast landing pages and direct WhatsApp/call attribution.',
-  },
-  {
-    num: '06',
-    title: '100% Account & Data Ownership',
-    desc: 'Full ownership of your Search Console, Analytics, Business Profile, and ad accounts in your name.',
+    title: 'Targeted Search Ads & WhatsApp Attribution',
+    desc: 'Commercial-intent Google Search campaign setup with clear source tracking on incoming WhatsApp and call inquiries.',
   },
 ];
 
 const COMPARISONS = [
   {
-    dimension: 'Foundation',
-    traditional: 'Pasting keywords onto slow, broken templates with brittle plugins.',
-    vooo: 'Technical SEO and AI schema engineered directly into fast, clean code.',
+    dimension: 'Landing Page Speed',
+    traditional: 'Sending ad traffic to slow, bloated templates with broken mobile layouts.',
+    vooo: 'Dedicated, lightweight landing pages built for instantaneous cellular speed.',
   },
   {
-    dimension: 'AI Search Readiness',
-    traditional: 'Ignoring how modern buyers now ask ChatGPT, Perplexity, and Google AI.',
-    vooo: 'Structured entity data built for both search engines and AI answer engines.',
+    dimension: 'Schema & AI Readiness',
+    traditional: 'Ignoring structured schema and machine-readable data for AI models.',
+    vooo: 'Full JSON-LD and llms.txt integration so search engines and AI read your services.',
   },
   {
-    dimension: 'Lead Capture',
-    traditional: 'Sending paid clicks to cluttered homepages with leaky, tedious forms.',
-    vooo: 'Focused landing flows with 1-tap WhatsApp, phone, and source attribution.',
+    dimension: 'WhatsApp Attribution',
+    traditional: 'Relying on generic contact forms where inquiry sources get lost.',
+    vooo: 'Form-free direct WhatsApp routing with campaign and page context pre-attached.',
   },
   {
-    dimension: 'Account Control',
-    traditional: 'Agencies holding your ad, pixel, or analytics accounts hostage.',
-    vooo: '100% ownership of every profile, pixel, and campaign asset in your company name.',
+    dimension: 'Account Ownership',
+    traditional: 'Agencies withholding ad account access, analytics data, or pixel control.',
+    vooo: '100% ownership of your Google Search Console, Analytics, and ad accounts in your name.',
   },
 ];
 
@@ -78,7 +68,7 @@ const SECTORS = [
   },
   {
     title: 'Hospitals, Clinics & Specialists',
-    desc: 'Dominate local Google Maps searches and symptom/treatment queries with direct appointment routing.',
+    desc: 'Capture local Google Maps searches and treatment inquiries with direct appointment routing.',
   },
   {
     title: 'Coaching Institutes & Colleges',
@@ -169,18 +159,18 @@ export default function SeoAiPage() {
                 transition={{ duration: 0.6, delay: 0.12, ease: EASING }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-[-0.03em] text-slate-950 leading-[1.12] max-w-2xl"
               >
-                <span>Get Found and Recommended</span>
-                <span className="shimmer-text block mt-1">Across Google, Maps & AI.</span>
+                <span>Make Your Business Clear and Easy to Find</span>
+                <span className="shimmer-text block mt-1">on Google, Maps & AI.</span>
               </motion.h1>
 
-              {/* TIGHT SCANNABLE SUBHEADLINE */}
+              {/* HONEST, ZERO-HYPE SUBHEADLINE */}
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.20, ease: EASING }}
                 className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-xl"
               >
-                Modern buyers search across Google, check Maps proximity, and ask ChatGPT who to trust. We engineer technical SEO, AI readiness, and high-intent ads that bring direct inquiries.
+                We don't sell empty ranking promises. We engineer fast, AI-readable website structure, accurate Google Maps presence, high-speed ad landing pages, and transparent WhatsApp lead tracking so your marketing budget works cleanly.
               </motion.p>
 
               {/* ACTION ROW */}
@@ -215,7 +205,7 @@ export default function SeoAiPage() {
               </motion.div>
             </div>
 
-            {/* RIGHT COLUMN (lg:col-span-6): GSAP INTERACTIVE PLACEMENT VISUALIZER */}
+            {/* RIGHT COLUMN (lg:col-span-6): GSAP PLACEMENT VISUALIZER */}
             <div className="lg:col-span-6 w-full pt-4 lg:pt-0">
               <SearchPlacementVisualizer />
             </div>
@@ -227,23 +217,23 @@ export default function SeoAiPage() {
 
 
       {/* ══════════════════════════════════════════════════════
-          SECTION 2: 6-POINT VISIBILITY ARCHITECTURE GRID
+          SECTION 2: 4 CONTROLLABLE ENGINEERING PILLARS
          ══════════════════════════════════════════════════════ */}
       <section 
         className="py-16 sm:py-20 bg-white text-left"
-        aria-label="Core Search and AI Visibility Capabilities"
+        aria-label="The 4 Controllable Engineering Pillars"
       >
         <div className="max-w-6xl mx-auto px-6">
           <span className="font-mono text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2.5">
-            SEARCH & AI VISIBILITY ARCHITECTURE
+            CONTROLLABLE ENGINEERING PILLARS
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-950 leading-tight max-w-2xl">
-            Engineered for Where Buyers Actually Search Today.
+            What We Actually Engineer and Deliver in Code & Setup.
           </h2>
 
-          {/* 6-ITEM 2-COLUMN OPEN HAIRLINE GRID (1 BOLD TITLE + 1 CRISP SENTENCE) */}
+          {/* 4-ITEM 2-COLUMN OPEN HAIRLINE GRID (1 BOLD TITLE + 1 CRISP SENTENCE) */}
           <div className="mt-10 border-t border-slate-200/80 grid grid-cols-1 md:grid-cols-2 divide-y divide-slate-200/80">
-            {CAPABILITIES.map((item, idx) => (
+            {PILLARS.map((item, idx) => (
               <div 
                 key={item.num}
                 className={`py-6 md:px-6 ${
@@ -274,7 +264,7 @@ export default function SeoAiPage() {
          ══════════════════════════════════════════════════════ */}
       <section 
         className="bg-[#0A0F1E] text-white py-16 sm:py-20 relative overflow-hidden select-none border-t border-slate-800 text-left"
-        aria-label="Why Technical Visibility Wins"
+        aria-label="Generic Ad Agencies vs VOOO LABS Technical Setup"
       >
         {/* AMBIENT GLOW BACKDROP */}
         <div 
@@ -284,10 +274,10 @@ export default function SeoAiPage() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <span className="font-mono text-xs font-bold text-orange-400 uppercase tracking-widest block mb-2.5">
-            WHY TECHNICAL VISIBILITY WINS
+            TECHNICAL COMPARISON
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
-            Focus on Real Buyer Inquiries—Not Vanity Click Reports.
+            Generic Ad Agencies vs. VOOO LABS Technical Setup.
           </h2>
 
           {/* 4 CRISP HAIRLINE COMPARISON ROWS */}
@@ -295,8 +285,8 @@ export default function SeoAiPage() {
             {/* TABLE HEADER */}
             <div className="py-3.5 grid grid-cols-1 md:grid-cols-12 gap-4 text-xs font-semibold uppercase tracking-wider text-slate-400">
               <div className="md:col-span-3">Dimension</div>
-              <div className="md:col-span-4">Vanity Traffic Agencies</div>
-              <div className="md:col-span-5 text-orange-400 font-bold">VOOO LABS Search & AI Engineering</div>
+              <div className="md:col-span-4">Generic Ad Agencies</div>
+              <div className="md:col-span-5 text-orange-400 font-bold">VOOO LABS Technical Setup</div>
             </div>
 
             {/* ROWS */}
@@ -328,7 +318,7 @@ export default function SeoAiPage() {
          ══════════════════════════════════════════════════════ */}
       <section 
         className="bg-[#F8F9FC] border-t border-slate-200/80 py-16 sm:py-20 select-none text-left relative overflow-hidden"
-        aria-label="Built for High-Intent Categories"
+        aria-label="Built for High-Intent Commercial Sectors"
       >
         {/* TOP 2PX STUDIO BRAND PROGRESS LINE */}
         <motion.div
@@ -414,7 +404,7 @@ export default function SeoAiPage() {
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight max-w-2xl">
               Ready to Make Your Business Easy to Find <br className="hidden sm:inline" />
-              <span className="shimmer-text">on Google and AI Search?</span>
+              <span className="shimmer-text">on Google, Maps and AI Search?</span>
             </h2>
           </div>
 

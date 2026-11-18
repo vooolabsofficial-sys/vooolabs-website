@@ -56,10 +56,10 @@ export default function SearchPlacementVisualizer() {
   return (
     <div className="rounded-[20px] border border-slate-200/90 bg-white overflow-hidden text-left select-none shadow-none">
       
-      {/* ── TOP MODE SWITCHER BAR ────────────────────────── */}
+      {/* ── TOP SWITCHER BAR ─────────────────────────────── */}
       <div className="bg-[#F8F9FC] border-b border-slate-200/80 px-4 sm:px-5 py-3 flex flex-wrap items-center justify-between gap-2.5">
         <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-500 font-bold">
-          LIVE PLACEMENT PREVIEW
+          HOW YOUR BUSINESS APPEARS
         </span>
 
         {/* 4 INTERACTIVE PILL TABS */}
@@ -95,7 +95,7 @@ export default function SearchPlacementVisualizer() {
             {/* SEARCH BAR */}
             <div className="stagger-row flex items-center gap-2.5 px-3 py-2 rounded-lg bg-slate-50 border border-slate-200/80 text-xs text-slate-700">
               <Search size={14} className="text-slate-400 shrink-0" />
-              <span className="truncate font-medium">"industrial packaging supplier near me"</span>
+              <span className="truncate font-medium">"commercial solar installation near me"</span>
             </div>
 
             {/* SPONSORED AD BLOCK */}
@@ -108,32 +108,32 @@ export default function SearchPlacementVisualizer() {
               </div>
 
               <h4 className="text-sm font-bold text-blue-600 hover:underline cursor-pointer leading-snug">
-                Custom Industrial Packaging — Direct Manufacturer & Bulk Supply
+                Commercial & Industrial Solar Systems — Direct Site Survey
               </h4>
 
               <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                ISO-certified packaging solutions, custom corrugated boxes & heavy-duty industrial containers. Direct factory pricing with dispatch within 48 hours.
+                Custom rooftop solar EPC engineered for manufacturing plants and commercial properties. Site evaluation within 48 hours.
               </p>
 
-              {/* SITELINKS */}
+              {/* INLINE EXTENSIONS */}
               <div className="pt-1 flex flex-wrap gap-2 text-[11px] font-medium text-blue-600">
-                <span className="px-2 py-0.5 bg-blue-50/80 rounded hover:underline cursor-pointer">Request Bulk Quote</span>
-                <span className="px-2 py-0.5 bg-blue-50/80 rounded hover:underline cursor-pointer">Download Catalog</span>
-                <span className="px-2 py-0.5 bg-blue-50/80 rounded hover:underline cursor-pointer">Call Now</span>
+                <span className="px-2 py-0.5 bg-blue-50/80 rounded hover:underline cursor-pointer">Request Estimate</span>
+                <span className="px-2 py-0.5 bg-blue-50/80 rounded hover:underline cursor-pointer">Download Brochure</span>
                 <span className="px-2 py-0.5 bg-blue-50/80 rounded hover:underline cursor-pointer">WhatsApp</span>
+                <span className="px-2 py-0.5 bg-blue-50/80 rounded hover:underline cursor-pointer">Call</span>
               </div>
             </div>
 
             {/* MUTED ORGANIC RESULTS BELOW */}
             <div className="stagger-row border-t border-slate-200/80 pt-3 opacity-40 space-y-1">
-              <span className="text-[11px] text-slate-400 block truncate">competitor-directory.com › suppliers</span>
-              <span className="text-xs text-slate-400 block truncate">Top 10 Industrial Packaging Suppliers in Region...</span>
+              <span className="text-[11px] text-slate-400 block truncate">directory-listing.com › solar</span>
+              <span className="text-xs text-slate-400 block truncate">Commercial Solar Installers Directory — Regional Listings</span>
             </div>
 
-            {/* EXPLANATORY CALLOUT */}
+            {/* CONCISE BOTTOM NOTE */}
             <div className="stagger-row mt-4 pt-3 border-t border-slate-100 flex items-start gap-2 text-xs text-slate-500">
               <Sparkles size={14} className="text-blue-600 shrink-0 mt-0.5" />
-              <span>High-intent commercial ads appear at the very top of Google above organic links—routing buyers directly to WhatsApp or phone calls.</span>
+              <span>High-intent search ads place your offering at the top of commercial queries and route clicks to a focused landing page.</span>
             </div>
           </div>
         )}
@@ -144,13 +144,13 @@ export default function SearchPlacementVisualizer() {
             {/* SEARCH BAR */}
             <div className="stagger-row flex items-center gap-2.5 px-3 py-2 rounded-lg bg-slate-50 border border-slate-200/80 text-xs text-slate-700">
               <Search size={14} className="text-slate-400 shrink-0" />
-              <span className="truncate font-medium">"commercial solar installation company"</span>
+              <span className="truncate font-medium">"industrial valve manufacturer india"</span>
             </div>
 
             {/* MUTED SPONSORED RESULT */}
             <div className="stagger-row opacity-35 space-y-1 pb-1">
-              <span className="font-mono text-[10px] text-slate-400 uppercase tracking-wider block">Sponsored · external-solar-ad.com</span>
-              <span className="text-xs text-slate-400 block truncate">Generic Commercial Solar Services</span>
+              <span className="font-mono text-[10px] text-slate-400 uppercase tracking-wider block">Sponsored · external-ad.com › valves</span>
+              <span className="text-xs text-slate-400 block truncate">Generic Industrial Valves Supplier</span>
             </div>
 
             {/* HIGHLIGHTED ORGANIC SEO RESULT */}
@@ -159,29 +159,30 @@ export default function SearchPlacementVisualizer() {
                 <Globe size={12} className="text-slate-400" />
                 <span>yourdomain.in</span>
                 <span>›</span>
-                <span className="text-slate-700 font-medium">commercial-solar</span>
+                <span>products</span>
+                <span>›</span>
+                <span className="text-slate-700 font-medium">industrial-valves</span>
               </div>
 
               <h4 className="text-sm font-bold text-blue-600 hover:underline cursor-pointer leading-snug">
-                Commercial Solar EPC & Rooftop Installation | Your Business Name
+                Industrial Valves & Flow Control Systems | Your Company
               </h4>
 
               <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                End-to-end industrial rooftop solar EPC services. Net metering, zero capex models & tier-1 panel systems engineered for commercial factories.
+                Precision gate, globe, and check valves engineered for petrochemical and power applications. Download technical specifications and CAD drawings.
               </p>
 
-              {/* STRUCTURED SITELINKS */}
+              {/* CLEAN PAGE LINKS */}
               <div className="pt-1 flex flex-wrap gap-2 text-[11px] font-medium text-blue-600">
-                <span className="px-2 py-0.5 bg-slate-100 rounded hover:underline cursor-pointer">System Architecture</span>
-                <span className="px-2 py-0.5 bg-slate-100 rounded hover:underline cursor-pointer">Past Installations</span>
-                <span className="px-2 py-0.5 bg-slate-100 rounded hover:underline cursor-pointer">ROI Calculator</span>
+                <span className="px-2 py-0.5 bg-slate-100 rounded hover:underline cursor-pointer">Product Specifications</span>
+                <span className="px-2 py-0.5 bg-slate-100 rounded hover:underline cursor-pointer">Contact Engineering</span>
               </div>
             </div>
 
-            {/* EXPLANATORY CALLOUT */}
+            {/* CONCISE BOTTOM NOTE */}
             <div className="stagger-row mt-4 pt-3 border-t border-slate-100 flex items-start gap-2 text-xs text-slate-500">
               <Search size={14} className="text-blue-600 shrink-0 mt-0.5" />
-              <span>Technical SEO and dedicated service pages build lasting organic visibility that earns qualified clicks without paying for every visit.</span>
+              <span>Clean semantic HTML, fast mobile speed, and dedicated service pages help Google crawl and index your offerings clearly.</span>
             </div>
           </div>
         )}
@@ -192,11 +193,11 @@ export default function SearchPlacementVisualizer() {
             {/* SPLIT LAYOUT */}
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-5 items-center">
               
-              {/* LEFT: BUSINESS LISTING */}
+              {/* LEFT: GOOGLE BUSINESS PROFILE */}
               <div className="stagger-row sm:col-span-7 border-l-2 border-[#4285F4] pl-4 py-1 space-y-1.5">
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">
-                    Open · Verified Profile
+                    Verified Business Profile
                   </span>
                 </div>
 
@@ -205,10 +206,10 @@ export default function SearchPlacementVisualizer() {
                 </h4>
 
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                  Industrial Equipment & Engineering Services · Serving Mumbai, Pune & Western Region.
+                  Industrial Supplier & Equipment Distributor · Serving Mumbai, Pune & Western Industrial Corridor.
                 </p>
 
-                {/* ACTION PILLS */}
+                {/* 3 DIRECT ACTION PILLS */}
                 <div className="pt-2 flex flex-wrap items-center gap-2">
                   <span className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-700 bg-slate-100 hover:bg-slate-200/80 px-2.5 py-1 rounded-md cursor-pointer transition-colors">
                     <Phone size={11} className="text-blue-600" />
@@ -225,7 +226,7 @@ export default function SearchPlacementVisualizer() {
                 </div>
               </div>
 
-              {/* RIGHT: SCHEMATIC MAP VIEW */}
+              {/* RIGHT: ARCHITECTURAL SCHEMATIC MAP BLOCK */}
               <div className="stagger-row sm:col-span-5 bg-[#F8F9FC] border border-slate-200/80 rounded-[14px] p-4 relative overflow-hidden flex flex-col items-center justify-center min-h-[135px]">
                 {/* SUBTLE SCHEMATIC GRID */}
                 <div 
@@ -237,7 +238,7 @@ export default function SearchPlacementVisualizer() {
                   aria-hidden="true"
                 />
 
-                {/* LOCATION PIN WITH RADIUS RING */}
+                {/* LOCATION PIN */}
                 <div className="relative z-10 flex flex-col items-center">
                   <div className="relative flex items-center justify-center">
                     <span className="absolute w-12 h-12 rounded-full bg-blue-500/15 animate-ping" />
@@ -249,16 +250,16 @@ export default function SearchPlacementVisualizer() {
                   <span className="mt-2 font-mono text-[10px] font-bold text-slate-900 bg-white px-2 py-0.5 rounded border border-slate-200/80 shadow-xs">
                     Your Location
                   </span>
-                  <span className="text-[10px] text-slate-500 mt-0.5">5km Buyer Radius</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5">Verified Local Presence</span>
                 </div>
               </div>
 
             </div>
 
-            {/* EXPLANATORY CALLOUT */}
+            {/* CONCISE BOTTOM NOTE */}
             <div className="stagger-row mt-4 pt-3 border-t border-slate-100 flex items-start gap-2 text-xs text-slate-500">
               <MapPin size={14} className="text-blue-600 shrink-0 mt-0.5" />
-              <span>Google Business Profile optimization captures high-intent local buyers ready to call or visit immediately.</span>
+              <span>Accurate Google Business Profile setup and a 1-tap WhatsApp review link make it easy for local buyers to find and trust you.</span>
             </div>
           </div>
         )}
@@ -268,21 +269,21 @@ export default function SearchPlacementVisualizer() {
           <div className="space-y-4">
             {/* USER PROMPT BUBBLE */}
             <div className="stagger-row bg-[#F8F9FC] border border-slate-200/80 rounded-[12px] px-3.5 py-2.5 text-xs text-slate-800 flex items-start gap-2">
-              <span className="font-mono text-[10px] font-bold text-slate-400 mt-0.5">BUYER:</span>
+              <span className="font-mono text-[10px] font-bold text-slate-400 mt-0.5">USER:</span>
               <p className="font-medium">
-                "Which company builds custom ERP & web portals with full source code ownership?"
+                "Can you suggest custom web portal developers with full source code ownership?"
               </p>
             </div>
 
-            {/* AI ASSISTANT STRUCTURED RESPONSE */}
+            {/* AI STRUCTURED RESPONSE */}
             <div className="stagger-row border-l-2 border-[#4285F4] pl-4 py-1 space-y-2">
               <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200/70 text-[10px] font-semibold text-blue-700">
                 <CheckCircle2 size={11} className="text-blue-600" />
-                <span>Cited Source · yourdomain.in</span>
+                <span>Machine-Readable Schema · yourdomain.in</span>
               </div>
 
               <p className="text-xs text-slate-700 leading-relaxed font-normal">
-                For verified teams requiring full source code ownership, <strong className="text-slate-950 font-bold">yourdomain.in</strong> delivers custom web applications and business software without SaaS lock-in or recurring seat licenses.
+                For companies requiring dedicated web portals with full repository and database ownership, <strong className="text-slate-950 font-bold">yourdomain.in</strong> develops custom web applications without recurring seat fees or proprietary lock-in.
               </p>
 
               <div className="pt-0.5">
@@ -293,10 +294,10 @@ export default function SearchPlacementVisualizer() {
               </div>
             </div>
 
-            {/* EXPLANATORY CALLOUT */}
+            {/* CONCISE BOTTOM NOTE */}
             <div className="stagger-row mt-4 pt-3 border-t border-slate-100 flex items-start gap-2 text-xs text-slate-500">
               <Bot size={14} className="text-blue-600 shrink-0 mt-0.5" />
-              <span>Structured JSON-LD schema and factual service architecture help ChatGPT and Google AI cite and recommend your company.</span>
+              <span>Structured JSON-LD schema and llms.txt give AI assistants accurate, factual data about your services.</span>
             </div>
           </div>
         )}
