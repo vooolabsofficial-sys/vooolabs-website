@@ -1,111 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   ArrowLeft, 
   ArrowRight, 
   ArrowUpRight, 
   Check, 
-  Minus, 
-  Inbox, 
-  Users, 
-  LayoutDashboard 
+  Minus 
 } from 'lucide-react';
 import { COMPANY } from '../content/company';
 import LiquidButton from '../components/shared/LiquidButton';
 import { DuotoneCheckIcon } from '../components/shared/StudioIcons';
+import OperationsPipelineVisualizer from '../components/services/OperationsPipelineVisualizer';
 
 const EASING = [0.22, 1, 0.36, 1] as const;
-
-type StageType = 'intake' | 'execution' | 'command';
-
-interface StepFlow {
-  num: string;
-  stage: string;
-  heading: string;
-  detail: string;
-}
-
-const STAGE_FLOWS: Record<StageType, StepFlow[]> = {
-  intake: [
-    {
-      num: '01',
-      stage: 'Intake & Leads',
-      heading: 'Central Inquiry & Order Capture',
-      detail: 'Every website, WhatsApp, and phone inquiry enters one structured queue—zero missed follow-ups.',
-    },
-    {
-      num: '02',
-      stage: 'Routing',
-      heading: 'Automatic Staff Assignment',
-      detail: 'Leads and orders route automatically to the right branch or sales executive.',
-    },
-    {
-      num: '03',
-      stage: 'Follow-Up',
-      heading: 'Quotation & Follow-Up Reminders',
-      detail: 'Track pending quotes, scheduled callbacks, and customer commitments cleanly.',
-    },
-    {
-      num: '04',
-      stage: 'Conversion',
-      heading: 'Instant Handover to Operations',
-      detail: 'Approved orders convert directly into active execution tasks without re-typing data.',
-    },
-  ],
-  execution: [
-    {
-      num: '01',
-      stage: 'Task Routing',
-      heading: 'Clear Stage-by-Stage Task Ownership',
-      detail: 'Every team member sees their assigned jobs, deadlines, and priority order.',
-    },
-    {
-      num: '02',
-      stage: 'Real-Time Logs',
-      heading: 'Stock, Material & Vendor Logs',
-      detail: 'Record inward stock, material usage, and dispatch updates in real time.',
-    },
-    {
-      num: '03',
-      stage: 'Audit Trail',
-      heading: 'Timestamped Action Accountability',
-      detail: 'Every status change, edit, and handover is logged automatically by user and time.',
-    },
-    {
-      num: '04',
-      stage: 'Milestone Alerts',
-      heading: 'Automated WhatsApp Status Alerts',
-      detail: 'Notify internal teams or customers automatically when key milestones complete.',
-    },
-  ],
-  command: [
-    {
-      num: '01',
-      stage: 'Multi-Branch Hub',
-      heading: 'Live Multi-Branch Visibility',
-      detail: 'Monitor active orders, pending tasks, and branch performance from one screen.',
-    },
-    {
-      num: '02',
-      stage: 'Approvals',
-      heading: 'Bottleneck & Approval Alerts',
-      detail: 'Spot delayed jobs and approve discounts, purchases, or exceptions in one click.',
-    },
-    {
-      num: '03',
-      stage: 'Access Control',
-      heading: 'Strict Role-Based Data Privacy',
-      detail: 'Ensure staff see only their assigned scope while owners retain complete visibility.',
-    },
-    {
-      num: '04',
-      stage: 'Financial Health',
-      heading: 'Clean Audit & Exportable Reports',
-      detail: 'Generate accurate operational and financial summaries anytime without spreadsheet errors.',
-    },
-  ],
-};
 
 const CAPABILITIES = [
   {
@@ -115,28 +23,28 @@ const CAPABILITIES = [
   },
   {
     num: '02',
-    title: 'Lead, Order & Pipeline Tracking',
-    desc: 'Manage every inquiry from initial contact and quotation through execution, dispatch, and repeat business.',
+    title: 'Central Lead, Order & Pipeline Tracking',
+    desc: 'Capture every inquiry and move approved quotes straight into execution without re-typing data.',
   },
   {
     num: '03',
-    title: 'Inventory, Stock & Dispatch Control',
-    desc: 'Track live stock levels across branches or godowns with low-stock alerts and vendor histories.',
+    title: 'Live Inventory, Stock & Dispatch Control',
+    desc: 'Track stock across branches or godowns in real time with low-stock alerts and dispatch logs.',
   },
   {
     num: '04',
     title: 'Multi-Branch & Role-Based Permissions',
-    desc: 'Granular access control for owners, branch managers, accounts, and field staff.',
+    desc: 'Define strict access scopes for owners, branch managers, accounts, and field staff.',
   },
   {
     num: '05',
-    title: 'Automated WhatsApp & Internal Notifications',
+    title: 'Automated WhatsApp & Internal Alerts',
     desc: 'Trigger instant reminders for pending approvals, overdue follow-ups, and completed dispatches.',
   },
   {
     num: '06',
-    title: 'Private Cloud Database & 100% Ownership',
-    desc: 'Dedicated production database, private GitHub repository, and complete source code ownership in your name.',
+    title: 'Private Database & 100% Source Code Ownership',
+    desc: "Dedicated cloud database, private GitHub repository, and complete ownership in your company's name.",
   },
 ];
 
@@ -183,8 +91,6 @@ const SECTORS = [
 ];
 
 export default function BusinessSoftwareServicePage() {
-  const [activeStage, setActiveStage] = useState<StageType>('intake');
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -197,7 +103,7 @@ export default function BusinessSoftwareServicePage() {
     <div className="page-wrap bg-white min-h-screen text-slate-900 select-none">
       
       {/* ══════════════════════════════════════════════════════
-          SECTION 1: ASYMMETRIC EDITORIAL HERO + SWITCHER
+          SECTION 1: ASYMMETRIC EDITORIAL HERO + GSAP VISUALIZER
          ══════════════════════════════════════════════════════ */}
       <section 
         className="pt-32 sm:pt-36 pb-16 bg-white border-b border-slate-200/80 relative overflow-hidden text-left"
@@ -228,10 +134,10 @@ export default function BusinessSoftwareServicePage() {
           </motion.div>
 
           {/* 12-COLUMN ASYMMETRIC SPLIT */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-start">
             
-            {/* LEFT COLUMN (lg:col-span-7): EDITORIAL HEADLINE & VALUE */}
-            <div className="lg:col-span-7">
+            {/* LEFT COLUMN (lg:col-span-6): EDITORIAL HEADLINE & VALUE */}
+            <div className="lg:col-span-6">
               {/* STUDIO PHILOSOPHY TAG */}
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
@@ -267,14 +173,14 @@ export default function BusinessSoftwareServicePage() {
                 <span className="shimmer-text block mt-1">Shaped Around How Your Team Actually Works.</span>
               </motion.h1>
 
-              {/* SUBHEADLINE */}
+              {/* TIGHT SCANNABLE SUBHEADLINE */}
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.20, ease: EASING }}
                 className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-xl"
               >
-                Stop running critical business operations on fragile spreadsheets, scattered WhatsApp groups, and rigid off-the-shelf software. We engineer tailored internal systems for leads, orders, inventory, approvals, and multi-branch visibility—100% owned by your company.
+                Stop running critical operations on fragile spreadsheets and scattered WhatsApp groups. We engineer custom internal systems for leads, orders, inventory, and multi-branch control.
               </motion.p>
 
               {/* ACTION ROW */}
@@ -309,91 +215,9 @@ export default function BusinessSoftwareServicePage() {
               </motion.div>
             </div>
 
-            {/* RIGHT COLUMN (lg:col-span-5): INTERACTIVE OPERATIONS FLOW SWITCHER */}
-            <div className="lg:col-span-5 lg:border-l lg:border-slate-200/80 lg:pl-10 w-full pt-4 lg:pt-0">
-              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-blue-600 block">
-                HOW ONE OPERATION FLOWS END-TO-END
-              </span>
-              
-              <p className="mt-2 text-sm text-slate-600 leading-relaxed font-normal">
-                Select an operational stage to see how work moves cleanly without manual chasing:
-              </p>
-
-              {/* 3 INTERACTIVE UNDERLINE TABS */}
-              <div className="mt-4 flex items-center gap-5 border-b border-slate-200/80 text-xs sm:text-sm">
-                <button
-                  type="button"
-                  onClick={() => setActiveStage('intake')}
-                  className={`pb-2.5 inline-flex items-center gap-1.5 transition-colors relative cursor-pointer font-medium ${
-                    activeStage === 'intake'
-                      ? 'text-slate-950 font-bold border-b-2 border-blue-600 -mb-[1px]'
-                      : 'text-slate-500 hover:text-slate-800'
-                  }`}
-                >
-                  <Inbox size={14} className={activeStage === 'intake' ? 'text-blue-600' : 'text-slate-400'} />
-                  <span>01 Intake & Leads</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setActiveStage('execution')}
-                  className={`pb-2.5 inline-flex items-center gap-1.5 transition-colors relative cursor-pointer font-medium ${
-                    activeStage === 'execution'
-                      ? 'text-slate-950 font-bold border-b-2 border-blue-600 -mb-[1px]'
-                      : 'text-slate-500 hover:text-slate-800'
-                  }`}
-                >
-                  <Users size={14} className={activeStage === 'execution' ? 'text-blue-600' : 'text-slate-400'} />
-                  <span>02 Team Execution</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setActiveStage('command')}
-                  className={`pb-2.5 inline-flex items-center gap-1.5 transition-colors relative cursor-pointer font-medium ${
-                    activeStage === 'command'
-                      ? 'text-slate-950 font-bold border-b-2 border-blue-600 -mb-[1px]'
-                      : 'text-slate-500 hover:text-slate-800'
-                  }`}
-                >
-                  <LayoutDashboard size={14} className={activeStage === 'command' ? 'text-blue-600' : 'text-slate-400'} />
-                  <span>03 Owner Command</span>
-                </button>
-              </div>
-
-              {/* 4-ROW VERTICAL HAIRLINE EXPERIENCE LIST */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeStage}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.35, ease: EASING }}
-                  className="mt-4 divide-y divide-slate-200/80 border-b border-slate-200/80"
-                >
-                  {STAGE_FLOWS[activeStage].map((step) => (
-                    <div key={step.num} className="py-3.5 flex items-start gap-3.5">
-                      <span className="font-mono text-xs font-bold text-blue-600 shrink-0 mt-0.5 w-6">
-                        {step.num}
-                      </span>
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-2">
-                          <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500">
-                            {step.stage}
-                          </span>
-                          <span className="text-slate-300 text-xs" aria-hidden="true">·</span>
-                          <h4 className="text-xs sm:text-sm font-bold text-slate-950 truncate">
-                            {step.heading}
-                          </h4>
-                        </div>
-                        <p className="mt-1 text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
-                          {step.detail}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </motion.div>
-              </AnimatePresence>
+            {/* RIGHT COLUMN (lg:col-span-6): GSAP OPERATIONS PIPELINE VISUALIZER */}
+            <div className="lg:col-span-6 w-full pt-4 lg:pt-0">
+              <OperationsPipelineVisualizer />
             </div>
 
           </div>
@@ -417,7 +241,7 @@ export default function BusinessSoftwareServicePage() {
             Built Around Your Exact Rules—Zero Bloated Menus.
           </h2>
 
-          {/* 6-ITEM 2-COLUMN OPEN HAIRLINE GRID */}
+          {/* 6-ITEM 2-COLUMN OPEN HAIRLINE GRID (1 BOLD TITLE + 1 CRISP SENTENCE) */}
           <div className="mt-10 border-t border-slate-200/80 grid grid-cols-1 md:grid-cols-2 divide-y divide-slate-200/80">
             {CAPABILITIES.map((item, idx) => (
               <div 
