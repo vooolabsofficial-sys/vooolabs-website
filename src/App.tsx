@@ -11,6 +11,7 @@ import TopRouteProgressBar from './components/shared/TopRouteProgressBar';
 // Route-level code splitting using React.lazy() for optimal loading speed and minimal initial bundle
 const HomePage = React.lazy(() => import('./pages/HomePage'));
 const ServicesPage = React.lazy(() => import('./pages/ServicesPage'));
+const WebsiteServicePage = React.lazy(() => import('./pages/WebsiteServicePage'));
 const SeoAiPage = React.lazy(() => import('./pages/SeoAiPage'));
 const AboutPage = React.lazy(() => import('./pages/AboutPage'));
 const ContactPage = React.lazy(() => import('./pages/ContactPage'));
@@ -80,6 +81,8 @@ function AppRoutes() {
 
     if (path === '/services') {
       title = 'Services & Capabilities — VOOO LABS';
+    } else if (path === '/services/websites') {
+      title = 'Business Websites — VOOO LABS';
     } else if (path === '/seo-ai') {
       title = 'AI Search & Organic Discovery (AEO/GEO) — VOOO LABS';
     } else if (path === '/about') {
@@ -108,6 +111,7 @@ function AppRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
         <Route path="/services" element={<PageWrapper><ServicesPage /></PageWrapper>} />
+        <Route path="/services/websites" element={<PageWrapper><WebsiteServicePage /></PageWrapper>} />
         <Route path="/services/:slug" element={<PageWrapper><ServicesPage /></PageWrapper>} />
         <Route path="/seo-ai" element={<PageWrapper><SeoAiPage /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
