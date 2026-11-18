@@ -670,7 +670,7 @@ export default function SeoAiPage() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 shrink-0">
             <LiquidButton
               to="/contact?service=seo-ai"
-              variant="gradient"
+              variant="white"
               rounded="pill"
               size="lg"
               magnetic={true}

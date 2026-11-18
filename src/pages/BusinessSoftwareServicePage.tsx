@@ -192,7 +192,7 @@ export default function BusinessSoftwareServicePage() {
               >
                 <LiquidButton
                   to="/contact?service=software"
-                  variant="gradient"
+                  variant="primary"
                   rounded="pill"
                   size="lg"
                   magnetic={true}
@@ -204,7 +204,7 @@ export default function BusinessSoftwareServicePage() {
                 <LiquidButton
                   href={`https://wa.me/${COMPANY.whatsapp}?text=${whatsappMessage}`}
                   target="_blank"
-                  variant="secondary"
+                  variant="whatsapp"
                   rounded="pill"
                   size="lg"
                   magnetic={true}
@@ -421,7 +421,7 @@ export default function BusinessSoftwareServicePage() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 shrink-0">
             <LiquidButton
               to="/contact?service=software"
-              variant="gradient"
+              variant="white"
               rounded="pill"
               size="lg"
               magnetic={true}

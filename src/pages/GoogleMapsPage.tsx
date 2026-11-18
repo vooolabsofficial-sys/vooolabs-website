@@ -180,7 +180,7 @@ export default function GoogleMapsPage() {
           >
             <LiquidButton
               to="/contact?service=seo-ai"
-              variant="gradient"
+              variant="primary"
               rounded="pill"
               size="lg"
               magnetic={true}
@@ -192,7 +192,7 @@ export default function GoogleMapsPage() {
             <LiquidButton
               href={`https://wa.me/${COMPANY.whatsapp}?text=${whatsappMessage}`}
               target="_blank"
-              variant="secondary"
+              variant="whatsapp"
               rounded="pill"
               size="lg"
               magnetic={true}
@@ -476,7 +476,7 @@ export default function GoogleMapsPage() {
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-3">
               <LiquidButton
                 to="/seo-ai/google-ads"
-                variant="gradient"
+                variant="white"
                 rounded="pill"
                 size="lg"
                 magnetic={true}

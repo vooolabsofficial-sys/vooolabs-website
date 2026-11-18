@@ -157,7 +157,7 @@ export default function Slide6_FounderHubs() {
             <div className="pt-2">
               <Link
                 to="/contact"
-                className="btn-3d-base btn-3d-primary w-full rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 text-white font-medium text-sm py-4 px-8 inline-flex items-center justify-center gap-2 shadow-md"
+                className="btn-liquid-base btn-liquid-primary w-full rounded-full bg-[#0A0F1E] hover:bg-[#4285F4] text-white border-[#0A0F1E] hover:border-[#4285F4] font-medium text-sm py-4 px-8 inline-flex items-center justify-center gap-2 shadow-md transition-all"
               >
                 <span>See what your project will cost</span>
                 <ArrowRight size={16} />

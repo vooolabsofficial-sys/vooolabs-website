@@ -136,7 +136,7 @@ export default function Slide1_Hero() {
         >
           <LiquidButton
             to="/contact"
-            variant="gradient"
+            variant="primary"
             rounded="pill"
             size="lg"
             magnetic={true}

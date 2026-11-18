@@ -42,7 +42,7 @@ export default function ServicesClosingBand() {
         <div className="shrink-0">
           <LiquidButton
             to="/contact"
-            variant="gradient"
+            variant="white"
             rounded="pill"
             size="lg"
             magnetic={true}

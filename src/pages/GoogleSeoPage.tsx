@@ -210,7 +210,7 @@ export default function GoogleSeoPage() {
           >
             <LiquidButton
               to="/contact?service=seo-ai"
-              variant="gradient"
+              variant="primary"
               rounded="pill"
               size="lg"
               magnetic={true}
@@ -222,7 +222,7 @@ export default function GoogleSeoPage() {
             <LiquidButton
               href={`https://wa.me/${COMPANY.whatsapp}?text=${whatsappMessage}`}
               target="_blank"
-              variant="secondary"
+              variant="whatsapp"
               rounded="pill"
               size="lg"
               magnetic={true}
@@ -458,7 +458,7 @@ export default function GoogleSeoPage() {
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-3">
               <LiquidButton
                 to="/seo-ai/ai-search"
-                variant="gradient"
+                variant="white"
                 rounded="pill"
                 size="lg"
                 magnetic={true}

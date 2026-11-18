@@ -185,7 +185,7 @@ export default function FixedBottomBar() {
           <Link
             to="/contact"
             state={ctx.selectedService ? { selectedService: ctx.selectedService } : undefined}
-            className="btn-liquid-base btn-liquid-primary rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 text-white px-3.5 sm:px-4 py-1.5 font-sans font-medium text-xs inline-flex items-center gap-1.5 shadow-xs hover:opacity-95 active:scale-95 transition-all whitespace-nowrap"
+            className="btn-liquid-base btn-liquid-primary rounded-full bg-[#0A0F1E] hover:bg-[#4285F4] text-white border-[#0A0F1E] hover:border-[#4285F4] px-3.5 sm:px-4 py-1.5 font-sans font-medium text-xs inline-flex items-center gap-1.5 shadow-xs transition-all whitespace-nowrap"
           >
             <span>See Project Cost</span>
             <ArrowRight size={12} />

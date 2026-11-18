@@ -410,7 +410,7 @@ export default function Slide3_SolutionExplorer() {
                   <div className="pt-6 mt-6 border-t border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <LiquidButton
                       to={`/contact?service=${activeChapter.serviceParam}`}
-                      variant="gradient"
+                      variant="primary"
                       rounded="pill"
                       size="md"
                       magnetic={true}

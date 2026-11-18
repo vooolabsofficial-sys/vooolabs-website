@@ -78,7 +78,7 @@ export default function ServicesHero() {
         >
           <LiquidButton
             to="/contact"
-            variant="gradient"
+            variant="primary"
             rounded="pill"
             size="lg"
             magnetic={true}

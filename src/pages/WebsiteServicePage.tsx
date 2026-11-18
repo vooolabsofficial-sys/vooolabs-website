@@ -202,7 +202,7 @@ export default function WebsiteServicePage() {
               >
                 <LiquidButton
                   to="/contact?service=websites"
-                  variant="gradient"
+                  variant="primary"
                   rounded="pill"
                   size="lg"
                   magnetic={true}
@@ -214,7 +214,7 @@ export default function WebsiteServicePage() {
                 <LiquidButton
                   href={`https://wa.me/${COMPANY.whatsapp}?text=${whatsappMessage}`}
                   target="_blank"
-                  variant="secondary"
+                  variant="whatsapp"
                   rounded="pill"
                   size="lg"
                   magnetic={true}
@@ -431,7 +431,7 @@ export default function WebsiteServicePage() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 shrink-0">
             <LiquidButton
               to="/contact?service=websites"
-              variant="gradient"
+              variant="white"
               rounded="pill"
               size="lg"
               magnetic={true}

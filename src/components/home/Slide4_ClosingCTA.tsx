@@ -77,7 +77,7 @@ export default function Slide4_ClosingCTA() {
         >
           <LiquidButton
             to="/contact"
-            variant="gradient"
+            variant="white"
             rounded="pill"
             size="lg"
             magnetic={true}

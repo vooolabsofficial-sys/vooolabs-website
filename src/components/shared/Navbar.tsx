@@ -1,47 +1,26 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, MessageSquare, ChevronDown, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowRight, MessageSquare } from 'lucide-react';
 import { whatsappLink } from '../../content/company';
 import LiquidButton from './LiquidButton';
 import { useScrollChoreography } from '../../hooks/useScrollChoreography';
 
-interface SubRouteItem {
-  path: string;
-  code: string;
-  label: string;
-  sub: string;
-}
-
-const SERVICES_SUB_ITEMS: SubRouteItem[] = [
-  { path: '/services', code: 'ALL', label: 'All 4 Core Systems', sub: 'Architecture & Delivery Overview' },
-  { path: '/services/websites', code: '01', label: 'Business Websites', sub: 'Sub-second speed & conversion' },
-  { path: '/services/web-apps', code: '02', label: 'Custom Web Apps & Portals', sub: '1-tap browser auth & database' },
-  { path: '/services/business-software', code: '03', label: 'Custom Business Software', sub: 'Internal CRM, billing & stock ops' },
-];
-
-const SEO_AI_SUB_ITEMS: SubRouteItem[] = [
-  { path: '/seo-ai', code: 'ALL', label: '4 Discovery Channels', sub: 'Search, AI & Ads Architecture' },
-  { path: '/seo-ai/google-seo', code: '01', label: 'Technical Google SEO', sub: 'Clean crawlability & service intent' },
-  { path: '/seo-ai/ai-search', code: '02', label: 'ChatGPT & AI Search (AEO)', sub: 'JSON-LD schema & llms.txt citation' },
-  { path: '/seo-ai/google-maps', code: '03', label: 'Google Maps & Local', sub: '3-Pack authority & review signals' },
-  { path: '/seo-ai/google-ads', code: '04', label: 'Targeted Google Ads', sub: 'High-intent search landing systems' },
+const navLinks = [
+  { path: '/', label: 'Home' },
+  { path: '/services', label: 'Services', isParent: true },
+  { path: '/seo-ai', label: 'AI Search & Ads', isParent: true },
+  { path: '/about', label: 'About' },
+  { path: '/contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
   const location = useLocation();
   const { showTopNav, scrollY } = useScrollChoreography();
-
-  const [activeDropdown, setActiveDropdown] = useState<'services' | 'seo-ai' | null>(null);
-  const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [mobileSeoOpen, setMobileSeoOpen] = useState(false);
 
-  // Close menus on route change
+  // Close mobile menu on route change
   useEffect(() => {
-    setActiveDropdown(null);
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
@@ -55,7 +34,6 @@ export default function Navbar() {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setIsMobileMenuOpen(false);
-        setActiveDropdown(null);
       }
     };
     window.addEventListener('keydown', onKeyDown);
@@ -66,20 +44,13 @@ export default function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
-  // Dropdown hover timing
-  const handleDropdownEnter = (menu: 'services' | 'seo-ai') => {
-    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
-    setActiveDropdown(menu);
+  // Smart parent route active detector
+  const checkIsActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    if (path === '/services') return location.pathname.startsWith('/services');
+    if (path === '/seo-ai') return location.pathname.startsWith('/seo-ai');
+    return location.pathname === path;
   };
-
-  const handleDropdownLeave = () => {
-    dropdownTimeoutRef.current = setTimeout(() => {
-      setActiveDropdown(null);
-    }, 150);
-  };
-
-  const isServicesActive = location.pathname.startsWith('/services');
-  const isSeoActive = location.pathname.startsWith('/seo-ai');
 
   return (
     <>
@@ -114,236 +85,20 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* DESKTOP NAV LINKS CONTAINER */}
-          <div className="hidden md:flex items-center gap-1 p-1 rounded-full bg-slate-100/60 border border-slate-200/60 relative backdrop-blur-sm">
-            
-            {/* 1. HOME */}
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `relative px-3.5 py-1.5 rounded-full font-sans font-semibold text-[13px] tracking-[-0.01em] transition-all duration-200 select-none z-10 flex items-center gap-1.5 ${
-                  isActive
-                    ? 'text-blue-600 shadow-xs'
-                    : 'text-slate-700 hover:text-slate-950 hover:bg-white/60'
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  {isActive && (
-                    <motion.div
-                      layoutId="nav-pill"
-                      className="absolute inset-0 bg-white rounded-full border border-blue-100 shadow-[0_2px_10px_rgba(59,130,246,0.14)] z-[-1]"
-                      transition={{ type: 'spring', stiffness: 360, damping: 32, mass: 0.8 }}
-                    />
-                  )}
-                  <span>Home</span>
-                  {isActive && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#4285F4] animate-pulse" />
-                  )}
-                </>
-              )}
-            </NavLink>
-
-            {/* 2. SERVICES (WITH DROPDOWN) */}
-            <div
-              className="relative"
-              onMouseEnter={() => handleDropdownEnter('services')}
-              onMouseLeave={handleDropdownLeave}
-            >
-              <Link
-                to="/services"
-                className={`relative px-3.5 py-1.5 rounded-full font-sans font-semibold text-[13px] tracking-[-0.01em] transition-all duration-200 select-none z-10 flex items-center gap-1.5 ${
-                  isServicesActive
-                    ? 'text-blue-600 shadow-xs'
-                    : 'text-slate-700 hover:text-slate-950 hover:bg-white/60'
-                }`}
-              >
-                {isServicesActive && (
-                  <motion.div
-                    layoutId="nav-pill"
-                    className="absolute inset-0 bg-white rounded-full border border-blue-100 shadow-[0_2px_10px_rgba(59,130,246,0.14)] z-[-1]"
-                    transition={{ type: 'spring', stiffness: 360, damping: 32, mass: 0.8 }}
-                  />
-                )}
-                <span>Services</span>
-                <ChevronDown
-                  size={12}
-                  className={`transition-transform duration-200 ${
-                    activeDropdown === 'services' ? 'rotate-180 text-blue-600' : 'text-slate-400'
+          {/* DESKTOP NAV LINKS CONTAINER — 100% CLEAN DROPDOWN-FREE FLOATING PILL */}
+          <div className="hidden md:flex items-center gap-1.5 p-1 rounded-full bg-slate-100/60 border border-slate-200/60 relative backdrop-blur-sm">
+            {navLinks.map((link) => {
+              const isActive = checkIsActive(link.path);
+              return (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  className={`relative px-4 py-2 rounded-full font-sans font-semibold text-[13.5px] tracking-[-0.01em] transition-all duration-200 select-none z-10 flex items-center gap-1.5 ${
+                    isActive
+                      ? 'text-blue-600 shadow-xs'
+                      : 'text-slate-700 hover:text-slate-950 hover:bg-white/60'
                   }`}
-                />
-                {isServicesActive && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#4285F4] animate-pulse" />
-                )}
-              </Link>
-
-              {/* SERVICES DROPDOWN PANEL */}
-              <AnimatePresence>
-                {activeDropdown === 'services' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                    transition={{ duration: 0.18, ease: 'easeOut' }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 pointer-events-auto"
-                  >
-                    <div className="w-80 bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-[20px] shadow-[0_16px_40px_rgba(15,23,42,0.08)] p-2">
-                      <div className="px-3 py-1.5 mb-1 flex items-center justify-between border-b border-slate-100">
-                        <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-slate-400">
-                          Core Systems Architecture
-                        </span>
-                        <span className="font-mono text-[10px] text-blue-600 font-semibold">
-                          4 Deliverables
-                        </span>
-                      </div>
-                      <div className="flex flex-col gap-1">
-                        {SERVICES_SUB_ITEMS.map((item) => {
-                          const isCurrent = location.pathname === item.path;
-                          return (
-                            <Link
-                              key={item.path}
-                              to={item.path}
-                              onClick={() => setActiveDropdown(null)}
-                              className={`p-2.5 rounded-[14px] transition-all text-left flex items-start gap-3 group ${
-                                isCurrent
-                                  ? 'bg-blue-50/70 border border-blue-100/80 text-blue-700'
-                                  : 'hover:bg-slate-50 text-slate-800'
-                              }`}
-                            >
-                              <span
-                                className={`font-mono text-[11px] font-bold px-1.5 py-0.5 rounded-md mt-0.5 shrink-0 ${
-                                  isCurrent
-                                    ? 'bg-blue-600 text-white'
-                                    : 'bg-slate-100 text-slate-600 group-hover:bg-blue-100 group-hover:text-blue-700'
-                                }`}
-                              >
-                                {item.code}
-                              </span>
-                              <div className="flex flex-col">
-                                <span className="font-sans font-semibold text-[13px] leading-snug group-hover:text-blue-600 transition-colors">
-                                  {item.label}
-                                </span>
-                                <span className="font-sans text-[11px] text-slate-500 font-normal leading-tight mt-0.5">
-                                  {item.sub}
-                                </span>
-                              </div>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* 3. SEO & AI SEARCH (WITH DROPDOWN) */}
-            <div
-              className="relative"
-              onMouseEnter={() => handleDropdownEnter('seo-ai')}
-              onMouseLeave={handleDropdownLeave}
-            >
-              <Link
-                to="/seo-ai"
-                className={`relative px-3.5 py-1.5 rounded-full font-sans font-semibold text-[13px] tracking-[-0.01em] transition-all duration-200 select-none z-10 flex items-center gap-1.5 ${
-                  isSeoActive
-                    ? 'text-blue-600 shadow-xs'
-                    : 'text-slate-700 hover:text-slate-950 hover:bg-white/60'
-                }`}
-              >
-                {isSeoActive && (
-                  <motion.div
-                    layoutId="nav-pill"
-                    className="absolute inset-0 bg-white rounded-full border border-blue-100 shadow-[0_2px_10px_rgba(59,130,246,0.14)] z-[-1]"
-                    transition={{ type: 'spring', stiffness: 360, damping: 32, mass: 0.8 }}
-                  />
-                )}
-                <span>SEO & AI</span>
-                <ChevronDown
-                  size={12}
-                  className={`transition-transform duration-200 ${
-                    activeDropdown === 'seo-ai' ? 'rotate-180 text-blue-600' : 'text-slate-400'
-                  }`}
-                />
-                {isSeoActive && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#4285F4] animate-pulse" />
-                )}
-              </Link>
-
-              {/* SEO & AI DROPDOWN PANEL */}
-              <AnimatePresence>
-                {activeDropdown === 'seo-ai' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                    transition={{ duration: 0.18, ease: 'easeOut' }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 pointer-events-auto"
-                  >
-                    <div className="w-80 bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-[20px] shadow-[0_16px_40px_rgba(15,23,42,0.08)] p-2">
-                      <div className="px-3 py-1.5 mb-1 flex items-center justify-between border-b border-slate-100">
-                        <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-slate-400">
-                          Organic Discovery Channels
-                        </span>
-                        <span className="font-mono text-[10px] text-blue-600 font-semibold">
-                          Google + AI
-                        </span>
-                      </div>
-                      <div className="flex flex-col gap-1">
-                        {SEO_AI_SUB_ITEMS.map((item) => {
-                          const isCurrent = location.pathname === item.path;
-                          return (
-                            <Link
-                              key={item.path}
-                              to={item.path}
-                              onClick={() => setActiveDropdown(null)}
-                              className={`p-2.5 rounded-[14px] transition-all text-left flex items-start gap-3 group ${
-                                isCurrent
-                                  ? 'bg-blue-50/70 border border-blue-100/80 text-blue-700'
-                                  : 'hover:bg-slate-50 text-slate-800'
-                              }`}
-                            >
-                              <span
-                                className={`font-mono text-[11px] font-bold px-1.5 py-0.5 rounded-md mt-0.5 shrink-0 ${
-                                  isCurrent
-                                    ? 'bg-blue-600 text-white'
-                                    : 'bg-slate-100 text-slate-600 group-hover:bg-blue-100 group-hover:text-blue-700'
-                                }`}
-                              >
-                                {item.code}
-                              </span>
-                              <div className="flex flex-col">
-                                <span className="font-sans font-semibold text-[13px] leading-snug group-hover:text-blue-600 transition-colors">
-                                  {item.label}
-                                </span>
-                                <span className="font-sans text-[11px] text-slate-500 font-normal leading-tight mt-0.5">
-                                  {item.sub}
-                                </span>
-                              </div>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* 4. ABOUT */}
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `relative px-3.5 py-1.5 rounded-full font-sans font-semibold text-[13px] tracking-[-0.01em] transition-all duration-200 select-none z-10 flex items-center gap-1.5 ${
-                  isActive
-                    ? 'text-blue-600 shadow-xs'
-                    : 'text-slate-700 hover:text-slate-950 hover:bg-white/60'
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
+                >
                   {isActive && (
                     <motion.div
                       layoutId="nav-pill"
@@ -351,42 +106,13 @@ export default function Navbar() {
                       transition={{ type: 'spring', stiffness: 360, damping: 32, mass: 0.8 }}
                     />
                   )}
-                  <span>About</span>
+                  <span>{link.label}</span>
                   {isActive && (
                     <span className="w-1.5 h-1.5 rounded-full bg-[#4285F4] animate-pulse" />
                   )}
-                </>
-              )}
-            </NavLink>
-
-            {/* 5. CONTACT */}
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `relative px-3.5 py-1.5 rounded-full font-sans font-semibold text-[13px] tracking-[-0.01em] transition-all duration-200 select-none z-10 flex items-center gap-1.5 ${
-                  isActive
-                    ? 'text-blue-600 shadow-xs'
-                    : 'text-slate-700 hover:text-slate-950 hover:bg-white/60'
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  {isActive && (
-                    <motion.div
-                      layoutId="nav-pill"
-                      className="absolute inset-0 bg-white rounded-full border border-blue-100 shadow-[0_2px_10px_rgba(59,130,246,0.14)] z-[-1]"
-                      transition={{ type: 'spring', stiffness: 360, damping: 32, mass: 0.8 }}
-                    />
-                  )}
-                  <span>Contact</span>
-                  {isActive && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#4285F4] animate-pulse" />
-                  )}
-                </>
-              )}
-            </NavLink>
-
+                </NavLink>
+              );
+            })}
           </div>
 
           {/* CTA & MOBILE MENU TOGGLE */}
@@ -399,7 +125,7 @@ export default function Navbar() {
                 size="sm"
                 className="font-medium text-[13px] px-5 py-2.5 whitespace-nowrap"
               >
-                <span>See project cost</span>
+                <span>Discuss Project</span>
                 <ArrowRight size={13} className="flex-shrink-0" />
               </LiquidButton>
             </div>
@@ -418,7 +144,7 @@ export default function Navbar() {
         </motion.nav>
       </header>
 
-      {/* MOBILE FULLSCREEN ACCORDION DRAWER */}
+      {/* MOBILE FULLSCREEN DRAWER */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -455,129 +181,23 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* ACCORDION LINKS */}
-            <div className="flex flex-col gap-2 py-6 w-full max-w-sm mx-auto my-auto overflow-y-auto no-scrollbar">
-              
-              {/* HOME */}
-              <Link
-                to="/"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`font-sans font-semibold text-lg py-2.5 px-3 rounded-xl transition-colors text-left ${
-                  location.pathname === '/' ? 'text-blue-600 bg-blue-50/60' : 'text-slate-900'
-                }`}
-              >
-                Home
-              </Link>
-
-              {/* SERVICES ACCORDION */}
-              <div className="flex flex-col border border-slate-200/80 rounded-2xl overflow-hidden bg-slate-50/50">
-                <button
-                  type="button"
-                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="flex items-center justify-between w-full px-4 py-3 font-sans font-semibold text-lg text-slate-900 text-left"
-                >
-                  <span className={isServicesActive ? 'text-blue-600' : ''}>Core Services</span>
-                  <ChevronDown
-                    size={18}
-                    className={`text-slate-400 transition-transform duration-200 ${
-                      mobileServicesOpen ? 'rotate-180 text-blue-600' : ''
+            {/* DIRECT NAV LINKS */}
+            <div className="flex flex-col gap-3 py-8 w-full max-w-sm mx-auto my-auto text-center">
+              {navLinks.map((link) => {
+                const isActive = checkIsActive(link.path);
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`font-sans font-semibold text-2xl py-2.5 transition-colors ${
+                      isActive ? 'text-blue-600' : 'text-slate-900 hover:text-blue-600'
                     }`}
-                  />
-                </button>
-                <AnimatePresence>
-                  {mobileServicesOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="px-2 pb-2 flex flex-col gap-1 overflow-hidden"
-                    >
-                      {SERVICES_SUB_ITEMS.map((item) => (
-                        <Link
-                          key={item.path}
-                          to={item.path}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="flex items-center justify-between p-2 rounded-xl bg-white border border-slate-200/60 text-left"
-                        >
-                          <span className="font-sans text-xs font-semibold text-slate-800">
-                            {item.label}
-                          </span>
-                          <span className="font-mono text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded">
-                            {item.code}
-                          </span>
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* SEO & AI ACCORDION */}
-              <div className="flex flex-col border border-slate-200/80 rounded-2xl overflow-hidden bg-slate-50/50">
-                <button
-                  type="button"
-                  onClick={() => setMobileSeoOpen(!mobileSeoOpen)}
-                  className="flex items-center justify-between w-full px-4 py-3 font-sans font-semibold text-lg text-slate-900 text-left"
-                >
-                  <span className={isSeoActive ? 'text-blue-600' : ''}>Google SEO & AI</span>
-                  <ChevronDown
-                    size={18}
-                    className={`text-slate-400 transition-transform duration-200 ${
-                      mobileSeoOpen ? 'rotate-180 text-blue-600' : ''
-                    }`}
-                  />
-                </button>
-                <AnimatePresence>
-                  {mobileSeoOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="px-2 pb-2 flex flex-col gap-1 overflow-hidden"
-                    >
-                      {SEO_AI_SUB_ITEMS.map((item) => (
-                        <Link
-                          key={item.path}
-                          to={item.path}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="flex items-center justify-between p-2 rounded-xl bg-white border border-slate-200/60 text-left"
-                        >
-                          <span className="font-sans text-xs font-semibold text-slate-800">
-                            {item.label}
-                          </span>
-                          <span className="font-mono text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded">
-                            {item.code}
-                          </span>
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* ABOUT */}
-              <Link
-                to="/about"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`font-sans font-semibold text-lg py-2.5 px-3 rounded-xl transition-colors text-left ${
-                  location.pathname === '/about' ? 'text-blue-600 bg-blue-50/60' : 'text-slate-900'
-                }`}
-              >
-                About Studio
-              </Link>
-
-              {/* CONTACT */}
-              <Link
-                to="/contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`font-sans font-semibold text-lg py-2.5 px-3 rounded-xl transition-colors text-left ${
-                  location.pathname === '/contact' ? 'text-blue-600 bg-blue-50/60' : 'text-slate-900'
-                }`}
-              >
-                Start Blueprint
-              </Link>
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* BOTTOM ACTIONS */}
@@ -585,9 +205,9 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="btn-liquid-base btn-liquid-primary w-full rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 text-white font-medium text-sm py-3.5 flex items-center justify-center gap-2 shadow-md"
+                className="btn-liquid-base btn-liquid-primary w-full rounded-full bg-[#0A0F1E] hover:bg-[#4285F4] text-white font-medium text-sm py-3.5 flex items-center justify-center gap-2 shadow-md transition-all"
               >
-                <span>See what your project will cost</span>
+                <span>Discuss Project</span>
                 <ArrowRight size={15} />
               </Link>
               <a

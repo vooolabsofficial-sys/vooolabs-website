@@ -418,7 +418,7 @@ Ready to discuss scope, timeline, and exact infrastructure costs.`
             <div className="lg:hidden pt-4">
               <LiquidButton
                 type="submit"
-                variant="gradient"
+                variant="primary"
                 rounded="pill"
                 size="lg"
                 magnetic={true}
@@ -531,7 +531,7 @@ Ready to discuss scope, timeline, and exact infrastructure costs.`
                   <div className="pt-2">
                     <LiquidButton
                       onClick={handleTransmit}
-                      variant="gradient"
+                      variant="primary"
                       rounded="pill"
                       size="lg"
                       magnetic={true}
