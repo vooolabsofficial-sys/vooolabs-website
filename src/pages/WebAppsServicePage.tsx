@@ -1,115 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   ArrowLeft, 
   ArrowRight, 
   ArrowUpRight, 
   Check, 
-  Minus, 
-  UserCheck, 
-  ShieldCheck 
+  Minus 
 } from 'lucide-react';
 import { COMPANY } from '../content/company';
 import LiquidButton from '../components/shared/LiquidButton';
 import { DuotoneCheckIcon } from '../components/shared/StudioIcons';
+import WebAppPortalVisualizer from '../components/services/WebAppPortalVisualizer';
 
 const EASING = [0.22, 1, 0.36, 1] as const;
-
-type PerspectiveType = 'user' | 'owner';
-
-interface StepFlow {
-  num: string;
-  stage: string;
-  heading: string;
-  detail: string;
-}
-
-const PERSPECTIVE_FLOWS: Record<PerspectiveType, StepFlow[]> = {
-  user: [
-    {
-      num: '01',
-      stage: 'Instant Access',
-      heading: 'Instant Browser & Home-Screen Access',
-      detail: 'Opens immediately on Android, iPhone, or desktop via link—no Play Store download or storage hurdles.',
-    },
-    {
-      num: '02',
-      stage: 'Frictionless Login',
-      heading: '1-Tap OTP / Email Sign-In',
-      detail: 'Frictionless login with a personal dashboard showing schedules, active requests, and progress.',
-    },
-    {
-      num: '03',
-      stage: 'Self-Service Action',
-      heading: 'Self-Service Bookings & Submissions',
-      detail: 'Book slots, register for batches, upload documents, or raise requests without calling the office.',
-    },
-    {
-      num: '04',
-      stage: 'Automated Status',
-      heading: 'Live Status, Receipts & WhatsApp Alerts',
-      detail: 'Download receipts, reports, or resources anytime and receive automated WhatsApp/email updates.',
-    },
-  ],
-  owner: [
-    {
-      num: '01',
-      stage: 'Access Control',
-      heading: 'Role-Based Staff & Branch Permissions',
-      detail: 'Define exact access levels for owners, branch managers, counselors, and faculty.',
-    },
-    {
-      num: '02',
-      stage: 'Live Intake',
-      heading: 'Live Intake & Approval Queue',
-      detail: 'Review incoming bookings, verify submissions, and update user statuses in seconds.',
-    },
-    {
-      num: '03',
-      stage: 'Content Broadcast',
-      heading: 'Instant Content & Batch Publishing',
-      detail: 'Publish schedules, notices, study modules, or documents that update live for all users.',
-    },
-    {
-      num: '04',
-      stage: 'Audit & Records',
-      heading: 'Structured Records & Clean Exports',
-      detail: 'Track complete user history and export clean operational reports without spreadsheet clutter.',
-    },
-  ],
-};
 
 const CAPABILITIES = [
   {
     num: '01',
-    title: 'Frictionless Mobile-First User Interface',
-    desc: 'Clean, thumb-friendly screens designed so first-time students, patients, or clients navigate naturally without training.',
+    title: 'Zero-Download Browser & Home-Screen Access',
+    desc: 'Opens immediately from a link on Android, iPhone, or laptop—no Play Store hurdles.',
   },
   {
     num: '02',
-    title: 'Secure Role-Based Authentication',
-    desc: 'Dedicated logins for end-users, staff, and administrators with strict data isolation and session security.',
+    title: '1-Tap OTP & Role-Based Authentication',
+    desc: 'Frictionless logins with strict access boundaries for users, staff, and administrators.',
   },
   {
     num: '03',
-    title: 'Self-Service Workflows & Status Tracking',
-    desc: "Replace repetitive \"what's the update?\" phone calls with live progress trackers and self-service actions.",
+    title: 'Self-Service Bookings & Live Status Tracking',
+    desc: 'Replace repetitive status phone calls with self-service actions and real-time progress.',
   },
   {
     num: '04',
-    title: 'Document, Receipt & Resource Vault',
-    desc: "Organize invoices, fee receipts, diagnostic reports, or course materials neatly under each user's profile.",
+    title: 'Organized Receipts, Reports & Resource Vault',
+    desc: "Keep invoices, fee receipts, diagnostic reports, and study modules neatly inside each user's login.",
   },
   {
     num: '05',
     title: 'Automated WhatsApp & Email Notifications',
-    desc: 'Trigger instant confirmations, reminders, and status updates automatically when actions happen in the app.',
+    desc: 'Trigger instant confirmations and reminders automatically whenever a status changes.',
   },
   {
     num: '06',
-    title: 'Cloud Database & 100% Code Ownership',
-    desc: "Scalable production database, custom domain deployment, and full source code ownership in your company's name.",
+    title: 'Cloud Database & 100% Source Code Ownership',
+    desc: 'Production database, custom domain setup, and complete repository ownership in your name.',
   },
 ];
 
@@ -156,8 +91,6 @@ const SECTORS = [
 ];
 
 export default function WebAppsServicePage() {
-  const [activePerspective, setActivePerspective] = useState<PerspectiveType>('user');
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -170,7 +103,7 @@ export default function WebAppsServicePage() {
     <div className="page-wrap bg-white min-h-screen text-slate-900 select-none">
       
       {/* ══════════════════════════════════════════════════════
-          SECTION 1: ASYMMETRIC EDITORIAL HERO + SWITCHER
+          SECTION 1: ASYMMETRIC EDITORIAL HERO + GSAP VISUALIZER
          ══════════════════════════════════════════════════════ */}
       <section 
         className="pt-32 sm:pt-36 pb-16 bg-white border-b border-slate-200/80 relative overflow-hidden text-left"
@@ -201,10 +134,10 @@ export default function WebAppsServicePage() {
           </motion.div>
 
           {/* 12-COLUMN ASYMMETRIC SPLIT */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-start">
             
-            {/* LEFT COLUMN (lg:col-span-7): EDITORIAL HEADLINE & VALUE */}
-            <div className="lg:col-span-7">
+            {/* LEFT COLUMN (lg:col-span-6): EDITORIAL HEADLINE & VALUE */}
+            <div className="lg:col-span-6">
               {/* STUDIO PHILOSOPHY TAG */}
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
@@ -240,14 +173,14 @@ export default function WebAppsServicePage() {
                 <span className="shimmer-text block mt-1">No App Store Friction.</span>
               </motion.h1>
 
-              {/* SUBHEADLINE */}
+              {/* TIGHT SCANNABLE SUBHEADLINE */}
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.20, ease: EASING }}
                 className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-xl"
               >
-                Modern businesses don't need bulky Play Store apps that customers hesitate to download. We engineer fast, browser-based web applications where your students, clients, or members log in instantly to book, track, and access records—while your team runs operations from one live dashboard.
+                Modern businesses don't need bulky Play Store apps that customers hesitate to download. We engineer fast web apps where clients log in instantly, while your team runs operations from one dashboard.
               </motion.p>
 
               {/* ACTION ROW */}
@@ -282,78 +215,9 @@ export default function WebAppsServicePage() {
               </motion.div>
             </div>
 
-            {/* RIGHT COLUMN (lg:col-span-5): INTERACTIVE PERSPECTIVE SWITCHER */}
-            <div className="lg:col-span-5 lg:border-l lg:border-slate-200/80 lg:pl-10 w-full pt-4 lg:pt-0">
-              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-blue-600 block">
-                EXPLORE BOTH SIDES OF THE WEB APP
-              </span>
-              
-              <p className="mt-2 text-sm text-slate-600 leading-relaxed font-normal">
-                Switch perspectives to see what end-users experience vs. what your team controls:
-              </p>
-
-              {/* 2 INTERACTIVE UNDERLINE TABS */}
-              <div className="mt-4 flex items-center gap-6 border-b border-slate-200/80 text-xs sm:text-sm">
-                <button
-                  type="button"
-                  onClick={() => setActivePerspective('user')}
-                  className={`pb-2.5 inline-flex items-center gap-1.5 transition-colors relative cursor-pointer font-medium ${
-                    activePerspective === 'user'
-                      ? 'text-slate-950 font-bold border-b-2 border-blue-600 -mb-[1px]'
-                      : 'text-slate-500 hover:text-slate-800'
-                  }`}
-                >
-                  <UserCheck size={14} className={activePerspective === 'user' ? 'text-blue-600' : 'text-slate-400'} />
-                  <span>End-User Experience</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setActivePerspective('owner')}
-                  className={`pb-2.5 inline-flex items-center gap-1.5 transition-colors relative cursor-pointer font-medium ${
-                    activePerspective === 'owner'
-                      ? 'text-slate-950 font-bold border-b-2 border-blue-600 -mb-[1px]'
-                      : 'text-slate-500 hover:text-slate-800'
-                  }`}
-                >
-                  <ShieldCheck size={14} className={activePerspective === 'owner' ? 'text-blue-600' : 'text-slate-400'} />
-                  <span>Business Owner Control</span>
-                </button>
-              </div>
-
-              {/* 4-ROW VERTICAL HAIRLINE EXPERIENCE LIST */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activePerspective}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.35, ease: EASING }}
-                  className="mt-4 divide-y divide-slate-200/80 border-b border-slate-200/80"
-                >
-                  {PERSPECTIVE_FLOWS[activePerspective].map((step) => (
-                    <div key={step.num} className="py-3.5 flex items-start gap-3.5">
-                      <span className="font-mono text-xs font-bold text-blue-600 shrink-0 mt-0.5 w-6">
-                        {step.num}
-                      </span>
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-2">
-                          <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500">
-                            {step.stage}
-                          </span>
-                          <span className="text-slate-300 text-xs" aria-hidden="true">·</span>
-                          <h4 className="text-xs sm:text-sm font-bold text-slate-950 truncate">
-                            {step.heading}
-                          </h4>
-                        </div>
-                        <p className="mt-1 text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
-                          {step.detail}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </motion.div>
-              </AnimatePresence>
+            {/* RIGHT COLUMN (lg:col-span-6): GSAP WEB APP PORTAL VISUALIZER */}
+            <div className="lg:col-span-6 w-full pt-4 lg:pt-0">
+              <WebAppPortalVisualizer />
             </div>
 
           </div>
@@ -377,7 +241,7 @@ export default function WebAppsServicePage() {
             Engineered for Effortless User Adoption and Complete Business Control.
           </h2>
 
-          {/* 6-ITEM 2-COLUMN OPEN HAIRLINE GRID */}
+          {/* 6-ITEM 2-COLUMN OPEN HAIRLINE GRID (1 BOLD TITLE + 1 CRISP SENTENCE) */}
           <div className="mt-10 border-t border-slate-200/80 grid grid-cols-1 md:grid-cols-2 divide-y divide-slate-200/80">
             {CAPABILITIES.map((item, idx) => (
               <div 
