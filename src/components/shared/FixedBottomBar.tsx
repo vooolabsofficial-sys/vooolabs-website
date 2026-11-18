@@ -7,7 +7,7 @@ import { COMPANY, SOCIALS, whatsappLink } from '../../content/company';
 
 export default function FixedBottomBar() {
   return (
-    <div className="fixed bottom-4 sm:bottom-5 inset-x-0 z-[9000] flex md:hidden justify-center px-3 sm:px-4 pointer-events-none">
+    <div className="fixed bottom-4 sm:bottom-5 inset-x-0 z-[9000] flex justify-center px-3 sm:px-4 pointer-events-none">
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -32,6 +32,20 @@ export default function FixedBottomBar() {
           className="font-sans text-[11px] sm:text-xs text-slate-300 hover:text-blue-400 transition-colors font-medium"
         >
           {COMPANY.email}
+        </a>
+
+        {/* DIVIDER */}
+        <div className="w-[1px] h-3.5 bg-white/10 flex-shrink-0 hidden md:block" />
+
+        {/* SECONDARY WHATSAPP CTA */}
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex items-center gap-1.5 font-sans text-[11px] sm:text-xs text-slate-300 hover:text-emerald-400 font-medium transition-colors"
+        >
+          <MessageSquare size={13} className="text-emerald-400" />
+          <span>Discuss your project</span>
         </a>
 
         {/* DIVIDER */}
