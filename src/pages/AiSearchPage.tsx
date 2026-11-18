@@ -439,14 +439,14 @@ export default function AiSearchPage() {
 
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-3">
               <LiquidButton
-                to="/seo-ai"
+                to="/seo-ai/google-maps"
                 variant="gradient"
                 rounded="pill"
                 size="lg"
                 magnetic={true}
                 className="whitespace-nowrap"
               >
-                <span>Explore 4 Channels Hub</span>
+                <span>Next: Google Maps & Local</span>
                 <ArrowRight size={16} />
               </LiquidButton>
 

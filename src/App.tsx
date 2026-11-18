@@ -17,6 +17,8 @@ const BusinessSoftwareServicePage = React.lazy(() => import('./pages/BusinessSof
 const SeoAiPage = React.lazy(() => import('./pages/SeoAiPage'));
 const GoogleSeoPage = React.lazy(() => import('./pages/GoogleSeoPage'));
 const AiSearchPage = React.lazy(() => import('./pages/AiSearchPage'));
+const GoogleMapsPage = React.lazy(() => import('./pages/GoogleMapsPage'));
+const GoogleAdsPage = React.lazy(() => import('./pages/GoogleAdsPage'));
 const AboutPage = React.lazy(() => import('./pages/AboutPage'));
 const ContactPage = React.lazy(() => import('./pages/ContactPage'));
 const LegalPage = React.lazy(() => import('./pages/LegalPage'));
@@ -97,6 +99,10 @@ function AppRoutes() {
       title = 'Technical Google SEO & Service Intent Architecture — VOOO LABS';
     } else if (path === '/seo-ai/ai-search') {
       title = 'ChatGPT, Google AI & Machine-Readable Schema (AEO) — VOOO LABS';
+    } else if (path === '/seo-ai/google-maps') {
+      title = 'Google Maps & Local Presence Optimization — VOOO LABS';
+    } else if (path === '/seo-ai/google-ads') {
+      title = 'Targeted Google Search Ads & Landing Systems — VOOO LABS';
     } else if (path === '/about') {
       title = 'About Studio & Lead Architect — VOOO LABS';
     } else if (path === '/contact') {
@@ -130,6 +136,8 @@ function AppRoutes() {
         <Route path="/seo-ai" element={<PageWrapper><SeoAiPage /></PageWrapper>} />
         <Route path="/seo-ai/google-seo" element={<PageWrapper><GoogleSeoPage /></PageWrapper>} />
         <Route path="/seo-ai/ai-search" element={<PageWrapper><AiSearchPage /></PageWrapper>} />
+        <Route path="/seo-ai/google-maps" element={<PageWrapper><GoogleMapsPage /></PageWrapper>} />
+        <Route path="/seo-ai/google-ads" element={<PageWrapper><GoogleAdsPage /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
         <Route path="/legal" element={<PageWrapper><LegalPage /></PageWrapper>} />

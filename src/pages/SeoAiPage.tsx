@@ -63,8 +63,8 @@ const CHANNELS: DiscoveryChannel[] = [
     title: 'Google Maps & Local Presence',
     tagline: 'Capture local regional searches with verified business profile authority.',
     desc: 'Standardized Google Business Profile optimization paired with a frictionless 1-tap WhatsApp review collection link for genuine customer reputation.',
-    link: '/seo-ai/google-seo', // Part 2 dedicated page placeholder, links gracefully
-    linkLabel: 'Learn Local Map Optimization',
+    link: '/seo-ai/google-maps',
+    linkLabel: 'Explore Google Maps & Local Setup',
     specs: ['Standardized NAP', 'WhatsApp Review Links', 'Geotagged Assets', 'Local Intent Routing'],
   },
   {
@@ -73,8 +73,8 @@ const CHANNELS: DiscoveryChannel[] = [
     title: 'Google Search Ads & Landing Pages',
     tagline: 'Direct commercial traffic into focused, sub-second conversion funnels.',
     desc: 'High-intent search keyword targeting connected to dedicated, fast landing pages—eliminating wasted clicks with pre-tagged WhatsApp attribution.',
-    link: '/seo-ai/google-seo', // Part 2 dedicated page placeholder, links gracefully
-    linkLabel: 'Learn Ad Landing Architecture',
+    link: '/seo-ai/google-ads',
+    linkLabel: 'Explore Google Ads & Landing Architecture',
     specs: ['Exact Match Keywords', 'Dedicated Landing Pages', 'WhatsApp Attribution', 'Negative Keyword Lists'],
   },
 ];
@@ -450,15 +450,13 @@ export default function SeoAiPage() {
 
               {/* DIRECT EXPLORATION LINK */}
               <div className="pt-3">
-                <a 
-                  href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent('Hello VOOO LABS, I want to discuss Google Maps and local review setup.')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link 
+                  to={CHANNELS[2].link}
                   className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 group transition-colors"
                 >
                   <span>{CHANNELS[2].linkLabel}</span>
-                  <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
             </div>
 
@@ -544,15 +542,13 @@ export default function SeoAiPage() {
 
               {/* DIRECT EXPLORATION LINK */}
               <div className="pt-3">
-                <a 
-                  href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent('Hello VOOO LABS, I want to discuss Google Ads and dedicated landing pages.')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link 
+                  to={CHANNELS[3].link}
                   className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 group transition-colors"
                 >
                   <span>{CHANNELS[3].linkLabel}</span>
-                  <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
             </div>
 
