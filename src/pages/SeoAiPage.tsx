@@ -170,7 +170,7 @@ export default function SeoAiPage() {
                 transition={{ duration: 0.6, delay: 0.20, ease: EASING }}
                 className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-xl"
               >
-                We don't sell empty ranking promises. We engineer fast, AI-readable website structure, accurate Google Maps presence, high-speed ad landing pages, and transparent WhatsApp lead tracking so your marketing budget works cleanly.
+                We don't sell empty ranking promises. We engineer AI-readable website structure, accurate Google Maps presence, high-speed ad landing pages, and transparent WhatsApp lead tracking—all in one clean system.
               </motion.p>
 
               {/* ACTION ROW */}

@@ -57,9 +57,9 @@ export default function SearchPlacementVisualizer() {
     <div className="rounded-[20px] border border-slate-200/90 bg-white overflow-hidden text-left select-none shadow-none">
       
       {/* ── TOP SWITCHER BAR ─────────────────────────────── */}
-      <div className="bg-[#F8F9FC] border-b border-slate-200/80 px-4 sm:px-5 py-3 flex flex-wrap items-center justify-between gap-2.5">
+      <div className="bg-[#F8F9FC] border-b border-slate-200/80 px-5 py-3.5 flex flex-wrap items-center justify-between gap-3">
         <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-500 font-bold">
-          HOW YOUR BUSINESS APPEARS
+          4 DISCOVERY CHANNELS
         </span>
 
         {/* 4 INTERACTIVE PILL TABS */}
@@ -87,7 +87,7 @@ export default function SearchPlacementVisualizer() {
       </div>
 
       {/* ── PREVIEW STAGE ────────────────────────────────── */}
-      <div ref={stageRef} className="p-5 sm:p-6 min-h-[300px] flex flex-col justify-between">
+      <div ref={stageRef} className="p-6 sm:p-7 space-y-5 min-h-[310px] flex flex-col justify-between">
         
         {/* VIEW 1: GOOGLE ADS */}
         {activeMode === 'ads' && (
@@ -118,7 +118,6 @@ export default function SearchPlacementVisualizer() {
               {/* INLINE EXTENSIONS */}
               <div className="pt-1 flex flex-wrap gap-2 text-[11px] font-medium text-blue-600">
                 <span className="px-2 py-0.5 bg-blue-50/80 rounded hover:underline cursor-pointer">Request Estimate</span>
-                <span className="px-2 py-0.5 bg-blue-50/80 rounded hover:underline cursor-pointer">Download Brochure</span>
                 <span className="px-2 py-0.5 bg-blue-50/80 rounded hover:underline cursor-pointer">WhatsApp</span>
                 <span className="px-2 py-0.5 bg-blue-50/80 rounded hover:underline cursor-pointer">Call</span>
               </div>
@@ -130,10 +129,12 @@ export default function SearchPlacementVisualizer() {
               <span className="text-xs text-slate-400 block truncate">Commercial Solar Installers Directory — Regional Listings</span>
             </div>
 
-            {/* CONCISE BOTTOM NOTE */}
-            <div className="stagger-row mt-4 pt-3 border-t border-slate-100 flex items-start gap-2 text-xs text-slate-500">
-              <Sparkles size={14} className="text-blue-600 shrink-0 mt-0.5" />
-              <span>High-intent search ads place your offering at the top of commercial queries and route clicks to a focused landing page.</span>
+            {/* WHAT WE SET UP */}
+            <div className="stagger-row border-t border-slate-200/80 pt-3.5 flex items-start gap-2 text-xs text-slate-600">
+              <Sparkles size={14} className="text-[#4285F4] shrink-0 mt-0.5" />
+              <span>
+                <strong className="text-slate-900 font-semibold">What We Set Up:</strong> High-intent commercial keyword targeting + a dedicated fast landing page with WhatsApp click attribution.
+              </span>
             </div>
           </div>
         )}
@@ -179,10 +180,12 @@ export default function SearchPlacementVisualizer() {
               </div>
             </div>
 
-            {/* CONCISE BOTTOM NOTE */}
-            <div className="stagger-row mt-4 pt-3 border-t border-slate-100 flex items-start gap-2 text-xs text-slate-500">
-              <Search size={14} className="text-blue-600 shrink-0 mt-0.5" />
-              <span>Clean semantic HTML, fast mobile speed, and dedicated service pages help Google crawl and index your offerings clearly.</span>
+            {/* WHAT WE SET UP */}
+            <div className="stagger-row border-t border-slate-200/80 pt-3.5 flex items-start gap-2 text-xs text-slate-600">
+              <Search size={14} className="text-[#4285F4] shrink-0 mt-0.5" />
+              <span>
+                <strong className="text-slate-900 font-semibold">What We Set Up:</strong> Clean semantic HTML, fast mobile speed, XML sitemaps, and dedicated service pages so Google indexes every offering clearly.
+              </span>
             </div>
           </div>
         )}
@@ -256,10 +259,12 @@ export default function SearchPlacementVisualizer() {
 
             </div>
 
-            {/* CONCISE BOTTOM NOTE */}
-            <div className="stagger-row mt-4 pt-3 border-t border-slate-100 flex items-start gap-2 text-xs text-slate-500">
-              <MapPin size={14} className="text-blue-600 shrink-0 mt-0.5" />
-              <span>Accurate Google Business Profile setup and a 1-tap WhatsApp review link make it easy for local buyers to find and trust you.</span>
+            {/* WHAT WE SET UP */}
+            <div className="stagger-row border-t border-slate-200/80 pt-3.5 flex items-start gap-2 text-xs text-slate-600">
+              <MapPin size={14} className="text-[#4285F4] shrink-0 mt-0.5" />
+              <span>
+                <strong className="text-slate-900 font-semibold">What We Set Up:</strong> Complete Google Business Profile optimization paired with a 1-tap WhatsApp review link for satisfied clients.
+              </span>
             </div>
           </div>
         )}
@@ -271,7 +276,7 @@ export default function SearchPlacementVisualizer() {
             <div className="stagger-row bg-[#F8F9FC] border border-slate-200/80 rounded-[12px] px-3.5 py-2.5 text-xs text-slate-800 flex items-start gap-2">
               <span className="font-mono text-[10px] font-bold text-slate-400 mt-0.5">USER:</span>
               <p className="font-medium">
-                "Can you suggest custom web portal developers with full source code ownership?"
+                "Which company builds custom web portals with full source code ownership?"
               </p>
             </div>
 
@@ -294,10 +299,12 @@ export default function SearchPlacementVisualizer() {
               </div>
             </div>
 
-            {/* CONCISE BOTTOM NOTE */}
-            <div className="stagger-row mt-4 pt-3 border-t border-slate-100 flex items-start gap-2 text-xs text-slate-500">
-              <Bot size={14} className="text-blue-600 shrink-0 mt-0.5" />
-              <span>Structured JSON-LD schema and llms.txt give AI assistants accurate, factual data about your services.</span>
+            {/* WHAT WE SET UP */}
+            <div className="stagger-row border-t border-slate-200/80 pt-3.5 flex items-start gap-2 text-xs text-slate-600">
+              <Bot size={14} className="text-[#4285F4] shrink-0 mt-0.5" />
+              <span>
+                <strong className="text-slate-900 font-semibold">What We Set Up:</strong> Structured <code className="font-mono bg-slate-100 px-1 py-0.5 rounded text-[11px]">JSON-LD</code> organization/service schema and <code className="font-mono bg-slate-100 px-1 py-0.5 rounded text-[11px]">llms.txt</code> so AI assistants read accurate, factual business data.
+              </span>
             </div>
           </div>
         )}
