@@ -185,7 +185,7 @@ export default function GoogleMapsPage() {
               size="lg"
               magnetic={true}
             >
-              <span>See what your project will cost</span>
+              <span>Claim Maps Authority</span>
               <ArrowRight size={16} />
             </LiquidButton>
 

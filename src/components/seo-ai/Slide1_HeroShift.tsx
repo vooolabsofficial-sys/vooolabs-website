@@ -214,7 +214,7 @@ export default function Slide1_HeroShift() {
                   className="bg-slate-900 hover:bg-purple-600 font-semibold"
                 >
                   <Bot size={16} />
-                  <span>Discover what you're missing</span>
+                  <span>Explore AI Shift</span>
                   <ArrowRight size={14} />
                 </LiquidButton>
 
@@ -226,7 +226,7 @@ export default function Slide1_HeroShift() {
                   magnetic={true}
                   className="font-semibold"
                 >
-                  <span>See what your project will cost</span>
+                  <span>Configure Growth Blueprint</span>
                 </LiquidButton>
               </div>
             </FadeIn>

@@ -221,7 +221,7 @@ export default function GoogleAdsPage() {
               size="lg"
               magnetic={true}
             >
-              <span>See what your project will cost</span>
+              <span>Launch Targeted Ads</span>
               <ArrowRight size={16} />
             </LiquidButton>
 

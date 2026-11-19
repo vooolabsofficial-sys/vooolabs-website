@@ -197,7 +197,7 @@ export default function WebAppsServicePage() {
                   size="lg"
                   magnetic={true}
                 >
-                  <span>See what your project will cost</span>
+                  <span>Configure Web App Blueprint</span>
                   <ArrowRight size={16} />
                 </LiquidButton>
 
@@ -427,7 +427,7 @@ export default function WebAppsServicePage() {
               magnetic={true}
               className="whitespace-nowrap"
             >
-              <span>See what your project will cost</span>
+              <span>Discuss Your Web App</span>
               <ArrowRight size={16} />
             </LiquidButton>
 

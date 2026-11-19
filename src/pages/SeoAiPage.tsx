@@ -676,7 +676,7 @@ export default function SeoAiPage() {
               magnetic={true}
               className="whitespace-nowrap"
             >
-              <span>See what your project will cost</span>
+              <span>Configure Growth Blueprint</span>
               <ArrowRight size={16} />
             </LiquidButton>
 

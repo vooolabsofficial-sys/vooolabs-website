@@ -50,6 +50,7 @@ export default function LiquidButton({
   children,
 }: LiquidButtonProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = React.useState(false);
 
   // Viscoelastic magnetic cursor attraction physics
   const x = useMotionValue(0);
@@ -61,6 +62,7 @@ export default function LiquidButton({
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!magnetic || disabled) return;
+    setIsHovered(true);
     const element = containerRef.current;
     if (!element) return;
     const rect = element.getBoundingClientRect();
@@ -76,6 +78,7 @@ export default function LiquidButton({
   };
 
   const handleMouseLeave = () => {
+    setIsHovered(false);
     x.set(0);
     y.set(0);
   };
@@ -84,35 +87,31 @@ export default function LiquidButton({
   const roundedClass = rounded === 'pill' ? 'rounded-full' : 'rounded-[14px]';
 
   const sizeClasses: Record<LiquidButtonSize, string> = {
-    sm: 'px-4 py-2 text-xs min-h-[38px] sm:min-h-[40px]',
-    md: 'px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm min-h-[44px]',
+    sm: 'px-4 py-2 text-xs font-semibold min-h-[38px] sm:min-h-[40px]',
+    md: 'px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold min-h-[44px]',
     lg: 'px-7 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold min-h-[48px]',
   };
 
   /**
    * UNIFIED DESIGN SYSTEM COLOR TOKENS:
-   * 1. Primary: Obsidian #0A0F1E -> Studio Blue #4285F4 (Main Conversion CTAs)
-   * 2. Secondary: Architectural White -> #F8F9FC with dark border
-   * 3. WhatsApp: Crisp White + Subtle 6px Emerald dot (Zero loud neon green blocks)
-   * 4. White: For dark #0A0F1E sections -> Inverts to #4285F4 with white text
-   * 5. Dark: Subtle glass for dark backgrounds
+   * Razor-sharp, high contrast, zero-blur text across all viewports
    */
   const variantClasses: Record<LiquidButtonVariant, string> = {
     primary:
-      'btn-liquid-primary bg-[#0A0F1E] hover:bg-[#4285F4] text-white border-[#0A0F1E] hover:border-[#4285F4] shadow-xs',
+      'btn-liquid-primary bg-[#0A0F1E] hover:bg-[#4285F4] text-white border-[#0A0F1E] hover:border-[#4285F4] shadow-xs font-semibold',
     secondary:
-      'btn-liquid-secondary bg-white hover:bg-[#F8F9FC] text-slate-900 border-slate-200/90 hover:border-slate-900/30 hover:text-slate-950 shadow-xs',
+      'btn-liquid-secondary bg-white hover:bg-[#F8F9FC] text-slate-950 border-slate-300 hover:border-slate-900 shadow-2xs font-semibold',
     whatsapp:
-      'btn-liquid-secondary bg-white hover:bg-emerald-50/40 text-slate-900 border-slate-200/90 hover:border-emerald-600/40 hover:text-slate-950 shadow-xs',
+      'btn-liquid-secondary bg-white hover:bg-emerald-50/50 text-slate-950 border-slate-300 hover:border-emerald-600 shadow-2xs font-semibold',
     white:
-      'btn-liquid-white bg-white hover:bg-[#4285F4] text-[#0A0F1E] hover:text-white border-white hover:border-[#4285F4] shadow-md',
+      'btn-liquid-white bg-white hover:bg-[#4285F4] text-slate-950 hover:text-white border-white hover:border-[#4285F4] shadow-md font-semibold',
     dark:
-      'btn-liquid-dark bg-white/[0.08] hover:bg-white/[0.15] text-white border-white/20 hover:border-white/40',
-    // Aliases to ensure zero clashing or harsh neon gradients anywhere:
+      'btn-liquid-dark bg-white/[0.08] hover:bg-white/[0.16] text-white border-white/25 hover:border-white/50 font-semibold',
+    // Aliases to ensure zero clashing:
     gradient:
-      'btn-liquid-primary bg-[#0A0F1E] hover:bg-[#4285F4] text-white border-[#0A0F1E] hover:border-[#4285F4] shadow-xs',
+      'btn-liquid-primary bg-[#0A0F1E] hover:bg-[#4285F4] text-white border-[#0A0F1E] hover:border-[#4285F4] shadow-xs font-semibold',
     emerald:
-      'btn-liquid-secondary bg-white hover:bg-emerald-50/40 text-slate-900 border-slate-200/90 hover:border-emerald-600/40 hover:text-slate-950 shadow-xs',
+      'btn-liquid-secondary bg-white hover:bg-emerald-50/50 text-slate-950 border-slate-300 hover:border-emerald-600 shadow-2xs font-semibold',
   };
 
   const combinedClasses = `btn-liquid-base ${variantClasses[variant]} ${roundedClass} ${sizeClasses[size]} ${className} ${
@@ -124,7 +123,7 @@ export default function LiquidButton({
   const innerContent = (
     <>
       {isWhatsApp && (
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
+        <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.7)] shrink-0" aria-hidden="true" />
       )}
       {children}
     </>
@@ -133,7 +132,7 @@ export default function LiquidButton({
   return (
     <motion.div
       ref={containerRef}
-      style={{ x: springX, y: springY }}
+      style={magnetic && isHovered ? { x: springX, y: springY } : undefined}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className="inline-block"

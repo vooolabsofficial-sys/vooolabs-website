@@ -215,7 +215,7 @@ export default function GoogleSeoPage() {
               size="lg"
               magnetic={true}
             >
-              <span>See what your project will cost</span>
+              <span>Audit Your SEO & Intent</span>
               <ArrowRight size={16} />
             </LiquidButton>
 

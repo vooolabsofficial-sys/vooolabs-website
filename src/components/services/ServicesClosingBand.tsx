@@ -48,7 +48,7 @@ export default function ServicesClosingBand() {
             magnetic={true}
             className="whitespace-nowrap"
           >
-            <span>See what your project will cost</span>
+            <span>Configure Project Blueprint</span>
             <ArrowRight size={16} />
           </LiquidButton>
         </div>

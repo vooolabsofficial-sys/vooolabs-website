@@ -197,7 +197,7 @@ export default function BusinessSoftwareServicePage() {
                   size="lg"
                   magnetic={true}
                 >
-                  <span>See what your project will cost</span>
+                  <span>Configure Software Blueprint</span>
                   <ArrowRight size={16} />
                 </LiquidButton>
 
@@ -427,7 +427,7 @@ export default function BusinessSoftwareServicePage() {
               magnetic={true}
               className="whitespace-nowrap"
             >
-              <span>See what your project will cost</span>
+              <span>Discuss Custom Software</span>
               <ArrowRight size={16} />
             </LiquidButton>
 

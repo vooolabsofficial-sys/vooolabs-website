@@ -535,10 +535,10 @@ export default function AboutPage() {
               </span>
             </div>
 
-            {/* PRECISION LIQUID SLIDING TOGGLE SWITCH */}
+            {/* PRECISION LIQUID SLIDING TOGGLE SWITCH — CRISP, HIGH-CONTRAST */}
             <div
               ref={toggleDeckRef}
-              className="relative inline-flex items-center p-1.5 rounded-full border border-slate-200/90 bg-[#F8F9FC] shadow-sm backdrop-blur-sm self-start sm:self-auto"
+              className="relative inline-flex items-center p-1.5 rounded-full border border-slate-300 bg-white shadow-sm self-start sm:self-auto"
             >
               {/* SMOOTH SLIDING ACTIVE INDICATOR PILL */}
               <div
@@ -554,8 +554,8 @@ export default function AboutPage() {
               <button
                 type="button"
                 onClick={(e) => handleModeToggle('beautiful', e)}
-                className={`relative z-10 min-h-[44px] px-6 font-mono text-xs font-semibold rounded-full transition-colors duration-300 flex items-center justify-center cursor-pointer ${
-                  !isWork ? 'text-white' : 'text-slate-600 hover:text-slate-950'
+                className={`relative z-10 min-h-[44px] px-6 font-mono text-xs font-bold rounded-full transition-colors duration-200 flex items-center justify-center cursor-pointer ${
+                  !isWork ? 'text-white' : 'text-slate-800 hover:text-slate-950'
                 }`}
                 aria-pressed={!isWork}
               >
@@ -565,8 +565,8 @@ export default function AboutPage() {
               <button
                 type="button"
                 onClick={(e) => handleModeToggle('work', e)}
-                className={`relative z-10 min-h-[44px] px-6 font-mono text-xs font-semibold rounded-full transition-colors duration-300 flex items-center justify-center cursor-pointer ${
-                  isWork ? 'text-white' : 'text-slate-600 hover:text-slate-950'
+                className={`relative z-10 min-h-[44px] px-6 font-mono text-xs font-bold rounded-full transition-colors duration-200 flex items-center justify-center cursor-pointer ${
+                  isWork ? 'text-white' : 'text-slate-800 hover:text-slate-950'
                 }`}
                 aria-pressed={isWork}
               >
@@ -903,7 +903,7 @@ export default function AboutPage() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/services"
-                className="min-h-[44px] inline-flex items-center text-xs sm:text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors"
+                className="min-h-[44px] inline-flex items-center text-xs sm:text-sm font-semibold text-slate-800 hover:text-blue-600 transition-colors"
               >
                 <span>Explore Services</span>
                 <span className="ml-1" aria-hidden="true">→</span>

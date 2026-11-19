@@ -83,7 +83,7 @@ export default function ServicesHero() {
             size="lg"
             magnetic={true}
           >
-            <span>See what your project will cost</span>
+            <span>Configure Project Blueprint</span>
             <ArrowRight size={16} />
           </LiquidButton>
 
@@ -94,7 +94,7 @@ export default function ServicesHero() {
             size="lg"
             magnetic={true}
           >
-            <span>Discover what you're missing</span>
+            <span>Explore SEO & AI Search</span>
           </LiquidButton>
         </motion.div>
       </div>

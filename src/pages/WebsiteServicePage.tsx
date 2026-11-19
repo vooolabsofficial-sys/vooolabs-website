@@ -207,7 +207,7 @@ export default function WebsiteServicePage() {
                   size="lg"
                   magnetic={true}
                 >
-                  <span>See what your project will cost</span>
+                  <span>Configure Website Blueprint</span>
                   <ArrowRight size={16} />
                 </LiquidButton>
 
@@ -437,7 +437,7 @@ export default function WebsiteServicePage() {
               magnetic={true}
               className="whitespace-nowrap"
             >
-              <span>See what your project will cost</span>
+              <span>Discuss Your Website</span>
               <ArrowRight size={16} />
             </LiquidButton>
 

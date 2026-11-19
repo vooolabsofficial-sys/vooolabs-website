@@ -164,7 +164,7 @@ export default function AiSearchPage() {
               size="lg"
               magnetic={true}
             >
-              <span>See what your project will cost</span>
+              <span>Inspect AI Search (AEO)</span>
               <ArrowRight size={16} />
             </LiquidButton>
 
