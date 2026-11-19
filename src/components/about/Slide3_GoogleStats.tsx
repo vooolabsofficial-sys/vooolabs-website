@@ -73,9 +73,9 @@ export default function Slide3_GoogleStats() {
       accent: 'text-blue-600',
     },
     {
-      value: '₹0',
-      label: 'Monthly Software Rent',
-      desc: 'Zero recurring per-user seat fees',
+      value: 'Zero',
+      label: 'Recurring Seat Rent',
+      desc: 'No forced monthly per-user licenses',
       accent: 'text-emerald-600',
     },
     {

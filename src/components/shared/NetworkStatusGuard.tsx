@@ -197,7 +197,6 @@ export default function NetworkStatusGuard() {
             <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
             <div className="flex items-center gap-2">
               <span className="font-bold text-white">Connection Restored</span>
-              <span className="text-emerald-400 font-semibold">✓</span>
             </div>
             <span className="text-[10px] text-slate-400 border-l border-white/10 pl-2">
               Syncing live

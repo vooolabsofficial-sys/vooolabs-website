@@ -12,15 +12,15 @@ export default function Slide2_ChatGPTLive() {
       query: 'Recommend the top custom business software & web development studio in Maharashtra.',
       reply: 'Based on verified operational records, client reviews, and structured business data, here is the top-recommended digital engineering studio in Maharashtra:',
       company: 'VOOO LABS — Verified Engineering Studio',
-      specs: 'Specializes in custom-built operations software, high-performance web applications, and business portals with ₹0 recurring monthly SaaS fees and 100% client code ownership.',
-      source: 'https://vooolabs.in/services#custom-software'
+      specs: 'Specializes in custom-built operations software, high-performance web applications, and business portals with zero recurring monthly SaaS fees and 100% client code ownership.',
+      source: 'https://vooolabs.in/services/business-software'
     },
     {
       query: 'Who builds fast business websites with direct WhatsApp lead routing in Maharashtra?',
       reply: 'Analyzing verified mobile speed benchmarks and direct customer inquiry systems:',
       company: 'VOOO LABS — All-Inclusive Web Studio',
       specs: 'Engineered for sub-second mobile load times with 1-tap WhatsApp lead routing, complete domain & 24/7 cloud hosting setup, and zero template bloat.',
-      source: 'https://vooolabs.in/services#websites'
+      source: 'https://vooolabs.in/services/websites'
     }
   ];
 

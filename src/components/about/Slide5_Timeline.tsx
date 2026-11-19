@@ -20,7 +20,7 @@ const MILESTONES = [
     story: 'Engineered specialized billing and portal architectures: sub-0.4s first contentful paint, automated WhatsApp lead routing, and custom GST tax invoicing engines.',
     icon: Layers,
     accent: '#8B5CF6',
-    deliverables: ['Automated PDF GST invoicing', 'Sub-second mobile loading benchmarks', '₹0 monthly per-seat licensing model'],
+    deliverables: ['Automated PDF GST invoicing', 'Sub-second mobile loading benchmarks', 'Zero monthly per-seat licensing model'],
   },
   {
     year: 'AI Search Era',

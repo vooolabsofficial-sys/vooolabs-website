@@ -23,7 +23,7 @@ export default function Slide7_ROIKickoff() {
     },
     {
       q: 'Do I have to pay monthly fees to OpenAI, Perplexity, or Google for AI citations?',
-      a: 'No. AI search citations are purely organic answers. Once your business profile structure and fast website are in place, you pay ₹0 monthly recurring citation fees.'
+      a: 'No. AI search citations are purely organic answers. Once your business profile structure and fast website are in place, there are zero recurring monthly citation fees.'
     },
     {
       q: 'Can you optimize my existing website or do I need a new build?',
@@ -94,7 +94,7 @@ export default function Slide7_ROIKickoff() {
                     <Check className="w-4 h-4 stroke-[2.5]" />
                     <span>Owned AI Search Equity</span>
                   </div>
-                  <div className="font-sans font-semibold text-xl text-emerald-800">₹0 / month Ongoing</div>
+                  <div className="font-sans font-semibold text-xl text-emerald-800">Zero Recurring Platform Fees</div>
                   <p className="font-sans text-xs text-slate-600 leading-relaxed">
                     100% client-owned asset. ChatGPT, Perplexity, and Google cite your brand organically.
                   </p>
@@ -200,8 +200,8 @@ export default function Slide7_ROIKickoff() {
                 </form>
 
                 <div className="text-[11px] text-slate-500 flex items-center justify-between pt-1 border-t border-slate-200 font-sans">
-                  <span>✓ 100% Free · No Obligation</span>
-                  <span>✓ Honest feedback direct to your WhatsApp</span>
+                  <span>Direct Scoping · No Obligation</span>
+                  <span>Direct WhatsApp handoff</span>
                 </div>
 
               </div>

@@ -472,7 +472,7 @@ export default function SeoAiPage() {
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-xs text-slate-950">Your Business Location</span>
                   <span className="font-mono text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded font-bold">
-                    4.9 ★ (128 reviews)
+                    Local 3-Pack Presence
                   </span>
                 </div>
 

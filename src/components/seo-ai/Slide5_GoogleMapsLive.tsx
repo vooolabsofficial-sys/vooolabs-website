@@ -143,9 +143,9 @@ export default function Slide5_GoogleMapsLive() {
                       <div className="absolute -inset-1 rounded-full bg-emerald-500/30 animate-ping" />
                     </div>
 
-                    <div className="mt-1 px-2.5 py-0.5 rounded-full bg-white text-slate-900 text-[10px] font-bold shadow-md flex items-center gap-1 border border-slate-200">
+                    <div className="mt-1 px-2.5 py-0.5 rounded-full bg-white text-slate-900 text-[10px] font-bold shadow-md flex items-center gap-1.5 border border-slate-200">
                       <span>VOOO LABS HQ</span>
-                      <span className="text-amber-500 font-bold">★ 5.0</span>
+                      <span className="text-blue-600 font-mono text-[9px] uppercase">Verified Location</span>
                     </div>
                   </div>
 

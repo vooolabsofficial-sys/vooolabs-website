@@ -216,8 +216,9 @@ export default function Slide4_GoogleAILive() {
                   </p>
 
                   {/* Highlight pill */}
-                  <div className="p-3 rounded-xl bg-purple-50/70 border border-purple-200/80 text-xs text-purple-900 font-medium font-sans">
-                    💡 {current.highlightText}
+                  <div className="p-3 rounded-xl bg-purple-50/70 border border-purple-200/80 text-xs text-purple-900 font-medium font-sans flex items-start gap-2">
+                    <span className="font-mono text-purple-600 font-bold uppercase text-[10px] tracking-wider shrink-0 mt-0.5">KEY INSIGHT:</span>
+                    <span>{current.highlightText}</span>
                   </div>
 
                   {/* Featured Source Tiles */}

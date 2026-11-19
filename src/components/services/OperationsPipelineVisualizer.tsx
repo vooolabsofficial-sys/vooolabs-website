@@ -167,7 +167,7 @@ export default function OperationsPipelineVisualizer() {
                 className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-xs cursor-pointer transition-colors shrink-0"
               >
                 <CheckCircle2 size={13} />
-                <span>Completed ✓ · Reset Flow</span>
+                <span>Completed · Reset Flow</span>
               </button>
             )}
           </div>

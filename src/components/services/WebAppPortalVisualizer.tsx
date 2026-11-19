@@ -242,7 +242,7 @@ export default function WebAppPortalVisualizer() {
                 <div className="flex items-center gap-2">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700">
                     <CheckCircle2 size={13} className="text-blue-600" />
-                    <span>Approved · WhatsApp Sent ✓</span>
+                    <span>Approved · WhatsApp Transmitted</span>
                   </span>
                   <button
                     type="button"

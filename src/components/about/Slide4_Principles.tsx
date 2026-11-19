@@ -25,7 +25,7 @@ const PRINCIPLES = [
     summary: 'Replace endless monthly SaaS subscriptions with custom software built specifically for your business workflow.',
     icon: ShieldCheck,
     accent: '#10B981',
-    deliverable: '₹0 monthly seat licensing',
+    deliverable: 'Zero monthly seat licensing',
   },
   {
     num: '04',

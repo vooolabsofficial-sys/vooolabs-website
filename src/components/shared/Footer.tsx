@@ -167,7 +167,7 @@ export default function Footer() {
                 Direct WhatsApp Inquiries
               </a>
               <Link
-                to="/about#founder"
+                to="/about"
                 className="hover:text-white hover:translate-x-0.5 transition-all w-fit text-xs text-slate-400 pt-1"
               >
                 Lead Architect: Vrushabh Shinde

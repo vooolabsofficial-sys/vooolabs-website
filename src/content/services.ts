@@ -139,7 +139,7 @@ export const SERVICES: ServiceVertical[] = [
       heading: 'Honest, Verifiable Value Commitments',
       metrics: [
         { value: '100%', label: 'Code & Data Ownership', detail: 'Full intellectual property handover with zero vendor lock-in' },
-        { value: '₹0', label: 'Monthly Per-User Seat Fees', detail: 'Custom-built once around your exact workflow' },
+        { value: 'Zero', label: 'Recurring Seat Licensing Fees', detail: 'Custom-built once around your exact workflow with zero ongoing seat tax' },
         { value: 'All-In-One', label: 'Domain, DNS & 24/7 Hosting Included', detail: 'Complete technical setup handled end-to-end' },
         { value: 'Honest', label: 'Workflow-Based Timelines', detail: 'We review your exact requirements first before committing to a delivery date' },
       ],
@@ -235,7 +235,7 @@ export const SERVICES: ServiceVertical[] = [
       heading: 'Honest, Verifiable Value Commitments',
       metrics: [
         { value: '100%', label: 'Code & Data Ownership', detail: 'Full intellectual property handover with zero vendor lock-in' },
-        { value: '₹0', label: 'Monthly Per-User Seat Fees', detail: 'Custom-built once around your exact workflow' },
+        { value: 'Zero', label: 'Recurring Seat Licensing Fees', detail: 'Custom-built once around your exact workflow with zero ongoing seat tax' },
         { value: 'All-In-One', label: 'Domain, DNS & 24/7 Hosting Included', detail: 'Complete technical setup handled end-to-end' },
         { value: 'Honest', label: 'Workflow-Based Timelines', detail: 'We review your exact requirements first before committing to a delivery date' },
       ],
@@ -331,7 +331,7 @@ export const SERVICES: ServiceVertical[] = [
       heading: 'Honest, Verifiable Value Commitments',
       metrics: [
         { value: '100%', label: 'Code & Data Ownership', detail: 'Full intellectual property handover with zero vendor lock-in' },
-        { value: '₹0', label: 'Monthly Per-User Seat Fees', detail: 'Custom-built once around your exact workflow' },
+        { value: 'Zero', label: 'Recurring Seat Licensing Fees', detail: 'Custom-built once around your exact workflow with zero ongoing seat tax' },
         { value: 'All-In-One', label: 'Domain, DNS & 24/7 Hosting Included', detail: 'Complete technical setup handled end-to-end' },
         { value: 'Honest', label: 'Workflow-Based Timelines', detail: 'We review your exact requirements first before committing to a delivery date' },
       ],
@@ -397,7 +397,7 @@ export const SERVICES: ServiceVertical[] = [
       features: [
         {
           title: 'Google SEO (Search Engine Optimization)',
-          description: 'Targeted high-intent keyword research, technical performance tuning, fast load times, and on-page optimization so Google ranks you on Page #1.',
+          description: 'Targeted high-intent keyword research, technical performance tuning, fast load times, and on-page optimization so Google indexes and surfaces your business for high-intent search queries.',
           tech: 'Google SEO',
         },
         {
@@ -422,7 +422,7 @@ export const SERVICES: ServiceVertical[] = [
       heading: 'Honest, Verifiable Value Commitments',
       metrics: [
         { value: '100%', label: 'Code & Data Ownership', detail: 'Full intellectual property handover with zero vendor lock-in' },
-        { value: '₹0', label: 'Monthly Per-User Seat Fees', detail: 'Custom-built once around your exact workflow' },
+        { value: 'Zero', label: 'Recurring Seat Licensing Fees', detail: 'Custom-built once around your exact workflow with zero ongoing seat tax' },
         { value: 'All-In-One', label: 'Domain, DNS & 24/7 Hosting Included', detail: 'Complete technical setup handled end-to-end' },
         { value: 'Honest', label: 'Workflow-Based Timelines', detail: 'We review your exact requirements first before committing to a delivery date' },
       ],
