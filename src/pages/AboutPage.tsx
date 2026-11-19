@@ -43,6 +43,7 @@ export default function AboutPage() {
   const [mode, setMode] = useState<PhilosophyMode>('beautiful');
   const containerRef = useRef<HTMLDivElement>(null);
   const scanBeamRef = useRef<HTMLDivElement>(null);
+  const fallbackCurtainRef = useRef<HTMLDivElement>(null);
   const portraitFrameRef = useRef<HTMLDivElement>(null);
 
   // Scroll to top on mount
@@ -109,86 +110,106 @@ export default function AboutPage() {
     return () => ctx.revert();
   }, []);
 
-  // Circular Clip-Path Transform Animation (View Transitions API + flushSync + fallback)
-  const handleModeToggle = (
-    targetMode: PhilosophyMode,
-    e: React.MouseEvent<HTMLButtonElement>
+  // Clean GSAP fallback curtain if browser lacks View Transitions API
+  const runFallbackCurtainTransform = (
+    nextMode: PhilosophyMode,
+    x: number,
+    y: number,
+    endRadius: number
   ) => {
-    if (targetMode === mode) return;
-
-    // Play tactile mechanical audio click
-    playMechanicalClick(targetMode === 'work');
-
-    // Get click origin coordinates
-    const rect = e.currentTarget.getBoundingClientRect();
-    const clickX = e.clientX || rect.left + rect.width / 2;
-    const clickY = e.clientY || rect.top + rect.height / 2;
-
-    // Calculate maximum distance to the furthest viewport corner
-    const endRadius = Math.hypot(
-      Math.max(clickX, window.innerWidth - clickX),
-      Math.max(clickY, window.innerHeight - clickY)
-    );
-
-    const doc = document as Document & {
-      startViewTransition?: (cb: () => void | Promise<void>) => {
-        ready: Promise<void>;
-        finished: Promise<void>;
-      };
-    };
-
-    const prefersReducedMotion =
+    const prefersReduced =
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (typeof doc.startViewTransition === 'function' && !prefersReducedMotion) {
-      const transition = doc.startViewTransition(() => {
-        flushSync(() => {
-          setMode(targetMode);
-        });
-      });
-
-      transition.ready.then(() => {
-        document.documentElement.animate(
-          {
-            clipPath: [
-              `circle(0px at ${clickX}px ${clickY}px)`,
-              `circle(${endRadius}px at ${clickX}px ${clickY}px)`,
-            ],
-          },
-          {
-            duration: 650,
-            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-            pseudoElement: '::view-transition-new(root)',
-          }
-        );
-      });
-    } else {
-      // Fallback for browsers without View Transitions API or prefers-reduced-motion
+    if (prefersReduced || !fallbackCurtainRef.current) {
       flushSync(() => {
-        setMode(targetMode);
+        setMode(nextMode);
       });
-
-      // Optical beam fallback
-      if (scanBeamRef.current) {
-        gsap.killTweensOf(scanBeamRef.current);
-        gsap.fromTo(
-          scanBeamRef.current,
-          { top: 0, opacity: 0 },
-          {
-            top: '100vh',
-            opacity: 0.85,
-            duration: 0.55,
-            ease: 'power2.inOut',
-            onComplete: () => {
-              if (scanBeamRef.current) {
-                gsap.set(scanBeamRef.current, { opacity: 0, top: 0 });
-              }
-            },
-          }
-        );
-      }
+      return;
     }
+
+    const curtain = fallbackCurtainRef.current;
+    gsap.killTweensOf(curtain);
+    gsap.set(curtain, {
+      display: 'block',
+      opacity: 1,
+      backgroundColor: nextMode === 'work' ? '#F8FAFC' : '#FFFFFF',
+      clipPath: `circle(0px at ${x}px ${y}px)`,
+    });
+
+    gsap.to(curtain, {
+      clipPath: `circle(${endRadius}px at ${x}px ${y}px)`,
+      duration: 0.85,
+      ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      onComplete: () => {
+        flushSync(() => {
+          setMode(nextMode);
+        });
+        gsap.to(curtain, {
+          opacity: 0,
+          duration: 0.25,
+          ease: 'power1.out',
+          onComplete: () => {
+            gsap.set(curtain, { display: 'none' });
+          },
+        });
+      },
+    });
+  };
+
+  // Circular Clip-Path Transform Animation (View Transitions API + flushSync + fallback)
+  const handleModeToggle = (
+    nextMode: PhilosophyMode,
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    if (nextMode === mode) return;
+
+    // Play tactile mechanical audio click
+    playMechanicalClick(nextMode === 'work');
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    const prefersReduced =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const doc = document as Document & {
+      startViewTransition?: (cb: () => void) => { ready: Promise<void> };
+    };
+
+    if (!doc.startViewTransition || prefersReduced) {
+      // Clean GSAP fallback curtain if browser lacks View Transitions API
+      runFallbackCurtainTransform(nextMode, x, y, endRadius);
+      return;
+    }
+
+    const transition = doc.startViewTransition(() => {
+      flushSync(() => {
+        setMode(nextMode);
+      });
+    });
+
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 850,
+          easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+          pseudoElement: '::view-transition-new(root)',
+        }
+      );
+    });
   };
 
   // Desktop-only 3D Optical Tilt for portrait in Beautiful mode
@@ -246,6 +267,13 @@ export default function AboutPage() {
             ? '0 0 12px rgba(10, 15, 30, 0.4)'
             : '0 0 16px rgba(66, 133, 244, 0.5)',
         }}
+        aria-hidden="true"
+      />
+
+      {/* GSAP FALLBACK CURTAIN FOR BROWSERS WITHOUT VIEW TRANSITIONS API */}
+      <div
+        ref={fallbackCurtainRef}
+        className="pointer-events-none fixed inset-0 z-50 hidden"
         aria-hidden="true"
       />
 
