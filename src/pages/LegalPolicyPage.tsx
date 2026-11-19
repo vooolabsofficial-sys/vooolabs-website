@@ -346,6 +346,12 @@ export default function LegalPolicyPage({ activePolicy }: LegalPolicyPageProps) 
                     pause and extend the estimated production launch date on a day-for-day basis, without
                     financial penalty or breach of timeline on the part of {COMPANY.legalName}.
                   </p>
+                  <p>
+                    For official contract notices, terms clarification, or governance queries, contact our legal desk directly at{' '}
+                    <a href={`mailto:${COMPANY.legalEmail}`} className="font-semibold text-slate-900 hover:text-blue-600 underline decoration-slate-300">
+                      {COMPANY.legalEmail}
+                    </a>.
+                  </p>
                 </div>
               </section>
 
@@ -494,6 +500,12 @@ export default function LegalPolicyPage({ activePolicy }: LegalPolicyPageProps) 
                     refunded transparently to the client&apos;s originating bank account within{' '}
                     <strong>ten (10) business days</strong>. Any completed code or artifacts will remain with
                     the client.
+                  </p>
+                  <p>
+                    For billing reconciliations, invoice queries, or milestone settlement documentation, contact our accounts desk directly at{' '}
+                    <a href={`mailto:${COMPANY.billingEmail}`} className="font-semibold text-slate-900 hover:text-blue-600 underline decoration-slate-300">
+                      {COMPANY.billingEmail}
+                    </a>.
                   </p>
                 </div>
               </section>
@@ -785,6 +797,12 @@ export default function LegalPolicyPage({ activePolicy }: LegalPolicyPageProps) 
                     governed by and construed in accordance with the laws of India. Any legal proceedings or disputes
                     arising hereunder shall be subject to the exclusive jurisdiction of the competent courts in{' '}
                     <strong>{LOCATION.region}, India</strong>.
+                  </p>
+                  <p>
+                    For privacy inquiries, data subject rights, mutual NDA requests, or compliance notices under the DPDP Act, contact our Grievance Officer & Legal Counsel directly at{' '}
+                    <a href={`mailto:${COMPANY.legalEmail}`} className="font-semibold text-slate-900 hover:text-blue-600 underline decoration-slate-300">
+                      {COMPANY.legalEmail}
+                    </a>.
                   </p>
                 </div>
               </section>

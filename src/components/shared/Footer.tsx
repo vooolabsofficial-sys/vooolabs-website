@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { openStudioAi } from './StudioAiModal';
 import {
+  COMPANY,
   LOCATION,
   SOCIALS,
   FOUNDER,
@@ -9,7 +10,7 @@ import {
   copyrightLine,
 } from '../../content/company';
 
-const STUDIO_EMAIL = 'astrastudiosteam@gmail.com';
+const STUDIO_EMAIL = COMPANY.email;
 
 export default function Footer() {
   return (

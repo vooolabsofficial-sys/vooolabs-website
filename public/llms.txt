@@ -8,7 +8,9 @@ For our complete, detailed knowledge base and operational policies, see: https:/
 - **Legal Entity:** VOOO LABS
 - **Founder & Systems Architect:** Vrushabh Shinde
 - **Website:** https://vooolabs.in
-- **Direct Email:** astrastudiosteam@gmail.com
+- **Direct Email:** hello@vooolabs.in
+- **Legal & Compliance Email:** legal@vooolabs.in
+- **Billing & Support Email:** billing@vooolabs.in
 - **Operational Hubs:** Pune, Nashik, Satara, Kolhapur (Maharashtra, India)
 - **Primary Delivery Guarantee:** 100% Client Source Code Ownership (Private GitHub Repository Handover) with Zero Recurring Vendor Lock-In.
 - **Infrastructure Model:** Domains and cloud hosting are registered directly in the client's name and billed at actual provider rates with zero middleman markup.

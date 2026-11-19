@@ -19,7 +19,10 @@ export const COMPANY = {
     'Independent web and software engineering studio in Maharashtra, India. In the AI era, we build custom websites, web apps, business software, and AI search visibility for small, mid-sized, and growing businesses—complete with domain, 24/7 hosting, and 100% client ownership.',
   foundedYear: 2025,
   domain: 'https://vooolabs.in',
-  email: 'vooolabsofficial@gmail.com',
+  email: 'hello@vooolabs.in',
+  legalEmail: 'legal@vooolabs.in',
+  billingEmail: 'billing@vooolabs.in',
+  supportEmail: 'support@vooolabs.in',
   /** Digits only, country code first -- used to build wa.me links. */
   whatsapp: '917620236178',
 } as const;

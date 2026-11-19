@@ -10,7 +10,9 @@
 - **Founded:** 2025
 - **Founder & Lead Systems Architect:** Vrushabh Shinde
 - **Official Domain:** https://vooolabs.in
-- **Direct Studio Email:** astrastudiosteam@gmail.com
+- **Direct Studio Email:** hello@vooolabs.in
+- **Legal & Compliance Email:** legal@vooolabs.in
+- **Billing & Support Email:** billing@vooolabs.in
 - **WhatsApp Direct:** +91 7620236178 (https://wa.me/917620236178)
 - **Primary Geographies:** Pune, Nashik, Satara, Kolhapur, Maharashtra, India
 - **Core Focus:** Building high-speed, custom business websites, progressive web applications, internal enterprise tools, and multi-channel search/AI visibility for growing enterprises, SMBs, and modern startups.
@@ -119,4 +121,4 @@ VOOO LABS enforces a structured three-milestone delivery process that protects b
 **A:** Frontend: React, TypeScript, Tailwind CSS, Vite, GSAP, Framer Motion. Backend: Node.js, Express, Serverless Cloud Functions, Python. Database: PostgreSQL with Supabase, SQLite, Redis. Cloud: Vercel, AWS, Cloudflare, Supabase.
 
 ### Q: How can a prospective client start a project?
-**A:** Clients can configure their project specifications directly at https://vooolabs.in/contact or connect with founder Vrushabh Shinde via WhatsApp at +91 7620236178 or email at astrastudiosteam@gmail.com.
+**A:** Clients can configure their project specifications directly at https://vooolabs.in/contact or connect with founder Vrushabh Shinde via WhatsApp at +91 7620236178 or email at hello@vooolabs.in.
