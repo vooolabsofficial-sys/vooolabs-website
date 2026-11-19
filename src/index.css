@@ -635,3 +635,18 @@ p {
     0 2px 4px rgba(5, 150, 105, 0.20);
   transition: transform 140ms ease-out, box-shadow 140ms ease-out;
 }
+
+/* Smooth circular mode transform for AboutPage */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}

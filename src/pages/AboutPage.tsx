@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { flushSync } from 'react-dom';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,6 +10,34 @@ import LiquidButton from '../components/shared/LiquidButton';
 gsap.registerPlugin(ScrollTrigger);
 
 type PhilosophyMode = 'beautiful' | 'work';
+
+// Synthesized mechanical micro-click sound via Web Audio API
+function playMechanicalClick(isWorkMode: boolean) {
+  try {
+    const AudioCtx =
+      window.AudioContext ||
+      (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = isWorkMode ? 'square' : 'sine';
+    osc.frequency.setValueAtTime(isWorkMode ? 850 : 1200, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 0.04);
+
+    gain.gain.setValueAtTime(0.04, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.04);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start();
+    osc.stop(ctx.currentTime + 0.045);
+  } catch {
+    // AudioContext blocked or not allowed until interaction
+  }
+}
 
 export default function AboutPage() {
   const [mode, setMode] = useState<PhilosophyMode>('beautiful');
@@ -80,28 +109,85 @@ export default function AboutPage() {
     return () => ctx.revert();
   }, []);
 
-  // GSAP Optical Sweep beam when toggling between Work and Beautiful modes
-  const triggerOpticalSweep = (targetMode: PhilosophyMode) => {
+  // Circular Clip-Path Transform Animation (View Transitions API + flushSync + fallback)
+  const handleModeToggle = (
+    targetMode: PhilosophyMode,
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
     if (targetMode === mode) return;
-    setMode(targetMode);
 
-    if (scanBeamRef.current) {
-      gsap.killTweensOf(scanBeamRef.current);
-      gsap.fromTo(
-        scanBeamRef.current,
-        { top: 0, opacity: 0 },
-        {
-          top: '100vh',
-          opacity: 0.85,
-          duration: 0.55,
-          ease: 'power2.inOut',
-          onComplete: () => {
-            if (scanBeamRef.current) {
-              gsap.set(scanBeamRef.current, { opacity: 0, top: 0 });
-            }
+    // Play tactile mechanical audio click
+    playMechanicalClick(targetMode === 'work');
+
+    // Get click origin coordinates
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.clientX || rect.left + rect.width / 2;
+    const clickY = e.clientY || rect.top + rect.height / 2;
+
+    // Calculate maximum distance to the furthest viewport corner
+    const endRadius = Math.hypot(
+      Math.max(clickX, window.innerWidth - clickX),
+      Math.max(clickY, window.innerHeight - clickY)
+    );
+
+    const doc = document as Document & {
+      startViewTransition?: (cb: () => void | Promise<void>) => {
+        ready: Promise<void>;
+        finished: Promise<void>;
+      };
+    };
+
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (typeof doc.startViewTransition === 'function' && !prefersReducedMotion) {
+      const transition = doc.startViewTransition(() => {
+        flushSync(() => {
+          setMode(targetMode);
+        });
+      });
+
+      transition.ready.then(() => {
+        document.documentElement.animate(
+          {
+            clipPath: [
+              `circle(0px at ${clickX}px ${clickY}px)`,
+              `circle(${endRadius}px at ${clickX}px ${clickY}px)`,
+            ],
           },
-        }
-      );
+          {
+            duration: 650,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            pseudoElement: '::view-transition-new(root)',
+          }
+        );
+      });
+    } else {
+      // Fallback for browsers without View Transitions API or prefers-reduced-motion
+      flushSync(() => {
+        setMode(targetMode);
+      });
+
+      // Optical beam fallback
+      if (scanBeamRef.current) {
+        gsap.killTweensOf(scanBeamRef.current);
+        gsap.fromTo(
+          scanBeamRef.current,
+          { top: 0, opacity: 0 },
+          {
+            top: '100vh',
+            opacity: 0.85,
+            duration: 0.55,
+            ease: 'power2.inOut',
+            onComplete: () => {
+              if (scanBeamRef.current) {
+                gsap.set(scanBeamRef.current, { opacity: 0, top: 0 });
+              }
+            },
+          }
+        );
+      }
     }
   };
 
@@ -225,7 +311,7 @@ export default function AboutPage() {
             <div className="max-w-3xl">
               <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500 block mb-3">
                 {isWork
-                  ? 'SYS_MANIFESTO · PHASE 01 // LOGIC FIRST'
+                  ? 'SYS_MANIFESTO // LOGIC FIRST'
                   : 'ABOUT VOOO LABS · STUDIO MANIFESTO'}
               </span>
 
@@ -267,31 +353,31 @@ export default function AboutPage() {
                   style={{
                     left: '4px',
                     width: 'calc(50% - 4px)',
-                    transform: isWork ? 'translateX(0)' : 'translateX(100%)',
+                    transform: isWork ? 'translateX(100%)' : 'translateX(0)',
                   }}
                   aria-hidden="true"
                 />
 
                 <button
                   type="button"
-                  onClick={() => triggerOpticalSweep('work')}
-                  className={`relative z-10 min-h-[44px] px-5 font-mono text-xs font-semibold rounded-full transition-colors duration-300 flex items-center justify-center cursor-pointer ${
-                    isWork ? 'text-white' : 'text-slate-600 hover:text-slate-950'
-                  }`}
-                  aria-pressed={isWork}
-                >
-                  01. Work
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => triggerOpticalSweep('beautiful')}
+                  onClick={(e) => handleModeToggle('beautiful', e)}
                   className={`relative z-10 min-h-[44px] px-5 font-mono text-xs font-semibold rounded-full transition-colors duration-300 flex items-center justify-center cursor-pointer ${
                     !isWork ? 'text-white' : 'text-slate-600 hover:text-slate-950'
                   }`}
                   aria-pressed={!isWork}
                 >
-                  02. Beautiful
+                  01. Beautiful
+                </button>
+
+                <button
+                  type="button"
+                  onClick={(e) => handleModeToggle('work', e)}
+                  className={`relative z-10 min-h-[44px] px-5 font-mono text-xs font-semibold rounded-full transition-colors duration-300 flex items-center justify-center cursor-pointer ${
+                    isWork ? 'text-white' : 'text-slate-600 hover:text-slate-950'
+                  }`}
+                  aria-pressed={isWork}
+                >
+                  02. Work
                 </button>
               </div>
 
