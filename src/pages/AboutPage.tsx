@@ -641,6 +641,8 @@ export default function AboutPage() {
                       alt="Vrushabh Shinde — Founder & CEO, Systems Architect, VOOO LABS"
                       width={400}
                       height={500}
+                      loading="eager"
+                      fetchPriority="high"
                       decoding="async"
                       className={`w-full aspect-[4/5] object-cover object-top transition-all duration-700 ${
                         isWork

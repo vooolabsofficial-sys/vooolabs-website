@@ -39,12 +39,19 @@ export default function Slide6_FounderHubs() {
             <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden border border-zinc-200 bg-white p-2 shadow-xs">
               <div className="w-full h-full rounded-2xl overflow-hidden bg-zinc-100 relative">
                 {!imageError ? (
-                  <img
-                    src="/founder.jpg"
-                    alt={FOUNDER.name}
-                    onError={() => setImageError(true)}
-                    className="w-full h-full object-cover object-top"
-                  />
+                  <picture>
+                    <source srcSet="/images/founder.webp" type="image/webp" />
+                    <img
+                      src="/images/founder.jpg"
+                      alt={`${FOUNDER.name} — ${FOUNDER.role}, VOOO LABS`}
+                      width={400}
+                      height={500}
+                      loading="lazy"
+                      decoding="async"
+                      onError={() => setImageError(true)}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </picture>
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 text-blue-600 font-bold text-5xl">
                     {FOUNDER.initials}

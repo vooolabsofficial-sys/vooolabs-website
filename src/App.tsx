@@ -71,11 +71,19 @@ function MinimalLoadingFallback() {
 
 function PageWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit" className="pb-24 overflow-x-hidden w-full">
+    <motion.main
+      id="main-content"
+      tabIndex={-1}
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="pb-24 overflow-x-hidden w-full outline-none focus:outline-none"
+    >
       <Suspense fallback={<MinimalLoadingFallback />}>
         {children}
       </Suspense>
-    </motion.div>
+    </motion.main>
   );
 }
 
@@ -190,6 +198,12 @@ export default function App() {
   return (
     <AppErrorBoundary>
       <BrowserRouter>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#0A0F1E] focus:text-white focus:text-xs focus:font-mono focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#4285F4]"
+        >
+          Skip to main content
+        </a>
         <RouteSeo />
         <NetworkStatusGuard />
         <StudioAiModal />

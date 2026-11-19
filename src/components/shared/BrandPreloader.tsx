@@ -10,13 +10,19 @@ export default function BrandPreloader({ onComplete }: BrandPreloaderProps) {
   const [isFinished, setIsFinished] = useState(false);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setIsFinished(true);
+      onComplete?.();
+      return;
+    }
+
     // 2.1s calibrated dwell time: allows full physics drop, wave bounce, and stable showcase
     const timer = setTimeout(() => {
       setIsFinished(true);
     }, 2100);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [onComplete]);
 
   // 120 FPS Subdivided Elastic Drop for 'V'
   const vDropBounce: TargetAndTransition = {

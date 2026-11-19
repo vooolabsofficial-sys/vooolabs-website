@@ -161,6 +161,7 @@ export default function FixedBottomBar() {
           <button
             onClick={scrollToTop}
             title="Scroll to Top"
+            aria-label="Scroll to top of page"
             className="hidden sm:inline-flex items-center gap-1 font-mono text-[10px] text-slate-400 hover:text-blue-600 transition-colors cursor-pointer px-1.5 py-0.5 rounded-md hover:bg-slate-100/70"
           >
             <ArrowUp size={11} />
@@ -175,6 +176,7 @@ export default function FixedBottomBar() {
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Discuss on WhatsApp: ${ctx.waLabel}`}
             className="hidden md:inline-flex items-center gap-1.5 font-sans font-medium text-xs text-slate-700 hover:text-emerald-600 px-2.5 py-1 rounded-full hover:bg-emerald-50/70 border border-transparent hover:border-emerald-200/60 transition-all duration-200"
           >
             <MessageSquare size={13} className="text-emerald-500" />
@@ -185,9 +187,10 @@ export default function FixedBottomBar() {
           <Link
             to="/contact"
             state={ctx.selectedService ? { selectedService: ctx.selectedService } : undefined}
+            aria-label="Configure project blueprint"
             className="btn-liquid-base btn-liquid-primary rounded-full bg-[#0A0F1E] hover:bg-[#4285F4] text-white border-[#0A0F1E] hover:border-[#4285F4] px-3.5 sm:px-4 py-1.5 font-sans font-medium text-xs inline-flex items-center gap-1.5 shadow-xs transition-all whitespace-nowrap"
           >
-            <span>See Project Cost</span>
+            <span>Project Blueprint</span>
             <ArrowRight size={12} />
           </Link>
         </div>
