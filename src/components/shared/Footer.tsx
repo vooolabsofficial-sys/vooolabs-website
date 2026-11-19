@@ -23,25 +23,10 @@ export default function Footer() {
         aria-hidden="true" 
       />
 
-      {/* ══════════════════════════════════════════════════════
-          BLURRED VOOO LABS WATERMARK (ON UPPER FOOTER BACKGROUND)
-          Positions behind upper footer content without extra scroll height
-         ══════════════════════════════════════════════════════ */}
-      <div 
-        className="pointer-events-none absolute top-10 sm:top-14 left-1/2 -translate-x-1/2 w-full overflow-hidden text-center select-none z-0"
-        aria-hidden="true"
-      >
-        <span 
-          className="text-[13.5vw] sm:text-[14.5vw] font-crazyblocks tracking-[0.06em] leading-none select-none pointer-events-none text-center bg-gradient-to-b from-white/[0.08] via-white/[0.025] to-transparent bg-clip-text text-transparent blur-[1.5px] block"
-        >
-          VOOO LABS
-        </span>
-      </div>
-
-      <div className="relative max-w-6xl mx-auto px-6 pt-16 sm:pt-20 pb-10 z-10">
+      <div className="relative max-w-6xl mx-auto px-6 pt-16 sm:pt-20 pb-4 z-10">
         
         {/* 12-COLUMN ARCHITECTURAL GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-8">
           
           {/* COLUMN 1: BRAND IDENTITY & STUDIO TELEMETRY (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-5">
@@ -277,19 +262,45 @@ export default function Footer() {
 
         </div>
 
+        {/* ══════════════════════════════════════════════════════
+            SIGNATURE ARCHITECTURAL BRAND WATERMARK
+            (Positioned lower down, directly above the bottom line, zero text clash)
+           ══════════════════════════════════════════════════════ */}
+        <div 
+          className="relative w-full overflow-hidden select-none pointer-events-none pt-2 sm:pt-4 pb-1 sm:pb-2 flex justify-center items-center"
+          aria-hidden="true"
+        >
+          <span 
+            className="text-[13.5vw] sm:text-[14.5vw] font-crazyblocks tracking-[0.06em] leading-none select-none pointer-events-none text-center bg-gradient-to-b from-white/[0.09] via-white/[0.025] to-transparent bg-clip-text text-transparent blur-[1.2px] block"
+          >
+            VOOO LABS
+          </span>
+        </div>
+
       </div>
 
       {/* ══════════════════════════════════════════════════════
-          BOTTOM UNIFIED HORIZONTAL STRIP (SINGLE CLEAN SCREEN)
-          Horizontal Legal Links (Advi) + Copyright & Telemetry
+          BOTTOM BAR: LEFT (COPYRIGHT & TELEMETRY) | RIGHT (LEGAL LINKS)
          ══════════════════════════════════════════════════════ */}
-      <div className="border-t border-white/[0.08] relative z-10 bg-black/20 backdrop-blur-xs">
-        <div className="max-w-6xl mx-auto px-6 py-6 sm:py-8 flex flex-col md:flex-row items-center justify-between gap-5 text-xs text-slate-400">
+      <div className="border-t border-white/[0.08] relative z-10 bg-black/30 backdrop-blur-xs">
+        <div className="max-w-6xl mx-auto px-6 py-5 sm:py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           
-          {/* HORIZONTAL (ADVI) STANDARD LEGAL POLICIES */}
+          {/* LEFT SIDE: COPYRIGHT & OPERATIONAL TELEMETRY */}
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
+            <span className="text-slate-300 font-normal">
+              {copyrightLine()}
+            </span>
+            <span className="hidden sm:inline text-white/20 select-none" aria-hidden="true">·</span>
+            <div className="font-mono text-[11px] text-slate-400 flex items-center gap-1.5 select-none">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+              <span>18.5204° N, 73.8567° E · Pune & Kolhapur</span>
+            </div>
+          </div>
+
+          {/* RIGHT SIDE: CLEAN HORIZONTAL STANDARD LEGAL POLICY LINKS */}
           <nav 
             aria-label="Legal and Compliance"
-            className="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs font-medium text-slate-400"
+            className="flex flex-wrap items-center justify-center md:justify-end gap-x-5 gap-y-2 text-xs font-medium text-slate-400"
           >
             <Link
               to="/legal/terms"
@@ -319,17 +330,6 @@ export default function Footer() {
               Code Ownership
             </Link>
           </nav>
-
-          {/* TELEMETRY & LOCATION */}
-          <div className="font-mono text-[11px] text-slate-400 flex items-center gap-1.5 select-none">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-            <span>18.5204° N, 73.8567° E · Pune & Kolhapur</span>
-          </div>
-
-          {/* COPYRIGHT */}
-          <div className="text-slate-400 text-center md:text-right">
-            {copyrightLine()}
-          </div>
 
         </div>
       </div>
