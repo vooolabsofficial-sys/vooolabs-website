@@ -3,23 +3,22 @@ import { useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { 
   ArrowRight, 
-  ArrowLeft,
   CheckCircle2, 
   RotateCcw, 
   ShieldCheck, 
   Server,
-  Zap, 
   Cpu, 
   Layers, 
   Globe,
   Sparkles,
   Search,
   MessageSquare,
-  Lock,
-  Compass
+  Send,
+  Building2,
+  User,
+  Phone
 } from 'lucide-react';
 import { COMPANY, FOUNDER } from '../content/company';
-import LiquidButton from '../components/shared/LiquidButton';
 import { openStudioAi } from '../components/shared/StudioAiModal';
 
 type SystemType = 
@@ -49,16 +48,16 @@ const SYSTEM_SPECS: Record<SystemType, SystemSpec> = {
     badge: '01',
     icon: Globe,
     description: 'Fast, search-ready websites with sub-second load times and form-free WhatsApp inquiry tracking.',
-    stack: 'Custom React / Vite + Edge CDN + Automated WhatsApp Attribution',
+    stack: 'Custom React / Vite + Edge CDN Acceleration',
     coreFocus: 'Sub-Second Speed, Search Schema & Direct WhatsApp Conversions',
-    handover: '100% GitHub Codebase + Direct Cloudflare/Vercel Account Handover',
+    handover: '100% GitHub Codebase + Direct Cloudflare Account Handover',
   },
   'Custom Web Apps & Portals': {
     code: 'SYS-02/APP',
     badge: '02',
     icon: Layers,
     description: '1-tap browser portals for clients, students, or bookings with zero app store friction.',
-    stack: '1-Tap Progressive Web App + OTP Mobile Auth + PostgreSQL Database',
+    stack: '1-Tap Progressive Web App + Mobile OTP + PostgreSQL Database',
     coreFocus: 'Zero App Store Friction + Separate Client & Staff Role Dashboards',
     handover: 'Private Cloud Database + Full Production Repository Ownership',
   },
@@ -121,7 +120,7 @@ const SUGGESTED_GOALS: Record<SystemType, string[]> = {
 export default function ContactPage() {
   const location = useLocation();
 
-  // Smart auto-detection from route state or URL search parameters
+  // Auto-detect service from route state or URL search parameters
   const getInitialService = (): SystemType => {
     const stateService = (location.state as { selectedService?: string })?.selectedService;
     if (stateService) {
@@ -139,7 +138,6 @@ export default function ContactPage() {
     return 'Business Websites';
   };
 
-  const [activeStep, setActiveStep] = useState<1 | 2 | 3>(1);
   const [selectedSystem, setSelectedSystem] = useState<SystemType>(getInitialService);
   const [selectedStage, setSelectedStage] = useState<StageType>('Starting Fresh');
   const [goal, setGoal] = useState('');
@@ -153,10 +151,8 @@ export default function ContactPage() {
 
   // GSAP Animation Refs
   const pageContainerRef = useRef<HTMLDivElement>(null);
-  const stepContainerRef = useRef<HTMLDivElement>(null);
   const specBodyRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
-  const stepRailProgressRef = useRef<HTMLDivElement>(null);
 
   // Scroll to top on mount
   useEffect(() => {
@@ -167,45 +163,20 @@ export default function ContactPage() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '.contact-hero-item',
-        { opacity: 0, y: 28 },
+        '.contact-fade-in',
+        { opacity: 0, y: 20 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.75,
-          stagger: 0.1,
-          ease: 'power3.out',
+          duration: 0.65,
+          stagger: 0.08,
+          ease: 'power2.out',
         }
       );
     }, pageContainerRef);
 
     return () => ctx.revert();
   }, []);
-
-  // GSAP Animation when activeStep changes
-  useEffect(() => {
-    if (!stepContainerRef.current) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        stepContainerRef.current,
-        { opacity: 0, x: 18 },
-        { opacity: 1, x: 0, duration: 0.42, ease: 'power3.out' }
-      );
-    }, stepContainerRef);
-
-    // Animate the step progress bar rail
-    if (stepRailProgressRef.current) {
-      const targetScale = (activeStep - 1) / 2;
-      gsap.to(stepRailProgressRef.current, {
-        scaleX: targetScale,
-        duration: 0.4,
-        ease: 'power2.out',
-      });
-    }
-
-    return () => ctx.revert();
-  }, [activeStep]);
 
   // GSAP Morphing animation on specification changes
   useEffect(() => {
@@ -214,8 +185,8 @@ export default function ContactPage() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         specBodyRef.current,
-        { opacity: 0, y: 8 },
-        { opacity: 1, y: 0, duration: 0.32, ease: 'power2.out' }
+        { opacity: 0, y: 6 },
+        { opacity: 1, y: 0, duration: 0.28, ease: 'power2.out' }
       );
     }, specBodyRef);
 
@@ -224,32 +195,27 @@ export default function ContactPage() {
 
   const currentSpec = SYSTEM_SPECS[selectedSystem];
 
-  // Advance to next step with validation
-  const handleNextStep = (targetStep: 1 | 2 | 3) => {
-    setValidationError('');
-    setActiveStep(targetStep);
-  };
-
   // Direct fast WhatsApp fallback with selected system
   const directWhatsAppLink = `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(
     `Hello VOOO LABS, I want to discuss ${selectedSystem} for our business.`
   )}`;
 
-  // Main Submit Handler: Validates inputs, triggers GSAP progress animation and opens WhatsApp
+  // Submit Handler: Validates inputs, triggers GSAP progress animation and opens WhatsApp
   const handleTransmit = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     setValidationError('');
 
-    // If user is not on Step 3, or if required fields are missing, guide them to Step 3
     if (!name.trim()) {
-      setActiveStep(3);
       setValidationError('Please provide your name so Vrushabh knows who to address.');
+      const nameInput = document.getElementById('client-name-input');
+      nameInput?.focus();
       return;
     }
 
     if (!phone.trim()) {
-      setActiveStep(3);
       setValidationError('Please provide your WhatsApp or phone number.');
+      const phoneInput = document.getElementById('client-phone-input');
+      phoneInput?.focus();
       return;
     }
 
@@ -275,7 +241,7 @@ export default function ContactPage() {
 • Core Focus: ${currentSpec.coreFocus}
 • Handover Model: ${currentSpec.handover}
 
-*TRANSPARENCY MILESTONES*
+*TRANSPARENCY COMMITMENTS*
 • 40% Kickoff (Live Frontend) · 30% Backend · 30% Handover
 • 100% Client-Owned GitHub Repository
 • Direct Client Account at Actual Provider Cost
@@ -285,14 +251,14 @@ Ready to discuss scope, timeline, and exact infrastructure parameters.`
 
     const waUrl = `https://wa.me/${COMPANY.whatsapp}?text=${waText}`;
 
-    // Animate GSAP progress bar on the Obsidian Dossier
+    // Animate GSAP progress bar on the specification card
     if (progressBarRef.current) {
       gsap.fromTo(
         progressBarRef.current,
         { scaleX: 0 },
         {
           scaleX: 1,
-          duration: 0.5,
+          duration: 0.45,
           ease: 'power3.inOut',
           onComplete: () => {
             window.open(waUrl, '_blank', 'noopener,noreferrer');
@@ -313,429 +279,303 @@ Ready to discuss scope, timeline, and exact infrastructure parameters.`
   return (
     <div 
       ref={pageContainerRef}
-      className="page-wrap min-h-screen bg-white text-slate-900 relative overflow-hidden pt-32 sm:pt-36 pb-28 select-none"
+      className="page-wrap min-h-screen bg-white text-slate-900 relative pt-32 sm:pt-36 pb-24"
     >
-      {/* ──────────────────────────────────────────────────
-          SUBTLE ARCHITECTURAL GRID BACKDROP & AMBIENT SCANLINE
-         ────────────────────────────────────────────────── */}
+      {/* TOP 2PX STUDIO BLUE ACCENT BAR */}
       <div 
-        className="absolute inset-0 pointer-events-none bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_75%_55%_at_50%_15%,#000_45%,transparent_100%)] opacity-45"
-        aria-hidden="true"
-      />
-
-      {/* TOP 2PX STUDIO BLUE AMBIENT PROGRESS SCANLINE */}
-      <div 
-        className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 origin-left z-20"
+        className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-[#4285F4] via-[#7C3AED] to-[#F97316] origin-left z-20"
         aria-hidden="true" 
       />
 
-      {/* SUBTLE AMBIENT STUDIO LIGHTING */}
-      <div 
-        className="absolute top-12 left-1/3 w-[600px] h-[600px] rounded-full bg-blue-500/[0.035] blur-[140px] pointer-events-none z-0" 
-        aria-hidden="true" 
-      />
-
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         
         {/* ══════════════════════════════════════════════════════
-            SECTION 1: KINETIC EDITORIAL HERO
+            SECTION 1: CLEAN EDITORIAL HEADER (SHARP & BREATHABLE)
            ══════════════════════════════════════════════════════ */}
-        <header className="pb-12 border-b border-slate-200/80 text-left">
-          <div className="contact-hero-item inline-flex items-center gap-2 mb-2.5">
-            <span className="w-2 h-2 rounded-full bg-[#4285F4] animate-pulse" />
-            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#4285F4] font-bold">
+        <header className="pb-10 border-b border-slate-200 text-left">
+          <div className="contact-fade-in inline-flex items-center gap-2 mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#4285F4]" />
+            <span className="font-mono text-xs uppercase tracking-[0.16em] text-[#4285F4] font-bold">
               DIRECT ENGINEERING DESK · VOOO LABS
             </span>
           </div>
 
-          <h1 className="contact-hero-item text-3xl sm:text-5xl lg:text-[3.4rem] font-semibold tracking-tight text-slate-950 leading-[1.08] max-w-3xl">
-            Design Your System Scope in Three Steps.
+          <h1 className="contact-fade-in text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-950 leading-[1.15] max-w-3xl">
+            Design Your Project Scope.
           </h1>
 
-          <p className="contact-hero-item mt-4 max-w-2xl text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            Configure what your business needs below. Watch your technical blueprint assemble in real time—then transmit it straight to Vrushabh on WhatsApp.
+          <p className="contact-fade-in mt-3.5 max-w-2xl text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+            Select what your business needs below. Watch your technical specification update in real time, then transmit it directly to our engineering desk on WhatsApp.
           </p>
         </header>
 
 
         {/* ══════════════════════════════════════════════════════
-            SECTION 2: 12-COLUMN ASYMMETRIC KINETIC CONFIGURATOR
+            SECTION 2: CRISP 12-COLUMN ARCHITECTURAL WORKSPACE
            ══════════════════════════════════════════════════════ */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start pt-10">
           
           {/* ──────────────────────────────────────────────────
-              LEFT COLUMN: 3-STAGE KINETIC FLOW (lg:col-span-7)
+              LEFT COLUMN: SPACIOUS, UN-CRAMPED SPECIFICATION FORM (lg:col-span-7)
              ────────────────────────────────────────────────── */}
-          <div className="lg:col-span-7 space-y-8 text-left">
+          <div className="lg:col-span-7 space-y-10 text-left">
             
-            {/* STEP PROGRESS RAIL */}
-            <div className="pb-6 border-b border-slate-200/80 space-y-3">
-              <div className="flex items-center justify-between text-xs font-mono font-semibold">
-                <span className="text-slate-400 uppercase tracking-wider text-[11px]">
-                  ARCHITECTURAL CONFIGURATION
-                </span>
-                <span className="text-[#4285F4]">
-                  STEP {activeStep} OF 3
-                </span>
-              </div>
-
-              {/* LIVE STEP RAIL CONNECTOR */}
-              <div className="relative h-1 bg-slate-100 rounded-full overflow-hidden">
-                <div 
-                  ref={stepRailProgressRef}
-                  className="absolute top-0 left-0 bottom-0 w-full bg-[#4285F4] origin-left scale-x-0"
-                />
-              </div>
-
-              {/* 3 CLICKABLE STEP BUTTONS */}
-              <div className="grid grid-cols-3 gap-2 pt-1">
-                {[
-                  { step: 1 as const, label: '01 · Select System' },
-                  { step: 2 as const, label: '02 · Context & Goal' },
-                  { step: 3 as const, label: '03 · Direct Handshake' },
-                ].map((item) => {
-                  const isActive = activeStep === item.step;
-                  const isDone = activeStep > item.step;
-
-                  return (
-                    <button
-                      key={item.step}
-                      type="button"
-                      onClick={() => handleNextStep(item.step)}
-                      className={`py-2 px-2.5 rounded-lg text-xs font-mono text-left transition-all cursor-pointer truncate ${
-                        isActive
-                          ? 'bg-[#0A0F1E] text-white font-bold shadow-xs'
-                          : isDone
-                          ? 'bg-blue-50 text-blue-700 font-medium'
-                          : 'bg-[#F8F9FC] text-slate-500 hover:text-slate-900 border border-slate-200/80'
-                      }`}
-                    >
-                      <span className="truncate block">{item.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* VALIDATION ALERT */}
+            {/* VALIDATION ERROR ALERT */}
             {validationError && (
-              <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-mono flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
+              <div className="p-4 rounded-xl bg-amber-50 border border-amber-300 text-amber-950 text-xs font-mono font-medium flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
                 <span>{validationError}</span>
               </div>
             )}
 
-            {/* STEP CONTAINER (ANIMATED WITH GSAP ON STEP CHANGE) */}
-            <div ref={stepContainerRef}>
-              
-              {/* ─────────────────────────────────────────
-                  STEP 01: CHOOSE CORE SYSTEM
-                 ───────────────────────────────────────── */}
-              {activeStep === 1 && (
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
-                        Choose Your Core System Architecture
-                      </h2>
-                      <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                        Select the primary deliverable your business requires.
-                      </p>
-                    </div>
-                    <span className="font-mono text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 shrink-0">
-                      {currentSpec.code}
-                    </span>
-                  </div>
-
-                  {/* 4 TACTILE INTERACTIVE CARDS */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {SYSTEMS.map((sys) => {
-                      const isSelected = selectedSystem === sys.id;
-                      const IconComp = sys.spec.icon;
-
-                      return (
-                        <button
-                          key={sys.id}
-                          type="button"
-                          onClick={() => {
-                            setSelectedSystem(sys.id);
-                            setIsTransmitted(false);
-                          }}
-                          className={`p-5 rounded-[18px] text-left transition-all duration-300 cursor-pointer relative group flex flex-col justify-between hover:-translate-y-0.5 ${
-                            isSelected
-                              ? 'bg-white border-2 border-[#4285F4] shadow-md ring-2 ring-[#4285F4]/10'
-                              : 'bg-[#F8F9FC] border border-slate-200/90 hover:border-slate-300 hover:bg-white text-slate-800'
-                          }`}
-                        >
-                          {/* TOP CARD ROW */}
-                          <div>
-                            <div className="flex items-center justify-between mb-3">
-                              <span className={`font-mono text-xs font-bold ${isSelected ? 'text-[#4285F4]' : 'text-slate-400'}`}>
-                                {sys.spec.badge}
-                              </span>
-                              <div 
-                                className={`w-8 h-8 rounded-lg flex items-center justify-center transition-transform duration-200 group-hover:scale-105 ${
-                                  isSelected ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600'
-                                }`}
-                              >
-                                <IconComp size={16} />
-                              </div>
-                            </div>
-
-                            <h3 className="text-base font-bold text-slate-950 leading-snug mb-1.5">
-                              {sys.label}
-                            </h3>
-
-                            <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                              {sys.spec.description}
-                            </p>
-                          </div>
-
-                          {/* BOTTOM STATUS ACCENT */}
-                          <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-mono">
-                            <span className={isSelected ? 'text-blue-600 font-bold' : 'text-slate-400'}>
-                              {isSelected ? 'ACTIVE SELECTION' : 'TAP TO SELECT'}
-                            </span>
-                            {isSelected && (
-                              <span className="w-2 h-2 rounded-full bg-[#4285F4]" />
-                            )}
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* ADVANCE TO STEP 2 */}
-                  <div className="pt-4 flex items-center justify-between border-t border-slate-200/80">
-                    <span className="text-xs text-slate-500 font-mono">
-                      Selected: <strong className="text-slate-900 font-semibold">{selectedSystem}</strong>
-                    </span>
-
-                    <button
-                      type="button"
-                      onClick={() => handleNextStep(2)}
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0A0F1E] hover:bg-[#4285F4] text-white text-xs sm:text-sm font-semibold transition-all shadow-xs cursor-pointer active:scale-98"
-                    >
-                      <span>Next: Operational Context</span>
-                      <ArrowRight size={15} />
-                    </button>
-                  </div>
-
+            {/* STEP 1: SELECT CORE SYSTEM */}
+            <section className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="font-mono text-xs uppercase tracking-wider text-slate-500 font-bold block mb-1">
+                    STEP 01 / ARCHITECTURE
+                  </span>
+                  <h2 className="text-xl font-bold text-slate-950 tracking-tight">
+                    Select Your Core System Deliverable
+                  </h2>
                 </div>
-              )}
+                <span className="font-mono text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200 shrink-0">
+                  {currentSpec.code}
+                </span>
+              </div>
 
+              {/* 4 CRISP SYSTEM CARDS (ELEVATED WHITE / SOFT BLUE ACCENTS) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+                {SYSTEMS.map((sys) => {
+                  const isSelected = selectedSystem === sys.id;
+                  const IconComp = sys.spec.icon;
 
-              {/* ─────────────────────────────────────────
-                  STEP 02: OPERATIONAL CONTEXT & BOTTLENECK
-                 ───────────────────────────────────────── */}
-              {activeStep === 2 && (
-                <div className="space-y-6">
-                  <div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
-                      Operational Context & Key Bottleneck
-                    </h2>
-                    <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                      Tell us what problem this architecture solves for your daily operations.
-                    </p>
-                  </div>
-
-                  {/* STARTING POINT PILLS */}
-                  <div className="space-y-2.5">
-                    <label className="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-400 font-semibold block">
-                      Current Starting Point
-                    </label>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                      {STAGES.map((stg) => {
-                        const isSelected = selectedStage === stg;
-                        return (
-                          <button
-                            key={stg}
-                            type="button"
-                            onClick={() => setSelectedStage(stg)}
-                            className={`p-3 rounded-xl text-left text-xs transition-all cursor-pointer ${
-                              isSelected
-                                ? 'bg-[#0A0F1E] text-white font-bold shadow-xs'
-                                : 'bg-[#F8F9FC] text-slate-700 hover:bg-slate-100 border border-slate-200/80'
+                  return (
+                    <button
+                      key={sys.id}
+                      type="button"
+                      onClick={() => {
+                        setSelectedSystem(sys.id);
+                        setIsTransmitted(false);
+                      }}
+                      className={`p-5 rounded-[16px] text-left transition-all duration-200 cursor-pointer flex flex-col justify-between ${
+                        isSelected
+                          ? 'bg-blue-50/60 border-2 border-[#4285F4] shadow-sm'
+                          : 'bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50/50'
+                      }`}
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-2.5">
+                          <span className={`font-mono text-xs font-bold ${isSelected ? 'text-[#4285F4]' : 'text-slate-400'}`}>
+                            {sys.spec.badge}
+                          </span>
+                          <div 
+                            className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                              isSelected ? 'bg-[#4285F4] text-white shadow-xs' : 'bg-slate-100 text-slate-600'
                             }`}
                           >
-                            <span className="block leading-snug">{stg}</span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
+                            <IconComp size={16} />
+                          </div>
+                        </div>
 
-                  {/* OPEN BOTTOM-HAIRLINE EDITORIAL INPUT FOR GOAL */}
-                  <div className="space-y-2.5 pt-2">
-                    <label className="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-400 font-semibold block">
-                      Specific Bottleneck or System Goal
-                    </label>
-                    <div className="relative border-b border-slate-200/90 py-3 focus-within:border-slate-950 transition-colors">
-                      <input
-                        type="text"
-                        value={goal}
-                        onChange={(e) => setGoal(e.target.value)}
-                        placeholder="e.g. Need dedicated portal for 50 distributors to place daily orders without WhatsApp chaos"
-                        className="text-base sm:text-lg text-slate-900 bg-transparent placeholder:text-slate-300 focus:outline-none w-full font-medium"
-                      />
-                      <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#4285F4] origin-left scale-x-0 focus-within:scale-x-100 transition-transform duration-500 ease-out pointer-events-none" />
-                    </div>
-                  </div>
+                        <h3 className="text-sm sm:text-base font-bold text-slate-950 leading-snug mb-1.5">
+                          {sys.label}
+                        </h3>
 
-                  {/* SUGGESTED INSPIRATION PILLS */}
-                  <div className="space-y-2 pt-1">
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">
-                      QUICK EXAMPLES (TAP TO USE):
-                    </span>
-                    <div className="flex flex-wrap gap-2">
-                      {SUGGESTED_GOALS[selectedSystem].map((ex, idx) => (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={() => setGoal(ex)}
-                          className="text-left text-xs text-slate-600 bg-[#F8F9FC] hover:bg-white hover:text-slate-950 border border-slate-200/80 hover:border-slate-300 px-3 py-1.5 rounded-lg transition-all cursor-pointer"
-                        >
-                          <span>{ex}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+                        <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                          {sys.spec.description}
+                        </p>
+                      </div>
 
-                  {/* NAVIGATION CONTROLS */}
-                  <div className="pt-6 flex items-center justify-between border-t border-slate-200/80">
-                    <button
-                      type="button"
-                      onClick={() => handleNextStep(1)}
-                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono text-slate-600 hover:text-slate-950 transition-colors cursor-pointer"
-                    >
-                      <ArrowLeft size={14} />
-                      <span>Back: System Choice</span>
+                      <div className="mt-4 pt-2.5 border-t border-slate-200/70 flex items-center justify-between text-[11px] font-mono">
+                        <span className={isSelected ? 'text-[#4285F4] font-bold' : 'text-slate-400'}>
+                          {isSelected ? 'SELECTED' : 'CLICK TO SELECT'}
+                        </span>
+                        {isSelected && (
+                          <span className="w-2 h-2 rounded-full bg-[#4285F4]" />
+                        )}
+                      </div>
                     </button>
-
-                    <button
-                      type="button"
-                      onClick={() => handleNextStep(3)}
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0A0F1E] hover:bg-[#4285F4] text-white text-xs sm:text-sm font-semibold transition-all shadow-xs cursor-pointer active:scale-98"
-                    >
-                      <span>Next: Your Details</span>
-                      <ArrowRight size={15} />
-                    </button>
-                  </div>
-
-                </div>
-              )}
+                  );
+                })}
+              </div>
+            </section>
 
 
-              {/* ─────────────────────────────────────────
-                  STEP 03: DIRECT HANDSHAKE (ZERO BOXES)
-                 ───────────────────────────────────────── */}
-              {activeStep === 3 && (
-                <div className="space-y-6">
-                  <div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
-                      Direct Lead Architect Handshake
-                    </h2>
-                    <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                      Enter your details. Your live blueprint will be formatted and transmitted straight to Vrushabh on WhatsApp.
-                    </p>
-                  </div>
+            {/* STEP 2: OPERATIONAL CONTEXT & GOAL */}
+            <section className="space-y-5 pt-4 border-t border-slate-200">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-wider text-slate-500 font-bold block mb-1">
+                  STEP 02 / OPERATIONAL CONTEXT
+                </span>
+                <h2 className="text-xl font-bold text-slate-950 tracking-tight">
+                  Current Stage & Operational Objective
+                </h2>
+              </div>
 
-                  {/* 3 CRISP OPEN BOTTOM-HAIRLINE INPUTS */}
-                  <div className="space-y-6 pt-2">
-                    
-                    {/* INPUT 1: NAME */}
-                    <div className="relative border-b border-slate-200/90 py-3.5 focus-within:border-slate-950 transition-colors">
-                      <label className="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-400 font-semibold block mb-1">
-                        Your Name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={name}
-                        onChange={(e) => {
-                          setName(e.target.value);
-                          if (validationError) setValidationError('');
-                        }}
-                        placeholder="e.g. Rahul Patil / Vikram Mehta"
-                        className="text-base sm:text-lg text-slate-900 bg-transparent placeholder:text-slate-300 focus:outline-none w-full font-medium"
-                      />
-                      <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#4285F4] origin-left scale-x-0 focus-within:scale-x-100 transition-transform duration-500 ease-out pointer-events-none" />
-                    </div>
-
-                    {/* INPUT 2: BUSINESS / COMPANY NAME */}
-                    <div className="relative border-b border-slate-200/90 py-3.5 focus-within:border-slate-950 transition-colors">
-                      <label className="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-400 font-semibold block mb-1">
-                        Business / Company Entity (Optional)
-                      </label>
-                      <input
-                        type="text"
-                        value={companyName}
-                        onChange={(e) => setCompanyName(e.target.value)}
-                        placeholder="e.g. Patil Precision Tools LLP"
-                        className="text-base sm:text-lg text-slate-900 bg-transparent placeholder:text-slate-300 focus:outline-none w-full font-medium"
-                      />
-                      <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#4285F4] origin-left scale-x-0 focus-within:scale-x-100 transition-transform duration-500 ease-out pointer-events-none" />
-                    </div>
-
-                    {/* INPUT 3: WHATSAPP NUMBER */}
-                    <div className="relative border-b border-slate-200/90 py-3.5 focus-within:border-slate-950 transition-colors">
-                      <label className="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-400 font-semibold block mb-1">
-                        WhatsApp / Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        value={phone}
-                        onChange={(e) => {
-                          setPhone(e.target.value);
-                          if (validationError) setValidationError('');
-                        }}
-                        placeholder="+91 98765 43210"
-                        className="text-base sm:text-lg text-slate-900 bg-transparent placeholder:text-slate-300 focus:outline-none w-full font-medium font-mono"
-                      />
-                      <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#4285F4] origin-left scale-x-0 focus-within:scale-x-100 transition-transform duration-500 ease-out pointer-events-none" />
-                    </div>
-
-                  </div>
-
-                  {/* NAVIGATION CONTROLS */}
-                  <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200/80">
-                    <button
-                      type="button"
-                      onClick={() => handleNextStep(2)}
-                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono text-slate-600 hover:text-slate-950 transition-colors cursor-pointer"
-                    >
-                      <ArrowLeft size={14} />
-                      <span>Back: Context</span>
-                    </button>
-
-                    <div className="w-full sm:w-auto">
-                      <LiquidButton
-                        onClick={handleTransmit}
-                        variant="primary"
-                        rounded="pill"
-                        size="lg"
-                        magnetic={true}
-                        className="w-full sm:w-auto text-center"
+              {/* STAGE SELECTOR PILLS */}
+              <div className="space-y-2">
+                <label className="font-mono text-xs uppercase tracking-wider text-slate-600 font-semibold block">
+                  Current Starting Point
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                  {STAGES.map((stg) => {
+                    const isSelected = selectedStage === stg;
+                    return (
+                      <button
+                        key={stg}
+                        type="button"
+                        onClick={() => setSelectedStage(stg)}
+                        className={`p-3 rounded-xl text-left text-xs transition-all cursor-pointer font-medium ${
+                          isSelected
+                            ? 'bg-blue-600 text-white font-bold shadow-xs'
+                            : 'bg-[#F8F9FC] text-slate-700 hover:bg-slate-100 border border-slate-200'
+                        }`}
                       >
-                        <span>Transmit Blueprint to WhatsApp</span>
-                        <ArrowRight size={16} />
-                      </LiquidButton>
-                    </div>
-                  </div>
-
+                        <span className="block leading-snug">{stg}</span>
+                      </button>
+                    );
+                  })}
                 </div>
-              )}
+              </div>
 
-            </div>
+              {/* SPECIFIC OPERATIONAL GOAL INPUT */}
+              <div className="space-y-2 pt-2">
+                <label className="font-mono text-xs uppercase tracking-wider text-slate-600 font-semibold block">
+                  Key Operational Goal or Bottleneck (Optional)
+                </label>
+                <div className="relative border-b-2 border-slate-200 py-2.5 focus-within:border-blue-600 transition-colors">
+                  <input
+                    type="text"
+                    value={goal}
+                    onChange={(e) => setGoal(e.target.value)}
+                    placeholder="e.g. Need dedicated portal for 50 distributors to place daily orders"
+                    className="text-base text-slate-900 bg-transparent placeholder:text-slate-400 focus:outline-none w-full font-medium"
+                  />
+                </div>
+              </div>
+
+              {/* QUICK SUGGESTION EXAMPLES */}
+              <div className="space-y-1.5 pt-1">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">
+                  QUICK EXAMPLES (CLICK TO APPLY):
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {SUGGESTED_GOALS[selectedSystem].map((ex, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setGoal(ex)}
+                      className="text-left text-xs text-slate-700 bg-[#F8F9FC] hover:bg-blue-50 hover:text-blue-700 border border-slate-200 hover:border-blue-200 px-3 py-1.5 rounded-lg transition-all cursor-pointer"
+                    >
+                      <span>{ex}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </section>
 
 
-            {/* ──────────────────────────────────────────────────
-                STUDIO AI CONCIERGE BANNER TRIGGER
-               ────────────────────────────────────────────────── */}
-            <div className="pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#F8F9FC] p-4 rounded-xl border border-slate-200/80">
+            {/* STEP 3: DIRECT HANDSHAKE INPUTS */}
+            <section className="space-y-5 pt-4 border-t border-slate-200">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-wider text-slate-500 font-bold block mb-1">
+                  STEP 03 / DIRECT HANDSHAKE
+                </span>
+                <h2 className="text-xl font-bold text-slate-950 tracking-tight">
+                  Your Contact Information
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                  Your parameters will be structured into a clean blueprint and sent to Vrushabh on WhatsApp.
+                </p>
+              </div>
+
+              <div className="space-y-5 pt-1">
+                
+                {/* NAME INPUT */}
+                <div className="relative border-b-2 border-slate-200 py-2.5 focus-within:border-blue-600 transition-colors">
+                  <label className="font-mono text-xs uppercase tracking-wider text-slate-600 font-semibold block mb-1">
+                    Your Full Name *
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <User size={16} className="text-slate-400 shrink-0" />
+                    <input
+                      id="client-name-input"
+                      type="text"
+                      required
+                      value={name}
+                      onChange={(e) => {
+                        setName(e.target.value);
+                        if (validationError) setValidationError('');
+                      }}
+                      placeholder="e.g. Rahul Patil / Vikram Mehta"
+                      className="text-base text-slate-900 bg-transparent placeholder:text-slate-400 focus:outline-none w-full font-medium"
+                    />
+                  </div>
+                </div>
+
+                {/* COMPANY NAME INPUT */}
+                <div className="relative border-b-2 border-slate-200 py-2.5 focus-within:border-blue-600 transition-colors">
+                  <label className="font-mono text-xs uppercase tracking-wider text-slate-600 font-semibold block mb-1">
+                    Business / Company Name (Optional)
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <Building2 size={16} className="text-slate-400 shrink-0" />
+                    <input
+                      type="text"
+                      value={companyName}
+                      onChange={(e) => setCompanyName(e.target.value)}
+                      placeholder="e.g. Patil Precision Tools LLP"
+                      className="text-base text-slate-900 bg-transparent placeholder:text-slate-400 focus:outline-none w-full font-medium"
+                    />
+                  </div>
+                </div>
+
+                {/* WHATSAPP NUMBER INPUT */}
+                <div className="relative border-b-2 border-slate-200 py-2.5 focus-within:border-blue-600 transition-colors">
+                  <label className="font-mono text-xs uppercase tracking-wider text-slate-600 font-semibold block mb-1">
+                    WhatsApp or Phone Number *
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <Phone size={16} className="text-slate-400 shrink-0" />
+                    <input
+                      id="client-phone-input"
+                      type="tel"
+                      required
+                      value={phone}
+                      onChange={(e) => {
+                        setPhone(e.target.value);
+                        if (validationError) setValidationError('');
+                      }}
+                      placeholder="+91 98765 43210"
+                      className="text-base text-slate-900 bg-transparent placeholder:text-slate-400 focus:outline-none w-full font-medium font-mono"
+                    />
+                  </div>
+                </div>
+
+              </div>
+
+              {/* TRANSMIT BUTTON ON MOBILE */}
+              <div className="lg:hidden pt-4">
+                <button
+                  type="button"
+                  onClick={handleTransmit}
+                  disabled={isTransmitting}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[#4285F4] hover:bg-[#3367D6] text-white font-semibold text-sm transition-all shadow-[0_4px_16px_rgba(66,133,244,0.35)] cursor-pointer active:scale-98 disabled:opacity-70"
+                >
+                  <Send size={16} />
+                  <span>Transmit Blueprint on WhatsApp</span>
+                  <ArrowRight size={16} />
+                </button>
+              </div>
+
+            </section>
+
+
+            {/* STUDIO AI BANNER TRIGGER */}
+            <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#F8F9FC] p-4 rounded-xl border border-slate-200">
               <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse shrink-0" />
+                <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" />
                 <span className="text-xs text-slate-700 font-medium">
                   Instant answers on pricing, timelines, or IP ownership:
                 </span>
@@ -743,11 +583,11 @@ Ready to discuss scope, timeline, and exact infrastructure parameters.`
               <button
                 type="button"
                 onClick={openStudioAi}
-                className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-full border border-slate-300/80 bg-white hover:bg-slate-50 text-xs font-mono text-slate-800 transition-colors shadow-2xs cursor-pointer shrink-0"
+                className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-xs font-mono text-slate-800 transition-colors shadow-2xs cursor-pointer shrink-0"
               >
                 <Sparkles size={12} className="text-blue-600" />
                 <span>Ask Studio AI</span>
-                <span className="text-[10px] text-slate-400 bg-slate-100 border border-slate-200 px-1 py-0.2 rounded font-sans">⌘K</span>
+                <span className="text-[10px] text-slate-500 bg-slate-100 border border-slate-200 px-1 py-0.2 rounded font-sans">⌘K</span>
               </button>
             </div>
 
@@ -755,81 +595,72 @@ Ready to discuss scope, timeline, and exact infrastructure parameters.`
 
 
           {/* ──────────────────────────────────────────────────
-              RIGHT COLUMN: HIGH-CONTRAST OBSIDIAN LIVE DOSSIER (lg:col-span-5)
+              RIGHT COLUMN: CRISP ARCHITECTURAL LIVE SPECIFICATION CARD (lg:col-span-5)
              ────────────────────────────────────────────────── */}
           <aside className="lg:col-span-5 lg:sticky lg:top-28">
-            <div className="rounded-[22px] bg-[#0A0F1E] text-white border border-white/[0.1] shadow-[0_24px_60px_rgba(10,15,30,0.18)] p-6 sm:p-8 relative overflow-hidden text-left">
+            <div className="rounded-[20px] bg-[#F8F9FC] border border-slate-200/90 shadow-[0_4px_24px_rgba(15,23,42,0.04)] p-6 sm:p-7 relative overflow-hidden text-left">
               
-              {/* TOP GSAP TRANSMISSION PROGRESS BAR */}
-              <div className="absolute top-0 inset-x-0 h-[3px] bg-slate-800 overflow-hidden">
+              {/* TOP TRANSMISSION PROGRESS BAR */}
+              <div className="absolute top-0 inset-x-0 h-[3px] bg-slate-200 overflow-hidden">
                 <div 
                   ref={progressBarRef}
                   className="w-full h-full bg-[#4285F4] origin-left scale-x-0"
                 />
               </div>
 
-              {/* AMBIENT STUDIO BLUE TOP GLOW */}
-              <div 
-                className="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-blue-500/15 blur-[75px] pointer-events-none"
-                aria-hidden="true" 
-              />
-
-              {/* TOP TELEMETRY HEADER ROW */}
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-4 mb-5">
+              {/* TOP STATUS HEADER */}
+              <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-5">
                 <div className="inline-flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4285F4]" />
-                  </span>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#4285F4] font-bold">
-                    LIVE SYSTEM DOSSIER
+                  <span className="w-2 h-2 rounded-full bg-[#4285F4]" />
+                  <span className="font-mono text-xs uppercase tracking-wider text-blue-600 font-bold">
+                    LIVE SYSTEM SPECIFICATION
                   </span>
                 </div>
-                <span className="font-mono text-[11px] text-slate-400">
-                  STEP 0{activeStep} / 03
+                <span className="text-[11px] font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
+                  READY
                 </span>
               </div>
 
-              {/* SPECIFICATION BODY */}
+              {/* SPECIFICATION CONTENT */}
               {!isTransmitted ? (
-                <div ref={specBodyRef} className="space-y-5 text-xs text-slate-300">
+                <div ref={specBodyRef} className="space-y-5 text-xs text-slate-700">
                   
-                  {/* PREPARED FOR (LIVE MIRRORED AS USER TYPES) */}
+                  {/* PREPARED FOR (LIVE MIRRORED) */}
                   <div className="space-y-1">
                     <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">
                       PREPARED FOR:
                     </span>
-                    <div className="text-base font-bold text-white truncate">
+                    <div className="text-base font-bold text-slate-950 truncate">
                       {companyName.trim() ? companyName : (name.trim() ? name : 'Your Business Entity')}
                     </div>
                     {name.trim() && companyName.trim() && (
-                      <span className="font-mono text-[11px] text-slate-400 block truncate">
+                      <span className="font-mono text-xs text-slate-500 block truncate">
                         Attn: {name}
                       </span>
                     )}
                   </div>
 
-                  {/* SELECTED ARCHITECTURE */}
-                  <div className="border-l-2 border-[#4285F4] pl-4 py-1.5 my-4 space-y-1 bg-white/[0.02] rounded-r-lg">
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-blue-400 block font-semibold">
+                  {/* ACTIVE ARCHITECTURE CALLOUT */}
+                  <div className="border-l-3 border-[#4285F4] pl-3.5 py-2 my-4 bg-white rounded-r-xl border border-slate-200/80 shadow-2xs space-y-1">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-blue-600 block font-bold">
                       ACTIVE ARCHITECTURE:
                     </span>
                     <div className="flex items-center justify-between">
-                      <span className="text-base sm:text-lg font-bold text-white">{selectedSystem}</span>
-                      <span className="font-mono text-[10px] text-blue-400 font-semibold">{currentSpec.code}</span>
+                      <span className="text-base font-bold text-slate-950">{selectedSystem}</span>
+                      <span className="font-mono text-xs text-blue-600 font-semibold">{currentSpec.code}</span>
                     </div>
-                    <div className="text-[11px] font-mono text-slate-400">
-                      Stage: <span className="text-slate-200">{selectedStage}</span>
+                    <div className="text-[11px] font-mono text-slate-500">
+                      Starting Point: <strong className="text-slate-800">{selectedStage}</strong>
                     </div>
                   </div>
 
-                  {/* STACK & OPERATIONAL FOCUS */}
-                  <div className="space-y-3 pt-2 text-xs">
+                  {/* STACK & DELIVERABLE */}
+                  <div className="space-y-3 pt-1 text-xs">
                     <div>
                       <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 block font-semibold mb-0.5">
                         TARGET STACK:
                       </span>
-                      <span className="font-mono text-[11px] text-slate-200 leading-relaxed block">
+                      <span className="font-mono text-xs text-slate-900 leading-relaxed block font-medium">
                         {currentSpec.stack}
                       </span>
                     </div>
@@ -838,57 +669,56 @@ Ready to discuss scope, timeline, and exact infrastructure parameters.`
                       <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 block font-semibold mb-0.5">
                         CORE DELIVERABLE:
                       </span>
-                      <span className="text-xs text-slate-300 leading-relaxed block font-normal">
+                      <span className="text-xs text-slate-700 leading-relaxed block font-normal">
                         {currentSpec.coreFocus}
                       </span>
                     </div>
                   </div>
 
-                  {/* STUDIO TRANSPARENCY COMMITMENTS */}
-                  <div className="divide-y divide-white/[0.08] border-y border-white/[0.08] py-2.5 my-4 text-[11px]">
+                  {/* TRANSPARENCY COMMITMENTS */}
+                  <div className="divide-y divide-slate-200/80 border-y border-slate-200/80 py-2.5 my-4 text-xs bg-white px-3.5 rounded-xl border">
                     <div className="flex items-center justify-between py-1.5">
-                      <span className="text-slate-400 font-medium">Build Milestones:</span>
-                      <span className="font-mono font-semibold text-slate-200">40% Kickoff · 30% · 30%</span>
+                      <span className="text-slate-500 font-medium">Build Milestones:</span>
+                      <span className="font-mono font-semibold text-slate-900">40% · 30% · 30%</span>
                     </div>
                     <div className="flex items-center justify-between py-1.5">
-                      <span className="text-slate-400 font-medium">Source Code:</span>
-                      <span className="font-bold text-white">100% Client-Owned Repo</span>
+                      <span className="text-slate-500 font-medium">Source Code:</span>
+                      <span className="font-bold text-slate-950">100% Client-Owned Repo</span>
                     </div>
                     <div className="flex items-center justify-between py-1.5">
-                      <span className="text-slate-400 font-medium">Cloud & Domain:</span>
-                      <span className="font-mono text-slate-200">Direct Account at Actual Cost</span>
+                      <span className="text-slate-500 font-medium">Cloud & Domain:</span>
+                      <span className="font-mono text-slate-900">Direct Account at Actual Cost</span>
                     </div>
                     <div className="flex items-center justify-between py-1.5">
-                      <span className="text-slate-400 font-medium">Lead Architect:</span>
-                      <span className="font-mono text-blue-400 font-bold">{FOUNDER.name}</span>
+                      <span className="text-slate-500 font-medium">Lead Architect:</span>
+                      <span className="font-mono text-blue-600 font-bold">{FOUNDER.name}</span>
                     </div>
                   </div>
 
-                  {/* PRIMARY ACTION BUTTON */}
+                  {/* SIGNATURE STUDIO BLUE TRANSMIT BUTTON */}
                   <div className="pt-2">
-                    <LiquidButton
+                    <button
+                      type="button"
                       onClick={handleTransmit}
-                      variant="white"
-                      rounded="pill"
-                      size="lg"
-                      magnetic={true}
-                      className="w-full text-center"
+                      disabled={isTransmitting}
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#4285F4] hover:bg-[#3367D6] text-white font-semibold text-sm transition-all shadow-[0_4px_16px_rgba(66,133,244,0.35)] hover:shadow-[0_6px_22px_rgba(66,133,244,0.45)] cursor-pointer active:scale-98 disabled:opacity-70"
                     >
+                      <Send size={15} />
                       <span>Transmit Blueprint on WhatsApp</span>
-                      <ArrowRight size={16} />
-                    </LiquidButton>
+                      <ArrowRight size={15} />
+                    </button>
                   </div>
 
-                  {/* ZERO TYPING DIRECT BYPASS */}
+                  {/* ZERO-TYPING DIRECT BYPASS */}
                   <div className="pt-1 text-center">
                     <a 
                       href={directWhatsAppLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[11px] font-mono text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center gap-1 underline underline-offset-4"
+                      className="text-xs font-mono text-blue-600 hover:text-blue-800 transition-colors inline-flex items-center gap-1.5 underline underline-offset-4"
                     >
-                      <MessageSquare size={12} />
-                      <span>Prefer zero typing? Open direct WhatsApp chat →</span>
+                      <MessageSquare size={13} />
+                      <span>Prefer zero typing? Chat directly on WhatsApp →</span>
                     </a>
                   </div>
 
@@ -896,20 +726,20 @@ Ready to discuss scope, timeline, and exact infrastructure parameters.`
               ) : (
                 /* TRANSMITTED CONFIRMATION STATE */
                 <div className="space-y-4 py-4 text-left">
-                  <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-                    <CheckCircle2 size={18} className="text-emerald-400" />
+                  <div className="flex items-center gap-2 text-emerald-700 font-bold text-sm">
+                    <CheckCircle2 size={18} className="text-emerald-600" />
                     <span>Blueprint Transmitted to WhatsApp</span>
                   </div>
 
-                  <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                    Your architecture parameters have been formatted and transmitted directly to VOOO LABS engineering desk. Vrushabh will review the parameters and reply with direct scoping.
+                  <p className="text-xs text-slate-700 leading-relaxed font-normal">
+                    Your architecture parameters have been formatted and opened directly in WhatsApp. Vrushabh will review the scope and reply with a breakdown.
                   </p>
 
                   <div className="pt-3 flex flex-wrap items-center gap-3">
                     <button
                       type="button"
                       onClick={() => setIsTransmitted(false)}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg border border-white/20 text-xs font-mono font-medium text-slate-200 hover:bg-white/10 transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg border border-slate-300 text-xs font-mono font-medium text-slate-800 hover:bg-white transition-colors cursor-pointer"
                     >
                       <RotateCcw size={12} />
                       <span>Modify Scope Parameters</span>
@@ -919,7 +749,7 @@ Ready to discuss scope, timeline, and exact infrastructure parameters.`
                       href={directWhatsAppLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-mono font-bold text-blue-400 hover:underline"
+                      className="text-xs font-mono font-bold text-blue-600 hover:underline"
                     >
                       Re-open WhatsApp Chat →
                     </a>
