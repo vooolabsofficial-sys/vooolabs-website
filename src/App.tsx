@@ -9,6 +9,8 @@ import BrandPreloader from './components/shared/BrandPreloader';
 import TopRouteProgressBar from './components/shared/TopRouteProgressBar';
 import RouteSeo from './components/shared/RouteSeo';
 import StudioAiModal from './components/shared/StudioAiModal';
+import NetworkStatusGuard from './components/shared/NetworkStatusGuard';
+import AppErrorBoundary from './components/shared/AppErrorBoundary';
 
 // Route-level code splitting using React.lazy() for optimal loading speed and minimal initial bundle
 const HomePage = React.lazy(() => import('./pages/HomePage'));
@@ -186,17 +188,20 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <RouteSeo />
-      <StudioAiModal />
-      {showPreloader && (
-        <BrandPreloader onComplete={() => setShowPreloader(false)} />
-      )}
-      <TopRouteProgressBar />
-      <Navbar />
-      <FixedBottomBar />
-      <AppRoutes />
-      <Footer />
-    </BrowserRouter>
+    <AppErrorBoundary>
+      <BrowserRouter>
+        <RouteSeo />
+        <NetworkStatusGuard />
+        <StudioAiModal />
+        {showPreloader && (
+          <BrandPreloader onComplete={() => setShowPreloader(false)} />
+        )}
+        <TopRouteProgressBar />
+        <Navbar />
+        <FixedBottomBar />
+        <AppRoutes />
+        <Footer />
+      </BrowserRouter>
+    </AppErrorBoundary>
   );
 }
