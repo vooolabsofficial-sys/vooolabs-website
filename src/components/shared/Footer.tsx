@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  COMPANY,
   LOCATION,
   SOCIALS,
   FOUNDER,
@@ -24,10 +23,25 @@ export default function Footer() {
         aria-hidden="true" 
       />
 
-      <div className="relative max-w-6xl mx-auto px-6 pt-20 pb-10 z-10">
+      {/* ══════════════════════════════════════════════════════
+          BLURRED VOOO LABS WATERMARK (ON UPPER FOOTER BACKGROUND)
+          Positions behind upper footer content without extra scroll height
+         ══════════════════════════════════════════════════════ */}
+      <div 
+        className="pointer-events-none absolute top-10 sm:top-14 left-1/2 -translate-x-1/2 w-full overflow-hidden text-center select-none z-0"
+        aria-hidden="true"
+      >
+        <span 
+          className="text-[13.5vw] sm:text-[14.5vw] font-crazyblocks tracking-[0.06em] leading-none select-none pointer-events-none text-center bg-gradient-to-b from-white/[0.08] via-white/[0.025] to-transparent bg-clip-text text-transparent blur-[1.5px] block"
+        >
+          VOOO LABS
+        </span>
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-6 pt-16 sm:pt-20 pb-10 z-10">
         
         {/* 12-COLUMN ARCHITECTURAL GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10">
           
           {/* COLUMN 1: BRAND IDENTITY & STUDIO TELEMETRY (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-5">
@@ -225,10 +239,10 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* COLUMN 4: STUDIO & POLICIES (lg:col-span-3) */}
+          {/* COLUMN 4: STUDIO & DIRECT (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400">
-              STUDIO & POLICIES
+              STUDIO & DIRECT
             </h4>
             <div className="flex flex-col space-y-2.5 text-sm text-slate-300">
               <Link
@@ -239,34 +253,25 @@ export default function Footer() {
               </Link>
               <Link
                 to="/contact"
-                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
+                className="hover:text-blue-400 hover:translate-x-0.5 transition-all w-fit font-medium flex items-center gap-1.5"
               >
-                Configure Project Blueprint
+                <span>Configure Project Blueprint</span>
+                <span aria-hidden="true">→</span>
               </Link>
-              <Link
-                to="/legal/ip-ownership"
-                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-400 hover:translate-x-0.5 transition-all w-fit"
               >
-                100% Source Code Ownership
-              </Link>
-              <Link
-                to="/legal/terms"
-                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
+                Direct WhatsApp Inquiries
+              </a>
+              <a
+                href={`mailto:${STUDIO_EMAIL}`}
+                className="hover:text-white hover:translate-x-0.5 transition-all w-fit font-mono text-xs text-slate-400 pt-1"
               >
-                Scope & Delivery Terms
-              </Link>
-              <Link
-                to="/legal/refunds"
-                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
-              >
-                Milestone Sign-Off Policy
-              </Link>
-              <Link
-                to="/legal/privacy"
-                className="hover:text-white hover:translate-x-0.5 transition-all w-fit"
-              >
-                Data Privacy & NDA
-              </Link>
+                {STUDIO_EMAIL}
+              </a>
             </div>
           </div>
 
@@ -275,35 +280,58 @@ export default function Footer() {
       </div>
 
       {/* ══════════════════════════════════════════════════════
-          FULL-WIDTH BLURRED VOOO LABS WATERMARK
-          (Cleanly positioned right above the bottom copyright strip)
+          BOTTOM UNIFIED HORIZONTAL STRIP (SINGLE CLEAN SCREEN)
+          Horizontal Legal Links (Advi) + Copyright & Telemetry
          ══════════════════════════════════════════════════════ */}
-      <div className="relative w-full overflow-hidden select-none pointer-events-none py-6 sm:py-10 flex justify-center items-center border-t border-white/[0.06]">
-        <span 
-          className="text-[13.5vw] sm:text-[14.5vw] font-crazyblocks tracking-[0.06em] leading-none select-none pointer-events-none text-center bg-gradient-to-b from-white/[0.09] via-white/[0.03] to-transparent bg-clip-text text-transparent blur-[1.5px]"
-          aria-hidden="true"
-        >
-          VOOO LABS
-        </span>
-      </div>
+      <div className="border-t border-white/[0.08] relative z-10 bg-black/20 backdrop-blur-xs">
+        <div className="max-w-6xl mx-auto px-6 py-6 sm:py-8 flex flex-col md:flex-row items-center justify-between gap-5 text-xs text-slate-400">
+          
+          {/* HORIZONTAL (ADVI) STANDARD LEGAL POLICIES */}
+          <nav 
+            aria-label="Legal and Compliance"
+            className="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs font-medium text-slate-400"
+          >
+            <Link
+              to="/legal/terms"
+              className="hover:text-white transition-colors"
+            >
+              Terms of Service
+            </Link>
+            <span className="text-white/20 select-none" aria-hidden="true">·</span>
+            <Link
+              to="/legal/privacy"
+              className="hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <span className="text-white/20 select-none" aria-hidden="true">·</span>
+            <Link
+              to="/legal/refunds"
+              className="hover:text-white transition-colors"
+            >
+              Refund Policy
+            </Link>
+            <span className="text-white/20 select-none" aria-hidden="true">·</span>
+            <Link
+              to="/legal/ip-ownership"
+              className="hover:text-white transition-colors"
+            >
+              Code Ownership
+            </Link>
+          </nav>
 
-      {/* BOTTOM METADATA ROW */}
-      <div className="border-t border-white/[0.08] py-6 px-6 sm:px-12 max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-        <div>
-          {copyrightLine()}
+          {/* TELEMETRY & LOCATION */}
+          <div className="font-mono text-[11px] text-slate-400 flex items-center gap-1.5 select-none">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+            <span>18.5204° N, 73.8567° E · Pune & Kolhapur</span>
+          </div>
+
+          {/* COPYRIGHT */}
+          <div className="text-slate-400 text-center md:text-right">
+            {copyrightLine()}
+          </div>
+
         </div>
-
-        <div className="font-mono text-[11px] text-slate-400 flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-          <span>18.5204° N, 73.8567° E · Pune & Kolhapur</span>
-        </div>
-
-        <a
-          href={`mailto:${STUDIO_EMAIL}`}
-          className="text-slate-400 hover:text-white transition-colors font-mono"
-        >
-          {STUDIO_EMAIL}
-        </a>
       </div>
 
     </footer>

@@ -108,15 +108,15 @@ function AppRoutes() {
     } else if (path === '/contact') {
       title = 'Start Your Project & Inquire — VOOO LABS';
     } else if (path === '/legal/privacy') {
-      title = 'Data Privacy, Business NDA & Jurisdiction — VOOO LABS';
+      title = 'Privacy Policy — VOOO LABS';
     } else if (path === '/legal/terms') {
-      title = 'Scope, Milestones & Delivery Terms — VOOO LABS';
+      title = 'Terms of Service — VOOO LABS';
     } else if (path === '/legal/ip-ownership') {
-      title = '100% Source Code & IP Ownership Guarantee — VOOO LABS';
+      title = 'Code Ownership — VOOO LABS';
     } else if (path === '/legal/refunds') {
-      title = 'Milestone Sign-Off & Refund Policy — VOOO LABS';
+      title = 'Refund Policy — VOOO LABS';
     } else if (path.startsWith('/legal')) {
-      title = 'Legal & Trust Architecture — VOOO LABS';
+      title = 'Legal & Policies — VOOO LABS';
     } else if (path !== '/') {
       title = 'Page Not Found (404) — VOOO LABS';
     }

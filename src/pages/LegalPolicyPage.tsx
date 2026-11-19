@@ -17,26 +17,26 @@ const POLICY_TABS: PolicyTab[] = [
   {
     key: 'terms',
     path: '/legal/terms',
-    shortLabel: 'Scope & Delivery Terms',
-    fullTitle: 'Scope, Milestones & Delivery Terms',
-  },
-  {
-    key: 'refunds',
-    path: '/legal/refunds',
-    shortLabel: 'Milestone & Refund Policy',
-    fullTitle: 'Milestone Sign-Off & Refund Policy',
-  },
-  {
-    key: 'ip-ownership',
-    path: '/legal/ip-ownership',
-    shortLabel: '100% Code & IP Ownership',
-    fullTitle: '100% Source Code & IP Ownership',
+    shortLabel: 'Terms of Service',
+    fullTitle: 'Terms of Service',
   },
   {
     key: 'privacy',
     path: '/legal/privacy',
-    shortLabel: 'Data Privacy & NDA',
-    fullTitle: 'Data Privacy, Business NDA & Jurisdiction',
+    shortLabel: 'Privacy Policy',
+    fullTitle: 'Privacy Policy',
+  },
+  {
+    key: 'refunds',
+    path: '/legal/refunds',
+    shortLabel: 'Refund Policy',
+    fullTitle: 'Refund Policy',
+  },
+  {
+    key: 'ip-ownership',
+    path: '/legal/ip-ownership',
+    shortLabel: 'Code Ownership',
+    fullTitle: 'Code Ownership',
   },
 ];
 
@@ -172,8 +172,8 @@ export default function LegalPolicyPage({ activePolicy }: LegalPolicyPageProps) 
                 id="policy-title"
                 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.03em] text-slate-950 leading-[1.15]"
               >
-                <span>Scope, Milestones &</span>
-                <span className="shimmer-text block mt-1">Delivery Terms.</span>
+                <span>Terms of</span>
+                <span className="shimmer-text block mt-1">Service.</span>
               </h1>
 
               <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
@@ -374,8 +374,8 @@ export default function LegalPolicyPage({ activePolicy }: LegalPolicyPageProps) 
                 id="policy-title"
                 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.03em] text-slate-950 leading-[1.15]"
               >
-                <span>Milestone Sign-Off &</span>
-                <span className="shimmer-text block mt-1">Refund Policy.</span>
+                <span>Refund</span>
+                <span className="shimmer-text block mt-1">Policy.</span>
               </h1>
 
               <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
@@ -523,8 +523,8 @@ export default function LegalPolicyPage({ activePolicy }: LegalPolicyPageProps) 
                 id="policy-title"
                 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.03em] text-slate-950 leading-[1.15]"
               >
-                <span>100% Source Code &</span>
-                <span className="shimmer-text block mt-1">IP Ownership.</span>
+                <span>Code</span>
+                <span className="shimmer-text block mt-1">Ownership.</span>
               </h1>
 
               <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
@@ -676,8 +676,8 @@ export default function LegalPolicyPage({ activePolicy }: LegalPolicyPageProps) 
                 id="policy-title"
                 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.03em] text-slate-950 leading-[1.15]"
               >
-                <span>Data Privacy, Business</span>
-                <span className="shimmer-text block mt-1">NDA & Jurisdiction.</span>
+                <span>Privacy</span>
+                <span className="shimmer-text block mt-1">Policy.</span>
               </h1>
 
               <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
