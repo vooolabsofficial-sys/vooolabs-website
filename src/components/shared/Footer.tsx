@@ -351,10 +351,10 @@ export default function Footer() {
             {copyrightLine()}
           </div>
 
-          {/* RIGHT SIDE: OPERATIONAL TELEMETRY & LOCATION */}
+          {/* RIGHT SIDE: STUDIO HUBS & SERVICE REGION */}
           <div className="font-mono text-[11px] text-slate-400 flex items-center gap-1.5 select-none text-center sm:text-right">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-            <span>18.5204° N, 73.8567° E · Pune & Kolhapur</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse shrink-0" />
+            <span>Maharashtra · Satara · Pune · Nashik · Kolhapur</span>
           </div>
 
         </div>

@@ -25,7 +25,7 @@ export const COMPANY = {
 } as const;
 
 export const LOCATION = {
-  hubs: ['Pune', 'Nashik', 'Satara'],
+  hubs: ['Satara', 'Pune', 'Nashik', 'Kolhapur'],
   region: 'Maharashtra',
   country: 'India',
 } as const;
