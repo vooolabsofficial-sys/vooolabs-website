@@ -160,10 +160,10 @@ Looking forward to your reply.`
           
           {/* STUDIO PHILOSOPHY TAG */}
           <div className="inline-flex items-center gap-2 text-xs sm:text-sm tracking-tight mb-3 select-none">
-            <span className="font-bold text-slate-950">First make it work,</span>
+            <span className="font-bold text-slate-950">Direct engineer access,</span>
             <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" aria-hidden="true" />
-            <span className="font-medium text-slate-600">then make it</span>
-            <span className="font-extrabold text-blue-600">beautiful.</span>
+            <span className="font-medium text-slate-600">transparent</span>
+            <span className="font-extrabold text-blue-600">collaboration.</span>
           </div>
 
           {/* EYEBROW */}

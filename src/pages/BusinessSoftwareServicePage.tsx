@@ -145,10 +145,10 @@ export default function BusinessSoftwareServicePage() {
                 transition={{ duration: 0.5, delay: 0.04, ease: EASING }}
                 className="inline-flex items-center gap-2 text-xs sm:text-sm tracking-tight mb-3 select-none"
               >
-                <span className="font-bold text-slate-950">First make it work,</span>
+                <span className="font-bold text-slate-950">Shaped around your workflow,</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" aria-hidden="true" />
-                <span className="font-medium text-slate-600">then make it</span>
-                <span className="font-extrabold text-blue-600">beautiful.</span>
+                <span className="font-medium text-slate-600">not</span>
+                <span className="font-extrabold text-blue-600">spreadsheets.</span>
               </motion.div>
 
               {/* EYEBROW */}
@@ -403,10 +403,10 @@ export default function BusinessSoftwareServicePage() {
           <div>
             {/* STUDIO PHILOSOPHY TAG */}
             <div className="inline-flex items-center gap-2 text-xs sm:text-sm tracking-tight mb-3 select-none">
-              <span className="font-bold text-white">First make it work,</span>
+              <span className="font-bold text-white">Automate your routine,</span>
               <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" aria-hidden="true" />
-              <span className="font-medium text-slate-300">then make it</span>
-              <span className="font-extrabold text-blue-400">beautiful.</span>
+              <span className="font-medium text-slate-300">keep complete</span>
+              <span className="font-extrabold text-blue-400">control.</span>
             </div>
 
             <span className="font-mono text-xs font-bold text-blue-400 uppercase tracking-widest block mb-2">

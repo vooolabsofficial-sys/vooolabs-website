@@ -19,14 +19,14 @@ export default function ServicesClosingBand() {
           {/* STUDIO PHILOSOPHY (MATCHING HOMEPAGE SLIDE4 STYLE & FONTS) */}
           <div className="inline-flex items-center gap-2 text-xs sm:text-sm tracking-tight mb-3 select-none">
             <span className="font-bold text-white">
-              First make it work,
+              Built for operations,
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" aria-hidden="true" />
             <span className="font-medium text-slate-300">
-              then make it
+              owned for
             </span>
             <span className="font-extrabold text-blue-400">
-              beautiful.
+              life.
             </span>
           </div>
 

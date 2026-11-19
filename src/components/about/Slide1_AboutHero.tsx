@@ -37,7 +37,7 @@ export default function Slide1_AboutHero() {
         {/* MISSION SUBHEADLINE */}
         <FadeIn delay={0.16} y={15}>
           <div className="mb-4 text-xs sm:text-sm font-mono tracking-wider uppercase text-blue-600 font-semibold">
-            <span>First make it work, then make it beautiful.</span>
+            <span>Engineering discipline, zero agency bloat.</span>
           </div>
 
           <p className="text-base sm:text-lg text-zinc-600 leading-relaxed max-w-2xl mx-auto font-normal mb-10">

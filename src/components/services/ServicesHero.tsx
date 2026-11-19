@@ -26,14 +26,14 @@ export default function ServicesHero() {
           className="inline-flex items-center gap-2 text-xs sm:text-sm tracking-tight mb-3 select-none"
         >
           <span className="font-bold text-slate-950">
-            First make it work,
+            Architectural clarity,
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" aria-hidden="true" />
           <span className="font-medium text-slate-600">
-            then make it
+            then production
           </span>
           <span className="font-extrabold text-blue-600">
-            beautiful.
+            scale.
           </span>
         </motion.div>
 

@@ -33,14 +33,14 @@ export default function Slide4_ClosingCTA() {
           className="inline-flex items-center gap-2 text-sm sm:text-base md:text-lg tracking-tight mb-4 select-none"
         >
           <span className="font-bold text-white">
-            First make it work,
+            Build with purpose,
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" aria-hidden="true" />
           <span className="font-medium text-slate-300">
-            then make it
+            scale with
           </span>
           <span className="font-extrabold text-blue-400">
-            beautiful.
+            precision.
           </span>
         </motion.div>
 
