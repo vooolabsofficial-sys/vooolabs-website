@@ -94,8 +94,11 @@ export default function AboutPage() {
                 <source srcSet="/images/vrushabh-shinde.webp" type="image/webp" />
                 <img 
                   src="/images/vrushabh-shinde.jpg" 
-                  alt="Vrushabh Shinde — Founder, VOOO LABS" 
+                  alt="Vrushabh Shinde — Founder and Systems Architect, VOOO LABS" 
                   loading="eager"
+                  width={340}
+                  height={425}
+                  decoding="async"
                   className="w-full h-full object-cover object-top" 
                 />
               </picture>

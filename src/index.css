@@ -348,8 +348,7 @@ p {
    ═══════════════════════════════════════════════ */
 :focus-visible {
   outline: 2px solid var(--blue);
-  outline-offset: 3px;
-  border-radius: 6px;
+  outline-offset: 2px;
 }
 
 :focus:not(:focus-visible) {
@@ -400,6 +399,7 @@ p {
   user-select: none;
   cursor: pointer;
   white-space: nowrap;
+  touch-action: manipulation;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 500;
   border-width: 1px;

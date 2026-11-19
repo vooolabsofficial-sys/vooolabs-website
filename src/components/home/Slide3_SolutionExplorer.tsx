@@ -384,7 +384,7 @@ export default function Slide3_SolutionExplorer() {
                             key={ind.id}
                             type="button"
                             onClick={() => setActiveIndustry(ind.id)}
-                            className={`px-3 py-1.5 rounded-[12px] text-xs font-medium transition-all duration-200 outline-none ${
+                            className={`px-3.5 py-2 min-h-[38px] inline-flex items-center justify-center rounded-[12px] text-xs font-medium transition-all duration-200 outline-none ${
                               isSelected
                                 ? 'bg-slate-900 text-white shadow-xs'
                                 : 'bg-white border border-slate-200/80 text-slate-600 hover:text-slate-900 hover:bg-slate-50'

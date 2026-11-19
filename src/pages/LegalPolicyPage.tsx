@@ -138,7 +138,7 @@ export default function LegalPolicyPage({ activePolicy }: LegalPolicyPageProps) 
                   key={tab.key}
                   to={tab.path}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`px-3.5 sm:px-4 py-2 rounded-xl font-sans text-xs sm:text-sm font-medium tracking-tight whitespace-nowrap transition-all duration-200 flex-shrink-0 ${
+                  className={`px-3.5 sm:px-4 py-2 sm:py-2.5 min-h-[40px] inline-flex items-center rounded-xl font-sans text-xs sm:text-sm font-medium tracking-tight whitespace-nowrap transition-all duration-200 flex-shrink-0 ${
                     isActive
                       ? 'bg-slate-950 text-white font-semibold shadow-sm'
                       : 'text-slate-600 hover:text-slate-950 hover:bg-white/80'

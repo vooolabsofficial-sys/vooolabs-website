@@ -6,6 +6,11 @@ interface RouteMetadata {
   description: string;
 }
 
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 const SITE_URL = 'https://vooolabs.in';
 const DEFAULT_IMAGE = `${SITE_URL}/og-preview.png`;
 
@@ -13,7 +18,7 @@ const ROUTE_SEO: Record<string, RouteMetadata> = {
   '/': {
     title: 'VOOO LABS — Custom Business Websites, Web Apps & Business Software',
     description:
-      'Independent web and software engineering studio in Maharashtra, India. We engineer custom websites, web apps, business software, and AI search visibility with 100% client ownership.',
+      'Custom business websites, web apps, and internal software engineered in Maharashtra, India. Modern architecture with 100% client source code ownership.',
   },
   '/services': {
     title: 'Core Engineering Systems — VOOO LABS',
@@ -23,12 +28,12 @@ const ROUTE_SEO: Record<string, RouteMetadata> = {
   '/services/websites': {
     title: '01 Business Websites — Fast, Search-Ready & WhatsApp-Connected | VOOO LABS',
     description:
-      'High-speed, conversion-focused business websites built with modern frameworks, structured metadata, and direct WhatsApp integration.',
+      'High-speed, conversion-focused business websites engineered with modern frameworks, technical SEO metadata, and 1-tap WhatsApp inquiry routing across India.',
   },
   '/services/web-apps': {
     title: '02 Custom Web Apps & Portals — Zero App Store Friction | VOOO LABS',
     description:
-      'Progressive web applications, client portals, and booking systems that run in any browser with zero app store friction, 30% commission bypass, and instant updates.',
+      'Progressive web applications, custom portals, and booking engines that run in any browser with zero app store friction and direct cloud database integration.',
   },
   '/services/business-software': {
     title: '03 Custom Business Software — Replace Manual Spreadsheets | VOOO LABS',
@@ -66,9 +71,9 @@ const ROUTE_SEO: Record<string, RouteMetadata> = {
       'Meet VOOO LABS founder Vrushabh Shinde. Learn about our architectural software philosophy, zero-bloat engineering, and commitment to 100% client code ownership.',
   },
   '/contact': {
-    title: 'Configure Project Blueprint & Estimate | VOOO LABS',
+    title: 'Contact VOOO LABS — Discuss Your Website & Software Project',
     description:
-      'Generate your interactive project specification blueprint and discuss your requirements directly with lead architect Vrushabh Shinde.',
+      'Discuss your custom website, web app, or business software with VOOO LABS lead architect Vrushabh Shinde. Direct WhatsApp chat and personal project review.',
   },
   '/legal/terms': {
     title: 'Scope, Milestones & Delivery Terms (40-30-30) | VOOO LABS',
@@ -88,8 +93,82 @@ const ROUTE_SEO: Record<string, RouteMetadata> = {
   '/legal/privacy': {
     title: 'Data Privacy, Business NDA & Jurisdiction | VOOO LABS',
     description:
-      'Strict mutual business confidentiality, Indian DPDP Act compliance, minimal inquiry data collection, post-handover credential hygiene, and Maharashtra jurisdiction.',
+      'Mutual business confidentiality, Indian DPDP Act compliance, minimal inquiry data collection, post-handover credential hygiene, and Maharashtra jurisdiction.',
   },
+};
+
+const ROUTE_BREADCRUMBS: Record<string, BreadcrumbItem[]> = {
+  '/services': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Services', url: `${SITE_URL}/services` },
+  ],
+  '/services/websites': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Services', url: `${SITE_URL}/services` },
+    { name: 'Business Websites', url: `${SITE_URL}/services/websites` },
+  ],
+  '/services/web-apps': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Services', url: `${SITE_URL}/services` },
+    { name: 'Custom Web Apps & Portals', url: `${SITE_URL}/services/web-apps` },
+  ],
+  '/services/business-software': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Services', url: `${SITE_URL}/services` },
+    { name: 'Custom Business Software', url: `${SITE_URL}/services/business-software` },
+  ],
+  '/seo-ai': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'AI & Search Growth', url: `${SITE_URL}/seo-ai` },
+  ],
+  '/seo-ai/google-seo': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'AI & Search Growth', url: `${SITE_URL}/seo-ai` },
+    { name: 'Technical Google SEO', url: `${SITE_URL}/seo-ai/google-seo` },
+  ],
+  '/seo-ai/ai-search': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'AI & Search Growth', url: `${SITE_URL}/seo-ai` },
+    { name: 'ChatGPT & AI Search (AEO)', url: `${SITE_URL}/seo-ai/ai-search` },
+  ],
+  '/seo-ai/google-maps': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'AI & Search Growth', url: `${SITE_URL}/seo-ai` },
+    { name: 'Google Maps Local Authority', url: `${SITE_URL}/seo-ai/google-maps` },
+  ],
+  '/seo-ai/google-ads': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'AI & Search Growth', url: `${SITE_URL}/seo-ai` },
+    { name: 'Targeted Google Search Ads', url: `${SITE_URL}/seo-ai/google-ads` },
+  ],
+  '/about': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'About VOOO LABS', url: `${SITE_URL}/about` },
+  ],
+  '/contact': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Contact Studio', url: `${SITE_URL}/contact` },
+  ],
+  '/legal/terms': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Legal Policies', url: `${SITE_URL}/legal/terms` },
+    { name: 'Scope & Delivery Terms', url: `${SITE_URL}/legal/terms` },
+  ],
+  '/legal/refunds': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Legal Policies', url: `${SITE_URL}/legal/terms` },
+    { name: 'Milestone Refund Policy', url: `${SITE_URL}/legal/refunds` },
+  ],
+  '/legal/ip-ownership': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Legal Policies', url: `${SITE_URL}/legal/terms` },
+    { name: '100% IP & Code Ownership', url: `${SITE_URL}/legal/ip-ownership` },
+  ],
+  '/legal/privacy': [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Legal Policies', url: `${SITE_URL}/legal/terms` },
+    { name: 'Data Privacy & NDA', url: `${SITE_URL}/legal/privacy` },
+  ],
 };
 
 function setMetaTag(attrName: 'name' | 'property', attrValue: string, content: string) {
@@ -110,6 +189,35 @@ function setCanonical(url: string) {
     document.head.appendChild(link);
   }
   link.setAttribute('href', url);
+}
+
+function setBreadcrumbJsonLd(breadcrumbs: BreadcrumbItem[] | undefined) {
+  const SCRIPT_ID = 'route-breadcrumb-schema';
+  let script = document.getElementById(SCRIPT_ID) as HTMLScriptElement | null;
+
+  if (!breadcrumbs || breadcrumbs.length <= 1) {
+    if (script) script.remove();
+    return;
+  }
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((crumb, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      name: crumb.name,
+      item: crumb.url,
+    })),
+  };
+
+  if (!script) {
+    script = document.createElement('script');
+    script.id = SCRIPT_ID;
+    script.type = 'application/ld+json';
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(schema);
 }
 
 export default function RouteSeo() {
@@ -165,6 +273,15 @@ export default function RouteSeo() {
     setMetaTag('name', 'twitter:title', meta.title);
     setMetaTag('name', 'twitter:description', meta.description);
     setMetaTag('name', 'twitter:image', DEFAULT_IMAGE);
+
+    // 6. Dynamic BreadcrumbList JSON-LD Schema
+    setBreadcrumbJsonLd(ROUTE_BREADCRUMBS[pathname]);
+
+    return () => {
+      // Clean up breadcrumb script when unmounting
+      const script = document.getElementById('route-breadcrumb-schema');
+      if (script) script.remove();
+    };
   }, [location.pathname]);
 
   return null;

@@ -84,9 +84,9 @@ export default function LiquidButton({
   const roundedClass = rounded === 'pill' ? 'rounded-full' : 'rounded-[14px]';
 
   const sizeClasses: Record<LiquidButtonSize, string> = {
-    sm: 'px-4 py-2 text-xs',
-    md: 'px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm',
-    lg: 'px-7 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold',
+    sm: 'px-4 py-2 text-xs min-h-[38px] sm:min-h-[40px]',
+    md: 'px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm min-h-[44px]',
+    lg: 'px-7 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold min-h-[48px]',
   };
 
   /**

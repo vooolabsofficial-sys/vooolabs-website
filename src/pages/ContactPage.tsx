@@ -236,7 +236,7 @@ Looking forward to your reply.`
                   <button
                     type="button"
                     onClick={handleCopyEmail}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono font-medium text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:text-slate-950 transition-colors cursor-pointer shrink-0"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[34px] rounded-md text-xs font-mono font-medium text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:text-slate-950 transition-colors cursor-pointer shrink-0"
                     title="Copy email address"
                   >
                     {copiedEmail ? (
@@ -324,7 +324,7 @@ Looking forward to your reply.`
                           key={pill}
                           type="button"
                           onClick={() => setSelectedService(pill)}
-                          className={`px-3.5 py-2 rounded-xl text-xs font-medium transition-all duration-150 cursor-pointer border ${
+                          className={`px-3.5 py-2.5 min-h-[38px] sm:min-h-[40px] inline-flex items-center justify-center rounded-xl text-xs font-medium transition-all duration-150 cursor-pointer border ${
                             isSelected
                               ? 'bg-[#0A0F1E] text-white border-[#0A0F1E] shadow-sm'
                               : 'bg-[#F8F9FC] text-slate-700 border-slate-200/90 hover:border-slate-300 hover:bg-white hover:text-slate-950'
