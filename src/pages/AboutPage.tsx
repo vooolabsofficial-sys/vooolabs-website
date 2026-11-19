@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 type PhilosophyMode = 'beautiful' | 'work';
 
 // Synthesized mechanical micro-click sound via Web Audio API
+// Synthesized acoustic sound via Web Audio API: resonant liquid droplet for Beautiful, tactile relay click for Work
 function playMechanicalClick(isWorkMode: boolean) {
   try {
     const AudioCtx =
@@ -22,18 +23,30 @@ function playMechanicalClick(isWorkMode: boolean) {
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
 
-    osc.type = isWorkMode ? 'square' : 'sine';
-    osc.frequency.setValueAtTime(isWorkMode ? 850 : 1200, ctx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 0.04);
-
-    gain.gain.setValueAtTime(0.04, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.04);
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.start();
-    osc.stop(ctx.currentTime + 0.045);
+    if (isWorkMode) {
+      // Tactile relay mechanical click
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(820, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.04);
+      gain.gain.setValueAtTime(0.04, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.04);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.045);
+    } else {
+      // Hydrodynamic resonant water droplet "blip/plop"
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(540, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(1380, ctx.currentTime + 0.022);
+      osc.frequency.exponentialRampToValueAtTime(320, ctx.currentTime + 0.065);
+      gain.gain.setValueAtTime(0.05, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.07);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.075);
+    }
   } catch {
     // AudioContext blocked or not allowed until interaction
   }
@@ -44,6 +57,8 @@ export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scanBeamRef = useRef<HTMLDivElement>(null);
   const liquidRingRef = useRef<HTMLDivElement>(null);
+  const liquidEchoRingRef = useRef<HTMLDivElement>(null);
+  const liquidDropletRef = useRef<HTMLDivElement>(null);
   const toggleDeckRef = useRef<HTMLDivElement>(null);
   const fallbackCurtainRef = useRef<HTMLDivElement>(null);
   const portraitFrameRef = useRef<HTMLDivElement>(null);
@@ -166,15 +181,15 @@ export default function AboutPage() {
   ) => {
     if (nextMode === mode) return;
 
-    // Play tactile mechanical audio click
+    // Play tactile mechanical / resonant water droplet sound
     playMechanicalClick(nextMode === 'work');
 
-    // Tactile spring squeeze on toggle switch deck
+    // Fluid liquid squash-and-stretch on the toggle switch deck
     if (toggleDeckRef.current) {
       gsap.fromTo(
         toggleDeckRef.current,
-        { scale: 0.94 },
-        { scale: 1, duration: 0.45, ease: 'back.out(2)' }
+        { scaleX: 0.93, scaleY: 0.91 },
+        { scaleX: 1, scaleY: 1, duration: 0.55, ease: 'elastic.out(1.2, 0.35)' }
       );
     }
 
@@ -186,10 +201,37 @@ export default function AboutPage() {
       Math.max(y, window.innerHeight - y)
     );
 
-    // Expand visible liquid shockwave wavefront across the screen
+    const isTargetWork = nextMode === 'work';
+
+    // 1. Rebound Droplet Splash Ripple at origin (x, y)
+    if (liquidDropletRef.current) {
+      const droplet = liquidDropletRef.current;
+      gsap.killTweensOf(droplet);
+      gsap.set(droplet, {
+        left: x,
+        top: y,
+        width: 0,
+        height: 0,
+        opacity: 0.95,
+        border: isTargetWork
+          ? '2px solid rgba(15, 23, 42, 0.8)'
+          : '2px solid rgba(255, 255, 255, 0.95)',
+        boxShadow: isTargetWork
+          ? '0 0 16px rgba(15, 23, 42, 0.45)'
+          : '0 0 22px rgba(66, 133, 244, 0.8)',
+      });
+      gsap.to(droplet, {
+        width: 150,
+        height: 150,
+        duration: 0.5,
+        ease: 'power2.out',
+        opacity: 0,
+      });
+    }
+
+    // 2. Primary Luminous Liquid Shockwave Meniscus across the screen
     if (liquidRingRef.current) {
       const ring = liquidRingRef.current;
-      const isTargetWork = nextMode === 'work';
       gsap.killTweensOf(ring);
       gsap.set(ring, {
         left: x,
@@ -197,18 +239,45 @@ export default function AboutPage() {
         width: 0,
         height: 0,
         opacity: 1,
-        borderColor: isTargetWork ? 'rgba(15, 23, 42, 0.75)' : 'rgba(66, 133, 244, 0.85)',
+        borderColor: isTargetWork ? 'rgba(15, 23, 42, 0.85)' : 'rgba(66, 133, 244, 0.95)',
         boxShadow: isTargetWork
-          ? '0 0 32px rgba(15, 23, 42, 0.4), inset 0 0 20px rgba(15, 23, 42, 0.25)'
-          : '0 0 38px rgba(66, 133, 244, 0.6), inset 0 0 24px rgba(66, 133, 244, 0.35)',
+          ? '0 0 36px rgba(15, 23, 42, 0.5), inset 0 0 24px rgba(255, 255, 255, 0.35)'
+          : '0 0 45px rgba(66, 133, 244, 0.75), inset 0 0 28px rgba(255, 255, 255, 0.75)',
         borderWidth: '3.5px',
         borderStyle: 'solid',
       });
       gsap.to(ring, {
-        width: endRadius * 2.2,
-        height: endRadius * 2.2,
-        duration: 0.9,
-        ease: 'power2.out',
+        width: endRadius * 2.25,
+        height: endRadius * 2.25,
+        duration: 0.95,
+        ease: 'cubic-bezier(0.2, 0.9, 0.28, 1)',
+        opacity: 0,
+      });
+    }
+
+    // 3. Trailing Secondary Liquid Echo Wave
+    if (liquidEchoRingRef.current) {
+      const echo = liquidEchoRingRef.current;
+      gsap.killTweensOf(echo);
+      gsap.set(echo, {
+        left: x,
+        top: y,
+        width: 0,
+        height: 0,
+        opacity: 0.7,
+        borderColor: isTargetWork ? 'rgba(15, 23, 42, 0.35)' : 'rgba(66, 133, 244, 0.5)',
+        boxShadow: isTargetWork
+          ? '0 0 22px rgba(15, 23, 42, 0.2)'
+          : '0 0 28px rgba(66, 133, 244, 0.4)',
+        borderWidth: '2px',
+        borderStyle: 'solid',
+      });
+      gsap.to(echo, {
+        width: endRadius * 2.05,
+        height: endRadius * 2.05,
+        duration: 1.05,
+        delay: 0.05,
+        ease: 'cubic-bezier(0.22, 0.95, 0.3, 1)',
         opacity: 0,
       });
     }
@@ -242,8 +311,8 @@ export default function AboutPage() {
           ],
         },
         {
-          duration: 850,
-          easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+          duration: 920,
+          easing: 'cubic-bezier(0.2, 0.9, 0.28, 1)',
           pseudoElement: '::view-transition-new(root)',
         }
       );
@@ -308,9 +377,31 @@ export default function AboutPage() {
         aria-hidden="true"
       />
 
-      {/* EXPANDING LIQUID SHOCKWAVE RING (FIRES VISIBLY ON MODE TOGGLE) */}
+      {/* 1. PRIMARY EXPANDING LIQUID SHOCKWAVE RING */}
       <div
         ref={liquidRingRef}
+        className="pointer-events-none fixed rounded-full z-40 opacity-0"
+        style={{
+          transform: 'translate(-50%, -50%)',
+          willChange: 'width, height, top, left, opacity',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* 2. SECONDARY TRAILING LIQUID ECHO RIPPLE */}
+      <div
+        ref={liquidEchoRingRef}
+        className="pointer-events-none fixed rounded-full z-40 opacity-0"
+        style={{
+          transform: 'translate(-50%, -50%)',
+          willChange: 'width, height, top, left, opacity',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* 3. REBOUND DROPLET SURFACE TENSION RIPPLE AT ORIGIN */}
+      <div
+        ref={liquidDropletRef}
         className="pointer-events-none fixed rounded-full z-40 opacity-0"
         style={{
           transform: 'translate(-50%, -50%)',
