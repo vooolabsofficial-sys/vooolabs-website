@@ -70,9 +70,9 @@ export default function Footer() {
 
           {/* COLUMN 2: CORE SYSTEMS (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400">
+            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400 font-bold">
               CORE SYSTEMS
-            </h4>
+            </p>
             <div className="flex flex-col space-y-2.5 text-sm text-slate-300">
               <Link
                 to="/services"
@@ -103,9 +103,9 @@ export default function Footer() {
 
           {/* COLUMN 3: SEARCH & AI (lg:col-span-2) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400">
+            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400 font-bold">
               SEARCH & AI
-            </h4>
+            </p>
             <div className="flex flex-col space-y-2.5 text-sm text-slate-300">
               <Link
                 to="/seo-ai"
@@ -142,9 +142,9 @@ export default function Footer() {
 
           {/* COLUMN 4: STUDIO & DIRECT (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400">
+            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400 font-bold">
               STUDIO & DIRECT
-            </h4>
+            </p>
             <div className="flex flex-col space-y-2.5 text-sm text-slate-300">
               <Link
                 to="/about"

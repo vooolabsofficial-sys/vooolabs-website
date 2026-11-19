@@ -294,7 +294,7 @@ export default function Slide3_SolutionExplorer() {
                   {/* CHAPTER TITLES */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className={`font-mono text-xs font-bold ${isActive ? 'text-blue-600' : 'text-slate-400'}`}>
+                      <span className={`font-mono text-xs font-bold ${isActive ? 'text-blue-600' : 'text-slate-600'}`}>
                         {chapter.index}
                       </span>
                       <span className="text-xs font-medium text-slate-500 truncate">
@@ -358,9 +358,9 @@ export default function Slide3_SolutionExplorer() {
                       <div key={pIdx} className="flex items-start gap-3">
                         <DuotoneCheckIcon size={20} accentColor={activeChapter.accent} className="shrink-0 mt-0.5" />
                         <div>
-                          <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-snug mb-1">
+                          <p className="text-sm sm:text-base font-bold text-slate-900 leading-snug mb-1">
                             {pillar.title}
-                          </h4>
+                          </p>
                           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                             {pillar.description}
                           </p>

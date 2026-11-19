@@ -107,9 +107,9 @@ export default function SearchPlacementVisualizer() {
                 <span className="text-xs text-slate-500">yourdomain.in</span>
               </div>
 
-              <h4 className="text-sm font-bold text-blue-600 hover:underline cursor-pointer leading-snug">
+              <p className="text-sm font-bold text-blue-600 hover:underline cursor-pointer leading-snug">
                 Commercial & Industrial Solar Systems — Direct Site Survey
-              </h4>
+              </p>
 
               <p className="text-xs text-slate-600 leading-relaxed font-normal">
                 Custom rooftop solar EPC engineered for manufacturing plants and commercial properties. Site evaluation within 48 hours.
@@ -165,9 +165,9 @@ export default function SearchPlacementVisualizer() {
                 <span className="text-slate-700 font-medium">industrial-valves</span>
               </div>
 
-              <h4 className="text-sm font-bold text-blue-600 hover:underline cursor-pointer leading-snug">
+              <p className="text-sm font-bold text-blue-600 hover:underline cursor-pointer leading-snug">
                 Industrial Valves & Flow Control Systems | Your Company
-              </h4>
+              </p>
 
               <p className="text-xs text-slate-600 leading-relaxed font-normal">
                 Precision gate, globe, and check valves engineered for petrochemical and power applications. Download technical specifications and CAD drawings.
@@ -204,9 +204,9 @@ export default function SearchPlacementVisualizer() {
                   </span>
                 </div>
 
-                <h4 className="text-sm font-bold text-slate-950 leading-snug">
+                <p className="text-sm font-bold text-slate-950 leading-snug">
                   Your Business Name
-                </h4>
+                </p>
 
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">
                   Industrial Supplier & Equipment Distributor · Serving Mumbai, Pune & Western Industrial Corridor.

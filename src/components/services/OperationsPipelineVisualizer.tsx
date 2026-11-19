@@ -138,9 +138,9 @@ export default function OperationsPipelineVisualizer() {
             <div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <h4 className="text-sm font-bold text-slate-950">
+                <p className="text-sm font-bold text-slate-950">
                   Batch Order #4082 · North Branch
-                </h4>
+                </p>
                 <span className="font-mono text-[10px] text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
                   Commercial
                 </span>

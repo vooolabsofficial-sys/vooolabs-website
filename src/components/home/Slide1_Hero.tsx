@@ -85,12 +85,7 @@ export default function Slide1_Hero() {
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-5xl mx-auto py-2 w-full">
         
         {/* LINE 1: PURE EDITORIAL TEXT (MATCHED SCALE, BOLD & BRAND ACCENT COLOR) */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.05, ease: EASING }}
-          className="w-full max-w-4xl text-left mb-4 px-1 sm:px-2 select-none"
-        >
+        <div className="w-full max-w-4xl text-left mb-4 px-1 sm:px-2 select-none">
           <div className="inline-flex items-center gap-2 text-sm sm:text-base md:text-lg tracking-tight">
             <span className="font-bold text-slate-950">
               First make it work,
@@ -103,18 +98,13 @@ export default function Slide1_Hero() {
               beautiful.
             </span>
           </div>
-        </motion.div>
+        </div>
 
-        {/* LINES 2 & 3: CRISP CENTERED HEADLINE (BOLD, EXECUTIVE SCALE, ZERO BLUR) */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.12, ease: EASING }}
-          className="text-4xl sm:text-6xl lg:text-[4.5rem] font-extrabold tracking-[-0.03em] text-slate-950 leading-[1.12] mb-5 max-w-4xl mx-auto text-center w-full"
-        >
+        {/* LINES 2 & 3: CRISP CENTERED HEADLINE (BOLD, EXECUTIVE SCALE, ZERO BLUR & INSTANT LCP PAINT) */}
+        <h1 className="text-4xl sm:text-6xl lg:text-[4.5rem] font-extrabold tracking-[-0.03em] text-slate-950 leading-[1.12] mb-5 max-w-4xl mx-auto text-center w-full">
           <span className="text-slate-950">Engineering Digital Products</span> <br />
           <span className="shimmer-text">with Obsession & Scale.</span>
-        </motion.h1>
+        </h1>
 
         {/* SUBHEADING WITH ROTATING TYPEWRITER IN THE MIDDLE */}
         <motion.div
@@ -252,14 +242,14 @@ export default function Slide1_Hero() {
             <span className="text-slate-500 font-normal">First make it work, </span>
             <span className="text-slate-700 font-medium">then make it </span>
             <span className="text-blue-600 font-bold">beautiful. </span>
-            <span className="text-slate-400 font-normal">· BUILD BOLD. SHIP SMART. LIVE DIFFERENT.</span>
+            <span className="text-slate-500 font-normal">· BUILD BOLD. SHIP SMART. LIVE DIFFERENT.</span>
           </span>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.55 }}
-          className="font-mono text-[11px] text-slate-400 text-center sm:text-right"
+          className="font-mono text-[11px] text-slate-500 text-center sm:text-right"
         >
           © {COMPANY.foundedYear}–{new Date().getFullYear()} {COMPANY.legalName}.
         </motion.div>

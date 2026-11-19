@@ -227,9 +227,9 @@ export default function Slide2_Form() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <h4 className="font-sans font-bold text-base text-zinc-950">
+                    <p className="font-sans font-bold text-base text-zinc-950">
                       Direct WhatsApp Channel
-                    </h4>
+                    </p>
                   </div>
                   <p className="font-sans text-xs text-zinc-600 mb-4 leading-relaxed">
                     Direct line for fast scoping, pricing questions, and same-day project kickoff discussions.
@@ -255,9 +255,9 @@ export default function Slide2_Form() {
               <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 block mb-1">
                 Studio Hubs & Coverage
               </span>
-              <h4 className="font-sans font-bold text-sm text-zinc-950 mb-1">
+              <p className="font-sans font-bold text-sm text-zinc-950 mb-1">
                 {LOCATION.hubs.join(' • ')}
-              </h4>
+              </p>
               <p className="font-sans text-xs text-zinc-600">
                 Independent studio in Maharashtra, serving growing businesses across India with 100% remote delivery and in-person reviews.
               </p>
@@ -317,9 +317,9 @@ export default function Slide2_Form() {
                   <div className="w-12 h-12 rounded-xl bg-zinc-950 text-white flex items-center justify-center mb-4 shadow-2xs">
                     <CheckCircle2 size={24} className="text-emerald-400" />
                   </div>
-                  <h4 className="font-sans font-bold text-2xl text-zinc-950 mb-2">
+                  <p className="font-sans font-bold text-2xl text-zinc-950 mb-2">
                     Inquiry Received
-                  </h4>
+                  </p>
                   <p className="font-sans text-xs sm:text-sm text-zinc-600 max-w-md mx-auto mb-6 leading-relaxed">
                     Your project details have been transmitted directly to <strong>{COMPANY.email}</strong>. The founder will review your requirements and respond with an honest plan and transparent cost estimate.
                   </p>

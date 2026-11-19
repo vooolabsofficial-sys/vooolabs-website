@@ -143,9 +143,9 @@ export default function WebsiteLeadSignalVisualizer() {
           {/* PAGE CONTENT SNIPPET + INTERACTIVE ACTION */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
             <div>
-              <h4 className="text-sm font-bold text-slate-950">
+              <p className="text-sm font-bold text-slate-950">
                 Industrial & Commercial Solutions
-              </h4>
+              </p>
               <p className="text-xs text-slate-600 mt-0.5">
                 Precision manufacturing, ISO credentials & direct bulk catalog.
               </p>

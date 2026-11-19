@@ -101,9 +101,9 @@ export default function NotFoundPage() {
 
         {/* 3 QUICK HAIRLINE NAVIGATION DESTINATIONS */}
         <div className="notfound-reveal border-t border-slate-200/90 pt-8">
-          <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400 font-semibold block mb-4">
+          <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400 font-semibold block mb-4">
             CORE ACTIVE DESTINATIONS
-          </span>
+          </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Link

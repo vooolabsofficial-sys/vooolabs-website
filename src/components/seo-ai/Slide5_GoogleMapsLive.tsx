@@ -170,9 +170,9 @@ export default function Slide5_GoogleMapsLive() {
                       <div className="text-[11px] font-mono font-semibold text-emerald-600 mb-0.5">
                         Verified Business Profile · Top 3-Pack
                       </div>
-                      <h4 className="font-sans font-semibold text-lg text-slate-900">
+                      <p className="font-sans font-semibold text-lg text-slate-900">
                         {COMPANY.legalName}
-                      </h4>
+                      </p>
                       <div className="flex items-center gap-1 mt-1 text-xs text-amber-500">
                         <div className="flex">
                           {[...Array(5)].map((_, i) => (

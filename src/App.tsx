@@ -1,19 +1,20 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Lenis from 'lenis';
 import Navbar from './components/shared/Navbar';
 import Footer from './components/shared/Footer';
 import FixedBottomBar from './components/shared/FixedBottomBar';
-import BrandPreloader from './components/shared/BrandPreloader';
 import TopRouteProgressBar from './components/shared/TopRouteProgressBar';
 import RouteSeo from './components/shared/RouteSeo';
 import StudioAiModal from './components/shared/StudioAiModal';
 import NetworkStatusGuard from './components/shared/NetworkStatusGuard';
 import AppErrorBoundary from './components/shared/AppErrorBoundary';
 
-// Route-level code splitting using React.lazy() for optimal loading speed and minimal initial bundle
-const HomePage = React.lazy(() => import('./pages/HomePage'));
+// Eagerly imported primary landing page for zero-CLS and instant First Paint
+import HomePage from './pages/HomePage';
+
+// Route-level code splitting using React.lazy() for secondary routes
 const ServicesPage = React.lazy(() => import('./pages/ServicesPage'));
 const WebsiteServicePage = React.lazy(() => import('./pages/WebsiteServicePage'));
 const WebAppsServicePage = React.lazy(() => import('./pages/WebAppsServicePage'));
@@ -36,11 +37,11 @@ const pageVariants: Variants = {
   exit: { opacity: 0, y: -10, transition: { duration: 0.2, ease: [0.16, 1, 0.3, 1] } }
 };
 
-// Sleek minimal loading fallback
+// Sleek minimal loading fallback with reserved viewport height to eliminate CLS
 function MinimalLoadingFallback() {
   return (
     <div 
-      className="min-h-[70vh] bg-white flex flex-col items-center justify-center relative overflow-hidden select-none"
+      className="min-h-screen bg-white flex flex-col items-center justify-center relative overflow-hidden select-none"
       role="status"
       aria-label="Loading page"
     >
@@ -78,7 +79,7 @@ function PageWrapper({ children }: { children: React.ReactNode }) {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="pb-24 overflow-x-hidden w-full outline-none focus:outline-none"
+      className="min-h-screen pb-24 overflow-x-hidden w-full outline-none focus:outline-none"
     >
       <Suspense fallback={<MinimalLoadingFallback />}>
         {children}
@@ -165,8 +166,6 @@ function AppRoutes() {
 }
 
 export default function App() {
-  const [showPreloader, setShowPreloader] = useState(true);
-
   // Initialize Lenis smooth scroll with clean rAF cleanup and reduced-motion detection
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -207,9 +206,6 @@ export default function App() {
         <RouteSeo />
         <NetworkStatusGuard />
         <StudioAiModal />
-        {showPreloader && (
-          <BrandPreloader onComplete={() => setShowPreloader(false)} />
-        )}
         <TopRouteProgressBar />
         <Navbar />
         <FixedBottomBar />
