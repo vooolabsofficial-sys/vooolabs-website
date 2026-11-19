@@ -17,6 +17,8 @@ interface ChapterData {
   title: string;
   subtitle: string;
   serviceParam: string;
+  serviceState: string;
+  route: string;
   icon: React.ElementType;
   accent: string;
   bottleneck: string;
@@ -40,6 +42,8 @@ const CHAPTERS: ChapterData[] = [
     title: 'Business Websites',
     subtitle: 'Turn visitors into direct inquiries',
     serviceParam: 'websites',
+    serviceState: 'Business Websites',
+    route: '/services/websites',
     icon: Laptop,
     accent: '#4285F4',
     bottleneck:
@@ -80,9 +84,11 @@ const CHAPTERS: ChapterData[] = [
   {
     id: 'web-apps',
     index: '02',
-    title: 'Web Apps & Client Portals',
+    title: 'Custom Web Apps & Portals',
     subtitle: 'Self-service logins & live tracking',
     serviceParam: 'web-apps',
+    serviceState: 'Custom Web Apps & Portals',
+    route: '/services/web-apps',
     icon: Layers,
     accent: '#7C3AED',
     bottleneck:
@@ -126,6 +132,8 @@ const CHAPTERS: ChapterData[] = [
     title: 'Custom Business Software',
     subtitle: 'Unified operations & GST billing',
     serviceParam: 'software',
+    serviceState: 'Custom Business Software',
+    route: '/services/business-software',
     icon: Cpu,
     accent: '#10B981',
     bottleneck:
@@ -166,9 +174,11 @@ const CHAPTERS: ChapterData[] = [
   {
     id: 'ai-growth',
     index: '04',
-    title: 'AI Search & Targeted Ads',
+    title: 'Google SEO, AI Search & Ads',
     subtitle: 'ChatGPT, Google AI & local discovery',
-    serviceParam: 'ai-growth',
+    serviceParam: 'seo-ai',
+    serviceState: 'Google SEO, AI Search & Ads',
+    route: '/seo-ai',
     icon: Search,
     accent: '#F97316',
     bottleneck:
@@ -197,7 +207,7 @@ const CHAPTERS: ChapterData[] = [
       manufacturing:
         'Rank as the verified OEM manufacturer in ChatGPT and Google AI Overviews for high-value industrial component procurement.',
       healthcare:
-        'Dominate Google Maps local pack and AI search recommendations for top-rated specialists in your city.',
+        'Establish top-tier Google Maps local pack presence and AI search citations for trusted medical specialists in your city.',
       education:
         'Capture admission-intent searches on Google and Meta right during annual board exam result and enrollment cycles.',
       realestate:
@@ -408,16 +418,29 @@ export default function Slide3_SolutionExplorer() {
 
                   {/* BOTTOM ACTION ROW */}
                   <div className="pt-6 mt-6 border-t border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <LiquidButton
-                      to={`/contact?service=${activeChapter.serviceParam}`}
-                      variant="primary"
-                      rounded="pill"
-                      size="md"
-                      magnetic={true}
-                    >
-                      <span>See what your project will cost</span>
-                      <ArrowRight size={16} />
-                    </LiquidButton>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <LiquidButton
+                        to={`/contact?service=${activeChapter.serviceParam}`}
+                        state={{ selectedService: activeChapter.serviceState }}
+                        variant="primary"
+                        rounded="pill"
+                        size="md"
+                        magnetic={true}
+                      >
+                        <span>Discuss Project Blueprint</span>
+                        <ArrowRight size={16} />
+                      </LiquidButton>
+
+                      <LiquidButton
+                        to={activeChapter.route}
+                        variant="secondary"
+                        rounded="pill"
+                        size="md"
+                        magnetic={true}
+                      >
+                        <span>Explore Architecture Spec</span>
+                      </LiquidButton>
+                    </div>
 
                     <span className="font-mono text-xs text-slate-500">
                       Direct scoping · 100% source code ownership

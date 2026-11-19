@@ -82,7 +82,7 @@ export default function Slide4_ClosingCTA() {
             size="lg"
             magnetic={true}
           >
-            <span>See what your project will cost</span>
+            <span>Discuss Project</span>
             <ArrowRight size={16} />
           </LiquidButton>
 
@@ -94,7 +94,7 @@ export default function Slide4_ClosingCTA() {
             magnetic={true}
           >
             <Sparkles size={16} className="text-purple-400" />
-            <span>Discover what you're missing</span>
+            <span>Explore AI & Search Growth</span>
           </LiquidButton>
         </motion.div>
 

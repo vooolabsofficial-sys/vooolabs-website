@@ -141,7 +141,7 @@ export default function Slide1_Hero() {
             size="lg"
             magnetic={true}
           >
-            <span>See what your project will cost</span>
+            <span>Discuss Project</span>
             <ArrowRight size={16} />
           </LiquidButton>
 
@@ -152,7 +152,7 @@ export default function Slide1_Hero() {
             size="lg"
             magnetic={true}
           >
-            <span>See how it can help your business</span>
+            <span>Explore Services</span>
           </LiquidButton>
         </motion.div>
       </div>
@@ -167,7 +167,7 @@ export default function Slide1_Hero() {
             className="py-3 border-y border-slate-200/70 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6 items-center"
           >
             <Link 
-              to="/services#web-apps" 
+              to="/services/web-apps" 
               className="group relative flex items-center gap-2.5 py-1 text-left transition-colors"
             >
               <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
@@ -181,7 +181,7 @@ export default function Slide1_Hero() {
             </Link>
 
             <Link 
-              to="/services#websites" 
+              to="/services/websites" 
               className="group relative flex items-center gap-2.5 py-1 text-left transition-colors"
             >
               <div className="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
@@ -189,13 +189,13 @@ export default function Slide1_Hero() {
               </div>
               <div className="min-w-0">
                 <span className="font-semibold text-xs text-slate-900 block truncate group-hover:text-purple-600 transition-colors">Websites</span>
-                <span className="text-[10px] text-slate-500 block truncate font-normal">High Converting</span>
+                <span className="text-[10px] text-slate-500 block truncate font-normal">Speed & Sub-Second Load</span>
               </div>
               <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-purple-600 group-hover:w-full transition-all duration-200 rounded-full" />
             </Link>
 
             <Link 
-              to="/services#custom-software" 
+              to="/services/business-software" 
               className="group relative flex items-center gap-2.5 py-1 text-left transition-colors"
             >
               <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
@@ -203,13 +203,13 @@ export default function Slide1_Hero() {
               </div>
               <div className="min-w-0">
                 <span className="font-semibold text-xs text-slate-900 block truncate group-hover:text-emerald-600 transition-colors">Software</span>
-                <span className="text-[10px] text-slate-500 block truncate font-normal">Automation & APIs</span>
+                <span className="text-[10px] text-slate-500 block truncate font-normal">Workflows & GST</span>
               </div>
               <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-emerald-600 group-hover:w-full transition-all duration-200 rounded-full" />
             </Link>
 
             <Link 
-              to="/services#web-apps" 
+              to="/services/web-apps" 
               className="group relative flex items-center gap-2.5 py-1 text-left transition-colors"
             >
               <div className="w-7 h-7 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
@@ -231,7 +231,7 @@ export default function Slide1_Hero() {
               </div>
               <div className="min-w-0">
                 <span className="font-semibold text-xs text-slate-900 block truncate group-hover:text-indigo-600 transition-colors">SEO & AI</span>
-                <span className="text-[10px] text-slate-500 block truncate font-normal">AEO · GEO Ranking</span>
+                <span className="text-[10px] text-slate-500 block truncate font-normal">AI Search & Ads</span>
               </div>
               <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-indigo-600 group-hover:w-full transition-all duration-200 rounded-full" />
             </Link>
