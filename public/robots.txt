@@ -1,8 +1,13 @@
 User-agent: *
 Allow: /
+
 Sitemap: https://vooolabs.in/sitemap.xml
 
-# Allow AI Search & Discovery bots
+# AI Knowledge Base & LLM Discovery Protocols
+# Reference: https://vooolabs.in/llms.txt
+# Comprehensive Architecture: https://vooolabs.in/llms-full.txt
+
+# Allow AI Search & Discovery crawlers
 User-agent: GPTBot
 Allow: /
 
@@ -12,9 +17,15 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
 User-agent: Google-Extended
 Allow: /
 
-# Block scrapers
+User-agent: Applebot-Extended
+Allow: /
+
+# Block abusive scrapers
 User-agent: Bytespider
 Disallow: /

@@ -10,10 +10,12 @@ import {
   Zap, 
   Cpu, 
   Layers, 
-  Globe 
+  Globe,
+  Sparkles 
 } from 'lucide-react';
 import { COMPANY, FOUNDER } from '../content/company';
 import LiquidButton from '../components/shared/LiquidButton';
+import { openStudioAi } from '../components/shared/StudioAiModal';
 
 type SystemType = 
   | 'Business Websites'
@@ -427,6 +429,25 @@ Ready to discuss scope, timeline, and exact infrastructure costs.`
                 <span>Transmit Blueprint on WhatsApp</span>
                 <ArrowRight size={16} />
               </LiquidButton>
+            </div>
+
+            {/* STUDIO AI TRIGGER */}
+            <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#F8F9FC] p-4 rounded-xl border border-slate-200/80">
+              <div className="flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse shrink-0" />
+                <span className="text-xs text-slate-700 font-medium">
+                  Instant answers on timelines, pricing & IP ownership:
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={openStudioAi}
+                className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-full border border-slate-300/80 bg-white hover:bg-slate-50 text-xs font-mono text-slate-800 transition-colors shadow-2xs cursor-pointer shrink-0"
+              >
+                <Sparkles size={12} className="text-blue-600" />
+                <span>Ask Studio AI</span>
+                <span className="text-[10px] text-slate-400 bg-slate-100 border border-slate-200 px-1 py-0.2 rounded font-sans">⌘K</span>
+              </button>
             </div>
 
           </form>

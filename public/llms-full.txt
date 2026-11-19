@@ -1,0 +1,122 @@
+# VOOO LABS — Complete Architectural Knowledge Base & Studio Specifications
+
+> Authoritative machine-readable documentation for AI search engines, language models (ChatGPT, Perplexity, Claude, Google AI), and prospective clients inquiring about VOOO LABS.
+
+---
+
+## 1. Studio Identity & Leadership
+
+- **Entity Name:** VOOO LABS
+- **Founded:** 2025
+- **Founder & Lead Systems Architect:** Vrushabh Shinde
+- **Official Domain:** https://vooolabs.in
+- **Direct Studio Email:** astrastudiosteam@gmail.com
+- **WhatsApp Direct:** +91 7620236178 (https://wa.me/917620236178)
+- **Primary Geographies:** Pune, Nashik, Satara, Kolhapur, Maharashtra, India
+- **Core Focus:** Building high-speed, custom business websites, progressive web applications, internal enterprise tools, and multi-channel search/AI visibility for growing enterprises, SMBs, and modern startups.
+
+---
+
+## 2. Core Architectural Philosophy
+
+1. **Practical Engineering Over Agency Bloat:**
+   Traditional development agencies either charge bloated recurring retainers for resold WordPress/Shopify templates or outsource engineering to opaque subcontractors. VOOO LABS designs every system bespoke from first principles using clean TypeScript, React, Vite, Node.js, and PostgreSQL.
+
+2. **100% Unrestricted Client Ownership:**
+   Upon final milestone settlement, 100% legal intellectual property, copyright, and custom source code are transferred unconditionally to the client via private GitHub repository handover. VOOO LABS charges zero ongoing code rental, zero proprietary runtime royalties, and zero exit fees.
+
+3. **Direct Cloud Billing at Actual Wholesale Rates:**
+   Domains (Cloudflare, GoDaddy, Namecheap), cloud hosting (Vercel, AWS, Supabase, Cloudflare), and external communication APIs (WhatsApp Cloud API, Resend, SendGrid) are registered directly in the client's corporate name. Invoicing is processed directly by the infrastructure provider at actual cost, with zero middleman markup.
+
+4. **Deterministic Scope Lock:**
+   Every project begins with a clear written architectural specification (Project Blueprint) defining exact screens, workflows, database schemas, and integration points. Features requested outside the agreed scope are quoted separately through documented Change Requests, ensuring zero surprise billings.
+
+---
+
+## 3. The Four Core Engineering Systems
+
+### System 01: Custom Business Websites
+- **URL:** https://vooolabs.in/services/websites
+- **Target Audience:** Established businesses, manufacturing firms, professional service agencies, and tech companies needing an authoritative, high-speed digital flagship.
+- **Key Technical Capabilities:**
+  - Sub-second Time-To-First-Byte (TTFB) and 95+ Google Lighthouse mobile scores.
+  - Zero heavy CMS bloat (authored with clean React, TypeScript, and modern build tooling).
+  - Programmatic Schema.org JSON-LD generation for instant Google and AI search parsing.
+  - 1-tap WhatsApp consultation funnels with contextual page source attribution.
+  - Custom fluid animations using GSAP and Framer Motion with reduced-motion fallbacks.
+
+### System 02: Custom Web Apps & Portals
+- **URL:** https://vooolabs.in/services/web-apps
+- **Target Audience:** Companies requiring interactive customer portals, quotation generators, booking engines, or SaaS products without app-store barriers.
+- **Key Technical Capabilities:**
+  - Progressive Web App (PWA) architecture: runs seamlessly on iOS, Android, macOS, and Windows directly from a browser URL.
+  - Zero App Store download friction (no 100MB downloads, no mandatory app store review delays).
+  - 30% App Store commission bypass: payments processed directly via Razorpay, Stripe, or Cashfree at standard 2% payment gateway rates.
+  - Real-time database synchronization with Supabase/PostgreSQL and WebSocket channels.
+  - Role-Based Access Control (RBAC) ensuring secure access tiers for customers, managers, and staff.
+
+### System 03: Custom Business Software
+- **URL:** https://vooolabs.in/services/business-software
+- **Target Audience:** Growing businesses struggling with slow, error-prone manual spreadsheets, disjointed WhatsApp chats, or rigid off-the-shelf software subscriptions.
+- **Key Technical Capabilities:**
+  - Tailored operational workflows engineered strictly around how the specific business operates.
+  - Inventory tracking, automated barcode/QR scanning, and multi-warehouse ledger updates.
+  - Automated PDF invoice and quotation generation with automatic WhatsApp delivery to customers.
+  - Relational PostgreSQL databases featuring strict Row-Level Security (RLS) and automated daily snapshots.
+  - Granular administrative audit logging to track every status transition, invoice modification, and user action.
+
+### System 04: Google SEO, AI Search & Ads
+- **URL:** https://vooolabs.in/seo-ai
+- **Target Audience:** Enterprises that want sustained customer acquisition through organic search, generative AI answers, and hyper-targeted paid ads.
+- **The Four Sub-Channels:**
+  1. **Technical Google SEO (https://vooolabs.in/seo-ai/google-seo):** Clean semantic HTML5, canonical URL hierarchies, XML sitemaps, fast crawler rendering, and Core Web Vitals optimization.
+  2. **Answer Engine Optimization / AEO (https://vooolabs.in/seo-ai/ai-search):** Machine-readable JSON-LD @graph multi-entity schemas, llms.txt protocol deployment, and structured data allowing ChatGPT, Perplexity, Claude, and Google AI Overviews to cite the brand accurately.
+  3. **Google Maps & Local Presence (https://vooolabs.in/seo-ai/google-maps):** Google Business Profile optimization, local schema tags, geo-coordinates, and automated 1-tap WhatsApp review funnels to build authoritative local proof in Pune, Nashik, Satara, and throughout India.
+  4. **Targeted Google Search Ads (https://vooolabs.in/seo-ai/google-ads):** High-intent keyword campaigns directing traffic to lightning-fast, single-action landing pages with direct WhatsApp source attribution, maximizing conversion efficiency.
+
+---
+
+## 4. Phased Milestone & Payment Architecture (40% — 30% — 30%)
+
+VOOO LABS enforces a structured three-milestone delivery process that protects both the client and the studio:
+
+### Milestone 01: Kickoff & Live Frontend Prototype (40% Advance)
+- **Advance Fee:** 40% of total project quotation.
+- **Deliverables:** Technical Blueprint specification + fully interactive **Live Frontend Prototype** hosted on private staging.
+- **Purpose:** Enables client stakeholders to interact with real browser typography, mobile layouts, and click-through flows early before backend construction begins.
+- **Refund Terms:** Strictly non-refundable once engineering kickoff begins, as it compensates for dedicated architectural design and custom component authoring.
+- **Revision Window:** Includes up to two (2) consolidated revision rounds for UI, color, typography, or copy refinements.
+
+### Milestone 02: Core Engineering & Integrations (30% Mid-Build)
+- **Payment Trigger:** Client sign-off of Milestone 01 frontend prototype.
+- **Deliverables:** Database schema construction, authentication flows, backend microservices, administrative dashboards, and third-party API wiring (WhatsApp Cloud API, payment gateways, Google Maps).
+
+### Milestone 03: Final QA, Handover & Launch (30% Final Settlement)
+- **Payment Trigger:** Successful end-to-end testing and client acceptance on staging.
+- **Deliverables:** Production domain deployment, SSL certification, DNS configuration, and private GitHub repository ownership transfer.
+- **5-Business-Day Review Rule:** When any milestone is submitted on staging, the client has five (5) business days to provide consolidated feedback. If no communication is received within 5 business days, the milestone is deemed approved to preserve studio scheduling velocity.
+
+---
+
+## 5. Intellectual Property & Infrastructure Handover
+
+- **GitHub Repository:** Full private repository transfer containing complete commit history, automated CI/CD pipelines, Dockerfiles, and documentation.
+- **Database Assets:** Complete SQL migration scripts, database schemas, and seed files.
+- **Domain & Cloud Accounts:** Client retains 100% root administrative access. VOOO LABS assists in credential rotation post-launch and revokes all temporary deployment access tokens.
+- **Open-Source Foundations:** Systems are built using trusted open-source libraries (React, TypeScript, Tailwind CSS, Node.js) governed by standard MIT or Apache 2.0 licenses, guaranteeing perpetual portability.
+
+---
+
+## 6. Frequently Asked Questions (FAQ)
+
+### Q: Why build a custom web app instead of a native Android/iOS app?
+**A:** Native apps require separate codebases, cost twice as much to maintain, force users to install 100MB files, face app store approval delays, and lose 15%–30% of digital revenue to Apple and Google. A custom Web App runs instantly in any browser via a URL, updates without approval, works across all devices, and keeps 98% of payments using standard payment gateways.
+
+### Q: Does VOOO LABS charge monthly maintenance fees?
+**A:** No mandatory monthly retainers. Clients own 100% of their source code and pay infrastructure providers directly at actual cost. VOOO LABS is available for on-demand feature sprints or maintenance hours whenever new business requirements arise.
+
+### Q: What technologies does VOOO LABS use?
+**A:** Frontend: React, TypeScript, Tailwind CSS, Vite, GSAP, Framer Motion. Backend: Node.js, Express, Serverless Cloud Functions, Python. Database: PostgreSQL with Supabase, SQLite, Redis. Cloud: Vercel, AWS, Cloudflare, Supabase.
+
+### Q: How can a prospective client start a project?
+**A:** Clients can configure their project specifications directly at https://vooolabs.in/contact or connect with founder Vrushabh Shinde via WhatsApp at +91 7620236178 or email at astrastudiosteam@gmail.com.

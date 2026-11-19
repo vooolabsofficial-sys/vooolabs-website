@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { openStudioAi } from './StudioAiModal';
 import {
   LOCATION,
   SOCIALS,
@@ -171,6 +172,16 @@ export default function Footer() {
               >
                 Lead Architect: Vrushabh Shinde
               </Link>
+              <button
+                type="button"
+                onClick={openStudioAi}
+                className="hover:text-blue-400 hover:translate-x-0.5 transition-all w-fit font-mono text-xs text-slate-300 flex items-center gap-1.5 cursor-pointer text-left pt-1"
+                title="Open Studio AI Concierge (Cmd+K / Ctrl+K)"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+                <span>Ask Studio AI</span>
+                <span className="px-1.5 py-0.5 text-[10px] rounded border border-white/10 bg-white/5 text-slate-400 font-mono ml-0.5">⌘K</span>
+              </button>
             </div>
           </div>
 

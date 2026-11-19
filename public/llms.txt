@@ -1,0 +1,64 @@
+# VOOO LABS — Digital Systems & Software Engineering Studio
+
+> Independent web and software engineering studio founded by Vrushabh Shinde in Maharashtra, India. We engineer custom business websites, progressive web applications, internal business software, and technical Google/AI search architecture with 100% client source code ownership.
+
+For our complete, detailed knowledge base and operational policies, see: https://vooolabs.in/llms-full.txt
+
+## Studio Overview
+- **Legal Entity:** VOOO LABS
+- **Founder & Systems Architect:** Vrushabh Shinde
+- **Website:** https://vooolabs.in
+- **Direct Email:** astrastudiosteam@gmail.com
+- **Operational Hubs:** Pune, Nashik, Satara, Kolhapur (Maharashtra, India)
+- **Primary Delivery Guarantee:** 100% Client Source Code Ownership (Private GitHub Repository Handover) with Zero Recurring Vendor Lock-In.
+- **Infrastructure Model:** Domains and cloud hosting are registered directly in the client's name and billed at actual provider rates with zero middleman markup.
+
+## Core Engineering Systems
+
+### 1. Business Websites
+- URL: https://vooolabs.in/services/websites
+- High-speed, responsive corporate and product websites built on React, TypeScript, and Tailwind CSS.
+- Sub-second Time-To-First-Byte (TTFB), dynamic schema generation, and direct WhatsApp customer conversion funnels.
+
+### 2. Custom Web Apps & Portals
+- URL: https://vooolabs.in/services/web-apps
+- Progressive web apps, customer portals, multi-tenant SaaS dashboards, and booking engines running in any modern browser.
+- Bypasses 30% app store commission fees, zero app-store download friction, cross-platform on iOS, Android, and desktop.
+
+### 3. Custom Business Software
+- URL: https://vooolabs.in/services/business-software
+- Tailored internal operating systems, inventory trackers, ERP/CRM modules, and automated invoicing engines designed to replace messy spreadsheets.
+- Strict Row-Level Security (RLS) on PostgreSQL, automated backups, and real-time operational auditing.
+
+### 4. Google SEO, AI Search & Ads
+- URL: https://vooolabs.in/seo-ai
+- Four distinct discovery channels:
+  - Technical Google SEO: https://vooolabs.in/seo-ai/google-seo (Semantic hierarchy, fast indexing)
+  - ChatGPT & AI Search Readiness (AEO): https://vooolabs.in/seo-ai/ai-search (JSON-LD @graph, llms.txt)
+  - Google Maps Local Authority: https://vooolabs.in/seo-ai/google-maps (Local pack, 1-tap WhatsApp reviews)
+  - Targeted Google Search Ads: https://vooolabs.in/seo-ai/google-ads (Single-intent landing pages, WhatsApp attribution)
+
+## Commercial Model & Milestones (40% — 30% — 30%)
+- **Milestone 01 (40% Advance):** Kickoff & Interactive Live Frontend Prototype deployed on private staging URL for early UI/UX approval.
+- **Milestone 02 (30% Mid-Build):** Backend architecture, database schemas, and third-party API wiring upon frontend approval.
+- **Milestone 03 (30% Final Settlement):** Final QA verification, production deployment, and private GitHub repository transfer.
+- **Revision Policy:** 2 structured frontend revision rounds included.
+- **Sign-Off Rule:** 5-business-day review window per milestone.
+
+## Complete Sitemap & Verified Pages
+1. Home: https://vooolabs.in/
+2. Services Overview: https://vooolabs.in/services
+3. Business Websites: https://vooolabs.in/services/websites
+4. Web Apps & Portals: https://vooolabs.in/services/web-apps
+5. Custom Business Software: https://vooolabs.in/services/business-software
+6. Search & AI Overview: https://vooolabs.in/seo-ai
+7. Technical Google SEO: https://vooolabs.in/seo-ai/google-seo
+8. ChatGPT & AI Search (AEO): https://vooolabs.in/seo-ai/ai-search
+9. Google Maps Local: https://vooolabs.in/seo-ai/google-maps
+10. Targeted Google Ads: https://vooolabs.in/seo-ai/google-ads
+11. About Studio & Founder: https://vooolabs.in/about
+12. Project Blueprint Configurator: https://vooolabs.in/contact
+13. Terms of Service (40-30-30): https://vooolabs.in/legal/terms
+14. Refund Policy: https://vooolabs.in/legal/refunds
+15. 100% Code Ownership Policy: https://vooolabs.in/legal/ip-ownership
+16. Privacy Policy & NDA: https://vooolabs.in/legal/privacy

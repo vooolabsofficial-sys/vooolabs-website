@@ -7,6 +7,8 @@ import Footer from './components/shared/Footer';
 import FixedBottomBar from './components/shared/FixedBottomBar';
 import BrandPreloader from './components/shared/BrandPreloader';
 import TopRouteProgressBar from './components/shared/TopRouteProgressBar';
+import RouteSeo from './components/shared/RouteSeo';
+import StudioAiModal from './components/shared/StudioAiModal';
 
 // Route-level code splitting using React.lazy() for optimal loading speed and minimal initial bundle
 const HomePage = React.lazy(() => import('./pages/HomePage'));
@@ -185,6 +187,8 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <RouteSeo />
+      <StudioAiModal />
       {showPreloader && (
         <BrandPreloader onComplete={() => setShowPreloader(false)} />
       )}
