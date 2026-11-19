@@ -636,7 +636,7 @@ p {
   transition: transform 140ms ease-out, box-shadow 140ms ease-out;
 }
 
-/* Smooth circular mode transform for AboutPage */
+/* Smooth circular mode transform for AboutPage with luminous liquid leading edge */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -649,4 +649,5 @@ p {
 
 ::view-transition-new(root) {
   z-index: 9999;
+  filter: drop-shadow(0 0 20px rgba(66, 133, 244, 0.70)) drop-shadow(0 0 6px rgba(66, 133, 244, 0.90));
 }

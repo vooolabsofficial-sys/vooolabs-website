@@ -43,6 +43,8 @@ export default function AboutPage() {
   const [mode, setMode] = useState<PhilosophyMode>('beautiful');
   const containerRef = useRef<HTMLDivElement>(null);
   const scanBeamRef = useRef<HTMLDivElement>(null);
+  const liquidRingRef = useRef<HTMLDivElement>(null);
+  const toggleDeckRef = useRef<HTMLDivElement>(null);
   const fallbackCurtainRef = useRef<HTMLDivElement>(null);
   const portraitFrameRef = useRef<HTMLDivElement>(null);
 
@@ -133,7 +135,7 @@ export default function AboutPage() {
     gsap.set(curtain, {
       display: 'block',
       opacity: 1,
-      backgroundColor: nextMode === 'work' ? '#F8FAFC' : '#FFFFFF',
+      backgroundColor: nextMode === 'work' ? '#F1F5F9' : '#FFFFFF',
       clipPath: `circle(0px at ${x}px ${y}px)`,
     });
 
@@ -167,6 +169,15 @@ export default function AboutPage() {
     // Play tactile mechanical audio click
     playMechanicalClick(nextMode === 'work');
 
+    // Tactile spring squeeze on toggle switch deck
+    if (toggleDeckRef.current) {
+      gsap.fromTo(
+        toggleDeckRef.current,
+        { scale: 0.94 },
+        { scale: 1, duration: 0.45, ease: 'back.out(2)' }
+      );
+    }
+
     const rect = event.currentTarget.getBoundingClientRect();
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
@@ -174,6 +185,33 @@ export default function AboutPage() {
       Math.max(x, window.innerWidth - x),
       Math.max(y, window.innerHeight - y)
     );
+
+    // Expand visible liquid shockwave wavefront across the screen
+    if (liquidRingRef.current) {
+      const ring = liquidRingRef.current;
+      const isTargetWork = nextMode === 'work';
+      gsap.killTweensOf(ring);
+      gsap.set(ring, {
+        left: x,
+        top: y,
+        width: 0,
+        height: 0,
+        opacity: 1,
+        borderColor: isTargetWork ? 'rgba(15, 23, 42, 0.75)' : 'rgba(66, 133, 244, 0.85)',
+        boxShadow: isTargetWork
+          ? '0 0 32px rgba(15, 23, 42, 0.4), inset 0 0 20px rgba(15, 23, 42, 0.25)'
+          : '0 0 38px rgba(66, 133, 244, 0.6), inset 0 0 24px rgba(66, 133, 244, 0.35)',
+        borderWidth: '3.5px',
+        borderStyle: 'solid',
+      });
+      gsap.to(ring, {
+        width: endRadius * 2.2,
+        height: endRadius * 2.2,
+        duration: 0.9,
+        ease: 'power2.out',
+        opacity: 0,
+      });
+    }
 
     const prefersReduced =
       typeof window !== 'undefined' &&
@@ -246,7 +284,7 @@ export default function AboutPage() {
     <div
       ref={containerRef}
       className={`page-wrap min-h-screen text-slate-900 select-none relative overflow-hidden transition-colors duration-500 ${
-        isWork ? 'bg-[#F8FAFC]' : 'bg-white'
+        isWork ? 'bg-[#F1F5F9]' : 'bg-white'
       }`}
     >
       {/* 2PX STUDIO BRAND PROGRESS GRADIENT LINE */}
@@ -266,6 +304,17 @@ export default function AboutPage() {
           boxShadow: isWork
             ? '0 0 12px rgba(10, 15, 30, 0.4)'
             : '0 0 16px rgba(66, 133, 244, 0.5)',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* EXPANDING LIQUID SHOCKWAVE RING (FIRES VISIBLY ON MODE TOGGLE) */}
+      <div
+        ref={liquidRingRef}
+        className="pointer-events-none fixed rounded-full z-40 opacity-0"
+        style={{
+          transform: 'translate(-50%, -50%)',
+          willChange: 'width, height, top, left, opacity',
         }}
         aria-hidden="true"
       />
@@ -293,7 +342,7 @@ export default function AboutPage() {
       <div
         className={`absolute inset-0 pointer-events-none transition-opacity duration-500 z-0 ${
           isWork
-            ? 'opacity-100 bg-[linear-gradient(to_right,rgba(15,23,42,0.055)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.055)_1px,transparent_1px)] bg-[size:40px_40px]'
+            ? 'opacity-100 bg-[linear-gradient(to_right,rgba(15,23,42,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.08)_1px,transparent_1px)] bg-[size:40px_40px]'
             : 'opacity-0'
         }`}
         aria-hidden="true"
@@ -327,16 +376,16 @@ export default function AboutPage() {
             </span>
           </div>
 
-          {/* HEADER SPLIT ROW */}
+          {/* HEADER ROW */}
           <div
-            className={`mt-2 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 pb-12 transition-all duration-300 ${
+            className={`mt-2 pb-10 transition-all duration-300 ${
               isWork
-                ? 'border-b border-dashed border-slate-400/80'
+                ? 'border-b border-dashed border-slate-300/80'
                 : 'border-b border-slate-200/80'
             }`}
           >
-            {/* LEFT — MASKED KINETIC HEADLINE & ORIGINAL THESIS */}
-            <div className="max-w-3xl">
+            {/* MASKED KINETIC HEADLINE & ORIGINAL THESIS */}
+            <div className="max-w-4xl">
               <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500 block mb-3">
                 {isWork
                   ? 'SYS_MANIFESTO // LOGIC FIRST'
@@ -371,47 +420,67 @@ export default function AboutPage() {
                 Practical business software, engineered without enterprise bloat. Modern AI has changed how fast software can be built—but reliable systems still require clear architectural thinking. We build custom websites, portals, and internal software shaped strictly around how your business operates.
               </p>
             </div>
+          </div>
 
-            {/* RIGHT — PRECISION SLIDING TOGGLE SWITCH */}
-            <div className="shrink-0 flex flex-col items-start lg:items-end">
-              <div className="relative inline-flex items-center p-1 rounded-full border border-slate-200/90 bg-[#F8F9FC] shadow-2xs">
-                {/* SMOOTH SLIDING ACTIVE INDICATOR PILL */}
-                <div
-                  className="absolute top-1 bottom-1 rounded-full bg-[#0A0F1E] shadow-sm transition-transform duration-300 ease-out"
-                  style={{
-                    left: '4px',
-                    width: 'calc(50% - 4px)',
-                    transform: isWork ? 'translateX(100%)' : 'translateX(0)',
-                  }}
-                  aria-hidden="true"
-                />
-
-                <button
-                  type="button"
-                  onClick={(e) => handleModeToggle('beautiful', e)}
-                  className={`relative z-10 min-h-[44px] px-5 font-mono text-xs font-semibold rounded-full transition-colors duration-300 flex items-center justify-center cursor-pointer ${
-                    !isWork ? 'text-white' : 'text-slate-600 hover:text-slate-950'
-                  }`}
-                  aria-pressed={!isWork}
-                >
-                  01. Beautiful
-                </button>
-
-                <button
-                  type="button"
-                  onClick={(e) => handleModeToggle('work', e)}
-                  className={`relative z-10 min-h-[44px] px-5 font-mono text-xs font-semibold rounded-full transition-colors duration-300 flex items-center justify-center cursor-pointer ${
-                    isWork ? 'text-white' : 'text-slate-600 hover:text-slate-950'
-                  }`}
-                  aria-pressed={isWork}
-                >
-                  02. Work
-                </button>
-              </div>
-
-              <span className="mt-2 font-mono text-[11px] text-slate-400 lg:text-right block">
-                Switch to compare raw logic vs. finished craft
+          {/* DEDICATED INTERACTIVE MODE SWITCH BAR — POSITIONED DIRECTLY BELOW THE LINE */}
+          <div className="pt-7 pb-2 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+            <div className="flex items-center gap-3">
+              <span
+                className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
+                  isWork ? 'bg-orange-500' : 'bg-blue-600 animate-pulse'
+                }`}
+                aria-hidden="true"
+              />
+              <span className="font-mono text-xs uppercase tracking-[0.14em] text-slate-500">
+                {isWork ? (
+                  <span>
+                    <strong className="text-slate-950 font-bold">MODE 02: WORK</strong> · ARCHITECTURAL SKELETON & RAW LOGIC
+                  </span>
+                ) : (
+                  <span>
+                    <strong className="text-slate-950 font-bold">MODE 01: BEAUTIFUL</strong> · FINISHED HIGH-CRAFT PRODUCTION
+                  </span>
+                )}
               </span>
+            </div>
+
+            {/* PRECISION LIQUID SLIDING TOGGLE SWITCH */}
+            <div
+              ref={toggleDeckRef}
+              className="relative inline-flex items-center p-1.5 rounded-full border border-slate-200/90 bg-[#F8F9FC] shadow-sm backdrop-blur-sm self-start sm:self-auto"
+            >
+              {/* SMOOTH SLIDING ACTIVE INDICATOR PILL */}
+              <div
+                className="absolute top-1.5 bottom-1.5 rounded-full bg-[#0A0F1E] shadow-sm transition-transform duration-300 ease-out"
+                style={{
+                  left: '6px',
+                  width: 'calc(50% - 6px)',
+                  transform: isWork ? 'translateX(100%)' : 'translateX(0)',
+                }}
+                aria-hidden="true"
+              />
+
+              <button
+                type="button"
+                onClick={(e) => handleModeToggle('beautiful', e)}
+                className={`relative z-10 min-h-[44px] px-6 font-mono text-xs font-semibold rounded-full transition-colors duration-300 flex items-center justify-center cursor-pointer ${
+                  !isWork ? 'text-white' : 'text-slate-600 hover:text-slate-950'
+                }`}
+                aria-pressed={!isWork}
+              >
+                01. Beautiful
+              </button>
+
+              <button
+                type="button"
+                onClick={(e) => handleModeToggle('work', e)}
+                className={`relative z-10 min-h-[44px] px-6 font-mono text-xs font-semibold rounded-full transition-colors duration-300 flex items-center justify-center cursor-pointer ${
+                  isWork ? 'text-white' : 'text-slate-600 hover:text-slate-950'
+                }`}
+                aria-pressed={isWork}
+              >
+                02. Work
+              </button>
             </div>
           </div>
         </section>
