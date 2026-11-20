@@ -1528,83 +1528,19 @@ fs.writeFileSync(
 );
 
 /* ═══════════════════════════════════════════════════════════════════════
-   9. EMAIL SIGNATURES (templates/email-signature/)
+   9. EMAIL SIGNATURES (templates/email-signature/) — 5 ZOHO MAIL PROFILES
    ═══════════════════════════════════════════════════════════════════════ */
 const sigDir = path.join(templatesDir, 'email-signature');
 fs.mkdirSync(sigDir, { recursive: true });
 
-// 9.1 Founder Signature (Without defensive ownership badge)
-const founderSig = `<!DOCTYPE html>
+// 9.1 hello@vooolabs.in (Display Name: Vooo Labs)
+const helloSig = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>VOOO LABS — Founder Email Signature</title>
+  <title>VOOO LABS — hello@vooolabs.in Signature</title>
 </head>
 <body style="margin: 0; padding: 24px; background: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-
-  <!-- START OF EMAIL SIGNATURE -->
-  <table cellpadding="0" cellspacing="0" border="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #1E293B; max-width: 540px; background: #FFFFFF;">
-    <tr>
-      <td valign="top" style="padding-right: 18px; vertical-align: top;">
-        <img src="https://vooolabs.in/images/vrushabh-shinde.jpg" width="80" height="80" alt="Vrushabh Shinde" style="display: block; width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #E2E8F0;" />
-      </td>
-
-      <td valign="top" style="border-left: 2px solid #4285F4; padding-left: 18px; vertical-align: top;">
-        <div style="font-size: 16px; font-weight: 700; color: #020617; letter-spacing: -0.3px; line-height: 1.2;">
-          Vrushabh Shinde
-        </div>
-        <div style="font-size: 12px; font-weight: 600; color: #475569; margin-top: 3px; letter-spacing: 0.2px;">
-          Founder &amp; Systems Architect &bull; <span style="color: #4285F4; font-weight: 700;">VOOO LABS</span>
-        </div>
-        
-        <div style="font-size: 11px; color: #64748B; margin-top: 5px;">
-          Engineering Digital Products with Obsession &amp; Scale
-        </div>
-
-        <div style="height: 1px; background: #E2E8F0; margin: 10px 0;"></div>
-
-        <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #334155; line-height: 1.6;">
-          <tr>
-            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">W:</td>
-            <td><a href="https://vooolabs.in" target="_blank" style="color: #4285F4; text-decoration: none; font-weight: 600;">vooolabs.in</a></td>
-            <td style="padding: 0 10px; color: #CBD5E1;">&bull;</td>
-            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">E:</td>
-            <td><a href="mailto:hello@vooolabs.in" style="color: #334155; text-decoration: none;">hello@vooolabs.in</a></td>
-          </tr>
-          <tr>
-            <td style="padding-right: 6px; color: #10B981; font-family: monospace; font-size: 11px;">M:</td>
-            <td><a href="https://wa.me/917620236178" target="_blank" style="color: #334155; text-decoration: none;">+91 76202 36178</a> <span style="font-size: 10px; color: #10B981; font-weight: 600;">(WhatsApp)</span></td>
-            <td style="padding: 0 10px; color: #CBD5E1;">&bull;</td>
-            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">L:</td>
-            <td style="color: #64748B;">Maharashtra, India</td>
-          </tr>
-        </table>
-
-        <div style="margin-top: 10px; font-size: 11px;">
-          <a href="https://linkedin.com/in/vrushabh-shinde-43338125b/" target="_blank" style="color: #0A66C2; text-decoration: none; font-weight: 600; margin-right: 14px;">LinkedIn &rarr;</a>
-          <a href="https://github.com/vooolabs" target="_blank" style="color: #24292F; text-decoration: none; font-weight: 600; margin-right: 14px;">GitHub &rarr;</a>
-          <span style="color: #94A3B8; font-size: 10px;">Satara &bull; Pune &bull; Nashik &bull; Kolhapur</span>
-        </div>
-      </td>
-    </tr>
-  </table>
-  <!-- END OF EMAIL SIGNATURE -->
-
-</body>
-</html>`;
-
-fs.writeFileSync(path.join(sigDir, 'founder-signature.html'), founderSig, 'utf8');
-
-// 9.2 Studio Signature (Without defensive ownership badge)
-const studioSig = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>VOOO LABS — Studio Corporate Email Signature</title>
-</head>
-<body style="margin: 0; padding: 24px; background: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-
-  <!-- START OF EMAIL SIGNATURE -->
   <table cellpadding="0" cellspacing="0" border="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #1E293B; max-width: 560px; background: #FFFFFF;">
     <tr>
       <td valign="top" style="padding-right: 18px; vertical-align: top;">
@@ -1612,49 +1548,245 @@ const studioSig = `<!DOCTYPE html>
           <img src="https://vooolabs.in/images/google-business/vooolabs-google-business-logo-white.png" width="84" height="84" alt="VOOO LABS" style="display: block; width: 84px; height: 84px; border-radius: 14px; border: 1px solid #E2E8F0;" />
         </a>
       </td>
-
-      <td valign="top" style="border-left: 2px solid #7C3AED; padding-left: 18px; vertical-align: top;">
+      <td valign="top" style="border-left: 2px solid #4285F4; padding-left: 18px; vertical-align: top;">
         <div style="font-size: 16px; font-weight: 800; color: #020617; letter-spacing: -0.2px; line-height: 1.2;">
           VOOO LABS &bull; <span style="font-size: 12px; font-weight: 600; color: #64748B; text-transform: uppercase; letter-spacing: 1px;">Digital Product Studio</span>
         </div>
         <div style="font-size: 11px; font-weight: 500; color: #475569; margin-top: 3px;">
           Custom Websites &bull; Web Apps &bull; Business Software &bull; Search &amp; AI
         </div>
-
         <div style="height: 1px; background: #E2E8F0; margin: 10px 0;"></div>
-
         <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #334155; line-height: 1.6;">
           <tr>
             <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">WEB:</td>
             <td><a href="https://vooolabs.in" target="_blank" style="color: #4285F4; text-decoration: none; font-weight: 600;">vooolabs.in</a></td>
             <td style="padding: 0 10px; color: #CBD5E1;">&bull;</td>
             <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">EMAIL:</td>
-            <td><a href="mailto:hello@vooolabs.in" style="color: #334155; text-decoration: none;">hello@vooolabs.in</a></td>
+            <td><a href="mailto:hello@vooolabs.in" style="color: #334155; text-decoration: none; font-weight: 600;">hello@vooolabs.in</a></td>
           </tr>
           <tr>
             <td style="padding-right: 6px; color: #10B981; font-family: monospace; font-size: 11px;">CALL:</td>
-            <td><a href="tel:+917620236178" style="color: #334155; text-decoration: none;">+91 76202 36178</a></td>
+            <td><a href="https://wa.me/917620236178" target="_blank" style="color: #334155; text-decoration: none;">+91 76202 36178</a> <span style="font-size: 10px; color: #10B981; font-weight: 600;">(Call / WhatsApp)</span></td>
             <td style="padding: 0 10px; color: #CBD5E1;">&bull;</td>
             <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">HUBS:</td>
             <td style="color: #64748B;">Maharashtra (Satara &bull; Pune &bull; Nashik &bull; Kolhapur)</td>
           </tr>
         </table>
-
-        <div style="margin-top: 10px; display: flex; align-items: center; gap: 12px; font-size: 11px;">
-          <a href="https://linkedin.com/company/vooolabs" target="_blank" style="color: #0A66C2; text-decoration: none; font-weight: 600; margin-right: 12px;">LinkedIn &rarr;</a>
-          <a href="https://github.com/vooolabs" target="_blank" style="color: #24292F; text-decoration: none; font-weight: 600; margin-right: 12px;">GitHub &rarr;</a>
+        <div style="margin-top: 10px; font-size: 11px; color: #94A3B8;">
+          Precision Engineering &bull; Modern Architecture &bull; Measurable Scale
         </div>
       </td>
     </tr>
   </table>
-  <!-- END OF EMAIL SIGNATURE -->
-
 </body>
 </html>`;
 
-fs.writeFileSync(path.join(sigDir, 'studio-signature.html'), studioSig, 'utf8');
+fs.writeFileSync(path.join(sigDir, 'hello-signature.html'), helloSig, 'utf8');
+fs.writeFileSync(path.join(sigDir, 'studio-signature.html'), helloSig, 'utf8');
 
-// 9.3 Minimal Signature
+// 9.2 vrushabh@vooolabs.in (Display Name: Vrushabh Shinde)
+const vrushabhSig = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>VOOO LABS — vrushabh@vooolabs.in Signature</title>
+</head>
+<body style="margin: 0; padding: 24px; background: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <table cellpadding="0" cellspacing="0" border="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #1E293B; max-width: 560px; background: #FFFFFF;">
+    <tr>
+      <td valign="top" style="padding-right: 18px; vertical-align: top;">
+        <img src="https://vooolabs.in/images/vrushabh-shinde.jpg" width="80" height="80" alt="Vrushabh Shinde" style="display: block; width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #E2E8F0;" />
+      </td>
+      <td valign="top" style="border-left: 2px solid #4285F4; padding-left: 18px; vertical-align: top;">
+        <div style="font-size: 16px; font-weight: 700; color: #020617; letter-spacing: -0.3px; line-height: 1.2;">
+          Vrushabh Shinde
+        </div>
+        <div style="font-size: 12px; font-weight: 600; color: #475569; margin-top: 3px; letter-spacing: 0.2px;">
+          Founder &amp; Systems Architect &bull; <span style="color: #4285F4; font-weight: 700;">VOOO LABS</span>
+        </div>
+        <div style="font-size: 11px; color: #64748B; margin-top: 5px;">
+          Engineering Digital Products with Obsession &amp; Scale
+        </div>
+        <div style="height: 1px; background: #E2E8F0; margin: 10px 0;"></div>
+        <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #334155; line-height: 1.6;">
+          <tr>
+            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">WEB:</td>
+            <td><a href="https://vooolabs.in" target="_blank" style="color: #4285F4; text-decoration: none; font-weight: 600;">vooolabs.in</a></td>
+            <td style="padding: 0 10px; color: #CBD5E1;">&bull;</td>
+            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">EMAIL:</td>
+            <td><a href="mailto:vrushabh@vooolabs.in" style="color: #334155; text-decoration: none; font-weight: 600;">vrushabh@vooolabs.in</a></td>
+          </tr>
+          <tr>
+            <td style="padding-right: 6px; color: #10B981; font-family: monospace; font-size: 11px;">DIRECT:</td>
+            <td><a href="https://wa.me/917620236178" target="_blank" style="color: #334155; text-decoration: none;">+91 76202 36178</a> <span style="font-size: 10px; color: #10B981; font-weight: 600;">(WhatsApp)</span></td>
+            <td style="padding: 0 10px; color: #CBD5E1;">&bull;</td>
+            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">HUBS:</td>
+            <td style="color: #64748B;">Satara &bull; Pune &bull; Nashik &bull; Kolhapur</td>
+          </tr>
+        </table>
+        <div style="margin-top: 10px; font-size: 10px; color: #94A3B8; line-height: 1.4; border-top: 1px dashed #E2E8F0; padding-top: 8px;">
+          <span style="font-weight: 600; color: #64748B;">Confidentiality:</span> This communication and any attachments are confidential and intended solely for the recipient.
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+fs.writeFileSync(path.join(sigDir, 'vrushabh-signature.html'), vrushabhSig, 'utf8');
+fs.writeFileSync(path.join(sigDir, 'founder-signature.html'), vrushabhSig, 'utf8');
+
+// 9.3 billing@vooolabs.in (Display Name: Vooo Labs Billing)
+const billingSig = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>VOOO LABS — billing@vooolabs.in Signature</title>
+</head>
+<body style="margin: 0; padding: 24px; background: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <table cellpadding="0" cellspacing="0" border="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #1E293B; max-width: 560px; background: #FFFFFF;">
+    <tr>
+      <td valign="top" style="padding-right: 18px; vertical-align: top;">
+        <a href="https://vooolabs.in" target="_blank" style="text-decoration: none; display: block;">
+          <img src="https://vooolabs.in/images/google-business/vooolabs-google-business-logo-white.png" width="84" height="84" alt="VOOO LABS Billing" style="display: block; width: 84px; height: 84px; border-radius: 14px; border: 2px solid #10B981;" />
+        </a>
+      </td>
+      <td valign="top" style="border-left: 2px solid #10B981; padding-left: 18px; vertical-align: top;">
+        <div style="font-size: 16px; font-weight: 800; color: #020617; letter-spacing: -0.2px; line-height: 1.2;">
+          VOOO LABS &bull; <span style="font-size: 12px; font-weight: 700; color: #10B981; text-transform: uppercase; letter-spacing: 1px;">Finance &amp; Accounts Desk</span>
+        </div>
+        <div style="font-size: 11px; font-weight: 500; color: #475569; margin-top: 3px;">
+          Tax Invoices &bull; Milestone Clearances &bull; Official Quotations &bull; Payment Receipts
+        </div>
+        <div style="height: 1px; background: #E2E8F0; margin: 10px 0;"></div>
+        <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #334155; line-height: 1.6;">
+          <tr>
+            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">WEB:</td>
+            <td><a href="https://vooolabs.in" target="_blank" style="color: #4285F4; text-decoration: none; font-weight: 600;">vooolabs.in</a></td>
+            <td style="padding: 0 10px; color: #CBD5E1;">&bull;</td>
+            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">BILLING:</td>
+            <td><a href="mailto:billing@vooolabs.in" style="color: #10B981; text-decoration: none; font-weight: 700;">billing@vooolabs.in</a></td>
+          </tr>
+          <tr>
+            <td style="padding-right: 6px; color: #10B981; font-family: monospace; font-size: 11px;">ACCOUNTS:</td>
+            <td><a href="tel:+917620236178" style="color: #334155; text-decoration: none;">+91 76202 36178</a></td>
+            <td style="padding: 0 10px; color: #CBD5E1;">&bull;</td>
+            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">ENTITY:</td>
+            <td style="color: #64748B;">Udyam Registered &bull; Maharashtra, India</td>
+          </tr>
+        </table>
+        <div style="margin-top: 10px; font-size: 10px; color: #64748B; line-height: 1.4; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 6px 10px;">
+          <span style="font-weight: 700; color: #0F172A;">Payment Notice:</span> Official transfers accepted via Bank Current Account (NEFT/RTGS/IMPS), UPI, and Verified Payment Gateways.
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+fs.writeFileSync(path.join(sigDir, 'billing-signature.html'), billingSig, 'utf8');
+
+// 9.4 support@vooolabs.in (Display Name: Vooo Labs Support)
+const supportSig = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>VOOO LABS — support@vooolabs.in Signature</title>
+</head>
+<body style="margin: 0; padding: 24px; background: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <table cellpadding="0" cellspacing="0" border="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #1E293B; max-width: 560px; background: #FFFFFF;">
+    <tr>
+      <td valign="top" style="padding-right: 18px; vertical-align: top;">
+        <a href="https://vooolabs.in" target="_blank" style="text-decoration: none; display: block;">
+          <img src="https://vooolabs.in/images/google-business/vooolabs-google-business-logo-white.png" width="84" height="84" alt="VOOO LABS Support" style="display: block; width: 84px; height: 84px; border-radius: 14px; border: 2px solid #F97316;" />
+        </a>
+      </td>
+      <td valign="top" style="border-left: 2px solid #F97316; padding-left: 18px; vertical-align: top;">
+        <div style="font-size: 16px; font-weight: 800; color: #020617; letter-spacing: -0.2px; line-height: 1.2;">
+          VOOO LABS &bull; <span style="font-size: 12px; font-weight: 700; color: #F97316; text-transform: uppercase; letter-spacing: 1px;">Technical Support &amp; Maintenance</span>
+        </div>
+        <div style="font-size: 11px; font-weight: 500; color: #475569; margin-top: 3px;">
+          Production Monitoring &bull; Bug Reports &bull; System Updates &bull; SLA Resolution
+        </div>
+        <div style="height: 1px; background: #E2E8F0; margin: 10px 0;"></div>
+        <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #334155; line-height: 1.6;">
+          <tr>
+            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">WEB:</td>
+            <td><a href="https://vooolabs.in" target="_blank" style="color: #4285F4; text-decoration: none; font-weight: 600;">vooolabs.in</a></td>
+            <td style="padding: 0 10px; color: #CBD5E1;">&bull;</td>
+            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">TICKETS:</td>
+            <td><a href="mailto:support@vooolabs.in" style="color: #F97316; text-decoration: none; font-weight: 700;">support@vooolabs.in</a></td>
+          </tr>
+          <tr>
+            <td style="padding-right: 6px; color: #10B981; font-family: monospace; font-size: 11px;">HOTLINE:</td>
+            <td><a href="https://wa.me/917620236178" target="_blank" style="color: #334155; text-decoration: none;">+91 76202 36178</a> <span style="font-size: 10px; color: #10B981; font-weight: 600;">(Urgent WhatsApp)</span></td>
+            <td style="padding: 0 10px; color: #CBD5E1;">&bull;</td>
+            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">HOURS:</td>
+            <td style="color: #64748B;">Mon &ndash; Sat &bull; 9:30 AM &ndash; 7:30 PM IST</td>
+          </tr>
+        </table>
+        <div style="margin-top: 10px; font-size: 10px; color: #64748B; line-height: 1.4; background: #FFF7ED; border: 1px solid #FFEDD5; border-radius: 6px; padding: 6px 10px;">
+          <span style="font-weight: 700; color: #C2410C;">SLA Commitment:</span> Critical production incidents addressed with priority hotfix dispatch.
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+fs.writeFileSync(path.join(sigDir, 'support-signature.html'), supportSig, 'utf8');
+
+// 9.5 legal@vooolabs.in (Display Name: Vooo Labs Legal)
+const legalSig = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>VOOO LABS — legal@vooolabs.in Signature</title>
+</head>
+<body style="margin: 0; padding: 24px; background: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <table cellpadding="0" cellspacing="0" border="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #1E293B; max-width: 560px; background: #FFFFFF;">
+    <tr>
+      <td valign="top" style="padding-right: 18px; vertical-align: top;">
+        <a href="https://vooolabs.in" target="_blank" style="text-decoration: none; display: block;">
+          <img src="https://vooolabs.in/images/google-business/vooolabs-google-business-logo-white.png" width="84" height="84" alt="VOOO LABS Legal" style="display: block; width: 84px; height: 84px; border-radius: 14px; border: 2px solid #0F172A;" />
+        </a>
+      </td>
+      <td valign="top" style="border-left: 2px solid #0F172A; padding-left: 18px; vertical-align: top;">
+        <div style="font-size: 16px; font-weight: 800; color: #020617; letter-spacing: -0.2px; line-height: 1.2;">
+          VOOO LABS &bull; <span style="font-size: 12px; font-weight: 700; color: #0F172A; text-transform: uppercase; letter-spacing: 1px;">Legal &amp; Compliance Desk</span>
+        </div>
+        <div style="font-size: 11px; font-weight: 500; color: #475569; margin-top: 3px;">
+          Master Service Agreements &bull; NDAs &bull; Intellectual Property &bull; Data Governance
+        </div>
+        <div style="height: 1px; background: #E2E8F0; margin: 10px 0;"></div>
+        <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #334155; line-height: 1.6;">
+          <tr>
+            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">WEB:</td>
+            <td><a href="https://vooolabs.in" target="_blank" style="color: #4285F4; text-decoration: none; font-weight: 600;">vooolabs.in</a></td>
+            <td style="padding: 0 10px; color: #CBD5E1;">&bull;</td>
+            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">LEGAL:</td>
+            <td><a href="mailto:legal@vooolabs.in" style="color: #0F172A; text-decoration: none; font-weight: 700;">legal@vooolabs.in</a></td>
+          </tr>
+          <tr>
+            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">JURISDICTION:</td>
+            <td style="color: #475569;">Maharashtra, India</td>
+            <td style="padding: 0 10px; color: #CBD5E1;">&bull;</td>
+            <td style="padding-right: 6px; color: #94A3B8; font-family: monospace; font-size: 11px;">STATUS:</td>
+            <td style="color: #10B981; font-weight: 600;">Authorized Legal Counsel</td>
+          </tr>
+        </table>
+        <div style="margin-top: 10px; font-size: 10px; color: #64748B; line-height: 1.35; border-top: 1px dashed #CBD5E1; padding-top: 8px;">
+          <span style="font-weight: 700; color: #0F172A;">Legal Privilege:</span> The contents of this transmission and attachments are privileged and strictly confidential. If received in error, please notify sender immediately and permanently delete this record.
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+fs.writeFileSync(path.join(sigDir, 'legal-signature.html'), legalSig, 'utf8');
+
+// 9.6 Minimal Signature (Cleaned, no GitHub/LinkedIn)
 const minimalSig = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1662,8 +1794,6 @@ const minimalSig = `<!DOCTYPE html>
   <title>VOOO LABS — Minimal Email Signature</title>
 </head>
 <body style="margin: 0; padding: 24px; background: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-
-  <!-- START OF EMAIL SIGNATURE -->
   <table cellpadding="0" cellspacing="0" border="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #1E293B; max-width: 480px; background: #FFFFFF;">
     <tr>
       <td valign="top" style="border-left: 3px solid #4285F4; padding-left: 14px;">
@@ -1682,8 +1812,6 @@ const minimalSig = `<!DOCTYPE html>
       </td>
     </tr>
   </table>
-  <!-- END OF EMAIL SIGNATURE -->
-
 </body>
 </html>`;
 

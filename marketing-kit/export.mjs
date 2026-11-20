@@ -120,7 +120,12 @@ const tasks = [
   { category: 'social-card', template: 'og-card-dark.html', output: 'og-card-dark.png', width: 1200, height: 630 },
   { category: 'social-card', template: 'og-card-light.html', output: 'og-card-light.png', width: 1200, height: 630 },
 
-  // ── EMAIL SIGNATURES ──
+  // ── EMAIL SIGNATURES (5 ZOHO MAIL PROFILES) ──
+  { category: 'email-signature', template: 'hello-signature.html', output: 'hello-signature.png', width: 720, height: 260 },
+  { category: 'email-signature', template: 'vrushabh-signature.html', output: 'vrushabh-signature.png', width: 700, height: 260 },
+  { category: 'email-signature', template: 'billing-signature.html', output: 'billing-signature.png', width: 720, height: 260 },
+  { category: 'email-signature', template: 'support-signature.html', output: 'support-signature.png', width: 720, height: 260 },
+  { category: 'email-signature', template: 'legal-signature.html', output: 'legal-signature.png', width: 720, height: 260 },
   { category: 'email-signature', template: 'founder-signature.html', output: 'founder-signature.png', width: 700, height: 260 },
   { category: 'email-signature', template: 'studio-signature.html', output: 'studio-signature.png', width: 720, height: 260 },
   { category: 'email-signature', template: 'minimal-signature.html', output: 'minimal-signature.png', width: 600, height: 160 },

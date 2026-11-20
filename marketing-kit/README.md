@@ -65,7 +65,7 @@ marketing-kit/
 │   ├── letterhead/             # 2 Proposal/Invoice headers + 2 A4 Printable Sheets (Dark & Light)
 │   ├── social-card/            # 2 Universal OpenGraph share cards (Dark & Light)
 │   ├── app-icons/              # 4 App icons (Apple touch icon, Android PWA, Favicon)
-│   └── email-signature/        # 3 Email Signatures (Founder, Studio, Minimal)
+│   └── email-signature/        # 5 Zoho Mail Profiles + Minimal (hello, vrushabh, billing, support, legal)
 └── exports/                    # Production rendered PNGs & SVGs (< 5 MB)
     ├── logos/                  # 10 PNGs (2048x2048) + 10 vector SVGs
     ├── gbp/                    # 11 PNGs (Logos, Covers, Service Cards)
@@ -81,7 +81,7 @@ marketing-kit/
     ├── letterhead/             # 4 PNGs (2 Headers + 2 Full A4 Documents)
     ├── social-card/            # 2 PNGs (Universal OpenGraph cards)
     ├── app-icons/              # 4 PNGs (Apple Touch Icon, Android 192/512, Favicon)
-    └── email-signature/        # 3 Preview PNGs (Founder, Studio, Minimal)
+    └── email-signature/        # 8 Preview PNGs (5 Zoho Profiles + Founder, Studio, Minimal)
 ```
 
 ---
