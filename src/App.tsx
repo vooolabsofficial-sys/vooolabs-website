@@ -10,6 +10,7 @@ import RouteSeo from './components/shared/RouteSeo';
 import StudioAiModal from './components/shared/StudioAiModal';
 import NetworkStatusGuard from './components/shared/NetworkStatusGuard';
 import AppErrorBoundary from './components/shared/AppErrorBoundary';
+import { ROUTE_SEO_MAP } from './content/routesMetadata';
 
 // Eagerly imported primary landing page for zero-CLS and instant First Paint
 import HomePage from './pages/HomePage';
@@ -96,45 +97,22 @@ function AppRoutes() {
     window.scrollTo(0, 0);
 
     const path = location.pathname;
-    let title = 'VOOO LABS | Custom Websites, Web Apps & Software';
+    const meta = ROUTE_SEO_MAP[path];
+    let title = meta?.title;
 
-    if (path === '/services') {
-      title = 'Core Engineering Systems & Capabilities | VOOO LABS';
-    } else if (path === '/services/websites') {
-      title = 'Custom Business Websites & SEO Engineering | VOOO LABS';
-    } else if (path === '/services/web-apps') {
-      title = 'Custom Web Applications & Client Portals | VOOO LABS';
-    } else if (path === '/services/business-software') {
-      title = 'Custom Business Software & ERP Systems | VOOO LABS';
-    } else if (path === '/seo-ai') {
-      title = 'Technical Google SEO, AI Search & Ads | VOOO LABS';
-    } else if (path === '/seo-ai/google-seo') {
-      title = 'Technical Google SEO & Search Architecture | VOOO LABS';
-    } else if (path === '/seo-ai/ai-search') {
-      title = 'ChatGPT & AI Search Optimization (AEO) | VOOO LABS';
-    } else if (path === '/seo-ai/google-maps') {
-      title = 'Google Maps Local SEO & Business Profile | VOOO LABS';
-    } else if (path === '/seo-ai/google-ads') {
-      title = 'Targeted Google Search Ads & Landing Pages | VOOO LABS';
-    } else if (path === '/about') {
-      title = 'About VOOO LABS — Studio Manifesto & Vrushabh Shinde';
-    } else if (path === '/contact') {
-      title = 'Contact VOOO LABS | Discuss Your Project Blueprint';
-    } else if (path === '/legal/privacy') {
-      title = 'Data Privacy, Business NDA & Jurisdiction | VOOO LABS';
-    } else if (path === '/legal/terms') {
-      title = 'Scope, Milestones & Delivery Terms (40-30-30) | VOOO LABS';
-    } else if (path === '/legal/ip-ownership') {
-      title = '100% Source Code & IP Ownership Policy | VOOO LABS';
-    } else if (path === '/legal/refunds') {
-      title = 'Milestone Sign-Off & Refund Policy | VOOO LABS';
-    } else if (path.startsWith('/legal')) {
-      title = 'Scope, Milestones & Delivery Terms (40-30-30) | VOOO LABS';
-    } else if (path !== '/') {
-      title = 'Page Not Found (404) | Architectural Router | VOOO LABS';
+    if (!title) {
+      if (path.startsWith('/legal')) {
+        title = ROUTE_SEO_MAP['/legal/terms']?.title;
+      } else if (path !== '/') {
+        title = 'Page Not Found (404) | Architectural Router | VOOO LABS';
+      } else {
+        title = ROUTE_SEO_MAP['/']?.title;
+      }
     }
 
-    document.title = title;
+    if (title) {
+      document.title = title;
+    }
   }, [location.pathname]);
 
   return (

@@ -1,10 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
-interface RouteMetadata {
-  title: string;
-  description: string;
-}
+import { ROUTE_SEO_MAP, type RouteMetadata } from '../../content/routesMetadata';
 
 interface BreadcrumbItem {
   name: string;
@@ -14,88 +10,7 @@ interface BreadcrumbItem {
 const SITE_URL = 'https://vooolabs.in';
 const DEFAULT_IMAGE = `${SITE_URL}/og-preview.png`;
 
-const ROUTE_SEO: Record<string, RouteMetadata> = {
-  '/': {
-    title: 'VOOO LABS | Custom Websites, Web Apps & Software',
-    description:
-      'Custom business websites, web apps, and internal software engineered in Maharashtra, India. Modern architecture with 100% client source code ownership.',
-  },
-  '/services': {
-    title: 'Core Engineering Systems & Capabilities | VOOO LABS',
-    description:
-      'Explore VOOO LABS 4 core systems: Custom Business Websites, Web Apps & Portals, Custom Business Software, and Technical Google & AI Search Visibility.',
-  },
-  '/services/websites': {
-    title: 'Custom Business Websites & SEO Engineering | VOOO LABS',
-    description:
-      'High-speed, conversion-focused business websites engineered with modern frameworks, technical SEO metadata, and 1-tap WhatsApp inquiry routing across India.',
-  },
-  '/services/web-apps': {
-    title: 'Custom Web Applications & Client Portals | VOOO LABS',
-    description:
-      'Progressive web applications, custom portals, and booking engines that run in any browser with zero app store friction and direct cloud database integration.',
-  },
-  '/services/business-software': {
-    title: 'Custom Business Software & ERP Systems | VOOO LABS',
-    description:
-      'Custom internal software, inventory engines, automated billing, and operational ERP systems engineered specifically around how your business works.',
-  },
-  '/seo-ai': {
-    title: 'Technical Google SEO, AI Search & Ads | VOOO LABS',
-    description:
-      'Comprehensive four-channel organic discovery engine covering Technical Google SEO, ChatGPT & AI Search (AEO), Google Maps Local, and Targeted Google Search Ads.',
-  },
-  '/seo-ai/google-seo': {
-    title: 'Technical Google SEO & Search Architecture | VOOO LABS',
-    description:
-      'Technical Google SEO engineered with clean URL structures, programmatic semantic schema, sub-second TTFB, and verified indexing for commercial queries.',
-  },
-  '/seo-ai/ai-search': {
-    title: 'ChatGPT & AI Search Optimization (AEO) | VOOO LABS',
-    description:
-      'Answer Engine Optimization (AEO) using JSON-LD @graph, llms.txt knowledge protocols, and machine-readable data so AI engines cite your company accurately.',
-  },
-  '/seo-ai/google-maps': {
-    title: 'Google Maps Local SEO & Business Profile | VOOO LABS',
-    description:
-      'Dominate local search in Maharashtra and India with optimized Google Business Profile, localized schema, and automated 1-tap WhatsApp review funnels.',
-  },
-  '/seo-ai/google-ads': {
-    title: 'Targeted Google Search Ads & Landing Pages | VOOO LABS',
-    description:
-      'High-intent Google Search ad campaigns paired with sub-second, single-action landing pages with direct WhatsApp source tracking and zero wasted budget.',
-  },
-  '/about': {
-    title: 'About VOOO LABS — Studio Manifesto & Vrushabh Shinde',
-    description:
-      'Meet VOOO LABS founder Vrushabh Shinde. Learn about our architectural software philosophy, zero-bloat engineering, and commitment to 100% client code ownership.',
-  },
-  '/contact': {
-    title: 'Contact VOOO LABS | Discuss Your Project Blueprint',
-    description:
-      'Discuss your custom website, web app, or business software with VOOO LABS lead architect Vrushabh Shinde. Direct WhatsApp chat and personal project review.',
-  },
-  '/legal/terms': {
-    title: 'Scope, Milestones & Delivery Terms (40-30-30) | VOOO LABS',
-    description:
-      'Commercial engagement terms: written scope lock, structured 40%-30%-30% milestone schedule, 2-round frontend revision policy, and client input timelines.',
-  },
-  '/legal/refunds': {
-    title: 'Milestone Sign-Off & Refund Policy | VOOO LABS',
-    description:
-      'Fair milestone review protocol: 40% kickoff advance non-refundability, strict 5-business-day sign-off rule, and equitable studio cancellation protection.',
-  },
-  '/legal/ip-ownership': {
-    title: '100% Source Code & IP Ownership Policy | VOOO LABS',
-    description:
-      'Complete intellectual property transfer upon final payment: private GitHub repository handover, database schemas, direct cloud billing, and zero vendor lock-in.',
-  },
-  '/legal/privacy': {
-    title: 'Data Privacy, Business NDA & Jurisdiction | VOOO LABS',
-    description:
-      'Mutual business confidentiality, Indian DPDP Act compliance, minimal inquiry data collection, post-handover credential hygiene, and Maharashtra jurisdiction.',
-  },
-};
+const ROUTE_SEO: Record<string, RouteMetadata> = ROUTE_SEO_MAP;
 
 const ROUTE_BREADCRUMBS: Record<string, BreadcrumbItem[]> = {
   '/services': [
@@ -237,8 +152,11 @@ export default function RouteSeo() {
         meta = ROUTE_SEO['/seo-ai'];
       } else {
         meta = {
+          path: pathname,
           title: 'Page Not Found (404) | Architectural Router | VOOO LABS',
           description: 'The requested page could not be found on VOOO LABS studio website.',
+          h1: 'This Route Does Not Exist in Our Architecture.',
+          summary: 'The link may have moved, expired, or been mistyped. Navigate directly to one of our core engineering destinations below.',
         };
       }
     }

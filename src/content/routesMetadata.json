@@ -1,0 +1,114 @@
+[
+  {
+    "path": "/",
+    "title": "VOOO LABS | Custom Websites, Web Apps & Software",
+    "description": "Custom business websites, web apps, and internal software engineered in Maharashtra, India. Modern architecture with 100% client source code ownership.",
+    "h1": "Engineering Digital Products with Obsession & Scale.",
+    "summary": "We build high-performance business websites, custom web apps, internal software, and Google/AI search visibility with 100% source code ownership."
+  },
+  {
+    "path": "/services",
+    "title": "Core Engineering Systems & Capabilities | VOOO LABS",
+    "description": "Explore VOOO LABS 4 core systems: Custom Business Websites, Web Apps & Portals, Custom Business Software, and Technical Google & AI Search Visibility.",
+    "h1": "Four Core Systems. Engineered Around How Your Business Works.",
+    "summary": "Explore our four core systems—Business Websites, Custom Web Apps, Custom Business Software, and Google SEO & AI Search—built from scratch with 100% code ownership."
+  },
+  {
+    "path": "/services/websites",
+    "title": "Custom Business Websites & SEO Engineering | VOOO LABS",
+    "description": "High-speed, conversion-focused business websites engineered with modern frameworks, technical SEO metadata, and 1-tap WhatsApp inquiry routing across India.",
+    "h1": "Websites Engineered to Turn Visitors into Direct Inquiries.",
+    "summary": "Most business websites act as slow brochures that leave you guessing where inquiries come from. We engineer edge-fast websites with built-in SEO, AI discovery, and form-free WhatsApp routing."
+  },
+  {
+    "path": "/services/web-apps",
+    "title": "Custom Web Applications & Client Portals | VOOO LABS",
+    "description": "Progressive web applications, custom portals, and booking engines that run in any browser with zero app store friction and direct cloud database integration.",
+    "h1": "Custom Web Apps Your Users Open in One Tap— No App Store Friction.",
+    "summary": "Modern businesses don't need bulky Play Store apps that customers hesitate to download. We engineer fast web apps where clients log in instantly, while your team runs operations from one dashboard."
+  },
+  {
+    "path": "/services/business-software",
+    "title": "Custom Business Software & ERP Systems | VOOO LABS",
+    "description": "Custom internal software, inventory engines, automated billing, and operational ERP systems engineered specifically around how your business works.",
+    "h1": "Internal Operations Software Shaped Around How Your Team Actually Works.",
+    "summary": "Stop running critical operations on fragile spreadsheets and scattered WhatsApp groups. We engineer custom internal systems for leads, orders, inventory, and multi-branch control."
+  },
+  {
+    "path": "/seo-ai",
+    "title": "Technical Google SEO, AI Search & Ads | VOOO LABS",
+    "description": "Comprehensive four-channel organic discovery engine covering Technical Google SEO, ChatGPT & AI Search (AEO), Google Maps Local, and Targeted Google Search Ads.",
+    "h1": "Four Distinct Ways Buyers Find You— Each Engineered Differently.",
+    "summary": "Search engines, AI assistants, local maps, and paid search ads each work on different rules. Explore each system below to see how we structure your business for clear visibility and direct WhatsApp inquiries."
+  },
+  {
+    "path": "/seo-ai/google-seo",
+    "title": "Technical Google SEO & Search Architecture | VOOO LABS",
+    "description": "Technical Google SEO engineered with clean URL structures, programmatic semantic schema, sub-second TTFB, and verified indexing for commercial queries.",
+    "h1": "Structure Every Service Page So Google Understands Exact Buyer Intent.",
+    "summary": "A single slow homepage rarely ranks for specific commercial searches. We engineer fast, semantically structured pages for each core service you offer."
+  },
+  {
+    "path": "/seo-ai/ai-search",
+    "title": "ChatGPT & AI Search Optimization (AEO) | VOOO LABS",
+    "description": "Answer Engine Optimization (AEO) using JSON-LD @graph, llms.txt knowledge protocols, and machine-readable data so AI engines cite your company accurately.",
+    "h1": "Make Your Company Machine-Readable for ChatGPT, Google AI & Perplexity.",
+    "summary": "AI assistants don't browse websites like humans—they extract structured entity facts. We build JSON-LD schema and llms.txt directly into your site so AI reads your offerings accurately."
+  },
+  {
+    "path": "/seo-ai/google-maps",
+    "title": "Google Maps Local SEO & Business Profile | VOOO LABS",
+    "description": "Dominate local search in Maharashtra and India with optimized Google Business Profile, localized schema, and automated 1-tap WhatsApp review funnels.",
+    "h1": "Turn Nearby Local Searches into Direct Calls, Visits & Authentic Reviews.",
+    "summary": "When buyers search nearby, an accurate Google Business Profile and a steady stream of genuine customer reviews decide who gets the call. We set up both cleanly."
+  },
+  {
+    "path": "/seo-ai/google-ads",
+    "title": "Targeted Google Search Ads & Landing Pages | VOOO LABS",
+    "description": "High-intent Google Search ad campaigns paired with sub-second, single-action landing pages with direct WhatsApp source tracking and zero wasted budget.",
+    "h1": "Stop Sending Paid Ad Clicks to Slow, Distracting Homepages.",
+    "summary": "Buying clicks is easy—turning those clicks into real WhatsApp and phone inquiries takes a fast, query-matched landing page and transparent source tracking."
+  },
+  {
+    "path": "/about",
+    "title": "About VOOO LABS — Studio Manifesto & Vrushabh Shinde",
+    "description": "Meet VOOO LABS founder Vrushabh Shinde. Learn about our architectural software philosophy, zero-bloat engineering, and commitment to 100% client code ownership.",
+    "h1": "First Make It Work. Then Make It Beautiful.",
+    "summary": "Meet VOOO LABS founder Vrushabh Shinde. Learn about our architectural software philosophy, zero-bloat engineering, and commitment to 100% client code ownership."
+  },
+  {
+    "path": "/contact",
+    "title": "Contact VOOO LABS | Discuss Your Project Blueprint",
+    "description": "Discuss your custom website, web app, or business software with VOOO LABS lead architect Vrushabh Shinde. Direct WhatsApp chat and personal project review.",
+    "h1": "Let’s Talk About Your Project.",
+    "summary": "Have a website, web portal, or business software requirement? Reach out directly on WhatsApp or send a message below—we review every inquiry personally."
+  },
+  {
+    "path": "/legal/terms",
+    "title": "Scope, Milestones & Delivery Terms (40-30-30) | VOOO LABS",
+    "description": "Commercial engagement terms: written scope lock, structured 40%-30%-30% milestone schedule, 2-round frontend revision policy, and client input timelines.",
+    "h1": "Terms of Service.",
+    "summary": "Standard commercial engagement terms defining our written project blueprint lock, structured 3-milestone build schedule, revision boundaries, and client input timelines."
+  },
+  {
+    "path": "/legal/privacy",
+    "title": "Data Privacy, Business NDA & Jurisdiction | VOOO LABS",
+    "description": "Mutual business confidentiality, Indian DPDP Act compliance, minimal inquiry data collection, post-handover credential hygiene, and Maharashtra jurisdiction.",
+    "h1": "Privacy Policy.",
+    "summary": "Mutual business confidentiality, NDA commitments, minimal DPDP-compliant visitor data collection, credential rotation, and legal jurisdiction."
+  },
+  {
+    "path": "/legal/refunds",
+    "title": "Milestone Sign-Off & Refund Policy | VOOO LABS",
+    "description": "Fair milestone review protocol: 40% kickoff advance non-refundability, strict 5-business-day sign-off rule, and equitable studio cancellation protection.",
+    "h1": "Refund Policy.",
+    "summary": "Clear milestone review protocols, non-refundable advance allocations, a strict 5-business-day sign-off rule, and equitable exit settlements."
+  },
+  {
+    "path": "/legal/ip-ownership",
+    "title": "100% Source Code & IP Ownership Policy | VOOO LABS",
+    "description": "Complete intellectual property transfer upon final payment: private GitHub repository handover, database schemas, direct cloud billing, and zero vendor lock-in.",
+    "h1": "Code Ownership.",
+    "summary": "Unconditional intellectual property transfer, zero vendor lock-in, direct infrastructure billing at actuals, and full private GitHub repository handover."
+  }
+]
