@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VOOO LABS — Brand Design Tokens & Asset Gallery</title>
+  <title>VOOO LABS — Brand Design Tokens &amp; Asset Gallery</title>
   <link rel="stylesheet" href="shared/brand.css">
   <style>
     :root {
@@ -64,6 +64,11 @@
       display: flex;
       align-items: center;
       gap: 12px;
+    }
+    .section-title span {
+      color: #4285F4;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
     }
     .section-desc {
       color: var(--text-muted);
@@ -191,6 +196,25 @@
       border-radius: 9999px;
       margin-left: 8px;
     }
+    .variant-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      margin-left: 6px;
+    }
+    .badge-dark {
+      background: rgba(255, 255, 255, 0.08);
+      color: #CBD5E1;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .badge-light {
+      background: #FFFFFF;
+      color: #0F172A;
+      border: 1px solid #CBD5E1;
+    }
   </style>
 </head>
 <body>
@@ -206,17 +230,20 @@
         Brand Design Tokens &amp; Marketing Kit Asset Gallery
       </h1>
       <p style="color: #94A3B8; font-size: 14px; margin-top: 6px;">
-        Self-contained production suite for Google Business Profile, WhatsApp, LinkedIn, and Instagram.
+        Self-contained studio production suite with complete <b>Light &amp; Dark Parity</b> across all assets.
       </p>
 
       <!-- NAVIGATION TABS -->
       <nav class="nav-tabs">
         <a href="#tokens" class="tab-btn">Tokens &amp; Colors</a>
         <a href="#logos" class="tab-btn">Logos (10 Variations)</a>
-        <a href="#gbp" class="tab-btn">Google Business (7 Assets)</a>
-        <a href="#whatsapp" class="tab-btn">WhatsApp (3 Assets)</a>
-        <a href="#linkedin" class="tab-btn">LinkedIn (3 Assets)</a>
-        <a href="#instagram" class="tab-btn">Instagram (3 Assets)</a>
+        <a href="#gbp" class="tab-btn">Google Business (11 Assets)</a>
+        <a href="#whatsapp" class="tab-btn">WhatsApp Suite (4 Assets)</a>
+        <a href="#linkedin" class="tab-btn">LinkedIn Suite (6 Assets)</a>
+        <a href="#instagram" class="tab-btn">Instagram Suite (6 Assets)</a>
+        <a href="#cards" class="tab-btn">Visiting Cards (2 Assets)</a>
+        <a href="#letterhead" class="tab-btn">Letterhead &amp; Proposals (2 Assets)</a>
+        <a href="#social" class="tab-btn">Universal Social Cards (2 Assets)</a>
         <a href="#signatures" class="tab-btn" style="border-color: rgba(66, 133, 244, 0.5); color: #60A5FA;">Email Signatures (3 Options)</a>
       </nav>
     </div>
@@ -311,141 +338,111 @@
       </div>
 
       <div class="asset-grid">
-        <!-- Wordmark Light -->
         <div class="asset-card">
-          <div class="asset-preview light-bg">
-            <img src="exports/logos/wordmark-light.png" alt="Wordmark Light">
-          </div>
+          <div class="asset-preview light-bg"><img src="exports/logos/wordmark-light.png" alt="Wordmark Light"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">Wordmark — Light Background</div>
-              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+              <div class="asset-title">Wordmark — Light <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">2048×2048 &bull; PNG &amp; SVG</div>
             </div>
             <a href="exports/logos/wordmark-light.svg" target="_blank" class="btn-link">View SVG</a>
           </div>
         </div>
 
-        <!-- Wordmark Dark -->
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/logos/wordmark-dark.png" alt="Wordmark Dark">
-          </div>
+          <div class="asset-preview"><img src="exports/logos/wordmark-dark.png" alt="Wordmark Dark"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">Wordmark — Dark Background</div>
-              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+              <div class="asset-title">Wordmark — Dark <span class="variant-badge badge-dark">Dark</span></div>
+              <div class="asset-meta">2048×2048 &bull; PNG &amp; SVG</div>
             </div>
             <a href="exports/logos/wordmark-dark.svg" target="_blank" class="btn-link">View SVG</a>
           </div>
         </div>
 
-        <!-- Wordmark Transparent -->
         <div class="asset-card">
-          <div class="asset-preview checkered">
-            <img src="exports/logos/wordmark-transparent.png" alt="Wordmark Transparent">
-          </div>
+          <div class="asset-preview checkered"><img src="exports/logos/wordmark-transparent.png" alt="Wordmark Transparent"></div>
           <div class="asset-footer">
             <div>
               <div class="asset-title">Wordmark — Transparent</div>
-              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+              <div class="asset-meta">2048×2048 &bull; PNG &amp; SVG</div>
             </div>
             <a href="exports/logos/wordmark-transparent.svg" target="_blank" class="btn-link">View SVG</a>
           </div>
         </div>
 
-        <!-- Wordmark Pure White -->
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/logos/wordmark-white.png" alt="Wordmark White">
-          </div>
+          <div class="asset-preview"><img src="exports/logos/wordmark-white.png" alt="Wordmark White"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">Wordmark — Pure White (Monochrome)</div>
-              <div class="asset-meta">2048×2048 &bull; For dark media</div>
+              <div class="asset-title">Wordmark — Pure White</div>
+              <div class="asset-meta">2048×2048 &bull; Monochrome</div>
             </div>
             <a href="exports/logos/wordmark-white.svg" target="_blank" class="btn-link">View SVG</a>
           </div>
         </div>
 
-        <!-- Wordmark Pure Black -->
         <div class="asset-card">
-          <div class="asset-preview light-bg">
-            <img src="exports/logos/wordmark-black.png" alt="Wordmark Black">
-          </div>
+          <div class="asset-preview light-bg"><img src="exports/logos/wordmark-black.png" alt="Wordmark Black"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">Wordmark — Pure Black (Monochrome)</div>
-              <div class="asset-meta">2048×2048 &bull; For print &amp; paper</div>
+              <div class="asset-title">Wordmark — Pure Black</div>
+              <div class="asset-meta">2048×2048 &bull; Print monochrome</div>
             </div>
             <a href="exports/logos/wordmark-black.svg" target="_blank" class="btn-link">View SVG</a>
           </div>
         </div>
 
-        <!-- Icon Light -->
         <div class="asset-card">
-          <div class="asset-preview light-bg">
-            <img src="exports/logos/icon-light.png" alt="Icon Light">
-          </div>
+          <div class="asset-preview light-bg"><img src="exports/logos/icon-light.png" alt="Icon Light"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">Icon — Light Square</div>
-              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+              <div class="asset-title">Icon — Light Square <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">2048×2048 &bull; PNG &amp; SVG</div>
             </div>
             <a href="exports/logos/icon-light.svg" target="_blank" class="btn-link">View SVG</a>
           </div>
         </div>
 
-        <!-- Icon Dark -->
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/logos/icon-dark.png" alt="Icon Dark">
-          </div>
+          <div class="asset-preview"><img src="exports/logos/icon-dark.png" alt="Icon Dark"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">Icon — Dark Square</div>
-              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+              <div class="asset-title">Icon — Dark Square <span class="variant-badge badge-dark">Dark</span></div>
+              <div class="asset-meta">2048×2048 &bull; PNG &amp; SVG</div>
             </div>
             <a href="exports/logos/icon-dark.svg" target="_blank" class="btn-link">View SVG</a>
           </div>
         </div>
 
-        <!-- Icon Transparent -->
         <div class="asset-card">
-          <div class="asset-preview checkered">
-            <img src="exports/logos/icon-transparent.png" alt="Icon Transparent">
-          </div>
+          <div class="asset-preview checkered"><img src="exports/logos/icon-transparent.png" alt="Icon Transparent"></div>
           <div class="asset-footer">
             <div>
               <div class="asset-title">Icon — Transparent Glyph</div>
-              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+              <div class="asset-meta">2048×2048 &bull; PNG &amp; SVG</div>
             </div>
             <a href="exports/logos/icon-transparent.svg" target="_blank" class="btn-link">View SVG</a>
           </div>
         </div>
 
-        <!-- Icon White -->
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/logos/icon-white.png" alt="Icon White">
-          </div>
+          <div class="asset-preview"><img src="exports/logos/icon-white.png" alt="Icon White"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">Icon — Pure White Monochrome</div>
-              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+              <div class="asset-title">Icon — Pure White Glyph</div>
+              <div class="asset-meta">2048×2048 &bull; PNG &amp; SVG</div>
             </div>
             <a href="exports/logos/icon-white.svg" target="_blank" class="btn-link">View SVG</a>
           </div>
         </div>
 
-        <!-- Icon Black -->
         <div class="asset-card">
-          <div class="asset-preview light-bg">
-            <img src="exports/logos/icon-black.png" alt="Icon Black">
-          </div>
+          <div class="asset-preview light-bg"><img src="exports/logos/icon-black.png" alt="Icon Black"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">Icon — Pure Black Monochrome</div>
-              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+              <div class="asset-title">Icon — Pure Black Glyph</div>
+              <div class="asset-meta">2048×2048 &bull; PNG &amp; SVG</div>
             </div>
             <a href="exports/logos/icon-black.svg" target="_blank" class="btn-link">View SVG</a>
           </div>
@@ -459,17 +456,16 @@
         <span>03</span> Google Business Profile (GBP) Suite
       </div>
       <div class="section-desc">
-        Exact Google Business specifications: 720×720 Logos with 20% circular safe zone, 1024×576 clean minimal cover banner (no phone number), and 4 service cards (1200×900).
+        Exact Google Business specifications with complete Light &amp; Dark variants: 720×720 Logos with 20% safe zone, 1024×576 Cover Banners, and 1200×900 Service Cards.
       </div>
 
       <div class="asset-grid">
+        <!-- GBP Logos -->
         <div class="asset-card">
-          <div class="asset-preview light-bg">
-            <img src="exports/gbp/gbp-logo-light.png" alt="GBP Logo Light">
-          </div>
+          <div class="asset-preview light-bg"><img src="exports/gbp/gbp-logo-light.png" alt="GBP Logo Light"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">GBP Logo — Light <span class="safe-badge">20% Safe Zone</span></div>
+              <div class="asset-title">GBP Logo — Light <span class="variant-badge badge-light">Light</span> <span class="safe-badge">20% Safe</span></div>
               <div class="asset-meta">720×720 px &bull; Circular crop safe</div>
             </div>
             <a href="exports/gbp/gbp-logo-light.png" download class="btn-link">Download</a>
@@ -477,80 +473,128 @@
         </div>
 
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/gbp/gbp-logo-dark.png" alt="GBP Logo Dark">
-          </div>
+          <div class="asset-preview"><img src="exports/gbp/gbp-logo-dark.png" alt="GBP Logo Dark"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">GBP Logo — Dark <span class="safe-badge">20% Safe Zone</span></div>
+              <div class="asset-title">GBP Logo — Dark <span class="variant-badge badge-dark">Dark</span> <span class="safe-badge">20% Safe</span></div>
               <div class="asset-meta">720×720 px &bull; Circular crop safe</div>
             </div>
             <a href="exports/gbp/gbp-logo-dark.png" download class="btn-link">Download</a>
           </div>
         </div>
 
-        <div class="asset-card" style="grid-column: 1 / -1;">
-          <div class="asset-preview">
-            <img src="exports/gbp/gbp-cover.png" alt="GBP Cover">
-          </div>
+        <!-- GBP Covers -->
+        <div class="asset-card">
+          <div class="asset-preview"><img src="exports/gbp/gbp-cover-dark.png" alt="GBP Cover Dark"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">GBP Cover Banner</div>
-              <div class="asset-meta">1024×576 px (16:9) &bull; Clean minimal brand banner, zero phone numbers</div>
+              <div class="asset-title">GBP Cover Banner — Dark <span class="variant-badge badge-dark">Dark</span></div>
+              <div class="asset-meta">1024×576 px (16:9) &bull; Clean brand banner, zero phone clutter</div>
             </div>
-            <a href="exports/gbp/gbp-cover.png" download class="btn-link">Download</a>
+            <a href="exports/gbp/gbp-cover-dark.png" download class="btn-link">Download</a>
           </div>
         </div>
 
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/gbp/gbp-service-websites.png" alt="Service 01 Websites">
-          </div>
+          <div class="asset-preview light-bg"><img src="exports/gbp/gbp-cover-light.png" alt="GBP Cover Light"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">01 Business Websites</div>
-              <div class="asset-meta">1200×900 px &bull; GBP Product Card</div>
+              <div class="asset-title">GBP Cover Banner — Light <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">1024×576 px (16:9) &bull; Architectural minimal banner</div>
             </div>
-            <a href="exports/gbp/gbp-service-websites.png" download class="btn-link">Download</a>
+            <a href="exports/gbp/gbp-cover-light.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <!-- 01 Websites (Dark & Light) -->
+        <div class="asset-card">
+          <div class="asset-preview"><img src="exports/gbp/gbp-service-websites-dark.png" alt="01 Websites Dark"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">01 Business Websites — Dark <span class="variant-badge badge-dark">Dark</span></div>
+              <div class="asset-meta">1200×900 px &bull; Sub-second speed</div>
+            </div>
+            <a href="exports/gbp/gbp-service-websites-dark.png" download class="btn-link">Download</a>
           </div>
         </div>
 
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/gbp/gbp-service-webapps.png" alt="Service 02 Web Apps">
-          </div>
+          <div class="asset-preview light-bg"><img src="exports/gbp/gbp-service-websites-light.png" alt="01 Websites Light"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">02 Web Apps &amp; Portals</div>
-              <div class="asset-meta">1200×900 px &bull; GBP Product Card</div>
+              <div class="asset-title">01 Business Websites — Light <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">1200×900 px &bull; Sub-second speed</div>
             </div>
-            <a href="exports/gbp/gbp-service-webapps.png" download class="btn-link">Download</a>
+            <a href="exports/gbp/gbp-service-websites-light.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <!-- 02 Web Apps (Dark & Light) -->
+        <div class="asset-card">
+          <div class="asset-preview"><img src="exports/gbp/gbp-service-webapps-dark.png" alt="02 Web Apps Dark"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">02 Web Apps &amp; Portals — Dark <span class="variant-badge badge-dark">Dark</span></div>
+              <div class="asset-meta">1200×900 px &bull; Progressive web apps</div>
+            </div>
+            <a href="exports/gbp/gbp-service-webapps-dark.png" download class="btn-link">Download</a>
           </div>
         </div>
 
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/gbp/gbp-service-software.png" alt="Service 03 Business Software">
-          </div>
+          <div class="asset-preview light-bg"><img src="exports/gbp/gbp-service-webapps-light.png" alt="02 Web Apps Light"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">03 Custom Business Software</div>
-              <div class="asset-meta">1200×900 px &bull; GBP Product Card</div>
+              <div class="asset-title">02 Web Apps &amp; Portals — Light <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">1200×900 px &bull; Progressive web apps</div>
             </div>
-            <a href="exports/gbp/gbp-service-software.png" download class="btn-link">Download</a>
+            <a href="exports/gbp/gbp-service-webapps-light.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <!-- 03 Business Software (Dark & Light) -->
+        <div class="asset-card">
+          <div class="asset-preview"><img src="exports/gbp/gbp-service-software-dark.png" alt="03 Software Dark"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">03 Business Software — Dark <span class="variant-badge badge-dark">Dark</span></div>
+              <div class="asset-meta">1200×900 px &bull; Tailored ERP / CRM</div>
+            </div>
+            <a href="exports/gbp/gbp-service-software-dark.png" download class="btn-link">Download</a>
           </div>
         </div>
 
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/gbp/gbp-service-seo-ai.png" alt="Service 04 SEO & AI">
-          </div>
+          <div class="asset-preview light-bg"><img src="exports/gbp/gbp-service-software-light.png" alt="03 Software Light"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">04 Technical SEO &amp; AI Search</div>
-              <div class="asset-meta">1200×900 px &bull; GBP Product Card</div>
+              <div class="asset-title">03 Business Software — Light <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">1200×900 px &bull; Tailored ERP / CRM</div>
             </div>
-            <a href="exports/gbp/gbp-service-seo-ai.png" download class="btn-link">Download</a>
+            <a href="exports/gbp/gbp-service-software-light.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <!-- 04 SEO & AI (Dark & Light) -->
+        <div class="asset-card">
+          <div class="asset-preview"><img src="exports/gbp/gbp-service-seo-ai-dark.png" alt="04 SEO Dark"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">04 Search &amp; AI Engine — Dark <span class="variant-badge badge-dark">Dark</span></div>
+              <div class="asset-meta">1200×900 px &bull; Google &amp; Maps 3-Pack</div>
+            </div>
+            <a href="exports/gbp/gbp-service-seo-ai-dark.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview light-bg"><img src="exports/gbp/gbp-service-seo-ai-light.png" alt="04 SEO Light"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">04 Search &amp; AI Engine — Light <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">1200×900 px &bull; Google &amp; Maps 3-Pack</div>
+            </div>
+            <a href="exports/gbp/gbp-service-seo-ai-light.png" download class="btn-link">Download</a>
           </div>
         </div>
       </div>
@@ -562,17 +606,15 @@
         <span>04</span> WhatsApp Business Suite
       </div>
       <div class="section-desc">
-        High-legibility mobile avatars (800×800) and square 4-systems catalog card (1080×1080).
+        High-legibility mobile avatars (800×800) and square 4-systems catalog cards (1080×1080) in both Light and Dark editions.
       </div>
 
       <div class="asset-grid">
         <div class="asset-card">
-          <div class="asset-preview light-bg">
-            <img src="exports/whatsapp/whatsapp-dp-light.png" alt="WhatsApp DP Light">
-          </div>
+          <div class="asset-preview light-bg"><img src="exports/whatsapp/whatsapp-dp-light.png" alt="WhatsApp DP Light"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">WhatsApp DP — Light <span class="safe-badge">Circular Safe</span></div>
+              <div class="asset-title">WhatsApp DP — Light <span class="variant-badge badge-light">Light</span> <span class="safe-badge">Circular Safe</span></div>
               <div class="asset-meta">800×800 px</div>
             </div>
             <a href="exports/whatsapp/whatsapp-dp-light.png" download class="btn-link">Download</a>
@@ -580,12 +622,10 @@
         </div>
 
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/whatsapp/whatsapp-dp-dark.png" alt="WhatsApp DP Dark">
-          </div>
+          <div class="asset-preview"><img src="exports/whatsapp/whatsapp-dp-dark.png" alt="WhatsApp DP Dark"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">WhatsApp DP — Dark <span class="safe-badge">Circular Safe</span></div>
+              <div class="asset-title">WhatsApp DP — Dark <span class="variant-badge badge-dark">Dark</span> <span class="safe-badge">Circular Safe</span></div>
               <div class="asset-meta">800×800 px</div>
             </div>
             <a href="exports/whatsapp/whatsapp-dp-dark.png" download class="btn-link">Download</a>
@@ -593,15 +633,24 @@
         </div>
 
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/whatsapp/whatsapp-catalog-card.png" alt="WhatsApp Catalog Card">
-          </div>
+          <div class="asset-preview"><img src="exports/whatsapp/whatsapp-catalog-card-dark.png" alt="WhatsApp Catalog Dark"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">WhatsApp Business Catalog Card</div>
+              <div class="asset-title">Catalog Card — Dark <span class="variant-badge badge-dark">Dark</span></div>
               <div class="asset-meta">1080×1080 px &bull; 4 Engineering Systems</div>
             </div>
-            <a href="exports/whatsapp/whatsapp-catalog-card.png" download class="btn-link">Download</a>
+            <a href="exports/whatsapp/whatsapp-catalog-card-dark.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview light-bg"><img src="exports/whatsapp/whatsapp-catalog-card-light.png" alt="WhatsApp Catalog Light"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Catalog Card — Light <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">1080×1080 px &bull; 4 Engineering Systems</div>
+            </div>
+            <a href="exports/whatsapp/whatsapp-catalog-card-light.png" download class="btn-link">Download</a>
           </div>
         </div>
       </div>
@@ -613,46 +662,73 @@
         <span>05</span> LinkedIn Company Page Suite
       </div>
       <div class="section-desc">
-        Corporate company logo (400×400), banner (1128×191) with clear bottom-left safe area, and feed post (1200×627).
+        Corporate company logo (400×400), banner (1128×191) with clear bottom-left safe area, and feed post (1200×627) in Light &amp; Dark variants.
       </div>
 
       <div class="asset-grid">
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/linkedin/linkedin-logo.png" alt="LinkedIn Logo">
-          </div>
+          <div class="asset-preview"><img src="exports/linkedin/linkedin-logo-dark.png" alt="LinkedIn Logo Dark"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">LinkedIn Company Logo</div>
+              <div class="asset-title">LinkedIn Logo — Dark <span class="variant-badge badge-dark">Dark</span></div>
               <div class="asset-meta">400×400 px</div>
             </div>
-            <a href="exports/linkedin/linkedin-logo.png" download class="btn-link">Download</a>
+            <a href="exports/linkedin/linkedin-logo-dark.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview light-bg"><img src="exports/linkedin/linkedin-logo-light.png" alt="LinkedIn Logo Light"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">LinkedIn Logo — Light <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">400×400 px</div>
+            </div>
+            <a href="exports/linkedin/linkedin-logo-light.png" download class="btn-link">Download</a>
           </div>
         </div>
 
         <div class="asset-card" style="grid-column: 1 / -1;">
-          <div class="asset-preview">
-            <img src="exports/linkedin/linkedin-cover.png" alt="LinkedIn Cover">
-          </div>
+          <div class="asset-preview"><img src="exports/linkedin/linkedin-cover-dark.png" alt="LinkedIn Cover Dark"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">LinkedIn Company Cover <span class="safe-badge">Bottom-Left Safe</span></div>
+              <div class="asset-title">LinkedIn Cover — Dark <span class="variant-badge badge-dark">Dark</span> <span class="safe-badge">Bottom-Left Safe</span></div>
               <div class="asset-meta">1128×191 px &bull; Clears profile photo overlap on desktop</div>
             </div>
-            <a href="exports/linkedin/linkedin-cover.png" download class="btn-link">Download</a>
+            <a href="exports/linkedin/linkedin-cover-dark.png" download class="btn-link">Download</a>
           </div>
         </div>
 
         <div class="asset-card" style="grid-column: 1 / -1;">
-          <div class="asset-preview">
-            <img src="exports/linkedin/linkedin-post.png" alt="LinkedIn Post">
-          </div>
+          <div class="asset-preview light-bg"><img src="exports/linkedin/linkedin-cover-light.png" alt="LinkedIn Cover Light"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">LinkedIn Feed Share Post</div>
+              <div class="asset-title">LinkedIn Cover — Light <span class="variant-badge badge-light">Light</span> <span class="safe-badge">Bottom-Left Safe</span></div>
+              <div class="asset-meta">1128×191 px &bull; Architectural minimal banner</div>
+            </div>
+            <a href="exports/linkedin/linkedin-cover-light.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview"><img src="exports/linkedin/linkedin-post-dark.png" alt="LinkedIn Post Dark"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">LinkedIn Post — Dark <span class="variant-badge badge-dark">Dark</span></div>
               <div class="asset-meta">1200×627 px (1.91:1) &bull; Architectural manifesto</div>
             </div>
-            <a href="exports/linkedin/linkedin-post.png" download class="btn-link">Download</a>
+            <a href="exports/linkedin/linkedin-post-dark.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview light-bg"><img src="exports/linkedin/linkedin-post-light.png" alt="LinkedIn Post Light"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">LinkedIn Post — Light <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">1200×627 px (1.91:1) &bull; Architectural manifesto</div>
+            </div>
+            <a href="exports/linkedin/linkedin-post-light.png" download class="btn-link">Download</a>
           </div>
         </div>
       </div>
@@ -664,58 +740,187 @@
         <span>06</span> Instagram Suite
       </div>
       <div class="section-desc">
-        Profile DP (800×800), high-engagement 4:5 portrait post (1080×1350), and vertical 9:16 story (1080×1920) with top &amp; bottom 250px safe zones.
+        Profile DP (800×800), high-engagement 4:5 portrait post (1080×1350), and vertical 9:16 story (1080×1920) in both Dark &amp; Light variants.
       </div>
 
       <div class="asset-grid">
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/instagram/instagram-dp.png" alt="Instagram DP">
-          </div>
+          <div class="asset-preview"><img src="exports/instagram/instagram-dp-dark.png" alt="Instagram DP Dark"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">Instagram Avatar <span class="safe-badge">Circular Safe</span></div>
+              <div class="asset-title">Instagram DP — Dark <span class="variant-badge badge-dark">Dark</span> <span class="safe-badge">Circular Safe</span></div>
               <div class="asset-meta">800×800 px</div>
             </div>
-            <a href="exports/instagram/instagram-dp.png" download class="btn-link">Download</a>
+            <a href="exports/instagram/instagram-dp-dark.png" download class="btn-link">Download</a>
           </div>
         </div>
 
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/instagram/instagram-post.png" alt="Instagram Post">
-          </div>
+          <div class="asset-preview light-bg"><img src="exports/instagram/instagram-dp-light.png" alt="Instagram DP Light"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">Instagram Feed Post (4:5 Portrait)</div>
-              <div class="asset-meta">1080×1350 px &bull; Optimal feed dimension</div>
+              <div class="asset-title">Instagram DP — Light <span class="variant-badge badge-light">Light</span> <span class="safe-badge">Circular Safe</span></div>
+              <div class="asset-meta">800×800 px</div>
             </div>
-            <a href="exports/instagram/instagram-post.png" download class="btn-link">Download</a>
+            <a href="exports/instagram/instagram-dp-light.png" download class="btn-link">Download</a>
           </div>
         </div>
 
         <div class="asset-card">
-          <div class="asset-preview">
-            <img src="exports/instagram/instagram-story.png" alt="Instagram Story">
-          </div>
+          <div class="asset-preview"><img src="exports/instagram/instagram-post-dark.png" alt="Instagram Post Dark"></div>
           <div class="asset-footer">
             <div>
-              <div class="asset-title">Instagram Story (9:16) <span class="safe-badge">250px Safe Zones</span></div>
-              <div class="asset-meta">1080×1920 px &bull; Top &amp; bottom clear zones</div>
+              <div class="asset-title">Instagram Post — Dark <span class="variant-badge badge-dark">Dark</span></div>
+              <div class="asset-meta">1080×1350 px (4:5 Portrait)</div>
             </div>
-            <a href="exports/instagram/instagram-story.png" download class="btn-link">Download</a>
+            <a href="exports/instagram/instagram-post-dark.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview light-bg"><img src="exports/instagram/instagram-post-light.png" alt="Instagram Post Light"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Instagram Post — Light <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">1080×1350 px (4:5 Portrait)</div>
+            </div>
+            <a href="exports/instagram/instagram-post-light.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview"><img src="exports/instagram/instagram-story-dark.png" alt="Instagram Story Dark"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Instagram Story — Dark <span class="variant-badge badge-dark">Dark</span> <span class="safe-badge">260px Safe Zones</span></div>
+              <div class="asset-meta">1080×1920 px (9:16 Vertical)</div>
+            </div>
+            <a href="exports/instagram/instagram-story-dark.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview light-bg"><img src="exports/instagram/instagram-story-light.png" alt="Instagram Story Light"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Instagram Story — Light <span class="variant-badge badge-light">Light</span> <span class="safe-badge">260px Safe Zones</span></div>
+              <div class="asset-meta">1080×1920 px (9:16 Vertical)</div>
+            </div>
+            <a href="exports/instagram/instagram-story-light.png" download class="btn-link">Download</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 7. EMAIL SIGNATURES -->
-    <section id="signatures" class="section">
+    <!-- 7. VISITING CARDS -->
+    <section id="cards" class="section">
       <div class="section-title">
-        <span>07</span> Official Email Signatures (Gmail &amp; Outlook Ready)
+        <span>07</span> Digital Business &amp; Visiting Cards
       </div>
       <div class="section-desc">
-        Bulletproof table-based inline-styled email signatures with hosted CDN images. Click <b>"Copy to Clipboard"</b> and paste (Ctrl+V) directly into Gmail or Outlook settings. Or open the dedicated <a href="email-signature.html" target="_blank" style="color: #4285F4; font-weight: 600;">Email Signature Installer &rarr;</a>
+        Standard 3.5" × 2" (1050×600 px @ 300 DPI) corporate cards. Includes official wordmark, founder credentials, direct communication lines, and Maharashtra studio hubs.
+      </div>
+
+      <div class="asset-grid">
+        <div class="asset-card">
+          <div class="asset-preview"><img src="exports/business-card/business-card-dark.png" alt="Business Card Dark"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Visiting Card — Obsidian Dark <span class="variant-badge badge-dark">Dark</span></div>
+              <div class="asset-meta">1050×600 px &bull; High-density print ready</div>
+            </div>
+            <a href="exports/business-card/business-card-dark.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview light-bg"><img src="exports/business-card/business-card-light.png" alt="Business Card Light"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Visiting Card — Clean Light <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">1050×600 px &bull; High-density print ready</div>
+            </div>
+            <a href="exports/business-card/business-card-light.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. LETTERHEAD & PROPOSALS -->
+    <section id="letterhead" class="section">
+      <div class="section-title">
+        <span>08</span> Letterhead, Proposal &amp; Invoice Headers
+      </div>
+      <div class="section-desc">
+        Crisp 1600×320 px top banner headers for client proposals, Statements of Work (SOW), quotations, and invoice PDFs.
+      </div>
+
+      <div class="asset-grid">
+        <div class="asset-card" style="grid-column: 1 / -1;">
+          <div class="asset-preview"><img src="exports/letterhead/letterhead-header-dark.png" alt="Letterhead Dark"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Proposal Header — Obsidian Dark <span class="variant-badge badge-dark">Dark</span></div>
+              <div class="asset-meta">1600×320 px &bull; For digital proposal decks and PDF presentations</div>
+            </div>
+            <a href="exports/letterhead/letterhead-header-dark.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card" style="grid-column: 1 / -1;">
+          <div class="asset-preview light-bg"><img src="exports/letterhead/letterhead-header-light.png" alt="Letterhead Light"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Letterhead &amp; Invoice Header — Pure Light <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">1600×320 px &bull; For printed documents, GST invoices &amp; formal contracts</div>
+            </div>
+            <a href="exports/letterhead/letterhead-header-light.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. UNIVERSAL SOCIAL CARDS -->
+    <section id="social" class="section">
+      <div class="section-title">
+        <span>09</span> Universal Social &amp; OpenGraph Share Cards
+      </div>
+      <div class="section-desc">
+        Standard 1200×630 px universal social cards for rich preview links on Twitter/X, Discord, Slack, iMessage, and Telegram.
+      </div>
+
+      <div class="asset-grid">
+        <div class="asset-card">
+          <div class="asset-preview"><img src="exports/social-card/og-card-dark.png" alt="OG Card Dark"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Social Share Card — Dark <span class="variant-badge badge-dark">Dark</span></div>
+              <div class="asset-meta">1200×630 px (1.91:1)</div>
+            </div>
+            <a href="exports/social-card/og-card-dark.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview light-bg"><img src="exports/social-card/og-card-light.png" alt="OG Card Light"></div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Social Share Card — Light <span class="variant-badge badge-light">Light</span></div>
+              <div class="asset-meta">1200×630 px (1.91:1)</div>
+            </div>
+            <a href="exports/social-card/og-card-light.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. EMAIL SIGNATURES -->
+    <section id="signatures" class="section">
+      <div class="section-title">
+        <span>10</span> Official Email Signatures (Gmail &amp; Outlook Ready)
+      </div>
+      <div class="section-desc">
+        Bulletproof table-based inline-styled email signatures with hosted CDN images. Click <b>"Copy Signature"</b> and paste (Ctrl+V) directly into Gmail or Outlook settings. Or open the dedicated <a href="email-signature.html" target="_blank" style="color: #4285F4; font-weight: 600;">Email Signature Installer &rarr;</a>
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 32px;">
@@ -724,7 +929,7 @@
           <div style="padding: 20px 24px; background: #0A0F1E; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
             <div>
               <div class="asset-title">Option 1: Founder &amp; Systems Architect (Vrushabh Shinde)</div>
-              <div class="asset-meta">Personal signature for founder client communications</div>
+              <div class="asset-meta">Personal signature for direct client correspondence</div>
             </div>
             <button class="btn-link" style="cursor: pointer;" onclick="copySig('sig-p-founder', this)">📋 Copy Signature</button>
           </div>
@@ -764,7 +969,7 @@
                   <div style="margin-top: 10px; font-size: 11px;">
                     <a href="https://linkedin.com/in/vrushabh-shinde-43338125b/" target="_blank" style="color: #0A66C2; text-decoration: none; font-weight: 600; margin-right: 14px;">LinkedIn &rarr;</a>
                     <a href="https://github.com/vooolabs" target="_blank" style="color: #24292F; text-decoration: none; font-weight: 600; margin-right: 14px;">GitHub &rarr;</a>
-                    <span style="display: inline-block; padding: 2px 8px; background: #F1F5F9; border: 1px solid #E2E8F0; border-radius: 4px; color: #475569; font-size: 10px; font-weight: 600;">100% Client Code Ownership</span>
+                    <span style="color: #94A3B8; font-size: 10px;">Satara &bull; Pune &bull; Nashik &bull; Kolhapur</span>
                   </div>
                 </td>
               </tr>
@@ -816,7 +1021,37 @@
                   <div style="margin-top: 10px; display: flex; align-items: center; gap: 12px; font-size: 11px;">
                     <a href="https://linkedin.com/company/vooolabs" target="_blank" style="color: #0A66C2; text-decoration: none; font-weight: 600; margin-right: 12px;">LinkedIn &rarr;</a>
                     <a href="https://github.com/vooolabs" target="_blank" style="color: #24292F; text-decoration: none; font-weight: 600; margin-right: 12px;">GitHub &rarr;</a>
-                    <span style="display: inline-block; padding: 2px 8px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; color: #475569; font-size: 10px; font-weight: 600;">100% Client Source Code Ownership</span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Option 3: Minimal -->
+        <div class="asset-card">
+          <div style="padding: 20px 24px; background: #0A0F1E; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div class="asset-title">Option 3: Minimal Compact Signature</div>
+              <div class="asset-meta">Ultra-lightweight two-line signature suitable for quick replies and mobile threads</div>
+            </div>
+            <button class="btn-link" style="cursor: pointer;" onclick="copySig('sig-p-minimal', this)">📋 Copy Signature</button>
+          </div>
+          <div id="sig-p-minimal" class="asset-preview light-bg" style="padding: 32px; justify-content: flex-start;">
+            <table cellpadding="0" cellspacing="0" border="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #1E293B; max-width: 480px; background: #FFFFFF;">
+              <tr>
+                <td valign="top" style="border-left: 3px solid #4285F4; padding-left: 14px;">
+                  <div style="font-size: 15px; font-weight: 800; color: #020617; line-height: 1.2;">
+                    <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span> LABS
+                    <span style="font-size: 11px; font-weight: 600; color: #64748B; text-transform: uppercase; margin-left: 8px;">&bull; Digital Product Studio</span>
+                  </div>
+                  <div style="font-size: 11px; color: #475569; margin-top: 4px;">
+                    <a href="https://vooolabs.in" target="_blank" style="color: #4285F4; text-decoration: none; font-weight: 600;">vooolabs.in</a> &bull;
+                    <a href="mailto:hello@vooolabs.in" style="color: #334155; text-decoration: none;">hello@vooolabs.in</a> &bull;
+                    <a href="https://wa.me/917620236178" target="_blank" style="color: #334155; text-decoration: none;">+91 76202 36178</a>
+                  </div>
+                  <div style="font-size: 10px; color: #94A3B8; margin-top: 4px;">
+                    Maharashtra (Satara &bull; Pune &bull; Nashik &bull; Kolhapur) &bull; Precision Engineering
                   </div>
                 </td>
               </tr>
@@ -855,7 +1090,7 @@
   </script>
 
   <footer style="padding: 40px; text-align: center; border-top: 1px solid var(--card-border); color: #64748B; font-size: 13px;">
-    VOOO LABS &bull; Marketing Kit &bull; 100% Client Source Code Ownership &bull; Maharashtra, India
+    VOOO LABS &bull; Digital Product Studio &bull; Precision Engineering &bull; Maharashtra, India
   </footer>
 
 </body>
