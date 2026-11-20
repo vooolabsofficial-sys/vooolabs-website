@@ -96,42 +96,42 @@ function AppRoutes() {
     window.scrollTo(0, 0);
 
     const path = location.pathname;
-    let title = 'VOOO LABS — Enterprise-Grade Websites, Web Apps & Business Software';
+    let title = 'VOOO LABS | Custom Websites, Web Apps & Software';
 
     if (path === '/services') {
-      title = 'Services & Capabilities — VOOO LABS';
+      title = 'Core Engineering Systems & Capabilities | VOOO LABS';
     } else if (path === '/services/websites') {
-      title = 'Business Websites — VOOO LABS';
+      title = 'Custom Business Websites & SEO Engineering | VOOO LABS';
     } else if (path === '/services/web-apps') {
-      title = 'Custom Web Apps & Portals — VOOO LABS';
+      title = 'Custom Web Applications & Client Portals | VOOO LABS';
     } else if (path === '/services/business-software') {
-      title = 'Custom Business Software — VOOO LABS';
+      title = 'Custom Business Software & ERP Systems | VOOO LABS';
     } else if (path === '/seo-ai') {
-      title = 'Google SEO, AI Search & Ads — VOOO LABS';
+      title = 'Technical Google SEO, AI Search & Ads | VOOO LABS';
     } else if (path === '/seo-ai/google-seo') {
-      title = 'Technical Google SEO & Service Intent Architecture — VOOO LABS';
+      title = 'Technical Google SEO & Search Architecture | VOOO LABS';
     } else if (path === '/seo-ai/ai-search') {
-      title = 'ChatGPT, Google AI & Machine-Readable Schema (AEO) — VOOO LABS';
+      title = 'ChatGPT & AI Search Optimization (AEO) | VOOO LABS';
     } else if (path === '/seo-ai/google-maps') {
-      title = 'Google Maps & Local Presence Optimization — VOOO LABS';
+      title = 'Google Maps Local SEO & Business Profile | VOOO LABS';
     } else if (path === '/seo-ai/google-ads') {
-      title = 'Targeted Google Search Ads & Landing Systems — VOOO LABS';
+      title = 'Targeted Google Search Ads & Landing Pages | VOOO LABS';
     } else if (path === '/about') {
-      title = 'About Studio & Lead Architect — VOOO LABS';
+      title = 'About VOOO LABS — Studio Manifesto & Vrushabh Shinde';
     } else if (path === '/contact') {
-      title = 'Start Your Project & Inquire — VOOO LABS';
+      title = 'Contact VOOO LABS | Discuss Your Project Blueprint';
     } else if (path === '/legal/privacy') {
-      title = 'Privacy Policy — VOOO LABS';
+      title = 'Data Privacy, Business NDA & Jurisdiction | VOOO LABS';
     } else if (path === '/legal/terms') {
-      title = 'Terms of Service — VOOO LABS';
+      title = 'Scope, Milestones & Delivery Terms (40-30-30) | VOOO LABS';
     } else if (path === '/legal/ip-ownership') {
-      title = 'Code Ownership — VOOO LABS';
+      title = '100% Source Code & IP Ownership Policy | VOOO LABS';
     } else if (path === '/legal/refunds') {
-      title = 'Refund Policy — VOOO LABS';
+      title = 'Milestone Sign-Off & Refund Policy | VOOO LABS';
     } else if (path.startsWith('/legal')) {
-      title = 'Legal & Policies — VOOO LABS';
+      title = 'Scope, Milestones & Delivery Terms (40-30-30) | VOOO LABS';
     } else if (path !== '/') {
-      title = 'Page Not Found (404) — VOOO LABS';
+      title = 'Page Not Found (404) | Architectural Router | VOOO LABS';
     }
 
     document.title = title;
