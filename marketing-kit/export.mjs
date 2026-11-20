@@ -110,9 +110,11 @@ const tasks = [
   { category: 'business-card', template: 'business-card-dark.html', output: 'business-card-dark.png', width: 1050, height: 600 },
   { category: 'business-card', template: 'business-card-light.html', output: 'business-card-light.png', width: 1050, height: 600 },
 
-  // ── LETTERHEAD & PROPOSAL HEADERS ──
+  // ── LETTERHEAD & PROPOSAL HEADERS & A4 SHEETS ──
   { category: 'letterhead', template: 'letterhead-header-dark.html', output: 'letterhead-header-dark.png', width: 1600, height: 320 },
   { category: 'letterhead', template: 'letterhead-header-light.html', output: 'letterhead-header-light.png', width: 1600, height: 320 },
+  { category: 'letterhead', template: 'letterhead-a4-dark.html', output: 'letterhead-a4-dark.png', width: 1240, height: 1754 },
+  { category: 'letterhead', template: 'letterhead-a4-light.html', output: 'letterhead-a4-light.png', width: 1240, height: 1754 },
 
   // ── UNIVERSAL OPENGRAPH & SOCIAL SHARE CARDS ──
   { category: 'social-card', template: 'og-card-dark.html', output: 'og-card-dark.png', width: 1200, height: 630 },
@@ -121,7 +123,45 @@ const tasks = [
   // ── EMAIL SIGNATURES ──
   { category: 'email-signature', template: 'founder-signature.html', output: 'founder-signature.png', width: 700, height: 260 },
   { category: 'email-signature', template: 'studio-signature.html', output: 'studio-signature.png', width: 720, height: 260 },
-  { category: 'email-signature', template: 'minimal-signature.html', output: 'minimal-signature.png', width: 600, height: 160 }
+  { category: 'email-signature', template: 'minimal-signature.html', output: 'minimal-signature.png', width: 600, height: 160 },
+
+  // ── TWITTER / X SUITE ──
+  { category: 'twitter', template: 'twitter-header-dark.html', output: 'twitter-header-dark.png', width: 1500, height: 500 },
+  { category: 'twitter', template: 'twitter-header-light.html', output: 'twitter-header-light.png', width: 1500, height: 500 },
+  { category: 'twitter', template: 'twitter-dp-dark.html', output: 'twitter-dp-dark.png', width: 400, height: 400 },
+  { category: 'twitter', template: 'twitter-dp-light.html', output: 'twitter-dp-light.png', width: 400, height: 400 },
+
+  // ── YOUTUBE CHANNEL SUITE ──
+  { category: 'youtube', template: 'youtube-banner-dark.html', output: 'youtube-banner-dark.png', width: 2560, height: 1440 },
+  { category: 'youtube', template: 'youtube-banner-light.html', output: 'youtube-banner-light.png', width: 2560, height: 1440 },
+  { category: 'youtube', template: 'youtube-dp-dark.html', output: 'youtube-dp-dark.png', width: 800, height: 800 },
+  { category: 'youtube', template: 'youtube-dp-light.html', output: 'youtube-dp-light.png', width: 800, height: 800 },
+
+  // ── GITHUB ORG & OPEN SOURCE SUITE ──
+  { category: 'github', template: 'github-avatar-dark.html', output: 'github-avatar-dark.png', width: 500, height: 500 },
+  { category: 'github', template: 'github-avatar-light.html', output: 'github-avatar-light.png', width: 500, height: 500 },
+  { category: 'github', template: 'github-social-card-dark.html', output: 'github-social-card-dark.png', width: 1280, height: 640 },
+  { category: 'github', template: 'github-social-card-light.html', output: 'github-social-card-light.png', width: 1280, height: 640 },
+
+  // ── GOOGLE MEET & ZOOM VIRTUAL BACKGROUNDS (1080P FULL HD) ──
+  { category: 'virtual-background', template: 'virtual-background-dark.html', output: 'virtual-background-dark.png', width: 1920, height: 1080 },
+  { category: 'virtual-background', template: 'virtual-background-light.html', output: 'virtual-background-light.png', width: 1920, height: 1080 },
+
+  // ── 16:9 CLIENT PITCH DECK & PRESENTATION SLIDES ──
+  { category: 'pitch-deck', template: 'slide-cover-dark.html', output: 'slide-cover-dark.png', width: 1920, height: 1080 },
+  { category: 'pitch-deck', template: 'slide-cover-light.html', output: 'slide-cover-light.png', width: 1920, height: 1080 },
+  { category: 'pitch-deck', template: 'slide-systems-dark.html', output: 'slide-systems-dark.png', width: 1920, height: 1080 },
+  { category: 'pitch-deck', template: 'slide-systems-light.html', output: 'slide-systems-light.png', width: 1920, height: 1080 },
+  { category: 'pitch-deck', template: 'slide-process-dark.html', output: 'slide-process-dark.png', width: 1920, height: 1080 },
+  { category: 'pitch-deck', template: 'slide-process-light.html', output: 'slide-process-light.png', width: 1920, height: 1080 },
+  { category: 'pitch-deck', template: 'slide-closing-dark.html', output: 'slide-closing-dark.png', width: 1920, height: 1080 },
+  { category: 'pitch-deck', template: 'slide-closing-light.html', output: 'slide-closing-light.png', width: 1920, height: 1080 },
+
+  // ── APP ICONS & PWA SUITE ──
+  { category: 'app-icons', template: 'apple-touch-icon.html', output: 'apple-touch-icon.png', width: 180, height: 180 },
+  { category: 'app-icons', template: 'android-chrome-192.html', output: 'android-chrome-192.png', width: 192, height: 192 },
+  { category: 'app-icons', template: 'android-chrome-512.html', output: 'android-chrome-512.png', width: 512, height: 512 },
+  { category: 'app-icons', template: 'favicon-32.html', output: 'favicon-32.png', width: 32, height: 32 }
 ];
 
 console.log(`[export] Starting export of ${tasks.length} marketing assets with Light & Dark parity...`);

@@ -56,9 +56,15 @@ marketing-kit/
 │   ├── whatsapp/               # 2 Avatars, 2 Business catalog cards (Dark & Light)
 │   ├── linkedin/               # 2 Company Logos, 2 Cover banners, 2 Feed posts (Dark & Light)
 │   ├── instagram/              # 2 Profile DPs, 2 4:5 Feed posts, 2 9:16 Stories (Dark & Light)
+│   ├── twitter/                # 2 Header Banners, 2 Avatars (Dark & Light)
+│   ├── youtube/                # 2 Channel Banners, 2 Channel Avatars (Dark & Light)
+│   ├── github/                 # 2 Org Avatars, 2 Social Repository Cards (Dark & Light)
+│   ├── virtual-background/     # 2 Full HD Google Meet / Zoom Backgrounds (Dark & Light)
+│   ├── pitch-deck/             # 8 16:9 Client Pitch Presentation Slides (Dark & Light)
 │   ├── business-card/          # 2 Visiting cards (Obsidian Dark & Clean Light)
-│   ├── letterhead/             # 2 Proposal/Invoice headers (Dark & Light)
+│   ├── letterhead/             # 2 Proposal/Invoice headers + 2 A4 Printable Sheets (Dark & Light)
 │   ├── social-card/            # 2 Universal OpenGraph share cards (Dark & Light)
+│   ├── app-icons/              # 4 App icons (Apple touch icon, Android PWA, Favicon)
 │   └── email-signature/        # 3 Email Signatures (Founder, Studio, Minimal)
 └── exports/                    # Production rendered PNGs & SVGs (< 5 MB)
     ├── logos/                  # 10 PNGs (2048x2048) + 10 vector SVGs
@@ -66,9 +72,15 @@ marketing-kit/
     ├── whatsapp/               # 4 PNGs (DPs & Catalog Cards)
     ├── linkedin/               # 6 PNGs (Logos, Covers, Posts)
     ├── instagram/              # 6 PNGs (DPs, Posts, Stories)
+    ├── twitter/                # 4 PNGs (Headers & Profile Avatars)
+    ├── youtube/                # 4 PNGs (Banners & Channel Icons)
+    ├── github/                 # 4 PNGs (Org Avatars & Social Repository Cards)
+    ├── virtual-background/     # 2 PNGs (1080p Virtual Backgrounds)
+    ├── pitch-deck/             # 8 PNGs (16:9 Client Presentation Slides)
     ├── business-card/          # 2 PNGs (Visiting cards @ 300 DPI)
-    ├── letterhead/             # 2 PNGs (Proposal & Invoice headers)
+    ├── letterhead/             # 4 PNGs (2 Headers + 2 Full A4 Documents)
     ├── social-card/            # 2 PNGs (Universal OpenGraph cards)
+    ├── app-icons/              # 4 PNGs (Apple Touch Icon, Android 192/512, Favicon)
     └── email-signature/        # 3 Preview PNGs (Founder, Studio, Minimal)
 ```
 
@@ -94,7 +106,23 @@ marketing-kit/
 | **Instagram**| `instagram-story-*.png` | 1080 × 1920 px | 9:16 | Top 260px and bottom 260px clear of critical copy/logos (Dark & Light) |
 | **Visiting Cards**| `business-card-*.png` | 1050 × 600 px | 3.5:2 | Standard corporate visiting card @ 300 DPI (Dark & Light) |
 | **Letterhead** | `letterhead-header-*.png` | 1600 × 320 px | 5:1 | Header banner for client proposals, quotations & GST invoices |
+| **Letterhead A4** | `letterhead-a4-*.png` | 1240 × 1754 px | A4 (150 DPI) | Full official printable document sheet with watermark & margins (Dark & Light) |
 | **Social Card** | `og-card-*.png` | 1200 × 630 px | 1.91:1 | Universal rich-link card for Twitter/X, Discord, Slack, iMessage |
+| **Twitter / X** | `twitter-header-*.png` | 1500 × 500 px | 3:1 | Official profile header with bottom-left avatar safe-zone offset (Dark & Light) |
+| **Twitter / X** | `twitter-dp-*.png` | 400 × 400 px | 1:1 | High-res circular profile icon (Dark & Light) |
+| **YouTube** | `youtube-banner-*.png` | 2560 × 1440 px | 16:9 | Full banner with 1546×423 px central safe zone across TV, Desktop, Mobile |
+| **YouTube** | `youtube-dp-*.png` | 800 × 800 px | 1:1 | High-res channel avatar (Dark & Light) |
+| **GitHub** | `github-avatar-*.png` | 500 × 500 px | 1:1 | High-res organization profile picture (Dark & Light) |
+| **GitHub** | `github-social-card-*.png` | 1280 × 640 px | 2:1 | Official repository social preview card (Dark & Light) |
+| **Virtual Background** | `virtual-background-*.png` | 1920 × 1080 px | 16:9 | 1080p video call background for Google Meet, Zoom, Teams (Dark & Light) |
+| **Pitch Deck** | `slide-cover-*.png` | 1920 × 1080 px | 16:9 | Slide 01: Master Title & Studio Overview (Dark & Light) |
+| **Pitch Deck** | `slide-systems-*.png` | 1920 × 1080 px | 16:9 | Slide 02: Core 4 Engineering Systems (Dark & Light) |
+| **Pitch Deck** | `slide-process-*.png` | 1920 × 1080 px | 16:9 | Slide 03: 4-Phase Engineering Delivery Lifecycle (Dark & Light) |
+| **Pitch Deck** | `slide-closing-*.png` | 1920 × 1080 px | 16:9 | Slide 04: Engagement & Direct Communication (Dark & Light) |
+| **App Icons / PWA** | `apple-touch-icon.png` | 180 × 180 px | 1:1 | iOS Safari bookmark & Home Screen icon |
+| **App Icons / PWA** | `android-chrome-192.png` | 192 × 192 px | 1:1 | Android PWA launcher icon |
+| **App Icons / PWA** | `android-chrome-512.png` | 512 × 512 px | 1:1 | Android PWA splash & store icon |
+| **App Icons / PWA** | `favicon-32.png` | 32 × 32 px | 1:1 | High-DPI browser tab favicon |
 
 ---
 

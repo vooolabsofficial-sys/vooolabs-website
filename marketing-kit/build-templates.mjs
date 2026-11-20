@@ -1689,4 +1689,1011 @@ const minimalSig = `<!DOCTYPE html>
 
 fs.writeFileSync(path.join(sigDir, 'minimal-signature.html'), minimalSig, 'utf8');
 
-console.log('[build-templates] All templates successfully created in Light and Dark variants.');
+/* ═══════════════════════════════════════════════════════════════════════
+   10. TWITTER / X SUITE (templates/twitter/)
+   ═══════════════════════════════════════════════════════════════════════ */
+const twDir = path.join(templatesDir, 'twitter');
+fs.mkdirSync(twDir, { recursive: true });
+
+// 10.1 Twitter Headers (1500x500 px, bottom-left safe for 400px profile avatar overlap)
+const twHeaderDark = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 32px 32px;"></div>
+  <div style="position: absolute; top: -80px; right: -80px; width: 450px; height: 450px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.20) 0%, rgba(124, 58, 237, 0.12) 40%, transparent 70%);"></div>
+
+  <div style="width: 100%; height: 100%; position: relative; z-index: 10; display: flex; align-items: center; justify-content: space-between; padding: 0 64px 0 320px;">
+    <div>
+      <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 46px; line-height: 1; letter-spacing: 2px; margin-bottom: 12px;">
+        <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+        <span style="color: #FFFFFF; margin-left: 10px;">LABS</span>
+        <span style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #94A3B8; margin-left: 16px; letter-spacing: 1.5px; text-transform: uppercase;">&bull; Digital Product Studio</span>
+      </div>
+      <div style="font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.4px;">
+        Engineering Digital Products with <span style="background: linear-gradient(90deg, #4285F4, #7C3AED, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Obsession &amp; Scale.</span>
+      </div>
+      <div style="font-family: 'Inter', sans-serif; font-size: 13px; color: #64748B; margin-top: 8px;">
+        Websites &bull; Web Apps &bull; Business Software &bull; Search &amp; AI &bull; Maharashtra, India
+      </div>
+    </div>
+
+    <div style="text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: #4285F4; letter-spacing: 1px;">
+      vooolabs.in
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(twDir, 'twitter-header-dark.html'),
+  createHtmlPage({ width: 1500, height: 500, bg: '#0A0F1E', content: twHeaderDark }),
+  'utf8'
+);
+
+const twHeaderLight = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(15,23,42,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.035) 1px, transparent 1px); background-size: 32px 32px;"></div>
+  <div style="position: absolute; top: -80px; right: -80px; width: 450px; height: 450px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.12) 0%, rgba(124, 58, 237, 0.08) 40%, transparent 70%);"></div>
+
+  <div style="width: 100%; height: 100%; position: relative; z-index: 10; display: flex; align-items: center; justify-content: space-between; padding: 0 64px 0 320px;">
+    <div>
+      <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 46px; line-height: 1; letter-spacing: 2px; margin-bottom: 12px;">
+        <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+        <span style="color: #0A0F1E; margin-left: 10px;">LABS</span>
+        <span style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #64748B; margin-left: 16px; letter-spacing: 1.5px; text-transform: uppercase;">&bull; Digital Product Studio</span>
+      </div>
+      <div style="font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 800; color: #020617; letter-spacing: -0.4px;">
+        Engineering Digital Products with <span style="background: linear-gradient(90deg, #4285F4, #7C3AED, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Obsession &amp; Scale.</span>
+      </div>
+      <div style="font-family: 'Inter', sans-serif; font-size: 13px; color: #64748B; margin-top: 8px;">
+        Websites &bull; Web Apps &bull; Business Software &bull; Search &amp; AI &bull; Maharashtra, India
+      </div>
+    </div>
+
+    <div style="text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: #4285F4; letter-spacing: 1px;">
+      vooolabs.in
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(twDir, 'twitter-header-light.html'),
+  createHtmlPage({ width: 1500, height: 500, bg: '#FFFFFF', content: twHeaderLight }),
+  'utf8'
+);
+
+// 10.2 Twitter DP (400x400)
+fs.writeFileSync(
+  path.join(twDir, 'twitter-dp-dark.html'),
+  createHtmlPage({
+    width: 400,
+    height: 400,
+    bg: '#0A0F1E',
+    content: `
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 320px; height: 320px; border-radius: 50%; border: 1.5px solid rgba(255, 255, 255, 0.12); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle, #0F172A 55%, #0A0F1E 100%);">
+          <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 52px; line-height: 1; letter-spacing: 2px;">
+            <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+          </div>
+        </div>
+      </div>`
+  }),
+  'utf8'
+);
+
+fs.writeFileSync(
+  path.join(twDir, 'twitter-dp-light.html'),
+  createHtmlPage({
+    width: 400,
+    height: 400,
+    bg: '#FFFFFF',
+    content: `
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 320px; height: 320px; border-radius: 50%; border: 1.5px solid #E2E8F0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle, #FFFFFF 55%, #F8FAFC 100%);">
+          <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 52px; line-height: 1; letter-spacing: 2px;">
+            <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+          </div>
+        </div>
+      </div>`
+  }),
+  'utf8'
+);
+
+/* ═══════════════════════════════════════════════════════════════════════
+   11. YOUTUBE CHANNEL SUITE (templates/youtube/)
+   ═══════════════════════════════════════════════════════════════════════ */
+const ytDir = path.join(templatesDir, 'youtube');
+fs.mkdirSync(ytDir, { recursive: true });
+
+// 2560x1440 px standard (Center Safe Zone: 1546x423 px vertically centered at Y=508.5px)
+const ytBannerDark = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  <div style="position: absolute; top: 200px; right: 200px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.22) 0%, rgba(124, 58, 237, 0.12) 40%, transparent 70%);"></div>
+
+  <!-- Centered Safe Zone 1546x423 px -->
+  <div style="position: absolute; top: 508px; left: 507px; width: 1546px; height: 424px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px;">
+    <div>
+      <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 72px; line-height: 1; letter-spacing: 3px; margin-bottom: 16px;">
+        <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+        <span style="color: #FFFFFF; margin-left: 16px;">LABS</span>
+      </div>
+      <div style="display: inline-block; padding: 6px 16px; border-radius: 9999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; color: #CBD5E1; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;">
+        Digital Product Studio
+      </div>
+      <h2 style="font-family: 'Inter', sans-serif; font-size: 32px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.5px;">
+        Engineering Digital Products with <span style="background: linear-gradient(90deg, #4285F4, #7C3AED, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Obsession &amp; Scale.</span>
+      </h2>
+      <div style="font-family: 'Inter', sans-serif; font-size: 16px; color: #94A3B8; margin-top: 8px;">
+        Custom Websites &bull; Web Apps &bull; Business Software &bull; Search &amp; AI
+      </div>
+    </div>
+
+    <div style="text-align: right;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #4285F4; letter-spacing: 1px;">
+        vooolabs.in
+      </div>
+      <div style="font-family: 'Inter', sans-serif; font-size: 14px; color: #64748B; margin-top: 6px;">
+        Maharashtra &bull; India
+      </div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(ytDir, 'youtube-banner-dark.html'),
+  createHtmlPage({ width: 2560, height: 1440, bg: '#0A0F1E', content: ytBannerDark }),
+  'utf8'
+);
+
+const ytBannerLight = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(15,23,42,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.035) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  <div style="position: absolute; top: 200px; right: 200px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.12) 0%, rgba(124, 58, 237, 0.08) 40%, transparent 70%);"></div>
+
+  <!-- Centered Safe Zone 1546x423 px -->
+  <div style="position: absolute; top: 508px; left: 507px; width: 1546px; height: 424px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px;">
+    <div>
+      <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 72px; line-height: 1; letter-spacing: 3px; margin-bottom: 16px;">
+        <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+        <span style="color: #0A0F1E; margin-left: 16px;">LABS</span>
+      </div>
+      <div style="display: inline-block; padding: 6px 16px; border-radius: 9999px; background: #FFFFFF; border: 1px solid #E2E8F0; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; color: #0F172A; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;">
+        Digital Product Studio
+      </div>
+      <h2 style="font-family: 'Inter', sans-serif; font-size: 32px; font-weight: 800; color: #020617; letter-spacing: -0.5px;">
+        Engineering Digital Products with <span style="background: linear-gradient(90deg, #4285F4, #7C3AED, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Obsession &amp; Scale.</span>
+      </h2>
+      <div style="font-family: 'Inter', sans-serif; font-size: 16px; color: #475569; margin-top: 8px;">
+        Custom Websites &bull; Web Apps &bull; Business Software &bull; Search &amp; AI
+      </div>
+    </div>
+
+    <div style="text-align: right;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #4285F4; letter-spacing: 1px;">
+        vooolabs.in
+      </div>
+      <div style="font-family: 'Inter', sans-serif; font-size: 14px; color: #64748B; margin-top: 6px;">
+        Maharashtra &bull; India
+      </div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(ytDir, 'youtube-banner-light.html'),
+  createHtmlPage({ width: 2560, height: 1440, bg: '#FFFFFF', content: ytBannerLight }),
+  'utf8'
+);
+
+// 11.2 YouTube DP (800x800)
+fs.writeFileSync(
+  path.join(ytDir, 'youtube-dp-dark.html'),
+  createHtmlPage({
+    width: 800,
+    height: 800,
+    bg: '#0A0F1E',
+    content: `
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 620px; height: 620px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.12); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle, #0F172A 55%, #0A0F1E 100%);">
+          <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 96px; line-height: 1; letter-spacing: 4px; margin-bottom: 16px;">
+            <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+            <span style="color: #FFFFFF; margin-left: 14px;">LABS</span>
+          </div>
+          <div style="width: 52px; height: 4px; background: linear-gradient(90deg, #4285F4, #7C3AED, #F97316); border-radius: 2px; margin-bottom: 16px;"></div>
+          <div style="font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; color: #F8FAFC; letter-spacing: 4px; text-transform: uppercase;">Digital Product Studio</div>
+        </div>
+      </div>`
+  }),
+  'utf8'
+);
+
+fs.writeFileSync(
+  path.join(ytDir, 'youtube-dp-light.html'),
+  createHtmlPage({
+    width: 800,
+    height: 800,
+    bg: '#FFFFFF',
+    content: `
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 620px; height: 620px; border-radius: 50%; border: 2px solid #E2E8F0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle, #FFFFFF 60%, #F8FAFC 100%);">
+          <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 96px; line-height: 1; letter-spacing: 4px; margin-bottom: 16px;">
+            <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+            <span style="color: #0A0F1E; margin-left: 14px;">LABS</span>
+          </div>
+          <div style="width: 52px; height: 4px; background: linear-gradient(90deg, #4285F4, #7C3AED, #F97316); border-radius: 2px; margin-bottom: 16px;"></div>
+          <div style="font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; color: #0A0F1E; letter-spacing: 4px; text-transform: uppercase;">Digital Product Studio</div>
+        </div>
+      </div>`
+  }),
+  'utf8'
+);
+
+/* ═══════════════════════════════════════════════════════════════════════
+   12. GITHUB SUITE (templates/github/)
+   ═══════════════════════════════════════════════════════════════════════ */
+const ghDir = path.join(templatesDir, 'github');
+fs.mkdirSync(ghDir, { recursive: true });
+
+// 12.1 GitHub Avatar (500x500)
+fs.writeFileSync(
+  path.join(ghDir, 'github-avatar-dark.html'),
+  createHtmlPage({
+    width: 500,
+    height: 500,
+    bg: '#0A0F1E',
+    content: `
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 400px; height: 400px; border-radius: 96px; background: #0F172A; border: 2px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+          <div style="display: flex; align-items: baseline; font-family: 'CrazyBlocks', sans-serif; font-size: 92px; line-height: 1; letter-spacing: 3px;">
+            <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+          </div>
+        </div>
+      </div>`
+  }),
+  'utf8'
+);
+
+fs.writeFileSync(
+  path.join(ghDir, 'github-avatar-light.html'),
+  createHtmlPage({
+    width: 500,
+    height: 500,
+    bg: '#FFFFFF',
+    content: `
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 400px; height: 400px; border-radius: 96px; background: #FFFFFF; border: 2px solid #E2E8F0; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 60px rgba(0,0,0,0.06);">
+          <div style="display: flex; align-items: baseline; font-family: 'CrazyBlocks', sans-serif; font-size: 92px; line-height: 1; letter-spacing: 3px;">
+            <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+          </div>
+        </div>
+      </div>`
+  }),
+  'utf8'
+);
+
+// 12.2 GitHub Repository / Org Social Card (1280x640 px)
+const ghSocialDark = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 32px 32px;"></div>
+  <div style="position: absolute; top: -100px; right: -100px; width: 550px; height: 550px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.20) 0%, rgba(124, 58, 237, 0.12) 40%, transparent 70%);"></div>
+
+  <div style="width: 100%; height: 100%; position: relative; z-index: 10; padding: 64px 72px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 58px; line-height: 1; letter-spacing: 2px;">
+        <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+        <span style="color: #FFFFFF; margin-left: 12px;">LABS</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 9999px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #CBD5E1;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        github.com/vooolabs
+      </div>
+    </div>
+
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #4285F4; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;">
+        Engineering Repositories
+      </div>
+      <h1 style="font-family: 'Inter', sans-serif; font-size: 44px; font-weight: 800; color: #FFFFFF; line-height: 1.15; letter-spacing: -1px; max-width: 960px;">
+        Engineering Digital Products with <span style="background: linear-gradient(90deg, #4285F4, #7C3AED, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Obsession &amp; Scale.</span>
+      </h1>
+      <p style="font-family: 'Inter', sans-serif; font-size: 18px; color: #94A3B8; margin-top: 14px; max-width: 860px;">
+        Modern React/Next.js architectures, progressive web applications, and tailor-made enterprise software systems.
+      </p>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+      <div style="font-family: 'Inter', sans-serif; font-size: 14px; color: #64748B;">
+        Digital Product Studio &bull; Maharashtra, India
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: #4285F4;">
+        vooolabs.in
+      </div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(ghDir, 'github-social-card-dark.html'),
+  createHtmlPage({ width: 1280, height: 640, bg: '#0A0F1E', content: ghSocialDark }),
+  'utf8'
+);
+
+const ghSocialLight = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(15,23,42,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.035) 1px, transparent 1px); background-size: 32px 32px;"></div>
+  <div style="position: absolute; top: -100px; right: -100px; width: 550px; height: 550px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.12) 0%, rgba(124, 58, 237, 0.08) 40%, transparent 70%);"></div>
+
+  <div style="width: 100%; height: 100%; position: relative; z-index: 10; padding: 64px 72px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 58px; line-height: 1; letter-spacing: 2px;">
+        <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+        <span style="color: #0A0F1E; margin-left: 12px;">LABS</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 9999px; background: #FFFFFF; border: 1px solid #E2E8F0; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #0F172A;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        github.com/vooolabs
+      </div>
+    </div>
+
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #4285F4; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;">
+        Engineering Repositories
+      </div>
+      <h1 style="font-family: 'Inter', sans-serif; font-size: 44px; font-weight: 800; color: #020617; line-height: 1.15; letter-spacing: -1px; max-width: 960px;">
+        Engineering Digital Products with <span style="background: linear-gradient(90deg, #4285F4, #7C3AED, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Obsession &amp; Scale.</span>
+      </h1>
+      <p style="font-family: 'Inter', sans-serif; font-size: 18px; color: #475569; margin-top: 14px; max-width: 860px;">
+        Modern React/Next.js architectures, progressive web applications, and tailor-made enterprise software systems.
+      </p>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid #E2E8F0;">
+      <div style="font-family: 'Inter', sans-serif; font-size: 14px; color: #64748B;">
+        Digital Product Studio &bull; Maharashtra, India
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: #4285F4;">
+        vooolabs.in
+      </div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(ghDir, 'github-social-card-light.html'),
+  createHtmlPage({ width: 1280, height: 640, bg: '#FFFFFF', content: ghSocialLight }),
+  'utf8'
+);
+
+/* ═══════════════════════════════════════════════════════════════════════
+   13. GOOGLE MEET / ZOOM VIRTUAL BACKGROUNDS (templates/virtual-background/)
+   ═══════════════════════════════════════════════════════════════════════ */
+const vbDir = path.join(templatesDir, 'virtual-background');
+fs.mkdirSync(vbDir, { recursive: true });
+
+// 1920x1080 px (16:9 Full HD)
+const vbDark = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  <div style="position: absolute; top: -150px; right: -150px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.18) 0%, rgba(124, 58, 237, 0.10) 40%, transparent 70%);"></div>
+  <div style="position: absolute; bottom: -150px; left: -150px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, transparent 70%);"></div>
+
+  <!-- Top Right Branded Watermark (Person sits in center-bottom) -->
+  <div style="position: absolute; top: 64px; right: 80px; text-align: right;">
+    <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 56px; line-height: 1; letter-spacing: 2px;">
+      <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+      <span style="color: #FFFFFF; margin-left: 12px;">LABS</span>
+    </div>
+    <div style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #94A3B8; letter-spacing: 3px; text-transform: uppercase; margin-top: 8px;">
+      Digital Product Studio
+    </div>
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #64748B; margin-top: 4px;">
+      vooolabs.in
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(vbDir, 'virtual-background-dark.html'),
+  createHtmlPage({ width: 1920, height: 1080, bg: '#0A0F1E', content: vbDark }),
+  'utf8'
+);
+
+const vbLight = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(15,23,42,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.035) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  <div style="position: absolute; top: -150px; right: -150px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.12) 0%, rgba(124, 58, 237, 0.08) 40%, transparent 70%);"></div>
+  <div style="position: absolute; bottom: -150px; left: -150px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 70%);"></div>
+
+  <!-- Top Right Branded Watermark -->
+  <div style="position: absolute; top: 64px; right: 80px; text-align: right;">
+    <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 56px; line-height: 1; letter-spacing: 2px;">
+      <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+      <span style="color: #0A0F1E; margin-left: 12px;">LABS</span>
+    </div>
+    <div style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #64748B; letter-spacing: 3px; text-transform: uppercase; margin-top: 8px;">
+      Digital Product Studio
+    </div>
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #4285F4; font-weight: 600; margin-top: 4px;">
+      vooolabs.in
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(vbDir, 'virtual-background-light.html'),
+  createHtmlPage({ width: 1920, height: 1080, bg: '#F8FAFC', content: vbLight }),
+  'utf8'
+);
+
+/* ═══════════════════════════════════════════════════════════════════════
+   14. PITCH DECK & PRESENTATION SLIDES (templates/pitch-deck/)
+   ═══════════════════════════════════════════════════════════════════════ */
+const pdDir = path.join(templatesDir, 'pitch-deck');
+fs.mkdirSync(pdDir, { recursive: true });
+
+// 14.1 Slide 1: Cover (1920x1080)
+const slideCoverDark = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  <div style="position: absolute; top: -150px; right: -150px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.22) 0%, rgba(124, 58, 237, 0.12) 40%, transparent 70%);"></div>
+
+  <div style="width: 100%; height: 100%; position: relative; z-index: 10; padding: 96px 120px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 64px; line-height: 1; letter-spacing: 2px;">
+        <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+        <span style="color: #FFFFFF; margin-left: 14px;">LABS</span>
+      </div>
+      <div style="padding: 10px 24px; border-radius: 9999px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #CBD5E1; letter-spacing: 2px; text-transform: uppercase;">
+        Studio Capabilities
+      </div>
+    </div>
+
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 700; color: #F97316; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px;">
+        Architectural Overview
+      </div>
+      <h1 style="font-family: 'Inter', sans-serif; font-size: 72px; font-weight: 800; color: #FFFFFF; line-height: 1.1; letter-spacing: -2px; max-width: 1300px;">
+        Engineering Digital Products with <br><span style="background: linear-gradient(90deg, #4285F4, #7C3AED, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Obsession &amp; Scale.</span>
+      </h1>
+      <p style="font-family: 'Inter', sans-serif; font-size: 26px; color: #94A3B8; margin-top: 32px; max-width: 1000px; line-height: 1.5;">
+        Bespoke web applications, high-performance websites, and operational business systems designed for precision and business scale.
+      </p>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+      <div style="font-family: 'Inter', sans-serif; font-size: 18px; color: #64748B;">
+        Maharashtra (Satara &bull; Pune &bull; Nashik &bull; Kolhapur)
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #4285F4;">
+        vooolabs.in
+      </div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(pdDir, 'slide-cover-dark.html'),
+  createHtmlPage({ width: 1920, height: 1080, bg: '#0A0F1E', content: slideCoverDark }),
+  'utf8'
+);
+
+const slideCoverLight = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(15,23,42,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.035) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  <div style="position: absolute; top: -150px; right: -150px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.12) 0%, rgba(124, 58, 237, 0.08) 40%, transparent 70%);"></div>
+
+  <div style="width: 100%; height: 100%; position: relative; z-index: 10; padding: 96px 120px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 64px; line-height: 1; letter-spacing: 2px;">
+        <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+        <span style="color: #0A0F1E; margin-left: 14px;">LABS</span>
+      </div>
+      <div style="padding: 10px 24px; border-radius: 9999px; background: #FFFFFF; border: 1px solid #E2E8F0; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #0F172A; letter-spacing: 2px; text-transform: uppercase;">
+        Studio Capabilities
+      </div>
+    </div>
+
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 700; color: #F97316; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px;">
+        Architectural Overview
+      </div>
+      <h1 style="font-family: 'Inter', sans-serif; font-size: 72px; font-weight: 800; color: #020617; line-height: 1.1; letter-spacing: -2px; max-width: 1300px;">
+        Engineering Digital Products with <br><span style="background: linear-gradient(90deg, #4285F4, #7C3AED, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Obsession &amp; Scale.</span>
+      </h1>
+      <p style="font-family: 'Inter', sans-serif; font-size: 26px; color: #475569; margin-top: 32px; max-width: 1000px; line-height: 1.5;">
+        Bespoke web applications, high-performance websites, and operational business systems designed for precision and business scale.
+      </p>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 1px solid #E2E8F0;">
+      <div style="font-family: 'Inter', sans-serif; font-size: 18px; color: #64748B;">
+        Maharashtra (Satara &bull; Pune &bull; Nashik &bull; Kolhapur)
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #4285F4;">
+        vooolabs.in
+      </div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(pdDir, 'slide-cover-light.html'),
+  createHtmlPage({ width: 1920, height: 1080, bg: '#F8FAFC', content: slideCoverLight }),
+  'utf8'
+);
+
+// 14.2 Slide 2: Systems (1920x1080)
+const slideSystemsDark = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  
+  <div style="width: 100%; height: 100%; position: relative; z-index: 10; padding: 80px 100px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #4285F4; letter-spacing: 2px; text-transform: uppercase;">01 &bull; CAPABILITIES</div>
+      <h2 style="font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 800; color: #FFFFFF; letter-spacing: -1px; margin-top: 8px;">
+        Four Core Engineering Systems.
+      </h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+      <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #4285F4;">SYSTEM 01</div>
+          <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #FFFFFF; margin-top: 8px;">Business Websites</h3>
+          <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #94A3B8; margin-top: 12px; line-height: 1.5;">Sub-second load times, interactive craft, WhatsApp instant routing.</p>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #64748B; margin-top: 24px;">High Conversion</div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #7C3AED;">SYSTEM 02</div>
+          <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #FFFFFF; margin-top: 8px;">Web Apps &amp; Portals</h3>
+          <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #94A3B8; margin-top: 12px; line-height: 1.5;">Progressive browser apps, zero app store fees, tailored SaaS client portals.</p>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #64748B; margin-top: 24px;">Cross Device</div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #F97316;">SYSTEM 03</div>
+          <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #FFFFFF; margin-top: 8px;">Business Software</h3>
+          <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #94A3B8; margin-top: 12px; line-height: 1.5;">Tailored ERP/CRM, inventory control, automated invoice operations.</p>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #64748B; margin-top: 24px;">Operational Velocity</div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #10B981;">SYSTEM 04</div>
+          <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #FFFFFF; margin-top: 8px;">Search &amp; AI Engine</h3>
+          <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #94A3B8; margin-top: 12px; line-height: 1.5;">Technical Google SEO, ChatGPT/Perplexity AI visibility &amp; Maps 3-Pack.</p>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #64748B; margin-top: 24px;">Discovery Dominance</div>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+      <div style="font-family: 'Inter', sans-serif; font-size: 16px; color: #64748B;">VOOO LABS &bull; Digital Product Studio</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 700; color: #4285F4;">vooolabs.in</div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(pdDir, 'slide-systems-dark.html'),
+  createHtmlPage({ width: 1920, height: 1080, bg: '#0A0F1E', content: slideSystemsDark }),
+  'utf8'
+);
+
+const slideSystemsLight = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(15,23,42,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.035) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  
+  <div style="width: 100%; height: 100%; position: relative; z-index: 10; padding: 80px 100px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #4285F4; letter-spacing: 2px; text-transform: uppercase;">01 &bull; CAPABILITIES</div>
+      <h2 style="font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 800; color: #020617; letter-spacing: -1px; margin-top: 8px;">
+        Four Core Engineering Systems.
+      </h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #4285F4;">SYSTEM 01</div>
+          <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #0F172A; margin-top: 8px;">Business Websites</h3>
+          <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #64748B; margin-top: 12px; line-height: 1.5;">Sub-second load times, interactive craft, WhatsApp instant routing.</p>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #94A3B8; margin-top: 24px;">High Conversion</div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #7C3AED;">SYSTEM 02</div>
+          <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #0F172A; margin-top: 8px;">Web Apps &amp; Portals</h3>
+          <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #64748B; margin-top: 12px; line-height: 1.5;">Progressive browser apps, zero app store fees, tailored SaaS client portals.</p>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #94A3B8; margin-top: 24px;">Cross Device</div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #F97316;">SYSTEM 03</div>
+          <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #0F172A; margin-top: 8px;">Business Software</h3>
+          <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #64748B; margin-top: 12px; line-height: 1.5;">Tailored ERP/CRM, inventory control, automated invoice operations.</p>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #94A3B8; margin-top: 24px;">Operational Velocity</div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #10B981;">SYSTEM 04</div>
+          <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #0F172A; margin-top: 8px;">Search &amp; AI Engine</h3>
+          <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #64748B; margin-top: 12px; line-height: 1.5;">Technical Google SEO, ChatGPT/Perplexity AI visibility &amp; Maps 3-Pack.</p>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #94A3B8; margin-top: 24px;">Discovery Dominance</div>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid #E2E8F0;">
+      <div style="font-family: 'Inter', sans-serif; font-size: 16px; color: #64748B;">VOOO LABS &bull; Digital Product Studio</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 700; color: #4285F4;">vooolabs.in</div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(pdDir, 'slide-systems-light.html'),
+  createHtmlPage({ width: 1920, height: 1080, bg: '#F8FAFC', content: slideSystemsLight }),
+  'utf8'
+);
+
+// 14.3 Slide 3: Process (1920x1080)
+const slideProcessDark = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  
+  <div style="width: 100%; height: 100%; position: relative; z-index: 10; padding: 80px 100px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #F97316; letter-spacing: 2px; text-transform: uppercase;">02 &bull; ENGINEERING PROCESS</div>
+      <h2 style="font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 800; color: #FFFFFF; letter-spacing: -1px; margin-top: 8px;">
+        How We Build Digital Systems.
+      </h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+      <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #4285F4;">PHASE 01</div>
+        <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #FFFFFF; margin-top: 8px;">Audit &amp; Discovery</h3>
+        <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #94A3B8; margin-top: 14px; line-height: 1.5;">Deconstructing operational bottlenecks, user journeys, and competitive gaps.</p>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #7C3AED;">PHASE 02</div>
+        <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #FFFFFF; margin-top: 8px;">Architecture</h3>
+        <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #94A3B8; margin-top: 14px; line-height: 1.5;">Designing system blueprints, data schemas, API contracts, and high-fidelity UX.</p>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #F97316;">PHASE 03</div>
+        <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #FFFFFF; margin-top: 8px;">Full-Stack Build</h3>
+        <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #94A3B8; margin-top: 14px; line-height: 1.5;">High-speed development with zero bloated dependencies and rigorous QA testing.</p>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #10B981;">PHASE 04</div>
+        <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #FFFFFF; margin-top: 8px;">Scale &amp; Dominate</h3>
+        <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #94A3B8; margin-top: 14px; line-height: 1.5;">Technical SEO launch, AI engine optimization, and enterprise-grade reliability.</p>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+      <div style="font-family: 'Inter', sans-serif; font-size: 16px; color: #64748B;">Precision Engineering &bull; Modern Architecture</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 700; color: #4285F4;">vooolabs.in</div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(pdDir, 'slide-process-dark.html'),
+  createHtmlPage({ width: 1920, height: 1080, bg: '#0A0F1E', content: slideProcessDark }),
+  'utf8'
+);
+
+const slideProcessLight = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(15,23,42,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.035) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  
+  <div style="width: 100%; height: 100%; position: relative; z-index: 10; padding: 80px 100px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #F97316; letter-spacing: 2px; text-transform: uppercase;">02 &bull; ENGINEERING PROCESS</div>
+      <h2 style="font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 800; color: #020617; letter-spacing: -1px; margin-top: 8px;">
+        How We Build Digital Systems.
+      </h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #4285F4;">PHASE 01</div>
+        <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #0F172A; margin-top: 8px;">Audit &amp; Discovery</h3>
+        <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #64748B; margin-top: 14px; line-height: 1.5;">Deconstructing operational bottlenecks, user journeys, and competitive gaps.</p>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #7C3AED;">PHASE 02</div>
+        <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #0F172A; margin-top: 8px;">Architecture</h3>
+        <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #64748B; margin-top: 14px; line-height: 1.5;">Designing system blueprints, data schemas, API contracts, and high-fidelity UX.</p>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #F97316;">PHASE 03</div>
+        <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #0F172A; margin-top: 8px;">Full-Stack Build</h3>
+        <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #64748B; margin-top: 14px; line-height: 1.5;">High-speed development with zero bloated dependencies and rigorous QA testing.</p>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #10B981;">PHASE 04</div>
+        <h3 style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; color: #0F172A; margin-top: 8px;">Scale &amp; Dominate</h3>
+        <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #64748B; margin-top: 14px; line-height: 1.5;">Technical SEO launch, AI engine optimization, and enterprise-grade reliability.</p>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid #E2E8F0;">
+      <div style="font-family: 'Inter', sans-serif; font-size: 16px; color: #64748B;">Precision Engineering &bull; Modern Architecture</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 700; color: #4285F4;">vooolabs.in</div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(pdDir, 'slide-process-light.html'),
+  createHtmlPage({ width: 1920, height: 1080, bg: '#F8FAFC', content: slideProcessLight }),
+  'utf8'
+);
+
+// 14.4 Slide 4: Closing / Contact (1920x1080)
+const slideClosingDark = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  <div style="position: absolute; top: -150px; right: -150px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.22) 0%, rgba(124, 58, 237, 0.12) 40%, transparent 70%);"></div>
+
+  <div style="width: 100%; height: 100%; position: relative; z-index: 10; padding: 96px 120px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 64px; line-height: 1; letter-spacing: 2px;">
+      <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+      <span style="color: #FFFFFF; margin-left: 14px;">LABS</span>
+    </div>
+
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 700; color: #10B981; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px;">
+        Next Steps
+      </div>
+      <h2 style="font-family: 'Inter', sans-serif; font-size: 64px; font-weight: 800; color: #FFFFFF; letter-spacing: -2px; max-width: 1100px;">
+        Let’s Engineer Your Next <br><span style="background: linear-gradient(90deg, #4285F4, #7C3AED, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Digital Product.</span>
+      </h2>
+      
+      <div style="display: flex; gap: 48px; margin-top: 48px; font-family: 'Inter', sans-serif;">
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #94A3B8; text-transform: uppercase;">Direct Line / WhatsApp</div>
+          <div style="font-size: 24px; font-weight: 700; color: #FFFFFF; margin-top: 4px;">+91 76202 36178</div>
+        </div>
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #94A3B8; text-transform: uppercase;">Official Studio Email</div>
+          <div style="font-size: 24px; font-weight: 700; color: #4285F4; margin-top: 4px;">hello@vooolabs.in</div>
+        </div>
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #94A3B8; text-transform: uppercase;">Official Web Hub</div>
+          <div style="font-size: 24px; font-weight: 700; color: #FFFFFF; margin-top: 4px;">vooolabs.in</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+      <div style="font-family: 'Inter', sans-serif; font-size: 16px; color: #64748B;">
+        Maharashtra Studio Hubs: Satara &bull; Pune &bull; Nashik &bull; Kolhapur
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; color: #CBD5E1;">
+        First make it work. Then make it beautiful.
+      </div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(pdDir, 'slide-closing-dark.html'),
+  createHtmlPage({ width: 1920, height: 1080, bg: '#0A0F1E', content: slideClosingDark }),
+  'utf8'
+);
+
+const slideClosingLight = `
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(15,23,42,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.035) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  <div style="position: absolute; top: -150px; right: -150px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.12) 0%, rgba(124, 58, 237, 0.08) 40%, transparent 70%);"></div>
+
+  <div style="width: 100%; height: 100%; position: relative; z-index: 10; padding: 96px 120px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 64px; line-height: 1; letter-spacing: 2px;">
+      <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+      <span style="color: #0A0F1E; margin-left: 14px;">LABS</span>
+    </div>
+
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 700; color: #10B981; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px;">
+        Next Steps
+      </div>
+      <h2 style="font-family: 'Inter', sans-serif; font-size: 64px; font-weight: 800; color: #020617; letter-spacing: -2px; max-width: 1100px;">
+        Let’s Engineer Your Next <br><span style="background: linear-gradient(90deg, #4285F4, #7C3AED, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Digital Product.</span>
+      </h2>
+      
+      <div style="display: flex; gap: 48px; margin-top: 48px; font-family: 'Inter', sans-serif;">
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #64748B; text-transform: uppercase;">Direct Line / WhatsApp</div>
+          <div style="font-size: 24px; font-weight: 800; color: #0F172A; margin-top: 4px;">+91 76202 36178</div>
+        </div>
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #64748B; text-transform: uppercase;">Official Studio Email</div>
+          <div style="font-size: 24px; font-weight: 800; color: #4285F4; margin-top: 4px;">hello@vooolabs.in</div>
+        </div>
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #64748B; text-transform: uppercase;">Official Web Hub</div>
+          <div style="font-size: 24px; font-weight: 800; color: #0F172A; margin-top: 4px;">vooolabs.in</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 1px solid #E2E8F0;">
+      <div style="font-family: 'Inter', sans-serif; font-size: 16px; color: #64748B;">
+        Maharashtra Studio Hubs: Satara &bull; Pune &bull; Nashik &bull; Kolhapur
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; color: #475569;">
+        First make it work. Then make it beautiful.
+      </div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(pdDir, 'slide-closing-light.html'),
+  createHtmlPage({ width: 1920, height: 1080, bg: '#F8FAFC', content: slideClosingLight }),
+  'utf8'
+);
+
+/* ═══════════════════════════════════════════════════════════════════════
+   15. A4 OFFICIAL PRINTABLE LETTERHEAD (templates/letterhead/)
+   ═══════════════════════════════════════════════════════════════════════ */
+// 1240x1754 px (A4 @ 150 DPI)
+const a4Dark = `
+  <div style="width: 100%; height: 100%; position: relative; padding: 72px 80px; display: flex; flex-direction: column; justify-content: space-between;">
+    <!-- Letterhead Header -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 32px; border-bottom: 2px solid rgba(255, 255, 255, 0.1);">
+      <div>
+        <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 52px; line-height: 1; letter-spacing: 2px;">
+          <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+          <span style="color: #FFFFFF; margin-left: 12px;">LABS</span>
+        </div>
+        <div style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #94A3B8; letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px;">
+          Digital Product Studio
+        </div>
+      </div>
+      <div style="text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #94A3B8; line-height: 1.8;">
+        <div><span style="color: #FFFFFF; font-weight: 700;">Web:</span> <span style="color: #4285F4;">vooolabs.in</span></div>
+        <div><span style="color: #FFFFFF; font-weight: 700;">Email:</span> hello@vooolabs.in</div>
+        <div><span style="color: #FFFFFF; font-weight: 700;">Direct:</span> +91 76202 36178</div>
+      </div>
+    </div>
+
+    <!-- Letterhead Body Placeholder / Watermark -->
+    <div style="flex-grow: 1; padding: 64px 0; position: relative;">
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.04; font-family: 'CrazyBlocks', sans-serif; font-size: 320px; color: #FFFFFF; pointer-events: none;">
+        VOOO
+      </div>
+      <div style="font-family: 'Inter', sans-serif; font-size: 14px; color: #64748B; line-height: 1.8;">
+        [Official Document Body / Contract Terms / Quotation Scope]
+      </div>
+    </div>
+
+    <!-- Letterhead Footer -->
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-family: 'Inter', sans-serif; font-size: 11px; color: #64748B;">
+      <div>
+        <span style="color: #F97316; font-weight: 700;">Hubs:</span> Maharashtra &bull; Satara &bull; Pune &bull; Nashik &bull; Kolhapur
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; color: #CBD5E1;">
+        Precision Engineering &bull; Modern Architecture &bull; Measurable Scale
+      </div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(lhDir, 'letterhead-a4-dark.html'),
+  createHtmlPage({ width: 1240, height: 1754, bg: '#0A0F1E', content: a4Dark }),
+  'utf8'
+);
+
+const a4Light = `
+  <div style="width: 100%; height: 100%; position: relative; padding: 72px 80px; display: flex; flex-direction: column; justify-content: space-between;">
+    <!-- Letterhead Header -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 32px; border-bottom: 2px solid #E2E8F0;">
+      <div>
+        <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 52px; line-height: 1; letter-spacing: 2px;">
+          <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+          <span style="color: #0A0F1E; margin-left: 12px;">LABS</span>
+        </div>
+        <div style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #64748B; letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px;">
+          Digital Product Studio
+        </div>
+      </div>
+      <div style="text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #475569; line-height: 1.8;">
+        <div><span style="color: #0F172A; font-weight: 700;">Web:</span> <span style="color: #4285F4; font-weight: 700;">vooolabs.in</span></div>
+        <div><span style="color: #0F172A; font-weight: 700;">Email:</span> hello@vooolabs.in</div>
+        <div><span style="color: #0F172A; font-weight: 700;">Direct:</span> +91 76202 36178</div>
+      </div>
+    </div>
+
+    <!-- Letterhead Body Placeholder / Watermark -->
+    <div style="flex-grow: 1; padding: 64px 0; position: relative;">
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.03; font-family: 'CrazyBlocks', sans-serif; font-size: 320px; color: #000000; pointer-events: none;">
+        VOOO
+      </div>
+      <div style="font-family: 'Inter', sans-serif; font-size: 14px; color: #94A3B8; line-height: 1.8;">
+        [Official Document Body / Contract Terms / Quotation Scope]
+      </div>
+    </div>
+
+    <!-- Letterhead Footer -->
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid #E2E8F0; font-family: 'Inter', sans-serif; font-size: 11px; color: #64748B;">
+      <div>
+        <span style="color: #F97316; font-weight: 700;">Hubs:</span> Maharashtra &bull; Satara &bull; Pune &bull; Nashik &bull; Kolhapur
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; color: #0F172A; font-weight: 600;">
+        Precision Engineering &bull; Modern Architecture &bull; Measurable Scale
+      </div>
+    </div>
+  </div>`;
+
+fs.writeFileSync(
+  path.join(lhDir, 'letterhead-a4-light.html'),
+  createHtmlPage({ width: 1240, height: 1754, bg: '#FFFFFF', content: a4Light }),
+  'utf8'
+);
+
+/* ═══════════════════════════════════════════════════════════════════════
+   16. APP ICONS & PWA SUITE (templates/app-icons/)
+   ═══════════════════════════════════════════════════════════════════════ */
+const appDir = path.join(templatesDir, 'app-icons');
+fs.mkdirSync(appDir, { recursive: true });
+
+// 16.1 Apple Touch Icon (180x180)
+fs.writeFileSync(
+  path.join(appDir, 'apple-touch-icon.html'),
+  createHtmlPage({
+    width: 180,
+    height: 180,
+    bg: '#0A0F1E',
+    content: `
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #0A0F1E;">
+        <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 40px; line-height: 1; letter-spacing: 2px;">
+          <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+        </div>
+      </div>`
+  }),
+  'utf8'
+);
+
+// 16.2 Android Chrome 192x192
+fs.writeFileSync(
+  path.join(appDir, 'android-chrome-192.html'),
+  createHtmlPage({
+    width: 192,
+    height: 192,
+    bg: '#0A0F1E',
+    content: `
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #0A0F1E;">
+        <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 44px; line-height: 1; letter-spacing: 2px;">
+          <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+        </div>
+      </div>`
+  }),
+  'utf8'
+);
+
+// 16.3 Android Chrome 512x512
+fs.writeFileSync(
+  path.join(appDir, 'android-chrome-512.html'),
+  createHtmlPage({
+    width: 512,
+    height: 512,
+    bg: '#0A0F1E',
+    content: `
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #0A0F1E;">
+        <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 110px; line-height: 1; letter-spacing: 4px;">
+          <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+        </div>
+      </div>`
+  }),
+  'utf8'
+);
+
+// 16.4 Favicon 32x32
+fs.writeFileSync(
+  path.join(appDir, 'favicon-32.html'),
+  createHtmlPage({
+    width: 32,
+    height: 32,
+    bg: '#0A0F1E',
+    content: `
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #0A0F1E;">
+        <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 8px; line-height: 1;">
+          <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+        </div>
+      </div>`
+  }),
+  'utf8'
+);
+
+console.log('[build-templates] All templates successfully created in Light and Dark variants (MNC-Complete).');
