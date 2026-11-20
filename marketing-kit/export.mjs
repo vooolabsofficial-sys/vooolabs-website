@@ -80,7 +80,12 @@ const tasks = [
   // INSTAGRAM
   { category: 'instagram', template: 'instagram-dp.html', output: 'instagram-dp.png', width: 800, height: 800 },
   { category: 'instagram', template: 'instagram-post.html', output: 'instagram-post.png', width: 1080, height: 1350 },
-  { category: 'instagram', template: 'instagram-story.html', output: 'instagram-story.png', width: 1080, height: 1920 }
+  { category: 'instagram', template: 'instagram-story.html', output: 'instagram-story.png', width: 1080, height: 1920 },
+
+  // EMAIL SIGNATURES
+  { category: 'email-signature', template: 'founder-signature.html', output: 'founder-signature.png', width: 700, height: 260 },
+  { category: 'email-signature', template: 'studio-signature.html', output: 'studio-signature.png', width: 720, height: 260 },
+  { category: 'email-signature', template: 'minimal-signature.html', output: 'minimal-signature.png', width: 600, height: 160 }
 ];
 
 console.log(`[export] Starting export of ${tasks.length} marketing assets...`);

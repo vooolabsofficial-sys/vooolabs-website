@@ -42,6 +42,7 @@ Open `marketing-kit/preview.html` directly in your browser:
 marketing-kit/
 ├── brand-tokens.json           # Authoritative JSON tokens (HEX, RGB, fonts, geometry, usage)
 ├── preview.html                # Visual inspection gallery with side-by-side Light/Dark previews
+├── email-signature.html        # Interactive 1-click Email Signature Installer for Gmail/Outlook
 ├── README.md                   # This instruction manual
 ├── export.mjs                  # Headless Chrome asset exporter (PowerShell-friendly)
 ├── build-templates.mjs         # Template & SVG generator script
@@ -54,13 +55,15 @@ marketing-kit/
 │   ├── gbp/                    # 2 GBP Logos, 1 Cover banner, 4 Service cards
 │   ├── whatsapp/               # 2 Avatars (Light/Dark), 1 Business catalog card
 │   ├── linkedin/               # 1 Company Logo, 1 Cover banner, 1 Feed post
-│   └── instagram/              # 1 Profile DP, 1 4:5 Feed post, 1 9:16 Story
+│   ├── instagram/              # 1 Profile DP, 1 4:5 Feed post, 1 9:16 Story
+│   └── email-signature/        # 3 Email Signatures (Founder, Studio, Minimal)
 └── exports/                    # Production rendered PNGs & SVGs (< 5 MB)
     ├── logos/                  # 10 PNGs (2048x2048) + 10 vector SVGs
     ├── gbp/                    # 7 PNGs (720x720, 1024x576, 1200x900)
     ├── whatsapp/               # 3 PNGs (800x800, 1080x1080)
     ├── linkedin/               # 3 PNGs (400x400, 1128x191, 1200x627)
-    └── instagram/              # 3 PNGs (800x800, 1080x1350, 1080x1920)
+    ├── instagram/              # 3 PNGs (800x800, 1080x1350, 1080x1920)
+    └── email-signature/        # 3 Preview PNGs (Founder, Studio, Minimal)
 ```
 
 ---
