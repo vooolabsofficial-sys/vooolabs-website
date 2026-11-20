@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "brand": {
+    "name": "VOOO LABS",
+    "legalName": "VOOO LABS",
+    "tagline": "Engineering Digital Products with Obsession & Scale.",
+    "secondaryTagline": "First make it work, then make it beautiful.",
+    "philosophy": "100% Client Source Code Ownership · Direct Architecture · Zero Vendor Lock-In",
+    "domain": "vooolabs.in",
+    "primaryEmail": "hello@vooolabs.in",
+    "hubs": ["Maharashtra", "Satara", "Pune", "Nashik", "Kolhapur", "India"],
+    "systems": [
+      { "id": "01", "name": "Business Websites", "accent": "#4285F4" },
+      { "id": "02", "name": "Custom Web Apps & Portals", "accent": "#7C3AED" },
+      { "id": "03", "name": "Custom Business Software", "accent": "#F97316" },
+      { "id": "04", "name": "Technical SEO & AI Search", "accent": "#10B981" }
+    ]
+  },
+  "colors": {
+    "accents": {
+      "blue": {
+        "name": "Studio Blue",
+        "hex": "#4285F4",
+        "rgb": "rgb(66, 133, 244)",
+        "role": "Primary brand focus, Google ecosystem alignment, 01 Websites"
+      },
+      "indigo": {
+        "name": "Electric Indigo",
+        "hex": "#5B5BD6",
+        "rgb": "rgb(91, 91, 214)",
+        "role": "Transitional bridge in brand shimmer gradient"
+      },
+      "purple": {
+        "name": "Royal Violet",
+        "hex": "#7C3AED",
+        "rgb": "rgb(124, 58, 237)",
+        "role": "02 Web Apps, SaaS portals, database schemas"
+      },
+      "orange": {
+        "name": "Industrial Amber",
+        "hex": "#F97316",
+        "rgb": "rgb(249, 115, 22)",
+        "role": "03 Business Software, ERP/CRM operations, inventory engines"
+      },
+      "emerald": {
+        "name": "Live Emerald",
+        "hex": "#10B981",
+        "rgb": "rgb(16, 185, 129)",
+        "role": "04 Discovery, WhatsApp CTA indicator, active live status"
+      },
+      "emeraldDeep": {
+        "name": "Deep Emerald",
+        "hex": "#059669",
+        "rgb": "rgb(5, 150, 105)",
+        "role": "Active hover state for communication triggers"
+      }
+    },
+    "surface": {
+      "light": {
+        "canvas": "#FFFFFF",
+        "subtle": "#F8F9FC",
+        "card": "#FFFFFF",
+        "border": "#E2E8F0",
+        "borderMuted": "rgba(226, 232, 240, 0.8)",
+        "borderContrast": "#CBD5E1",
+        "gridLine": "rgba(15, 23, 42, 0.04)"
+      },
+      "dark": {
+        "canvas": "#0A0F1E",
+        "floor": "#05070E",
+        "card": "#0F172A",
+        "cardTranslucent": "rgba(255, 255, 255, 0.04)",
+        "border": "rgba(255, 255, 255, 0.10)",
+        "borderSubtle": "rgba(255, 255, 255, 0.06)",
+        "gridLine": "rgba(255, 255, 255, 0.03)"
+      }
+    },
+    "typography": {
+      "light": {
+        "headline": "#020617",
+        "title": "#0F172A",
+        "bodyPrimary": "#1E293B",
+        "bodySecondary": "#475569",
+        "muted": "#64748B",
+        "eyebrow": "#94A3B8"
+      },
+      "dark": {
+        "headline": "#FFFFFF",
+        "title": "#F8FAFC",
+        "bodyPrimary": "#E2E8F0",
+        "bodySecondary": "#94A3B8",
+        "muted": "#64748B",
+        "eyebrow": "#CBD5E1"
+      }
+    },
+    "gradients": {
+      "brand90": "linear-gradient(90deg, #4285F4 0%, #7C3AED 25%, #F97316 50%, #7C3AED 75%, #4285F4 100%)",
+      "brand135": "linear-gradient(135deg, #4285F4 0%, #7C3AED 50%, #F97316 100%)",
+      "ambientDarkGlow": "radial-gradient(circle at 50% 50%, rgba(66, 133, 244, 0.16) 0%, rgba(124, 58, 237, 0.12) 35%, rgba(10, 15, 30, 0) 70%)",
+      "ambientLightGlow": "radial-gradient(circle at 50% 50%, rgba(66, 133, 244, 0.06) 0%, rgba(124, 58, 237, 0.04) 40%, transparent 70%)"
+    }
+  },
+  "typography": {
+    "families": {
+      "wordmark": "'CrazyBlocks', sans-serif",
+      "ui": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      "mono": "'JetBrains Mono', monospace"
+    },
+    "weights": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "extrabold": 800
+    },
+    "rules": {
+      "wordmarkCasing": "Strictly uppercase: VOOO LABS. Never Vooo Labs or VOOO-LABS.",
+      "wordmarkLetters": {
+        "V": "#4285F4",
+        "O1": "#5B5BD6",
+        "O2": "#7C3AED",
+        "O3": "#F97316",
+        "LABS_light": "#0A0F1E",
+        "LABS_dark": "#FFFFFF"
+      },
+      "eyebrows": "Always JetBrains Mono, uppercase, letter-spacing +0.14em to +0.18em",
+      "headings": "Inter font-bold (700) or font-extrabold (800) with tracking -0.02em to -0.03em"
+    }
+  },
+  "geometry": {
+    "radii": {
+      "pill": "9999px",
+      "card": "18px",
+      "cardLarge": "24px",
+      "tile": "12px",
+      "cad": "2px"
+    },
+    "safeZones": {
+      "gbpLogo": "Circle diameter 80% (20% outer padding safe)",
+      "whatsappDp": "Circle diameter 80%",
+      "instagramDp": "Circle diameter 80%",
+      "instagramStory": "Top and bottom 250px clear of primary text",
+      "linkedinCover": "Bottom-left 200px x 100px clear for profile photo overlap"
+    }
+  },
+  "usageGuidelines": {
+    "do": [
+      "Keep clear space equal to the height of the letter 'V' around the wordmark.",
+      "Use high-contrast monochromatic typography against clean dark or light surfaces.",
+      "Anchor layouts with structured engineering cards and precise technical labels.",
+      "Maintain authentic CrazyBlocks font for the logo mark."
+    ],
+    "dont": [
+      "Do NOT use generic neon or cyberpunk glows.",
+      "Do NOT alter the wordmark aspect ratio or letterforms.",
+      "Do NOT clutter social cards with long paragraphs or stock illustrations.",
+      "Do NOT add fake phone numbers or promotional clutter on brand banners."
+    ]
+  }
+}

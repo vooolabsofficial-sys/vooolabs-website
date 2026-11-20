@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOOO LABS — Brand Design Tokens & Asset Gallery</title>
+  <link rel="stylesheet" href="shared/brand.css">
+  <style>
+    :root {
+      --bg-page: #05070E;
+      --card-bg: #0A0F1E;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #FFFFFF;
+      --text-muted: #94A3B8;
+    }
+    body {
+      background: var(--bg-page);
+      color: var(--text-main);
+      padding: 0;
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .header {
+      padding: 60px 40px 40px;
+      border-bottom: 1px solid var(--card-border);
+      background: radial-gradient(circle at 80% 20%, rgba(66, 133, 244, 0.12) 0%, transparent 60%), #0A0F1E;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #CBD5E1;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background: #FFFFFF;
+      color: #0A0F1E;
+      border-color: #FFFFFF;
+    }
+    .section {
+      padding: 60px 40px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 32px;
+      max-width: 800px;
+    }
+    .grid-swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .swatch-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .swatch-color {
+      height: 100px;
+      width: 100%;
+    }
+    .swatch-body {
+      padding: 14px;
+    }
+    .swatch-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .swatch-hex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #CBD5E1;
+      margin-top: 4px;
+    }
+    .swatch-role {
+      font-size: 11px;
+      color: #64748B;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 24px;
+    }
+    .asset-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .asset-preview {
+      background: #05070E;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 260px;
+      position: relative;
+    }
+    .asset-preview.light-bg {
+      background: #F8FAFC;
+    }
+    .asset-preview.checkered {
+      background-image: linear-gradient(45deg, #161c2e 25%, transparent 25%), linear-gradient(-45deg, #161c2e 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #161c2e 75%), linear-gradient(-45deg, transparent 75%, #161c2e 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+    .asset-preview img {
+      max-width: 100%;
+      max-height: 340px;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .asset-footer {
+      padding: 18px 20px;
+      background: #0A0F1E;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .asset-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .asset-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #94A3B8;
+      margin-top: 4px;
+    }
+    .btn-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: #4285F4;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: rgba(66, 133, 244, 0.1);
+      border: 1px solid rgba(66, 133, 244, 0.2);
+      transition: background 0.2s;
+    }
+    .btn-link:hover {
+      background: rgba(66, 133, 244, 0.2);
+    }
+    .safe-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: #10B981;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      padding: 2px 8px;
+      border-radius: 9999px;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div style="font-family: 'CrazyBlocks', sans-serif; font-size: 54px; letter-spacing: 2px; line-height: 1;">
+        <span class="c-v">V</span><span class="c-o1">O</span><span class="c-o2">O</span><span class="c-o3">O</span>
+        <span style="color: #FFFFFF; margin-left: 12px;">LABS</span>
+      </div>
+      <h1 style="font-size: 22px; font-weight: 600; color: #CBD5E1; margin-top: 14px; letter-spacing: -0.2px;">
+        Brand Design Tokens &amp; Marketing Kit Asset Gallery
+      </h1>
+      <p style="color: #94A3B8; font-size: 14px; margin-top: 6px;">
+        Self-contained production suite for Google Business Profile, WhatsApp, LinkedIn, and Instagram.
+      </p>
+
+      <!-- NAVIGATION TABS -->
+      <nav class="nav-tabs">
+        <a href="#tokens" class="tab-btn">Tokens &amp; Colors</a>
+        <a href="#logos" class="tab-btn">Logos (10 Variations)</a>
+        <a href="#gbp" class="tab-btn">Google Business (7 Assets)</a>
+        <a href="#whatsapp" class="tab-btn">WhatsApp (3 Assets)</a>
+        <a href="#linkedin" class="tab-btn">LinkedIn (3 Assets)</a>
+        <a href="#instagram" class="tab-btn">Instagram (3 Assets)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 1. COLOR TOKENS -->
+    <section id="tokens" class="section">
+      <div class="section-title">
+        <span>01</span> Color Tokens &amp; Brand Spectrum
+      </div>
+      <div class="section-desc">
+        Extracted directly from vooolabs.in styling tokens. Functional engineering spectrum and high-contrast neutrals.
+      </div>
+
+      <div class="grid-swatches">
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #4285F4;"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">Studio Blue</div>
+            <div class="swatch-hex">#4285F4 &bull; --blue</div>
+            <div class="swatch-role">Primary, 01 Websites, Google Ecosystem</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #5B5BD6;"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">Electric Indigo</div>
+            <div class="swatch-hex">#5B5BD6 &bull; --indigo</div>
+            <div class="swatch-role">Shimmer bridge, brand preloader</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #7C3AED;"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">Royal Violet</div>
+            <div class="swatch-hex">#7C3AED &bull; --purple</div>
+            <div class="swatch-role">02 Web Apps, SaaS architecture</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #F97316;"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">Industrial Amber</div>
+            <div class="swatch-hex">#F97316 &bull; --orange</div>
+            <div class="swatch-role">03 Business Software, ERP/CRM</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #10B981;"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">Live Emerald</div>
+            <div class="swatch-hex">#10B981 &bull; --green</div>
+            <div class="swatch-role">04 SEO, WhatsApp CTA, Live status</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #0A0F1E; border: 1px solid rgba(255,255,255,0.1);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">Obsidian Dark Base</div>
+            <div class="swatch-hex">#0A0F1E &bull; --c-dark</div>
+            <div class="swatch-role">Studio primary dark canvas, dark buttons</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #FFFFFF; border: 1px solid #E2E8F0;"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">Pure White Canvas</div>
+            <div class="swatch-hex">#FFFFFF &bull; --c-white</div>
+            <div class="swatch-role">Default website document canvas</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #F8F9FC; border: 1px solid #CBD5E1;"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">Architectural Wash</div>
+            <div class="swatch-hex">#F8F9FC &bull; --c-subtle</div>
+            <div class="swatch-role">Secondary cards, mode switch decks</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. LOGOS -->
+    <section id="logos" class="section">
+      <div class="section-title">
+        <span>02</span> Wordmark &amp; Icon Variations (2048×2048 PNG &amp; Standalone SVG)
+      </div>
+      <div class="section-desc">
+        Exported at ultra-high resolution (2048×2048 px) and vector SVG. Available in Light, Dark, Transparent, Pure White, and Pure Black.
+      </div>
+
+      <div class="asset-grid">
+        <!-- Wordmark Light -->
+        <div class="asset-card">
+          <div class="asset-preview light-bg">
+            <img src="exports/logos/wordmark-light.png" alt="Wordmark Light">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Wordmark — Light Background</div>
+              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+            </div>
+            <a href="exports/logos/wordmark-light.svg" target="_blank" class="btn-link">View SVG</a>
+          </div>
+        </div>
+
+        <!-- Wordmark Dark -->
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/logos/wordmark-dark.png" alt="Wordmark Dark">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Wordmark — Dark Background</div>
+              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+            </div>
+            <a href="exports/logos/wordmark-dark.svg" target="_blank" class="btn-link">View SVG</a>
+          </div>
+        </div>
+
+        <!-- Wordmark Transparent -->
+        <div class="asset-card">
+          <div class="asset-preview checkered">
+            <img src="exports/logos/wordmark-transparent.png" alt="Wordmark Transparent">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Wordmark — Transparent</div>
+              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+            </div>
+            <a href="exports/logos/wordmark-transparent.svg" target="_blank" class="btn-link">View SVG</a>
+          </div>
+        </div>
+
+        <!-- Wordmark Pure White -->
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/logos/wordmark-white.png" alt="Wordmark White">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Wordmark — Pure White (Monochrome)</div>
+              <div class="asset-meta">2048×2048 &bull; For dark media</div>
+            </div>
+            <a href="exports/logos/wordmark-white.svg" target="_blank" class="btn-link">View SVG</a>
+          </div>
+        </div>
+
+        <!-- Wordmark Pure Black -->
+        <div class="asset-card">
+          <div class="asset-preview light-bg">
+            <img src="exports/logos/wordmark-black.png" alt="Wordmark Black">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Wordmark — Pure Black (Monochrome)</div>
+              <div class="asset-meta">2048×2048 &bull; For print &amp; paper</div>
+            </div>
+            <a href="exports/logos/wordmark-black.svg" target="_blank" class="btn-link">View SVG</a>
+          </div>
+        </div>
+
+        <!-- Icon Light -->
+        <div class="asset-card">
+          <div class="asset-preview light-bg">
+            <img src="exports/logos/icon-light.png" alt="Icon Light">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Icon — Light Square</div>
+              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+            </div>
+            <a href="exports/logos/icon-light.svg" target="_blank" class="btn-link">View SVG</a>
+          </div>
+        </div>
+
+        <!-- Icon Dark -->
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/logos/icon-dark.png" alt="Icon Dark">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Icon — Dark Square</div>
+              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+            </div>
+            <a href="exports/logos/icon-dark.svg" target="_blank" class="btn-link">View SVG</a>
+          </div>
+        </div>
+
+        <!-- Icon Transparent -->
+        <div class="asset-card">
+          <div class="asset-preview checkered">
+            <img src="exports/logos/icon-transparent.png" alt="Icon Transparent">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Icon — Transparent Glyph</div>
+              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+            </div>
+            <a href="exports/logos/icon-transparent.svg" target="_blank" class="btn-link">View SVG</a>
+          </div>
+        </div>
+
+        <!-- Icon White -->
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/logos/icon-white.png" alt="Icon White">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Icon — Pure White Monochrome</div>
+              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+            </div>
+            <a href="exports/logos/icon-white.svg" target="_blank" class="btn-link">View SVG</a>
+          </div>
+        </div>
+
+        <!-- Icon Black -->
+        <div class="asset-card">
+          <div class="asset-preview light-bg">
+            <img src="exports/logos/icon-black.png" alt="Icon Black">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Icon — Pure Black Monochrome</div>
+              <div class="asset-meta">2048×2048 &bull; PNG &bull; SVG included</div>
+            </div>
+            <a href="exports/logos/icon-black.svg" target="_blank" class="btn-link">View SVG</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. GOOGLE BUSINESS PROFILE -->
+    <section id="gbp" class="section">
+      <div class="section-title">
+        <span>03</span> Google Business Profile (GBP) Suite
+      </div>
+      <div class="section-desc">
+        Exact Google Business specifications: 720×720 Logos with 20% circular safe zone, 1024×576 clean minimal cover banner (no phone number), and 4 service cards (1200×900).
+      </div>
+
+      <div class="asset-grid">
+        <div class="asset-card">
+          <div class="asset-preview light-bg">
+            <img src="exports/gbp/gbp-logo-light.png" alt="GBP Logo Light">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">GBP Logo — Light <span class="safe-badge">20% Safe Zone</span></div>
+              <div class="asset-meta">720×720 px &bull; Circular crop safe</div>
+            </div>
+            <a href="exports/gbp/gbp-logo-light.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/gbp/gbp-logo-dark.png" alt="GBP Logo Dark">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">GBP Logo — Dark <span class="safe-badge">20% Safe Zone</span></div>
+              <div class="asset-meta">720×720 px &bull; Circular crop safe</div>
+            </div>
+            <a href="exports/gbp/gbp-logo-dark.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card" style="grid-column: 1 / -1;">
+          <div class="asset-preview">
+            <img src="exports/gbp/gbp-cover.png" alt="GBP Cover">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">GBP Cover Banner</div>
+              <div class="asset-meta">1024×576 px (16:9) &bull; Clean minimal brand banner, zero phone numbers</div>
+            </div>
+            <a href="exports/gbp/gbp-cover.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/gbp/gbp-service-websites.png" alt="Service 01 Websites">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">01 Business Websites</div>
+              <div class="asset-meta">1200×900 px &bull; GBP Product Card</div>
+            </div>
+            <a href="exports/gbp/gbp-service-websites.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/gbp/gbp-service-webapps.png" alt="Service 02 Web Apps">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">02 Web Apps &amp; Portals</div>
+              <div class="asset-meta">1200×900 px &bull; GBP Product Card</div>
+            </div>
+            <a href="exports/gbp/gbp-service-webapps.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/gbp/gbp-service-software.png" alt="Service 03 Business Software">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">03 Custom Business Software</div>
+              <div class="asset-meta">1200×900 px &bull; GBP Product Card</div>
+            </div>
+            <a href="exports/gbp/gbp-service-software.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/gbp/gbp-service-seo-ai.png" alt="Service 04 SEO & AI">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">04 Technical SEO &amp; AI Search</div>
+              <div class="asset-meta">1200×900 px &bull; GBP Product Card</div>
+            </div>
+            <a href="exports/gbp/gbp-service-seo-ai.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. WHATSAPP -->
+    <section id="whatsapp" class="section">
+      <div class="section-title">
+        <span>04</span> WhatsApp Business Suite
+      </div>
+      <div class="section-desc">
+        High-legibility mobile avatars (800×800) and square 4-systems catalog card (1080×1080).
+      </div>
+
+      <div class="asset-grid">
+        <div class="asset-card">
+          <div class="asset-preview light-bg">
+            <img src="exports/whatsapp/whatsapp-dp-light.png" alt="WhatsApp DP Light">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">WhatsApp DP — Light <span class="safe-badge">Circular Safe</span></div>
+              <div class="asset-meta">800×800 px</div>
+            </div>
+            <a href="exports/whatsapp/whatsapp-dp-light.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/whatsapp/whatsapp-dp-dark.png" alt="WhatsApp DP Dark">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">WhatsApp DP — Dark <span class="safe-badge">Circular Safe</span></div>
+              <div class="asset-meta">800×800 px</div>
+            </div>
+            <a href="exports/whatsapp/whatsapp-dp-dark.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/whatsapp/whatsapp-catalog-card.png" alt="WhatsApp Catalog Card">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">WhatsApp Business Catalog Card</div>
+              <div class="asset-meta">1080×1080 px &bull; 4 Engineering Systems</div>
+            </div>
+            <a href="exports/whatsapp/whatsapp-catalog-card.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. LINKEDIN -->
+    <section id="linkedin" class="section">
+      <div class="section-title">
+        <span>05</span> LinkedIn Company Page Suite
+      </div>
+      <div class="section-desc">
+        Corporate company logo (400×400), banner (1128×191) with clear bottom-left safe area, and feed post (1200×627).
+      </div>
+
+      <div class="asset-grid">
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/linkedin/linkedin-logo.png" alt="LinkedIn Logo">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">LinkedIn Company Logo</div>
+              <div class="asset-meta">400×400 px</div>
+            </div>
+            <a href="exports/linkedin/linkedin-logo.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card" style="grid-column: 1 / -1;">
+          <div class="asset-preview">
+            <img src="exports/linkedin/linkedin-cover.png" alt="LinkedIn Cover">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">LinkedIn Company Cover <span class="safe-badge">Bottom-Left Safe</span></div>
+              <div class="asset-meta">1128×191 px &bull; Clears profile photo overlap on desktop</div>
+            </div>
+            <a href="exports/linkedin/linkedin-cover.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card" style="grid-column: 1 / -1;">
+          <div class="asset-preview">
+            <img src="exports/linkedin/linkedin-post.png" alt="LinkedIn Post">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">LinkedIn Feed Share Post</div>
+              <div class="asset-meta">1200×627 px (1.91:1) &bull; Architectural manifesto</div>
+            </div>
+            <a href="exports/linkedin/linkedin-post.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. INSTAGRAM -->
+    <section id="instagram" class="section">
+      <div class="section-title">
+        <span>06</span> Instagram Suite
+      </div>
+      <div class="section-desc">
+        Profile DP (800×800), high-engagement 4:5 portrait post (1080×1350), and vertical 9:16 story (1080×1920) with top &amp; bottom 250px safe zones.
+      </div>
+
+      <div class="asset-grid">
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/instagram/instagram-dp.png" alt="Instagram DP">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Instagram Avatar <span class="safe-badge">Circular Safe</span></div>
+              <div class="asset-meta">800×800 px</div>
+            </div>
+            <a href="exports/instagram/instagram-dp.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/instagram/instagram-post.png" alt="Instagram Post">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Instagram Feed Post (4:5 Portrait)</div>
+              <div class="asset-meta">1080×1350 px &bull; Optimal feed dimension</div>
+            </div>
+            <a href="exports/instagram/instagram-post.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="exports/instagram/instagram-story.png" alt="Instagram Story">
+          </div>
+          <div class="asset-footer">
+            <div>
+              <div class="asset-title">Instagram Story (9:16) <span class="safe-badge">250px Safe Zones</span></div>
+              <div class="asset-meta">1080×1920 px &bull; Top &amp; bottom clear zones</div>
+            </div>
+            <a href="exports/instagram/instagram-story.png" download class="btn-link">Download</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="padding: 40px; text-align: center; border-top: 1px solid var(--card-border); color: #64748B; font-size: 13px;">
+    VOOO LABS &bull; Marketing Kit &bull; 100% Client Source Code Ownership &bull; Maharashtra, India
+  </footer>
+
+</body>
+</html>
