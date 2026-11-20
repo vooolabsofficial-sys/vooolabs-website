@@ -102,27 +102,38 @@ for (const route of routes) {
     `<meta name="twitter:description" content="${escapeAttr(description)}" />`
   );
 
-  // 3. Inject minimal semantic HTML shell inside <div id="root">
+  // 3. Inject accessible, crawler-friendly semantic HTML shell inside <div id="root">
+  // NOTE: Uses inline style + sr-only so search engine crawlers (Bingbot Site Scan, Googlebot)
+  // immediately read the <h1> and page context from static HTML, while human visitors never
+  // experience an unstyled text/links flash ("ek page disat ahe") before React mounts.
   const semanticShell = `
-    <main class="min-h-screen bg-white text-slate-900 px-6 py-24 max-w-4xl mx-auto">
-      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-950">${escapeHtml(h1)}</h1>
-      <p class="mt-4 text-slate-600 text-lg leading-relaxed">${escapeHtml(summary)}</p>
-      <nav aria-label="Primary links" class="mt-8 flex flex-wrap gap-4 text-sm font-medium text-blue-600">
-        <a href="/" class="hover:underline">Home</a>
-        <a href="/services" class="hover:underline">Services</a>
-        <a href="/services/websites" class="hover:underline">Websites</a>
-        <a href="/services/web-apps" class="hover:underline">Web Apps</a>
-        <a href="/services/business-software" class="hover:underline">Software</a>
-        <a href="/seo-ai" class="hover:underline">SEO &amp; AI</a>
-        <a href="/about" class="hover:underline">About</a>
-        <a href="/contact" class="hover:underline">Contact</a>
+    <div class="sr-only" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;">
+      <h1>${escapeHtml(h1)}</h1>
+      <p>${escapeHtml(summary)}</p>
+      <nav aria-label="Quick links">
+        <a href="/">Home</a>
+        <a href="/services">Services</a>
+        <a href="/services/websites">Websites</a>
+        <a href="/services/web-apps">Web Apps</a>
+        <a href="/services/business-software">Software</a>
+        <a href="/seo-ai">SEO &amp; AI</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
       </nav>
-    </main>`;
+    </div>`;
 
-  html = html.replace(
-    /<div id="root">[\s\S]*?<\/div>/i,
-    `<div id="root">${semanticShell}</div>`
-  );
+  const rootOpenTag = '<div id="root">';
+  const rootIndex = html.indexOf(rootOpenTag);
+  const bodyEndIndex = html.indexOf('</body>', rootIndex);
+
+  if (rootIndex !== -1 && bodyEndIndex !== -1) {
+    html = html.slice(0, rootIndex) + `${rootOpenTag}${semanticShell}</div>\n  ` + html.slice(bodyEndIndex);
+  } else {
+    html = html.replace(
+      /<div id="root">[\s\S]*?<\/div>/i,
+      `<div id="root">${semanticShell}</div>`
+    );
+  }
 
   // 4. Output target paths
   if (routePath === '/') {
