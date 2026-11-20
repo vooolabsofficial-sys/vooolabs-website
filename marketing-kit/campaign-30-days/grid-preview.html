@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOOO LABS — WhatsApp Pro & 30-Day Campaign Simulator</title>
+  <link rel="stylesheet" href="../shared/brand.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #060913;
+      color: #F8FAFC;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      background: #0A0F1E;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand-mark {
+      font-family: 'CrazyBlocks', sans-serif;
+      font-size: 28px;
+      letter-spacing: 1.5px;
+      display: inline-flex;
+      align-items: baseline;
+    }
+    .tabs {
+      display: flex;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+      padding: 4px;
+      gap: 4px;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: #4285F4;
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(66, 133, 244, 0.35);
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 28px 100px;
+    }
+    .metrics-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .metric-card {
+      background: #0D1427;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 18px 22px;
+    }
+    .metric-val {
+      font-size: 26px;
+      font-weight: 800;
+      color: #FFFFFF;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .metric-lbl {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #94A3B8;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    
+    /* WhatsApp Simulator */
+    .wa-container {
+      background: #0D1427;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 50px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .wa-cover-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #0A0F1E;
+      overflow: hidden;
+    }
+    .wa-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .wa-avatar-overlay {
+      position: absolute;
+      bottom: -45px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #0A0F1E;
+      border: 4px solid #0D1427;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    .wa-profile-body {
+      padding: 60px 30px 30px;
+      text-align: center;
+    }
+    .wa-name {
+      font-size: 24px;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+    .wa-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #10B981;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-top: 8px;
+    }
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+      text-align: left;
+    }
+    .catalog-item {
+      background: #0A0F1E;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .catalog-item:hover {
+      transform: translateY(-4px);
+      border-color: #4285F4;
+    }
+    .catalog-item img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display: block;
+      object-fit: cover;
+    }
+    .catalog-info {
+      padding: 16px;
+    }
+    .catalog-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .catalog-desc {
+      font-size: 13px;
+      color: #94A3B8;
+      margin-top: 4px;
+    }
+
+    /* Instagram 3-Column Grid */
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .ig-card {
+      position: relative;
+      background: #0D1427;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      aspect-ratio: 3 / 4;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ig-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.6);
+      border-color: #4285F4;
+    }
+    .ig-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ig-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 15, 30, 0.95) 0%, rgba(10, 15, 30, 0.4) 50%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      color: #FFFFFF;
+    }
+    .ig-card:hover .ig-card-overlay {
+      opacity: 1;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .day-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+    .pill-dark { background: rgba(255,255,255,0.15); color: #FFFFFF; }
+    .pill-light { background: #4285F4; color: #FFFFFF; }
+    .card-headline {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .card-tap {
+      font-size: 12px;
+      color: #94A3B8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 16, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: #0D1427;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      max-width: 1100px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+    }
+    .modal-preview {
+      background: #060913;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .modal-preview img {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .modal-details {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .modal-close {
+      align-self: flex-end;
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #FFFFFF;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .copy-box {
+      background: #0A0F1E;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px;
+      position: relative;
+    }
+    .copy-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .copy-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #4285F4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .btn-copy {
+      background: #4285F4;
+      color: #FFFFFF;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .btn-copy:hover {
+      background: #3367D6;
+    }
+    .copy-text {
+      font-size: 13px;
+      color: #CBD5E1;
+      white-space: pre-wrap;
+      max-height: 180px;
+      overflow-y: auto;
+      line-height: 1.5;
+    }
+    
+    @media (max-width: 992px) {
+      .ig-grid { grid-template-columns: repeat(2, 1fr); }
+      .modal-content { grid-template-columns: 1fr; }
+      .modal-preview { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+    }
+    @media (max-width: 640px) {
+      .ig-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <span class="brand-mark">
+          <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+          <span style="color: #FFFFFF; margin-left: 6px;">LABS</span>
+        </span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #94A3B8; border-left: 1px solid rgba(255,255,255,0.15); padding-left: 14px;">
+          CAMPAIGN // SUITE
+        </span>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('tab-instagram')">Instagram 3-Col Feed</button>
+        <button class="tab-btn" onclick="switchTab('tab-whatsapp')">WhatsApp Pro Suite</button>
+        <button class="tab-btn" onclick="switchTab('tab-linkedin')">LinkedIn Feed View</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Top Metrics -->
+    <div class="metrics-bar">
+      <div class="metric-card">
+        <div class="metric-val">35 / 35</div>
+        <div class="metric-lbl">Assets Rendered (PNG)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">100%</div>
+        <div class="metric-lbl">Under 5 MB (Avg 65 KB)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">3:4 Ratio</div>
+        <div class="metric-lbl">Instagram & LinkedIn Portrait</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">100px</div>
+        <div class="metric-lbl">Safe Padding Guardrails</div>
+      </div>
+    </div>
+
+    <!-- TAB 1: INSTAGRAM 3-COLUMN CHECKERBOARD -->
+    <section id="tab-instagram">
+      <div style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF;">30-Day Instagram Grid Feed</h2>
+          <p style="font-size: 14px; color: #94A3B8; margin-top: 4px;">Curated 3-column alternating Dark/Light checkerboard feed. Click any card to inspect and copy captions.</p>
+        </div>
+        <a href="../exports/campaign-30-days/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #4285F4; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+          View Export Folder &rarr;
+        </a>
+      </div>
+
+      <div class="ig-grid" id="campaign-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- TAB 2: WHATSAPP PRO SUITE -->
+    <section id="tab-whatsapp" style="display: none;">
+      <div style="margin-bottom: 24px;">
+        <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF;">WhatsApp Business Pro Suite</h2>
+        <p style="font-size: 14px; color: #94A3B8; margin-top: 4px;">16:9 Studio cover with profile circle safe-zone guarantee and 4 high-res catalog cards.</p>
+      </div>
+
+      <div class="wa-container">
+        <!-- Cover Banner Simulator -->
+        <div class="wa-cover-wrapper">
+          <img src="../exports/whatsapp-pro/whatsapp-cover.png" alt="WhatsApp Cover Banner" class="wa-cover-img">
+          <!-- Circular Profile Simulator positioned at bottom-center -->
+          <div class="wa-avatar-overlay">
+            <span class="brand-mark" style="font-size: 18px;">
+              <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Profile Body -->
+        <div class="wa-profile-body">
+          <div class="wa-name">VOOO LABS</div>
+          <div class="wa-badge">✓ Verified Digital Product Studio</div>
+          <p style="font-size: 14px; color: #94A3B8; margin-top: 12px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Engineering digital systems built to scale. High-performance websites, custom web applications, internal operational software, and AI-first search systems.
+          </p>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #4285F4; margin-top: 10px;">
+            vooolabs.in &bull; hello@vooolabs.in
+          </div>
+
+          <!-- Catalog Service Items -->
+          <div style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <h3 style="font-size: 16px; font-weight: 700; color: #FFFFFF; text-transform: uppercase; letter-spacing: 1px;">Product Catalog (4 Services)</h3>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #94A3B8;">1080 x 1080 &bull; 1:1 Square</span>
+            </div>
+
+            <div class="catalog-grid">
+              <div class="catalog-item">
+                <img src="../exports/whatsapp-pro/catalog-01-websites.png" alt="Websites">
+                <div class="catalog-info">
+                  <div class="catalog-title">High-Performance Websites</div>
+                  <div class="catalog-desc">Websites built for speed and authority. Under 1.2s LCP, zero layout shifts.</div>
+                </div>
+              </div>
+              <div class="catalog-item">
+                <img src="../exports/whatsapp-pro/catalog-02-webapps.png" alt="Web Apps">
+                <div class="catalog-info">
+                  <div class="catalog-title">Custom Web Apps & Portals</div>
+                  <div class="catalog-desc">Interactive client portals, SaaS platforms, and secure multi-role dashboards.</div>
+                </div>
+              </div>
+              <div class="catalog-item">
+                <img src="../exports/whatsapp-pro/catalog-03-software.png" alt="Software">
+                <div class="catalog-info">
+                  <div class="catalog-title">Internal Business Systems</div>
+                  <div class="catalog-desc">CRM, ERP & operational engines replacing fragile spreadsheets with code.</div>
+                </div>
+              </div>
+              <div class="catalog-item">
+                <img src="../exports/whatsapp-pro/catalog-04-seo-ai.png" alt="SEO & AI">
+                <div class="catalog-info">
+                  <div class="catalog-title">Technical SEO & AI Search</div>
+                  <div class="catalog-desc">Rank on Google Page 1. Get cited as the primary answer by Perplexity & AI models.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: LINKEDIN PORTRAIT VIEW -->
+    <section id="tab-linkedin" style="display: none;">
+      <div style="margin-bottom: 24px;">
+        <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF;">LinkedIn Executive Feed Simulator</h2>
+        <p style="font-size: 14px; color: #94A3B8; margin-top: 4px;">Demonstrating 3:4 portrait post formatting with executive thought-leadership framing.</p>
+      </div>
+
+      <div style="max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;" id="linkedin-feed">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Inspector Modal -->
+  <div class="modal" id="modal" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-preview">
+        <img id="modal-img" src="" alt="Post Preview">
+      </div>
+      <div class="modal-details">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <div id="modal-day" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #4285F4; letter-spacing: 1.5px;">DAY 01 // MANIFESTO</div>
+            <h3 id="modal-title" style="font-size: 20px; font-weight: 800; color: #FFFFFF; margin-top: 4px; line-height: 1.3;">Headline</h3>
+          </div>
+          <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+          <div style="background: rgba(255,255,255,0.04); padding: 10px; border-radius: 8px;">
+            <div style="font-size: 10px; color: #94A3B8; text-transform: uppercase;">Theme</div>
+            <div id="modal-theme" style="font-size: 12px; font-weight: 700; color: #FFFFFF;">Dark</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.04); padding: 10px; border-radius: 8px;">
+            <div style="font-size: 10px; color: #94A3B8; text-transform: uppercase;">Dimensions</div>
+            <div style="font-size: 12px; font-weight: 700; color: #FFFFFF;">1080 x 1440</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.04); padding: 10px; border-radius: 8px;">
+            <div style="font-size: 10px; color: #94A3B8; text-transform: uppercase;">File Size</div>
+            <div id="modal-size" style="font-size: 12px; font-weight: 700; color: #10B981;">~65 KB</div>
+          </div>
+        </div>
+
+        <!-- Instagram Copy Box -->
+        <div class="copy-box">
+          <div class="copy-header">
+            <span class="copy-label">Instagram Caption + Hashtags</span>
+            <button class="btn-copy" onclick="copyText('modal-ig-copy', this)">Copy Instagram</button>
+          </div>
+          <div class="copy-text" id="modal-ig-copy"></div>
+        </div>
+
+        <!-- LinkedIn Copy Box -->
+        <div class="copy-box">
+          <div class="copy-header">
+            <span class="copy-label">LinkedIn Executive Post</span>
+            <button class="btn-copy" onclick="copyText('modal-li-copy', this)">Copy LinkedIn</button>
+          </div>
+          <div class="copy-text" id="modal-li-copy"></div>
+        </div>
+
+        <a id="modal-dl" href="" download class="btn-copy" style="text-align: center; text-decoration: none; padding: 12px; font-size: 14px; background: rgba(255,255,255,0.08); color: #FFFFFF;">
+          Download Full Resolution PNG
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const campaignData = [
+      {
+        day: 1,
+        topic: "Manifesto",
+        archetype: "Principle Spotlight",
+        theme: "Dark",
+        headline: "Software shouldn't slow your business down.",
+        ig: `Most enterprise software feels like wading through wet cement. Endless loading spinners, clunky forms, and interfaces designed in 2008.\n\nAt Vooo Labs, our core engineering thesis is simple: software should accelerate human decisions, eliminate cognitive drag, and compound operational velocity. When digital tools are fast, clean, and intuitive, teams execute with clarity.\n\nSoftware shouldn't be an obstacle you manage. It should be the leverage you compound.\n\n👉 Explore our engineering standards at vooolabs.in (link in bio)\n\n#SoftwareEngineering #DigitalTransformation #B2BTech #TechFounders #SystemDesign #CustomSoftware #VoooLabs #ModernSoftware`,
+        li: `The hidden tax on modern enterprise productivity isn’t lack of effort—it’s software friction.\n\nWhen internal tools lag, when customer portals require a user manual, and when simple workflows take six extra clicks, your organization loses momentum.\n\nAt Vooo Labs, we build on three non-negotiable principles:\n• Latency is friction: Under 100ms response times keep operators in flow.\n• Simplicity is resilience: The best architecture has fewer moving parts, not more.\n• Software is operational leverage: Every custom tool must directly reduce cost or multiply throughput.\n\nWhat internal tool is causing the most drag in your business right now?\n\nExplore our work at https://vooolabs.in or connect with us at hello@vooolabs.in.`
+      },
+      {
+        day: 2,
+        topic: "Speed Benchmark",
+        archetype: "Split Comparison",
+        theme: "Light",
+        headline: "100ms can make or break a conversion.",
+        ig: `Speed isn't just a technical metric—it's a psychological trigger.\n\nResearch consistently demonstrates that every 100ms delay in page load drops conversion rates by up to 7%. When your website takes 4 seconds to become interactive, half your traffic has already bounced to a competitor.\n\nAt Vooo Labs, we treat performance budgets as hard engineering constraints, not post-launch optimizations.\n\n⚡ Test your load speed and benchmark your stack at vooolabs.in\n\n#WebPerformance #CoreWebVitals #PageSpeed #B2BWebsites #FrontendDev #WebDesign #SpeedMatters #VoooLabs`,
+        li: `A 100-millisecond delay in web response time directly impacts revenue.\n\nModern buyers expect enterprise interfaces to respond at the speed of thought. When a landing page or web portal lags:\n• Bounce rates spike significantly within the first 1.5 seconds.\n• User trust erodes before a single value proposition is read.\n• Search engines demote ranking due to degraded Core Web Vitals.\n\nAt Vooo Labs, we engineer digital products with sub-second time-to-interactive, edge caching, and lean bundle delivery. Speed isn’t an afterthought—it’s the foundation of conversion.\n\nHow fast does your primary customer touchpoint load today?\n\nLearn more at https://vooolabs.in.`
+      },
+      {
+        day: 3,
+        topic: "Architecture",
+        archetype: "Flowchart Card",
+        theme: "Dark",
+        headline: "Monolith vs Modular Micro-Services.",
+        ig: `Should you build a modular monolith or break everything into microservices?\n\nPremature microservice distribution is the #1 killer of early engineering velocity. Network latency, distributed transactions, and deployment overhead quickly spiral out of control.\n\nStart with a clean, modular core with strict boundary isolation. Distribute services only when specific workloads genuinely demand independent scaling.\n\nArchitectural clarity over industry buzzwords. Every single time.\n\n🔗 Discover our architecture blueprints at vooolabs.in\n\n#SoftwareArchitecture #Microservices #SystemDesign #BackendEngineering #DevOps #TechLeadership #CleanArchitecture #VoooLabs`,
+        li: `The debate between monolithic and microservice architecture often overlooks business reality.\n\nDistributing systems across microservices before reaching organizational scale introduces:\n• Network overhead and distributed state complexity.\n• Hard-to-trace debugging paths and deployment bottlenecks.\n• Operational drag that distracts from product-market velocity.\n\nOur architectural thesis at Vooo Labs:\n1. Build a high-performance modular monolith with clean domain boundaries.\n2. Maintain strict decoupling between data schemas and business logic.\n3. Extract mission-critical bottlenecks into serverless micro-services only when traffic metrics justify the complexity.\n\nPragmatic engineering beats architectural trend-chasing every time.\n\nConnect with our engineering team at hello@vooolabs.in.`
+      },
+      {
+        day: 4,
+        topic: "Philosophy",
+        archetype: "Editorial Poster",
+        theme: "Light",
+        headline: "Clean architecture isn't vanity. It's leverage.",
+        ig: `"Write messy code now, refactor later" is the most expensive myth in software development.\n\nTechnical shortcuts taken today become architectural quicksand tomorrow. Clean abstractions, consistent typing, and clear modular boundaries aren't aesthetic preferences—they allow you to ship features 5x faster six months down the line.\n\nDiscipline in code equals velocity in business.\n\n💡 Read our engineering principles at vooolabs.in\n\n#CodeQuality #CleanCode #SoftwareEngineering #TechStrategy #Startups #DeveloperLife #TechFounders #VoooLabs`,
+        li: `Clean code is often misunderstood as developer perfectionism. In reality, it is a financial and operational hedge.\n\nWhen code is written haphazardly to hit an arbitrary deadline:\n• Onboarding new engineers takes weeks instead of days.\n• Minor bug fixes introduce unexpected regression cascades.\n• The team spends 70% of sprint capacity maintaining legacy debt rather than shipping revenue-generating features.\n\nAt Vooo Labs, clean architecture is our highest-leverage asset. It ensures that six months from now, adding a major feature is as predictable as day one.\n\nSpeed is a consequence of discipline.\n\nRead more at https://vooolabs.in.`
+      },
+      {
+        day: 5,
+        topic: "Tech Stack",
+        archetype: "UI Wireframe Card",
+        theme: "Dark",
+        headline: "Modern stacks render legacy setups obsolete.",
+        ig: `Still running on bloated server templates, heavy multi-megabyte bundles, and slow monolithic databases?\n\nThe modern web runs on lightweight component architectures, edge rendering, and zero-runtime overhead. Upgrading your stack isn't just about using new tools—it's about cutting server bills and delivering sub-second experiences to every user.\n\nUpgrade the stack. Upgrade the outcome.\n\n🚀 Explore modern tech stacks with us at vooolabs.in\n\n#ModernWeb #React #TypeScript #TailwindCSS #TechStack #NextGen #WebDevelopment #VoooLabs`,
+        li: `Is your enterprise infrastructure still carrying the weight of a decade-old technology stack?\n\nLegacy frameworks often demand heavy server maintenance, suffer from slow compilation pipelines, and deliver bloated bundles that test your users' patience.\n\nA modern stack transition delivers immediate business ROI:\n• Reduced cloud compute and hosting costs through edge caching.\n• Superior developer velocity via type safety and modular components.\n• Flawless cross-device responsive experiences out of the box.\n\nAt Vooo Labs, we help businesses replace fragile legacy setups with modern, maintainable web systems.\n\nDiscover how we modernize infrastructure at https://vooolabs.in.`
+      },
+      {
+        day: 6,
+        topic: "Search & AI",
+        archetype: "Flowchart Card",
+        theme: "Light",
+        headline: "Google indexes words. AI searches for structure.",
+        ig: `Search behavior has fundamentally shifted. Traditional search engines crawl keywords, but AI search engines like ChatGPT, Gemini, and Perplexity parse semantic entities and clean data hierarchies.\n\nIf your site is an unstructured block of generic text, AI answer engines will cite your competitor instead.\n\nStructured data, clear semantic HTML, and authoritative topical architecture are the keys to winning search in 2026.\n\n🔍 Learn how we optimize for AI search at vooolabs.in\n\n#AISearch #SEOTips #SemanticWeb #DigitalMarketing #GoogleSearch #StructuredData #VoooLabs`,
+        li: `Search visibility is no longer just about ranking on Google Page 1. It is about becoming the primary cited source in AI-generated answers.\n\nLarge Language Models do not parse keyword stuffing. They query structured semantic entities:\n• JSON-LD Schema hierarchies defining organizations, products, and services.\n• Clean semantic HTML landmarks that allow parsers to understand context without ambiguity.\n• Authoritative, data-backed technical content that LLMs can ingest and cite.\n\nAt Vooo Labs, we architect web platforms to achieve dual-engine dominance: ranking high on classic search and becoming the authoritative answer in generative AI.\n\nIs your website ready for AI-first search?\n\nLearn more at https://vooolabs.in.`
+      },
+      {
+        day: 7,
+        topic: "Security",
+        archetype: "Structured Checklist",
+        theme: "Dark",
+        headline: "Enterprise reliability starts at the schema level.",
+        ig: `Security isn't a firewall you slap on after your app is built. It starts with how you model data, validate inputs, and enforce authorization at the schema layer.\n\nRole-based access control, cryptographic session handling, and strict database constraints protect your customer data before threats ever reach the surface.\n\nBuild securely from day zero.\n\n🛡️ Inspect our enterprise security standards at vooolabs.in\n\n#CyberSecurity #DataProtection #AppSecurity #InfoSec #EnterpriseIT #SoftwareArchitecture #VoooLabs`,
+        li: `Data breaches rarely happen because an organization lacked an expensive enterprise firewall. They happen because of sloppy input validation and ambiguous database authorization models.\n\nReal application security is built into the architecture:\n• Schema-level validation enforcing strict data types before write execution.\n• Row-Level Security (RLS) guaranteeing tenant isolation across multi-user portals.\n• Cryptographically secure, stateless authentication with automated revocation policies.\n\nAt Vooo Labs, security is not a post-launch audit checklist—it is engineered into every schema, API route, and serverless function we deploy.\n\nPrioritize data integrity. Build with Vooo Labs: https://vooolabs.in.`
+      },
+      {
+        day: 8,
+        topic: "Operations",
+        archetype: "Split Comparison",
+        theme: "Light",
+        headline: "Spreadsheets run your ops until they silently fail.",
+        ig: `Spreadsheets are great for testing an idea. But running a multi-crore business on shared Google Sheets is an operational ticking time bomb.\n\nAccidental row deletions, broken VLOOKUPs, zero audit logs, and hours wasted on manual copy-pasting drain your team's energy.\n\nCustom internal portals transform fragile spreadsheets into automated, role-based workflows with 100% data integrity.\n\n📊 Replace messy sheets with custom software at vooolabs.in\n\n#BusinessOperations #Automation #InternalTools #CustomERP #Productivity #NoMoreExcel #VoooLabs`,
+        li: `Every high-growth company reaches an operational inflection point where spreadsheets stop being a tool and start becoming an existential risk.\n\nThe signs are universal:\n• Multiple conflicting versions of the "master" file floating across WhatsApp and email.\n• Zero auditability on who modified critical pricing or inventory numbers.\n• Skilled operational managers spending 15 hours a week performing manual reconciliation.\n\nA tailored internal software portal gives your business:\n1. Automated role-based access for field and office staff.\n2. Single-source-of-truth relational database with complete transaction logging.\n3. Automated workflows that trigger instant notifications and status updates.\n\nStop patching spreadsheets. Build custom operational software with Vooo Labs: https://vooolabs.in.`
+      },
+      {
+        day: 9,
+        topic: "Scalability",
+        archetype: "Flowchart Card",
+        theme: "Dark",
+        headline: "Building for 1,000 users vs 100,000 users.",
+        ig: `An application that runs smoothly for 1,000 users will often collapse under the weight of 50,000 concurrent requests if the database isn't indexed and traffic isn't cached at the edge.\n\nScalability isn't luck—it's stateless compute, distributed caching, and connection pooling.\n\nDesign for growth before the traffic wave hits.\n\n📈 Scale your digital systems with confidence at vooolabs.in\n\n#Scalability #CloudComputing #DevOps #BackendDevelopment #DatabaseOptimization #SystemDesign #VoooLabs`,
+        li: `Scaling a web system from 1,000 to 100,000 users is rarely solved by simply upgrading your server tier.\n\nBrute-force vertical scaling quickly hits a ceiling of diminishing returns. True horizontal scalability requires structural engineering:\n• Stateless application tiers distributed across global edge regions.\n• Intelligent read-replica routing and connection pooling (PgBouncer/Prisma Accelerate).\n• Redis caching layers eliminating redundant database roundtrips for hot data.\n\nAt Vooo Labs, we design systems that remain fast and responsive whether you're serving ten users or ten thousand concurrent transactions.\n\nBuild infrastructure that grows with your business: https://vooolabs.in.`
+      },
+      {
+        day: 10,
+        topic: "Technical Debt",
+        archetype: "Editorial Poster",
+        theme: "Light",
+        headline: "Quick fixes carry compounding interest.",
+        ig: `Technical debt is financial debt. Every hack, undocumented function, and shortcut you take pays out interest in bugs, downtime, and developer paralysis.\n\nPay down the debt early. Refactor with intent. Keep the codebase clean.\n\n🧹 Clean up your tech debt with Vooo Labs at vooolabs.in\n\n#TechDebt #SoftwareEngineering #CodeRefactoring #TechLeadership #DeveloperLife #VoooLabs`,
+        li: `Technical debt is one of the quietest balance-sheet liabilities in modern tech-enabled businesses.\n\nWhen engineering teams are forced to choose short-term patches over sustainable architecture:\n• The cost of building new features increases exponentially quarter over quarter.\n• System stability degrades, leading to unplanned downtime during peak hours.\n• Top engineering talent burns out maintaining brittle, undocumented spaghetti code.\n\nAt Vooo Labs, we help companies audit, refactor, and stabilize legacy codebases, transforming fragile code into modern, resilient assets.\n\nInvest in architecture today, or pay compound interest tomorrow.\n\nConnect with us at hello@vooolabs.in.`
+      }
+    ];
+
+    // Populate remaining days dynamically if needed
+    for (let i = 11; i <= 30; i++) {
+      const isDark = i % 2 !== 0;
+      const dayStr = String(i).padStart(2, '0');
+      const topics = [
+        "Developer Velocity", "APIs & Integrations", "Core Web Vitals", "Data Integrity",
+        "Workflow Automation", "Modern UI/UX", "Mobile First", "Conversion Rate",
+        "Cloud & Edge", "Disaster Recovery", "Client Portals", "Technical SEO",
+        "Executive Dashboards", "Legacy Modernization", "Performance Budgets",
+        "Custom vs SaaS", "Multi-Tenancy", "Continuous Delivery", "AI Search Readiness", "Studio Principle"
+      ];
+      const headlines = [
+        "Code quality is an operational multiplier.",
+        "Unified APIs turn silos into synchronized workflows.",
+        "Lighthouse 100 isn't a trophy. It's baseline engineering.",
+        "Dirty data corrupts automated decisions.",
+        "Automate recurring workflows before hiring more heads.",
+        "B2B software doesn't have to look like 2004.",
+        "Enterprise workflows are shifting to pocket screens.",
+        "Slow checkout and clunky auth destroy conversion.",
+        "Serverless edge networks reduce latency to near zero.",
+        "Backups only matter if you can restore in minutes.",
+        "Replace messy email chains with self-serve client portals.",
+        "Rich schema snippets win the Google click.",
+        "Executive dashboards should highlight signal, not noise.",
+        "Migrating legacy core without operational downtime.",
+        "Enforcing strict byte budgets keeps apps blazing fast.",
+        "When off-the-shelf SaaS caps your business growth.",
+        "Isolated data models ensure enterprise compliance.",
+        "Automated test suites catch regressions before users do.",
+        "Prepare your site for Perplexity, Gemini, and GPT search.",
+        "Crafting digital tools with obsessively clean code."
+      ];
+      const idx = i - 11;
+      campaignData.push({
+        day: i,
+        topic: topics[idx],
+        archetype: isDark ? "Flowchart Card / Checklist" : "Split / Wireframe Card",
+        theme: isDark ? "Dark" : "Light",
+        headline: headlines[idx],
+        ig: `Enterprise engineering principle for Day ${dayStr}: ${headlines[idx]}\n\nAt Vooo Labs, we eliminate software friction so ambitious companies execute with precision.\n\n👉 Discover our engineering portfolio at vooolabs.in\n\n#SoftwareEngineering #B2BTech #SystemArchitecture #TechFounders #VoooLabs`,
+        li: `Day ${dayStr} // ${headlines[idx]}\n\nModern digital infrastructure must deliver operational leverage, sub-second latency, and scalable architecture.\n\n• High-performance system design.\n• Clean data models and enterprise security.\n• Sub-second response times across global edge networks.\n\nConnect with our team at hello@vooolabs.in or explore https://vooolabs.in.`
+      });
+    }
+
+    // Render Instagram Grid
+    const gridEl = document.getElementById('campaign-grid');
+    campaignData.forEach(item => {
+      const dayStr = String(item.day).padStart(2, '0');
+      const card = document.createElement('div');
+      card.className = 'ig-card';
+      card.onclick = () => openModal(item);
+
+      card.innerHTML = `
+        <img src="../exports/campaign-30-days/day-${dayStr}.png" alt="Day ${dayStr}">
+        <div class="ig-card-overlay">
+          <div class="card-meta">
+            <span class="day-pill ${item.theme === 'Dark' ? 'pill-dark' : 'pill-light'}">DAY ${dayStr}</span>
+            <span style="font-size: 11px; font-family: 'JetBrains Mono', monospace; color: #94A3B8;">${item.theme.toUpperCase()}</span>
+          </div>
+          <div class="card-headline">${item.headline}</div>
+          <div class="card-tap">Tap to Inspect & Copy Captions &rarr;</div>
+        </div>
+      `;
+      gridEl.appendChild(card);
+    });
+
+    // Render LinkedIn Feed View
+    const liFeedEl = document.getElementById('linkedin-feed');
+    campaignData.slice(0, 6).forEach(item => {
+      const dayStr = String(item.day).padStart(2, '0');
+      const liCard = document.createElement('div');
+      liCard.style.cssText = "background: #0D1427; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden;";
+      liCard.innerHTML = `
+        <div style="padding: 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: #0A0F1E; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;">
+            <span class="brand-mark" style="font-size: 14px;">
+              <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+            </span>
+          </div>
+          <div>
+            <div style="font-size: 14px; font-weight: 700; color: #FFFFFF;">VOOO LABS &bull; <span style="color: #94A3B8; font-weight: 400;">1st</span></div>
+            <div style="font-size: 12px; color: #94A3B8;">Digital Product Studio &bull; Software Engineering</div>
+          </div>
+        </div>
+        <div style="padding: 16px; font-size: 14px; color: #CBD5E1; white-space: pre-wrap; line-height: 1.55;">${item.li}</div>
+        <img src="../exports/campaign-30-days/day-${dayStr}.png" alt="Day ${dayStr}" style="width: 100%; aspect-ratio: 3/4; display: block; object-fit: cover;">
+        <div style="padding: 14px 16px; display: flex; justify-content: space-between; font-size: 13px; color: #94A3B8; border-top: 1px solid rgba(255,255,255,0.06);">
+          <span>👍 48 &bull; 12 comments</span>
+          <span>1,240 impressions</span>
+        </div>
+      `;
+      liFeedEl.appendChild(liCard);
+    });
+
+    // Tab Switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      document.getElementById('tab-instagram').style.display = 'none';
+      document.getElementById('tab-whatsapp').style.display = 'none';
+      document.getElementById('tab-linkedin').style.display = 'none';
+
+      document.getElementById(tabId).style.display = 'block';
+    }
+
+    // Modal Handling
+    const modal = document.getElementById('modal');
+    function openModal(item) {
+      const dayStr = String(item.day).padStart(2, '0');
+      document.getElementById('modal-img').src = `../exports/campaign-30-days/day-${dayStr}.png`;
+      document.getElementById('modal-day').innerText = `DAY ${dayStr} // ${item.topic.toUpperCase()}`;
+      document.getElementById('modal-title').innerText = item.headline;
+      document.getElementById('modal-theme').innerText = item.theme;
+      document.getElementById('modal-ig-copy').innerText = item.ig;
+      document.getElementById('modal-li-copy').innerText = item.li;
+      document.getElementById('modal-dl').href = `../exports/campaign-30-days/day-${dayStr}.png`;
+      modal.classList.add('active');
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+    }
+
+    function copyText(elementId, btn) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = "✓ Copied!";
+        btn.style.background = "#10B981";
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.style.background = "#4285F4";
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

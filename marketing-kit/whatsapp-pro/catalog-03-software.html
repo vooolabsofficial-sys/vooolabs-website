@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>VOOO LABS — Software Catalog</title>
+  <link rel="stylesheet" href="../shared/brand.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background: #0A0F1E;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  
+  <div style="position: relative; width: 100%; height: 100%; padding: 64px; display: flex; flex-direction: column; justify-content: space-between; z-index: 10;">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
+        <span style="font-family: 'CrazyBlocks', sans-serif; font-size: 36px; letter-spacing: 1.5px; line-height: 1; display: inline-flex; align-items: baseline;">
+    <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+    <span style="color: #FFFFFF; margin-left: 6px;">LABS</span>
+  </span>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #F97316; letter-spacing: 1.5px; padding: 6px 14px; border-radius: 9999px; background: rgba(249,115,22,0.12); border: 1px solid rgba(249,115,22,0.3);">
+          SYSTEM 03 // SOFTWARE
+        </div>
+      </div>
+      <h2 style="font-size: 42px; font-weight: 800; color: #FFFFFF; line-height: 1.15; letter-spacing: -1px;">
+        CRM, ERP &amp; internal business systems.
+      </h2>
+      <p style="font-size: 16px; color: #94A3B8; margin-top: 12px; line-height: 1.5;">
+        Replace 14 fragile spreadsheets with a single connected system shaped around how your team works.
+      </p>
+    </div>
+
+    <!-- Custom Connected Node Graph Visual -->
+    <div style="background: #05070E; border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 32px 24px; position: relative;">
+      <div style="display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;">
+        
+        <!-- Node 1: Inflow -->
+        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; width: 160px; text-align: center;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(66,133,244,0.15); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; color: #4285F4;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #FFFFFF;">Lead Inflow</div>
+          <div style="font-size: 10px; color: #94A3B8; margin-top: 4px;">Direct Capture</div>
+        </div>
+
+        <!-- Arrow -->
+        <div style="color: #F97316; font-size: 20px; font-weight: 800;">&rarr;</div>
+
+        <!-- Node 2: Pipeline Core -->
+        <div style="background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.3); border-radius: 12px; padding: 16px; width: 180px; text-align: center;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: #F97316; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; color: #FFFFFF;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #FFFFFF;">Automated Pipeline</div>
+          <div style="font-size: 10px; color: #FDBA74; margin-top: 4px;">Zero Double-Entry</div>
+        </div>
+
+        <!-- Arrow -->
+        <div style="color: #F97316; font-size: 20px; font-weight: 800;">&rarr;</div>
+
+        <!-- Node 3: Billing & Dispatch -->
+        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; width: 160px; text-align: center;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(16,185,129,0.15); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; color: #10B981;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #FFFFFF;">GST &amp; Dispatch</div>
+          <div style="font-size: 10px; color: #94A3B8; margin-top: 4px;">Instant Settlement</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px; padding: 12px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 12px; color: #94A3B8;">Spreadsheets Replaced: <b>14 Active Files</b></span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #10B981; font-weight: 700;">100% RECONCILED</span>
+      </div>
+    </div>
+
+    <!-- Bottom Row -->
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #94A3B8;">
+      <span>Full Code Ownership &bull; Zero Recurring SaaS Rent</span>
+      <span style="color: #FFFFFF; font-weight: 700;">vooolabs.in</span>
+    </div>
+  </div>
+
+</body>
+</html>
