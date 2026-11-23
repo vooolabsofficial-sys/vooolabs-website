@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VOOO CHESS 3D — 15 Logo Concepts & Splash Screens Showcase</title>
+  <title>VOOO CHESS 3D — Official Mobile App Icon Suite &amp; Splash Screens</title>
   <link rel="stylesheet" href="../shared/brand.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,31 +40,39 @@
       display: inline-flex;
       align-items: baseline;
     }
-    .filters {
+    .mode-tabs {
       display: flex;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 9999px;
       padding: 4px;
       gap: 4px;
       flex-wrap: wrap;
     }
-    .filter-btn {
+    .mode-btn {
       background: transparent;
       border: none;
       color: #94A3B8;
       font-family: 'Inter', sans-serif;
       font-size: 13px;
-      font-weight: 600;
-      padding: 7px 16px;
+      font-weight: 700;
+      padding: 8px 18px;
       border-radius: 9999px;
       cursor: pointer;
       transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
-    .filter-btn.active, .filter-btn:hover {
+    .mode-btn.active-white {
+      background: #FFFFFF;
+      color: #0A0F1E;
+      box-shadow: 0 2px 14px rgba(255, 255, 255, 0.4);
+    }
+    .mode-btn.active-dark {
       background: #4285F4;
       color: #FFFFFF;
-      box-shadow: 0 2px 10px rgba(66, 133, 244, 0.35);
+      box-shadow: 0 2px 14px rgba(66, 133, 244, 0.4);
     }
     .mockup-toggle-btn {
       background: rgba(245, 158, 11, 0.12);
@@ -94,11 +102,11 @@
 
     /* Hero Banner */
     .hero-banner {
-      background: radial-gradient(circle at 75% 30%, rgba(245, 158, 11, 0.12) 0%, transparent 60%), #0D1427;
+      background: radial-gradient(circle at 75% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 60%), #0D1427;
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 20px;
-      padding: 40px;
-      margin-bottom: 40px;
+      padding: 36px 40px;
+      margin-bottom: 36px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -106,7 +114,7 @@
       gap: 24px;
     }
     .hero-title {
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 800;
       color: #FFFFFF;
       letter-spacing: -0.5px;
@@ -116,40 +124,40 @@
       flex-wrap: wrap;
     }
     .hero-desc {
-      font-size: 15px;
+      font-size: 14px;
       color: #94A3B8;
       margin-top: 8px;
-      max-width: 720px;
+      max-width: 760px;
       line-height: 1.6;
     }
-    .stats-pills {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+    .specs-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-bottom: 36px;
     }
-    .stat-pill {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 12px 18px;
-      text-align: center;
+    .spec-card {
+      background: #0D1427;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 16px 20px;
     }
-    .stat-num {
-      font-size: 22px;
+    .spec-val {
+      font-size: 20px;
       font-weight: 800;
       color: #FFFFFF;
       font-family: 'JetBrains Mono', monospace;
     }
-    .stat-label {
+    .spec-lbl {
       font-size: 11px;
       color: #94A3B8;
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: 600;
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
-    /* 15 Logo Grid */
+    /* Grid */
     .logo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
@@ -163,7 +171,6 @@
       display: flex;
       flex-direction: column;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
     }
     .logo-card:hover {
       transform: translateY(-6px);
@@ -174,12 +181,20 @@
       position: relative;
       width: 100%;
       aspect-ratio: 1 / 1;
-      background: #0A0F1E;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       padding: 20px;
+      cursor: pointer;
+    }
+    .bg-white-preview {
+      background: #FFFFFF;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .bg-dark-preview {
+      background: #0A0F1E;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
     .logo-img {
       width: 100%;
@@ -188,23 +203,23 @@
       display: block;
       transition: all 0.3s ease;
     }
-    
-    /* App Icon Mockup Mode */
+
+    /* Squircle Mockup Mode */
     .app-icon-mockup .logo-img {
       width: 82%;
       height: 82%;
       border-radius: 22%;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.15);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.08);
     }
-    .mockup-badge {
+    .badge-resolution {
       position: absolute;
       top: 14px;
       right: 14px;
-      background: rgba(0,0,0,0.7);
+      background: rgba(15, 23, 42, 0.8);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 9999px;
-      padding: 4px 10px;
+      padding: 3px 10px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       font-weight: 700;
@@ -220,27 +235,6 @@
       flex-grow: 1;
       gap: 16px;
     }
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .card-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      color: #4285F4;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    .card-style {
-      font-size: 11px;
-      font-weight: 600;
-      color: #94A3B8;
-      background: rgba(255,255,255,0.06);
-      padding: 3px 8px;
-      border-radius: 6px;
-    }
     .card-title {
       font-size: 18px;
       font-weight: 800;
@@ -254,158 +248,124 @@
       margin-top: 8px;
       line-height: 1.5;
     }
-    .card-actions {
-      display: flex;
-      gap: 10px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,0.06);
+
+    /* Download Pills Grid */
+    .format-pills-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
     }
-    .btn-action {
-      flex: 1;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: #FFFFFF;
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 10px;
-      border-radius: 8px;
-      text-align: center;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 6px;
     }
-    .btn-action:hover {
+    .format-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #CBD5E1;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 8px 4px;
+      border-radius: 6px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .format-btn:hover {
       background: #4285F4;
+      color: #FFFFFF;
       border-color: #4285F4;
+    }
+    .format-btn-svg {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: rgba(16, 185, 129, 0.3);
+      color: #34D399;
+    }
+    .format-btn-svg:hover {
+      background: #10B981;
+      color: #FFFFFF;
+    }
+
+    /* Standards Guide Box */
+    .standards-box {
+      background: #0D1427;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 36px;
+    }
+    .standards-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 16px;
+    }
+    .standards-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.04);
+      color: #94A3B8;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .standards-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: #E2E8F0;
     }
 
     /* Splash Screens Section */
     .splash-section {
-      margin-top: 60px;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 40px;
     }
     .splash-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-      gap: 36px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 28px;
+      margin-top: 24px;
     }
     .splash-card {
       background: #0D1427;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
       display: flex;
       flex-direction: column;
     }
-    .splash-phone-mockup {
-      padding: 30px 40px;
+    .phone-mockup-wrapper {
+      padding: 24px;
       background: #060913;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .phone-bezel {
+    .phone-frame {
       width: 100%;
-      max-width: 360px;
+      max-width: 320px;
       aspect-ratio: 9 / 16;
-      border-radius: 36px;
+      border-radius: 32px;
       border: 6px solid #1E293B;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.1);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
       overflow: hidden;
       position: relative;
-      background: #0A0F1E;
     }
-    .phone-notch {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 22px;
-      background: #000000;
-      border-radius: 12px;
-      z-index: 20;
-    }
-    .splash-img {
+    .phone-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-    .splash-info {
-      padding: 24px 30px 30px;
-    }
-    .splash-title {
-      font-size: 20px;
-      font-weight: 800;
-      color: #FFFFFF;
-    }
-    .splash-desc {
-      font-size: 14px;
-      color: #94A3B8;
-      margin-top: 6px;
-      line-height: 1.5;
-    }
-
-    /* Modal */
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(3, 7, 18, 0.88);
-      backdrop-filter: blur(14px);
-      z-index: 200;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-    .modal.active {
-      display: flex;
-    }
-    .modal-box {
-      background: #0D1427;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 24px;
-      max-width: 960px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      box-shadow: 0 30px 70px rgba(0,0,0,0.85);
-    }
-    .modal-img-col {
-      background: #060913;
-      padding: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-right: 1px solid rgba(255,255,255,0.08);
-    }
-    .modal-img-col img {
-      max-width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-    }
-    .modal-info-col {
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    @media (max-width: 900px) {
-      .modal-box { grid-template-columns: 1fr; }
-      .modal-img-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
     }
   </style>
 </head>
@@ -419,7 +379,7 @@
           <span style="color: #FFFFFF; margin-left: 6px;">LABS</span>
         </span>
         <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #94A3B8; border-left: 1px solid rgba(255,255,255,0.15); padding-left: 14px; font-weight: 700;">
-          VOOO CHESS 3D // DESIGN SUITE
+          VOOO CHESS 3D // APP STORE SUITE
         </span>
       </div>
 
@@ -427,12 +387,11 @@
         <button class="mockup-toggle-btn" id="mockup-btn" onclick="toggleMockup()">
           <span>📱</span> Toggle App Icon View (Squircle)
         </button>
-        <div class="filters">
-          <button class="filter-btn active" onclick="filterCategory('all')">All 15 Designs</button>
-          <button class="filter-btn" onclick="filterCategory('luxury')">Luxury & Gold</button>
-          <button class="filter-btn" onclick="filterCategory('cyber')">Cyber & Neon</button>
-          <button class="filter-btn" onclick="filterCategory('action')">Action / Kinetic</button>
-          <button class="filter-btn" onclick="filterCategory('splash')">Splash Screens (2)</button>
+        <div class="mode-tabs">
+          <button class="mode-btn active-white" id="tab-white" onclick="switchCollection('white')">☀️ White BG (15)</button>
+          <button class="mode-btn" id="tab-dark" onclick="switchCollection('dark')">🌙 Dark BG (15)</button>
+          <button class="mode-btn" id="tab-splash" onclick="switchCollection('splash')">🖼️ Splash Screens</button>
+          <button class="mode-btn" id="tab-specs" onclick="switchCollection('specs')">📐 Store Specs</button>
         </div>
       </div>
     </div>
@@ -445,106 +404,207 @@
       <div>
         <div class="hero-title">
           <span>Vooo Chess 3D</span>
-          <span style="font-size: 14px; font-family: 'JetBrains Mono', monospace; background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); padding: 4px 12px; border-radius: 9999px;">
-            15 DISTINCT LOGOS + 2 SPLASH SCREENS
+          <span id="hero-badge" style="font-size: 13px; font-family: 'JetBrains Mono', monospace; background: rgba(255, 255, 255, 0.1); color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.2); padding: 4px 12px; border-radius: 9999px;">
+            WHITE BACKGROUND APP STORE COLLECTION
           </span>
         </div>
         <p class="hero-desc">
-          संकल्पना: <b>"प्याद्याने राजाला उडवले (Pawn knocking down / blasting the King)"</b>. 
-          David vs Goliath विजय, 3D गतिशीलता आणि उच्च दर्जाची गेमिंग ब्रँडिंग. 
-          खालील १५ डिझाइन्समधून तुमच्या पसंतीचा लोगो निवडा.
+          संकल्पना: <b>"प्याद्याने राजाला उडवले (Pawn knocking down / checkmating King)"</b>. 
+          Apple App Store व Google Play Store च्या अधिकृत नियमांनुसार शुद्ध व्हाईट बॅकग्राउंड, 1024px, 512px, 192px, 180px PNGs आणि Scalable Vector SVGs उपलब्ध आहेत.
         </p>
       </div>
 
-      <div class="stats-pills">
-        <div class="stat-pill">
-          <div class="stat-num">15</div>
-          <div class="stat-label">App Icon Logos</div>
-        </div>
-        <div class="stat-pill">
-          <div class="stat-num">2</div>
-          <div class="stat-label">Splash Screens</div>
-        </div>
-        <div class="stat-pill">
-          <div class="stat-num">1024px</div>
-          <div class="stat-label">App Store Ready</div>
-        </div>
-        <div class="stat-pill">
-          <div class="stat-num">&lt; 1MB</div>
-          <div class="stat-label">Ultra Lightweight</div>
-        </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="../exports/chess-app/white/svg/" target="_blank" style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); color: #34D399; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; padding: 10px 16px; border-radius: 8px; text-decoration: none;">
+          ⚡ Open SVG Folder
+        </a>
+        <a href="../exports/chess-app/white/png-1024/" target="_blank" style="background: rgba(66, 133, 244, 0.15); border: 1px solid rgba(66, 133, 244, 0.4); color: #60A5FA; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; padding: 10px 16px; border-radius: 8px; text-decoration: none;">
+          📁 Open 1024px PNGs
+        </a>
       </div>
     </div>
 
-    <!-- 15 LOGOS GRID -->
-    <section id="logos-section">
+    <!-- Specs Bar -->
+    <div class="specs-strip">
+      <div class="spec-card">
+        <div class="spec-val">1024 × 1024</div>
+        <div class="spec-lbl">Apple App Store Master (PNG)</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-val">512 × 512</div>
+        <div class="spec-lbl">Google Play Store Official (PNG)</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-val">192 &bull; 180 px</div>
+        <div class="spec-lbl">Android xxxhdpi &bull; iOS @3x</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-val">Pure SVG</div>
+        <div class="spec-lbl">Android Studio VectorDrawable</div>
+      </div>
+    </div>
+
+    <!-- 1. WHITE LOGO GRID -->
+    <section id="white-section">
       <div style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: flex-end;">
         <div>
-          <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF;">15 App Icon Logo Variations (1024×1024)</h2>
-          <p style="font-size: 14px; color: #94A3B8; margin-top: 4px;">Click on any design to inspect in high resolution or download the production PNG.</p>
+          <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF;">White Background Collection (15 Logos)</h2>
+          <p style="font-size: 14px; color: #94A3B8; margin-top: 4px;">High-contrast piece materials with diffuse ground shadows and rich textures on pure white canvas.</p>
         </div>
-        <a href="../exports/chess-app/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #4285F4; text-decoration: none;">
-          Open Export Folder &rarr;
-        </a>
       </div>
+      <div class="logo-grid" id="white-logo-grid"></div>
+    </section>
 
-      <div class="logo-grid" id="logo-grid">
-        <!-- Rendered via JS -->
+    <!-- 2. DARK LOGO GRID -->
+    <section id="dark-section" style="display: none;">
+      <div style="margin-bottom: 24px;">
+        <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF;">Dark Background Collection (15 Logos)</h2>
+        <p style="font-size: 14px; color: #94A3B8; margin-top: 4px;">Obsidian, cyber neon, and dramatic spotlight editions for dark-mode gaming branding.</p>
+      </div>
+      <div class="logo-grid" id="dark-logo-grid"></div>
+    </section>
+
+    <!-- 3. STORE SPECS & GUIDELINES -->
+    <section id="specs-section" style="display: none;">
+      <div class="standards-box">
+        <h2 style="font-size: 22px; font-weight: 800; color: #FFFFFF;">Mobile App Store Format &amp; Size Specifications</h2>
+        <p style="font-size: 14px; color: #94A3B8; margin-top: 6px;">Google Play Store आणि Apple App Store वर ॲप सबमिट करताना खालील फॉरमॅट्स लागतात:</p>
+
+        <table class="standards-table">
+          <thead>
+            <tr>
+              <th>Store / Platform</th>
+              <th>Required Resolution</th>
+              <th>Format</th>
+              <th>Color Space / Transparency</th>
+              <th>Vooo Chess 3D Folder</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Google Play Store</b> (App Icon)</td>
+              <td><b>512 × 512 px</b></td>
+              <td>PNG (32-bit)</td>
+              <td>sRGB, Max 1024 KB, Flat Square</td>
+              <td><code>exports/chess-app/white/png-512/</code></td>
+            </tr>
+            <tr>
+              <td><b>Apple App Store</b> (App Icon)</td>
+              <td><b>1024 × 1024 px</b></td>
+              <td>PNG (24-bit)</td>
+              <td>sRGB, No Transparency, Sharp Square</td>
+              <td><code>exports/chess-app/white/png-1024/</code></td>
+            </tr>
+            <tr>
+              <td><b>Android Launcher</b> (xxxhdpi)</td>
+              <td><b>192 × 192 px</b></td>
+              <td>PNG</td>
+              <td>High DPI Device Screen Launcher</td>
+              <td><code>exports/chess-app/white/png-192/</code></td>
+            </tr>
+            <tr>
+              <td><b>Apple iPhone Launcher</b> (@3x)</td>
+              <td><b>180 × 180 px</b></td>
+              <td>PNG</td>
+              <td>iOS Retina / Super Retina Home Screen</td>
+              <td><code>exports/chess-app/white/png-180/</code></td>
+            </tr>
+            <tr>
+              <td><b>Vector Master</b> (Infinite Scale)</td>
+              <td><b>Vector XML / SVG</b></td>
+              <td>Scalable Vector</td>
+              <td>Android Studio VectorDrawable / Xcode Assets</td>
+              <td><code>exports/chess-app/white/svg/</code></td>
+            </tr>
+            <tr>
+              <td><b>Mobile Splash Screen</b> (Android)</td>
+              <td><b>1080 × 1920 px</b> (9:16)</td>
+              <td>PNG</td>
+              <td>Full HD Startup / Splash Screen</td>
+              <td><code>exports/chess-app/white/splash/</code></td>
+            </tr>
+            <tr>
+              <td><b>Mobile Splash Screen</b> (iOS Pro Max)</td>
+              <td><b>1242 × 2688 px</b> (19.5:9)</td>
+              <td>PNG</td>
+              <td>iPhone Retina Splash / Loading Screen</td>
+              <td><code>exports/chess-app/white/splash/</code></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <!-- 2 SPLASH SCREENS SECTION -->
-    <section class="splash-section" id="splash-section">
+    <!-- 4. SPLASH SCREENS SHOWCASE -->
+    <section id="splash-section" style="display: none;" class="splash-section">
       <div style="margin-bottom: 20px;">
-        <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF;">Mobile App Splash Screens (1080×1920)</h2>
-        <p style="font-size: 14px; color: #94A3B8; margin-top: 4px;">9:16 Full HD Mobile screen layouts with studio loader bar, branding, and high-impact artwork.</p>
+        <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF;">Mobile App Startup Splash Screens (Light &amp; Dark)</h2>
+        <p style="font-size: 14px; color: #94A3B8; margin-top: 4px;">Full HD mobile splash screens with real-time loading progress bar and official VOOO LABS branding.</p>
       </div>
 
       <div class="splash-grid">
-        <!-- Splash 1 -->
+        <!-- White Splash Android -->
         <div class="splash-card">
-          <div class="splash-phone-mockup">
-            <div class="phone-bezel">
-              <div class="phone-notch"></div>
-              <img src="../exports/chess-app/splash-01-dark.png" alt="Splash 01: Obsidian & Gold" class="splash-img">
+          <div class="phone-mockup-wrapper">
+            <div class="phone-frame">
+              <img src="../exports/chess-app/white/splash/splash-light-android.png" alt="Light Android Splash">
             </div>
           </div>
-          <div class="splash-info">
+          <div style="padding: 22px;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #F59E0B; text-transform: uppercase;">EDITION 01</span>
-              <span style="font-size: 11px; color: #94A3B8; font-family: 'JetBrains Mono', monospace;">1080×1920 &bull; PNG</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #4285F4;">STUDIO WHITE EDITION</span>
+              <span style="font-size: 11px; color: #94A3B8; font-family: 'JetBrains Mono', monospace;">1080×1920 &bull; Android</span>
             </div>
-            <div class="splash-title" style="margin-top: 8px;">Obsidian & Gold Edition (Dark Luxury)</div>
-            <p class="splash-desc">
-              Monumental 3D artwork, gold shockwaves, 78% loading bar with glowing progress, and official VOOO LABS studio credits.
-            </p>
-            <div style="margin-top: 18px; display: flex; gap: 10px;">
-              <a href="../exports/chess-app/splash-01-dark.png" target="_blank" class="btn-action">Inspect Full Screen</a>
-              <a href="../exports/chess-app/splash-01-dark.png" download class="btn-action" style="background: #4285F4; border-color: #4285F4;">Download 1080×1920 PNG</a>
+            <div style="font-size: 18px; font-weight: 800; color: #FFFFFF; margin-top: 6px;">Android Studio White Splash</div>
+            <p style="font-size: 13px; color: #94A3B8; margin-top: 6px;">Pure white canvas with 82% asset loading bar, Vooo brand spectrum, and studio credits.</p>
+            <div style="margin-top: 14px;">
+              <a href="../exports/chess-app/white/splash/splash-light-android.png" download class="format-btn" style="padding: 10px; font-size: 12px; background: #4285F4; color: #FFFFFF;">
+                Download Android 1080×1920 PNG
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Splash 2 -->
+        <!-- White Splash iOS -->
         <div class="splash-card">
-          <div class="splash-phone-mockup">
-            <div class="phone-bezel">
-              <div class="phone-notch"></div>
-              <img src="../exports/chess-app/splash-02-neon.png" alt="Splash 02: Cyber Neon" class="splash-img">
+          <div class="phone-mockup-wrapper">
+            <div class="phone-frame">
+              <img src="../exports/chess-app/white/splash/splash-light-ios.png" alt="Light iOS Splash">
             </div>
           </div>
-          <div class="splash-info">
+          <div style="padding: 22px;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #00F0FF; text-transform: uppercase;">EDITION 02</span>
-              <span style="font-size: 11px; color: #94A3B8; font-family: 'JetBrains Mono', monospace;">1080×1920 &bull; PNG</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #D97706;">APPLE APP STORE EDITION</span>
+              <span style="font-size: 11px; color: #94A3B8; font-family: 'JetBrains Mono', monospace;">1242×2688 &bull; iPhone Pro</span>
             </div>
-            <div class="splash-title" style="margin-top: 8px;">Cyber Neon Edition (Esports & High-Energy)</div>
-            <p class="splash-desc">
-              Holographic cyber grid floor, glowing neon pawn striking the king, multiplayer matchmaking status bar (Ping: 18ms).
-            </p>
-            <div style="margin-top: 18px; display: flex; gap: 10px;">
-              <a href="../exports/chess-app/splash-02-neon.png" target="_blank" class="btn-action">Inspect Full Screen</a>
-              <a href="../exports/chess-app/splash-02-neon.png" download class="btn-action" style="background: #00F0FF; color: #000; border-color: #00F0FF; font-weight: 700;">Download 1080×1920 PNG</a>
+            <div style="font-size: 18px; font-weight: 800; color: #FFFFFF; margin-top: 6px;">iPhone Pro Max White Splash</div>
+            <p style="font-size: 13px; color: #94A3B8; margin-top: 6px;">Ultra-high-definition 1242×2688 px splash screen tailored for iOS Metal graphics loading.</p>
+            <div style="margin-top: 14px;">
+              <a href="../exports/chess-app/white/splash/splash-light-ios.png" download class="format-btn" style="padding: 10px; font-size: 12px; background: #D97706; color: #FFFFFF;">
+                Download iOS 1242×2688 PNG
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark Splash -->
+        <div class="splash-card">
+          <div class="phone-mockup-wrapper">
+            <div class="phone-frame">
+              <img src="../exports/chess-app/splash-01-dark.png" alt="Dark Splash">
+            </div>
+          </div>
+          <div style="padding: 22px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #F59E0B;">OBSIDIAN &amp; GOLD</span>
+              <span style="font-size: 11px; color: #94A3B8; font-family: 'JetBrains Mono', monospace;">1080×1920 &bull; Dark</span>
+            </div>
+            <div style="font-size: 18px; font-weight: 800; color: #FFFFFF; margin-top: 6px;">Dark Luxury Gold Splash</div>
+            <p style="font-size: 13px; color: #94A3B8; margin-top: 6px;">Night mode grandmaster edition with gold particle shockwaves and glowing engine loader.</p>
+            <div style="margin-top: 14px;">
+              <a href="../exports/chess-app/splash-01-dark.png" download class="format-btn" style="padding: 10px; font-size: 12px; background: rgba(255,255,255,0.08); color: #FFFFFF;">
+                Download Dark 1080×1920 PNG
+              </a>
             </div>
           </div>
         </div>
@@ -553,258 +613,167 @@
 
   </main>
 
-  <!-- Fullscreen Modal -->
-  <div class="modal" id="modal" onclick="closeModal(event)">
-    <div class="modal-box" onclick="event.stopPropagation()">
-      <div class="modal-img-col">
-        <img id="modal-img" src="" alt="Detail">
-      </div>
-      <div class="modal-info-col">
-        <div>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div id="modal-opt" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #4285F4; letter-spacing: 1.5px;">OPTION 01</div>
-            <button onclick="closeModal()" style="background: rgba(255,255,255,0.08); border: none; color: #FFF; width: 32px; height: 32px; border-radius: 50%; cursor: pointer;">&times;</button>
-          </div>
-          <h3 id="modal-title" style="font-size: 22px; font-weight: 800; color: #FFFFFF; margin-top: 6px;">Title</h3>
-          <p id="modal-desc" style="font-size: 14px; color: #94A3B8; margin-top: 10px; line-height: 1.6;"></p>
-        </div>
-
-        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
-          <div>
-            <div style="font-size: 11px; color: #64748B; text-transform: uppercase;">Resolution</div>
-            <div style="font-size: 14px; font-weight: 700; color: #FFFFFF; font-family: 'JetBrains Mono', monospace;">1024 × 1024 px</div>
-          </div>
-          <div>
-            <div style="font-size: 11px; color: #64748B; text-transform: uppercase;">Aspect Ratio</div>
-            <div style="font-size: 14px; font-weight: 700; color: #FFFFFF; font-family: 'JetBrains Mono', monospace;">1:1 (Square)</div>
-          </div>
-          <div>
-            <div style="font-size: 11px; color: #64748B; text-transform: uppercase;">File Format</div>
-            <div style="font-size: 14px; font-weight: 700; color: #FFFFFF; font-family: 'JetBrains Mono', monospace;">PNG (Crisp 24-bit)</div>
-          </div>
-          <div>
-            <div style="font-size: 11px; color: #64748B; text-transform: uppercase;">Store Readiness</div>
-            <div style="font-size: 14px; font-weight: 700; color: #10B981; font-family: 'JetBrains Mono', monospace;">iOS &amp; Google Play</div>
-          </div>
-        </div>
-
-        <a id="modal-dl" href="" download class="btn-action" style="background: #4285F4; border-color: #4285F4; padding: 14px; font-size: 14px; font-weight: 700;">
-          Download Production PNG
-        </a>
-      </div>
-    </div>
-  </div>
-
   <script>
-    const chessData = [
-      {
-        id: 1,
-        name: "Obsidian & Gold Luxury 3D",
-        category: "luxury",
-        style: "Luxury 3D",
-        badge: "Grandmaster Edition",
-        desc: "Polished 24k gold pawn strikes down the obsidian black king. Gold cross flying in mid-air with radial spark blast."
-      },
-      {
-        id: 2,
-        name: "Cyber Neon Blast",
-        category: "cyber",
-        style: "Cyberpunk / Synthwave",
-        badge: "Arcade 3D",
-        desc: "Laser cyan pawn strikes with shockwave trail. Holographic purple king shattering into polygon shards."
-      },
-      {
-        id: 3,
-        name: "Royal Crown Seized (Promotion Triumph)",
-        category: "luxury",
-        style: "Triumphant Royal",
-        badge: "Pawn Becomes King",
-        desc: "Pawn knocks king off the pedestal; golden king crown is blasted into the air and landing directly on the pawn's head!"
-      },
-      {
-        id: 4,
-        name: "Kinetic Shockwave / Impact Blast",
-        category: "action",
-        style: "Kinetic Action",
-        badge: "High Velocity",
-        desc: "High-speed meteor pawn with motion blur lines creates a massive circular shockwave ring blasting the king backward."
-      },
-      {
-        id: 5,
-        name: "Minimalist Swiss Flat 3D",
-        category: "studio",
-        style: "Minimalist Editorial",
-        badge: "Studio Clean",
-        desc: "Clean Apple/Linear studio aesthetic. Geometric 3D blue pawn toppling a white king with crisp soft shadows."
-      },
-      {
-        id: 6,
-        name: "Crystal Glassmorphism / Prism",
-        category: "studio",
-        style: "Frosted Glass",
-        badge: "Prism Edition",
-        desc: "Translucent frosted glass pawn ramming the dark crystal king, sending prismatic crystal facets flying."
-      },
-      {
-        id: 7,
-        name: "Inferno / Magma Checkmate",
-        category: "action",
-        style: "Molten Fire",
-        badge: "Volcanic Clash",
-        desc: "Blazing fire pawn with solar corona slams the king into crumbling ash, glowing magma sparks and embers rising."
-      },
-      {
-        id: 8,
-        name: "Esports Shield Crest",
-        category: "action",
-        style: "Esports Tournament",
-        badge: "Pro League",
-        desc: "Inscribed in a titanium hexagonal gaming shield, 3D embossed pawn delivering a knockout strike to the king."
-      },
-      {
-        id: 9,
-        name: "Vivid Vooo Quad-Color Signature",
-        category: "studio",
-        style: "Vooo Brand Identity",
-        badge: "Vooo Quad Stack",
-        desc: "Pawn radiates Vooo Labs 4 colors in a neon shockwave ribbon, blasting a monochrome king into colored light beams."
-      },
-      {
-        id: 10,
-        name: "Emerald Grandmaster",
-        category: "luxury",
-        style: "Casino / Luxury Velvet",
-        badge: "High Roller 3D",
-        desc: "Deep emerald green velvet arena. 24k gold pawn strikes down the deep green onyx king with radiant emerald sparks."
-      },
-      {
-        id: 11,
-        name: "Low-Poly 3D Faceted",
-        category: "cyber",
-        style: "Geometric Low-Poly",
-        badge: "Polygon Art",
-        desc: "Sharp faceted low-poly 3D pawn colliding with faceted king, exploding into floating geometric triangles."
-      },
-      {
-        id: 12,
-        name: "Lightning Arc / High Voltage",
-        category: "cyber",
-        style: "Electric Thunder",
-        badge: "Lightning Checkmate",
-        desc: "Electric lightning branches from the pawn, cracking the king in mid-air and splitting the crown with electric sparks."
-      },
-      {
-        id: 13,
-        name: "Golden Monogram V-Clash",
-        category: "luxury",
-        style: "Monogram Architecture",
-        badge: "Signature 'V'",
-        desc: "A giant 3D chrome/gold 'V' creates the battlefield runway where the pawn launches forward to smash the king."
-      },
-      {
-        id: 14,
-        name: "Tactical HUD / Sci-Fi Matrix",
-        category: "cyber",
-        style: "Tactical Telemetry",
-        badge: "Holo Checkmate",
-        desc: "Holographic green coordinate telemetry (E4xKING, CHECKMATE CONFIRMED) with vector wireframe pawn striking down king."
-      },
-      {
-        id: 15,
-        name: "Cinematic Studio Spotlight",
-        category: "luxury",
-        style: "Cinematic 3D",
-        badge: "Masterpiece",
-        desc: "Single intense overhead studio spotlight. Gleaming white porcelain pawn stands triumphant as black king crashes down."
-      }
+    const whiteData = [
+      { id: 1, name: "Pure Gold & Royal Onyx", style: "Luxury High-Key", badge: "Executive 3D", desc: "Polished 24k gold pawn strikes down a deep obsidian onyx king on pure white studio background with subtle gold shockwave sparks." },
+      { id: 2, name: "Vooo Studio Blue & Amber", style: "Brand Flagship", badge: "Studio Signature", desc: "Vooo Studio Blue pawn delivering a high-velocity strike to an Industrial Amber & Slate king with crisp dynamic shadows." },
+      { id: 3, name: "Royal Crown Seized (Porcelain & Sapphire)", style: "Triumphant Royal", badge: "Pawn Becomes King", desc: "White porcelain pawn knocks down the sapphire king; the royal golden crown is blasted into the air and landing squarely on the pawn!" },
+      { id: 4, name: "Titanium Silver & Imperial Ruby", style: "Metallic High-Contrast", badge: "Grandmaster 3D", desc: "Brushed titanium silver pawn topples an imperial ruby-red glass king with flying crimson facet sparks on crisp white marble." },
+      { id: 5, name: "Swiss Minimalist Precision", style: "Minimalist Editorial", badge: "Apple Design Style", desc: "Ultra-clean pure white canvas. Pure geometric 3D shapes with soft diffuse drop shadows and a sharp single orange impact accent." },
+      { id: 6, name: "Emerald Green & Champagne Gold", style: "Casino Velvet & Marble", badge: "High Roller 3D", desc: "Champagne gold pawn with mirror reflections toppling a rich British racing green emerald king with brilliant green sparks." },
+      { id: 7, name: "Kinetic Prismatic Blast", style: "Vivid Prismatic", badge: "Prism Dispersion", desc: "A rainbow spectrum prism shockwave radiating from the pawn as it shatters the black king into floating crystalline facets." },
+      { id: 8, name: "Frosted Glass & Platinum", style: "Neumorphic Glass", badge: "Vision Glass", desc: "Translucent frosted glass pawn with iridescent specular highlights knocking over a heavy platinum dark king." },
+      { id: 9, name: "Daylight Cyber Cobalt", style: "High-Key Cyber", badge: "Arcade Pro", desc: "Electric sky-blue and cobalt 3D pawn delivering a high-energy kinetic shockwave to a deep purple king on a light blueprint grid." },
+      { id: 10, name: "Esports Shield Crest (Silver Edition)", style: "Tournament Emblem", badge: "Pro Shield", desc: "Embossed gaming crest on a white ceramic plaque, featuring a dynamic 3D pawn delivering an uppercut smash to the king." },
+      { id: 11, name: "Classic Staunton Ivory & Mahogany", style: "Heritage Artisan", badge: "Master Artisan", desc: "Hand-polished warm ivory pawn striking down a dark Brazilian mahogany king with warm wooden reflections on an ivory board." },
+      { id: 12, name: "Daylight Lightning Strike", style: "High-Voltage Electric", badge: "Voltage Checkmate", desc: "Electric sky-blue plasma arcs crackling from the pawn, snapping the king's crown and toppling it in high-contrast daylight." },
+      { id: 13, name: "Sculptural Gold 'V' Monogram", style: "Architectural Monogram", badge: "Signature 'V'", desc: "A bold sculptural chrome & gold 'V' runway casting a 3D shadow on white canvas, with the pawn blasting the king at the apex." },
+      { id: 14, name: "Tactical Telemetry Blueprint", style: "Architectural Blueprint", badge: "Clean CAD / Vector", desc: "Precision engineering blueprint on white drafting paper with subtle green coordinates (CHECKMATE CONFIRMED // E8) and crisp pieces." },
+      { id: 15, name: "High-Key Studio Monochrome (Pure B&W)", style: "Minimalist Masterpiece", badge: "Studio High-Key", desc: "Maximum visual contrast: pure porcelain white pawn with golden ring toppling a midnight charcoal king with sharp drop shadows." }
     ];
 
-    const grid = document.getElementById('logo-grid');
+    const darkData = [
+      { id: 1, name: "Obsidian & Gold Luxury 3D", style: "Luxury 3D", badge: "Grandmaster Edition", desc: "Polished 24k gold pawn strikes down the obsidian black king. Gold cross flying in mid-air with radial spark blast." },
+      { id: 2, name: "Cyber Neon Blast", style: "Cyberpunk / Synthwave", badge: "Arcade 3D", desc: "Laser cyan pawn strikes with shockwave trail. Holographic purple king shattering into polygon shards." },
+      { id: 3, name: "Royal Crown Seized (Promotion Triumph)", style: "Triumphant Royal", badge: "Pawn Becomes King", desc: "Pawn knocks king off the pedestal; golden king crown is blasted into the air and landing directly on the pawn's head!" },
+      { id: 4, name: "Kinetic Shockwave / Impact Blast", style: "Kinetic Action", badge: "High Velocity", desc: "High-speed meteor pawn with motion blur lines creates a massive circular shockwave ring blasting the king backward." },
+      { id: 5, name: "Minimalist Swiss Flat 3D", style: "Minimalist Editorial", badge: "Studio Clean", desc: "Clean Apple/Linear studio aesthetic. Geometric 3D blue pawn toppling a white king with crisp soft shadows." },
+      { id: 6, name: "Crystal Glassmorphism / Prism", style: "Frosted Glass", badge: "Prism Edition", desc: "Translucent frosted glass pawn ramming the dark crystal king, sending prismatic crystal facets flying." },
+      { id: 7, name: "Inferno / Magma Checkmate", style: "Molten Fire", badge: "Volcanic Clash", desc: "Blazing fire pawn with solar corona slams the king into crumbling ash, glowing magma sparks and embers rising." },
+      { id: 8, name: "Esports Shield Crest", style: "Esports Tournament", badge: "Pro League", desc: "Inscribed in a titanium hexagonal gaming shield, 3D embossed pawn delivering a knockout strike to the king." },
+      { id: 9, name: "Vivid Vooo Quad-Color Signature", style: "Vooo Brand Identity", badge: "Vooo Quad Stack", desc: "Pawn radiates Vooo Labs 4 colors in a neon shockwave ribbon, blasting a monochrome king into colored light beams." },
+      { id: 10, name: "Emerald Grandmaster", style: "Casino / Luxury Velvet", badge: "High Roller 3D", desc: "Deep emerald green velvet arena. 24k gold pawn strikes down the deep green onyx king with radiant emerald sparks." },
+      { id: 11, name: "Low-Poly 3D Faceted", style: "Geometric Low-Poly", badge: "Polygon Art", desc: "Sharp faceted low-poly 3D pawn colliding with faceted king, exploding into floating geometric triangles." },
+      { id: 12, name: "Lightning Arc / High Voltage", style: "Electric Thunder", badge: "Lightning Checkmate", desc: "Electric lightning branches from the pawn, cracking the king in mid-air and splitting the crown with electric sparks." },
+      { id: 13, name: "Golden Monogram V-Clash", style: "Monogram Architecture", badge: "Signature 'V'", desc: "A giant 3D chrome/gold 'V' creates the battlefield runway where the pawn launches forward to smash the king." },
+      { id: 14, name: "Tactical HUD / Sci-Fi Matrix", style: "Tactical Telemetry", badge: "Holo Checkmate", desc: "Holographic green coordinate telemetry (E4xKING, CHECKMATE CONFIRMED) with vector wireframe pawn striking down king." },
+      { id: 15, name: "Cinematic Studio Spotlight", style: "Cinematic 3D", badge: "Masterpiece", desc: "Single intense overhead studio spotlight. Gleaming white porcelain pawn stands triumphant as black king crashes down." }
+    ];
 
-    function renderLogos(filteredData) {
-      grid.innerHTML = '';
-      filteredData.forEach(item => {
-        const idStr = String(item.id).padStart(2, '0');
-        const card = document.createElement('div');
-        card.className = 'logo-card';
-        card.id = `card-${idStr}`;
-
-        card.innerHTML = `
-          <div class="card-preview-wrapper" onclick="openModal(${item.id})">
-            <span class="mockup-badge">1024×1024</span>
-            <img src="../exports/chess-app/logo-${idStr}.png" alt="Option ${idStr}: ${item.name}" class="logo-img">
-          </div>
-          <div class="card-body">
-            <div>
-              <div class="card-top">
-                <span class="card-tag">OPTION ${idStr} // ${item.badge}</span>
-                <span class="card-style">${item.style}</span>
-              </div>
-              <div class="card-title">${item.name}</div>
-              <p class="card-desc">${item.desc}</p>
-            </div>
-            <div class="card-actions">
-              <button class="btn-action" onclick="openModal(${item.id})">Inspect 3D Detail</button>
-              <a href="../exports/chess-app/logo-${idStr}.png" download="Vooo-Chess-3D-Option-${idStr}.png" class="btn-action" style="background: #4285F4; border-color: #4285F4;">Download PNG</a>
-            </div>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    renderLogos(chessData);
-
-    let isMockupActive = false;
-    function toggleMockup() {
-      isMockupActive = !isMockupActive;
-      const btn = document.getElementById('mockup-btn');
-      btn.classList.toggle('active', isMockupActive);
-      
-      const cards = document.querySelectorAll('.card-preview-wrapper');
-      cards.forEach(c => c.classList.toggle('app-icon-mockup', isMockupActive));
-    }
-
-    function filterCategory(cat) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
-
-      if (cat === 'all') {
-        renderLogos(chessData);
-        document.getElementById('logos-section').style.display = 'block';
-        document.getElementById('splash-section').style.display = 'block';
-      } else if (cat === 'splash') {
-        document.getElementById('logos-section').style.display = 'none';
-        document.getElementById('splash-section').style.display = 'block';
-        document.getElementById('splash-section').scrollIntoView({ behavior: 'smooth' });
-      } else {
-        const filtered = chessData.filter(d => d.category === cat);
-        renderLogos(filtered);
-        document.getElementById('logos-section').style.display = 'block';
-        document.getElementById('splash-section').style.display = 'none';
-      }
-
-      if (isMockupActive) {
-        document.querySelectorAll('.card-preview-wrapper').forEach(c => c.classList.add('app-icon-mockup'));
-      }
-    }
-
-    // Modal
-    const modal = document.getElementById('modal');
-    function openModal(id) {
-      const item = chessData.find(d => d.id === id);
+    // Render White Cards
+    const whiteGrid = document.getElementById('white-logo-grid');
+    whiteData.forEach(item => {
       const idStr = String(item.id).padStart(2, '0');
-      document.getElementById('modal-img').src = `../exports/chess-app/logo-${idStr}.png`;
-      document.getElementById('modal-opt').innerText = `OPTION ${idStr} // ${item.badge.toUpperCase()}`;
-      document.getElementById('modal-title').innerText = item.name;
-      document.getElementById('modal-desc').innerText = item.desc;
-      document.getElementById('modal-dl').href = `../exports/chess-app/logo-${idStr}.png`;
-      document.getElementById('modal-dl').download = `Vooo-Chess-3D-Option-${idStr}.png`;
-      modal.classList.add('active');
+      const card = document.createElement('div');
+      card.className = 'logo-card';
+
+      card.innerHTML = `
+        <div class="card-preview-wrapper bg-white-preview">
+          <span class="badge-resolution" style="background: rgba(255,255,255,0.85); color: #0F172A; border-color: #E2E8F0;">WHITE // 1024px</span>
+          <img src="../exports/chess-app/white/png-1024/logo-${idStr}.png" alt="Option ${idStr}: ${item.name}" class="logo-img">
+        </div>
+        <div class="card-body">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #4285F4; text-transform: uppercase;">OPTION ${idStr}</span>
+              <span style="font-size: 11px; font-weight: 600; color: #94A3B8; background: rgba(255,255,255,0.06); padding: 3px 8px; border-radius: 6px;">${item.style}</span>
+            </div>
+            <div class="card-title">${item.name}</div>
+            <p class="card-desc">${item.desc}</p>
+          </div>
+
+          <div>
+            <div class="format-pills-label">Available App Formats:</div>
+            <div class="format-grid">
+              <a href="../exports/chess-app/white/svg/logo-${idStr}.svg" download class="format-btn format-btn-svg">
+                <span>Vector</span>
+                <span style="font-size: 9px; opacity: 0.8;">.SVG</span>
+              </a>
+              <a href="../exports/chess-app/white/png-1024/logo-${idStr}.png" download class="format-btn">
+                <span>App Store</span>
+                <span style="font-size: 9px; opacity: 0.8;">1024×1024</span>
+              </a>
+              <a href="../exports/chess-app/white/png-512/logo-${idStr}.png" download class="format-btn">
+                <span>Play Store</span>
+                <span style="font-size: 9px; opacity: 0.8;">512×512</span>
+              </a>
+              <a href="../exports/chess-app/white/png-192/logo-${idStr}.png" download class="format-btn">
+                <span>Android</span>
+                <span style="font-size: 9px; opacity: 0.8;">192×192</span>
+              </a>
+              <a href="../exports/chess-app/white/png-180/logo-${idStr}.png" download class="format-btn">
+                <span>Apple iOS</span>
+                <span style="font-size: 9px; opacity: 0.8;">180×180</span>
+              </a>
+              <a href="../exports/chess-app/white/png-1024/logo-${idStr}.png" target="_blank" class="format-btn" style="background: rgba(66, 133, 244, 0.15); color: #60A5FA;">
+                <span>View Full</span>
+                <span style="font-size: 9px; opacity: 0.8;">Zoom &rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+      whiteGrid.appendChild(card);
+    });
+
+    // Render Dark Cards
+    const darkGrid = document.getElementById('dark-logo-grid');
+    darkData.forEach(item => {
+      const idStr = String(item.id).padStart(2, '0');
+      const card = document.createElement('div');
+      card.className = 'logo-card';
+
+      card.innerHTML = `
+        <div class="card-preview-wrapper bg-dark-preview">
+          <span class="badge-resolution">DARK // 1024px</span>
+          <img src="../exports/chess-app/logo-${idStr}.png" alt="Option ${idStr}: ${item.name}" class="logo-img">
+        </div>
+        <div class="card-body">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #F59E0B; text-transform: uppercase;">DARK OPTION ${idStr}</span>
+              <span style="font-size: 11px; font-weight: 600; color: #94A3B8; background: rgba(255,255,255,0.06); padding: 3px 8px; border-radius: 6px;">${item.style}</span>
+            </div>
+            <div class="card-title">${item.name}</div>
+            <p class="card-desc">${item.desc}</p>
+          </div>
+          <div>
+            <a href="../exports/chess-app/logo-${idStr}.png" download class="format-btn" style="padding: 10px; font-size: 12px; background: rgba(255,255,255,0.08); color: #FFFFFF;">
+              Download 1024×1024 Dark PNG
+            </a>
+          </div>
+        </div>
+      `;
+      darkGrid.appendChild(card);
+    });
+
+    // Toggle Mockup
+    let isMockup = false;
+    function toggleMockup() {
+      isMockup = !isMockup;
+      document.getElementById('mockup-btn').classList.toggle('active', isMockup);
+      document.querySelectorAll('.card-preview-wrapper').forEach(w => w.classList.toggle('app-icon-mockup', isMockup));
     }
 
-    function closeModal() {
-      modal.classList.remove('active');
+    // Switch Collections
+    function switchCollection(mode) {
+      document.querySelectorAll('.mode-btn').forEach(b => {
+        b.classList.remove('active-white');
+        b.classList.remove('active-dark');
+      });
+
+      document.getElementById('white-section').style.display = 'none';
+      document.getElementById('dark-section').style.display = 'none';
+      document.getElementById('splash-section').style.display = 'none';
+      document.getElementById('specs-section').style.display = 'none';
+
+      if (mode === 'white') {
+        document.getElementById('tab-white').classList.add('active-white');
+        document.getElementById('white-section').style.display = 'block';
+        document.getElementById('hero-badge').innerText = 'WHITE BACKGROUND APP STORE COLLECTION';
+      } else if (mode === 'dark') {
+        document.getElementById('tab-dark').classList.add('active-dark');
+        document.getElementById('dark-section').style.display = 'block';
+        document.getElementById('hero-badge').innerText = 'DARK / OBSIDIAN GAMING COLLECTION';
+      } else if (mode === 'splash') {
+        document.getElementById('tab-splash').classList.add('active-white');
+        document.getElementById('splash-section').style.display = 'block';
+        document.getElementById('hero-badge').innerText = 'MOBILE APP STARTUP SPLASH SCREENS';
+      } else if (mode === 'specs') {
+        document.getElementById('tab-specs').classList.add('active-white');
+        document.getElementById('specs-section').style.display = 'block';
+        document.getElementById('hero-badge').innerText = 'APP STORE & PLAY STORE SPECIFICATIONS GUIDE';
+      }
     }
   </script>
 </body>
