@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vooo Chess 3D — Logo 10: Emerald Grandmaster</title>
+  <link rel="stylesheet" href="../../shared/brand.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1024px;
+      height: 1024px;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 35%, #064E3B 0%, #022C22 60%, #02120C 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 40px 50px;
+      position: relative;
+    }
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+    .corner-spec {
+      position: absolute;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 1.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-overlay"></div>
+
+  <!-- Corner Specs -->
+  <div class="corner-spec" style="top: 24px; left: 32px;">VOOO LABS // GAME STUDIO</div>
+  <div class="corner-spec" style="top: 24px; right: 32px;">OPTION 10 / 15</div>
+
+  <!-- Header Badge: Style Tag -->
+  <div style="z-index: 10; display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); padding: 8px 20px; border-radius: 9999px; backdrop-filter: blur(8px);">
+    <span style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; box-shadow: 0 0 10px #10B981;"></span>
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #FFFFFF; letter-spacing: 2px; text-transform: uppercase;">
+      High Roller 3D
+    </span>
+  </div>
+
+  <!-- Center Artwork: Pawn Blasting King -->
+  <div style="z-index: 10; width: 100%; display: flex; justify-content: center; align-items: center; margin-top: -10px;">
+    
+  <svg width="860" height="700" viewBox="0 0 900 750" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: 0 auto; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.6));">
+    <defs>
+      <!-- Gradients -->
+      <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFFBEB" />
+        <stop offset="25%" stop-color="#FDE047" />
+        <stop offset="60%" stop-color="#D97706" />
+        <stop offset="100%" stop-color="#78350F" />
+      </linearGradient>
+
+      <linearGradient id="goldPawnGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FEF08A" />
+        <stop offset="50%" stop-color="#EAB308" />
+        <stop offset="100%" stop-color="#854D0E" />
+      </linearGradient>
+
+      <linearGradient id="darkMarbleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#334155" />
+        <stop offset="40%" stop-color="#1E293B" />
+        <stop offset="80%" stop-color="#0F172A" />
+        <stop offset="100%" stop-color="#020617" />
+      </linearGradient>
+
+      <linearGradient id="cyanNeonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#E0F2FE" />
+        <stop offset="40%" stop-color="#38BDF8" />
+        <stop offset="80%" stop-color="#0284C7" />
+        <stop offset="100%" stop-color="#0369A1" />
+      </linearGradient>
+
+      <linearGradient id="holoPurpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F3E8FF" />
+        <stop offset="50%" stop-color="#A855F7" />
+        <stop offset="100%" stop-color="#581C87" />
+      </linearGradient>
+
+      <linearGradient id="ivoryRoyalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFFFFF" />
+        <stop offset="50%" stop-color="#E2E8F0" />
+        <stop offset="100%" stop-color="#94A3B8" />
+      </linearGradient>
+
+      <linearGradient id="crimsonKingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#7F1D1D" />
+        <stop offset="50%" stop-color="#450A0A" />
+        <stop offset="100%" stop-color="#1C0505" />
+      </linearGradient>
+
+      <linearGradient id="amberPawnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFF7ED" />
+        <stop offset="40%" stop-color="#FB923C" />
+        <stop offset="80%" stop-color="#EA580C" />
+        <stop offset="100%" stop-color="#7C2D12" />
+      </linearGradient>
+
+      <linearGradient id="indigoKingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#4338CA" />
+        <stop offset="60%" stop-color="#312E81" />
+        <stop offset="100%" stop-color="#1E1B4B" />
+      </linearGradient>
+
+      <linearGradient id="voooBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#93C5FD" />
+        <stop offset="50%" stop-color="#4285F4" />
+        <stop offset="100%" stop-color="#1D4ED8" />
+      </linearGradient>
+
+      <linearGradient id="matteWhiteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F8FAFC" />
+        <stop offset="50%" stop-color="#CBD5E1" />
+        <stop offset="100%" stop-color="#64748B" />
+      </linearGradient>
+
+      <linearGradient id="glassPawnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="rgba(255,255,255,0.9)" />
+        <stop offset="40%" stop-color="rgba(192,132,252,0.6)" />
+        <stop offset="80%" stop-color="rgba(126,34,206,0.4)" />
+        <stop offset="100%" stop-color="rgba(88,28,135,0.7)" />
+      </linearGradient>
+
+      <linearGradient id="darkGlassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="rgba(71,85,105,0.8)" />
+        <stop offset="50%" stop-color="rgba(30,41,59,0.7)" />
+        <stop offset="100%" stop-color="rgba(2,6,23,0.9)" />
+      </linearGradient>
+
+      <linearGradient id="firePawnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FEF08A" />
+        <stop offset="30%" stop-color="#F97316" />
+        <stop offset="70%" stop-color="#DC2626" />
+        <stop offset="100%" stop-color="#7F1D1D" />
+      </linearGradient>
+
+      <linearGradient id="obsidianCharGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#262626" />
+        <stop offset="50%" stop-color="#171717" />
+        <stop offset="100%" stop-color="#0A0A0A" />
+      </linearGradient>
+
+      <linearGradient id="chromePawnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFFFFF" />
+        <stop offset="40%" stop-color="#94A3B8" />
+        <stop offset="70%" stop-color="#475569" />
+        <stop offset="100%" stop-color="#1E293B" />
+      </linearGradient>
+
+      <linearGradient id="darkGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#CA8A04" />
+        <stop offset="50%" stop-color="#854D0E" />
+        <stop offset="100%" stop-color="#422006" />
+      </linearGradient>
+
+      <linearGradient id="voooRainbowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#4285F4" />
+        <stop offset="35%" stop-color="#5B5BD6" />
+        <stop offset="70%" stop-color="#7C3AED" />
+        <stop offset="100%" stop-color="#F97316" />
+      </linearGradient>
+
+      <linearGradient id="monochromeDarkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#475569" />
+        <stop offset="50%" stop-color="#1E293B" />
+        <stop offset="100%" stop-color="#020617" />
+      </linearGradient>
+
+      <linearGradient id="emeraldKingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#065F46" />
+        <stop offset="50%" stop-color="#064E3B" />
+        <stop offset="100%" stop-color="#022C22" />
+      </linearGradient>
+
+      <linearGradient id="polyPawnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F472B6" />
+        <stop offset="50%" stop-color="#DB2777" />
+        <stop offset="100%" stop-color="#831843" />
+      </linearGradient>
+
+      <linearGradient id="polyKingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#334155" />
+        <stop offset="50%" stop-color="#1E293B" />
+        <stop offset="100%" stop-color="#0F172A" />
+      </linearGradient>
+
+      <linearGradient id="electroPawnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F0F9FF" />
+        <stop offset="40%" stop-color="#38BDF8" />
+        <stop offset="80%" stop-color="#0284C7" />
+        <stop offset="100%" stop-color="#075985" />
+      </linearGradient>
+
+      <linearGradient id="stormKingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#312E81" />
+        <stop offset="50%" stop-color="#1E1B4B" />
+        <stop offset="100%" stop-color="#0F172A" />
+      </linearGradient>
+
+      <linearGradient id="matrixPawnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#86EFAC" />
+        <stop offset="50%" stop-color="#22C55E" />
+        <stop offset="100%" stop-color="#14532D" />
+      </linearGradient>
+
+      <linearGradient id="matrixKingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#15803D" />
+        <stop offset="50%" stop-color="#166534" />
+        <stop offset="100%" stop-color="#052E16" />
+      </linearGradient>
+
+      <linearGradient id="porcelainPawnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFFFFF" />
+        <stop offset="60%" stop-color="#F1F5F9" />
+        <stop offset="100%" stop-color="#CBD5E1" />
+      </linearGradient>
+
+      <linearGradient id="pitchBlackKingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#1E293B" />
+        <stop offset="60%" stop-color="#0F172A" />
+        <stop offset="100%" stop-color="#020617" />
+      </linearGradient>
+
+      <!-- Radial glows & filters -->
+      <filter id="glow-10" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="16" result="blur" />
+        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+      </filter>
+
+      <radialGradient id="impactRadial-10" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#34D399" stop-opacity="0.9" />
+        <stop offset="40%" stop-color="#10B981" stop-opacity="0.5" />
+        <stop offset="80%" stop-color="#10B981" stop-opacity="0.1" />
+        <stop offset="100%" stop-color="#10B981" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+
+    <!-- 1. Isometric 3D Chessboard Floor Perspective -->
+    <g opacity="0.35">
+      <path d="M50 620 L450 480 L850 620 L450 740 Z" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+      <!-- Grid Tiles -->
+      <path d="M150 585 L450 480 L550 515 L250 620 Z" fill="rgba(255,255,255,0.04)" />
+      <path d="M350 655 L650 550 L750 585 L450 690 Z" fill="rgba(255,255,255,0.04)" />
+      <path d="M250 550 L450 480 L450 550 L250 620 Z" fill="#10B981" fill-opacity="0.08" />
+    </g>
+
+    <!-- 2. Dynamic Speed & Kinetic Lines from Pawn -->
+    <g stroke="#10B981" stroke-linecap="round" opacity="0.6">
+      <line x1="120" y1="520" x2="310" y2="430" stroke-width="4" stroke-dasharray="8 12" />
+      <line x1="80" y1="460" x2="300" y2="380" stroke-width="3" stroke-dasharray="14 10" />
+      <line x1="160" y1="580" x2="330" y2="500" stroke-width="5" />
+      <line x1="100" y1="390" x2="280" y2="330" stroke-width="2" />
+    </g>
+
+    <!-- 3. Central Impact Shockwave Emitters -->
+    <circle cx="430" cy="380" r="140" fill="url(#impactRadial-10)" />
+    <circle cx="430" cy="380" r="85" stroke="#34D399" stroke-width="3" opacity="0.8" stroke-dasharray="12 8" />
+    <circle cx="430" cy="380" r="45" stroke="#FFFFFF" stroke-width="4" opacity="0.9" />
+
+    <!-- 4. Blown-Away King Debris / Flying Sparks -->
+    <g fill="#34D399" opacity="0.9">
+      <circle cx="490" cy="270" r="6" />
+      <circle cx="530" cy="220" r="4" />
+      <circle cx="420" cy="240" r="5" />
+      <circle cx="580" cy="310" r="7" />
+      <circle cx="510" cy="360" r="5" />
+      <polygon points="460,280 475,270 470,290" fill="#10B981" />
+      <polygon points="540,240 555,230 550,250" fill="#FFFFFF" />
+      <polygon points="520,180 535,175 528,195" fill="#34D399" />
+      <polygon points="620,290 635,280 625,305" fill="#10B981" />
+    </g>
+
+    <!-- 5. THE FALLING / TOPPLING KING (Tilted 55 degrees to the right in defeat) -->
+    <g transform="translate(430, 380) rotate(52) translate(-430, -380)" filter="url(#glow-10)">
+      <!-- Motion streak behind the King -->
+      <path d="M420 300 Q 520 250 620 300" stroke="rgba(255,255,255,0.2)" stroke-width="6" stroke-linecap="round" fill="none"/>
+      
+      <!-- King Base Pedestal -->
+      <ellipse cx="490" cy="610" rx="95" ry="24" fill="url(#emeraldKingGrad)" />
+      <path d="M400 605 L415 540 L565 540 L580 605 Z" fill="url(#emeraldKingGrad)" />
+      <ellipse cx="490" cy="540" rx="78" ry="16" fill="url(#emeraldKingGrad)" opacity="0.9" />
+
+      <!-- King Body / Regal Robe Fluting -->
+      <path d="M420 535 C430 460 440 380 435 320 L545 320 C540 380 550 460 560 535 Z" fill="url(#emeraldKingGrad)" />
+      <!-- Specular Robe Highlight -->
+      <path d="M450 530 C455 465 460 390 458 335 L475 335 C475 390 470 465 465 530 Z" fill="#FFFFFF" opacity="0.15" />
+
+      <!-- King Neck Collar -->
+      <ellipse cx="490" cy="315" rx="65" ry="14" fill="url(#emeraldKingGrad)" />
+      <ellipse cx="490" cy="295" rx="55" ry="12" fill="url(#emeraldKingGrad)" />
+
+      <!-- King Crown & Head Crenellations -->
+      <path d="M440 295 L430 200 L465 230 L490 190 L515 230 L550 200 L540 295 Z" fill="url(#emeraldKingGrad)" />
+      <ellipse cx="490" cy="200" rx="14" ry="14" fill="url(#emeraldKingGrad)" />
+    </g>
+
+    <!-- 6. THE KING'S CROWN / CROSS FINIAL BLASTED OFF INTO THE AIR -->
+    <g transform="translate(620, 150) rotate(-35)">
+      <!-- Motion arc of crown flying -->
+      <path d="M-60 60 Q 0 -10 40 -40" stroke="#34D399" stroke-width="3" stroke-dasharray="4 6" fill="none" opacity="0.7"/>
+      <!-- Glowing Cross Crown -->
+      <rect x="-8" y="-45" width="16" height="50" rx="3" fill="url(#goldGrad)" />
+      <rect x="-26" y="-32" width="52" height="15" rx="3" fill="url(#goldGrad)" />
+      <circle cx="0" cy="-25" r="7" fill="#FFFFFF" />
+      <!-- Sparkles around flying crown -->
+      <path d="M0 -60 L4 -48 L16 -48 L6 -40 L10 -28 L0 -34 L-10 -28 L-6 -40 L-16 -48 L-4 -48 Z" fill="#FFE082" transform="scale(0.8) translate(30,-50)"/>
+    </g>
+
+    <!-- 7. THE TRIUMPHANT PAWN (Driving forward with unstoppable momentum) -->
+    <g filter="url(#glow-10)">
+      <!-- Pawn Drop Shadow on 3D board -->
+      <ellipse cx="320" cy="625" rx="85" ry="22" fill="#000000" opacity="0.6" />
+
+      <!-- Pawn Tiered Weighted Base -->
+      <ellipse cx="320" cy="600" rx="90" ry="24" fill="url(#goldPawnGrad2)" />
+      <path d="M235 595 L255 530 L385 530 L405 595 Z" fill="url(#goldPawnGrad2)" />
+      <ellipse cx="320" cy="530" rx="72" ry="16" fill="url(#goldPawnGrad2)" />
+      <!-- Base 3D Highlight ring -->
+      <ellipse cx="320" cy="590" rx="84" ry="18" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3" />
+
+      <!-- Pawn Torso / Waisted Stem -->
+      <path d="M260 525 C275 450 285 390 285 340 L355 340 C355 390 365 450 380 525 Z" fill="url(#goldPawnGrad2)" />
+      <!-- 3D Cylindrical Highlight -->
+      <path d="M285 520 C295 455 300 400 300 350 L318 350 C318 400 312 455 302 520 Z" fill="#FFFFFF" opacity="0.25" />
+
+      <!-- Pawn Neck Collar Tier -->
+      <ellipse cx="320" cy="335" rx="60" ry="14" fill="url(#goldPawnGrad2)" />
+      <ellipse cx="320" cy="315" rx="46" ry="11" fill="url(#goldPawnGrad2)" />
+      <ellipse cx="320" cy="315" rx="42" ry="9" fill="#FFFFFF" opacity="0.3" />
+
+      <!-- Pawn Spherical Head (Gleaming 3D Sphere) -->
+      <circle cx="320" cy="235" r="72" fill="url(#goldPawnGrad2)" />
+      <!-- 3D Specular Light Glint on Pawn Sphere -->
+      <ellipse cx="295" cy="205" rx="28" ry="20" fill="#FFFFFF" opacity="0.5" transform="rotate(-25 295 205)" />
+      <circle cx="282" cy="195" r="8" fill="#FFFFFF" opacity="0.8" />
+    </g>
+
+    <!-- Extra Customization for Design 03 (Royal Promotion Crown Landing on Pawn) -->
+    
+
+    <!-- Extra Customization for Design 13 (Monogram 'V' backdrop) -->
+    
+
+    <!-- Extra Customization for Design 14 (Tactical HUD) -->
+    
+
+    <!-- 8. Impact Blast Flash -->
+    <path d="M430 380 L390 320 L425 345 L415 300 L445 340 L480 310 L455 360 L510 355 L460 385 L520 410 L460 410 L490 450 L445 420 L440 470 L420 425 L380 450 L405 405 L360 395 Z" fill="#FFFFFF" opacity="0.85" />
+  </svg>
+  
+  </div>
+
+  <!-- Bottom Branding Block: "Vooo Chess 3D" -->
+  <div style="z-index: 10; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span style="font-family: 'CrazyBlocks', sans-serif; font-size: 46px; letter-spacing: 2px; line-height: 1;">
+        <span style="color: #4285F4;">V</span><span style="color: #5B5BD6;">O</span><span style="color: #7C3AED;">O</span><span style="color: #F97316;">O</span>
+      </span>
+      <span style="font-family: 'Inter', sans-serif; font-size: 40px; font-weight: 900; letter-spacing: -0.5px; color: #FFFFFF; text-transform: uppercase; line-height: 1;">
+        CHESS <span style="color: #10B981; text-shadow: 0 0 20px #10B981;">3D</span>
+      </span>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 12px; margin-top: 4px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 3px; text-transform: uppercase;">
+        TACTICAL 3D CONQUEST &bull; GRANDMASTER AI
+      </span>
+    </div>
+  </div>
+
+</body>
+</html>
