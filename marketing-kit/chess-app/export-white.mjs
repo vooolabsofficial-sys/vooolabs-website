@@ -54,8 +54,8 @@ for (let i = 1; i <= 15; i++) {
   const dayStr = String(i).padStart(2, '0');
   tasks.push({
     name: `logo-${dayStr}-1024`,
-    templatePath: path.join(__dirname, 'templates', 'white', `logo-${dayStr}.html`),
-    outputPath: path.join(whiteExports, 'png-1024', `logo-${dayStr}.png`),
+    templatePath: path.resolve(__dirname, 'templates', 'white', `logo-${dayStr}.html`),
+    outputPath: path.resolve(whiteExports, 'png-1024', `logo-${dayStr}.png`),
     width: 1024,
     height: 1024,
     desc: 'App Store Master 1024x1024'
@@ -67,8 +67,8 @@ for (let i = 1; i <= 15; i++) {
   const dayStr = String(i).padStart(2, '0');
   tasks.push({
     name: `logo-${dayStr}-512`,
-    templatePath: path.join(__dirname, 'templates', 'white', `logo-${dayStr}.html`),
-    outputPath: path.join(whiteExports, 'png-512', `logo-${dayStr}.png`),
+    templatePath: path.resolve(__dirname, 'templates', 'white', `logo-${dayStr}.html`),
+    outputPath: path.resolve(whiteExports, 'png-512', `logo-${dayStr}.png`),
     width: 512,
     height: 512,
     desc: 'Google Play Store 512x512'
@@ -80,8 +80,8 @@ for (let i = 1; i <= 15; i++) {
   const dayStr = String(i).padStart(2, '0');
   tasks.push({
     name: `logo-${dayStr}-192`,
-    templatePath: path.join(__dirname, 'templates', 'white', `logo-${dayStr}.html`),
-    outputPath: path.join(whiteExports, 'png-192', `logo-${dayStr}.png`),
+    templatePath: path.resolve(__dirname, 'templates', 'white', `logo-${dayStr}.html`),
+    outputPath: path.resolve(whiteExports, 'png-192', `logo-${dayStr}.png`),
     width: 192,
     height: 192,
     desc: 'Android xxxhdpi 192x192'
@@ -93,8 +93,8 @@ for (let i = 1; i <= 15; i++) {
   const dayStr = String(i).padStart(2, '0');
   tasks.push({
     name: `logo-${dayStr}-180`,
-    templatePath: path.join(__dirname, 'templates', 'white', `logo-${dayStr}.html`),
-    outputPath: path.join(whiteExports, 'png-180', `logo-${dayStr}.png`),
+    templatePath: path.resolve(__dirname, 'templates', 'white', `logo-${dayStr}.html`),
+    outputPath: path.resolve(whiteExports, 'png-180', `logo-${dayStr}.png`),
     width: 180,
     height: 180,
     desc: 'iOS @3x 180x180'
@@ -104,8 +104,8 @@ for (let i = 1; i <= 15; i++) {
 // 5. Light Mobile Splash Screens (2 files)
 tasks.push({
   name: 'splash-light-android',
-  templatePath: path.join(__dirname, 'templates', 'white', 'splash-light-android.html'),
-  outputPath: path.join(whiteExports, 'splash', 'splash-light-android.png'),
+  templatePath: path.resolve(__dirname, 'templates', 'white', 'splash-light-android.html'),
+  outputPath: path.resolve(whiteExports, 'splash', 'splash-light-android.png'),
   width: 1080,
   height: 1920,
   desc: 'Android Full HD Splash 1080x1920'
@@ -113,8 +113,8 @@ tasks.push({
 
 tasks.push({
   name: 'splash-light-ios',
-  templatePath: path.join(__dirname, 'templates', 'white', 'splash-light-ios.html'),
-  outputPath: path.join(whiteExports, 'splash', 'splash-light-ios.png'),
+  templatePath: path.resolve(__dirname, 'templates', 'white', 'splash-light-ios.html'),
+  outputPath: path.resolve(whiteExports, 'splash', 'splash-light-ios.png'),
   width: 1242,
   height: 2688,
   desc: 'iOS Pro Max Splash 1242x2688'
@@ -122,13 +122,16 @@ tasks.push({
 
 console.log(`[export-white] Starting render of ${tasks.length} production mobile app assets...`);
 
+const tempProfileDir = fs.mkdtempSync(path.join(os.tmpdir(), 'chrome-render-'));
+
 let successCount = 0;
 let failCount = 0;
 const results = [];
 
-for (const task of tasks) {
+for (let i = 0; i < tasks.length; i++) {
+  const task = tasks[i];
   if (!fs.existsSync(task.templatePath)) {
-    console.error(`  ✗ Missing template: ${task.templatePath}`);
+    console.error(`  [${i + 1}/${tasks.length}] ✗ Missing template: ${task.templatePath}`);
     failCount++;
     continue;
   }
@@ -136,7 +139,7 @@ for (const task of tasks) {
   try {
     fs.mkdirSync(path.dirname(task.outputPath), { recursive: true });
     const fileUrl = `file:///${task.templatePath.replace(/\\/g, '/')}`;
-    const cmd = `"${chromePath}" --headless --screenshot="${task.outputPath}" --window-size=${task.width},${task.height} --hide-scrollbars --default-background-color=00000000 "${fileUrl}"`;
+    const cmd = `"${chromePath}" --headless --disable-gpu --no-sandbox --hide-scrollbars --user-data-dir="${tempProfileDir}" --screenshot="${task.outputPath}" --window-size=${task.width},${task.height} "${fileUrl}"`;
 
     execSync(cmd, { stdio: 'pipe' });
 
@@ -151,23 +154,33 @@ for (const task of tasks) {
         Status: '✓ Valid'
       });
       successCount++;
+      if ((i + 1) % 5 === 0 || i === tasks.length - 1) {
+        console.log(`  [${i + 1}/${tasks.length}] Rendered: ${task.name} (${task.width}x${task.height}, ${sizeKB} KB)`);
+      }
     } else {
-      console.error(`  ✗ Output missing: ${task.outputPath}`);
+      console.error(`  [${i + 1}/${tasks.length}] ✗ Output missing: ${task.outputPath}`);
       failCount++;
     }
   } catch (err) {
-    console.error(`  ✗ Failed rendering ${task.name}:`, err.message);
+    console.error(`  [${i + 1}/${tasks.length}] ✗ Failed rendering ${task.name}:`, err.message);
     failCount++;
   }
 }
 
+// Clean up temp user profile directory
+try {
+  fs.rmSync(tempProfileDir, { recursive: true, force: true });
+} catch {
+  // ignore
+}
+
 console.log('\n[export-white] Export Summary:');
-console.table(results.slice(0, 20)); // Print sample
-console.log(`... and ${results.length - 20} more assets rendered.`);
+console.table(results.slice(0, 15));
+console.log(`... and ${results.length - 15} more assets rendered successfully.`);
 
 if (failCount > 0) {
   console.error(`[export-white] Finished with ${failCount} errors.`);
   process.exit(1);
 } else {
-  console.log(`[export-white] Successfully exported all ${successCount} production mobile assets across all formats!`);
+  console.log(`\n🎉 [export-white] Successfully exported all ${successCount} production mobile assets across all formats!`);
 }
