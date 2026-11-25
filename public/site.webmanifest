@@ -1,0 +1,21 @@
+{
+  "name": "VOOO LABS",
+  "short_name": "VOOO LABS",
+  "description": "Enterprise-grade business websites, custom web apps, and internal software engineered in Maharashtra, India.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0F1E",
+  "theme_color": "#0A0F1E",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
